@@ -22,16 +22,20 @@
 -(id) initWithStoryKey:(NSString *)storyKey typingInterval: (ccTime) ival rect: (CGRect) tRect point: (CGPoint) bPoint {
     self = [super init];
     
-    talkRect = tRect;
+    // TODO: this is all fucking wrong - draw it out and then re-write...
+    
+    talkDrawRect = autoScaledRectToPositionForCurrentDevice(tRect);
+    talkPositionRect = autoScaledRectToPositionForCurrentDevice(tRect);
+
     bubblePoint = bPoint;
     
     bubbleSprite = [self drawBubble];
     bubbleSprite.anchorPoint = ccp(0,0);
-    bubbleSprite.position = ccpToRatio(0,talkRect.size.height);
+    bubbleSprite.position = ccpToRatio(0,talkPositionRect.size.height);
     [self addChild:bubbleSprite];
     
     // Setup the size of the label to be 10% smaller than the size of the talk bubble rectangle
-    CGSize labelSize = CGSizeMake(talkRect.size.width - (talkRect.size.width * 0.1), talkRect.size.height - (talkRect.size.height * 0.1));
+    CGSize labelSize = CGSizeMake(talkDrawRect.size.width - (talkDrawRect.size.width * 0.1), talkDrawRect.size.height - (talkDrawRect.size.height * 0.1));
     
     storyText = NSLocalizedStringFromTable(storyKey, @"strings", @"");
     
@@ -40,8 +44,7 @@
     label.strokeSize = 3 * fontScaleForCurrentDevice();
     label.strokeColor = ccBLACK;
     label.anchorPoint = ccp(0,0);
-    // label.position = ccpToRatio(0,0);
-    label.position = ccpToRatio((talkRect.size.width * 0.05), - (talkRect.size.height * 0.10));
+    label.position = ccpToRatio((talkPositionRect.size.width * 0.05), - (talkPositionRect.size.height  * 0.10));
     label.string = @"";
     [label drawStroke];
     
@@ -52,31 +55,34 @@
 }
 
 -(void) dealloc {
+    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+    
+    if (touchBlock != NULL) {
+        touchBlock = NULL;
+    }
+    
+    if (storyText != NULL) {
+        [storyText release];
+    }
+    
     [super dealloc];
 }
 
 -(CCRenderTexture *) drawBubble {
     float size = 10.0 * autoScaleForCurrentDevice();
-    CCRenderTexture *tex = [[[CCRenderTexture alloc] initWithWidth:talkRect.size.width + (size * 2) height:talkRect.size.height + (size * 4) + bubblePoint.y pixelFormat:kCCTexture2DPixelFormat_RGB888] autorelease];
+    CCRenderTexture *tex = [[[CCRenderTexture alloc] initWithWidth:talkDrawRect.size.width + (size * 2) height:talkDrawRect.size.height + (size * 4) + bubblePoint.y pixelFormat:kCCTexture2DPixelFormat_RGB888] autorelease];
     
     [tex.sprite setBlendFunc:(ccBlendFunc) {GL_SRC_ALPHA, GL_ONE} ];
     [tex begin];
-//    [tex beginWithClear:1.0 g:0.0 b:0.0 a:0.0];
-    
-    CGPoint *strokeBubblePoints = [self buildBubblePointsFromRect:talkRect andPoint:bubblePoint withScale:ccp(size, size) andOffset:ccp(0, talkRect.origin.y + bubblePoint.y)];
-    
-    ccDrawSolidPoly(strokeBubblePoints, 24, ccc4f(0.0, 0.0, 0.0, 1.0));
-    free(strokeBubblePoints);
-    
-    // CGPoint *talkBubblePoints = [self buildBubblePointsFromRect:talkRect andPoint:bubblePoint withScale:ccp(0, 0) andOffset:ccp(size, talkRect.origin.y + bubblePoint.y + size)];
-    CGPoint *talkBubblePoints = [self buildBubblePointsFromRect:talkRect andPoint:bubblePoint withScale:ccp(0, 0) andOffset:ccp(0, talkRect.origin.y + bubblePoint.y)];
+
+    CGPoint *talkBubblePoints = [self buildBubblePointsFromRect:talkDrawRect andPoint:bubblePoint withScale:ccp(size, size) andOffset:ccp(0, talkDrawRect.origin.y + bubblePoint.y)];
     
     ccDrawSolidPoly(talkBubblePoints, 24, ccc4f(1.0, 1.0, 1.0, 1.0));
   
 //
 // THIS IS DEBUG CODE to draw the points and triangles of the dialog box
-//
-//    for (int i = 0; i < 16; i++) {
+
+//    for (int i = 0; i < 24; i++) {
 //        CGPoint point = talkBubblePoints[i];
 //        ccDrawColor4F(1.0 / (i + 1), 0.5, 0.1 * ((i + 1) / 2), 1.0);
 //        ccPointSize(4.0);
@@ -84,8 +90,6 @@
 //        ccDrawLine(talkBubblePoints[0], talkBubblePoints[i]);
 //    }
 
-//    ccDrawColor4F(0.0, 0.0, 1.0, 1.0);
-//    ccDrawPoly(talkBubblePoints, 24, YES);
     free(talkBubblePoints);
     
     [tex end];
@@ -139,8 +143,9 @@
 }
 
 -(CGPoint *) buildBubblePointsFromRect: (CGRect) rect andPoint: (CGPoint) point withScale: (CGPoint) scale andOffset:(CGPoint)offset {
-    CGPoint nodeSpacePoint1 = ccp(offset.x + point.x, -offset.y + point.y - (scale.y * 2));
-    CGPoint nodeSpacePoint2 = ccp(offset.x + point.x + (scale.x * 2), -offset.y + point.y - (scale.y * 2));
+    CGPoint nodeSpacePoint1 = ccp(offset.x + point.x, -offset.y + point.y); // - (scale.y * 2));
+    //CGPoint nodeSpacePoint2 = ccp(offset.x + point.x + (scale.x * 2), -offset.y + point.y - (scale.y * 2));
+    CGPoint nodeSpacePoint2 = nodeSpacePoint1;
     
     CGPoint bl = ccp(offset.x + rect.origin.x, offset.y + rect.origin.y);
     CGPoint br = ccp(offset.x + rect.origin.x + rect.size.width + (scale.x * 2), offset.y + rect.origin.y);
@@ -163,9 +168,9 @@
     CGPoint caratEnd = ccp(offset.x + nodeSpacePoint1.x - 10, br.y);
     
     // so the carat doesn't go beyond the speech bubble
-    if (caratEnd.x <= tl.x) {
-        caratEnd = ccp(offset.x + rect.origin.x + 5, br.y);
-        caratStart = ccp(offset.x + rect.origin.x + 15 + (scale.x * 2), br.y);
+    if (caratEnd.x <= bl.x) {
+        caratEnd = ccp(offset.x + bl.x + nodeSpacePoint1.x + 5 + RADIUS, br.y);
+        caratStart = ccp(offset.x + bl.x + nodeSpacePoint1.x + 15 + RADIUS + (scale.x * 2), br.y);
     }
     
     CGPoint points[24] =
@@ -188,7 +193,9 @@
     return retPoints;
 }
 
--(void) startWithBlock: (void (^)(CCNode *node)) callback {
+-(void) startWithFinishBlock: (void (^)(CCNode *node)) callback touchBlock: (void(^)(CCNode *node, BOOL finished)) touchCallback {
+    touchBlock = [touchCallback copy];
+    
     CCCallBlockN *updateTxt = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         int index = [label.string length] + 1;
         if (index > storyText.length) {
@@ -204,7 +211,44 @@
     CCSequence *seq = [CCSequence actions:repeat, [CCCallBlockN actionWithBlock:callback], nil];
     
     [label runAction:seq];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
 }
 
+// CCRGBAProtocol
+-(void) setColor:(ccColor3B)color {
+    bubbleSprite.sprite.color = color;
+    label.color = color;
+}
+/** returns the color
+ @since v0.8
+ */
+-(ccColor3B) color {
+    return bubbleSprite.sprite.color;
+}
+
+/// returns the opacity
+-(GLubyte) opacity {
+    return bubbleSprite.sprite.opacity;
+}
+/** sets the opacity.
+ @warning If the the texture has premultiplied alpha then, the R, G and B channels will be modifed.
+ Values goes from 0 to 255, where 255 means fully opaque.
+ */
+-(void) setOpacity: (GLubyte) opacity {
+    bubbleSprite.sprite.opacity = opacity;
+    label.opacity = opacity;
+}
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    // TODO: speed up the typing?
+    return YES;
+}
+
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+    BOOL finished = [storyText length] == [label.string length];
+    if (touchBlock != NULL)
+        touchBlock(self, finished);
+}
 
 @end

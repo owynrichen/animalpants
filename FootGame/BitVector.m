@@ -53,6 +53,7 @@
     height = h;
     
     UInt32 pixelMask = width * height;
+    UInt32 hitPixels = 0;
     
     UInt32 alphaValue = 0, x = 0, y = height - 1;
     if (!upsideDown) {
@@ -86,6 +87,7 @@
             UInt8 alpha = (UInt8)(alphaValue >> 24);
             if (alpha > 128)
             {
+                hitPixels++;
 #ifndef BITMASK
                 byteArray[index] = YES;
 #else
@@ -94,6 +96,9 @@
             }
         }
     }
+    
+    percentCoverage = ((float) hitPixels / (float) pixelMask) * 100;
+    
     return self;
 }
                          
@@ -101,6 +106,10 @@
 //    CFRelease(bitVector);
     free(byteArray);
     [super dealloc];
+}
+
+-(float) getPercentCoverage {
+    return percentCoverage;
 }
 
 -(BOOL) hitx:(int) x  y: (int) y {
@@ -118,6 +127,21 @@
     
     return (byteArray[index / 8] & offset) == offset;
 #endif
+}
+
+-(BOOL) hitx:(int) x y: (int) y radius: (int) radius {
+    // TODO: switch how we test to fan out from the center
+    // to improve short-circuit chances
+    for(int xt = x - radius; xt <= x + radius; xt++) {
+        for(int yt = y - radius; yt <= y + radius; yt++) {
+            BOOL hit = [self hitx:xt y:yt];
+            if (hit) {
+                return hit;
+            }
+        }
+    }
+    
+    return NO;
 }
 
 @end

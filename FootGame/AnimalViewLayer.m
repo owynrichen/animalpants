@@ -93,6 +93,8 @@
     kid.position = ccpToRatio(background.kidPosition.x - kid.contentSize.width, background.kidPosition.y - kid.contentSize.height);
     [self addChild:kid];
     
+    // TODO: this is all fucking wrong
+    
     CGPoint bubbleTop = ccpToRatio(50, 580);
     CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
     CGPoint bubblePoint = ccpToRatio(background.kidPosition.x, background.kidPosition.y + (kid.contentSize.height * autoScaleForCurrentDevice()));
@@ -253,13 +255,20 @@
         [bubble runAction:[CCScaleTo actionWithDuration:0.2 scale:1.0]];
     }];
     
+    void (^touchBlock)(CCNode *node, BOOL finished) = ^(CCNode *node, BOOL finished) {
+
+        [bubble runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0], nil]];
+        [kid runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.25 position:ccpToRatio(kid.position.x, -kid.contentSize.height)], nil]];
+    };
+    
     // TODO: set this up to speed up on a touch maybe
     CCCallBlockN *startText = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [bubble startWithBlock:^(CCNode *node) {
+        [bubble startWithFinishBlock:^(CCNode *node) {
             // TODO: set this up to go away on a timer or a touch
-            bubble.visible = NO;
-            kid.visible = NO;
-        }];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+                [bubble ccTouchEnded:nil withEvent:nil];
+            }], nil]];
+        } touchBlock:touchBlock];
     }];
 
     CCSequence *seq = [CCSequence actions:move, scaleBlock, startText, nil];

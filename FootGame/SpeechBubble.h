@@ -9,17 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "CCLabelTTFWIthStroke.h"
 
-@interface SpeechBubble : CCLayer {
+@interface SpeechBubble : CCLayer<CCRGBAProtocol, CCTargetedTouchDelegate> {
     CCLabelTTFWithStroke *label;
     NSString *storyText;
     ccTime interval;
-    CGRect talkRect;
+    CGRect talkDrawRect;
+    CGRect talkPositionRect;
     CGPoint bubblePoint;
     
     CCRenderTexture *bubbleSprite;
+    void (^touchBlock)(CCNode *node, BOOL finished);
 }
 
 -(id) initWithStoryKey: (NSString *) storyKey typingInterval: (ccTime) ival rect: (CGRect) talkRect point: (CGPoint) bubblePoint;
--(void) startWithBlock: (void (^)(CCNode *node)) callback;
+-(void) startWithFinishBlock: (void (^)(CCNode *node)) callback touchBlock: (void(^)(CCNode *node, BOOL finished)) touchCallback;
 
 @end

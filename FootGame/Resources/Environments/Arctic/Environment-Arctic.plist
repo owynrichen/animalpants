@@ -2,6 +2,94 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Mountains</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>2</integer>
+		<key>imageName</key>
+		<string>mountains.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>382</integer>
+		</dict>
+	</dict>
+	<key>Whale</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>imageName</key>
+		<string>whale.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>325</integer>
+			<key>y</key>
+			<integer>279</integer>
+		</dict>
+	</dict>
+	<key>Floor</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>5</integer>
+		<key>imageName</key>
+		<string>glacier_floor.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>Water</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>water.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>124</integer>
+		</dict>
+	</dict>
+	<key>Arch</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>imageName</key>
+		<string>glacier_arch.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>338</integer>
+		</dict>
+	</dict>
 	<key>Key</key>
 	<string>arctic</string>
 	<key>StoryKey</key>
@@ -32,15 +120,87 @@
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>imageName</key>
-		<string>arctic.png</string>
+		<string>aurora_borealis.png</string>
 		<key>position</key>
 		<dict>
 			<key>x</key>
 			<integer>0</integer>
 			<key>y</key>
-			<integer>0</integer>
+			<integer>328</integer>
+		</dict>
+	</dict>
+	<key>Igloo</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>6</integer>
+		<key>imageName</key>
+		<string>igloo.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>25</integer>
+			<key>y</key>
+			<integer>133</integer>
+		</dict>
+	</dict>
+	<key>Penguin1</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>7</integer>
+		<key>imageName</key>
+		<string>penguin1.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>368</integer>
+			<key>y</key>
+			<integer>228</integer>
+		</dict>
+	</dict>
+	<key>Penguin2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>7</integer>
+		<key>imageName</key>
+		<string>penguin2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>730</integer>
+			<key>y</key>
+			<integer>285</integer>
 		</dict>
 	</dict>
 </dict>

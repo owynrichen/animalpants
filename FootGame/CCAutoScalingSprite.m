@@ -75,7 +75,16 @@
     
     if (self.visible && CGRectContainsPoint([self boundingBox], pnt)) {
         pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
-        if ([self.bitMask hitx:pnt.x y:pnt.y]) {
+        BOOL hit = NO;
+        NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
+        
+        if ([self.bitMask getPercentCoverage] > 30) {
+            hit = [self.bitMask hitx:pnt.x y:pnt.y];
+        } else {
+            hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
+        }
+        
+        if (hit) {
             Behavior *b = [behaviorManager_ getBehavior:@"touch"];
     
             if (b != nil) {

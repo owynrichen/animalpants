@@ -86,3 +86,36 @@ float positionScaleForDevice(DeviceResolutionType device, DimensionType d) {
 float positionScaleForCurrentDevice(DimensionType d) {
     return positionScaleForDevice(runningDevice(), d);
 }
+
+float autoScaleToPositionMultiplier(DeviceResolutionType device) {
+    switch(device) {
+        case kiPadRetina:
+        case kiPhoneRetina:
+            return 0.5f;
+            break;
+        case kiPad:
+        case kiPhone:
+            return 1.0f;
+            break;
+    }
+}
+
+CGPoint autoScaledPointToPositionForDevice(DeviceResolutionType device, CGPoint point) {
+    float multiplier = autoScaleToPositionMultiplier(device);
+    
+    return ccp(point.x * multiplier, point.y * multiplier);
+}
+
+CGPoint autoScaledPointToPositionForCurrentDevice(CGPoint point) {
+    return autoScaledPointToPositionForDevice(runningDevice(), point);
+}
+
+CGRect autoScaledRectToPositionForDevice(DeviceResolutionType device, CGRect rect) {
+    float multiplier = autoScaleToPositionMultiplier(device);
+    
+    return CGRectMake(rect.origin.x * multiplier, rect.origin.y * multiplier, rect.size.width * multiplier, rect.size.height * multiplier);
+}
+
+CGRect autoScaledRectToPositionForCurrentDevice(CGRect rect) {
+    return autoScaledRectToPositionForDevice(runningDevice(), rect);
+}

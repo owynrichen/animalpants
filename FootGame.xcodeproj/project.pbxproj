@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3614697D15C6415700DD75B1 /* SpeechBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3614697C15C6415700DD75B1 /* SpeechBubble.m */; };
+		3638D5AC15E14FF100408245 /* aurora_borealis.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5AB15E14FF100408245 /* aurora_borealis.png */; };
+		3638D5B515E1635400408245 /* glacier_arch.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5AD15E1635400408245 /* glacier_arch.png */; };
+		3638D5B615E1635400408245 /* glacier_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5AE15E1635400408245 /* glacier_floor.png */; };
+		3638D5B715E1635400408245 /* igloo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5AF15E1635400408245 /* igloo.png */; };
+		3638D5B815E1635400408245 /* mountains.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5B015E1635400408245 /* mountains.png */; };
+		3638D5B915E1635400408245 /* penguin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5B115E1635400408245 /* penguin1.png */; };
+		3638D5BA15E1635400408245 /* penguin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5B215E1635400408245 /* penguin2.png */; };
+		3638D5BB15E1635400408245 /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5B315E1635400408245 /* water.png */; };
+		3638D5BC15E1635400408245 /* whale.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5B415E1635400408245 /* whale.png */; };
 		3642BAD115AA717300DBA483 /* lion_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD015AA717300DBA483 /* lion_top_happy.png */; };
 		3642BAD315AA718500DBA483 /* penguin_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD215AA718500DBA483 /* penguin_top_happy.png */; };
 		3642BAD515AA719800DBA483 /* elephant_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD415AA719800DBA483 /* elephant_top_happy.png */; };
@@ -20,7 +29,6 @@
 		364B077715A50E510054E69A /* BaseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B077615A50E510054E69A /* BaseRepository.m */; };
 		364B077A15A552F30054E69A /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B077915A552F10054E69A /* MainMenuLayer.m */; };
 		364B077C15A5EC130054E69A /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B077B15A5EC130054E69A /* title.png */; };
-		364B078515A8E8450054E69A /* arctic.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078415A8E8450054E69A /* arctic.png */; };
 		364B078715A8E8670054E69A /* tropical.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078615A8E8670054E69A /* tropical.png */; };
 		364B078D15A8F57A0054E69A /* savannah2.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078C15A8F57A0054E69A /* savannah2.png */; };
 		364B078F15A8FFB50054E69A /* Environment-Savannah2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B078E15A8FFB40054E69A /* Environment-Savannah2.plist */; };
@@ -540,6 +548,15 @@
 /* Begin PBXFileReference section */
 		3614697B15C6415700DD75B1 /* SpeechBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechBubble.h; sourceTree = "<group>"; };
 		3614697C15C6415700DD75B1 /* SpeechBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechBubble.m; sourceTree = "<group>"; };
+		3638D5AB15E14FF100408245 /* aurora_borealis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aurora_borealis.png; path = Resources/Environments/Arctic/Graphics/aurora_borealis.png; sourceTree = "<group>"; };
+		3638D5AD15E1635400408245 /* glacier_arch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glacier_arch.png; path = Resources/Environments/Arctic/Graphics/glacier_arch.png; sourceTree = "<group>"; };
+		3638D5AE15E1635400408245 /* glacier_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glacier_floor.png; path = Resources/Environments/Arctic/Graphics/glacier_floor.png; sourceTree = "<group>"; };
+		3638D5AF15E1635400408245 /* igloo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = igloo.png; path = Resources/Environments/Arctic/Graphics/igloo.png; sourceTree = "<group>"; };
+		3638D5B015E1635400408245 /* mountains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mountains.png; path = Resources/Environments/Arctic/Graphics/mountains.png; sourceTree = "<group>"; };
+		3638D5B115E1635400408245 /* penguin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = penguin1.png; path = Resources/Environments/Arctic/Graphics/penguin1.png; sourceTree = "<group>"; };
+		3638D5B215E1635400408245 /* penguin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = penguin2.png; path = Resources/Environments/Arctic/Graphics/penguin2.png; sourceTree = "<group>"; };
+		3638D5B315E1635400408245 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = water.png; path = Resources/Environments/Arctic/Graphics/water.png; sourceTree = "<group>"; };
+		3638D5B415E1635400408245 /* whale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whale.png; path = Resources/Environments/Arctic/Graphics/whale.png; sourceTree = "<group>"; };
 		3642BAD015AA717300DBA483 /* lion_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lion_top_happy.png; path = Resources/Animals/Lion/Graphics/lion_top_happy.png; sourceTree = "<group>"; };
 		3642BAD215AA718500DBA483 /* penguin_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = penguin_top_happy.png; path = Resources/Animals/Penguin/Graphics/penguin_top_happy.png; sourceTree = "<group>"; };
 		3642BAD415AA719800DBA483 /* elephant_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant_top_happy.png; path = Resources/Animals/Elephant/Graphics/elephant_top_happy.png; sourceTree = "<group>"; };
@@ -559,7 +576,6 @@
 		364B077815A552F00054E69A /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		364B077915A552F10054E69A /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		364B077B15A5EC130054E69A /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = Resources/Menu/title.png; sourceTree = "<group>"; };
-		364B078415A8E8450054E69A /* arctic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arctic.png; path = Resources/Environments/Arctic/Graphics/arctic.png; sourceTree = "<group>"; };
 		364B078615A8E8670054E69A /* tropical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tropical.png; path = Resources/Environments/Tropical/Graphics/tropical.png; sourceTree = "<group>"; };
 		364B078C15A8F57A0054E69A /* savannah2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah2.png; path = Resources/Environments/Savannah2/Graphics/savannah2.png; sourceTree = "<group>"; };
 		364B078E15A8FFB40054E69A /* Environment-Savannah2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Environment-Savannah2.plist"; path = "Resources/Environments/Savannah2/Environment-Savannah2.plist"; sourceTree = "<group>"; };
@@ -766,7 +782,15 @@
 		361507021594CA4F000F46D9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				364B078415A8E8450054E69A /* arctic.png */,
+				3638D5AD15E1635400408245 /* glacier_arch.png */,
+				3638D5AE15E1635400408245 /* glacier_floor.png */,
+				3638D5AF15E1635400408245 /* igloo.png */,
+				3638D5B015E1635400408245 /* mountains.png */,
+				3638D5B115E1635400408245 /* penguin1.png */,
+				3638D5B215E1635400408245 /* penguin2.png */,
+				3638D5B315E1635400408245 /* water.png */,
+				3638D5B415E1635400408245 /* whale.png */,
+				3638D5AB15E14FF100408245 /* aurora_borealis.png */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -1612,7 +1636,6 @@
 				368006751375B37F00F6603F /* arrow.png in Resources */,
 				36F9BE91154AE6B000059C14 /* Entitlements.plist in Resources */,
 				364B077C15A5EC130054E69A /* title.png in Resources */,
-				364B078515A8E8450054E69A /* arctic.png in Resources */,
 				364B078715A8E8670054E69A /* tropical.png in Resources */,
 				364B078D15A8F57A0054E69A /* savannah2.png in Resources */,
 				364B078F15A8FFB50054E69A /* Environment-Savannah2.plist in Resources */,
@@ -1657,6 +1680,15 @@
 				36AD648C15C4D9300089FC82 /* girl2.png in Resources */,
 				36AD649A15C4E07A0089FC82 /* Info.plist in Resources */,
 				368204E415C50689006006C7 /* strings.strings in Resources */,
+				3638D5AC15E14FF100408245 /* aurora_borealis.png in Resources */,
+				3638D5B515E1635400408245 /* glacier_arch.png in Resources */,
+				3638D5B615E1635400408245 /* glacier_floor.png in Resources */,
+				3638D5B715E1635400408245 /* igloo.png in Resources */,
+				3638D5B815E1635400408245 /* mountains.png in Resources */,
+				3638D5B915E1635400408245 /* penguin1.png in Resources */,
+				3638D5BA15E1635400408245 /* penguin2.png in Resources */,
+				3638D5BB15E1635400408245 /* water.png in Resources */,
+				3638D5BC15E1635400408245 /* whale.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,10 @@ float autoScaleForCurrentDevice();
 float autoScaleForDevice(DeviceResolutionType device);
 float positionScaleForDevice(DeviceResolutionType device, DimensionType d);
 float positionScaleForCurrentDevice(DimensionType d);
+CGPoint autoScaledPointToPositionForDevice(DeviceResolutionType device, CGPoint point);
+CGPoint autoScaledPointToPositionForCurrentDevice(CGPoint point);
+CGRect autoScaledRectToPositionForDevice(DeviceResolutionType device, CGRect point);
+CGRect autoScaledRectToPositionForCurrentDevice(CGRect point);
 
 #define fontScaleForCurrentDevice() positionScaleForCurrentDevice(kDimensionX)
 

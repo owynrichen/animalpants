@@ -12,12 +12,15 @@
     signed char *byteArray;
     size_t width;
     size_t height;
+    float percentCoverage;
 }
 
 -(id) initWithImage:(CGImageRef) img upsideDown: (BOOL) upsideDown;
 -(id) initWithSprite: (CCSprite *) sprite;
 -(id) initWithData: (const UInt32 *) data width: (size_t) width height: (size_t) height upsideDown: (BOOL) upsideDown;
+-(float) getPercentCoverage;
 
 -(BOOL) hitx:(int) x  y: (int) y;
+-(BOOL) hitx:(int) x y: (int) y radius: (int) radius;
 
 @end
