@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCAutoScaling.h"
+
+#define BEHAVIOR_TAG_NONE 0
 
 @interface Behavior : NSObject
 
@@ -16,5 +19,7 @@
 +(Behavior *) behaviorFromKey: (NSString *) key dictionary: (NSDictionary *) data;
 
 -(id) initWithKey: (NSString *) k data: (NSDictionary *) d;
--(CCAction *) getAction;
+-(CCAction *) getAction: (CCNode *) node;
+-(CGPoint) parsePosition: (NSDictionary *) position;
+
 @end

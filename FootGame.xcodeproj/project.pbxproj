@@ -84,6 +84,14 @@
 		369150650003DF6D00D4C81C /* sav2_sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505D0003DF6D00D4C81C /* sav2_sky.png */; };
 		369150660003DF6D00D4C81C /* sav2_water.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505E0003DF6D00D4C81C /* sav2_water.png */; };
 		369150680003E19700D4C81C /* sav2_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 369150670003E19600D4C81C /* sav2_clouds.png */; };
+		3691506B0004044A00D4C81C /* Behavior+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 3691506A0004044A00D4C81C /* Behavior+Shake.m */; };
+		3691506E000405D600D4C81C /* Behavior+Backflip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3691506D000405D600D4C81C /* Behavior+Backflip.m */; };
+		369150710004087800D4C81C /* Behavior+Pace.m in Sources */ = {isa = PBXBuildFile; fileRef = 369150700004087800D4C81C /* Behavior+Pace.m */; };
+		369150740005F5B200D4C81C /* Spout.plist in Resources */ = {isa = PBXBuildFile; fileRef = 369150730005F5B200D4C81C /* Spout.plist */; };
+		369150770006885300D4C81C /* Behavior+Spout.m in Sources */ = {isa = PBXBuildFile; fileRef = 369150760006885200D4C81C /* Behavior+Spout.m */; };
+		3691507B0006C79400D4C81C /* Behavior+Smoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3691507A0006C79300D4C81C /* Behavior+Smoke.m */; };
+		3691507E0006CCAF00D4C81C /* Behavior+ParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3691507D0006CCAE00D4C81C /* Behavior+ParticleSystem.m */; };
+		369150800006E6F100D4C81C /* Smoke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3691507F0006E6F100D4C81C /* Smoke.plist */; };
 		36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */; };
 		36A92CE3133D038F004DFEFC /* AnimalPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE2133D038C004DFEFC /* AnimalPart.m */; };
 		36A92CE6133E8C5B004DFEFC /* AnimalPartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* AnimalPartRepository.m */; };
@@ -644,6 +652,20 @@
 		3691505D0003DF6D00D4C81C /* sav2_sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_sky.png; path = Resources/Environments/Savannah2/Graphics/sav2_sky.png; sourceTree = "<group>"; };
 		3691505E0003DF6D00D4C81C /* sav2_water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_water.png; path = Resources/Environments/Savannah2/Graphics/sav2_water.png; sourceTree = "<group>"; };
 		369150670003E19600D4C81C /* sav2_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_clouds.png; path = Resources/Environments/Savannah2/Graphics/sav2_clouds.png; sourceTree = "<group>"; };
+		369150690004044A00D4C81C /* Behavior+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Shake.h"; sourceTree = "<group>"; };
+		3691506A0004044A00D4C81C /* Behavior+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Shake.m"; sourceTree = "<group>"; };
+		3691506C000405D600D4C81C /* Behavior+Backflip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Backflip.h"; sourceTree = "<group>"; };
+		3691506D000405D600D4C81C /* Behavior+Backflip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Backflip.m"; sourceTree = "<group>"; };
+		3691506F0004087800D4C81C /* Behavior+Pace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Pace.h"; sourceTree = "<group>"; };
+		369150700004087800D4C81C /* Behavior+Pace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Pace.m"; sourceTree = "<group>"; };
+		369150730005F5B200D4C81C /* Spout.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Spout.plist; path = Resources/Environments/Arctic/Particles/Spout.plist; sourceTree = "<group>"; };
+		369150750006885200D4C81C /* Behavior+Spout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Spout.h"; sourceTree = "<group>"; };
+		369150760006885200D4C81C /* Behavior+Spout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Spout.m"; sourceTree = "<group>"; };
+		369150790006C79300D4C81C /* Behavior+Smoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Smoke.h"; sourceTree = "<group>"; };
+		3691507A0006C79300D4C81C /* Behavior+Smoke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Smoke.m"; sourceTree = "<group>"; };
+		3691507C0006CCAD00D4C81C /* Behavior+ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+ParticleSystem.h"; sourceTree = "<group>"; };
+		3691507D0006CCAE00D4C81C /* Behavior+ParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+ParticleSystem.m"; sourceTree = "<group>"; };
+		3691507F0006E6F100D4C81C /* Smoke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Smoke.plist; path = Resources/Environments/Arctic/Particles/Smoke.plist; sourceTree = "<group>"; };
 		36A92CD0133C6D48004DFEFC /* AnimalViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalViewLayer.h; sourceTree = "<group>"; };
 		36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalViewLayer.m; sourceTree = "<group>"; };
 		36A92CE1133D038B004DFEFC /* AnimalPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalPart.h; sourceTree = "<group>"; };
@@ -756,6 +778,7 @@
 		361506F81594C9C9000F46D9 /* Arctic */ = {
 			isa = PBXGroup;
 			children = (
+				369150720005F52D00D4C81C /* Particles */,
 				364B079015A8FFC60054E69A /* Environment-Arctic.plist */,
 				361507021594CA4F000F46D9 /* Graphics */,
 			);
@@ -1137,6 +1160,15 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		369150720005F52D00D4C81C /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				3691507F0006E6F100D4C81C /* Smoke.plist */,
+				369150730005F5B200D4C81C /* Spout.plist */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
 		36A92CDF133D0194004DFEFC /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1167,6 +1199,18 @@
 				36F9A1B215BCBB3100A0A8F3 /* BehaviorManager.m */,
 				36AD640F15BDA6ED0089FC82 /* Behavior.h */,
 				36AD641015BDA6ED0089FC82 /* Behavior.m */,
+				369150690004044A00D4C81C /* Behavior+Shake.h */,
+				3691506A0004044A00D4C81C /* Behavior+Shake.m */,
+				3691506C000405D600D4C81C /* Behavior+Backflip.h */,
+				3691506D000405D600D4C81C /* Behavior+Backflip.m */,
+				3691506F0004087800D4C81C /* Behavior+Pace.h */,
+				369150700004087800D4C81C /* Behavior+Pace.m */,
+				369150750006885200D4C81C /* Behavior+Spout.h */,
+				369150760006885200D4C81C /* Behavior+Spout.m */,
+				369150790006C79300D4C81C /* Behavior+Smoke.h */,
+				3691507A0006C79300D4C81C /* Behavior+Smoke.m */,
+				3691507C0006CCAD00D4C81C /* Behavior+ParticleSystem.h */,
+				3691507D0006CCAE00D4C81C /* Behavior+ParticleSystem.m */,
 			);
 			name = Behaviors;
 			sourceTree = "<group>";
@@ -1717,6 +1761,8 @@
 				369150650003DF6D00D4C81C /* sav2_sky.png in Resources */,
 				369150660003DF6D00D4C81C /* sav2_water.png in Resources */,
 				369150680003E19700D4C81C /* sav2_clouds.png in Resources */,
+				369150740005F5B200D4C81C /* Spout.plist in Resources */,
+				369150800006E6F100D4C81C /* Smoke.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1750,6 +1796,12 @@
 				36AD641115BDA6ED0089FC82 /* Behavior.m in Sources */,
 				36AD641415BE5BDF0089FC82 /* BitVector.m in Sources */,
 				3614697D15C6415700DD75B1 /* SpeechBubble.m in Sources */,
+				3691506B0004044A00D4C81C /* Behavior+Shake.m in Sources */,
+				3691506E000405D600D4C81C /* Behavior+Backflip.m in Sources */,
+				369150710004087800D4C81C /* Behavior+Pace.m in Sources */,
+				369150770006885300D4C81C /* Behavior+Spout.m in Sources */,
+				3691507B0006C79400D4C81C /* Behavior+Smoke.m in Sources */,
+				3691507E0006CCAF00D4C81C /* Behavior+ParticleSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,6 +35,14 @@
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:NO];
 }
 
+-(void) onEnterTransitionDidFinish {
+    [super onEnterTransitionDidFinish];
+    Behavior *b = [behaviorManager_ getBehavior:@"start"];
+    if (b != nil) {
+        [self runAction:[b getAction:self]];
+    }
+}
+
 -(void) onExit {
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
     [super onExit];
@@ -88,7 +96,7 @@
             Behavior *b = [behaviorManager_ getBehavior:@"touch"];
     
             if (b != nil) {
-                [self runAction:[b getAction]];
+                [self runAction:[b getAction:self]];
                 return YES;
             }
         }

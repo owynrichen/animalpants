@@ -7,7 +7,6 @@
 //
 
 #import "Behavior.h"
-#import "CCAutoScaling.h"
 
 @implementation Behavior
 
@@ -29,45 +28,38 @@
     return self;
 }
 
--(CCAction *) getAction {
+-(CCAction *) getAction: (CCNode *) node {
     NSString *action = (NSString *) [data objectForKey:@"action"];
-    
-    if ([action isEqualToString:@"shake"]) {
-        CCMoveBy *shakeUp = [CCMoveBy actionWithDuration:0.1 position:ccpToRatio(0, -10)];
-        CCMoveBy *shakeDown = (CCMoveBy *) [shakeUp reverse];
-        CCSequence *shake = [CCSequence actions:shakeUp, shakeDown, shakeUp, shakeDown, nil];
-        shake.tag = 1;
-        return shake;
-    } else if ([action isEqualToString:@"backflip"]) {
-        __block CGPoint origAnchor;
-        __block CGPoint origPosition;
-        
-        CCCallBlockN *centerAnchor = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-            origAnchor = node.anchorPoint;
-            origPosition = node.position;
-            node.anchorPoint = ccp(0.5,0.5);
-            node.position = ccp((node.contentSize.width * node.scale / 2) + node.position.x, (node.contentSize.height * node.scale / 2) + node.position.y);
-        }];
-        
-        CCCallBlockN *resetAnchor = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-            node.anchorPoint = origAnchor;
-            node.position = origPosition;
-        }];
-        
-        CGPoint jump = ccpToRatio(0, 100);
-        CCJumpBy *jumpUp = [CCJumpBy actionWithDuration:0.5 position:ccpToRatio(0, 0) height:jump.y jumps:1];
-        CCRotateBy *flip = [CCRotateBy actionWithDuration:0.5 angle:-360];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *) [data objectForKey:@"params"]];
+    [params setObject:node forKey:@"node"];
 
-        CCSpawn *backflip = [CCSpawn actions:jumpUp, flip, nil];
+    SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@:", action]);
+    CCAction *act = nil;
         
-        CCSequence *seq = [CCSequence actions:centerAnchor, backflip, resetAnchor, nil];
+    if (sel != nil) {
+        act = [self performSelector:sel withObject:params];
+    }
         
-        return seq;
+    if (action != nil) {
+        return act;
     } else {
         NSLog(@"Unknown action %@ in set %@", action, [data description]);
     }
     
     return nil;
+}
+
+-(CGPoint) parsePosition: (NSDictionary *) position {
+    if (position == nil)
+        return CGPointMake(CGFLOAT_MAX, CGFLOAT_MAX);
+    
+    NSNumber *x = (NSNumber *) [position objectForKey:@"x"];
+    NSNumber *y = (NSNumber *) [position objectForKey:@"y"];
+    
+    if (x == nil || y == nil)
+        return CGPointMake(CGFLOAT_MAX, CGFLOAT_MAX);
+    
+    return ccp([x intValue] * positionRatioForCurrentDevice(),[y intValue] * positionRatioForCurrentDevice());
 }
 
 @end

@@ -24,8 +24,23 @@
 		<dict>
 			<key>touch</key>
 			<dict>
+				<key>params</key>
+				<dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>110</integer>
+						<key>y</key>
+						<integer>55</integer>
+					</dict>
+				</dict>
 				<key>action</key>
-				<string>backflip</string>
+				<string>spout</string>
+			</dict>
+			<key>start</key>
+			<dict>
+				<key>action</key>
+				<string>pace</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -137,8 +152,18 @@
 		<dict>
 			<key>touch</key>
 			<dict>
+				<key>params</key>
+				<dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>155</integer>
+						<key>y</key>
+						<integer>218</integer>
+					</dict>
+				</dict>
 				<key>action</key>
-				<string>backflip</string>
+				<string>smoke</string>
 			</dict>
 		</dict>
 		<key>type</key>

@@ -87,11 +87,28 @@ float positionScaleForCurrentDevice(DimensionType d) {
     return positionScaleForDevice(runningDevice(), d);
 }
 
+float positionRatioForDevice(DeviceResolutionType device) {
+    switch(device) {
+        case kiPadRetina:
+        case kiPhoneRetina:
+            return 1.0f;
+            break;
+        case kiPad:
+        case kiPhone:
+            return 2.0f;
+            break;
+    }
+}
+
+float positionRatioForCurrentDevice() {
+    return positionRatioForDevice(runningDevice());
+}
+
 float autoScaleToPositionMultiplier(DeviceResolutionType device) {
     switch(device) {
         case kiPadRetina:
         case kiPhoneRetina:
-            return 0.5f;
+            return 1.0f;
             break;
         case kiPad:
         case kiPhone:

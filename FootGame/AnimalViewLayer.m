@@ -46,7 +46,8 @@
 
 -(void) onEnter {
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
-    animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
+    // animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
+    animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Penguin"];
     
     background = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
     
