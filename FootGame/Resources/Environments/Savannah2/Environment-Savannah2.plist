@@ -2,6 +2,150 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Giraffe2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>6</integer>
+		<key>imageName</key>
+		<string>giraffe2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>161</integer>
+			<key>y</key>
+			<integer>143</integer>
+		</dict>
+	</dict>
+	<key>Giraffe1</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>6</integer>
+		<key>imageName</key>
+		<string>giraffe1.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>485</integer>
+			<key>y</key>
+			<integer>110</integer>
+		</dict>
+	</dict>
+	<key>BigTree2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>shake</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>5</integer>
+		<key>imageName</key>
+		<string>big_tree2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>507</integer>
+			<key>y</key>
+			<integer>58</integer>
+		</dict>
+	</dict>
+	<key>BigTree1</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>shake</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>imageName</key>
+		<string>big_tree1.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>39</integer>
+			<key>y</key>
+			<integer>95</integer>
+		</dict>
+	</dict>
+	<key>Water</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>imageName</key>
+		<string>sav2_water.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>8</integer>
+			<key>y</key>
+			<integer>45</integer>
+		</dict>
+	</dict>
+	<key>Floor</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>2</integer>
+		<key>imageName</key>
+		<string>sav2_floor.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>Clouds</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>sav2_clouds.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>181</integer>
+		</dict>
+	</dict>
 	<key>Key</key>
 	<string>savannah2</string>
 	<key>StoryKey</key>
@@ -34,13 +178,13 @@
 		<key>z</key>
 		<integer>0</integer>
 		<key>imageName</key>
-		<string>savannah2.png</string>
+		<string>sav2_sky.png</string>
 		<key>position</key>
 		<dict>
 			<key>x</key>
 			<integer>0</integer>
 			<key>y</key>
-			<integer>0</integer>
+			<integer>171</integer>
 		</dict>
 	</dict>
 </dict>

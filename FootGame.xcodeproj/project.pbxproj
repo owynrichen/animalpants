@@ -30,7 +30,6 @@
 		364B077A15A552F30054E69A /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B077915A552F10054E69A /* MainMenuLayer.m */; };
 		364B077C15A5EC130054E69A /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B077B15A5EC130054E69A /* title.png */; };
 		364B078715A8E8670054E69A /* tropical.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078615A8E8670054E69A /* tropical.png */; };
-		364B078D15A8F57A0054E69A /* savannah2.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078C15A8F57A0054E69A /* savannah2.png */; };
 		364B078F15A8FFB50054E69A /* Environment-Savannah2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B078E15A8FFB40054E69A /* Environment-Savannah2.plist */; };
 		364B079115A8FFC60054E69A /* Environment-Arctic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B079015A8FFC60054E69A /* Environment-Arctic.plist */; };
 		364B079315A8FFE80054E69A /* Environment-Tropical.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B079215A8FFE80054E69A /* Environment-Tropical.plist */; };
@@ -77,6 +76,14 @@
 		368006731375ADF900F6603F /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 368006721375ADF400F6603F /* SoundManager.m */; };
 		368006751375B37F00F6603F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 368006741375B37F00F6603F /* arrow.png */; };
 		368204E415C50689006006C7 /* strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36AD648D15C4E01D0089FC82 /* strings.strings */; };
+		3691505F0003DF6D00D4C81C /* big_tree1.png in Resources */ = {isa = PBXBuildFile; fileRef = 369150570003DF6D00D4C81C /* big_tree1.png */; };
+		369150600003DF6D00D4C81C /* big_tree2.png in Resources */ = {isa = PBXBuildFile; fileRef = 369150580003DF6D00D4C81C /* big_tree2.png */; };
+		369150620003DF6D00D4C81C /* sav2_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505A0003DF6D00D4C81C /* sav2_floor.png */; };
+		369150630003DF6D00D4C81C /* giraffe1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505B0003DF6D00D4C81C /* giraffe1.png */; };
+		369150640003DF6D00D4C81C /* giraffe2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505C0003DF6D00D4C81C /* giraffe2.png */; };
+		369150650003DF6D00D4C81C /* sav2_sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505D0003DF6D00D4C81C /* sav2_sky.png */; };
+		369150660003DF6D00D4C81C /* sav2_water.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505E0003DF6D00D4C81C /* sav2_water.png */; };
+		369150680003E19700D4C81C /* sav2_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 369150670003E19600D4C81C /* sav2_clouds.png */; };
 		36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */; };
 		36A92CE3133D038F004DFEFC /* AnimalPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE2133D038C004DFEFC /* AnimalPart.m */; };
 		36A92CE6133E8C5B004DFEFC /* AnimalPartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* AnimalPartRepository.m */; };
@@ -577,7 +584,6 @@
 		364B077915A552F10054E69A /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		364B077B15A5EC130054E69A /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = Resources/Menu/title.png; sourceTree = "<group>"; };
 		364B078615A8E8670054E69A /* tropical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tropical.png; path = Resources/Environments/Tropical/Graphics/tropical.png; sourceTree = "<group>"; };
-		364B078C15A8F57A0054E69A /* savannah2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah2.png; path = Resources/Environments/Savannah2/Graphics/savannah2.png; sourceTree = "<group>"; };
 		364B078E15A8FFB40054E69A /* Environment-Savannah2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Environment-Savannah2.plist"; path = "Resources/Environments/Savannah2/Environment-Savannah2.plist"; sourceTree = "<group>"; };
 		364B079015A8FFC60054E69A /* Environment-Arctic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Environment-Arctic.plist"; path = "Resources/Environments/Arctic/Environment-Arctic.plist"; sourceTree = "<group>"; };
 		364B079215A8FFE80054E69A /* Environment-Tropical.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Environment-Tropical.plist"; path = "Resources/Environments/Tropical/Environment-Tropical.plist"; sourceTree = "<group>"; };
@@ -630,6 +636,14 @@
 		368006741375B37F00F6603F /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Resources/arrow.png; sourceTree = "<group>"; };
 		368204E115C505F4006006C7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Resources/ja.lproj/strings.strings; sourceTree = "<group>"; };
 		368204E315C50689006006C7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ja; path = Resources/ja.lproj/Info.plist; sourceTree = "<group>"; };
+		369150570003DF6D00D4C81C /* big_tree1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_tree1.png; path = Resources/Environments/Savannah2/Graphics/big_tree1.png; sourceTree = "<group>"; };
+		369150580003DF6D00D4C81C /* big_tree2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_tree2.png; path = Resources/Environments/Savannah2/Graphics/big_tree2.png; sourceTree = "<group>"; };
+		3691505A0003DF6D00D4C81C /* sav2_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_floor.png; path = Resources/Environments/Savannah2/Graphics/sav2_floor.png; sourceTree = "<group>"; };
+		3691505B0003DF6D00D4C81C /* giraffe1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = giraffe1.png; path = Resources/Environments/Savannah2/Graphics/giraffe1.png; sourceTree = "<group>"; };
+		3691505C0003DF6D00D4C81C /* giraffe2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = giraffe2.png; path = Resources/Environments/Savannah2/Graphics/giraffe2.png; sourceTree = "<group>"; };
+		3691505D0003DF6D00D4C81C /* sav2_sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_sky.png; path = Resources/Environments/Savannah2/Graphics/sav2_sky.png; sourceTree = "<group>"; };
+		3691505E0003DF6D00D4C81C /* sav2_water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_water.png; path = Resources/Environments/Savannah2/Graphics/sav2_water.png; sourceTree = "<group>"; };
+		369150670003E19600D4C81C /* sav2_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_clouds.png; path = Resources/Environments/Savannah2/Graphics/sav2_clouds.png; sourceTree = "<group>"; };
 		36A92CD0133C6D48004DFEFC /* AnimalViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalViewLayer.h; sourceTree = "<group>"; };
 		36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalViewLayer.m; sourceTree = "<group>"; };
 		36A92CE1133D038B004DFEFC /* AnimalPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalPart.h; sourceTree = "<group>"; };
@@ -949,7 +963,14 @@
 		364B078B15A8F5620054E69A /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				364B078C15A8F57A0054E69A /* savannah2.png */,
+				369150570003DF6D00D4C81C /* big_tree1.png */,
+				369150580003DF6D00D4C81C /* big_tree2.png */,
+				369150670003E19600D4C81C /* sav2_clouds.png */,
+				3691505A0003DF6D00D4C81C /* sav2_floor.png */,
+				3691505B0003DF6D00D4C81C /* giraffe1.png */,
+				3691505C0003DF6D00D4C81C /* giraffe2.png */,
+				3691505D0003DF6D00D4C81C /* sav2_sky.png */,
+				3691505E0003DF6D00D4C81C /* sav2_water.png */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -1637,7 +1658,6 @@
 				36F9BE91154AE6B000059C14 /* Entitlements.plist in Resources */,
 				364B077C15A5EC130054E69A /* title.png in Resources */,
 				364B078715A8E8670054E69A /* tropical.png in Resources */,
-				364B078D15A8F57A0054E69A /* savannah2.png in Resources */,
 				364B078F15A8FFB50054E69A /* Environment-Savannah2.plist in Resources */,
 				364B079115A8FFC60054E69A /* Environment-Arctic.plist in Resources */,
 				364B079315A8FFE80054E69A /* Environment-Tropical.plist in Resources */,
@@ -1689,6 +1709,14 @@
 				3638D5BA15E1635400408245 /* penguin2.png in Resources */,
 				3638D5BB15E1635400408245 /* water.png in Resources */,
 				3638D5BC15E1635400408245 /* whale.png in Resources */,
+				3691505F0003DF6D00D4C81C /* big_tree1.png in Resources */,
+				369150600003DF6D00D4C81C /* big_tree2.png in Resources */,
+				369150620003DF6D00D4C81C /* sav2_floor.png in Resources */,
+				369150630003DF6D00D4C81C /* giraffe1.png in Resources */,
+				369150640003DF6D00D4C81C /* giraffe2.png in Resources */,
+				369150650003DF6D00D4C81C /* sav2_sky.png in Resources */,
+				369150660003DF6D00D4C81C /* sav2_water.png in Resources */,
+				369150680003E19700D4C81C /* sav2_clouds.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
