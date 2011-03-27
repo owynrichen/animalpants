@@ -184,6 +184,8 @@ eachShape(void *ptr, void* unused)
 	}
 }
 
+#define UIDeviceOrientationIsUpsideDown
+
 - (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
 {	
 	static float prevX=0, prevY=0;
@@ -195,6 +197,26 @@ eachShape(void *ptr, void* unused)
 	
 	prevX = accelX;
 	prevY = accelY;
+    
+    UIDeviceOrientation devo = [[CCDirector sharedDirector] deviceOrientation];
+    
+    if (UIDeviceOrientationIsLandscape(devo)) {
+        float tmp = accelY;
+        accelY = accelX;
+        accelX = tmp;
+        
+        if (devo == UIDeviceOrientationLandscapeRight) {
+            accelY = -accelY;
+        } else {
+            accelX = -accelX;
+        }
+    } else {
+        if (devo == UIDeviceOrientationPortraitUpsideDown) {
+            accelY = -accelY; 
+        } else {
+            accelX = -accelX;
+        }
+    }
 	
 	CGPoint v = ccp( accelX, accelY);
 	
