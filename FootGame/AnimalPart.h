@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AnchorPoint.h"
 
 typedef enum {
     kAnimalPartTypeBody = 0,
@@ -18,12 +19,17 @@ typedef enum {
     AnimalPartType partType;
     NSMutableArray *fixPoints;
     NSString *imageName;
+    UITouch *touch;
 }
 
 @property (nonatomic) AnimalPartType partType;
 @property (nonatomic, retain) NSMutableArray *fixPoints;
 @property (nonatomic, retain) NSString *imageName;
+@property (nonatomic, retain) UITouch *touch;
 
 +(id) initWithDictionary: (NSDictionary *) dict partType: (AnimalPartType) pt;
+
+-(BOOL) hitTest: (CGPoint) point;
+-(AnchorPointPair *) getClosestAnchorWithinDistance: (float) maxDistance withAnimalPart: (AnimalPart *) part;
 
 @end

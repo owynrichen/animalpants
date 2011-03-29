@@ -8,7 +8,6 @@
 
 #import "PartRepository.h"
 
-
 @implementation PartRepository
 
 static PartRepository * _instance;
@@ -57,14 +56,14 @@ static PartRepository * _instance;
 }
 
 -(Animal *) getRandomAnimal {
-    return nil;
+    return [animals objectForKey:[[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]]];
 }
 
 -(Animal *) getAnimalByKey: (NSString *) key {
-    return nil;
+    return [animals objectForKey:key];
 }
 
--(NSArray *) getRandomParts: (int) partFlags count: (int) count {
+-(NSArray *) getRandomFeet: (int) count {
     return [[NSArray alloc] init];
 }
 
@@ -72,6 +71,7 @@ static PartRepository * _instance;
     [animals release];
     [partsByType release];
     [parts release];
+    [feet release];
     [aplist release];
     [super dealloc];
 }

@@ -23,6 +23,6 @@
 
 -(Animal *) getRandomAnimal;
 -(Animal *) getAnimalByKey: (NSString *) key;
--(NSArray *) getRandomParts: (int) partFlags count: (int) count;
+-(NSArray *) getRandomFeet: (int) count;
 
 @end

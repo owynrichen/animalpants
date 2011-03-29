@@ -18,3 +18,15 @@
 @property (nonatomic, retain) NSString *name;
 
 @end
+
+@interface AnchorPointPair : NSObject {
+    AnchorPoint *first;
+    AnchorPoint *second;
+}
+
+@property (readonly, nonatomic) AnchorPoint *first;
+@property (readonly, nonatomic) AnchorPoint *second;
+
+-(id) initWithFirst: (AnchorPoint *) f second: (AnchorPoint *) s;
+
+@end

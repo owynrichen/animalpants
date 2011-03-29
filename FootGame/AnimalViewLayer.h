@@ -7,9 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Animal.h"
 
-@interface AnimalViewLayer : CCLayer {
-    
+@interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate> {
+    Animal *animal;
 }
+
+// returns a CCScene that contains the HelloWorldLayer as the only child
++(CCScene *) scene;
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
+- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end

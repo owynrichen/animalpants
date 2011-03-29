@@ -20,3 +20,17 @@
     [super dealloc];
 }
 @end
+
+@implementation AnchorPointPair
+
+@synthesize first;
+@synthesize second;
+
+-(id) initWithFirst: (AnchorPoint *) f second: (AnchorPoint *) s {
+    self = [super init];
+    first = f;
+    second = s;
+    return self;
+}
+
+@end
