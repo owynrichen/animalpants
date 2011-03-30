@@ -11,6 +11,7 @@
 
 @interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate> {
     Animal *animal;
+    NSArray *feet;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

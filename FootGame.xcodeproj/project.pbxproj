@@ -160,6 +160,9 @@
 		36A92CE6133E8C5B004DFEFC /* PartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* PartRepository.m */; };
 		36A92CE9133ED436004DFEFC /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE8133ED42F004DFEFC /* Animal.m */; };
 		36A92CF4133EF753004DFEFC /* AnchorPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CF3133EF742004DFEFC /* AnchorPoint.m */; };
+		36D20CE81342ECC5007BE614 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CE51342ECC5007BE614 /* dog.png */; };
+		36D20CE91342ECC5007BE614 /* dog-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CE61342ECC5007BE614 /* dog-back.png */; };
+		36D20CEA1342ECC5007BE614 /* dog-front.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CE71342ECC5007BE614 /* dog-front.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -468,6 +471,9 @@
 		36A92CE8133ED42F004DFEFC /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 		36A92CF2133EF73A004DFEFC /* AnchorPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorPoint.h; sourceTree = "<group>"; };
 		36A92CF3133EF742004DFEFC /* AnchorPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorPoint.m; sourceTree = "<group>"; };
+		36D20CE51342ECC5007BE614 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
+		36D20CE61342ECC5007BE614 /* dog-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-back.png"; sourceTree = "<group>"; };
+		36D20CE71342ECC5007BE614 /* dog-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-front.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -876,6 +882,9 @@
 		36A92CDE133D007E004DFEFC /* animalImages */ = {
 			isa = PBXGroup;
 			children = (
+				36D20CE51342ECC5007BE614 /* dog.png */,
+				36D20CE61342ECC5007BE614 /* dog-back.png */,
+				36D20CE71342ECC5007BE614 /* dog-front.png */,
 				36A92CD3133C6DB6004DFEFC /* elephant-back.png */,
 				36A92CD4133C6DB6004DFEFC /* elephant-front.png */,
 				36A92CD5133C6DB6004DFEFC /* elephant.png */,
@@ -973,6 +982,9 @@
 				36A92CD7133C6DB6004DFEFC /* elephant-front.png in Resources */,
 				36A92CD8133C6DB6004DFEFC /* elephant.png in Resources */,
 				36A92CDC133C82B5004DFEFC /* Animals.plist in Resources */,
+				36D20CE81342ECC5007BE614 /* dog.png in Resources */,
+				36D20CE91342ECC5007BE614 /* dog-back.png in Resources */,
+				36D20CEA1342ECC5007BE614 /* dog-front.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

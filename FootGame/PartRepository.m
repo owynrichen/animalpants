@@ -56,15 +56,62 @@ static PartRepository * _instance;
 }
 
 -(Animal *) getRandomAnimal {
-    return [animals objectForKey:[[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]]];
+    srand(time(nil));
+    return [animals objectForKey:@"Dog"];
+    // return [animals objectForKey:[[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]]];
 }
 
 -(Animal *) getAnimalByKey: (NSString *) key {
     return [animals objectForKey:key];
 }
 
--(NSArray *) getRandomFeet: (int) count {
-    return [[NSArray alloc] init];
+-(NSArray *) getRandomFeet: (int) count includingAnimalFeet:(Animal *)animal {
+    srand(time(nil));
+    
+    NSMutableArray *feetToReturn = [[NSMutableArray alloc] init];
+    
+    if (animal != nil) {
+        [feetToReturn addObject:animal.frontFoot];
+        [feetToReturn addObject:animal.backFoot];
+    }
+    
+    int footCount = [feet count];
+    if (count > footCount) {
+        count = footCount;
+    }
+    
+    while([feetToReturn count] < count) {
+        // get random foot
+        AnimalPart *foot = [feet objectAtIndex: rand() % footCount];
+        BOOL add = YES;
+        
+        // if an animal is passed, ensure that it's not an existing animal foot
+        if (animal != nil) {
+            NSLog(@"%@ == %@ or %@", foot.imageName, animal.frontFoot.imageName, animal.backFoot.imageName);
+            if ([foot.imageName isEqualToString: animal.frontFoot.imageName] || [foot.imageName isEqualToString: animal.backFoot.imageName]) {
+                NSLog(@"true");
+                continue;
+            }
+            NSLog(@"false");
+        }
+        
+        // loop through existing feet to be sure we're not duping
+        for(int i = 0; i < [feetToReturn count]; i++) {
+            NSString *name = ((AnimalPart *) [feetToReturn objectAtIndex:i]).imageName;
+            NSLog(@"%@ == %@", foot.imageName, name);
+            if ([foot.imageName isEqualToString: name]) {
+                NSLog(@"true");
+                add = NO;
+                break;
+            }
+            NSLog(@"false");
+        }
+        
+        if (add) {
+            [feetToReturn addObject:foot];
+        }
+    }
+    return feetToReturn;
 }
 
 -(void) dealloc {

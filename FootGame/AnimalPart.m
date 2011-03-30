@@ -40,6 +40,13 @@
         }
     }
     
+    if ([p.fixPoints count] == 1) {
+        // convert the pixel anchor to a percentage and set
+        CGPoint newAnchorPx = ((AnchorPoint *) [p.fixPoints objectAtIndex:0]).point;
+        CGPoint newAnchor = CGPointMake(newAnchorPx.x / p.contentSizeInPixels.width, newAnchorPx.y / p.contentSizeInPixels.height);
+        p.anchorPoint = newAnchor;
+    }
+    
     p.partType = pt;
 
     return p;
@@ -58,7 +65,11 @@
         // NSLog(@"%f,%f -> %f, %f", pnt.point.x, pnt.point.y, glpnt.x, glpnt.y);
         ccDrawPoint(pnt.point);
     }
+    
+    glColor4ub(0,255,0,255);
+    glPointSize(8);
     [super draw];
+    ccDrawPoint(self.anchorPointInPixels);
 }
 
 -(BOOL) hitTest:(CGPoint)point {
@@ -82,7 +93,7 @@
             CGPoint footPoint = [self convertToWorldSpace:((AnchorPoint *) [self.fixPoints objectAtIndex:i]).point];
             CGPoint bodyPoint = [part convertToWorldSpace:((AnchorPoint *)[part.fixPoints objectAtIndex:j]).point];
             CGFloat distance = ccpDistance(footPoint, bodyPoint);
-            NSLog(@"FP: %f,%f - BP: %f,%f - D: %f Max: %f", footPoint.x, footPoint.y, bodyPoint.x, bodyPoint.y, distance, mindistance);
+            //NSLog(@"FP: %f,%f - BP: %f,%f - D: %f Max: %f", footPoint.x, footPoint.y, bodyPoint.x, bodyPoint.y, distance, mindistance);
             
             if (distance < mindistance) {
                 f = [self.fixPoints objectAtIndex:i];
