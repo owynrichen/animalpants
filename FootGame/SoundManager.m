@@ -38,4 +38,8 @@ static SoundManager* _instance;
     [audioEngine playEffect:name];
 }
 
+-(void) playBackground:(NSString *)name {
+    [audioEngine playBackgroundMusic:name loop:YES];
+}
+
 @end

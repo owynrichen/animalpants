@@ -163,7 +163,7 @@
         }
     } else if (nextTouched) {
         [next stopAllActions];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:2 scene:[AnimalViewLayer scene] backwards:false]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
     }
 }
 

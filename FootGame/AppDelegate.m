@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "AnimalViewLayer.h"
 #import "RootViewController.h"
+#import "SoundManager.h"
 
 @implementation AppDelegate
 
@@ -111,6 +112,7 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [AnimalViewLayer scene]];
+    [[SoundManager sharedManager] playBackground:@"Olde Timey.mp3"];
 }
 
 
