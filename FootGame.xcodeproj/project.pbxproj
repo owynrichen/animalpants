@@ -15,7 +15,6 @@
 		367EC2EB133A4782003F7FF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367EC2EA133A4782003F7FF0 /* UIKit.framework */; };
 		367EC2ED133A4782003F7FF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367EC2EC133A4782003F7FF0 /* Foundation.framework */; };
 		367EC2EF133A4782003F7FF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367EC2EE133A4782003F7FF0 /* CoreGraphics.framework */; };
-		367EC2F3133A4782003F7FF0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 367EC2F2133A4782003F7FF0 /* Default.png */; };
 		367EC2F5133A4782003F7FF0 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 367EC2F4133A4782003F7FF0 /* fps_images.png */; };
 		367EC2F7133A4782003F7FF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 367EC2F6133A4782003F7FF0 /* Icon-72.png */; };
 		367EC2F9133A4782003F7FF0 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 367EC2F8133A4782003F7FF0 /* Icon-Small-50.png */; };
@@ -151,18 +150,24 @@
 		367EC494133A4785003F7FF0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 367EC493133A4785003F7FF0 /* RootViewController.m */; };
 		367EC497133A4785003F7FF0 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 367EC496133A4785003F7FF0 /* HelloWorldLayer.m */; };
 		367EC49A133A4785003F7FF0 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 367EC499133A4785003F7FF0 /* grossini_dance_atlas.png */; };
+		368006011375AC8C00F6603F /* barks2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 368005FF1375AC8C00F6603F /* barks2.wav */; };
+		368006021375AC8C00F6603F /* elephant2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 368006001375AC8C00F6603F /* elephant2.wav */; };
+		368006731375ADF900F6603F /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 368006721375ADF400F6603F /* SoundManager.m */; };
+		368006751375B37F00F6603F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 368006741375B37F00F6603F /* arrow.png */; };
 		36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */; };
-		36A92CD6133C6DB6004DFEFC /* elephant-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 36A92CD3133C6DB6004DFEFC /* elephant-back.png */; };
-		36A92CD7133C6DB6004DFEFC /* elephant-front.png in Resources */ = {isa = PBXBuildFile; fileRef = 36A92CD4133C6DB6004DFEFC /* elephant-front.png */; };
-		36A92CD8133C6DB6004DFEFC /* elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 36A92CD5133C6DB6004DFEFC /* elephant.png */; };
 		36A92CDC133C82B5004DFEFC /* Animals.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36A92CDB133C82B5004DFEFC /* Animals.plist */; };
 		36A92CE3133D038F004DFEFC /* AnimalPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE2133D038C004DFEFC /* AnimalPart.m */; };
 		36A92CE6133E8C5B004DFEFC /* PartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* PartRepository.m */; };
 		36A92CE9133ED436004DFEFC /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE8133ED42F004DFEFC /* Animal.m */; };
 		36A92CF4133EF753004DFEFC /* AnchorPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CF3133EF742004DFEFC /* AnchorPoint.m */; };
-		36D20CE81342ECC5007BE614 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CE51342ECC5007BE614 /* dog.png */; };
-		36D20CE91342ECC5007BE614 /* dog-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CE61342ECC5007BE614 /* dog-back.png */; };
-		36D20CEA1342ECC5007BE614 /* dog-front.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CE71342ECC5007BE614 /* dog-front.png */; };
+		36D20CFB13456A65007BE614 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CF513456A65007BE614 /* dog.png */; };
+		36D20CFC13456A65007BE614 /* dog-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CF613456A65007BE614 /* dog-back.png */; };
+		36D20CFD13456A65007BE614 /* dog-front.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CF713456A65007BE614 /* dog-front.png */; };
+		36D20CFE13456A65007BE614 /* elephant-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CF813456A65007BE614 /* elephant-back.png */; };
+		36D20CFF13456A65007BE614 /* elephant-front.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CF913456A65007BE614 /* elephant-front.png */; };
+		36D20D0013456A65007BE614 /* elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CFA13456A65007BE614 /* elephant.png */; };
+		36D20D0213456AA2007BE614 /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20D0113456AA2007BE614 /* paper.png */; };
+		36D20D0413456BE4007BE614 /* ArialNarrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D20D0313456BE4007BE614 /* ArialNarrow.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -457,11 +462,13 @@
 		367EC496133A4785003F7FF0 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		367EC498133A4785003F7FF0 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		367EC499133A4785003F7FF0 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
+		368005FF1375AC8C00F6603F /* barks2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = barks2.wav; sourceTree = "<group>"; };
+		368006001375AC8C00F6603F /* elephant2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = elephant2.wav; sourceTree = "<group>"; };
+		368006711375ADEE00F6603F /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		368006721375ADF400F6603F /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		368006741375B37F00F6603F /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Resources/arrow.png; sourceTree = "<group>"; };
 		36A92CD0133C6D48004DFEFC /* AnimalViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalViewLayer.h; sourceTree = "<group>"; };
 		36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalViewLayer.m; sourceTree = "<group>"; };
-		36A92CD3133C6DB6004DFEFC /* elephant-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elephant-back.png"; sourceTree = "<group>"; };
-		36A92CD4133C6DB6004DFEFC /* elephant-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elephant-front.png"; sourceTree = "<group>"; };
-		36A92CD5133C6DB6004DFEFC /* elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elephant.png; sourceTree = "<group>"; };
 		36A92CDB133C82B5004DFEFC /* Animals.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Animals.plist; sourceTree = "<group>"; };
 		36A92CE1133D038B004DFEFC /* AnimalPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalPart.h; sourceTree = "<group>"; };
 		36A92CE2133D038C004DFEFC /* AnimalPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalPart.m; sourceTree = "<group>"; };
@@ -471,9 +478,14 @@
 		36A92CE8133ED42F004DFEFC /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 		36A92CF2133EF73A004DFEFC /* AnchorPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorPoint.h; sourceTree = "<group>"; };
 		36A92CF3133EF742004DFEFC /* AnchorPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorPoint.m; sourceTree = "<group>"; };
-		36D20CE51342ECC5007BE614 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
-		36D20CE61342ECC5007BE614 /* dog-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-back.png"; sourceTree = "<group>"; };
-		36D20CE71342ECC5007BE614 /* dog-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-front.png"; sourceTree = "<group>"; };
+		36D20CF513456A65007BE614 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dog.png; path = Resources/AnimalImages/dog.png; sourceTree = "<group>"; };
+		36D20CF613456A65007BE614 /* dog-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dog-back.png"; path = "Resources/AnimalImages/dog-back.png"; sourceTree = "<group>"; };
+		36D20CF713456A65007BE614 /* dog-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dog-front.png"; path = "Resources/AnimalImages/dog-front.png"; sourceTree = "<group>"; };
+		36D20CF813456A65007BE614 /* elephant-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "elephant-back.png"; path = "Resources/AnimalImages/elephant-back.png"; sourceTree = "<group>"; };
+		36D20CF913456A65007BE614 /* elephant-front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "elephant-front.png"; path = "Resources/AnimalImages/elephant-front.png"; sourceTree = "<group>"; };
+		36D20CFA13456A65007BE614 /* elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant.png; path = Resources/AnimalImages/elephant.png; sourceTree = "<group>"; };
+		36D20D0113456AA2007BE614 /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paper.png; path = Resources/paper.png; sourceTree = "<group>"; };
+		36D20D0313456BE4007BE614 /* ArialNarrow.ttf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArialNarrow.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,6 +558,8 @@
 				36A92CE5133E8C55004DFEFC /* PartRepository.m */,
 				36A92CE7133ED42B004DFEFC /* Animal.h */,
 				36A92CE8133ED42F004DFEFC /* Animal.m */,
+				368006711375ADEE00F6603F /* SoundManager.h */,
+				368006721375ADF400F6603F /* SoundManager.m */,
 				367EC498133A4785003F7FF0 /* GameConfig.h */,
 				367EC2F1133A4782003F7FF0 /* Resources */,
 				36A92CE0133D030E004DFEFC /* cocos2d */,
@@ -557,6 +571,9 @@
 		367EC2F1133A4782003F7FF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				368005FD1375AC4200F6603F /* sounds */,
+				36D20D0113456AA2007BE614 /* paper.png */,
+				36D20D0313456BE4007BE614 /* ArialNarrow.ttf */,
 				36A92CDE133D007E004DFEFC /* animalImages */,
 				36A92CDF133D0194004DFEFC /* images */,
 				367EC302133A4782003F7FF0 /* Info.plist */,
@@ -879,15 +896,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		368005FD1375AC4200F6603F /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				368005FF1375AC8C00F6603F /* barks2.wav */,
+				368006001375AC8C00F6603F /* elephant2.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		36A92CDE133D007E004DFEFC /* animalImages */ = {
 			isa = PBXGroup;
 			children = (
-				36D20CE51342ECC5007BE614 /* dog.png */,
-				36D20CE61342ECC5007BE614 /* dog-back.png */,
-				36D20CE71342ECC5007BE614 /* dog-front.png */,
-				36A92CD3133C6DB6004DFEFC /* elephant-back.png */,
-				36A92CD4133C6DB6004DFEFC /* elephant-front.png */,
-				36A92CD5133C6DB6004DFEFC /* elephant.png */,
+				36D20CF513456A65007BE614 /* dog.png */,
+				36D20CF613456A65007BE614 /* dog-back.png */,
+				36D20CF713456A65007BE614 /* dog-front.png */,
+				36D20CF813456A65007BE614 /* elephant-back.png */,
+				36D20CF913456A65007BE614 /* elephant-front.png */,
+				36D20CFA13456A65007BE614 /* elephant.png */,
 			);
 			name = animalImages;
 			sourceTree = "<group>";
@@ -895,6 +921,7 @@
 		36A92CDF133D0194004DFEFC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				368006741375B37F00F6603F /* arrow.png */,
 				367EC2F2133A4782003F7FF0 /* Default.png */,
 				367EC2F4133A4782003F7FF0 /* fps_images.png */,
 				367EC2F6133A4782003F7FF0 /* Icon-72.png */,
@@ -968,7 +995,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				367EC2F3133A4782003F7FF0 /* Default.png in Resources */,
 				367EC2F5133A4782003F7FF0 /* fps_images.png in Resources */,
 				367EC2F7133A4782003F7FF0 /* Icon-72.png in Resources */,
 				367EC2F9133A4782003F7FF0 /* Icon-Small-50.png in Resources */,
@@ -978,13 +1004,18 @@
 				367EC301133A4782003F7FF0 /* Icon@2x.png in Resources */,
 				367EC304133A4782003F7FF0 /* iTunesArtwork in Resources */,
 				367EC49A133A4785003F7FF0 /* grossini_dance_atlas.png in Resources */,
-				36A92CD6133C6DB6004DFEFC /* elephant-back.png in Resources */,
-				36A92CD7133C6DB6004DFEFC /* elephant-front.png in Resources */,
-				36A92CD8133C6DB6004DFEFC /* elephant.png in Resources */,
 				36A92CDC133C82B5004DFEFC /* Animals.plist in Resources */,
-				36D20CE81342ECC5007BE614 /* dog.png in Resources */,
-				36D20CE91342ECC5007BE614 /* dog-back.png in Resources */,
-				36D20CEA1342ECC5007BE614 /* dog-front.png in Resources */,
+				36D20CFB13456A65007BE614 /* dog.png in Resources */,
+				36D20CFC13456A65007BE614 /* dog-back.png in Resources */,
+				36D20CFD13456A65007BE614 /* dog-front.png in Resources */,
+				36D20CFE13456A65007BE614 /* elephant-back.png in Resources */,
+				36D20CFF13456A65007BE614 /* elephant-front.png in Resources */,
+				36D20D0013456A65007BE614 /* elephant.png in Resources */,
+				36D20D0213456AA2007BE614 /* paper.png in Resources */,
+				36D20D0413456BE4007BE614 /* ArialNarrow.ttf in Resources */,
+				368006011375AC8C00F6603F /* barks2.wav in Resources */,
+				368006021375AC8C00F6603F /* elephant2.wav in Resources */,
+				368006751375B37F00F6603F /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1126,6 +1157,7 @@
 				36A92CE6133E8C5B004DFEFC /* PartRepository.m in Sources */,
 				36A92CE9133ED436004DFEFC /* Animal.m in Sources */,
 				36A92CF4133EF753004DFEFC /* AnchorPoint.m in Sources */,
+				368006731375ADF900F6603F /* SoundManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1172,6 +1204,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Owyn Richen (32JG76U29B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Owyn Richen (32JG76U29B)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1181,6 +1215,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = FootGame/libs/Chipmunk/include/chipmunk;
 				WRAPPER_EXTENSION = app;
@@ -1191,6 +1227,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Owyn Richen (32JG76U29B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Owyn Richen (32JG76U29B)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FootGame/Prefix.pch;
@@ -1199,6 +1237,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = FootGame/libs/Chipmunk/include/chipmunk;
 				VALIDATE_PRODUCT = YES;

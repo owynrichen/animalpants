@@ -8,6 +8,39 @@
 
 #import "PartRepository.h"
 
+@interface NSMutableArray (ArchUtils_Shuffle)
+- (void)shuffle;
+@end
+
+// Unbiased random rounding thingy.
+static NSUInteger random_below(NSUInteger n) {
+    NSUInteger m = 1;
+    
+    do {
+        m <<= 1;
+    } while(m < n);
+    
+    NSUInteger ret;
+    
+    do {
+        ret = random() % m;
+    } while(ret >= n);
+    
+    return ret;
+}
+
+@implementation NSMutableArray (ArchUtils_Shuffle)
+
+- (void)shuffle {
+    // http://en.wikipedia.org/wiki/Knuth_shuffle
+    
+    for(NSUInteger i = [self count]; i > 1; i--) {
+        NSUInteger j = random_below(i);
+        [self exchangeObjectAtIndex:i-1 withObjectAtIndex:j];
+    }
+}
+@end
+
 @implementation PartRepository
 
 static PartRepository * _instance;
@@ -31,11 +64,11 @@ static PartRepository * _instance;
     feet = [[NSMutableArray alloc] init];
     animals = [[NSMutableDictionary alloc] init];
     partsByType = [[NSMutableDictionary alloc] init];
+    usedAnimalNames = [[NSMutableDictionary alloc] init];
     
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"body"];
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"frontfoot"];
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"backfoot"];
-    
     
     [aplist enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stopblock) {
         NSString *strkey = (NSString *) key;
@@ -55,10 +88,24 @@ static PartRepository * _instance;
     return self;
 }
 
+-(void) resetAnimals {
+    [usedAnimalNames removeAllObjects];
+}
+
 -(Animal *) getRandomAnimal {
     srand(time(nil));
-    return [animals objectForKey:@"Dog"];
-    // return [animals objectForKey:[[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]]];
+    if ([usedAnimalNames count] == [animals count])
+        [self resetAnimals];
+    
+    NSString *nextAnimal = [[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]];
+    
+    while([usedAnimalNames objectForKey:nextAnimal] != nil) {
+        nextAnimal = [[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]];
+    }
+    
+    [usedAnimalNames setValue:@"USED" forKey: nextAnimal];
+    
+    return [animals objectForKey: nextAnimal];
 }
 
 -(Animal *) getAnimalByKey: (NSString *) key {
@@ -71,8 +118,10 @@ static PartRepository * _instance;
     NSMutableArray *feetToReturn = [[NSMutableArray alloc] init];
     
     if (animal != nil) {
-        [feetToReturn addObject:animal.frontFoot];
-        [feetToReturn addObject:animal.backFoot];
+        [feetToReturn addObject:[animal.frontFoot copyWithZone:nil]];
+        [feetToReturn addObject: [animal.backFoot copyWithZone:nil]];
+        // [feetToReturn addObject:animal.frontFoot];
+        // [feetToReturn addObject:animal.backFoot];
     }
     
     int footCount = [feet count];
@@ -87,7 +136,7 @@ static PartRepository * _instance;
         
         // if an animal is passed, ensure that it's not an existing animal foot
         if (animal != nil) {
-            NSLog(@"%@ == %@ or %@", foot.imageName, animal.frontFoot.imageName, animal.backFoot.imageName);
+            // NSLog(@"%@ == %@ or %@", foot.imageName, animal.frontFoot.imageName, animal.backFoot.imageName);
             if ([foot.imageName isEqualToString: animal.frontFoot.imageName] || [foot.imageName isEqualToString: animal.backFoot.imageName]) {
                 NSLog(@"true");
                 continue;
@@ -98,19 +147,22 @@ static PartRepository * _instance;
         // loop through existing feet to be sure we're not duping
         for(int i = 0; i < [feetToReturn count]; i++) {
             NSString *name = ((AnimalPart *) [feetToReturn objectAtIndex:i]).imageName;
-            NSLog(@"%@ == %@", foot.imageName, name);
+            // NSLog(@"%@ == %@", foot.imageName, name);
             if ([foot.imageName isEqualToString: name]) {
-                NSLog(@"true");
+                // NSLog(@"true");
                 add = NO;
                 break;
             }
-            NSLog(@"false");
+            // NSLog(@"false");
         }
         
         if (add) {
-            [feetToReturn addObject:foot];
+            // [feetToReturn addObject:foot];
+            [feetToReturn addObject:[foot copyWithZone:nil]];
         }
     }
+    [feetToReturn shuffle];
+    
     return feetToReturn;
 }
 

@@ -11,14 +11,21 @@
 
 @interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate> {
     Animal *animal;
+    AnimalPart *body;
     NSArray *feet;
+    CCSprite *background;
+    CCSprite *next;
+    CCLabelTTF *name;
+    
+    BOOL nextTouched;
 }
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
+// returns a CCScene that contains the AnimalViewLayer as the only child
 +(CCScene *) scene;
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
+- (BOOL) testVictory;
 
 @end

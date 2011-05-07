@@ -15,21 +15,25 @@ typedef enum {
     kAnimalPartTypeBackFoot = 2
     } AnimalPartType;
 
-@interface AnimalPart : CCSprite {
+@interface AnimalPart : CCSprite <NSCopying> {
     AnimalPartType partType;
     NSMutableArray *fixPoints;
     NSString *imageName;
     UITouch *touch;
+    
+    NSDictionary *data;
 }
 
 @property (nonatomic) AnimalPartType partType;
 @property (nonatomic, retain) NSMutableArray *fixPoints;
 @property (nonatomic, retain) NSString *imageName;
 @property (nonatomic, retain) UITouch *touch;
+@property (nonatomic, retain) NSDictionary *data;
 
 +(id) initWithDictionary: (NSDictionary *) dict partType: (AnimalPartType) pt;
 
 -(BOOL) hitTest: (CGPoint) point;
 -(AnchorPointPair *) getClosestAnchorWithinDistance: (float) maxDistance withAnimalPart: (AnimalPart *) part;
+- (id)copyWithZone:(NSZone *)zone;
 
 @end

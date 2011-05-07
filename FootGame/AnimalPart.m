@@ -14,6 +14,7 @@
 @synthesize fixPoints;
 @synthesize imageName;
 @synthesize touch;
+@synthesize data;
 
 +(id) initWithDictionary:(NSDictionary *)dict partType: (AnimalPartType) pt {
     NSString *imgName = (NSString *) [dict objectForKey:@"Image"];
@@ -21,6 +22,7 @@
     AnimalPart *p = [AnimalPart spriteWithFile:imgName];
     p.imageName = imgName;
     p.fixPoints = [[NSMutableArray alloc] init];
+    p.data = dict;
     
     NSEnumerator *e = [dict keyEnumerator];
     NSString *key;
@@ -35,6 +37,7 @@
             AnchorPoint *ap = [[AnchorPoint alloc] init];
             CGPoint pnt = CGPointMake(x, p.contentSize.height - y);
             ap.point = pnt;
+            ap.orientation = [((NSNumber *) [pntDict objectForKey:@"orientation"]) floatValue];
             ap.name = key;
             [p.fixPoints addObject: ap];
         }
@@ -52,12 +55,20 @@
     return p;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    return [AnimalPart initWithDictionary:self.data partType:self.partType];
+}
+
 -(id) init {
-    return [super init];
+    self = [super init];
+    
+    self.opacity = 200;
+    
+    return self;
 }
 
 -(void) draw {
-    int count = [fixPoints count];
+/*    int count = [fixPoints count];
     for (int i = 0; i < count; i++) {
         AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
         glColor4ub(255, 0, 0, 255);
@@ -67,9 +78,9 @@
     }
     
     glColor4ub(0,255,0,255);
-    glPointSize(8);
+    glPointSize(8); */
     [super draw];
-    ccDrawPoint(self.anchorPointInPixels);
+    // ccDrawPoint(self.anchorPointInPixels);
 }
 
 -(BOOL) hitTest:(CGPoint)point {
@@ -85,6 +96,7 @@
     AnchorPoint *f = nil;
     AnchorPoint *s = nil;
     CGFloat mindistance = maxDistance;
+    CGFloat distance;
     
     int count = [part.fixPoints count];
     int selfCount = [self.fixPoints count];
@@ -92,20 +104,23 @@
         for(int j = 0; j < count; j++) {
             CGPoint footPoint = [self convertToWorldSpace:((AnchorPoint *) [self.fixPoints objectAtIndex:i]).point];
             CGPoint bodyPoint = [part convertToWorldSpace:((AnchorPoint *)[part.fixPoints objectAtIndex:j]).point];
-            CGFloat distance = ccpDistance(footPoint, bodyPoint);
-            //NSLog(@"FP: %f,%f - BP: %f,%f - D: %f Max: %f", footPoint.x, footPoint.y, bodyPoint.x, bodyPoint.y, distance, mindistance);
+            distance = ccpDistance(footPoint, bodyPoint);
+            // NSLog(@"%@: %f,%f - %@: %f,%f - D: %f Max: %f", ((AnchorPoint *) [self.fixPoints objectAtIndex:i]).name, footPoint.x, footPoint.y, ((AnchorPoint *) [part.fixPoints objectAtIndex:j]).name, bodyPoint.x, bodyPoint.y, distance, mindistance);
             
             if (distance < mindistance) {
                 f = [self.fixPoints objectAtIndex:i];
                 s = [part.fixPoints objectAtIndex:j];
+                mindistance = distance;
             }
         }
     }
     
-    if (f == nil || s == nil)
+    if (f == nil || s == nil) {
+        // NSLog(@"returning nil");
         return  nil;
+    }
     
-    return [[AnchorPointPair alloc] initWithFirst:f second:s];
+    return [[AnchorPointPair alloc] initWithFirst:f second:s distance: mindistance];
 }
 
 @end

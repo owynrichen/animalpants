@@ -12,8 +12,8 @@
 @implementation AnchorPoint
 
 @synthesize point;
+@synthesize orientation;
 @synthesize name;
-
 
 -(void) dealloc {
     [name release];
@@ -25,11 +25,13 @@
 
 @synthesize first;
 @synthesize second;
+@synthesize distance;
 
--(id) initWithFirst: (AnchorPoint *) f second: (AnchorPoint *) s {
+-(id) initWithFirst: (AnchorPoint *) f second: (AnchorPoint *) s distance: (CGFloat) dist {
     self = [super init];
     first = f;
     second = s;
+    distance = dist;
     return self;
 }
 

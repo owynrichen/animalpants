@@ -17,10 +17,12 @@
     NSMutableArray *parts;
     
     NSMutableDictionary *aplist;
+    NSMutableDictionary *usedAnimalNames;
 }
 
 +(PartRepository *) sharedRepository;
 
+-(void) resetAnimals;
 -(Animal *) getRandomAnimal;
 -(Animal *) getAnimalByKey: (NSString *) key;
 -(NSArray *) getRandomFeet: (int) count includingAnimalFeet: (Animal *) animal;
