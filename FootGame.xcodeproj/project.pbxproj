@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367DFB22137798570088FD67 /* glock__c2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 367DFB1F137798570088FD67 /* glock__c2.wav */; };
+		367DFB23137798570088FD67 /* glock__e1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 367DFB20137798570088FD67 /* glock__e1.wav */; };
+		367DFB24137798570088FD67 /* glock__g1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 367DFB21137798570088FD67 /* glock__g1.wav */; };
 		367EC2E1133A4782003F7FF0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367EC2E0133A4782003F7FF0 /* QuartzCore.framework */; };
 		367EC2E3133A4782003F7FF0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367EC2E2133A4782003F7FF0 /* OpenGLES.framework */; };
 		367EC2E5133A4782003F7FF0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367EC2E4133A4782003F7FF0 /* OpenAL.framework */; };
@@ -172,6 +175,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		367DFB1F137798570088FD67 /* glock__c2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glock__c2.wav; sourceTree = "<group>"; };
+		367DFB20137798570088FD67 /* glock__e1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glock__e1.wav; sourceTree = "<group>"; };
+		367DFB21137798570088FD67 /* glock__g1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glock__g1.wav; sourceTree = "<group>"; };
 		367EC2DC133A4782003F7FF0 /* FootGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		367EC2E0133A4782003F7FF0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		367EC2E2133A4782003F7FF0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -901,6 +907,9 @@
 		368005FD1375AC4200F6603F /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				367DFB1F137798570088FD67 /* glock__c2.wav */,
+				367DFB20137798570088FD67 /* glock__e1.wav */,
+				367DFB21137798570088FD67 /* glock__g1.wav */,
 				36800679137601DC00F6603F /* Olde Timey.mp3 */,
 				368005FF1375AC8C00F6603F /* barks2.wav */,
 				368006001375AC8C00F6603F /* elephant2.wav */,
@@ -1020,6 +1029,9 @@
 				368006021375AC8C00F6603F /* elephant2.wav in Resources */,
 				368006751375B37F00F6603F /* arrow.png in Resources */,
 				3680067A137601DD00F6603F /* Olde Timey.mp3 in Resources */,
+				367DFB22137798570088FD67 /* glock__c2.wav in Resources */,
+				367DFB23137798570088FD67 /* glock__e1.wav in Resources */,
+				367DFB24137798570088FD67 /* glock__g1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

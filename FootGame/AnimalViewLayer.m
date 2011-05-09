@@ -97,6 +97,7 @@
         if ([foot hitTest:pnt]) {
             foot.touch = touch;
             foot.position = pnt;
+            [[SoundManager sharedManager] playSound:@"glock__c2.wav"];
             break;
         }
     }
@@ -149,6 +150,7 @@
     }
     
     if (footTouched) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.wav"];
         if ([self testVictory]) {
             name.color = ccBLUE;
             [[SoundManager sharedManager] playSound:animal.successSound];

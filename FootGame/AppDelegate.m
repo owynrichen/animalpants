@@ -111,6 +111,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
+    [[SoundManager sharedManager] preloadSound:@"glock_c2.wav"];
+    [[SoundManager sharedManager] preloadSound:@"glock_g1.wav"];
 	[[CCDirector sharedDirector] runWithScene: [AnimalViewLayer scene]];
     [[SoundManager sharedManager] playBackground:@"Olde Timey.mp3"];
 }
