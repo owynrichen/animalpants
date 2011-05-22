@@ -70,7 +70,7 @@ static PartRepository * _instance;
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"frontfoot"];
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"backfoot"];
     
-    [aplist enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stopblock) {
+    /* [aplist enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stopblock) {
         NSString *strkey = (NSString *) key;
         Animal *animal = [Animal initWithDictionary: obj];
         
@@ -83,7 +83,23 @@ static PartRepository * _instance;
         [parts addObject:animal.body];
         [parts addObject:animal.frontFoot];
         [parts addObject:animal.backFoot];
-    }];
+    }]; */
+    NSEnumerator *aplistenum = [aplist keyEnumerator];
+    id key;
+    while((key = [aplistenum nextObject]) != nil) {
+        NSString *strkey = (NSString *) key;
+        Animal *animal = [Animal initWithDictionary: [aplist objectForKey:strkey]];
+        
+        [animals setValue:animal forKey:strkey];
+        [((NSMutableArray *) [partsByType objectForKey:@"body"]) addObject:animal.body];
+        [((NSMutableArray *) [partsByType objectForKey:@"frontfoot"]) addObject:animal.frontFoot];
+        [((NSMutableArray *) [partsByType objectForKey:@"backfoot"]) addObject:animal.backFoot];
+        [feet addObject:animal.frontFoot];
+        [feet addObject:animal.backFoot];
+        [parts addObject:animal.body];
+        [parts addObject:animal.frontFoot];
+        [parts addObject:animal.backFoot];
+    }
 
     return self;
 }

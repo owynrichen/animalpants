@@ -4,10 +4,6 @@
 <dict>
 	<key>Dog</key>
 	<dict>
-		<key>FailSound</key>
-		<string></string>
-		<key>SuccessSound</key>
-		<string>barks2.wav</string>
 		<key>BackFoot</key>
 		<dict>
 			<key>Anchor</key>
@@ -45,6 +41,8 @@
 			<key>Image</key>
 			<string>dog.png</string>
 		</dict>
+		<key>FailSound</key>
+		<string></string>
 		<key>FrontFoot</key>
 		<dict>
 			<key>Anchor</key>
@@ -61,13 +59,11 @@
 		</dict>
 		<key>Name</key>
 		<string>Dog</string>
+		<key>SuccessSound</key>
+		<string>barks2.wav</string>
 	</dict>
 	<key>Elephant</key>
 	<dict>
-		<key>FailSound</key>
-		<string></string>
-		<key>SuccessSound</key>
-		<string>elephant2.wav</string>
 		<key>BackFoot</key>
 		<dict>
 			<key>Anchor</key>
@@ -105,6 +101,8 @@
 			<key>Image</key>
 			<string>elephant.png</string>
 		</dict>
+		<key>FailSound</key>
+		<string></string>
 		<key>FrontFoot</key>
 		<dict>
 			<key>Anchor</key>
@@ -121,6 +119,68 @@
 		</dict>
 		<key>Name</key>
 		<string>Elephant</string>
+		<key>SuccessSound</key>
+		<string>elephant2.wav</string>
+	</dict>
+	<key>SeaLion</key>
+	<dict>
+		<key>BackFoot</key>
+		<dict>
+			<key>Anchor</key>
+			<dict>
+				<key>orientation</key>
+				<integer>0</integer>
+				<key>x</key>
+				<integer>243</integer>
+				<key>y</key>
+				<integer>31</integer>
+			</dict>
+			<key>Image</key>
+			<string>foot_sealion_back.png</string>
+		</dict>
+		<key>Body</key>
+		<dict>
+			<key>AnchorBackFoot</key>
+			<dict>
+				<key>orientation</key>
+				<integer>0</integer>
+				<key>x</key>
+				<integer>365</integer>
+				<key>y</key>
+				<integer>649</integer>
+			</dict>
+			<key>AnchorFrontFoot</key>
+			<dict>
+				<key>orientation</key>
+				<integer>0</integer>
+				<key>x</key>
+				<integer>124</integer>
+				<key>y</key>
+				<integer>474</integer>
+			</dict>
+			<key>Image</key>
+			<string>foot_sealion_body.png</string>
+		</dict>
+		<key>FailSound</key>
+		<string></string>
+		<key>FrontFoot</key>
+		<dict>
+			<key>Anchor</key>
+			<dict>
+				<key>orientation</key>
+				<integer>0</integer>
+				<key>x</key>
+				<integer>121</integer>
+				<key>y</key>
+				<integer>39</integer>
+			</dict>
+			<key>Image</key>
+			<string>foot_sealion_front.png</string>
+		</dict>
+		<key>Name</key>
+		<string>Sea Lion</string>
+		<key>SuccessSound</key>
+		<string>sealion2.wav</string>
 	</dict>
 </dict>
 </plist>

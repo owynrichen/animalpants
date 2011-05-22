@@ -117,17 +117,17 @@
         if (touch == foot.touch) {
             AnchorPointPair *pair = [foot getClosestAnchorWithinDistance:ROTATE_DISTANCE withAnimalPart:body];
             
-            if (pair != nil && pair.distance <= SNAP_DISTANCE) {
+            if (pair != nil && pair.distance <= SNAP_DISTANCE) { // SNAP IN PLACE
                 [foot runAction:[CCRotateTo actionWithDuration:0.1 angle:pair.second.orientation]];
                 // foot.rotation = pair.second.orientation;
                 foot.position = [body convertToWorldSpace: pair.second.point];
-            } else if (pair != nil) {
+            } else if (pair != nil) {  // ROTATE BUT DON'T SNAP
                 float rot = pair.first.orientation + ((pair.second.orientation - pair.first.orientation) * (1 / (pair.distance - SNAP_DISTANCE)));
                 // NSLog(@"%f", rot);
                 [foot runAction:[CCRotateTo actionWithDuration:0.1 angle:rot]];
                 // foot.rotation = rot;
                 foot.position = pnt;
-            } else {
+            } else { // LEAVE AS-IS
                 [foot runAction:[CCRotateTo actionWithDuration:0.1 angle:pair.first.orientation]];
                 //foot.rotation = pair.first.orientation;
                 foot.position = pnt;
@@ -150,7 +150,6 @@
     }
     
     if (footTouched) {
-        [[SoundManager sharedManager] playSound:@"glock__g1.wav"];
         if ([self testVictory]) {
             name.color = ccBLUE;
             [[SoundManager sharedManager] playSound:animal.successSound];

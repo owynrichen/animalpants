@@ -7,6 +7,7 @@
 //
 
 #import "AnimalPart.h"
+#import "SoundManager.h"
 
 @implementation AnimalPart
 
@@ -68,17 +69,17 @@
 }
 
 -(void) draw {
-/*    int count = [fixPoints count];
-    for (int i = 0; i < count; i++) {
+    //int count = [fixPoints count];
+    /* for (int i = 0; i < count; i++) {
         AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
         glColor4ub(255, 0, 0, 255);
         glPointSize(8);
         // NSLog(@"%f,%f -> %f, %f", pnt.point.x, pnt.point.y, glpnt.x, glpnt.y);
         ccDrawPoint(pnt.point);
-    }
+    } */
     
-    glColor4ub(0,255,0,255);
-    glPointSize(8); */
+    //glColor4ub(0,255,0,255);
+    //glPointSize(8);
     [super draw];
     // ccDrawPoint(self.anchorPointInPixels);
 }

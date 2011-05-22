@@ -172,6 +172,10 @@
 		36D20D0013456A65007BE614 /* elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CFA13456A65007BE614 /* elephant.png */; };
 		36D20D0213456AA2007BE614 /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20D0113456AA2007BE614 /* paper.png */; };
 		36D20D0413456BE4007BE614 /* ArialNarrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D20D0313456BE4007BE614 /* ArialNarrow.ttf */; };
+		36EDC49513838E7D00B77975 /* foot_sealion_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EDC49213838E7D00B77975 /* foot_sealion_back.png */; };
+		36EDC49613838E7D00B77975 /* foot_sealion_body.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EDC49313838E7D00B77975 /* foot_sealion_body.png */; };
+		36EDC49713838E7D00B77975 /* foot_sealion_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EDC49413838E7D00B77975 /* foot_sealion_front.png */; };
+		36EDC49A13838F0900B77975 /* sealion2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36EDC49913838F0900B77975 /* sealion2.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -494,6 +498,10 @@
 		36D20CFA13456A65007BE614 /* elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant.png; path = Resources/AnimalImages/elephant.png; sourceTree = "<group>"; };
 		36D20D0113456AA2007BE614 /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paper.png; path = Resources/paper.png; sourceTree = "<group>"; };
 		36D20D0313456BE4007BE614 /* ArialNarrow.ttf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArialNarrow.ttf; sourceTree = "<group>"; };
+		36EDC49213838E7D00B77975 /* foot_sealion_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foot_sealion_back.png; sourceTree = "<group>"; };
+		36EDC49313838E7D00B77975 /* foot_sealion_body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foot_sealion_body.png; sourceTree = "<group>"; };
+		36EDC49413838E7D00B77975 /* foot_sealion_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foot_sealion_front.png; sourceTree = "<group>"; };
+		36EDC49913838F0900B77975 /* sealion2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sealion2.wav; path = Resources/sealion2.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -907,6 +915,7 @@
 		368005FD1375AC4200F6603F /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				36EDC49913838F0900B77975 /* sealion2.wav */,
 				367DFB1F137798570088FD67 /* glock__c2.wav */,
 				367DFB20137798570088FD67 /* glock__e1.wav */,
 				367DFB21137798570088FD67 /* glock__g1.wav */,
@@ -920,6 +929,9 @@
 		36A92CDE133D007E004DFEFC /* animalImages */ = {
 			isa = PBXGroup;
 			children = (
+				36EDC49213838E7D00B77975 /* foot_sealion_back.png */,
+				36EDC49313838E7D00B77975 /* foot_sealion_body.png */,
+				36EDC49413838E7D00B77975 /* foot_sealion_front.png */,
 				36D20CF513456A65007BE614 /* dog.png */,
 				36D20CF613456A65007BE614 /* dog-back.png */,
 				36D20CF713456A65007BE614 /* dog-front.png */,
@@ -1032,6 +1044,10 @@
 				367DFB22137798570088FD67 /* glock__c2.wav in Resources */,
 				367DFB23137798570088FD67 /* glock__e1.wav in Resources */,
 				367DFB24137798570088FD67 /* glock__g1.wav in Resources */,
+				36EDC49513838E7D00B77975 /* foot_sealion_back.png in Resources */,
+				36EDC49613838E7D00B77975 /* foot_sealion_body.png in Resources */,
+				36EDC49713838E7D00B77975 /* foot_sealion_front.png in Resources */,
+				36EDC49A13838F0900B77975 /* sealion2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1184,6 +1200,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1195,7 +1212,9 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1204,14 +1223,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1220,19 +1242,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Owyn Richen (32JG76U29B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Owyn Richen (32JG76U29B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FootGame/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = FootGame/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = FootGame/libs/Chipmunk/include/chipmunk;
 				WRAPPER_EXTENSION = app;
@@ -1243,18 +1265,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Owyn Richen (32JG76U29B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Owyn Richen (32JG76U29B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FootGame/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = FootGame/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "03977233-4B9F-42E2-A5BF-99CF01AA638E";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = FootGame/libs/Chipmunk/include/chipmunk;
 				VALIDATE_PRODUCT = YES;
