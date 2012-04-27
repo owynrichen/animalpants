@@ -176,6 +176,8 @@
 		36EDC49613838E7D00B77975 /* foot_sealion_body.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EDC49313838E7D00B77975 /* foot_sealion_body.png */; };
 		36EDC49713838E7D00B77975 /* foot_sealion_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 36EDC49413838E7D00B77975 /* foot_sealion_front.png */; };
 		36EDC49A13838F0900B77975 /* sealion2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36EDC49913838F0900B77975 /* sealion2.wav */; };
+		36F9BE91154AE6B000059C14 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36F9BE90154AE6B000059C14 /* Entitlements.plist */; };
+		36F9BE95154AE6DB00059C14 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F9BE93154AE6DB00059C14 /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -502,6 +504,9 @@
 		36EDC49313838E7D00B77975 /* foot_sealion_body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foot_sealion_body.png; sourceTree = "<group>"; };
 		36EDC49413838E7D00B77975 /* foot_sealion_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foot_sealion_front.png; sourceTree = "<group>"; };
 		36EDC49913838F0900B77975 /* sealion2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sealion2.wav; path = Resources/sealion2.wav; sourceTree = "<group>"; };
+		36F9BE90154AE6B000059C14 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		36F9BE93154AE6DB00059C14 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = FootGame/libTestFlight.a; sourceTree = "<group>"; };
+		36F9BE94154AE6DB00059C14 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -517,6 +522,7 @@
 				367EC2EB133A4782003F7FF0 /* UIKit.framework in Frameworks */,
 				367EC2ED133A4782003F7FF0 /* Foundation.framework in Frameworks */,
 				367EC2EF133A4782003F7FF0 /* CoreGraphics.framework in Frameworks */,
+				36F9BE95154AE6DB00059C14 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +532,7 @@
 		367EC2D1133A4780003F7FF0 = {
 			isa = PBXGroup;
 			children = (
+				36F9BE90154AE6B000059C14 /* Entitlements.plist */,
 				367EC2F0133A4782003F7FF0 /* FootGame */,
 				367EC2DF133A4782003F7FF0 /* Frameworks */,
 				367EC2DD133A4782003F7FF0 /* Products */,
@@ -543,6 +550,7 @@
 		367EC2DF133A4782003F7FF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36F9BE93154AE6DB00059C14 /* libTestFlight.a */,
 				367EC2E0133A4782003F7FF0 /* QuartzCore.framework */,
 				367EC2E2133A4782003F7FF0 /* OpenGLES.framework */,
 				367EC2E4133A4782003F7FF0 /* OpenAL.framework */,
@@ -577,6 +585,7 @@
 				368006711375ADEE00F6603F /* SoundManager.h */,
 				368006721375ADF400F6603F /* SoundManager.m */,
 				367EC498133A4785003F7FF0 /* GameConfig.h */,
+				36F9BE94154AE6DB00059C14 /* TestFlight.h */,
 				367EC2F1133A4782003F7FF0 /* Resources */,
 				36A92CE0133D030E004DFEFC /* cocos2d */,
 				367EC48B133A4785003F7FF0 /* Supporting Files */,
@@ -1048,6 +1057,7 @@
 				36EDC49613838E7D00B77975 /* foot_sealion_body.png in Resources */,
 				36EDC49713838E7D00B77975 /* foot_sealion_front.png in Resources */,
 				36EDC49A13838F0900B77975 /* sealion2.wav in Resources */,
+				36F9BE91154AE6B000059C14 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,6 +1261,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = FootGame/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FootGame\"",
+				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1273,6 +1287,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = FootGame/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FootGame\"",
+				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

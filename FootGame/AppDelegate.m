@@ -13,6 +13,7 @@
 #import "AnimalViewLayer.h"
 #import "RootViewController.h"
 #import "SoundManager.h"
+#import "TestFlight.h"
 
 @implementation AppDelegate
 
@@ -43,6 +44,13 @@
 {
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [TestFlight takeOff:@"d3beeb5b8630b754a3ec1bf5620b131d_NTgxNzgyMDEyLTAzLTEzIDAyOjQ1OjMzLjA4MTE5OQ"];
+    
+#define TESTING 1
+#ifdef TESTING
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+#endif
 	
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director
@@ -62,11 +70,17 @@
 	//	2. depth format of 0 bit. Use 16 or 24 bit for 3d effects, like CCPageTurnTransition
 	//
 	//
-	EAGLView *glView = [EAGLView viewWithFrame:[window bounds]
-								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
-								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
-						];
+    EAGLView *glView = [EAGLView viewWithFrame:[window bounds]
+								   pixelFormat:kEAGLColorFormatRGBA8
+								   depthFormat:0 //GL_DEPTH_COMPONENT24_OES
+							preserveBackbuffer:NO
+									sharegroup:nil
+								 multiSampling:NO
+							   numberOfSamples:0];
+    
+    [glView setMultipleTouchEnabled:YES];
 	
+    // [director setProjection:CCDirectorProjection2D];
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
 	
@@ -94,10 +108,10 @@
 	
 	
 	// make the OpenGLView a child of the view controller
-	[viewController setView:glView];
+	// [viewController setView:glView];
 	
 	// make the View Controller a child of the main window
-	[window addSubview: viewController.view];
+	[window addSubview: glView];
 	
 	[window makeKeyAndVisible];
 	
