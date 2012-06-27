@@ -11,8 +11,7 @@
 
 typedef enum {
     kAnimalPartTypeBody = 0,
-    kAnimalPartTypeFrontFoot = 1,
-    kAnimalPartTypeBackFoot = 2
+    kAnimalPartTypeFoot = 1
     } AnimalPartType;
 
 @interface AnimalPart : CCSprite <NSCopying> {

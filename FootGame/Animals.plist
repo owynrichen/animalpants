@@ -2,183 +2,114 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Dog</key>
+	<key>Lion</key>
 	<dict>
-		<key>BackFoot</key>
+		<key>Foot</key>
 		<dict>
 			<key>Anchor</key>
 			<dict>
 				<key>orientation</key>
 				<integer>0</integer>
 				<key>x</key>
-				<integer>63</integer>
+				<integer>143</integer>
 				<key>y</key>
-				<integer>19</integer>
+				<integer>303</integer>
 			</dict>
 			<key>Image</key>
-			<string>dog-back.png</string>
+			<string>lion_bottom.png</string>
 		</dict>
 		<key>Body</key>
 		<dict>
-			<key>AnchorBackFoot</key>
+			<key>AnchorFoot</key>
 			<dict>
 				<key>orientation</key>
 				<integer>0</integer>
 				<key>x</key>
-				<integer>359</integer>
+				<integer>143</integer>
 				<key>y</key>
-				<integer>207</integer>
-			</dict>
-			<key>AnchorFrontFoot</key>
-			<dict>
-				<key>orientation</key>
-				<integer>0</integer>
-				<key>x</key>
-				<integer>162</integer>
-				<key>y</key>
-				<integer>242</integer>
+				<integer>303</integer>
 			</dict>
 			<key>Image</key>
-			<string>dog.png</string>
+			<string>lion_top.png</string>
 		</dict>
 		<key>FailSound</key>
 		<string></string>
-		<key>FrontFoot</key>
-		<dict>
-			<key>Anchor</key>
-			<dict>
-				<key>orientation</key>
-				<integer>0</integer>
-				<key>x</key>
-				<integer>52</integer>
-				<key>y</key>
-				<integer>20</integer>
-			</dict>
-			<key>Image</key>
-			<string>dog-front.png</string>
-		</dict>
 		<key>Name</key>
-		<string>Dog</string>
+		<string>Lion</string>
 		<key>SuccessSound</key>
 		<string>barks2.wav</string>
 	</dict>
 	<key>Elephant</key>
 	<dict>
-		<key>BackFoot</key>
+		<key>Foot</key>
 		<dict>
 			<key>Anchor</key>
 			<dict>
 				<key>orientation</key>
 				<integer>0</integer>
 				<key>x</key>
-				<integer>82</integer>
+				<integer>172</integer>
 				<key>y</key>
-				<integer>3</integer>
+				<integer>311</integer>
 			</dict>
 			<key>Image</key>
-			<string>elephant-back.png</string>
+			<string>elephant_bottom.png</string>
 		</dict>
 		<key>Body</key>
 		<dict>
-			<key>AnchorBackFoot</key>
+			<key>AnchorFoot</key>
 			<dict>
 				<key>orientation</key>
 				<integer>0</integer>
 				<key>x</key>
-				<integer>400</integer>
+				<integer>172</integer>
 				<key>y</key>
-				<integer>203</integer>
-			</dict>
-			<key>AnchorFrontFoot</key>
-			<dict>
-				<key>orientation</key>
-				<integer>0</integer>
-				<key>x</key>
-				<integer>202</integer>
-				<key>y</key>
-				<integer>213</integer>
+				<integer>311</integer>
 			</dict>
 			<key>Image</key>
-			<string>elephant.png</string>
+			<string>elephant_top.png</string>
 		</dict>
 		<key>FailSound</key>
 		<string></string>
-		<key>FrontFoot</key>
-		<dict>
-			<key>Anchor</key>
-			<dict>
-				<key>orientation</key>
-				<integer>0</integer>
-				<key>x</key>
-				<integer>45</integer>
-				<key>y</key>
-				<integer>3</integer>
-			</dict>
-			<key>Image</key>
-			<string>elephant-front.png</string>
-		</dict>
 		<key>Name</key>
 		<string>Elephant</string>
 		<key>SuccessSound</key>
 		<string>elephant2.wav</string>
 	</dict>
-	<key>SeaLion</key>
+	<key>Penguin</key>
 	<dict>
-		<key>BackFoot</key>
+		<key>Foot</key>
 		<dict>
 			<key>Anchor</key>
 			<dict>
 				<key>orientation</key>
 				<integer>0</integer>
 				<key>x</key>
-				<integer>243</integer>
+				<integer>128</integer>
 				<key>y</key>
-				<integer>31</integer>
+				<integer>268</integer>
 			</dict>
 			<key>Image</key>
-			<string>foot_sealion_back.png</string>
+			<string>penguin_bottom.png</string>
 		</dict>
 		<key>Body</key>
 		<dict>
-			<key>AnchorBackFoot</key>
+			<key>AnchorFoot</key>
 			<dict>
 				<key>orientation</key>
 				<integer>0</integer>
 				<key>x</key>
-				<integer>365</integer>
+				<integer>128</integer>
 				<key>y</key>
-				<integer>649</integer>
-			</dict>
-			<key>AnchorFrontFoot</key>
-			<dict>
-				<key>orientation</key>
-				<integer>0</integer>
-				<key>x</key>
-				<integer>124</integer>
-				<key>y</key>
-				<integer>474</integer>
+				<integer>268</integer>
 			</dict>
 			<key>Image</key>
-			<string>foot_sealion_body.png</string>
+			<string>penguin_top.png</string>
 		</dict>
 		<key>FailSound</key>
 		<string></string>
-		<key>FrontFoot</key>
-		<dict>
-			<key>Anchor</key>
-			<dict>
-				<key>orientation</key>
-				<integer>0</integer>
-				<key>x</key>
-				<integer>121</integer>
-				<key>y</key>
-				<integer>39</integer>
-			</dict>
-			<key>Image</key>
-			<string>foot_sealion_front.png</string>
-		</dict>
 		<key>Name</key>
-		<string>Sea Lion</string>
+		<string>Penguin</string>
 		<key>SuccessSound</key>
 		<string>sealion2.wav</string>
 	</dict>

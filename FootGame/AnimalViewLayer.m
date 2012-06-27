@@ -32,9 +32,11 @@
 
 -(id) init {
     self = [super init];
-    background = [CCSprite spriteWithFile:@"paper.png"];
-    background.contentSize = [[CCDirector sharedDirector] winSize];
-    background.position = ccp(background.contentSize.width / 2, background.contentSize.height / 2);
+    background = [CCSprite spriteWithFile:@"savannah.png"];
+    // downscale for non-retina
+    background.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    background.position = ccp(winSize.width / 2, winSize.height / 2);
     
     [self addChild:background];
     
@@ -45,20 +47,16 @@
     
     [self addChild:next];
     
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:YES];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:YES];
     return self;
 }
 
 -(void) onEnter {
     animal = [[PartRepository sharedRepository] getRandomAnimal];
-    body = [animal.body copyWithZone:nil];
-    body.position = ccp(500, 500);
     
-    [self addChild:body];
-    
-    name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:150];
+    name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100];
     name.anchorPoint = ccp(0,0);
-    name.position = ccp(50, 20);
+    name.position = ccp(50, 650);
     name.opacity = 200;
     name.color = ccBLACK;
     [self addChild:name];
@@ -67,9 +65,14 @@
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
-        foot.position = ccp(150 + (200 * i), 350);
+        foot.position = ccp(150 + (220 * i), 200);
         [self addChild:foot];
     }
+    
+    body = [animal.body copyWithZone:nil];
+    body.position = ccp(500, 270);
+    
+    [self addChild:body];
     
     [super onEnter];
 }
@@ -169,21 +172,14 @@
 }
 
 -(BOOL) testVictory {
-    CGPoint ffpntWS;
-    CGPoint bfpntWS;
+    CGPoint fpntWS;
     
     for(int i = 0; i < [animal.body.fixPoints count]; i++) {
         AnchorPoint* pnt = (AnchorPoint *) [body.fixPoints objectAtIndex: i];
         
-        NSRange range = [pnt.name rangeOfString: @"FrontFoot"];
+        NSRange range = [pnt.name rangeOfString: @"Foot"];
         if (range.location != NSNotFound) {
-            ffpntWS = [body convertToWorldSpace:pnt.point];
-            continue;
-        }
-        
-        range = [pnt.name rangeOfString: @"BackFoot"];
-        if (range.location != NSNotFound) {
-            bfpntWS = [body convertToWorldSpace:pnt.point];
+            fpntWS = [body convertToWorldSpace:pnt.point];
         }
     }
     
@@ -193,15 +189,9 @@
         CGPoint test = [foot convertToWorldSpace:fpnt.point];
         NSLog(@"Testing foot: %@, %f, %f", foot.imageName, test.x, test.y);
         
-        if ([foot.imageName isEqualToString:animal.frontFoot.imageName]) {
-            NSLog(@"'%@' == '%@'. %f, %f - %f, %f - Distance: %f", foot.imageName, animal.frontFoot.imageName, test.x, test.y, ffpntWS.x, ffpntWS.y, ccpDistance(test, ffpntWS));
-            if (ccpDistance(test, ffpntWS) != 0)
-                return NO;
-        }
-        
-        if ([foot.imageName isEqualToString:animal.backFoot.imageName]) {
-            NSLog(@"'%@' == '%@'. %f, %f - %f, %f - Distance: %f", foot.imageName, animal.frontFoot.imageName, test.x, test.y, bfpntWS.x, bfpntWS.y, ccpDistance(test, ffpntWS));
-            if (ccpDistance(test, bfpntWS) != 0)
+        if ([foot.imageName isEqualToString:animal.foot.imageName]) {
+            NSLog(@"'%@' == '%@'. %f, %f - %f, %f - Distance: %f", foot.imageName, animal.foot.imageName, test.x, test.y, fpntWS.x, fpntWS.y, ccpDistance(test, fpntWS));
+            if (ccpDistance(test, fpntWS) != 0)
                 return NO;
         }
     }

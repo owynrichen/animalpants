@@ -24,6 +24,11 @@
     p.imageName = imgName;
     p.fixPoints = [[NSMutableArray alloc] init];
     p.data = dict;
+    // downscale for non-retina
+    float scaleFactor = 0.5 * CC_CONTENT_SCALE_FACTOR();
+    p.scale = scaleFactor;
+    p.partType = pt;
+    // p.anchorPoint = CGPointMake(p.anchorPoint.x / p.scale, p.anchorPoint.y / p.scale);
     
     NSEnumerator *e = [dict keyEnumerator];
     NSString *key;
@@ -36,7 +41,7 @@
             CGFloat y = [((NSNumber *) [pntDict objectForKey:@"y"]) floatValue];
             
             AnchorPoint *ap = [[AnchorPoint alloc] init];
-            CGPoint pnt = CGPointMake(x, p.contentSize.height - y);
+            CGPoint pnt = CGPointMake(x / p.scale, p.contentSize.height - (y / p.scale));
             ap.point = pnt;
             ap.orientation = [((NSNumber *) [pntDict objectForKey:@"orientation"]) floatValue];
             ap.name = key;
@@ -44,14 +49,13 @@
         }
     }
     
-    if ([p.fixPoints count] == 1) {
+    if (p.partType != kAnimalPartTypeBody) {
         // convert the pixel anchor to a percentage and set
         CGPoint newAnchorPx = ((AnchorPoint *) [p.fixPoints objectAtIndex:0]).point;
-        CGPoint newAnchor = CGPointMake(newAnchorPx.x / p.contentSizeInPixels.width, newAnchorPx.y / p.contentSizeInPixels.height);
+        // invert the scale factor of all points to compensate for any downscaling
+        CGPoint newAnchor = CGPointMake(newAnchorPx.x / p.contentSize.width, newAnchorPx.y / p.contentSize.height);
         p.anchorPoint = newAnchor;
     }
-    
-    p.partType = pt;
 
     return p;
 }
@@ -63,25 +67,23 @@
 -(id) init {
     self = [super init];
     
-    self.opacity = 200;
-    
     return self;
 }
 
 -(void) draw {
-    //int count = [fixPoints count];
-    /* for (int i = 0; i < count; i++) {
+    [super draw];
+    int count = [fixPoints count];
+    for (int i = 0; i < count; i++) {
         AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
-        glColor4ub(255, 0, 0, 255);
-        glPointSize(8);
+        ccDrawColor4B(0, 0, 255, 255);
+        ccPointSize(8 * CC_CONTENT_SCALE_FACTOR());
         // NSLog(@"%f,%f -> %f, %f", pnt.point.x, pnt.point.y, glpnt.x, glpnt.y);
         ccDrawPoint(pnt.point);
-    } */
+    }
     
-    //glColor4ub(0,255,0,255);
-    //glPointSize(8);
-    [super draw];
-    // ccDrawPoint(self.anchorPointInPixels);
+    ccDrawColor4B(0,255,0,180);
+    ccPointSize(8);
+    ccDrawPoint(self.anchorPointInPoints);
 }
 
 -(BOOL) hitTest:(CGPoint)point {
@@ -104,7 +106,7 @@
     for(int i = 0; i < selfCount; i++) {
         for(int j = 0; j < count; j++) {
             CGPoint footPoint = [self convertToWorldSpace:((AnchorPoint *) [self.fixPoints objectAtIndex:i]).point];
-            CGPoint bodyPoint = [part convertToWorldSpace:((AnchorPoint *)[part.fixPoints objectAtIndex:j]).point];
+            CGPoint bodyPoint = [part convertToWorldSpace:((AnchorPoint *) [part.fixPoints objectAtIndex:j]).point];
             distance = ccpDistance(footPoint, bodyPoint);
             // NSLog(@"%@: %f,%f - %@: %f,%f - D: %f Max: %f", ((AnchorPoint *) [self.fixPoints objectAtIndex:i]).name, footPoint.x, footPoint.y, ((AnchorPoint *) [part.fixPoints objectAtIndex:j]).name, bodyPoint.x, bodyPoint.y, distance, mindistance);
             

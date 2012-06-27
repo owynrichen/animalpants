@@ -67,8 +67,7 @@ static PartRepository * _instance;
     usedAnimalNames = [[NSMutableDictionary alloc] init];
     
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"body"];
-    [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"frontfoot"];
-    [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"backfoot"];
+    [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"foot"];
     
     /* [aplist enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stopblock) {
         NSString *strkey = (NSString *) key;
@@ -92,13 +91,10 @@ static PartRepository * _instance;
         
         [animals setValue:animal forKey:strkey];
         [((NSMutableArray *) [partsByType objectForKey:@"body"]) addObject:animal.body];
-        [((NSMutableArray *) [partsByType objectForKey:@"frontfoot"]) addObject:animal.frontFoot];
-        [((NSMutableArray *) [partsByType objectForKey:@"backfoot"]) addObject:animal.backFoot];
-        [feet addObject:animal.frontFoot];
-        [feet addObject:animal.backFoot];
+        [((NSMutableArray *) [partsByType objectForKey:@"foot"]) addObject:animal.foot];
+        [feet addObject:animal.foot];
         [parts addObject:animal.body];
-        [parts addObject:animal.frontFoot];
-        [parts addObject:animal.backFoot];
+        [parts addObject:animal.foot];
     }
 
     return self;
@@ -134,8 +130,7 @@ static PartRepository * _instance;
     NSMutableArray *feetToReturn = [[NSMutableArray alloc] init];
     
     if (animal != nil) {
-        [feetToReturn addObject:[animal.frontFoot copyWithZone:nil]];
-        [feetToReturn addObject: [animal.backFoot copyWithZone:nil]];
+        [feetToReturn addObject:[animal.foot copyWithZone:nil]];
         // [feetToReturn addObject:animal.frontFoot];
         // [feetToReturn addObject:animal.backFoot];
     }
@@ -153,7 +148,7 @@ static PartRepository * _instance;
         // if an animal is passed, ensure that it's not an existing animal foot
         if (animal != nil) {
             // NSLog(@"%@ == %@ or %@", foot.imageName, animal.frontFoot.imageName, animal.backFoot.imageName);
-            if ([foot.imageName isEqualToString: animal.frontFoot.imageName] || [foot.imageName isEqualToString: animal.backFoot.imageName]) {
+            if ([foot.imageName isEqualToString: animal.foot.imageName]) {
                 NSLog(@"true");
                 continue;
             }

@@ -52,11 +52,6 @@
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
 	
-	// Try to use CADisplayLink director
-	// if it fails (SDK < 3.1) use the default director
-	if( ! [CCDirector setDirectorType:kCCDirectorTypeDisplayLink] )
-		[CCDirector setDirectorType:kCCDirectorTypeDefault];
-	
 	
 	CCDirector *director = [CCDirector sharedDirector];
 	
@@ -70,7 +65,14 @@
 	//	2. depth format of 0 bit. Use 16 or 24 bit for 3d effects, like CCPageTurnTransition
 	//
 	//
-    EAGLView *glView = [EAGLView viewWithFrame:[window bounds]
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    float scale = [[UIScreen mainScreen] scale];
+    bounds.size.width *= scale;
+    bounds.size.height *= scale;
+    
+    // CGRect bounds = [window bounds];
+    CCGLView *glView = [CCGLView viewWithFrame:bounds
 								   pixelFormat:kEAGLColorFormatRGBA8
 								   depthFormat:0 //GL_DEPTH_COMPONENT24_OES
 							preserveBackbuffer:NO
@@ -82,33 +84,14 @@
 	
     // [director setProjection:CCDirectorProjection2D];
 	// attach the openglView to the director
-	[director setOpenGLView:glView];
-	
-//	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-//	if( ! [director enableRetinaDisplay:YES] )
-//		CCLOG(@"Retina Display Not supported");
-	
-	//
-	// VERY IMPORTANT:
-	// If the rotation is going to be controlled by a UIViewController
-	// then the device orientation should be "Portrait".
-	//
-	// IMPORTANT:
-	// By default, this template only supports Landscape orientations.
-	// Edit the RootViewController.m file to edit the supported orientations.
-	//
-#if GAME_AUTOROTATION == kGameAutorotationUIViewController
-	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
-#else
-	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
-#endif
-	
+	director.view = glView;
+    // Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
+	if( ! [director enableRetinaDisplay:YES])
+		CCLOG(@"Retina Display Not supported");
+    
+	[director setDelegate:self];
+
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
-	
-	
-	// make the OpenGLView a child of the view controller
-	// [viewController setView:glView];
 	
 	// make the View Controller a child of the main window
 	[window addSubview: glView];
@@ -131,6 +114,10 @@
     [[SoundManager sharedManager] playBackground:@"Olde Timey.mp3"];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] pause];
@@ -155,7 +142,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 	CCDirector *director = [CCDirector sharedDirector];
 	
-	[[director openGLView] removeFromSuperview];
+	[director.view removeFromSuperview];
 	
 	[viewController release];
 	
