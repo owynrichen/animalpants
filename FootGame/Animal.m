@@ -11,6 +11,7 @@
 
 @implementation Animal
 
+@synthesize key;
 @synthesize name;
 @synthesize body;
 @synthesize foot;
@@ -19,6 +20,7 @@
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict {
     Animal *anml = [[Animal alloc] init];
+    anml.key = [dict objectForKey:@"Key"];
     anml.name = [dict objectForKey:@"Name"];
     anml.body = [AnimalPart initWithDictionary:[dict objectForKey:@"Body"] partType:kAnimalPartTypeBody];
     anml.foot = [AnimalPart initWithDictionary:[dict objectForKey:@"Foot"] partType:kAnimalPartTypeFoot];

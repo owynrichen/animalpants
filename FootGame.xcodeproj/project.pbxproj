@@ -16,6 +16,12 @@
 		3615070B1594CD37000F46D9 /* penguin_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 361507091594CD37000F46D9 /* penguin_top.png */; };
 		361507111594CD61000F46D9 /* lion_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 3615070F1594CD61000F46D9 /* lion_bottom.png */; };
 		361507121594CD61000F46D9 /* lion_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 361507101594CD61000F46D9 /* lion_top.png */; };
+		364B025E159B60870054E69A /* Animal-Lion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B025D159B60870054E69A /* Animal-Lion.plist */; };
+		364B0260159B60B40054E69A /* Animal-Penguin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B025F159B60B40054E69A /* Animal-Penguin.plist */; };
+		364B0262159B60EA0054E69A /* Animal-Elephant.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B0261159B60EA0054E69A /* Animal-Elephant.plist */; };
+		364B0264159B614D0054E69A /* Environment-Savannah.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B0263159B614D0054E69A /* Environment-Savannah.plist */; };
+		364B0266159B61600054E69A /* Environment-Tropical.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B0265159B61600054E69A /* Environment-Tropical.plist */; };
+		364B0268159B616F0054E69A /* Environment-Arctic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B0267159B616F0054E69A /* Environment-Arctic.plist */; };
 		367CDB22159A9AD2002DF18B /* libChipmunk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAAF159A9712002DF18B /* libChipmunk.a */; };
 		367CDB23159A9AD2002DF18B /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAB1159A9712002DF18B /* libcocos2d.a */; };
 		367CDB24159A9AD2002DF18B /* libCocosDenshion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAB5159A9712002DF18B /* libCocosDenshion.a */; };
@@ -48,7 +54,6 @@
 		368006751375B37F00F6603F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 368006741375B37F00F6603F /* arrow.png */; };
 		3680067A137601DD00F6603F /* Olde Timey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36800679137601DC00F6603F /* Olde Timey.mp3 */; };
 		36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */; };
-		36A92CDC133C82B5004DFEFC /* Animals.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36A92CDB133C82B5004DFEFC /* Animals.plist */; };
 		36A92CE3133D038F004DFEFC /* AnimalPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE2133D038C004DFEFC /* AnimalPart.m */; };
 		36A92CE6133E8C5B004DFEFC /* PartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* PartRepository.m */; };
 		36A92CE9133ED436004DFEFC /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE8133ED42F004DFEFC /* Animal.m */; };
@@ -502,6 +507,12 @@
 		361507091594CD37000F46D9 /* penguin_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = penguin_top.png; path = Resources/penguin_top.png; sourceTree = "<group>"; };
 		3615070F1594CD61000F46D9 /* lion_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lion_bottom.png; path = Resources/lion_bottom.png; sourceTree = "<group>"; };
 		361507101594CD61000F46D9 /* lion_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lion_top.png; path = Resources/lion_top.png; sourceTree = "<group>"; };
+		364B025D159B60870054E69A /* Animal-Lion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Animal-Lion.plist"; path = "Resources/Animal-Lion.plist"; sourceTree = "<group>"; };
+		364B025F159B60B40054E69A /* Animal-Penguin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Animal-Penguin.plist"; sourceTree = "<group>"; };
+		364B0261159B60EA0054E69A /* Animal-Elephant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Animal-Elephant.plist"; sourceTree = "<group>"; };
+		364B0263159B614D0054E69A /* Environment-Savannah.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Savannah.plist"; sourceTree = "<group>"; };
+		364B0265159B61600054E69A /* Environment-Tropical.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Tropical.plist"; sourceTree = "<group>"; };
+		364B0267159B616F0054E69A /* Environment-Arctic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Arctic.plist"; sourceTree = "<group>"; };
 		367CDA3A159A970D002DF18B /* cocos2d-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-ios.xcodeproj"; path = "../../cocos2d-iphone-2.0-rc2/cocos2d-ios.xcodeproj"; sourceTree = "<group>"; };
 		367DFB1F137798570088FD67 /* glock__c2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glock__c2.wav; sourceTree = "<group>"; };
 		367DFB20137798570088FD67 /* glock__e1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glock__e1.wav; sourceTree = "<group>"; };
@@ -541,7 +552,6 @@
 		36800679137601DC00F6603F /* Olde Timey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Olde Timey.mp3"; sourceTree = "<group>"; };
 		36A92CD0133C6D48004DFEFC /* AnimalViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalViewLayer.h; sourceTree = "<group>"; };
 		36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalViewLayer.m; sourceTree = "<group>"; };
-		36A92CDB133C82B5004DFEFC /* Animals.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Animals.plist; sourceTree = "<group>"; };
 		36A92CE1133D038B004DFEFC /* AnimalPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalPart.h; sourceTree = "<group>"; };
 		36A92CE2133D038C004DFEFC /* AnimalPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalPart.m; sourceTree = "<group>"; };
 		36A92CE4133E8C52004DFEFC /* PartRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartRepository.h; sourceTree = "<group>"; };
@@ -604,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				361507041594CA5F000F46D9 /* Graphics */,
+				364B0263159B614D0054E69A /* Environment-Savannah.plist */,
 			);
 			name = Savannah;
 			sourceTree = "<group>";
@@ -612,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				361507031594CA57000F46D9 /* Graphics */,
+				364B0265159B61600054E69A /* Environment-Tropical.plist */,
 			);
 			name = Tropical;
 			sourceTree = "<group>";
@@ -620,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				361507021594CA4F000F46D9 /* Graphics */,
+				364B0267159B616F0054E69A /* Environment-Arctic.plist */,
 			);
 			name = Arctic;
 			sourceTree = "<group>";
@@ -639,6 +652,7 @@
 			children = (
 				361507051594CA6B000F46D9 /* Audio */,
 				361507011594CA41000F46D9 /* Graphics */,
+				364B0261159B60EA0054E69A /* Animal-Elephant.plist */,
 			);
 			name = Elephant;
 			sourceTree = "<group>";
@@ -689,6 +703,7 @@
 			children = (
 				3615070C1594CD3E000F46D9 /* Audio */,
 				361507071594CD26000F46D9 /* Graphics */,
+				364B025F159B60B40054E69A /* Animal-Penguin.plist */,
 			);
 			name = Penguin;
 			sourceTree = "<group>";
@@ -714,6 +729,7 @@
 			children = (
 				361507131594CD6B000F46D9 /* Audio */,
 				3615070E1594CD55000F46D9 /* Graphics */,
+				364B025D159B60870054E69A /* Animal-Lion.plist */,
 			);
 			name = Lion;
 			sourceTree = "<group>";
@@ -732,6 +748,26 @@
 			children = (
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		364B025B159B5ED60054E69A /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Environment;
+			sourceTree = "<group>";
+		};
+		364B025C159B5EE10054E69A /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				36A92CE7133ED42B004DFEFC /* Animal.h */,
+				36A92CE8133ED42F004DFEFC /* Animal.m */,
+				36A92CF2133EF73A004DFEFC /* AnchorPoint.h */,
+				36A92CF3133EF742004DFEFC /* AnchorPoint.m */,
+				36A92CE1133D038B004DFEFC /* AnimalPart.h */,
+				36A92CE2133D038C004DFEFC /* AnimalPart.m */,
+			);
+			name = Animal;
 			sourceTree = "<group>";
 		};
 		367CDA3B159A970D002DF18B /* Products */ = {
@@ -836,10 +872,8 @@
 		367EC2F0133A4782003F7FF0 /* FootGame */ = {
 			isa = PBXGroup;
 			children = (
-				36A92CF2133EF73A004DFEFC /* AnchorPoint.h */,
-				36A92CF3133EF742004DFEFC /* AnchorPoint.m */,
-				36A92CE1133D038B004DFEFC /* AnimalPart.h */,
-				36A92CE2133D038C004DFEFC /* AnimalPart.m */,
+				364B025C159B5EE10054E69A /* Animal */,
+				364B025B159B5ED60054E69A /* Environment */,
 				36A92CD0133C6D48004DFEFC /* AnimalViewLayer.h */,
 				36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */,
 				367EC48F133A4785003F7FF0 /* AppDelegate.h */,
@@ -848,8 +882,6 @@
 				367EC493133A4785003F7FF0 /* RootViewController.m */,
 				36A92CE4133E8C52004DFEFC /* PartRepository.h */,
 				36A92CE5133E8C55004DFEFC /* PartRepository.m */,
-				36A92CE7133ED42B004DFEFC /* Animal.h */,
-				36A92CE8133ED42F004DFEFC /* Animal.m */,
 				368006711375ADEE00F6603F /* SoundManager.h */,
 				368006721375ADF400F6603F /* SoundManager.m */,
 				367EC498133A4785003F7FF0 /* GameConfig.h */,
@@ -872,7 +904,6 @@
 				36A92CDF133D0194004DFEFC /* images */,
 				367EC302133A4782003F7FF0 /* Info.plist */,
 				367EC303133A4782003F7FF0 /* iTunesArtwork */,
-				36A92CDB133C82B5004DFEFC /* Animals.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1399,7 +1430,6 @@
 				367EC301133A4782003F7FF0 /* Icon@2x.png in Resources */,
 				367EC304133A4782003F7FF0 /* iTunesArtwork in Resources */,
 				367EC49A133A4785003F7FF0 /* grossini_dance_atlas.png in Resources */,
-				36A92CDC133C82B5004DFEFC /* Animals.plist in Resources */,
 				36D20CFB13456A65007BE614 /* dog.png in Resources */,
 				36D20CFC13456A65007BE614 /* dog-back.png in Resources */,
 				36D20CFD13456A65007BE614 /* dog-front.png in Resources */,
@@ -1429,6 +1459,12 @@
 				3615070B1594CD37000F46D9 /* penguin_top.png in Resources */,
 				361507111594CD61000F46D9 /* lion_bottom.png in Resources */,
 				361507121594CD61000F46D9 /* lion_top.png in Resources */,
+				364B025E159B60870054E69A /* Animal-Lion.plist in Resources */,
+				364B0260159B60B40054E69A /* Animal-Penguin.plist in Resources */,
+				364B0262159B60EA0054E69A /* Animal-Elephant.plist in Resources */,
+				364B0264159B614D0054E69A /* Environment-Savannah.plist in Resources */,
+				364B0266159B61600054E69A /* Environment-Tropical.plist in Resources */,
+				364B0268159B616F0054E69A /* Environment-Arctic.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1535,6 +1571,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-2.0-rc2/**";
 				WRAPPER_EXTENSION = app;
@@ -1561,6 +1598,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-2.0-rc2/**";
 				VALIDATE_PRODUCT = YES;

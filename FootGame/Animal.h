@@ -10,6 +10,7 @@
 #import "AnimalPart.h"
 
 @interface Animal : NSObject {
+    NSString *key;
     NSString *name;
     AnimalPart *body;
     AnimalPart *foot;
@@ -18,6 +19,7 @@
     NSString *failSound;
 }
 
+@property (nonatomic, retain) NSString *key;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) AnimalPart *body;
 @property (nonatomic, retain) AnimalPart *foot;

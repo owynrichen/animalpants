@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Foot</key>
+	<dict>
+		<key>Anchor</key>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>143</integer>
+			<key>y</key>
+			<integer>303</integer>
+		</dict>
+		<key>Image</key>
+		<string>lion_bottom.png</string>
+	</dict>
+	<key>Body</key>
+	<dict>
+		<key>AnchorFoot</key>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>143</integer>
+			<key>y</key>
+			<integer>303</integer>
+		</dict>
+		<key>Image</key>
+		<string>lion_top.png</string>
+	</dict>
+	<key>FailSound</key>
+	<string></string>
+	<key>Name</key>
+	<string>Lion</string>
+	<key>SuccessSound</key>
+	<string>barks2.wav</string>
+	<key>Key</key>
+	<string>Lion</string>
+</dict>
+</plist>

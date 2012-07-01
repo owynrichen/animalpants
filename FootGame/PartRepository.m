@@ -41,6 +41,11 @@ static NSUInteger random_below(NSUInteger n) {
 }
 @end
 
+@interface PartRepository()
+-(void) loadFromFilesAtPath: (NSString *) rootPath;
+-(void) loadAnimal: (Animal *) animal;
+@end
+
 @implementation PartRepository
 
 static PartRepository * _instance;
@@ -58,8 +63,6 @@ static PartRepository * _instance;
 }
 
 -(id) init {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Animals" ofType:@"plist"];
-	aplist = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     parts = [[NSMutableArray alloc] init];
     feet = [[NSMutableArray alloc] init];
     animals = [[NSMutableDictionary alloc] init];
@@ -68,36 +71,56 @@ static PartRepository * _instance;
     
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"body"];
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"foot"];
-    
-    /* [aplist enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stopblock) {
-        NSString *strkey = (NSString *) key;
-        Animal *animal = [Animal initWithDictionary: obj];
-        
-        [animals setValue:animal forKey:strkey];
-        [((NSMutableArray *) [partsByType objectForKey:@"body"]) addObject:animal.body];
-        [((NSMutableArray *) [partsByType objectForKey:@"frontfoot"]) addObject:animal.frontFoot];
-        [((NSMutableArray *) [partsByType objectForKey:@"backfoot"]) addObject:animal.backFoot];
-        [feet addObject:animal.frontFoot];
-        [feet addObject:animal.backFoot];
-        [parts addObject:animal.body];
-        [parts addObject:animal.frontFoot];
-        [parts addObject:animal.backFoot];
-    }]; */
-    NSEnumerator *aplistenum = [aplist keyEnumerator];
-    id key;
-    while((key = [aplistenum nextObject]) != nil) {
-        NSString *strkey = (NSString *) key;
-        Animal *animal = [Animal initWithDictionary: [aplist objectForKey:strkey]];
-        
-        [animals setValue:animal forKey:strkey];
-        [((NSMutableArray *) [partsByType objectForKey:@"body"]) addObject:animal.body];
-        [((NSMutableArray *) [partsByType objectForKey:@"foot"]) addObject:animal.foot];
-        [feet addObject:animal.foot];
-        [parts addObject:animal.body];
-        [parts addObject:animal.foot];
-    }
 
+    NSMutableArray* paths = [NSMutableArray arrayWithArray:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                       NSUserDomainMask, YES)];
+    [paths addObject:[[NSBundle mainBundle] bundlePath]];
+    
+    // [self loadFromOldFile];
+    [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self loadFromFilesAtPath:(NSString *) obj];  
+    }];
+    
     return self;
+}
+
+-(void) loadAnimal:(Animal *)animal {
+    [animals setValue:animal forKey:animal.key];
+    [((NSMutableArray *) [partsByType objectForKey:@"body"]) addObject:animal.body];
+    [((NSMutableArray *) [partsByType objectForKey:@"foot"]) addObject:animal.foot];
+    [feet addObject:animal.foot];
+    [parts addObject:animal.body];
+    [parts addObject:animal.foot];
+}
+
+-(void) loadFromFilesAtPath: (NSString *) rootPath {
+    NSEnumerator *enumerator = [[NSFileManager defaultManager]
+                                enumeratorAtPath:rootPath];
+    
+    NSString *path = nil;
+    
+    while (path = (NSString *) [enumerator nextObject]) {
+        NSArray *components = [path pathComponents];
+        NSString *filename = [components objectAtIndex:[components count] - 1];
+        
+        if ([filename hasPrefix:@"Animal-"] && [filename.pathExtension isEqualToString:@"plist"]) {
+            NSString *fullPath = [rootPath stringByAppendingPathComponent:filename];
+            
+            NSPropertyListFormat format;
+            NSString *errorDesc = nil;
+            NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:fullPath];
+            
+            NSDictionary *apdict = (NSDictionary *)[NSPropertyListSerialization
+                                                     propertyListFromData:plistXML
+                                                     mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                     format:&format
+                                                     errorDescription:&errorDesc];
+                                                    
+            Animal *animal = [Animal initWithDictionary: apdict];
+            
+            [self loadAnimal:animal];
+        }
+    }
 }
 
 -(void) resetAnimals {
@@ -131,8 +154,6 @@ static PartRepository * _instance;
     
     if (animal != nil) {
         [feetToReturn addObject:[animal.foot copyWithZone:nil]];
-        // [feetToReturn addObject:animal.frontFoot];
-        // [feetToReturn addObject:animal.backFoot];
     }
     
     int footCount = [feet count];
