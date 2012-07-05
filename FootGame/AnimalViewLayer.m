@@ -7,7 +7,8 @@
 //
 
 #import "AnimalViewLayer.h"
-#import "PartRepository.h"
+#import "AnimalPartRepository.h"
+#import "EnvironmentRepository.h"
 #import "SoundManager.h"
 
 #define SNAP_DISTANCE 30
@@ -32,27 +33,17 @@
 
 -(id) init {
     self = [super init];
-    background = [CCSprite spriteWithFile:@"savannah.png"];
-    // downscale for non-retina
-    background.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    background.position = ccp(winSize.width / 2, winSize.height / 2);
-    
-    [self addChild:background];
-    
-    next = [CCSprite spriteWithFile:@"arrow.png"];
-    next.scale = 0.4;
-    next.position = ccp(920, 90);
-    next.visible = false;
-    
-    [self addChild:next];
     
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:YES];
     return self;
 }
 
 -(void) onEnter {
-    animal = [[PartRepository sharedRepository] getRandomAnimal];
+    animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
+    
+    background = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
+    
+    [self addChild:background];
     
     name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100];
     name.anchorPoint = ccp(0,0);
@@ -61,11 +52,11 @@
     name.color = ccBLACK;
     [self addChild:name];
     
-    feet = [[PartRepository sharedRepository] getRandomFeet:4 includingAnimalFeet:animal];
+    feet = [[AnimalPartRepository sharedRepository] getRandomFeet:4 includingAnimalFeet:animal];
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
-        foot.position = ccp(150 + (220 * i), 200);
+        foot.position = ccp(150 + (310 * i), 170);
         [self addChild:foot];
     }
     
@@ -73,6 +64,13 @@
     body.position = ccp(500, 270);
     
     [self addChild:body];
+    
+    next = [CCSprite spriteWithFile:@"arrow.png"];
+    next.scale = 0.4 * (0.5 * CC_CONTENT_SCALE_FACTOR());
+    next.position = ccp(920, 90);
+    next.visible = false;
+    
+    [self addChild:next];
     
     [super onEnter];
 }
@@ -85,6 +83,7 @@
     }
     [self removeChild:name cleanup:YES];
     [self removeChild:background cleanup:YES];
+
     [super onExit];
 }
 

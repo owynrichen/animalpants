@@ -38,5 +38,7 @@
 	<string>sealion2.wav</string>
 	<key>Key</key>
 	<string>Penguin</string>
+	<key>Environment</key>
+	<string>arctic</string>
 </dict>
 </plist>

@@ -38,5 +38,7 @@
 	<string>barks2.wav</string>
 	<key>Key</key>
 	<string>Lion</string>
+	<key>Environment</key>
+	<string>tropical</string>
 </dict>
 </plist>

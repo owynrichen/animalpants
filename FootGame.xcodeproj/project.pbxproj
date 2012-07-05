@@ -22,6 +22,10 @@
 		364B0264159B614D0054E69A /* Environment-Savannah.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B0263159B614D0054E69A /* Environment-Savannah.plist */; };
 		364B0266159B61600054E69A /* Environment-Tropical.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B0265159B61600054E69A /* Environment-Tropical.plist */; };
 		364B0268159B616F0054E69A /* Environment-Arctic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B0267159B616F0054E69A /* Environment-Arctic.plist */; };
+		364B046D159FD61F0054E69A /* EnvironmentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B046C159FD61F0054E69A /* EnvironmentLayer.m */; };
+		364B067815A2BFF70054E69A /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364B067515A2BCF50054E69A /* libLua.a */; };
+		364B067B15A2CB650054E69A /* EnvironmentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B067A15A2CB650054E69A /* EnvironmentRepository.m */; };
+		364B077715A50E510054E69A /* BaseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B077615A50E510054E69A /* BaseRepository.m */; };
 		367CDB22159A9AD2002DF18B /* libChipmunk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAAF159A9712002DF18B /* libChipmunk.a */; };
 		367CDB23159A9AD2002DF18B /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAB1159A9712002DF18B /* libcocos2d.a */; };
 		367CDB24159A9AD2002DF18B /* libCocosDenshion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAB5159A9712002DF18B /* libCocosDenshion.a */; };
@@ -55,7 +59,7 @@
 		3680067A137601DD00F6603F /* Olde Timey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36800679137601DC00F6603F /* Olde Timey.mp3 */; };
 		36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */; };
 		36A92CE3133D038F004DFEFC /* AnimalPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE2133D038C004DFEFC /* AnimalPart.m */; };
-		36A92CE6133E8C5B004DFEFC /* PartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* PartRepository.m */; };
+		36A92CE6133E8C5B004DFEFC /* AnimalPartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* AnimalPartRepository.m */; };
 		36A92CE9133ED436004DFEFC /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE8133ED42F004DFEFC /* Animal.m */; };
 		36A92CF4133EF753004DFEFC /* AnchorPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CF3133EF742004DFEFC /* AnchorPoint.m */; };
 		36D20CFB13456A65007BE614 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D20CF513456A65007BE614 /* dog.png */; };
@@ -75,6 +79,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		364B067415A2BCF50054E69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 364B066D15A2BCF40054E69A /* Lua.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 364B054915A2BB070054E69A;
+			remoteInfo = Lua;
+		};
+		364B067615A2BFED0054E69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 364B066D15A2BCF40054E69A /* Lua.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 364B054815A2BB070054E69A;
+			remoteInfo = Lua;
+		};
 		367CDAAA159A9712002DF18B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 367CDA3A159A970D002DF18B /* cocos2d-ios.xcodeproj */;
@@ -513,6 +531,13 @@
 		364B0263159B614D0054E69A /* Environment-Savannah.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Savannah.plist"; sourceTree = "<group>"; };
 		364B0265159B61600054E69A /* Environment-Tropical.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Tropical.plist"; sourceTree = "<group>"; };
 		364B0267159B616F0054E69A /* Environment-Arctic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Arctic.plist"; sourceTree = "<group>"; };
+		364B046B159FD61F0054E69A /* EnvironmentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentLayer.h; sourceTree = "<group>"; };
+		364B046C159FD61F0054E69A /* EnvironmentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentLayer.m; sourceTree = "<group>"; };
+		364B066D15A2BCF40054E69A /* Lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lua.xcodeproj; path = "../../lua-5.2.1/Lua.xcodeproj"; sourceTree = "<group>"; };
+		364B067915A2CB650054E69A /* EnvironmentRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentRepository.h; sourceTree = "<group>"; };
+		364B067A15A2CB650054E69A /* EnvironmentRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentRepository.m; sourceTree = "<group>"; };
+		364B077515A50E510054E69A /* BaseRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRepository.h; sourceTree = "<group>"; };
+		364B077615A50E510054E69A /* BaseRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRepository.m; sourceTree = "<group>"; };
 		367CDA3A159A970D002DF18B /* cocos2d-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-ios.xcodeproj"; path = "../../cocos2d-iphone-2.0-rc2/cocos2d-ios.xcodeproj"; sourceTree = "<group>"; };
 		367DFB1F137798570088FD67 /* glock__c2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glock__c2.wav; sourceTree = "<group>"; };
 		367DFB20137798570088FD67 /* glock__e1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glock__e1.wav; sourceTree = "<group>"; };
@@ -554,8 +579,8 @@
 		36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalViewLayer.m; sourceTree = "<group>"; };
 		36A92CE1133D038B004DFEFC /* AnimalPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalPart.h; sourceTree = "<group>"; };
 		36A92CE2133D038C004DFEFC /* AnimalPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalPart.m; sourceTree = "<group>"; };
-		36A92CE4133E8C52004DFEFC /* PartRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartRepository.h; sourceTree = "<group>"; };
-		36A92CE5133E8C55004DFEFC /* PartRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartRepository.m; sourceTree = "<group>"; };
+		36A92CE4133E8C52004DFEFC /* AnimalPartRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalPartRepository.h; sourceTree = "<group>"; };
+		36A92CE5133E8C55004DFEFC /* AnimalPartRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalPartRepository.m; sourceTree = "<group>"; };
 		36A92CE7133ED42B004DFEFC /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		36A92CE8133ED42F004DFEFC /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 		36A92CF2133EF73A004DFEFC /* AnchorPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorPoint.h; sourceTree = "<group>"; };
@@ -582,6 +607,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364B067815A2BFF70054E69A /* libLua.a in Frameworks */,
 				367CDB22159A9AD2002DF18B /* libChipmunk.a in Frameworks */,
 				367CDB23159A9AD2002DF18B /* libcocos2d.a in Frameworks */,
 				367CDB24159A9AD2002DF18B /* libCocosDenshion.a in Frameworks */,
@@ -753,6 +779,10 @@
 		364B025B159B5ED60054E69A /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				364B046B159FD61F0054E69A /* EnvironmentLayer.h */,
+				364B046C159FD61F0054E69A /* EnvironmentLayer.m */,
+				364B067915A2CB650054E69A /* EnvironmentRepository.h */,
+				364B067A15A2CB650054E69A /* EnvironmentRepository.m */,
 			);
 			name = Environment;
 			sourceTree = "<group>";
@@ -760,6 +790,8 @@
 		364B025C159B5EE10054E69A /* Animal */ = {
 			isa = PBXGroup;
 			children = (
+				36A92CE4133E8C52004DFEFC /* AnimalPartRepository.h */,
+				36A92CE5133E8C55004DFEFC /* AnimalPartRepository.m */,
 				36A92CE7133ED42B004DFEFC /* Animal.h */,
 				36A92CE8133ED42F004DFEFC /* Animal.m */,
 				36A92CF2133EF73A004DFEFC /* AnchorPoint.h */,
@@ -768,6 +800,14 @@
 				36A92CE2133D038C004DFEFC /* AnimalPart.m */,
 			);
 			name = Animal;
+			sourceTree = "<group>";
+		};
+		364B066E15A2BCF40054E69A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				364B067515A2BCF50054E69A /* libLua.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		367CDA3B159A970D002DF18B /* Products */ = {
@@ -837,6 +877,7 @@
 		367EC2D1133A4780003F7FF0 = {
 			isa = PBXGroup;
 			children = (
+				364B066D15A2BCF40054E69A /* Lua.xcodeproj */,
 				367CDA3A159A970D002DF18B /* cocos2d-ios.xcodeproj */,
 				36F9BE90154AE6B000059C14 /* Entitlements.plist */,
 				367EC2F0133A4782003F7FF0 /* FootGame */,
@@ -878,10 +919,10 @@
 				36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */,
 				367EC48F133A4785003F7FF0 /* AppDelegate.h */,
 				367EC490133A4785003F7FF0 /* AppDelegate.m */,
+				364B077515A50E510054E69A /* BaseRepository.h */,
+				364B077615A50E510054E69A /* BaseRepository.m */,
 				367EC492133A4785003F7FF0 /* RootViewController.h */,
 				367EC493133A4785003F7FF0 /* RootViewController.m */,
-				36A92CE4133E8C52004DFEFC /* PartRepository.h */,
-				36A92CE5133E8C55004DFEFC /* PartRepository.m */,
 				368006711375ADEE00F6603F /* SoundManager.h */,
 				368006721375ADF400F6603F /* SoundManager.m */,
 				367EC498133A4785003F7FF0 /* GameConfig.h */,
@@ -977,6 +1018,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				364B067715A2BFED0054E69A /* PBXTargetDependency */,
 				367CDB1D159A9AAA002DF18B /* PBXTargetDependency */,
 				367CDB1F159A9AAA002DF18B /* PBXTargetDependency */,
 				367CDB21159A9AAA002DF18B /* PBXTargetDependency */,
@@ -1006,6 +1048,10 @@
 					ProductGroup = 367CDA3B159A970D002DF18B /* Products */;
 					ProjectRef = 367CDA3A159A970D002DF18B /* cocos2d-ios.xcodeproj */;
 				},
+				{
+					ProductGroup = 364B066E15A2BCF40054E69A /* Products */;
+					ProjectRef = 364B066D15A2BCF40054E69A /* Lua.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1015,6 +1061,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		364B067515A2BCF50054E69A /* libLua.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLua.a;
+			remoteRef = 364B067415A2BCF50054E69A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		367CDAAB159A9712002DF18B /* libbuild all tests.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1480,16 +1533,24 @@
 				367EC494133A4785003F7FF0 /* RootViewController.m in Sources */,
 				36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */,
 				36A92CE3133D038F004DFEFC /* AnimalPart.m in Sources */,
-				36A92CE6133E8C5B004DFEFC /* PartRepository.m in Sources */,
+				36A92CE6133E8C5B004DFEFC /* AnimalPartRepository.m in Sources */,
 				36A92CE9133ED436004DFEFC /* Animal.m in Sources */,
 				36A92CF4133EF753004DFEFC /* AnchorPoint.m in Sources */,
 				368006731375ADF900F6603F /* SoundManager.m in Sources */,
+				364B046D159FD61F0054E69A /* EnvironmentLayer.m in Sources */,
+				364B067B15A2CB650054E69A /* EnvironmentRepository.m in Sources */,
+				364B077715A50E510054E69A /* BaseRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		364B067715A2BFED0054E69A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Lua;
+			targetProxy = 364B067615A2BFED0054E69A /* PBXContainerItemProxy */;
+		};
 		367CDB1D159A9AAA002DF18B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Chipmunk;
@@ -1573,7 +1634,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-2.0-rc2/**";
+				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-2.0-rc2/** /Users/orichen/Documents/code/alchemist/lua-5.2.1/src/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1600,7 +1661,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-2.0-rc2/**";
+				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-2.0-rc2/** /Users/orichen/Documents/code/alchemist/lua-5.2.1/src/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -4,6 +4,8 @@
 <dict>
 	<key>Key</key>
 	<string>Elephant</string>
+	<key>Environment</key>
+	<string>savannah</string>
 	<key>SuccessSound</key>
 	<string>elephant2.wav</string>
 	<key>Name</key>

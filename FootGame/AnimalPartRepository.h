@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "AnimalPart.h"
 #import "Animal.h"
+#import "BaseRepository.h"
 
-@interface PartRepository : NSObject {
+@interface AnimalPartRepository : BaseRepository {
     NSDictionary *animals;
     NSDictionary *partsByType;
     NSMutableArray *feet;
@@ -20,7 +21,7 @@
     NSMutableDictionary *usedAnimalNames;
 }
 
-+(PartRepository *) sharedRepository;
++(AnimalPartRepository *) sharedRepository;
 
 -(void) resetAnimals;
 -(Animal *) getRandomAnimal;

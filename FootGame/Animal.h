@@ -15,6 +15,7 @@
     AnimalPart *body;
     AnimalPart *foot;
     
+    NSString *environment;
     NSString *successSound;
     NSString *failSound;
 }
@@ -25,6 +26,7 @@
 @property (nonatomic, retain) AnimalPart *foot;
 @property (nonatomic, retain) NSString *successSound;
 @property (nonatomic, retain) NSString *failSound;
+@property (nonatomic, retain) NSString *environment;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict;
 

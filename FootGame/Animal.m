@@ -17,6 +17,7 @@
 @synthesize foot;
 @synthesize successSound;
 @synthesize failSound;
+@synthesize environment;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict {
     Animal *anml = [[Animal alloc] init];
@@ -26,6 +27,7 @@
     anml.foot = [AnimalPart initWithDictionary:[dict objectForKey:@"Foot"] partType:kAnimalPartTypeFoot];
     anml.successSound = [dict objectForKey:@"SuccessSound"];
     anml.failSound = [dict objectForKey:@"FailSound"];
+    anml.environment = [dict objectForKey:@"Environment"];
     
     [[SoundManager sharedManager] preloadSound:anml.successSound];
     //[[SoundManager sharedManager] preloadSound:anml.failSound];

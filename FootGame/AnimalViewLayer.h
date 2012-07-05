@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Animal.h"
+#import "EnvironmentLayer.h"
 
 @interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate> {
     Animal *animal;
     AnimalPart *body;
     NSArray *feet;
-    CCSprite *background;
+    EnvironmentLayer *background;
     CCSprite *next;
     CCLabelTTF *name;
     

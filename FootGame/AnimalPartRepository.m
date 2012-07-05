@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "PartRepository.h"
+#import "AnimalPartRepository.h"
 
 @interface NSMutableArray (ArchUtils_Shuffle)
 - (void)shuffle;
@@ -41,20 +41,20 @@ static NSUInteger random_below(NSUInteger n) {
 }
 @end
 
-@interface PartRepository()
--(void) loadFromFilesAtPath: (NSString *) rootPath;
+@interface AnimalPartRepository()
+
 -(void) loadAnimal: (Animal *) animal;
 @end
 
-@implementation PartRepository
+@implementation AnimalPartRepository
 
-static PartRepository * _instance;
+static AnimalPartRepository * _instance;
 
-+(PartRepository *) sharedRepository {
++(AnimalPartRepository *) sharedRepository {
     if (_instance == nil) {
         @synchronized(_instance) {
             if (_instance == nil) {
-                _instance = [[PartRepository alloc] init];
+                _instance = [[AnimalPartRepository alloc] init];
             }
         }
     }
@@ -63,6 +63,8 @@ static PartRepository * _instance;
 }
 
 -(id) init {
+    self = [super init];
+    
     parts = [[NSMutableArray alloc] init];
     feet = [[NSMutableArray alloc] init];
     animals = [[NSMutableDictionary alloc] init];
@@ -72,15 +74,14 @@ static PartRepository * _instance;
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"body"];
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"foot"];
 
-    NSMutableArray* paths = [NSMutableArray arrayWithArray:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                       NSUserDomainMask, YES)];
-    [paths addObject:[[NSBundle mainBundle] bundlePath]];
-    
-    // [self loadFromOldFile];
-    [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self loadFromFilesAtPath:(NSString *) obj];  
+    [self loadDataWithFilterBlock:^BOOL(NSString *filename) {
+        return [filename hasPrefix:@"Animal-"] && [filename.pathExtension isEqualToString:@"plist"];
+    } resultBlock:^(NSDictionary *data) {
+        Animal *animal = [Animal initWithDictionary: data];
+        
+        [self loadAnimal:animal];
     }];
-    
+        
     return self;
 }
 
@@ -91,36 +92,6 @@ static PartRepository * _instance;
     [feet addObject:animal.foot];
     [parts addObject:animal.body];
     [parts addObject:animal.foot];
-}
-
--(void) loadFromFilesAtPath: (NSString *) rootPath {
-    NSEnumerator *enumerator = [[NSFileManager defaultManager]
-                                enumeratorAtPath:rootPath];
-    
-    NSString *path = nil;
-    
-    while (path = (NSString *) [enumerator nextObject]) {
-        NSArray *components = [path pathComponents];
-        NSString *filename = [components objectAtIndex:[components count] - 1];
-        
-        if ([filename hasPrefix:@"Animal-"] && [filename.pathExtension isEqualToString:@"plist"]) {
-            NSString *fullPath = [rootPath stringByAppendingPathComponent:filename];
-            
-            NSPropertyListFormat format;
-            NSString *errorDesc = nil;
-            NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:fullPath];
-            
-            NSDictionary *apdict = (NSDictionary *)[NSPropertyListSerialization
-                                                     propertyListFromData:plistXML
-                                                     mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                     format:&format
-                                                     errorDescription:&errorDesc];
-                                                    
-            Animal *animal = [Animal initWithDictionary: apdict];
-            
-            [self loadAnimal:animal];
-        }
-    }
 }
 
 -(void) resetAnimals {
