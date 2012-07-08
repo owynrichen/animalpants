@@ -14,6 +14,7 @@
 #import "RootViewController.h"
 #import "SoundManager.h"
 #import "TestFlight.h"
+#import "MainMenuLayer.h"
 
 @implementation AppDelegate
 
@@ -93,25 +94,26 @@
 
 	[director setAnimationInterval:1.0/60];
 	
-	// make the View Controller a child of the main window
-	[window addSubview: glView];
-	
-	[window makeKeyAndVisible];
 	
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
 	// You can change anytime.
 	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-
+    
+    // make the View Controller a child of the main window
+	[window addSubview: glView];
+    
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    
+	[window makeKeyAndVisible];
 	
 	// Removes the startup flicker
-	[self removeStartupFlicker];
+	//[self removeStartupFlicker];
 	
 	// Run the intro Scene
-    [[SoundManager sharedManager] preloadSound:@"glock_c2.wav"];
-    [[SoundManager sharedManager] preloadSound:@"glock_g1.wav"];
-	[[CCDirector sharedDirector] runWithScene: [AnimalViewLayer scene]];
-    [[SoundManager sharedManager] playBackground:@"Olde Timey.mp3"];
+    [[SoundManager sharedManager] preloadSound:@"glock__c2.wav"];
+    [[SoundManager sharedManager] preloadSound:@"glock__g1.wav"];
+    // [[SoundManager sharedManager] playBackground:@"Olde Timey.mp3"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

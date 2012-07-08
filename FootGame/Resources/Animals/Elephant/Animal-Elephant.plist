@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Key</key>
+	<string>Elephant</string>
+	<key>Environment</key>
+	<string>savannah</string>
+	<key>SuccessSound</key>
+	<string>elephant2.wav</string>
+	<key>Name</key>
+	<string>Elephant</string>
+	<key>FailSound</key>
+	<string></string>
+	<key>Body</key>
+	<dict>
+		<key>AnchorFoot</key>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>172</integer>
+			<key>y</key>
+			<integer>311</integer>
+		</dict>
+		<key>Image</key>
+		<string>elephant_top.png</string>
+	</dict>
+	<key>Foot</key>
+	<dict>
+		<key>Anchor</key>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>172</integer>
+			<key>y</key>
+			<integer>311</integer>
+		</dict>
+		<key>Image</key>
+		<string>elephant_bottom.png</string>
+	</dict>
+</dict>
+</plist>
