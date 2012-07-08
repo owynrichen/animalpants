@@ -13,8 +13,6 @@
 		364B077715A50E510054E69A /* BaseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B077615A50E510054E69A /* BaseRepository.m */; };
 		364B077A15A552F30054E69A /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B077915A552F10054E69A /* MainMenuLayer.m */; };
 		364B077C15A5EC130054E69A /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B077B15A5EC130054E69A /* title.png */; };
-		364B078215A73A1F0054E69A /* CCLabelTTFWithStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B077F15A73A1F0054E69A /* CCLabelTTFWithStroke.m */; };
-		364B078315A73A1F0054E69A /* CCMenuItemFontWithStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B078115A73A1F0054E69A /* CCMenuItemFontWithStroke.m */; };
 		364B078515A8E8450054E69A /* arctic.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078415A8E8450054E69A /* arctic.png */; };
 		364B078715A8E8670054E69A /* tropical.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078615A8E8670054E69A /* tropical.png */; };
 		364B078915A8E8910054E69A /* savannah1.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B078815A8E8910054E69A /* savannah1.png */; };
@@ -40,6 +38,8 @@
 		364B07B315A903AF0054E69A /* glock__g1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 364B07B015A903AF0054E69A /* glock__g1.wav */; };
 		364B07B615A907360054E69A /* AlchemistKids.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B07B415A907340054E69A /* AlchemistKids.png */; };
 		364B07B715A907360054E69A /* AlchemistKids@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B07B515A907350054E69A /* AlchemistKids@2x.png */; };
+		364B084115A9F4310054E69A /* CCLabelTTFWithStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B083E15A9F4310054E69A /* CCLabelTTFWithStroke.m */; };
+		364B084215A9F4310054E69A /* CCMenuItemFontWithStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B084015A9F4310054E69A /* CCMenuItemFontWithStroke.m */; };
 		367CDB22159A9AD2002DF18B /* libChipmunk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAAF159A9712002DF18B /* libChipmunk.a */; };
 		367CDB23159A9AD2002DF18B /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAB1159A9712002DF18B /* libcocos2d.a */; };
 		367CDB24159A9AD2002DF18B /* libCocosDenshion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CDAB5159A9712002DF18B /* libCocosDenshion.a */; };
@@ -521,10 +521,6 @@
 		364B077815A552F00054E69A /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		364B077915A552F10054E69A /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		364B077B15A5EC130054E69A /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title.png; path = Resources/Menu/title.png; sourceTree = "<group>"; };
-		364B077E15A73A1F0054E69A /* CCLabelTTFWIthStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCLabelTTFWIthStroke.h; path = ../../../sockthatfool/Classes/CCLabelTTFWIthStroke.h; sourceTree = "<group>"; };
-		364B077F15A73A1F0054E69A /* CCLabelTTFWithStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCLabelTTFWithStroke.m; path = ../../../sockthatfool/Classes/CCLabelTTFWithStroke.m; sourceTree = "<group>"; };
-		364B078015A73A1F0054E69A /* CCMenuItemFontWithStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMenuItemFontWithStroke.h; path = ../../../sockthatfool/Classes/CCMenuItemFontWithStroke.h; sourceTree = "<group>"; };
-		364B078115A73A1F0054E69A /* CCMenuItemFontWithStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCMenuItemFontWithStroke.m; path = ../../../sockthatfool/Classes/CCMenuItemFontWithStroke.m; sourceTree = "<group>"; };
 		364B078415A8E8450054E69A /* arctic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arctic.png; path = Resources/Environments/Arctic/Graphics/arctic.png; sourceTree = "<group>"; };
 		364B078615A8E8670054E69A /* tropical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tropical.png; path = Resources/Environments/Tropical/Graphics/tropical.png; sourceTree = "<group>"; };
 		364B078815A8E8910054E69A /* savannah1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah1.png; path = Resources/Environments/Savannah1/Graphics/savannah1.png; sourceTree = "<group>"; };
@@ -550,6 +546,10 @@
 		364B07B015A903AF0054E69A /* glock__g1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = glock__g1.wav; path = Resources/glock__g1.wav; sourceTree = "<group>"; };
 		364B07B415A907340054E69A /* AlchemistKids.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AlchemistKids.png; path = Resources/AlchemistKids.png; sourceTree = "<group>"; };
 		364B07B515A907350054E69A /* AlchemistKids@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AlchemistKids@2x.png"; path = "Resources/AlchemistKids@2x.png"; sourceTree = "<group>"; };
+		364B083D15A9F4310054E69A /* CCLabelTTFWIthStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelTTFWIthStroke.h; sourceTree = "<group>"; };
+		364B083E15A9F4310054E69A /* CCLabelTTFWithStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelTTFWithStroke.m; sourceTree = "<group>"; };
+		364B083F15A9F4310054E69A /* CCMenuItemFontWithStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemFontWithStroke.h; sourceTree = "<group>"; };
+		364B084015A9F4310054E69A /* CCMenuItemFontWithStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemFontWithStroke.m; sourceTree = "<group>"; };
 		367CDA3A159A970D002DF18B /* cocos2d-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-ios.xcodeproj"; path = "../../cocos2d-iphone-2.0-rc2/cocos2d-ios.xcodeproj"; sourceTree = "<group>"; };
 		367EC2DC133A4782003F7FF0 /* FootGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		367EC2E0133A4782003F7FF0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -808,10 +808,10 @@
 		364B077D15A739F30054E69A /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				364B077E15A73A1F0054E69A /* CCLabelTTFWIthStroke.h */,
-				364B077F15A73A1F0054E69A /* CCLabelTTFWithStroke.m */,
-				364B078015A73A1F0054E69A /* CCMenuItemFontWithStroke.h */,
-				364B078115A73A1F0054E69A /* CCMenuItemFontWithStroke.m */,
+				364B083D15A9F4310054E69A /* CCLabelTTFWIthStroke.h */,
+				364B083E15A9F4310054E69A /* CCLabelTTFWithStroke.m */,
+				364B083F15A9F4310054E69A /* CCMenuItemFontWithStroke.h */,
+				364B084015A9F4310054E69A /* CCMenuItemFontWithStroke.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -1538,8 +1538,8 @@
 				364B067B15A2CB650054E69A /* EnvironmentRepository.m in Sources */,
 				364B077715A50E510054E69A /* BaseRepository.m in Sources */,
 				364B077A15A552F30054E69A /* MainMenuLayer.m in Sources */,
-				364B078215A73A1F0054E69A /* CCLabelTTFWithStroke.m in Sources */,
-				364B078315A73A1F0054E69A /* CCMenuItemFontWithStroke.m in Sources */,
+				364B084115A9F4310054E69A /* CCLabelTTFWithStroke.m in Sources */,
+				364B084215A9F4310054E69A /* CCMenuItemFontWithStroke.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

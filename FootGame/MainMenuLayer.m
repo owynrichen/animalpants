@@ -44,22 +44,22 @@
     background = [CCSprite spriteWithFile:@"tropical.png"];
     background.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
-    
-    CCMenuItemLabel *menuItem = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"Play!" fontName:@"Marker Felt" fontSize:72] block:^(id sender) {
+
+    [CCMenuItemFont setFontSize:72];
+    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:@"Play!" color:ccBLUE strokeColor:ccWHITE strokeSize:4 block:^(id sender) {
         [[CCDirector sharedDirector] pushScene:[AnimalViewLayer scene]];
     }];
     
-    menu = [CCMenu menuWithItems:menuItem, nil];
+    menu = [CCMenu menuWithItems:smenuItem, nil];
     
     [self addChild:background];
     [self addChild:title];
     [self addChild:menu];
     
     splashFade = [CCSprite spriteWithFile:@"AlchemistKids.png"];
-    splashFade.position = ccp(240,160);
     splashFade.rotation = -90;
     splashFade.opacity = 255;
-    // splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
+    //splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
     splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
     [self addChild:splashFade];
