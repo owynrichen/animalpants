@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "GameConfig.h"
 #import "AnimalViewLayer.h"
-#import "RootViewController.h"
 #import "SoundManager.h"
 #import "TestFlight.h"
 #import "MainMenuLayer.h"
@@ -32,7 +31,7 @@
 //	CC_ENABLE_DEFAULT_GL_STATES();
 //	CCDirector *director = [CCDirector sharedDirector];
 //	CGSize size = [director winSize];
-//	CCSprite *sprite = [CCSprite spriteWithFile:@"Default.png"];
+//	CCSprite *sprite = [CCSprite spriteWithFile:@"AlchemistKids.png"];
 //	sprite.position = ccp(size.width/2, size.height/2);
 //	sprite.rotation = -90;
 //	[sprite visit];
@@ -55,10 +54,6 @@
 	
 	
 	CCDirector *director = [CCDirector sharedDirector];
-	
-	// Init the View Controller
-	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
-	viewController.wantsFullScreenLayout = YES;
 	
 	//
 	// Create the EAGLView manually
@@ -101,19 +96,18 @@
 	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
     
     // make the View Controller a child of the main window
-	[window addSubview: glView];
+	[window addSubview: director.view];
     
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    [[[CCDirector sharedDirector] runningScene] visit];
+    [[[CCDirector sharedDirector] runningScene] draw];
+    [glView swapBuffers];
     
-	[window makeKeyAndVisible];
-	
-	// Removes the startup flicker
-	//[self removeStartupFlicker];
+    [window makeKeyAndVisible];
 	
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.wav"];
     [[SoundManager sharedManager] preloadSound:@"glock__g1.wav"];
-    // [[SoundManager sharedManager] playBackground:@"Olde Timey.mp3"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -146,8 +140,6 @@
 	
 	[director.view removeFromSuperview];
 	
-	[viewController release];
-	
 	[window release];
 	
 	[director end];	
@@ -158,7 +150,6 @@
 }
 
 - (void)dealloc {
-	[[CCDirector sharedDirector] release];
 	[window release];
 	[super dealloc];
 }

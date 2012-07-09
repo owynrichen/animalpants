@@ -32,7 +32,7 @@
     [[SoundManager sharedManager] preloadSound:anml.successSound];
     //[[SoundManager sharedManager] preloadSound:anml.failSound];
     
-    return anml;
+    return [anml autorelease];
 }
 
 -(BOOL) testVictory {

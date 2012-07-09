@@ -56,10 +56,10 @@
     [self addChild:title];
     [self addChild:menu];
     
-    splashFade = [CCSprite spriteWithFile:@"AlchemistKids.png"];
+    splashFade = [CCSprite spriteWithFile:@"AlchemistKids@2x.png"];
     splashFade.rotation = -90;
     splashFade.opacity = 255;
-    //splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
+    splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
     splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
     [self addChild:splashFade];

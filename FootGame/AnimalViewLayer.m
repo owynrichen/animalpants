@@ -52,16 +52,16 @@
     name.color = ccBLACK;
     [self addChild:name];
     
-    feet = [[AnimalPartRepository sharedRepository] getRandomFeet:4 includingAnimalFeet:animal];
+    feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:4 includingAnimalFeet:animal] retain];
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
-        foot.position = ccp(150 + (310 * i), 170);
+        foot.position = ccp(150 + (310 * i), 130);
         [self addChild:foot];
     }
     
     body = [animal.body copyWithZone:nil];
-    body.position = ccp(500, 270);
+    body.position = ccp(500, 300);
     
     [self addChild:body];
     
@@ -83,6 +83,7 @@
     }
     [self removeChild:name cleanup:YES];
     [self removeChild:background cleanup:YES];
+    [feet release];
 
     [super onExit];
 }
@@ -154,13 +155,18 @@
     if (footTouched) {
         if ([self testVictory]) {
             name.color = ccBLUE;
+
+            [body setState:kAnimalStateHappy];
+            
             [[SoundManager sharedManager] playSound:animal.successSound];
             next.visible = true;
             next.position = ccp(920, 90);
             [next runAction:[CCRepeatForever actionWithAction:[CCJumpBy actionWithDuration:2 position:ccp(0,0) height:30 jumps:2]]];
-        // TODO: play sound, do something flashy, setup a button to choose the next animal
         } else {
             name.color = ccBLACK;
+            
+            [body setState:kAnimalStateNormal];
+            
             [next stopAllActions];
             next.visible = false;
         }
@@ -189,7 +195,7 @@
         NSLog(@"Testing foot: %@, %f, %f", foot.imageName, test.x, test.y);
         
         if ([foot.imageName isEqualToString:animal.foot.imageName]) {
-            NSLog(@"'%@' == '%@'. %f, %f - %f, %f - Distance: %f", foot.imageName, animal.foot.imageName, test.x, test.y, fpntWS.x, fpntWS.y, ccpDistance(test, fpntWS));
+//            NSLog(@"'%@' == '%@'. %f, %f - %f, %f - Distance: %f", foot.imageName, animal.foot.imageName, test.x, test.y, fpntWS.x, fpntWS.y, ccpDistance(test, fpntWS));
             if (ccpDistance(test, fpntWS) != 0)
                 return NO;
         }

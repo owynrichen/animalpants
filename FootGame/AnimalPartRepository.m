@@ -49,10 +49,11 @@ static NSUInteger random_below(NSUInteger n) {
 @implementation AnimalPartRepository
 
 static AnimalPartRepository * _instance;
+static NSString *_sync = @"";
 
 +(AnimalPartRepository *) sharedRepository {
     if (_instance == nil) {
-        @synchronized(_instance) {
+        @synchronized(_sync) {
             if (_instance == nil) {
                 _instance = [[AnimalPartRepository alloc] init];
             }
@@ -121,10 +122,10 @@ static AnimalPartRepository * _instance;
 -(NSArray *) getRandomFeet: (int) count includingAnimalFeet:(Animal *)animal {
     srand(time(nil));
     
-    NSMutableArray *feetToReturn = [[NSMutableArray alloc] init];
+    NSMutableArray *feetToReturn = [[[NSMutableArray alloc] init] autorelease];
     
     if (animal != nil) {
-        [feetToReturn addObject:[animal.foot copyWithZone:nil]];
+        [feetToReturn addObject:[[animal.foot copyWithZone:nil] autorelease]];
     }
     
     int footCount = [feet count];
@@ -161,7 +162,7 @@ static AnimalPartRepository * _instance;
         
         if (add) {
             // [feetToReturn addObject:foot];
-            [feetToReturn addObject:[foot copyWithZone:nil]];
+            [feetToReturn addObject:[[foot copyWithZone:nil] autorelease]];
         }
     }
     [feetToReturn shuffle];

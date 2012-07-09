@@ -9,23 +9,25 @@
 			<key>orientation</key>
 			<integer>0</integer>
 			<key>x</key>
-			<integer>143</integer>
+			<integer>86</integer>
 			<key>y</key>
-			<integer>303</integer>
+			<integer>8</integer>
 		</dict>
 		<key>Image</key>
 		<string>lion_bottom.png</string>
 	</dict>
 	<key>Body</key>
 	<dict>
+		<key>HappyImage</key>
+		<string>lion_top_happy.png</string>
 		<key>AnchorFoot</key>
 		<dict>
 			<key>orientation</key>
 			<integer>0</integer>
 			<key>x</key>
-			<integer>143</integer>
+			<integer>157</integer>
 			<key>y</key>
-			<integer>303</integer>
+			<integer>351</integer>
 		</dict>
 		<key>Image</key>
 		<string>lion_top.png</string>

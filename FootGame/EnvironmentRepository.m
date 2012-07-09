@@ -11,10 +11,11 @@
 @implementation EnvironmentRepository
 
 static EnvironmentRepository * _instance;
+static NSString *_sync = @"";
 
 +(EnvironmentRepository *) sharedRepository {
     if (_instance == nil) {
-        @synchronized(_instance) {
+        @synchronized(_sync) {
             if (_instance == nil) {
                 _instance = [[EnvironmentRepository alloc] init];
             }

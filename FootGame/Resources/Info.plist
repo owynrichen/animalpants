@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>Icon files</key>
 	<array>
 		<string>Icon.png</string>
@@ -35,6 +35,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UILaunchImageFile~ipad</key>
+	<string>AlchemistKids.png</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -44,8 +46,6 @@
 	</dict>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>UILaunchImageFile~ipad</key>
-	<string>AlchemistKids.png</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

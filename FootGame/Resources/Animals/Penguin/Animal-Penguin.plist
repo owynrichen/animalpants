@@ -9,23 +9,25 @@
 			<key>orientation</key>
 			<integer>0</integer>
 			<key>x</key>
-			<integer>128</integer>
+			<integer>107</integer>
 			<key>y</key>
-			<integer>268</integer>
+			<integer>19</integer>
 		</dict>
 		<key>Image</key>
 		<string>penguin_bottom.png</string>
 	</dict>
 	<key>Body</key>
 	<dict>
+		<key>HappyImage</key>
+		<string>penguin_top_happy.png</string>
 		<key>AnchorFoot</key>
 		<dict>
 			<key>orientation</key>
 			<integer>0</integer>
 			<key>x</key>
-			<integer>128</integer>
+			<integer>135</integer>
 			<key>y</key>
-			<integer>268</integer>
+			<integer>300</integer>
 		</dict>
 		<key>Image</key>
 		<string>penguin_top.png</string>

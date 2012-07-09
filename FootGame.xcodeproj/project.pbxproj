@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3642BAD115AA717300DBA483 /* lion_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD015AA717300DBA483 /* lion_top_happy.png */; };
+		3642BAD315AA718500DBA483 /* penguin_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD215AA718500DBA483 /* penguin_top_happy.png */; };
+		3642BAD515AA719800DBA483 /* elephant_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD415AA719800DBA483 /* elephant_top_happy.png */; };
 		364B046D159FD61F0054E69A /* EnvironmentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B046C159FD61F0054E69A /* EnvironmentLayer.m */; };
 		364B067815A2BFF70054E69A /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364B067515A2BCF50054E69A /* libLua.a */; };
 		364B067B15A2CB650054E69A /* EnvironmentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B067A15A2CB650054E69A /* EnvironmentRepository.m */; };
@@ -61,7 +64,6 @@
 		367EC304133A4782003F7FF0 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 367EC303133A4782003F7FF0 /* iTunesArtwork */; };
 		367EC48E133A4785003F7FF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 367EC48D133A4785003F7FF0 /* main.m */; };
 		367EC491133A4785003F7FF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 367EC490133A4785003F7FF0 /* AppDelegate.m */; };
-		367EC494133A4785003F7FF0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 367EC493133A4785003F7FF0 /* RootViewController.m */; };
 		368006731375ADF900F6603F /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 368006721375ADF400F6603F /* SoundManager.m */; };
 		368006751375B37F00F6603F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 368006741375B37F00F6603F /* arrow.png */; };
 		36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */; };
@@ -511,6 +513,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3642BAD015AA717300DBA483 /* lion_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lion_top_happy.png; path = Resources/Animals/Lion/Graphics/lion_top_happy.png; sourceTree = "<group>"; };
+		3642BAD215AA718500DBA483 /* penguin_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = penguin_top_happy.png; path = Resources/Animals/Penguin/Graphics/penguin_top_happy.png; sourceTree = "<group>"; };
+		3642BAD415AA719800DBA483 /* elephant_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant_top_happy.png; path = Resources/Animals/Elephant/Graphics/elephant_top_happy.png; sourceTree = "<group>"; };
 		364B046B159FD61F0054E69A /* EnvironmentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentLayer.h; sourceTree = "<group>"; };
 		364B046C159FD61F0054E69A /* EnvironmentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentLayer.m; sourceTree = "<group>"; };
 		364B066D15A2BCF40054E69A /* Lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lua.xcodeproj; path = "../../lua-5.2.1/Lua.xcodeproj"; sourceTree = "<group>"; };
@@ -573,8 +578,6 @@
 		367EC48D133A4785003F7FF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		367EC48F133A4785003F7FF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		367EC490133A4785003F7FF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		367EC492133A4785003F7FF0 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		367EC493133A4785003F7FF0 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		367EC498133A4785003F7FF0 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		368006711375ADEE00F6603F /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		368006721375ADF400F6603F /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
@@ -679,6 +682,7 @@
 		361507011594CA41000F46D9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				3642BAD415AA719800DBA483 /* elephant_top_happy.png */,
 				364B079615A901D20054E69A /* elephant_bottom.png */,
 				364B079715A901D20054E69A /* elephant_top.png */,
 			);
@@ -730,6 +734,7 @@
 		361507071594CD26000F46D9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				3642BAD215AA718500DBA483 /* penguin_top_happy.png */,
 				364B079E15A902080054E69A /* penguin_bottom.png */,
 				364B079F15A902080054E69A /* penguin_top.png */,
 			);
@@ -757,6 +762,7 @@
 		3615070E1594CD55000F46D9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				3642BAD015AA717300DBA483 /* lion_top_happy.png */,
 				364B07A615A903180054E69A /* lion_bottom.png */,
 				364B07A715A903180054E69A /* lion_top.png */,
 			);
@@ -947,8 +953,6 @@
 				364B077615A50E510054E69A /* BaseRepository.m */,
 				364B077815A552F00054E69A /* MainMenuLayer.h */,
 				364B077915A552F10054E69A /* MainMenuLayer.m */,
-				367EC492133A4785003F7FF0 /* RootViewController.h */,
-				367EC493133A4785003F7FF0 /* RootViewController.m */,
 				368006711375ADEE00F6603F /* SoundManager.h */,
 				368006721375ADF400F6603F /* SoundManager.m */,
 				367EC498133A4785003F7FF0 /* GameConfig.h */,
@@ -1515,6 +1519,9 @@
 				364B07B315A903AF0054E69A /* glock__g1.wav in Resources */,
 				364B07B615A907360054E69A /* AlchemistKids.png in Resources */,
 				364B07B715A907360054E69A /* AlchemistKids@2x.png in Resources */,
+				3642BAD115AA717300DBA483 /* lion_top_happy.png in Resources */,
+				3642BAD315AA718500DBA483 /* penguin_top_happy.png in Resources */,
+				3642BAD515AA719800DBA483 /* elephant_top_happy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,7 +1534,6 @@
 			files = (
 				367EC48E133A4785003F7FF0 /* main.m in Sources */,
 				367EC491133A4785003F7FF0 /* AppDelegate.m in Sources */,
-				367EC494133A4785003F7FF0 /* RootViewController.m in Sources */,
 				36A92CD2133C6D48004DFEFC /* AnimalViewLayer.m in Sources */,
 				36A92CE3133D038F004DFEFC /* AnimalPart.m in Sources */,
 				36A92CE6133E8C5B004DFEFC /* AnimalPartRepository.m in Sources */,

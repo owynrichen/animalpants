@@ -11,10 +11,11 @@
 
 @implementation SoundManager
 static SoundManager* _instance;
+static NSString *_sync = @"";
 
 +(SoundManager *) sharedManager {
     if (_instance == nil) {
-        @synchronized(_instance) {
+        @synchronized(_sync) {
             if (_instance == nil) {
                 _instance = [[SoundManager alloc] init];
             }

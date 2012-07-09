@@ -14,21 +14,33 @@
 @synthesize partType;
 @synthesize fixPoints;
 @synthesize imageName;
+@synthesize happyImageName;
 @synthesize touch;
 @synthesize data;
+@synthesize textureState;
 
 +(id) initWithDictionary:(NSDictionary *)dict partType: (AnimalPartType) pt {
     NSString *imgName = (NSString *) [dict objectForKey:@"Image"];
+    NSString *himgName = (NSString *) [dict objectForKey:@"HappyImage"];
+    
+    if (!himgName) {
+        himgName = imgName;
+    }
     
     AnimalPart *p = [AnimalPart spriteWithFile:imgName];
     p.imageName = imgName;
-    p.fixPoints = [[NSMutableArray alloc] init];
+    p.happyImageName = himgName;
+    p.fixPoints = [[[NSMutableArray alloc] init] autorelease];
     p.data = dict;
     // downscale for non-retina
     float scaleFactor = 0.5 * CC_CONTENT_SCALE_FACTOR();
     p.scale = scaleFactor;
     p.partType = pt;
-    // p.anchorPoint = CGPointMake(p.anchorPoint.x / p.scale, p.anchorPoint.y / p.scale);
+    p.textureState = [[[NSMutableDictionary alloc] init] autorelease];
+    CCTexture2D *happyTexture = [[CCTextureCache sharedTextureCache] addImage:p.happyImageName];
+    
+    [p.textureState setObject:p.texture forKey:[NSNumber numberWithInt: (int) kAnimalStateNormal]];
+    [p.textureState setObject:happyTexture forKey:[NSNumber numberWithInt: (int) kAnimalStateHappy]];
     
     NSEnumerator *e = [dict keyEnumerator];
     NSString *key;
@@ -46,6 +58,7 @@
             ap.orientation = [((NSNumber *) [pntDict objectForKey:@"orientation"]) floatValue];
             ap.name = key;
             [p.fixPoints addObject: ap];
+            [ap release];
         }
     }
     
@@ -61,7 +74,7 @@
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    return [AnimalPart initWithDictionary:self.data partType:self.partType];
+    return [[AnimalPart initWithDictionary:self.data partType:self.partType] retain];
 }
 
 -(id) init {
@@ -70,9 +83,13 @@
     return self;
 }
 
+-(void) dealloc {
+    [super dealloc];
+}
+
 -(void) draw {
     [super draw];
-    int count = [fixPoints count];
+/*    int count = [fixPoints count];
     for (int i = 0; i < count; i++) {
         AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
         ccDrawColor4B(0, 0, 255, 255);
@@ -83,7 +100,11 @@
     
     ccDrawColor4B(0,255,0,180);
     ccPointSize(8);
-    ccDrawPoint(self.anchorPointInPoints);
+    ccDrawPoint(self.anchorPointInPoints); */
+}
+
+-(void) setState: (AnimalStateType) state {
+    [self setTexture: [self.textureState objectForKey:[NSNumber numberWithInt: (int) state]]];
 }
 
 -(BOOL) hitTest:(CGPoint)point {
@@ -123,7 +144,7 @@
         return  nil;
     }
     
-    return [[AnchorPointPair alloc] initWithFirst:f second:s distance: mindistance];
+    return [[[AnchorPointPair alloc] initWithFirst:f second:s distance: mindistance] autorelease];
 }
 
 @end
