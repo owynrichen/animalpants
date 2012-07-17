@@ -18,6 +18,7 @@
 @synthesize successSound;
 @synthesize failSound;
 @synthesize environment;
+@synthesize word;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict {
     Animal *anml = [[Animal alloc] init];
@@ -28,6 +29,7 @@
     anml.successSound = [dict objectForKey:@"SuccessSound"];
     anml.failSound = [dict objectForKey:@"FailSound"];
     anml.environment = [dict objectForKey:@"Environment"];
+    anml.word = [dict objectForKey:@"Word"];
     
     [[SoundManager sharedManager] preloadSound:anml.successSound];
     //[[SoundManager sharedManager] preloadSound:anml.failSound];

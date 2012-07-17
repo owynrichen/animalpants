@@ -37,6 +37,8 @@
 	<true/>
 	<key>UILaunchImageFile~ipad</key>
 	<string>AlchemistKids.png</string>
+	<key>UILaunchImageFile~iphone</key>
+	<string>AlchemistKids-iphone.png</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>

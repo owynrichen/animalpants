@@ -42,5 +42,7 @@
 	<string>Penguin</string>
 	<key>Environment</key>
 	<string>arctic</string>
+	<key>Word</key>
+	<string>penguin_word.en.png</string>
 </dict>
 </plist>

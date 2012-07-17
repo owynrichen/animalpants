@@ -42,5 +42,7 @@
 	<string>Lion</string>
 	<key>Environment</key>
 	<string>savannah2</string>
+	<key>Word</key>
+	<string>lion_word.en.png</string>
 </dict>
 </plist>

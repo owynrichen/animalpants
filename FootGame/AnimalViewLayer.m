@@ -51,11 +51,14 @@
     
     [self addChild:background];
     
-    name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100 * fontScaleForCurrentDevice()];
+    // name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100 * fontScaleForCurrentDevice()];
+    name = [CCAutoScalingSprite spriteWithFile:animal.word];
     name.anchorPoint = ccp(0,0);
-    name.position = ccpToRatio(50, 650);
+    name.position = ccpToRatio(80, 600);
     name.opacity = 200;
-    name.color = ccBLACK;
+    name.scale *= 0.4;
+    name.color = ccWHITE;
+    
     [self addChild:name];
     
     feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:3 includingAnimalFeet:animal] retain];
@@ -172,13 +175,25 @@
             next.visible = true;
             next.position = ccpToRatio(920, 90);
             [next runAction:[CCRepeatForever actionWithAction:[CCJumpBy actionWithDuration:2 position:ccpToRatio(0,0) height:30 jumps:2]]];
+            
+            AnimalPart *correctFoot = [self getCorrectFoot];
+            for (int i = 0; i < [feet count]; i++) {
+                AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
+                if (![foot.imageName isEqualToString:correctFoot.imageName]) {
+                    foot.visible = NO;
+                }
+            }
         } else {
-            name.color = ccBLACK;
+            name.color = ccWHITE;
             
             [body setState:kAnimalStateNormal];
             
             [next stopAllActions];
             next.visible = false;
+            for (int i = 0; i < [feet count]; i++) {
+                AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
+                foot.visible = YES;
+            }
         }
     } else if (nextTouched) {
         [next stopAllActions];

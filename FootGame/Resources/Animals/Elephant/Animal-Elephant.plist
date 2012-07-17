@@ -42,5 +42,7 @@
 		<key>Image</key>
 		<string>elephant_bottom.png</string>
 	</dict>
+	<key>Word</key>
+	<string>elephant_word.en.png</string>
 </dict>
 </plist>

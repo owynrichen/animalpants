@@ -16,7 +16,8 @@
     NSArray *feet;
     EnvironmentLayer *background;
     CCSprite *next;
-    CCLabelTTF *name;
+    // CCLabelTTF *name;
+    CCAutoScalingSprite *name;
     
     BOOL nextTouched;
 }
