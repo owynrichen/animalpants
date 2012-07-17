@@ -17,7 +17,7 @@
 
 @implementation AppDelegate
 
-@synthesize window;
+// @synthesize window;
 
 - (void) removeStartupFlicker
 {
@@ -43,7 +43,7 @@
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
 	// Init the window
-	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [TestFlight takeOff:@"d3beeb5b8630b754a3ec1bf5620b131d_NTgxNzgyMDEyLTAzLTEzIDAyOjQ1OjMzLjA4MTE5OQ"];
     
@@ -52,16 +52,13 @@
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
 	
-	
-	CCDirector *director = [CCDirector sharedDirector];
-	
 	//
 	// Create the EAGLView manually
 	//  1. Create a RGB565 format. Alternative: RGBA8
 	//	2. depth format of 0 bit. Use 16 or 24 bit for 3d effects, like CCPageTurnTransition
 	//
 	//
-    
+    /* 
     CGRect bounds = [[UIScreen mainScreen] bounds];
     float scale = [[UIScreen mainScreen] scale];
     bounds.size.width *= scale;
@@ -98,12 +95,15 @@
     // make the View Controller a child of the main window
 	[window addSubview: director.view];
     
-    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     [[[CCDirector sharedDirector] runningScene] visit];
     [[[CCDirector sharedDirector] runningScene] draw];
     [glView swapBuffers];
     
     [window makeKeyAndVisible];
+     */
+    
+    CC_DIRECTOR_INIT();
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
 	
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.wav"];
@@ -136,13 +136,14 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	CCDirector *director = [CCDirector sharedDirector];
-	
-	[director.view removeFromSuperview];
-	
-	[window release];
-	
-	[director end];	
+//	CCDirector *director = [CCDirector sharedDirector];
+//	
+//	[director.view removeFromSuperview];
+//	
+//	[window release];
+//	
+//	[director end];
+    CC_DIRECTOR_END();
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
@@ -150,7 +151,7 @@
 }
 
 - (void)dealloc {
-	[window release];
+	[window_ release];
 	[super dealloc];
 }
 

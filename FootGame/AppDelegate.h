@@ -11,9 +11,9 @@
 @class RootViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, CCDirectorDelegate> {
-	UIWindow			*window;
+    CCDirector          *director_;
+	UIWindow			*window_;
+    UINavigationController *navController_;
 }
-
-@property (nonatomic, retain) UIWindow *window;
 
 @end

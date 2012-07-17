@@ -9,6 +9,7 @@
 #import "MainMenuLayer.h"
 #import "AnimalViewLayer.h"
 #import "CCMenuItemFontWithStroke.h"
+#import "CCAutoScaling.h"
 
 @implementation MainMenuLayer
 
@@ -37,16 +38,14 @@
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    title = [CCSprite spriteWithFile:@"title.png"];
+    title = [CCAutoScalingSprite spriteWithFile:@"title.png"];
     title.position = ccp(winSize.width * 0.5, winSize.height * 0.85);
-    title.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
     
-    background = [CCSprite spriteWithFile:@"tropical.png"];
-    background.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
+    background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
-    [CCMenuItemFont setFontSize:72];
-    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:@"Play!" color:ccBLUE strokeColor:ccWHITE strokeSize:4 block:^(id sender) {
+    [CCMenuItemFont setFontSize:72 * fontScaleForCurrentDevice()];
+    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:@"Play!" color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] pushScene:[AnimalViewLayer scene]];
     }];
     
@@ -55,22 +54,24 @@
     [self addChild:background];
     [self addChild:title];
     [self addChild:menu];
-    
-    splashFade = [CCSprite spriteWithFile:@"AlchemistKids@2x.png"];
-    splashFade.rotation = -90;
-    splashFade.opacity = 255;
-    splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
-    splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
-    [self addChild:splashFade];
+    // TODO: until I can figure out how to remove the flicker, disable this
+//    splashFade = [CCSprite spriteWithFile:@"AlchemistKids@2x.png"];
+//    splashFade.rotation = -90;
+//    splashFade.opacity = 255;
+//    splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
+//    splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+//
+//    [self addChild:splashFade];
     
     return self;
 }
 
 -(void) onEnter {
-    if (splashFade.opacity == 255) {
-        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
-    }
+    // TODO: until I can figure out how to remove the flicker, disable this
+//    if (splashFade.opacity == 255) {
+//        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
+//    }
     
     [super onEnter];
 }

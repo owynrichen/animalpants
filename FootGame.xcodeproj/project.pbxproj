@@ -10,6 +10,9 @@
 		3642BAD115AA717300DBA483 /* lion_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD015AA717300DBA483 /* lion_top_happy.png */; };
 		3642BAD315AA718500DBA483 /* penguin_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD215AA718500DBA483 /* penguin_top_happy.png */; };
 		3642BAD515AA719800DBA483 /* elephant_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD415AA719800DBA483 /* elephant_top_happy.png */; };
+		3642BBD115ADD48400DBA483 /* StoryLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642BBD015ADD48400DBA483 /* StoryLayer.m */; };
+		3642BBD815AF268000DBA483 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642BBD715AF267F00DBA483 /* SettingsLayer.m */; };
+		3642BCED15B0D3D000DBA483 /* CCAutoScalingSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642BCEC15B0D3D000DBA483 /* CCAutoScalingSprite.m */; };
 		364B046D159FD61F0054E69A /* EnvironmentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B046C159FD61F0054E69A /* EnvironmentLayer.m */; };
 		364B067815A2BFF70054E69A /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364B067515A2BCF50054E69A /* libLua.a */; };
 		364B067B15A2CB650054E69A /* EnvironmentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B067A15A2CB650054E69A /* EnvironmentRepository.m */; };
@@ -73,6 +76,7 @@
 		36A92CF4133EF753004DFEFC /* AnchorPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CF3133EF742004DFEFC /* AnchorPoint.m */; };
 		36F9BE91154AE6B000059C14 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36F9BE90154AE6B000059C14 /* Entitlements.plist */; };
 		36F9BE95154AE6DB00059C14 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F9BE93154AE6DB00059C14 /* libTestFlight.a */; };
+		36FBEEB115B2396E000E15C8 /* CCAutoScaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -516,6 +520,12 @@
 		3642BAD015AA717300DBA483 /* lion_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lion_top_happy.png; path = Resources/Animals/Lion/Graphics/lion_top_happy.png; sourceTree = "<group>"; };
 		3642BAD215AA718500DBA483 /* penguin_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = penguin_top_happy.png; path = Resources/Animals/Penguin/Graphics/penguin_top_happy.png; sourceTree = "<group>"; };
 		3642BAD415AA719800DBA483 /* elephant_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant_top_happy.png; path = Resources/Animals/Elephant/Graphics/elephant_top_happy.png; sourceTree = "<group>"; };
+		3642BBCF15ADD48400DBA483 /* StoryLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryLayer.h; sourceTree = "<group>"; };
+		3642BBD015ADD48400DBA483 /* StoryLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryLayer.m; sourceTree = "<group>"; };
+		3642BBD615AF267F00DBA483 /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
+		3642BBD715AF267F00DBA483 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
+		3642BCEB15B0D3CF00DBA483 /* CCAutoScalingSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAutoScalingSprite.h; sourceTree = "<group>"; };
+		3642BCEC15B0D3D000DBA483 /* CCAutoScalingSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAutoScalingSprite.m; sourceTree = "<group>"; };
 		364B046B159FD61F0054E69A /* EnvironmentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentLayer.h; sourceTree = "<group>"; };
 		364B046C159FD61F0054E69A /* EnvironmentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentLayer.m; sourceTree = "<group>"; };
 		364B066D15A2BCF40054E69A /* Lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lua.xcodeproj; path = "../../lua-5.2.1/Lua.xcodeproj"; sourceTree = "<group>"; };
@@ -595,6 +605,8 @@
 		36F9BE90154AE6B000059C14 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		36F9BE93154AE6DB00059C14 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = FootGame/libTestFlight.a; sourceTree = "<group>"; };
 		36F9BE94154AE6DB00059C14 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		36FBEEAF15B2396D000E15C8 /* CCAutoScaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAutoScaling.h; sourceTree = "<group>"; };
+		36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAutoScaling.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -811,15 +823,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		364B077D15A739F30054E69A /* Menu */ = {
+		364B077D15A739F30054E69A /* CCExtensions */ = {
 			isa = PBXGroup;
 			children = (
 				364B083D15A9F4310054E69A /* CCLabelTTFWIthStroke.h */,
 				364B083E15A9F4310054E69A /* CCLabelTTFWithStroke.m */,
 				364B083F15A9F4310054E69A /* CCMenuItemFontWithStroke.h */,
 				364B084015A9F4310054E69A /* CCMenuItemFontWithStroke.m */,
+				3642BCEB15B0D3CF00DBA483 /* CCAutoScalingSprite.h */,
+				3642BCEC15B0D3D000DBA483 /* CCAutoScalingSprite.m */,
+				36FBEEAF15B2396D000E15C8 /* CCAutoScaling.h */,
+				36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */,
 			);
-			name = Menu;
+			name = CCExtensions;
 			sourceTree = "<group>";
 		};
 		364B078A15A8E8990054E69A /* Savannah2 */ = {
@@ -942,7 +958,7 @@
 		367EC2F0133A4782003F7FF0 /* FootGame */ = {
 			isa = PBXGroup;
 			children = (
-				364B077D15A739F30054E69A /* Menu */,
+				364B077D15A739F30054E69A /* CCExtensions */,
 				364B025C159B5EE10054E69A /* Animal */,
 				364B025B159B5ED60054E69A /* Environment */,
 				36A92CD0133C6D48004DFEFC /* AnimalViewLayer.h */,
@@ -953,6 +969,10 @@
 				364B077615A50E510054E69A /* BaseRepository.m */,
 				364B077815A552F00054E69A /* MainMenuLayer.h */,
 				364B077915A552F10054E69A /* MainMenuLayer.m */,
+				3642BBD615AF267F00DBA483 /* SettingsLayer.h */,
+				3642BBD715AF267F00DBA483 /* SettingsLayer.m */,
+				3642BBCF15ADD48400DBA483 /* StoryLayer.h */,
+				3642BBD015ADD48400DBA483 /* StoryLayer.m */,
 				368006711375ADEE00F6603F /* SoundManager.h */,
 				368006721375ADF400F6603F /* SoundManager.m */,
 				367EC498133A4785003F7FF0 /* GameConfig.h */,
@@ -1042,6 +1062,9 @@
 /* Begin PBXProject section */
 		367EC2D3133A4780003F7FF0 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = 367EC2D6133A4780003F7FF0 /* Build configuration list for PBXProject "FootGame" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -1546,6 +1569,10 @@
 				364B077A15A552F30054E69A /* MainMenuLayer.m in Sources */,
 				364B084115A9F4310054E69A /* CCLabelTTFWithStroke.m in Sources */,
 				364B084215A9F4310054E69A /* CCMenuItemFontWithStroke.m in Sources */,
+				3642BBD115ADD48400DBA483 /* StoryLayer.m in Sources */,
+				3642BBD815AF268000DBA483 /* SettingsLayer.m in Sources */,
+				3642BCED15B0D3D000DBA483 /* CCAutoScalingSprite.m in Sources */,
+				36FBEEB115B2396E000E15C8 /* CCAutoScaling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

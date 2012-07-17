@@ -8,6 +8,7 @@
 
 #import "AnimalPart.h"
 #import "SoundManager.h"
+#import "CCAutoScaling.h"
 
 @implementation AnimalPart
 
@@ -32,9 +33,6 @@
     p.happyImageName = himgName;
     p.fixPoints = [[[NSMutableArray alloc] init] autorelease];
     p.data = dict;
-    // downscale for non-retina
-    float scaleFactor = 0.5 * CC_CONTENT_SCALE_FACTOR();
-    p.scale = scaleFactor;
     p.partType = pt;
     p.textureState = [[[NSMutableDictionary alloc] init] autorelease];
     CCTexture2D *happyTexture = [[CCTextureCache sharedTextureCache] addImage:p.happyImageName];
@@ -53,7 +51,8 @@
             CGFloat y = [((NSNumber *) [pntDict objectForKey:@"y"]) floatValue];
             
             AnchorPoint *ap = [[AnchorPoint alloc] init];
-            CGPoint pnt = CGPointMake(x / p.scale, p.contentSize.height - (y / p.scale));
+            CGPoint pnt = CGPointMake(x * (positionScaleForCurrentDevice(kDimensionY) / autoScaleForCurrentDevice()), p.contentSize.height - (y * (positionScaleForCurrentDevice(kDimensionY) / autoScaleForCurrentDevice())));
+            
             ap.point = pnt;
             ap.orientation = [((NSNumber *) [pntDict objectForKey:@"orientation"]) floatValue];
             ap.name = key;
@@ -67,6 +66,7 @@
         CGPoint newAnchorPx = ((AnchorPoint *) [p.fixPoints objectAtIndex:0]).point;
         // invert the scale factor of all points to compensate for any downscaling
         CGPoint newAnchor = CGPointMake(newAnchorPx.x / p.contentSize.width, newAnchorPx.y / p.contentSize.height);
+        // NSLog
         p.anchorPoint = newAnchor;
     }
 
@@ -100,11 +100,21 @@
     
     ccDrawColor4B(0,255,0,180);
     ccPointSize(8);
-    ccDrawPoint(self.anchorPointInPoints); */
+    ccDrawPoint(self.anchorPointInPoints);*/
 }
 
 -(void) setState: (AnimalStateType) state {
     [self setTexture: [self.textureState objectForKey:[NSNumber numberWithInt: (int) state]]];
+}
+
+-(void) getAttention {
+    id rotate = [CCRotateBy actionWithDuration:0.05 angle:18];
+    id reverseRotate = [CCRotateBy actionWithDuration:0.1 angle:-36];
+    id rotate2 = [CCRotateBy actionWithDuration:0.05 angle:18];
+    
+    id seq = [CCRepeat actionWithAction:[CCSequence actions:rotate, reverseRotate, rotate2, nil] times: 3];
+
+    [self runAction:seq];
 }
 
 -(BOOL) hitTest:(CGPoint)point {

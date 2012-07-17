@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CCAutoScalingSprite.h"
 
 @interface EnvironmentLayer : CCLayer<CCTargetedTouchDelegate>
 
-@property (nonatomic, retain) CCSprite *background;
+@property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) NSString *key;
 
 +(id) initWithDictionary: (NSDictionary *) setupData;

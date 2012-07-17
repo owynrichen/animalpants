@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AnchorPoint.h"
+#import "CCAutoScalingSprite.h"
 
 typedef enum {
     kAnimalPartTypeBody = 0,
@@ -19,7 +20,7 @@ typedef enum {
     kAnimalStateHappy = 1
 } AnimalStateType;
 
-@interface AnimalPart : CCSprite <NSCopying> {
+@interface AnimalPart : CCAutoScalingSprite <NSCopying> {
     AnimalPartType partType;
     NSMutableArray *fixPoints;
     NSString *imageName;
@@ -44,6 +45,8 @@ typedef enum {
 -(void) setState: (AnimalStateType) state;
 -(BOOL) hitTest: (CGPoint) point;
 -(AnchorPointPair *) getClosestAnchorWithinDistance: (float) maxDistance withAnimalPart: (AnimalPart *) part;
-- (id)copyWithZone:(NSZone *)zone;
+-(id)copyWithZone:(NSZone *)zone;
+
+-(void) getAttention;
 
 @end

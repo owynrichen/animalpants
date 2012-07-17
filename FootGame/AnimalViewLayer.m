@@ -10,9 +10,15 @@
 #import "AnimalPartRepository.h"
 #import "EnvironmentRepository.h"
 #import "SoundManager.h"
+#import "CCAutoScaling.h"
 
 #define SNAP_DISTANCE 30
 #define ROTATE_DISTANCE 300
+
+@interface AnimalViewLayer ()
+-(AnimalPart *) getCorrectFoot;
+-(void) drawAttention: (ccTime) dtime;
+@end
 
 @implementation AnimalViewLayer
 
@@ -45,32 +51,34 @@
     
     [self addChild:background];
     
-    name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100];
+    name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100 * fontScaleForCurrentDevice()];
     name.anchorPoint = ccp(0,0);
-    name.position = ccp(50, 650);
+    name.position = ccpToRatio(50, 650);
     name.opacity = 200;
     name.color = ccBLACK;
     [self addChild:name];
     
-    feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:4 includingAnimalFeet:animal] retain];
+    feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:3 includingAnimalFeet:animal] retain];
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
-        foot.position = ccp(150 + (310 * i), 130);
+        foot.position = ccpToRatio(150 + (310 * i), 130);
         [self addChild:foot];
     }
-    
+        
     body = [animal.body copyWithZone:nil];
-    body.position = ccp(500, 300);
+    body.position = ccpToRatio(500, 300);
     
     [self addChild:body];
     
     next = [CCSprite spriteWithFile:@"arrow.png"];
-    next.scale = 0.4 * (0.5 * CC_CONTENT_SCALE_FACTOR());
-    next.position = ccp(920, 90);
+    next.scale = 0.4 * fontScaleForCurrentDevice();
+    next.position = ccpToRatio(920, 90);
     next.visible = false;
     
     [self addChild:next];
+    
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:10 delay:5];
     
     [super onEnter];
 }
@@ -91,6 +99,8 @@
 -(void) draw {
     [super draw];
 }
+
+
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
@@ -160,8 +170,8 @@
             
             [[SoundManager sharedManager] playSound:animal.successSound];
             next.visible = true;
-            next.position = ccp(920, 90);
-            [next runAction:[CCRepeatForever actionWithAction:[CCJumpBy actionWithDuration:2 position:ccp(0,0) height:30 jumps:2]]];
+            next.position = ccpToRatio(920, 90);
+            [next runAction:[CCRepeatForever actionWithAction:[CCJumpBy actionWithDuration:2 position:ccpToRatio(0,0) height:30 jumps:2]]];
         } else {
             name.color = ccBLACK;
             
@@ -176,6 +186,23 @@
     }
 }
 
+-(AnimalPart *) getCorrectFoot {
+    for(int i = 0; i < [feet count]; i++) {
+        AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
+        if ([foot.imageName isEqualToString:animal.foot.imageName]) {
+            return foot;
+        }
+    }
+    
+    return nil;
+}
+
+-(void) drawAttention: (ccTime) dtime {
+    AnimalPart *foot = [self getCorrectFoot];
+    
+    [foot getAttention];
+}
+
 -(BOOL) testVictory {
     CGPoint fpntWS;
     
@@ -188,19 +215,17 @@
         }
     }
     
-    for(int i = 0; i < [feet count]; i++) {
-        AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
-        AnchorPoint *fpnt = (AnchorPoint *) [foot.fixPoints objectAtIndex:0];
-        CGPoint test = [foot convertToWorldSpace:fpnt.point];
-        NSLog(@"Testing foot: %@, %f, %f", foot.imageName, test.x, test.y);
-        
-        if ([foot.imageName isEqualToString:animal.foot.imageName]) {
-//            NSLog(@"'%@' == '%@'. %f, %f - %f, %f - Distance: %f", foot.imageName, animal.foot.imageName, test.x, test.y, fpntWS.x, fpntWS.y, ccpDistance(test, fpntWS));
-            if (ccpDistance(test, fpntWS) != 0)
-                return NO;
-        }
-    }
+    AnimalPart *foot = [self getCorrectFoot];
+
+    if (foot == nil)
+        return NO;
     
+    AnchorPoint *fpnt = (AnchorPoint *) [foot.fixPoints objectAtIndex:0];
+    CGPoint test = [foot convertToWorldSpace:fpnt.point];
+    
+    if (ccpDistance(test, fpntWS) != 0)
+        return NO;
+
     return YES;
 }
 

@@ -20,9 +20,9 @@
     
     NSDictionary *background = (NSDictionary *) [setupData objectForKey:@"Background"];
     NSString *img = (NSString *) [background objectForKey:@"image"];
-    layer.background = [CCSprite spriteWithFile:img];
+    layer.background = [CCAutoScalingSprite spriteWithFile:img];
     
-    layer.background.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
+    //layer.background.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     layer.background.position = ccp(winSize.width / 2, winSize.height / 2);
     

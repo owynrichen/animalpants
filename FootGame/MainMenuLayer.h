@@ -7,12 +7,13 @@
 //
 
 #import "CCLayer.h"
+#import "CCAutoScalingSprite.h"
 
 @interface MainMenuLayer : CCLayer<CCTargetedTouchDelegate>
 
-@property (nonatomic, retain) CCSprite *title;
+@property (nonatomic, retain) CCAutoScalingSprite *title;
 @property (nonatomic, retain) CCMenu *menu;
-@property (nonatomic, retain) CCSprite *background;
+@property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) CCSprite *splashFade;
 
 +(CCScene *) scene;
