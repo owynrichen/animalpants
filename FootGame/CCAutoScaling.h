@@ -29,4 +29,4 @@ float positionScaleForCurrentDevice(DimensionType d);
 
 #define fontScaleForCurrentDevice() positionScaleForCurrentDevice(kDimensionX)
 
-#define ccpToRatio(__X__,__Y__) CGPointMake(__X__ * positionScaleForCurrentDevice(kDimensionX),__Y__ * positionScaleForCurrentDevice(kDimensionY))
+#define ccpToRatio(__X__,__Y__) CGPointMake(__X__ * positionScaleForCurrentDevice(kDimensionY),__Y__ * positionScaleForCurrentDevice(kDimensionY))

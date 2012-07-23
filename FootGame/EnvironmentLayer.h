@@ -11,9 +11,8 @@
 
 @interface EnvironmentLayer : CCLayer<CCTargetedTouchDelegate>
 
-@property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) NSString *key;
-
-+(id) initWithDictionary: (NSDictionary *) setupData;
+@property (nonatomic) CGPoint animalPosition;
+@property (nonatomic) CGPoint textPosition;
 
 @end

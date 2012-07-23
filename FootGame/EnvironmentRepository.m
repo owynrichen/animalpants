@@ -7,6 +7,7 @@
 //
 
 #import "EnvironmentRepository.h"
+#import "Environment.h"
 
 @implementation EnvironmentRepository
 
@@ -35,7 +36,7 @@ static NSString *_sync = @"";
     [self loadDataWithFilterBlock:^BOOL(NSString *filename) {
         return [filename hasPrefix:@"Environment-"] && [filename.pathExtension isEqualToString:@"plist"];
     } resultBlock:^(NSDictionary *data) {
-        EnvironmentLayer *env = [EnvironmentLayer initWithDictionary: data];
+        Environment *env = [Environment initWithDictionary: data];
         
         [self.environments setObject:env forKey:env.key];
     }];
@@ -51,7 +52,7 @@ static NSString *_sync = @"";
 }
 
 -(EnvironmentLayer *) getEnvironment: (NSString *) key {
-    return (EnvironmentLayer *) [self.environments objectForKey:key];
+    return [((Environment *) [self.environments objectForKey:key]) getLayer];
 }
 
 @end

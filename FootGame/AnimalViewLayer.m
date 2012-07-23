@@ -40,11 +40,11 @@
 -(id) init {
     self = [super init];
     
-    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:YES];
     return self;
 }
 
 -(void) onEnter {
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
     animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
     
     background = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
@@ -54,7 +54,7 @@
     // name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100 * fontScaleForCurrentDevice()];
     name = [CCAutoScalingSprite spriteWithFile:animal.word];
     name.anchorPoint = ccp(0,0);
-    name.position = ccpToRatio(80, 600);
+    name.position = background.textPosition;
     name.opacity = 200;
     name.scale *= 0.4;
     name.color = ccWHITE;
@@ -65,12 +65,12 @@
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
-        foot.position = ccpToRatio(150 + (310 * i), 130);
+        foot.position = ccpToRatio(100 + (310 * i), 130);
         [self addChild:foot];
     }
         
     body = [animal.body copyWithZone:nil];
-    body.position = ccpToRatio(500, 300);
+    body.position = background.animalPosition;
     
     [self addChild:body];
     
@@ -82,6 +82,11 @@
     [self addChild:next];
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:10 delay:5];
+    
+    
+    streak = [CCMotionStreak streakWithFade:1 minSeg:10 width:50 color:ccWHITE textureFilename:@"rainbow.png"];
+    streak.fastMode = NO;
+    [self addChild:streak];
     
     [super onEnter];
 }
@@ -95,6 +100,8 @@
     [self removeChild:name cleanup:YES];
     [self removeChild:background cleanup:YES];
     [feet release];
+    
+    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 
     [super onExit];
 }
@@ -114,6 +121,8 @@
             foot.touch = touch;
             foot.position = pnt;
             [[SoundManager sharedManager] playSound:@"glock__c2.wav"];
+
+            [streak setPosition:pnt];
             break;
         }
     }
@@ -128,9 +137,12 @@
 }
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
+    
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
         if (touch == foot.touch) {
+            [streak setPosition:pnt];
+            
             AnchorPointPair *pair = [foot getClosestAnchorWithinDistance:ROTATE_DISTANCE withAnimalPart:body];
             
             if (pair != nil && pair.distance <= SNAP_DISTANCE) { // SNAP IN PLACE

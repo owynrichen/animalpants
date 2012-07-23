@@ -19,6 +19,8 @@
     // CCLabelTTF *name;
     CCAutoScalingSprite *name;
     
+    CCMotionStreak *streak;
+    
     BOOL nextTouched;
 }
 

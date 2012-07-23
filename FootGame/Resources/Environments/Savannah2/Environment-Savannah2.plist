@@ -4,12 +4,35 @@
 <dict>
 	<key>Key</key>
 	<string>savannah2</string>
-	<key>Background</key>
+	<key>TextPosition</key>
+	<dict>
+		<key>x</key>
+		<integer>80</integer>
+		<key>y</key>
+		<integer>600</integer>
+	</dict>
+	<key>AnimalPosition</key>
+	<dict>
+		<key>x</key>
+		<integer>390</integer>
+		<key>y</key>
+		<integer>320</integer>
+	</dict>
+	<key>Sky</key>
 	<dict>
 		<key>type</key>
-		<string>sprite</string>
-		<key>image</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>0</integer>
+		<key>imageName</key>
 		<string>savannah2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 </dict>
 </plist>

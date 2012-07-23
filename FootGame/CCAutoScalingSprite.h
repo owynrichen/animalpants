@@ -7,9 +7,16 @@
 //
 
 #import "CCSprite.h"
+#import "BehaviorManager.h"
 
-@interface CCAutoScalingSprite : CCSprite
+@interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate>
 
 @property (nonatomic, readonly) float autoScaleFactor;
+@property (nonatomic, readonly) BehaviorManager *behaviorManager;
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
+- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
+- (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end
