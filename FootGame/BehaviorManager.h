@@ -7,17 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface Behavior : NSObject
-
-@property (nonatomic, retain) NSString *key;
-@property (nonatomic, retain) NSDictionary *data;
-
-+(Behavior *) behaviorFromKey: (NSString *) key dictionary: (NSDictionary *) data;
-
--(id) initWithKey: (NSString *) k data: (NSDictionary *) d;
--(CCAction *) getAction;
-@end
+#import "Behavior.h"
 
 @interface BehaviorManager : NSObject {
     NSMutableDictionary *behaviors;
@@ -26,6 +16,7 @@
 -(void) addBehavior: (Behavior *) behavior;
 -(Behavior *) getBehavior: (NSString *) key;
 -(void) removeBehavior: (NSString *) key;
+-(BOOL) hasBehaviors;
 @end
 
 @protocol BehaviorManagerDelegate<CCTargetedTouchDelegate>

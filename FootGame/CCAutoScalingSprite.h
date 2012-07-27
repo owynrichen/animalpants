@@ -8,11 +8,13 @@
 
 #import "CCSprite.h"
 #import "BehaviorManager.h"
+#import "BitMask.h"
 
 @interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate>
 
 @property (nonatomic, readonly) float autoScaleFactor;
 @property (nonatomic, readonly) BehaviorManager *behaviorManager;
+@property (nonatomic, readonly) BitMask *bitMask;
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;

@@ -124,6 +124,14 @@
 	</dict>
 	<key>Monkey1</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -140,6 +148,14 @@
 	</dict>
 	<key>Monkey2</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>touch</key>
+			<dict>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

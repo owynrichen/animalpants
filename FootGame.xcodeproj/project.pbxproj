@@ -73,6 +73,8 @@
 		36A92CE6133E8C5B004DFEFC /* AnimalPartRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE5133E8C55004DFEFC /* AnimalPartRepository.m */; };
 		36A92CE9133ED436004DFEFC /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CE8133ED42F004DFEFC /* Animal.m */; };
 		36A92CF4133EF753004DFEFC /* AnchorPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CF3133EF742004DFEFC /* AnchorPoint.m */; };
+		36AD641115BDA6ED0089FC82 /* Behavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AD641015BDA6ED0089FC82 /* Behavior.m */; };
+		36AD641415BE5BDF0089FC82 /* BitMask.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AD641315BE5BDF0089FC82 /* BitMask.m */; };
 		36F9A12D15BA759600A0A8F3 /* monkey1.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12815BA759600A0A8F3 /* monkey1.png */; };
 		36F9A12E15BA759600A0A8F3 /* monkey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12915BA759600A0A8F3 /* monkey2.png */; };
 		36F9A12F15BA759600A0A8F3 /* savannah1_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12A15BA759600A0A8F3 /* savannah1_clouds.png */; };
@@ -616,6 +618,10 @@
 		36A92CE8133ED42F004DFEFC /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 		36A92CF2133EF73A004DFEFC /* AnchorPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorPoint.h; sourceTree = "<group>"; };
 		36A92CF3133EF742004DFEFC /* AnchorPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorPoint.m; sourceTree = "<group>"; };
+		36AD640F15BDA6ED0089FC82 /* Behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
+		36AD641015BDA6ED0089FC82 /* Behavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Behavior.m; sourceTree = "<group>"; };
+		36AD641215BE5BDF0089FC82 /* BitMask.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BitMask.h; sourceTree = "<group>"; };
+		36AD641315BE5BDF0089FC82 /* BitMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitMask.m; sourceTree = "<group>"; };
 		36F9A12815BA759600A0A8F3 /* monkey1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monkey1.png; path = Resources/Environments/Savannah1/Graphics/monkey1.png; sourceTree = "<group>"; };
 		36F9A12915BA759600A0A8F3 /* monkey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monkey2.png; path = Resources/Environments/Savannah1/Graphics/monkey2.png; sourceTree = "<group>"; };
 		36F9A12A15BA759600A0A8F3 /* savannah1_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah1_clouds.png; path = Resources/Environments/Savannah1/Graphics/savannah1_clouds.png; sourceTree = "<group>"; };
@@ -878,6 +884,8 @@
 				3642BCEC15B0D3D000DBA483 /* CCAutoScalingSprite.m */,
 				36FBEEAF15B2396D000E15C8 /* CCAutoScaling.h */,
 				36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */,
+				36AD641215BE5BDF0089FC82 /* BitMask.h */,
+				36AD641315BE5BDF0089FC82 /* BitMask.m */,
 			);
 			name = CCExtensions;
 			sourceTree = "<group>";
@@ -1002,6 +1010,7 @@
 		367EC2F0133A4782003F7FF0 /* FootGame */ = {
 			isa = PBXGroup;
 			children = (
+				36AD640E15BDA6D00089FC82 /* Behaviors */,
 				364B077D15A739F30054E69A /* CCExtensions */,
 				364B025C159B5EE10054E69A /* Animal */,
 				364B025B159B5ED60054E69A /* Environment */,
@@ -1011,8 +1020,6 @@
 				367EC490133A4785003F7FF0 /* AppDelegate.m */,
 				364B077515A50E510054E69A /* BaseRepository.h */,
 				364B077615A50E510054E69A /* BaseRepository.m */,
-				36F9A1B115BCBB3100A0A8F3 /* BehaviorManager.h */,
-				36F9A1B215BCBB3100A0A8F3 /* BehaviorManager.m */,
 				364B077815A552F00054E69A /* MainMenuLayer.h */,
 				364B077915A552F10054E69A /* MainMenuLayer.m */,
 				3642BBD615AF267F00DBA483 /* SettingsLayer.h */,
@@ -1080,6 +1087,17 @@
 				367EC300133A4782003F7FF0 /* Icon@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		36AD640E15BDA6D00089FC82 /* Behaviors */ = {
+			isa = PBXGroup;
+			children = (
+				36F9A1B115BCBB3100A0A8F3 /* BehaviorManager.h */,
+				36F9A1B215BCBB3100A0A8F3 /* BehaviorManager.m */,
+				36AD640F15BDA6ED0089FC82 /* Behavior.h */,
+				36AD641015BDA6ED0089FC82 /* Behavior.m */,
+			);
+			name = Behaviors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1637,6 +1655,8 @@
 				36FBEEB115B2396E000E15C8 /* CCAutoScaling.m in Sources */,
 				36FBEF4315B9B4B2000E15C8 /* Environment.m in Sources */,
 				36F9A1B315BCBB3200A0A8F3 /* BehaviorManager.m in Sources */,
+				36AD641115BDA6ED0089FC82 /* Behavior.m in Sources */,
+				36AD641415BE5BDF0089FC82 /* BitMask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

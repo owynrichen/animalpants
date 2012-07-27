@@ -13,6 +13,7 @@
 
 @synthesize autoScaleFactor;
 @synthesize behaviorManager=behaviorManager_;
+@synthesize bitMask;
 
 -(id) initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect rotated:(BOOL)rotated {
     self = [super initWithTexture:texture rect:rect rotated:rotated];
@@ -20,11 +21,12 @@
     // TODO: this is a pretty naive approach to scaling, we really should scale it before we cache the
     // actual texture to be more conservative about memory
     
+    bitMask = [[BitMask alloc] initWithSprite: self];
+    
     autoScaleFactor = autoScaleForCurrentDevice();
     self.scale = autoScaleFactor;
     behaviorManager_ = [[BehaviorManager alloc] init];
-    
-    
+     
     return self;
 }
 
@@ -52,15 +54,35 @@
     //anchorPoint_ = CGPointMake(anchorPoint.x / self.autoScaleFactor, anchorPoint.y / self.autoScaleFactor);
 }
 
+-(void) draw {
+    [super draw];
+//    if ([behaviorManager_ hasBehaviors]) {
+//        ccDrawColor4B(0,0,255,180);
+//        ccDrawRect(self.boundingBox.origin, CGPointMake(self.boundingBox.origin.x + self.boundingBox.size.width, self.boundingBox.size.height));
+//        
+//        ccDrawColor4B(0,255,0,180);
+//        for (int y = 0; y < self.contentSize.height; y++) {
+//            for (int x = 0; x < self.contentSize.width; x++) {
+//                if ([self.bitMask hitx:x y:y]) {
+//                    ccDrawPoint(ccp(x,y));
+//                }
+//            }
+//        }
+//    }
+}
+
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     
     if (self.visible && CGRectContainsPoint([self boundingBox], pnt)) {
-        Behavior *b = [behaviorManager_ getBehavior:@"touch"];
+        pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
+        if ([self.bitMask hitx:pnt.x y:pnt.y]) {
+            Behavior *b = [behaviorManager_ getBehavior:@"touch"];
     
-        if (b != nil) {
-            [self runAction:[b getAction]];
-            return YES;
+            if (b != nil) {
+                [self runAction:[b getAction]];
+                return YES;
+            }
         }
     }
     
