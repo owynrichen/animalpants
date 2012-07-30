@@ -1,0 +1,10 @@
+/* 
+  strings.strings
+  FootGame
+
+  Created by Owyn Richen on 7/28/12.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+*/
+
+"play" = "Jugar!";
+"elephant" = "Los pies del elefante son de color gris, con uñas de los pies grandes";

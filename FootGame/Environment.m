@@ -23,6 +23,7 @@
 @synthesize layers;
 @synthesize animalPosition;
 @synthesize textPosition;
+@synthesize kidPosition;
 
 -(id) initWithDictionary: (NSDictionary *) setupData {
     self = [super init];
@@ -31,6 +32,7 @@
     self.layers = [setupData retain];
     self.animalPosition = [self parsePosition:(NSDictionary *) [self.layers objectForKey:@"AnimalPosition"]];
     self.textPosition = [self parsePosition:(NSDictionary *) [self.layers objectForKey:@"TextPosition"]];
+    self.kidPosition = [self parsePosition:(NSDictionary *) [self.layers objectForKey:@"KidPosition"]];
 
     return self;
 }
@@ -90,6 +92,7 @@
     
     env.animalPosition = self.animalPosition;
     env.textPosition = self.textPosition;
+    env.kidPosition = self.kidPosition;
  
     [self.layers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([obj isKindOfClass:[NSDictionary class]]) {

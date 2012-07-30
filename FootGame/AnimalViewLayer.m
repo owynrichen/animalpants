@@ -18,6 +18,7 @@
 @interface AnimalViewLayer ()
 -(AnimalPart *) getCorrectFoot;
 -(void) drawAttention: (ccTime) dtime;
+-(void) moveKids: (ccTime) dtime;
 @end
 
 @implementation AnimalViewLayer
@@ -88,6 +89,14 @@
     streak.fastMode = NO;
     [self addChild:streak];
     
+    kid = [CCAutoScalingSprite spriteWithFile:@"girl1.png"];
+    kid.anchorPoint = ccp(0,0);
+    kid.position = ccpToRatio(background.kidPosition.x - kid.contentSize.width, background.kidPosition.y - kid.contentSize.height);
+    [self addChild:kid];
+    
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
+    
+    
     [super onEnter];
 }
 
@@ -105,12 +114,6 @@
 
     [super onExit];
 }
-
--(void) draw {
-    [super draw];
-}
-
-
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
@@ -228,6 +231,13 @@
     AnimalPart *foot = [self getCorrectFoot];
     
     [foot getAttention];
+}
+
+-(void) moveKids:(ccTime)dtime {
+    CGPoint point = ccpToRatio(background.kidPosition.x, background.kidPosition.y);
+    
+    CCMoveTo *move = [CCMoveTo actionWithDuration:0.5 position:point];
+    [kid runAction:move];
 }
 
 -(BOOL) testVictory {

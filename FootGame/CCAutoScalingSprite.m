@@ -51,7 +51,6 @@
 
 -(void) setAnchorPoint:(CGPoint)anchorPoint {
     [super setAnchorPoint:anchorPoint];
-    //anchorPoint_ = CGPointMake(anchorPoint.x / self.autoScaleFactor, anchorPoint.y / self.autoScaleFactor);
 }
 
 -(void) draw {

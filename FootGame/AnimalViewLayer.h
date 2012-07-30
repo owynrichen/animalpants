@@ -21,6 +21,8 @@
     
     CCMotionStreak *streak;
     
+    CCAutoScalingSprite *kid;
+    
     BOOL nextTouched;
 }
 

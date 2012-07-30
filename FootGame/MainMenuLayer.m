@@ -45,7 +45,7 @@
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
     [CCMenuItemFont setFontSize:72 * fontScaleForCurrentDevice()];
-    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:@"Play!" color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"play", @"strings", @"Play!") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] pushScene:[AnimalViewLayer scene]];
     }];
     

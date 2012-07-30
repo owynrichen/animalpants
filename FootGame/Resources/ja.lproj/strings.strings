@@ -1,0 +1,10 @@
+/* 
+  strings.strings
+  FootGame
+
+  Created by Owyn Richen on 7/28/12.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+*/
+
+"play" = "プレイ！";
+"elephant" = "象の足には足の親指の爪の付いたグレーです。";

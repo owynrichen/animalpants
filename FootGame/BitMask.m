@@ -8,12 +8,7 @@
 
 #import "BitMask.h"
 
-// Yes, I know this isn't a true bitmask, and could be optimized
-// at the moment I'm too lazy to figure this out but hope to pick it back
-// up soon
-//
-// Uncomment this line to try it again
-// #define BITMASK 1
+#define BITMASK 1
 
 @implementation BitMask
 
@@ -94,7 +89,7 @@
 #ifndef BITMASK
                 byteArray[index] = YES;
 #else
-                byteArray[index / 8] &= (0x80 >> (index % 8));
+                byteArray[index / 8] |= (0x80 >> (index % 8));
 #endif
             }
         }
@@ -109,6 +104,8 @@
 }
 
 -(BOOL) hitx:(int) x  y: (int) y {
+    x = x * CC_CONTENT_SCALE_FACTOR();
+    y = y * CC_CONTENT_SCALE_FACTOR();
     if (x > width || x < 0 || y > height || y < 0)
         return NO;
     // because sprites are upside down on draw, invert the y

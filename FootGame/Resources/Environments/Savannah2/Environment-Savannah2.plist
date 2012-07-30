@@ -4,6 +4,13 @@
 <dict>
 	<key>Key</key>
 	<string>savannah2</string>
+	<key>KidPosition</key>
+	<dict>
+		<key>x</key>
+		<integer>700</integer>
+		<key>y</key>
+		<integer>45</integer>
+	</dict>
 	<key>TextPosition</key>
 	<dict>
 		<key>x</key>

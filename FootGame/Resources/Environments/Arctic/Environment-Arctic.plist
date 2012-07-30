@@ -4,6 +4,13 @@
 <dict>
 	<key>Key</key>
 	<string>arctic</string>
+	<key>KidPosition</key>
+	<dict>
+		<key>x</key>
+		<integer>80</integer>
+		<key>y</key>
+		<integer>30</integer>
+	</dict>
 	<key>TextPosition</key>
 	<dict>
 		<key>x</key>

@@ -15,6 +15,7 @@
 @property (nonatomic) CGPoint animalPosition;
 @property (nonatomic) CGPoint textPosition;
 @property (nonatomic, retain) NSDictionary *layers;
+@property (nonatomic) CGPoint kidPosition;
 
 +(Environment *) initWithDictionary: (NSDictionary *) setupData;
 
