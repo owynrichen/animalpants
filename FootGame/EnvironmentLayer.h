@@ -15,5 +15,6 @@
 @property (nonatomic) CGPoint animalPosition;
 @property (nonatomic) CGPoint textPosition;
 @property (nonatomic) CGPoint kidPosition;
+@property (nonatomic, retain) NSString *storyKey;
 
 @end

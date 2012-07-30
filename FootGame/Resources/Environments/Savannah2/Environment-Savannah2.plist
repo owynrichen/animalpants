@@ -4,6 +4,8 @@
 <dict>
 	<key>Key</key>
 	<string>savannah2</string>
+	<key>StoryKey</key>
+	<string>lion</string>
 	<key>KidPosition</key>
 	<dict>
 		<key>x</key>

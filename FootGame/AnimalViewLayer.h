@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Animal.h"
 #import "EnvironmentLayer.h"
+#import "SpeechBubble.h"
+
 
 @interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate> {
     Animal *animal;
@@ -16,12 +18,12 @@
     NSArray *feet;
     EnvironmentLayer *background;
     CCSprite *next;
-    // CCLabelTTF *name;
     CCAutoScalingSprite *name;
     
     CCMotionStreak *streak;
     
     CCAutoScalingSprite *kid;
+    SpeechBubble *bubble;
     
     BOOL nextTouched;
 }

@@ -14,6 +14,7 @@
 @synthesize animalPosition;
 @synthesize textPosition;
 @synthesize kidPosition;
+@synthesize storyKey;
 
 -(id) init {
     self = [super init];

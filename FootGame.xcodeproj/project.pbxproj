@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3614697D15C6415700DD75B1 /* SpeechBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3614697C15C6415700DD75B1 /* SpeechBubble.m */; };
 		3642BAD115AA717300DBA483 /* lion_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD015AA717300DBA483 /* lion_top_happy.png */; };
 		3642BAD315AA718500DBA483 /* penguin_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD215AA718500DBA483 /* penguin_top_happy.png */; };
 		3642BAD515AA719800DBA483 /* elephant_top_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3642BAD415AA719800DBA483 /* elephant_top_happy.png */; };
@@ -542,6 +543,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3614697B15C6415700DD75B1 /* SpeechBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechBubble.h; sourceTree = "<group>"; };
+		3614697C15C6415700DD75B1 /* SpeechBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechBubble.m; sourceTree = "<group>"; };
 		3642BAD015AA717300DBA483 /* lion_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lion_top_happy.png; path = Resources/Animals/Lion/Graphics/lion_top_happy.png; sourceTree = "<group>"; };
 		3642BAD215AA718500DBA483 /* penguin_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = penguin_top_happy.png; path = Resources/Animals/Penguin/Graphics/penguin_top_happy.png; sourceTree = "<group>"; };
 		3642BAD415AA719800DBA483 /* elephant_top_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant_top_happy.png; path = Resources/Animals/Elephant/Graphics/elephant_top_happy.png; sourceTree = "<group>"; };
@@ -688,6 +691,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3614697A15C63E2900DD75B1 /* Kids */ = {
+			isa = PBXGroup;
+			children = (
+				3614697B15C6415700DD75B1 /* SpeechBubble.h */,
+				3614697C15C6415700DD75B1 /* SpeechBubble.m */,
+			);
+			name = Kids;
+			sourceTree = "<group>";
+		};
 		361506F01594C96C000F46D9 /* Environments */ = {
 			isa = PBXGroup;
 			children = (
@@ -1027,6 +1039,7 @@
 		367EC2F0133A4782003F7FF0 /* FootGame */ = {
 			isa = PBXGroup;
 			children = (
+				3614697A15C63E2900DD75B1 /* Kids */,
 				36AD640E15BDA6D00089FC82 /* Behaviors */,
 				364B077D15A739F30054E69A /* CCExtensions */,
 				364B025C159B5EE10054E69A /* Animal */,
@@ -1688,6 +1701,7 @@
 				36F9A1B315BCBB3200A0A8F3 /* BehaviorManager.m in Sources */,
 				36AD641115BDA6ED0089FC82 /* Behavior.m in Sources */,
 				36AD641415BE5BDF0089FC82 /* BitMask.m in Sources */,
+				3614697D15C6415700DD75B1 /* SpeechBubble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

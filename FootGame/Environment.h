@@ -16,6 +16,7 @@
 @property (nonatomic) CGPoint textPosition;
 @property (nonatomic, retain) NSDictionary *layers;
 @property (nonatomic) CGPoint kidPosition;
+@property (nonatomic, retain) NSString *storyKey;
 
 +(Environment *) initWithDictionary: (NSDictionary *) setupData;
 

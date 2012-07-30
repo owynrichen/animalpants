@@ -52,7 +52,6 @@
     
     [self addChild:background];
     
-    // name = [CCLabelTTF labelWithString:animal.name fontName:@"Marker Felt" fontSize:100 * fontScaleForCurrentDevice()];
     name = [CCAutoScalingSprite spriteWithFile:animal.word];
     name.anchorPoint = ccp(0,0);
     name.position = background.textPosition;
@@ -94,10 +93,20 @@
     kid.position = ccpToRatio(background.kidPosition.x - kid.contentSize.width, background.kidPosition.y - kid.contentSize.height);
     [self addChild:kid];
     
+    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08] autorelease];
+    bubble.anchorPoint = ccp(0,0);
+    bubble.position = ccpToRatio(50, 50);
+    [self addChild:bubble];
+    
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
     
-    
     [super onEnter];
+}
+
+-(void) onEnterTransitionDidFinish {
+    [bubble start];
+    
+    [super onEnterTransitionDidFinish];
 }
 
 -(void) onExit {
