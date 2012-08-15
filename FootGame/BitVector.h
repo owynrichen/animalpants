@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BitMask : NSObject {
-    CFBitVectorRef bitVector;
+@interface BitVector : NSObject {
     signed char *byteArray;
     size_t width;
     size_t height;

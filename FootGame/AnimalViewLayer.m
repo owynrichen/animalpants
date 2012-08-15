@@ -93,9 +93,14 @@
     kid.position = ccpToRatio(background.kidPosition.x - kid.contentSize.width, background.kidPosition.y - kid.contentSize.height);
     [self addChild:kid];
     
-    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08] autorelease];
+    CGPoint bubbleTop = ccpToRatio(50, 580);
+    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
+    CGPoint bubblePoint = ccpToRatio(background.kidPosition.x, background.kidPosition.y + (kid.contentSize.height * autoScaleForCurrentDevice()));
+    
+    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08 rect: bubbleRect point:bubblePoint] autorelease];
     bubble.anchorPoint = ccp(0,0);
-    bubble.position = ccpToRatio(50, 50);
+    bubble.position = bubbleTop;
+    bubble.scale = 0.0;
     [self addChild:bubble];
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
@@ -104,8 +109,6 @@
 }
 
 -(void) onEnterTransitionDidFinish {
-    [bubble start];
-    
     [super onEnterTransitionDidFinish];
 }
 
@@ -246,7 +249,22 @@
     CGPoint point = ccpToRatio(background.kidPosition.x, background.kidPosition.y);
     
     CCMoveTo *move = [CCMoveTo actionWithDuration:0.5 position:point];
-    [kid runAction:move];
+    CCCallBlockN *scaleBlock = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [bubble runAction:[CCScaleTo actionWithDuration:0.2 scale:1.0]];
+    }];
+    
+    // TODO: set this up to speed up on a touch maybe
+    CCCallBlockN *startText = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [bubble startWithBlock:^(CCNode *node) {
+            // TODO: set this up to go away on a timer or a touch
+            bubble.visible = NO;
+            kid.visible = NO;
+        }];
+    }];
+
+    CCSequence *seq = [CCSequence actions:move, scaleBlock, startText, nil];
+    [kid runAction:seq];
+    [[[CCDirector sharedDirector] scheduler] unscheduleSelector:@selector(moveKids:) forTarget:self];
 }
 
 -(BOOL) testVictory {

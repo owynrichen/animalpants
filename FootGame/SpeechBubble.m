@@ -9,19 +9,40 @@
 #import "SpeechBubble.h"
 #import "CCAutoScaling.h"
 
+@interface SpeechBubble()
+-(CGPoint *) buildBubblePointsFromRect: (CGRect) rect andPoint: (CGPoint) point withScale: (CGPoint) scale andOffset: (CGPoint) offset;
+-(CGPoint) calculateAngle: (CGPoint) center angle: (float) angleDegrees radius: (float) radius;
+-(CGPoint *) calculateRounded: (CGPoint) corner center: (CGPoint) center smoothness: (int) pointCount;
+-(void) ccEllipse: (CGPoint) center ab: (CGPoint) ab samples: (int) numSamples;
+-(CCRenderTexture *) drawBubble;
+@end
+
 @implementation SpeechBubble
 
--(id) initWithStoryKey:(NSString *)storyKey typingInterval: (ccTime) ival {
+-(id) initWithStoryKey:(NSString *)storyKey typingInterval: (ccTime) ival rect: (CGRect) tRect point: (CGPoint) bPoint {
     self = [super init];
+    
+    talkRect = tRect;
+    bubblePoint = bPoint;
+    
+    bubbleSprite = [self drawBubble];
+    bubbleSprite.anchorPoint = ccp(0,0);
+    bubbleSprite.position = ccpToRatio(0,talkRect.size.height);
+    [self addChild:bubbleSprite];
+    
+    // Setup the size of the label to be 10% smaller than the size of the talk bubble rectangle
+    CGSize labelSize = CGSizeMake(talkRect.size.width - (talkRect.size.width * 0.1), talkRect.size.height - (talkRect.size.height * 0.1));
     
     storyText = NSLocalizedStringFromTable(storyKey, @"strings", @"");
     
-    label = [CCLabelTTFWithStroke labelWithString:@"" fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice()];
+    label = [[CCLabelTTFWithStroke alloc] initWithString:storyText dimensions:labelSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice()];
     label.color = ccWHITE;
     label.strokeSize = 3 * fontScaleForCurrentDevice();
     label.strokeColor = ccBLACK;
     label.anchorPoint = ccp(0,0);
-    label.position = ccpToRatio(50, 50);
+    // label.position = ccpToRatio(0,0);
+    label.position = ccpToRatio((talkRect.size.width * 0.05), - (talkRect.size.height * 0.10));
+    label.string = @"";
     [label drawStroke];
     
     [self addChild:label];
@@ -30,7 +51,144 @@
     return self;
 }
 
--(void) start {
+-(void) dealloc {
+    [super dealloc];
+}
+
+-(CCRenderTexture *) drawBubble {
+    float size = 10.0 * autoScaleForCurrentDevice();
+    CCRenderTexture *tex = [[[CCRenderTexture alloc] initWithWidth:talkRect.size.width + (size * 2) height:talkRect.size.height + (size * 4) + bubblePoint.y pixelFormat:kCCTexture2DPixelFormat_RGB888] autorelease];
+    
+    [tex.sprite setBlendFunc:(ccBlendFunc) {GL_SRC_ALPHA, GL_ONE} ];
+    [tex begin];
+//    [tex beginWithClear:1.0 g:0.0 b:0.0 a:0.0];
+    
+    CGPoint *strokeBubblePoints = [self buildBubblePointsFromRect:talkRect andPoint:bubblePoint withScale:ccp(size, size) andOffset:ccp(0, talkRect.origin.y + bubblePoint.y)];
+    
+    ccDrawSolidPoly(strokeBubblePoints, 24, ccc4f(0.0, 0.0, 0.0, 1.0));
+    free(strokeBubblePoints);
+    
+    // CGPoint *talkBubblePoints = [self buildBubblePointsFromRect:talkRect andPoint:bubblePoint withScale:ccp(0, 0) andOffset:ccp(size, talkRect.origin.y + bubblePoint.y + size)];
+    CGPoint *talkBubblePoints = [self buildBubblePointsFromRect:talkRect andPoint:bubblePoint withScale:ccp(0, 0) andOffset:ccp(0, talkRect.origin.y + bubblePoint.y)];
+    
+    ccDrawSolidPoly(talkBubblePoints, 24, ccc4f(1.0, 1.0, 1.0, 1.0));
+  
+//
+// THIS IS DEBUG CODE to draw the points and triangles of the dialog box
+//
+//    for (int i = 0; i < 16; i++) {
+//        CGPoint point = talkBubblePoints[i];
+//        ccDrawColor4F(1.0 / (i + 1), 0.5, 0.1 * ((i + 1) / 2), 1.0);
+//        ccPointSize(4.0);
+//        ccDrawPoint(point);
+//        ccDrawLine(talkBubblePoints[0], talkBubblePoints[i]);
+//    }
+
+//    ccDrawColor4F(0.0, 0.0, 1.0, 1.0);
+//    ccDrawPoly(talkBubblePoints, 24, YES);
+    free(talkBubblePoints);
+    
+    [tex end];
+    
+    tex.sprite.anchorPoint = ccp(0,0);
+    return tex;
+}
+
+-(void) ccEllipse: (CGPoint) center ab: (CGPoint) ab samples: (int) numSamples {
+    // TODO: maybe switch the talk bubble to an ellipse
+}
+
+-(CGPoint) calculateAngle: (CGPoint) center angle:(float) angleDegrees radius: (float) radius {
+    float angleRadians = 3.14159265 * angleDegrees / 180.0f;
+    float x = center.x + sinf(angleRadians) * radius;
+    float y = center.y + cosf(angleRadians) * radius;
+    
+    return ccp(x,y);
+}
+
+-(CGPoint *) calculateRounded: (CGPoint) corner center: (CGPoint) center smoothness: (int) pointCount {
+    NSAssert(pointCount > 0, @"smoothness needs to be > 0");
+    
+    CGPoint *points = malloc(pointCount * sizeof(CGPoint));
+    
+    if (pointCount == 1) {
+        points[0] = corner;
+        return points;
+    }
+    
+    float radius = abs(corner.x - center.x);
+    float startAngle = 270.0f;
+    
+    if (corner.x > center.x && corner.y > center.y) {
+        startAngle = 0.0f;
+    } else if (corner.x < center.x && corner.y > center.y) {
+        startAngle = 270.0f;
+    } else if (corner.x > center.x && corner.y < center.y) {
+        startAngle = 90.0f;
+    } else if (corner.x < center.x && corner.y < center.y) {
+        startAngle = 180.0f;
+    }
+    
+    float angleIncrement = 90.0f / pointCount;
+    
+    for (int i = 0; i < pointCount; i++) {
+        points[i] = [self calculateAngle: center angle: startAngle + (angleIncrement * i) radius:radius];
+    }
+    
+    return points;
+}
+
+-(CGPoint *) buildBubblePointsFromRect: (CGRect) rect andPoint: (CGPoint) point withScale: (CGPoint) scale andOffset:(CGPoint)offset {
+    CGPoint nodeSpacePoint1 = ccp(offset.x + point.x, -offset.y + point.y - (scale.y * 2));
+    CGPoint nodeSpacePoint2 = ccp(offset.x + point.x + (scale.x * 2), -offset.y + point.y - (scale.y * 2));
+    
+    CGPoint bl = ccp(offset.x + rect.origin.x, offset.y + rect.origin.y);
+    CGPoint br = ccp(offset.x + rect.origin.x + rect.size.width + (scale.x * 2), offset.y + rect.origin.y);
+    CGPoint tr = ccp(offset.x + rect.origin.x + rect.size.width + (scale.x * 2), offset.y + rect.origin.y + rect.size.height + (scale.y * 2));
+    CGPoint tl = ccp(offset.x + rect.origin.x, offset.y + rect.origin.y + rect.size.height + (scale.y * 2));
+    
+#define RADIUS 10
+    
+    CGPoint tlc = ccp(tl.x + RADIUS, tl.y - RADIUS);
+    CGPoint trc = ccp(tr.x - RADIUS, tr.y - RADIUS);
+    CGPoint brc = ccp(br.x - RADIUS, br.y + RADIUS);
+    CGPoint blc = ccp(bl.x + RADIUS, bl.y + RADIUS);
+    
+    CGPoint *tlp = [self calculateRounded:tl center:tlc smoothness:5];
+    CGPoint *trp = [self calculateRounded:tr center:trc smoothness:5];
+    CGPoint *blp = [self calculateRounded:bl center:blc smoothness:5];
+    CGPoint *brp = [self calculateRounded:br center:brc smoothness:5];
+    
+    CGPoint caratStart = ccp(offset.x + nodeSpacePoint2.x + (scale.x * 2), br.y);
+    CGPoint caratEnd = ccp(offset.x + nodeSpacePoint1.x - 10, br.y);
+    
+    // so the carat doesn't go beyond the speech bubble
+    if (caratEnd.x <= tl.x) {
+        caratEnd = ccp(offset.x + rect.origin.x + 5, br.y);
+        caratStart = ccp(offset.x + rect.origin.x + 15 + (scale.x * 2), br.y);
+    }
+    
+    CGPoint points[24] =
+    {
+        caratEnd, nodeSpacePoint1, nodeSpacePoint2,
+        caratStart, brp[4], brp[3], brp[2], brp[1], brp[0],
+        trp[4], trp[3], trp[2], trp[1], trp[0],
+        tlp[4], tlp[3], tlp[2], tlp[1], tlp[0],
+        blp[4], blp[3], blp[2], blp[1], blp[0]
+    };
+    
+    CGPoint *retPoints = malloc(sizeof(points));
+    memcpy(retPoints, points, sizeof(points));
+
+    free(tlp);
+    free(trp);
+    free(blp);
+    free(brp);
+    
+    return retPoints;
+}
+
+-(void) startWithBlock: (void (^)(CCNode *node)) callback {
     CCCallBlockN *updateTxt = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         int index = [label.string length] + 1;
         if (index > storyText.length) {
@@ -43,7 +201,10 @@
     CCSequence *update = [CCSequence actions:updateTxt, delay, nil];
     
     CCRepeat *repeat = [CCRepeat actionWithAction:update times:[storyText length]];
-    [label runAction:repeat];
+    CCSequence *seq = [CCSequence actions:repeat, [CCCallBlockN actionWithBlock:callback], nil];
+    
+    [label runAction:seq];
 }
+
 
 @end

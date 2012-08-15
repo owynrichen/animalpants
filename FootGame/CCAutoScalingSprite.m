@@ -21,7 +21,7 @@
     // TODO: this is a pretty naive approach to scaling, we really should scale it before we cache the
     // actual texture to be more conservative about memory
     
-    bitMask = [[BitMask alloc] initWithSprite: self];
+    bitMask = [[BitVector alloc] initWithSprite: self];
     
     autoScaleFactor = autoScaleForCurrentDevice();
     self.scale = autoScaleFactor;

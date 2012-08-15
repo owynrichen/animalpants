@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BitMask.h"
+#import "BitVector.h"
 
 #define BITMASK 1
 
-@implementation BitMask
+@implementation BitVector
 
 -(id) initWithImage:(CGImageRef) img upsideDown:(BOOL)upsideDown {
     CFDataRef data = CGDataProviderCopyData(CGImageGetDataProvider(img));

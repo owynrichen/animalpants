@@ -13,9 +13,13 @@
     CCLabelTTFWithStroke *label;
     NSString *storyText;
     ccTime interval;
+    CGRect talkRect;
+    CGPoint bubblePoint;
+    
+    CCRenderTexture *bubbleSprite;
 }
 
--(id) initWithStoryKey: (NSString *) storyKey typingInterval: (ccTime) ival;
--(void) start;
+-(id) initWithStoryKey: (NSString *) storyKey typingInterval: (ccTime) ival rect: (CGRect) talkRect point: (CGPoint) bubblePoint;
+-(void) startWithBlock: (void (^)(CCNode *node)) callback;
 
 @end
