@@ -102,6 +102,9 @@
 		36AD648B15C4D9300089FC82 /* girl1.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AD648915C4D9300089FC82 /* girl1.png */; };
 		36AD648C15C4D9300089FC82 /* girl2.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AD648A15C4D9300089FC82 /* girl2.png */; };
 		36AD649A15C4E07A0089FC82 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36AD649815C4E0790089FC82 /* Info.plist */; };
+		36D5E68A15E948FC00F5562D /* FallingLeaves.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36D5E68915E948FC00F5562D /* FallingLeaves.plist */; };
+		36D5E68C15E949B900F5562D /* savannah1_leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D5E68B15E949B900F5562D /* savannah1_leaf.png */; };
+		36D5E68F15E94B1700F5562D /* Behavior+FallingLeaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D5E68E15E94B1700F5562D /* Behavior+FallingLeaves.m */; };
 		36F9A12D15BA759600A0A8F3 /* monkey1.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12815BA759600A0A8F3 /* monkey1.png */; };
 		36F9A12E15BA759600A0A8F3 /* monkey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12915BA759600A0A8F3 /* monkey2.png */; };
 		36F9A12F15BA759600A0A8F3 /* savannah1_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12A15BA759600A0A8F3 /* savannah1_clouds.png */; };
@@ -688,6 +691,10 @@
 		36AD649B15C4E08F0089FC82 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = Resources/es.lproj/Info.plist; sourceTree = "<group>"; };
 		36AD649D15C4E0BE0089FC82 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = Resources/fr.lproj/Info.plist; sourceTree = "<group>"; };
 		36AD649F15C4E0D90089FC82 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Resources/fr.lproj/strings.strings; sourceTree = "<group>"; };
+		36D5E68915E948FC00F5562D /* FallingLeaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FallingLeaves.plist; path = Resources/Environments/Savannah1/Particles/FallingLeaves.plist; sourceTree = "<group>"; };
+		36D5E68B15E949B900F5562D /* savannah1_leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah1_leaf.png; path = Resources/Environments/Savannah1/Graphics/savannah1_leaf.png; sourceTree = "<group>"; };
+		36D5E68D15E94B1700F5562D /* Behavior+FallingLeaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+FallingLeaves.h"; sourceTree = "<group>"; };
+		36D5E68E15E94B1700F5562D /* Behavior+FallingLeaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+FallingLeaves.m"; sourceTree = "<group>"; };
 		36F9A12815BA759600A0A8F3 /* monkey1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monkey1.png; path = Resources/Environments/Savannah1/Graphics/monkey1.png; sourceTree = "<group>"; };
 		36F9A12915BA759600A0A8F3 /* monkey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monkey2.png; path = Resources/Environments/Savannah1/Graphics/monkey2.png; sourceTree = "<group>"; };
 		36F9A12A15BA759600A0A8F3 /* savannah1_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah1_clouds.png; path = Resources/Environments/Savannah1/Graphics/savannah1_clouds.png; sourceTree = "<group>"; };
@@ -760,6 +767,7 @@
 		361506F21594C97A000F46D9 /* Savannah1 */ = {
 			isa = PBXGroup;
 			children = (
+				36D5E68815E948E600F5562D /* Particles */,
 				364B079415A8FFF60054E69A /* Environment-Savannah1.plist */,
 				361507041594CA5F000F46D9 /* Graphics */,
 			);
@@ -843,6 +851,7 @@
 		361507041594CA5F000F46D9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				36D5E68B15E949B900F5562D /* savannah1_leaf.png */,
 				36F9A13215BB094200A0A8F3 /* tree_leaves.png */,
 				36F9A13315BB094200A0A8F3 /* tree_shadow.png */,
 				36F9A13415BB094200A0A8F3 /* tree_trunk.png */,
@@ -1211,8 +1220,18 @@
 				3691507A0006C79300D4C81C /* Behavior+Smoke.m */,
 				3691507C0006CCAD00D4C81C /* Behavior+ParticleSystem.h */,
 				3691507D0006CCAE00D4C81C /* Behavior+ParticleSystem.m */,
+				36D5E68D15E94B1700F5562D /* Behavior+FallingLeaves.h */,
+				36D5E68E15E94B1700F5562D /* Behavior+FallingLeaves.m */,
 			);
 			name = Behaviors;
+			sourceTree = "<group>";
+		};
+		36D5E68815E948E600F5562D /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				36D5E68915E948FC00F5562D /* FallingLeaves.plist */,
+			);
+			name = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1763,6 +1782,8 @@
 				369150680003E19700D4C81C /* sav2_clouds.png in Resources */,
 				369150740005F5B200D4C81C /* Spout.plist in Resources */,
 				369150800006E6F100D4C81C /* Smoke.plist in Resources */,
+				36D5E68A15E948FC00F5562D /* FallingLeaves.plist in Resources */,
+				36D5E68C15E949B900F5562D /* savannah1_leaf.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1802,6 +1823,7 @@
 				369150770006885300D4C81C /* Behavior+Spout.m in Sources */,
 				3691507B0006C79400D4C81C /* Behavior+Smoke.m in Sources */,
 				3691507E0006CCAF00D4C81C /* Behavior+ParticleSystem.m in Sources */,
+				36D5E68F15E94B1700F5562D /* Behavior+FallingLeaves.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

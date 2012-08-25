@@ -6,8 +6,10 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>touch</key>
+			<key>Move</key>
 			<dict>
+				<key>event</key>
+				<string>touch</string>
 				<key>action</key>
 				<string>backflip</string>
 			</dict>
@@ -30,8 +32,10 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>touch</key>
+			<key>Move</key>
 			<dict>
+				<key>event</key>
+				<string>touch</string>
 				<key>action</key>
 				<string>backflip</string>
 			</dict>
@@ -54,8 +58,10 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>touch</key>
+			<key>Shake</key>
 			<dict>
+				<key>event</key>
+				<string>touch</string>
 				<key>action</key>
 				<string>shake</string>
 			</dict>
@@ -78,8 +84,10 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>touch</key>
+			<key>Shake</key>
 			<dict>
+				<key>event</key>
+				<string>touch</string>
 				<key>action</key>
 				<string>shake</string>
 			</dict>

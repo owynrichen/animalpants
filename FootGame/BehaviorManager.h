@@ -14,9 +14,11 @@
 }
 
 -(void) addBehavior: (Behavior *) behavior;
--(Behavior *) getBehavior: (NSString *) key;
--(void) removeBehavior: (NSString *) key;
+-(NSArray *) getBehaviors: (NSString *) event;
+-(void) removeBehaviors: (NSString *) event;
 -(BOOL) hasBehaviors;
+-(BOOL) runBehaviors: (NSString *) event onNode: (CCNode *) node;
+
 @end
 
 @protocol BehaviorManagerDelegate<CCTargetedTouchDelegate>

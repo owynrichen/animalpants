@@ -26,6 +26,7 @@
     SpeechBubble *bubble;
     
     BOOL nextTouched;
+    BOOL bodyTouched;
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child

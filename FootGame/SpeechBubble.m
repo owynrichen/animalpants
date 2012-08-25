@@ -35,6 +35,7 @@
     [self addChild:bubbleSprite];
     
     // Setup the size of the label to be 10% smaller than the size of the talk bubble rectangle
+    // TODO: MAKE SURE NO DIMENSION IS > 2048
     CGSize labelSize = CGSizeMake(talkDrawRect.size.width - (talkDrawRect.size.width * 0.1), talkDrawRect.size.height - (talkDrawRect.size.height * 0.1));
     
     storyText = NSLocalizedStringFromTable(storyKey, @"strings", @"");

@@ -111,8 +111,27 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>touch</key>
+			<key>FallingLeaves</key>
 			<dict>
+				<key>params</key>
+				<dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>450</integer>
+						<key>y</key>
+						<integer>160</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>fallingLeaves</string>
+			</dict>
+			<key>Shake</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
 				<key>action</key>
 				<string>shake</string>
 			</dict>
@@ -135,8 +154,10 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>touch</key>
+			<key>Flip</key>
 			<dict>
+				<key>event</key>
+				<string>touch</string>
 				<key>action</key>
 				<string>backflip</string>
 			</dict>
@@ -159,8 +180,10 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>touch</key>
+			<key>Flip</key>
 			<dict>
+				<key>event</key>
+				<string>touch</string>
 				<key>action</key>
 				<string>backflip</string>
 			</dict>

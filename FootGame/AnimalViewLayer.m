@@ -46,8 +46,8 @@
 
 -(void) onEnter {
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
-    // animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
-    animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Penguin"];
+    animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
+    //animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Elephant"];
     
     background = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
     
@@ -63,6 +63,8 @@
     [self addChild:name];
     
     feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:3 includingAnimalFeet:animal] retain];
+    
+    // TODO: do the math to get these laid out more cleanly
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -132,6 +134,8 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
+    nextTouched = NO;
+    bodyTouched = NO;
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -141,14 +145,19 @@
             [[SoundManager sharedManager] playSound:@"glock__c2.wav"];
 
             [streak setPosition:pnt];
-            break;
+            return YES;
         }
     }
     
     if (next.visible && CGRectContainsPoint([next boundingBox], pnt)) {
         nextTouched = YES;
-    } else {
-        nextTouched = NO;
+        return YES;
+    }
+    
+    if ([body hitTest:pnt]) {
+        [streak setPosition:pnt];
+        bodyTouched = YES;
+        return YES;
     }
         
     return YES;
@@ -182,6 +191,12 @@
             // NSLog(@"%f: %f, %@: %f", pair.distance, foot.rotation, pair.second.name, pair.second.orientation);
         }
     }
+    
+    if (bodyTouched) {
+        // TODO: play a sound
+        [body setPosition:pnt];
+        [streak setPosition:pnt];
+    }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -193,6 +208,12 @@
             foot.touch = nil;
             footTouched = YES;
         }
+    }
+    
+    if (bodyTouched) {
+        footTouched = YES;
+        
+        // TODO: other fun stuff
     }
     
     if (footTouched) {
@@ -220,9 +241,17 @@
             
             [next stopAllActions];
             next.visible = false;
+            
+            // TODO: play bad noise
+            
             for (int i = 0; i < [feet count]; i++) {
                 AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
                 foot.visible = YES;
+                
+                // TODO: when the above code gets cleaned up to lay out the feet in a better
+                // position, reuse here
+                
+                [foot runAction:[CCMoveTo actionWithDuration:0.5 position:ccpToRatio(100 + (310 * i), 130)]];
             }
         }
     } else if (nextTouched) {

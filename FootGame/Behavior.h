@@ -14,6 +14,7 @@
 @interface Behavior : NSObject
 
 @property (nonatomic, retain) NSString *key;
+@property (nonatomic, retain) NSString *event;
 @property (nonatomic, retain) NSDictionary *data;
 
 +(Behavior *) behaviorFromKey: (NSString *) key dictionary: (NSDictionary *) data;

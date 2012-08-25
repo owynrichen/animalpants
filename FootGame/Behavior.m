@@ -11,6 +11,7 @@
 @implementation Behavior
 
 @synthesize key;
+@synthesize event;
 @synthesize data;
 
 +(Behavior *) behaviorFromKey: (NSString *) key dictionary: (NSDictionary *) data {
@@ -24,6 +25,7 @@
     
     self.key = k;
     self.data = d;
+    self.event = [self.data objectForKey:@"event"];
     
     return self;
 }

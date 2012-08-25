@@ -37,10 +37,7 @@
 
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
-    Behavior *b = [behaviorManager_ getBehavior:@"start"];
-    if (b != nil) {
-        [self runAction:[b getAction:self]];
-    }
+    [behaviorManager_ runBehaviors:@"start" onNode: self];
 }
 
 -(void) onExit {
@@ -93,12 +90,7 @@
         }
         
         if (hit) {
-            Behavior *b = [behaviorManager_ getBehavior:@"touch"];
-    
-            if (b != nil) {
-                [self runAction:[b getAction:self]];
-                return YES;
-            }
+            return [behaviorManager_ runBehaviors:@"touch" onNode: self];
         }
     }
     
