@@ -32,7 +32,7 @@
     bubbleSprite = [self drawBubble];
     bubbleSprite.anchorPoint = ccp(0,0);
     bubbleSprite.position = ccpToRatio(0,talkPositionRect.size.height);
-    [self addChild:bubbleSprite];
+    // [self addChild:bubbleSprite];
     
     // Setup the size of the label to be 10% smaller than the size of the talk bubble rectangle
     // TODO: MAKE SURE NO DIMENSION IS > 2048

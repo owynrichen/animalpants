@@ -7,7 +7,7 @@
 //
 
 #import "MainMenuLayer.h"
-#import "AnimalViewLayer.h"
+#import "StoryLayer.h"
 #import "CCMenuItemFontWithStroke.h"
 #import "CCAutoScaling.h"
 
@@ -50,7 +50,7 @@
     NSLog(@"Locale: %@", currentLocale);
     
     CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"play", @"strings", @"Play!") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        [[CCDirector sharedDirector] pushScene:[AnimalViewLayer scene]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
     }];
     
     menu = [CCMenu menuWithItems:smenuItem, nil];

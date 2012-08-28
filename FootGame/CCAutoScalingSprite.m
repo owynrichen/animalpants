@@ -33,11 +33,11 @@
 -(void) onEnter {
     [super onEnter];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:NO];
+    [behaviorManager_ runBehaviors:@"start" onNode: self];
 }
 
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
-    [behaviorManager_ runBehaviors:@"start" onNode: self];
 }
 
 -(void) onExit {
@@ -83,7 +83,7 @@
         BOOL hit = NO;
         NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
         
-        if ([self.bitMask getPercentCoverage] > 30) {
+        if ([self.bitMask getPercentCoverage] > 40) {
             hit = [self.bitMask hitx:pnt.x y:pnt.y];
         } else {
             hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];

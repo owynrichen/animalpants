@@ -7,7 +7,20 @@
 //
 
 #import "CCLayer.h"
+#import "CCAutoScalingSprite.h"
+#import "CCAutoScaling.h"
+#import "SpeechBubble.h"
 
-@interface StoryLayer : CCLayer
+@interface StoryLayer : CCLayer {
+    CCAutoScalingSprite *background;
+    CCAutoScalingSprite *girl1;
+    CCAutoScalingSprite *girl2;
+    SpeechBubble *story1;
+    SpeechBubble *story2;
+    SpeechBubble *story3;
+}
+
+// returns a CCScene that contains the AnimalViewLayer as the only child
++(CCScene *) scene;
 
 @end

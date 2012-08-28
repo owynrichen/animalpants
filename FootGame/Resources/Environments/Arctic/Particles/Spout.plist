@@ -31,9 +31,9 @@
 	<key>finishColorVarianceRed</key>
 	<real>0</real>
 	<key>finishParticleSize</key>
-	<integer>16</integer>
+	<integer>8</integer>
 	<key>finishParticleSizeVariance</key>
-	<integer>4</integer>
+	<integer>2</integer>
 	<key>gravityx</key>
 	<real>0</real>
 	<key>gravityy</key>
@@ -87,9 +87,9 @@
 	<key>startColorVarianceRed</key>
 	<real>0.5</real>
 	<key>startParticleSize</key>
-	<real>8</real>
+	<integer>4</integer>
 	<key>startParticleSizeVariance</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>tangentialAccelVariance</key>
 	<integer>0</integer>
 	<key>tangentialAcceleration</key>
