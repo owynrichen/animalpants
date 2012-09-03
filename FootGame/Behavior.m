@@ -61,7 +61,7 @@
     if (x == nil || y == nil)
         return CGPointMake(CGFLOAT_MAX, CGFLOAT_MAX);
     
-    return ccp([x intValue] * positionRatioForCurrentDevice(),[y intValue] * positionRatioForCurrentDevice());
+    return ccp([x intValue]/* * positionRatioForCurrentDevice() */,[y intValue]/* * positionRatioForCurrentDevice() */);
 }
 
 @end

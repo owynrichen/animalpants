@@ -21,11 +21,11 @@
     __block CCParticleSystemQuad *emitter = [CCParticleSystemQuad particleWithFile:particleDef];
     
     emitter.position = ccp(point.x, point.y);
-    emitter.startSize = emitter.startSize * positionRatioForCurrentDevice();
-    emitter.startSizeVar = emitter.startSizeVar * positionRatioForCurrentDevice();
-    emitter.endSize = emitter.endSize * positionRatioForCurrentDevice();
-    emitter.endSizeVar = emitter.endSizeVar * positionRatioForCurrentDevice();
-    emitter.posVar = ccp(emitter.posVar.x * positionRatioForCurrentDevice(), emitter.posVar.y * positionRatioForCurrentDevice());
+//    emitter.startSize = emitter.startSize * positionRatioForCurrentDevice();
+//    emitter.startSizeVar = emitter.startSizeVar * positionRatioForCurrentDevice();
+//    emitter.endSize = emitter.endSize * positionRatioForCurrentDevice();
+//    emitter.endSizeVar = emitter.endSizeVar * positionRatioForCurrentDevice();
+//    emitter.posVar = ccp(emitter.posVar.x * positionRatioForCurrentDevice(), emitter.posVar.y * positionRatioForCurrentDevice());
     
     CCCallBlockN *start = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [node addChild:emitter z:1 tag:433];

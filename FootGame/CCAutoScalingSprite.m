@@ -24,7 +24,7 @@
     bitMask = [[BitVector alloc] initWithSprite: self];
     
     autoScaleFactor = autoScaleForCurrentDevice();
-    self.scale = autoScaleFactor;
+    // self.scale = autoScaleFactor;
     behaviorManager_ = [[BehaviorManager alloc] init];
      
     return self;

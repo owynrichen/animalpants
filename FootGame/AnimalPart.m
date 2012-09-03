@@ -51,7 +51,8 @@
             CGFloat y = [((NSNumber *) [pntDict objectForKey:@"y"]) floatValue];
             
             AnchorPoint *ap = [[AnchorPoint alloc] init];
-            CGPoint pnt = CGPointMake(x * (positionScaleForCurrentDevice(kDimensionY) / autoScaleForCurrentDevice()), p.contentSize.height - (y * (positionScaleForCurrentDevice(kDimensionY) / autoScaleForCurrentDevice())));
+            // CGPoint pnt = CGPointMake(x * (positionScaleForCurrentDevice(kDimensionY) / autoScaleForCurrentDevice()), p.contentSize.height - (y * (positionScaleForCurrentDevice(kDimensionY) / autoScaleForCurrentDevice())));
+            CGPoint pnt = CGPointMake(x * positionScaleForCurrentDevice(kDimensionY), p.contentSize.height - (y * positionScaleForCurrentDevice(kDimensionY)));
             
             ap.point = pnt;
             ap.orientation = [((NSNumber *) [pntDict objectForKey:@"orientation"]) floatValue];
@@ -89,7 +90,8 @@
 
 -(void) draw {
     [super draw];
-/*    int count = [fixPoints count];
+/*
+    int count = [fixPoints count];
     for (int i = 0; i < count; i++) {
         AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
         ccDrawColor4B(0, 0, 255, 255);
@@ -100,7 +102,7 @@
     
     ccDrawColor4B(0,255,0,180);
     ccPointSize(8);
-    ccDrawPoint(self.anchorPointInPoints);*/
+    ccDrawPoint(self.anchorPointInPoints); */
 }
 
 -(void) setState: (AnimalStateType) state {
