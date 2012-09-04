@@ -25,6 +25,8 @@
 @synthesize textPosition;
 @synthesize kidPosition;
 @synthesize storyKey;
+@synthesize bgMusic;
+@synthesize ambientFx;
 
 -(id) initWithDictionary: (NSDictionary *) setupData {
     self = [super init];
@@ -35,6 +37,8 @@
     self.textPosition = [self parsePosition:(NSDictionary *) [self.layers objectForKey:@"TextPosition"]];
     self.kidPosition = [self parsePosition:(NSDictionary *) [self.layers objectForKey:@"KidPosition"]];
     self.storyKey = (NSString *) [self.layers objectForKey:@"StoryKey"];
+    self.bgMusic = (NSString *) [setupData objectForKey:@"Music"];
+    self.ambientFx = (NSString *) [setupData objectForKey:@"Ambient"];
 
     return self;
 }

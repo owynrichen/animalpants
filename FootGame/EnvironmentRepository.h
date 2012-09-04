@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EnvironmentLayer.h"
+#import "Environment.h"
 #import "BaseRepository.h"
 
 @interface EnvironmentRepository : BaseRepository
@@ -17,6 +17,6 @@
 
 +(EnvironmentRepository *) sharedRepository;
 
--(EnvironmentLayer *) getEnvironment: (NSString *) key;
+-(Environment *) getEnvironment: (NSString *) key;
 
 @end

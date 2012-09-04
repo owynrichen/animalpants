@@ -51,8 +51,8 @@ static NSString *_sync = @"";
     [super dealloc];
 }
 
--(EnvironmentLayer *) getEnvironment: (NSString *) key {
-    return [((Environment *) [self.environments objectForKey:key]) getLayer];
+-(Environment *) getEnvironment: (NSString *) key {
+    return (Environment *) [self.environments objectForKey:key];
 }
 
 @end

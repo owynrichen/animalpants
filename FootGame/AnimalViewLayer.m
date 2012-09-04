@@ -45,11 +45,14 @@
 }
 
 -(void) onEnter {
+    victory = NO;
+    
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
     animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
     //animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Elephant"];
     
-    background = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
+    environment = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
+    background = [environment getLayer];
     
     [self addChild:background];
     
@@ -111,6 +114,8 @@
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
     
     [super onEnter];
+    [[SoundManager sharedManager] fadeOutBackground];
+    [[SoundManager sharedManager] playBackground:environment.bgMusic];
 }
 
 -(void) onEnterTransitionDidFinish {
@@ -128,7 +133,7 @@
     [feet release];
     
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-
+    
     [super onExit];
 }
 
@@ -221,6 +226,9 @@
             name.color = ccBLUE;
 
             [body setState:kAnimalStateHappy];
+            [[SoundManager sharedManager] fadeOutBackground];
+            [[SoundManager sharedManager] playBackground:@"level_complete.mp3"];
+            victory = YES;
             
             [[SoundManager sharedManager] playSound:animal.successSound];
             next.visible = true;
@@ -238,6 +246,12 @@
             name.color = ccWHITE;
             
             [body setState:kAnimalStateNormal];
+            if (victory) {
+                [[SoundManager sharedManager] fadeOutBackground];
+                [[SoundManager sharedManager] playBackground:environment.bgMusic];
+            }
+            
+            victory = NO;
             
             [next stopAllActions];
             next.visible = false;

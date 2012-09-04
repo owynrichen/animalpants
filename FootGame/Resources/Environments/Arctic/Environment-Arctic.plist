@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Music</key>
+	<string>arctic_bgmusic.mp3</string>
+	<key>Ambient</key>
+	<string>arctic_ambient.mp3</string>
 	<key>Mountains</key>
 	<dict>
 		<key>type</key>
@@ -22,6 +26,18 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>whale_spout.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
 			<key>Spout</key>
 			<dict>
 				<key>event</key>
@@ -190,6 +206,18 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
 			<key>Flip</key>
 			<dict>
 				<key>event</key>
@@ -216,6 +244,18 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
 			<key>Flip</key>
 			<dict>
 				<key>event</key>

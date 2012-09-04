@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Animal.h"
+#import "Environment.h"
 #import "EnvironmentLayer.h"
 #import "SpeechBubble.h"
 
@@ -16,6 +17,7 @@
     Animal *animal;
     AnimalPart *body;
     NSArray *feet;
+    Environment *environment;
     EnvironmentLayer *background;
     CCSprite *next;
     CCAutoScalingSprite *name;
@@ -27,6 +29,7 @@
     
     BOOL nextTouched;
     BOOL bodyTouched;
+    BOOL victory;
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child

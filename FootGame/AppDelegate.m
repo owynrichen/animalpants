@@ -106,8 +106,10 @@
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
 	
 	// Run the intro Scene
-    [[SoundManager sharedManager] preloadSound:@"glock__c2.wav"];
-    [[SoundManager sharedManager] preloadSound:@"glock__g1.wav"];
+    [[SoundManager sharedManager] preloadSound:@"glock__c2.mp3"];
+    [[SoundManager sharedManager] preloadSound:@"glock__g1.mp3"];
+    [[SoundManager sharedManager] preloadSound:@"game_intro_bgmusic.mp3"];
+    [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

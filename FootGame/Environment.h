@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSDictionary *layers;
 @property (nonatomic) CGPoint kidPosition;
 @property (nonatomic, retain) NSString *storyKey;
+@property (nonatomic, retain) NSString *bgMusic;
+@property (nonatomic, retain) NSString *ambientFx;
 
 +(Environment *) initWithDictionary: (NSDictionary *) setupData;
 

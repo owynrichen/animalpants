@@ -10,6 +10,7 @@
 #import "StoryLayer.h"
 #import "CCMenuItemFontWithStroke.h"
 #import "CCAutoScaling.h"
+#import "SoundManager.h"
 
 @implementation MainMenuLayer
 
@@ -76,7 +77,9 @@
 //    if (splashFade.opacity == 255) {
 //        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
 //    }
-    
+    [[SoundManager sharedManager] playBackground:@"game_intro_bgmusic.mp3"];
+    CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
+    [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
     [super onEnter];
 }
 

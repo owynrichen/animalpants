@@ -43,4 +43,16 @@ static NSString *_sync = @"";
     [audioEngine playBackgroundMusic:name loop:YES];
 }
 
+-(void) fadeOutBackground {
+    [audioEngine stopBackgroundMusic];
+}
+
+-(void) pauseBackground {
+    [audioEngine pauseBackgroundMusic];
+}
+
+-(void) resumeBackground {
+    [audioEngine resumeBackgroundMusic];
+}
+
 @end

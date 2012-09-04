@@ -8,6 +8,7 @@
 
 #import "StoryLayer.h"
 #import "AnimalViewLayer.h"
+#import "SoundManager.h"
 
 @implementation StoryLayer
 

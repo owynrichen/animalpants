@@ -18,5 +18,8 @@
 -(void) preloadSound: (NSString *) name;
 -(void) playSound: (NSString *) name;
 -(void) playBackground: (NSString *) name;
+-(void) fadeOutBackground;
+-(void) pauseBackground;
+-(void) resumeBackground;
 
 @end
