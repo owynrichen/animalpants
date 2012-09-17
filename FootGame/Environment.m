@@ -8,10 +8,14 @@
 
 #import "Environment.h"
 #import "CCAutoScaling.h"
+#import "Water.h"
 
 @interface Environment(Layers)
 
+// TODO: make this dynamic instead of stupid
 -(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data;
+-(Water *) getWater: (NSDictionary *) data;
+// END TODO
 -(void) applyCommonParameters: (NSDictionary *) parameters toNode: (CCNode *) node;
 -(void) applyBehaviors: (NSDictionary *) parameters toNode: (CCNode<BehaviorManagerDelegate> *) node;
 -(CGPoint) parsePosition: (NSDictionary *) position;
@@ -52,6 +56,13 @@
 -(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data {
     NSString *img = (NSString *) [data objectForKey:@"imageName"];
     CCAutoScalingSprite *sprite = [CCAutoScalingSprite spriteWithFile:img];
+    [self applyCommonParameters:data toNode:sprite];
+    return sprite;
+}
+
+-(Water *) getWater: (NSDictionary *) data {
+    NSString *img = (NSString *) [data objectForKey:@"imageName"];
+    Water *sprite = [Water spriteWithFile:img];
     [self applyCommonParameters:data toNode:sprite];
     return sprite;
 }
@@ -109,6 +120,8 @@
             if (type != nil) {
                 if ([type isEqualToString:@"CCAutoScalingSprite"]) {
                     [env addChild:[self getAutoScalingSprite:data]];
+                } else if ([type isEqualToString:@"Water"]) {
+                    [env addChild:[self getWater:data]];
                 } else {
                     NSLog(@"Unexpected type %@ in set %@", type, [data description]);
                 }

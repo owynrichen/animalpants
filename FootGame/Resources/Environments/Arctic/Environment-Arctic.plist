@@ -96,7 +96,7 @@
 	<key>Water</key>
 	<dict>
 		<key>type</key>
-		<string>CCAutoScalingSprite</string>
+		<string>Water</string>
 		<key>z</key>
 		<integer>1</integer>
 		<key>imageName</key>

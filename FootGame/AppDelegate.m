@@ -104,6 +104,7 @@
     
     CC_DIRECTOR_INIT();
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [AnimalViewLayer scene]];
 	
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.mp3"];

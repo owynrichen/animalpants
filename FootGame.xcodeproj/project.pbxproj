@@ -248,6 +248,9 @@
 		36CAC15915F5C4EA00563EE9 /* savannah2_ambient.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC15615F5C4EA00563EE9 /* savannah2_ambient.mp3 */; };
 		36CAC15A15F5C4EA00563EE9 /* savannah2_bgmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC15715F5C4EA00563EE9 /* savannah2_bgmusic.mp3 */; };
 		36CAC15C15F5C77900563EE9 /* giraffes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC15B15F5C77900563EE9 /* giraffes.mp3 */; };
+		36CAC1D815FEC72400563EE9 /* Water.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CAC1D715FEC72300563EE9 /* Water.m */; };
+		36CAC1D916001B3D00563EE9 /* water.fs in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC1D215FEC65B00563EE9 /* water.fs */; };
+		36CAC1DA16001B3D00563EE9 /* water.vs in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC1D315FEC65B00563EE9 /* water.vs */; };
 		36D5E68A15E948FC00F5562D /* FallingLeaves.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36D5E68915E948FC00F5562D /* FallingLeaves.plist */; };
 		36D5E68C15E949B900F5562D /* savannah1_leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D5E68B15E949B900F5562D /* savannah1_leaf.png */; };
 		36D5E68F15E94B1700F5562D /* Behavior+FallingLeaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D5E68E15E94B1700F5562D /* Behavior+FallingLeaves.m */; };
@@ -984,6 +987,10 @@
 		36CAC15615F5C4EA00563EE9 /* savannah2_ambient.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = savannah2_ambient.mp3; path = Resources/Environments/Savannah2/Audio/savannah2_ambient.mp3; sourceTree = "<group>"; };
 		36CAC15715F5C4EA00563EE9 /* savannah2_bgmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = savannah2_bgmusic.mp3; path = Resources/Environments/Savannah2/Audio/savannah2_bgmusic.mp3; sourceTree = "<group>"; };
 		36CAC15B15F5C77900563EE9 /* giraffes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = giraffes.mp3; path = Resources/Environments/Savannah2/Audio/giraffes.mp3; sourceTree = "<group>"; };
+		36CAC1D215FEC65B00563EE9 /* water.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = water.fs; path = Shaders/water.fs; sourceTree = "<group>"; };
+		36CAC1D315FEC65B00563EE9 /* water.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = water.vs; path = Shaders/water.vs; sourceTree = "<group>"; };
+		36CAC1D615FEC72300563EE9 /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Water.h; sourceTree = "<group>"; };
+		36CAC1D715FEC72300563EE9 /* Water.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Water.m; sourceTree = "<group>"; };
 		36D5E68915E948FC00F5562D /* FallingLeaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FallingLeaves.plist; path = Resources/Environments/Savannah1/Particles/FallingLeaves.plist; sourceTree = "<group>"; };
 		36D5E68B15E949B900F5562D /* savannah1_leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah1_leaf.png; path = Resources/Environments/Savannah1/Graphics/savannah1_leaf.png; sourceTree = "<group>"; };
 		36D5E68D15E94B1700F5562D /* Behavior+FallingLeaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+FallingLeaves.h"; sourceTree = "<group>"; };
@@ -1321,12 +1328,15 @@
 		364B025B159B5ED60054E69A /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				36CAC1D115FEC64A00563EE9 /* Shaders */,
 				364B046B159FD61F0054E69A /* EnvironmentLayer.h */,
 				364B046C159FD61F0054E69A /* EnvironmentLayer.m */,
 				364B067915A2CB650054E69A /* EnvironmentRepository.h */,
 				364B067A15A2CB650054E69A /* EnvironmentRepository.m */,
 				36FBEF4115B9B4B2000E15C8 /* Environment.h */,
 				36FBEF4215B9B4B2000E15C8 /* Environment.m */,
+				36CAC1D615FEC72300563EE9 /* Water.h */,
+				36CAC1D715FEC72300563EE9 /* Water.m */,
 			);
 			name = Environment;
 			sourceTree = "<group>";
@@ -1688,6 +1698,15 @@
 				36CAC15715F5C4EA00563EE9 /* savannah2_bgmusic.mp3 */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		36CAC1D115FEC64A00563EE9 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				36CAC1D215FEC65B00563EE9 /* water.fs */,
+				36CAC1D315FEC65B00563EE9 /* water.vs */,
+			);
+			name = Shaders;
 			sourceTree = "<group>";
 		};
 		36D5E68815E948E600F5562D /* Particles */ = {
@@ -2174,6 +2193,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36CAC1D916001B3D00563EE9 /* water.fs in Resources */,
+				36CAC1DA16001B3D00563EE9 /* water.vs in Resources */,
 				367EC2F5133A4782003F7FF0 /* fps_images.png in Resources */,
 				367EC2F7133A4782003F7FF0 /* Icon-72.png in Resources */,
 				367EC2F9133A4782003F7FF0 /* Icon-Small-50.png in Resources */,
@@ -2434,6 +2455,7 @@
 				3691507E0006CCAF00D4C81C /* Behavior+ParticleSystem.m in Sources */,
 				36D5E68F15E94B1700F5562D /* Behavior+FallingLeaves.m in Sources */,
 				36CAC13015F5BDDC00563EE9 /* Behavior+PlaySound.m in Sources */,
+				36CAC1D815FEC72400563EE9 /* Water.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

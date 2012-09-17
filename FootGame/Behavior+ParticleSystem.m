@@ -20,12 +20,14 @@
     
     __block CCParticleSystemQuad *emitter = [CCParticleSystemQuad particleWithFile:particleDef];
     
-    emitter.position = ccp(point.x, point.y);
-//    emitter.startSize = emitter.startSize * positionRatioForCurrentDevice();
-//    emitter.startSizeVar = emitter.startSizeVar * positionRatioForCurrentDevice();
-//    emitter.endSize = emitter.endSize * positionRatioForCurrentDevice();
-//    emitter.endSizeVar = emitter.endSizeVar * positionRatioForCurrentDevice();
-//    emitter.posVar = ccp(emitter.posVar.x * positionRatioForCurrentDevice(), emitter.posVar.y * positionRatioForCurrentDevice());
+    emitter.position = ccpToRatio(point.x, point.y);
+    emitter.startSize = emitter.startSize * positionScaleForCurrentDevice(kDimensionY);
+    emitter.startSizeVar = emitter.startSizeVar * positionScaleForCurrentDevice(kDimensionY);
+    emitter.endSize = emitter.endSize * positionScaleForCurrentDevice(kDimensionY);
+    emitter.endSizeVar = emitter.endSizeVar * positionScaleForCurrentDevice(kDimensionY);
+    emitter.posVar = ccp(emitter.posVar.x * positionScaleForCurrentDevice(kDimensionY), emitter.posVar.y * positionScaleForCurrentDevice(kDimensionY));
+    emitter.speed *= positionScaleForCurrentDevice(kDimensionY);
+    emitter.speedVar *= positionScaleForCurrentDevice(kDimensionY);
     
     CCCallBlockN *start = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [node addChild:emitter z:1 tag:433];

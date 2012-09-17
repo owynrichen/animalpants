@@ -49,7 +49,7 @@
     
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
     animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
-    //animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Elephant"];
+    // animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Penguin"];
     
     environment = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
     background = [environment getLayer];
