@@ -7,6 +7,7 @@
 //
 
 #import "Water.h"
+#import "ccGLStateCache.h"
 
 #define TOUCH_AMP_START 8.0;
 
@@ -73,8 +74,7 @@
     glUniform1f(uniformTime, time_);
     glUniform1f(uniformTouchAmp, touchAmp);
     
-    ccGLActiveTexture(GL_TEXTURE1);
-    ccGLBindTexture2D([reflectTexture name]);
+    ccGLBindTexture2DN(1, [reflectTexture name]);
     [self.shaderProgram setUniformLocation:uniformReflectTexture withI1:1];
 }
 

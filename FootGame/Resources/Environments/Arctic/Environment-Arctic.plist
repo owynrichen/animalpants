@@ -61,6 +61,11 @@
 				<string>start</string>
 				<key>action</key>
 				<string>pace</string>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>35</real>
+				</dict>
 			</dict>
 		</dict>
 		<key>type</key>

@@ -67,7 +67,6 @@
     
 	ccGLBlendFunc( blendFunc_.src, blendFunc_.dst );
     
-    ccGLActiveTexture(GL_TEXTURE0);
 	ccGLBindTexture2D( [texture_ name] );
     [self.shaderProgram updateUniforms];
     

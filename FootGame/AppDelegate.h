@@ -16,4 +16,6 @@
     UINavigationController *navController_;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+
 @end

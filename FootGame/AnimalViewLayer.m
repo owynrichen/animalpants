@@ -11,6 +11,7 @@
 #import "EnvironmentRepository.h"
 #import "SoundManager.h"
 #import "CCAutoScaling.h"
+#import "BlurGrid3D.h"
 
 #define SNAP_DISTANCE 30
 #define ROTATE_DISTANCE 300
@@ -48,24 +49,25 @@
     victory = NO;
     
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
-    animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
-    // animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Penguin"];
+    // animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
+    animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Penguin"];
     
     environment = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
     background = [environment getLayer];
     
     [self addChild:background];
     
-    name = [CCAutoScalingSprite spriteWithFile:animal.word];
-    name.anchorPoint = ccp(0,0);
-    name.position = background.textPosition;
-    name.opacity = 200;
-    name.scale *= 0.4;
-    name.color = ccWHITE;
-    
-    [self addChild:name];
+//    name = [CCAutoScalingSprite spriteWithFile:animal.word];
+//    name.anchorPoint = ccp(0,0);
+//    name.position = background.textPosition;
+//    name.opacity = 200;
+//    name.scale *= 0.4;
+//    name.color = ccWHITE;
+//    
+//    [self addChild:name];
     
     feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:3 includingAnimalFeet:animal] retain];
+    
     
     // TODO: do the math to get these laid out more cleanly
     
@@ -94,24 +96,24 @@
     streak.fastMode = NO;
     [self addChild:streak];
     
-    kid = [CCAutoScalingSprite spriteWithFile:@"girl1.png"];
-    kid.anchorPoint = ccp(0,0);
-    kid.position = ccpToRatio(background.kidPosition.x - kid.contentSize.width, background.kidPosition.y - kid.contentSize.height);
-    [self addChild:kid];
+//    kid = [CCAutoScalingSprite spriteWithFile:@"girl1.png"];
+//    kid.anchorPoint = ccp(0,0);
+//    kid.position = ccpToRatio(background.kidPosition.x - kid.contentSize.width, background.kidPosition.y - kid.contentSize.height);
+//    [self addChild:kid];
+//    
+//    // TODO: this is all fucking wrong
+//    
+//    CGPoint bubbleTop = ccpToRatio(50, 580);
+//    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
+//    CGPoint bubblePoint = ccpToRatio(background.kidPosition.x, background.kidPosition.y + (kid.contentSize.height * autoScaleForCurrentDevice()));
+//    
+//    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08 rect: bubbleRect point:bubblePoint] autorelease];
+//    bubble.anchorPoint = ccp(0,0);
+//    bubble.position = bubbleTop;
+//    bubble.scale = 0.0;
+//    [self addChild:bubble];
     
-    // TODO: this is all fucking wrong
-    
-    CGPoint bubbleTop = ccpToRatio(50, 580);
-    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
-    CGPoint bubblePoint = ccpToRatio(background.kidPosition.x, background.kidPosition.y + (kid.contentSize.height * autoScaleForCurrentDevice()));
-    
-    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08 rect: bubbleRect point:bubblePoint] autorelease];
-    bubble.anchorPoint = ccp(0,0);
-    bubble.position = bubbleTop;
-    bubble.scale = 0.0;
-    [self addChild:bubble];
-    
-    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
+//    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
     
     [super onEnter];
     [[SoundManager sharedManager] fadeOutBackground];
@@ -120,6 +122,12 @@
 
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
+//    BlurGrid3D *blur = [BlurGrid3D actionWithSize:ccg(15,10) duration:10];
+//    [self runAction:blur];
+//    CGSize size = [[CCDirector sharedDirector] winSize];
+//    CCLens3D *lens = [CCLens3D actionWithPosition:ccp(size.width/2,size.height/2) radius:200.0 grid:ccg(15,10) duration:10.0];
+//    lens.lensEffect = 10.0f;
+//    [self runAction:lens];
 }
 
 -(void) onExit {
