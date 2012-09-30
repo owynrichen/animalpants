@@ -11,7 +11,7 @@
 #import "EnvironmentRepository.h"
 #import "SoundManager.h"
 #import "CCAutoScaling.h"
-#import "BlurGrid3D.h"
+#import "FadeGrid3D.h"
 
 #define SNAP_DISTANCE 30
 #define ROTATE_DISTANCE 300
@@ -48,6 +48,14 @@
 -(void) onEnter {
     victory = NO;
     
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    gameLayer = [CCLayer node];
+    [self addChild:gameLayer];
+    
+    hudLayer = [CCLayer node];
+    [self addChild:hudLayer];
+    
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
     // animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
     animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Penguin"];
@@ -55,65 +63,66 @@
     environment = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
     background = [environment getLayer];
     
-    [self addChild:background];
+    [gameLayer addChild:background];
     
-//    name = [CCAutoScalingSprite spriteWithFile:animal.word];
-//    name.anchorPoint = ccp(0,0);
-//    name.position = background.textPosition;
-//    name.opacity = 200;
-//    name.scale *= 0.4;
-//    name.color = ccWHITE;
-//    
-//    [self addChild:name];
+    name = [CCAutoScalingSprite spriteWithFile:animal.word];
+    // name.anchorPoint = ccp(0,0);
+    name.position = ccp(0-name.contentSize.width, winSize.height * 0.5);
+    name.opacity = 200;
+    name.scale *= 0.4;
+    name.color = ccWHITE;
+    
+    [self addChild:name];
     
     feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:3 includingAnimalFeet:animal] retain];
-    
     
     // TODO: do the math to get these laid out more cleanly
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
         foot.position = ccpToRatio(100 + (310 * i), 130);
-        [self addChild:foot];
+        [gameLayer addChild:foot];
     }
         
     body = [animal.body copyWithZone:nil];
     body.position = background.animalPosition;
     
-    [self addChild:body];
+    [gameLayer addChild:body];
     
     next = [CCSprite spriteWithFile:@"arrow.png"];
     next.scale = 0.4 * fontScaleForCurrentDevice();
     next.position = ccpToRatio(920, 90);
     next.visible = false;
     
-    [self addChild:next];
+    [gameLayer addChild:next];
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:10 delay:5];
     
     
     streak = [CCMotionStreak streakWithFade:1 minSeg:10 width:50 color:ccWHITE textureFilename:@"rainbow.png"];
     streak.fastMode = NO;
-    [self addChild:streak];
+    [gameLayer addChild:streak];
     
-//    kid = [CCAutoScalingSprite spriteWithFile:@"girl1.png"];
-//    kid.anchorPoint = ccp(0,0);
-//    kid.position = ccpToRatio(background.kidPosition.x - kid.contentSize.width, background.kidPosition.y - kid.contentSize.height);
-//    [self addChild:kid];
-//    
+    [self blurGameLayer:YES withDuration:2.0];
+    
+    kid = [CCAutoScalingSprite spriteWithFile:@"girl1.png"];
+    kid.anchorPoint = ccp(0,0);
+    kid.position = ccpToRatio(background.kidPosition.x, 0.0 - kid.contentSize.height);
+    [hudLayer addChild:kid];
+//
 //    // TODO: this is all fucking wrong
 //    
-//    CGPoint bubbleTop = ccpToRatio(50, 580);
-//    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
-//    CGPoint bubblePoint = ccpToRatio(background.kidPosition.x, background.kidPosition.y + (kid.contentSize.height * autoScaleForCurrentDevice()));
-//    
-//    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08 rect: bubbleRect point:bubblePoint] autorelease];
-//    bubble.anchorPoint = ccp(0,0);
-//    bubble.position = bubbleTop;
-//    bubble.scale = 0.0;
-//    [self addChild:bubble];
+    CGPoint bubbleTop = ccpToRatio(50, 580);
+    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
+    CGPoint bubblePoint = ccpToRatio(background.kidPosition.x, background.kidPosition.y + (kid.contentSize.height * autoScaleForCurrentDevice()));
     
-//    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
+    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08 rect: bubbleRect point:bubblePoint] autorelease];
+    bubble.anchorPoint = ccp(0,0);
+    bubble.position = bubbleTop;
+    bubble.scale = 0.0;
+    [self addChild:bubble];
+    
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
     
     [super onEnter];
     [[SoundManager sharedManager] fadeOutBackground];
@@ -122,12 +131,15 @@
 
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
-//    BlurGrid3D *blur = [BlurGrid3D actionWithSize:ccg(15,10) duration:10];
-//    [self runAction:blur];
-//    CGSize size = [[CCDirector sharedDirector] winSize];
-//    CCLens3D *lens = [CCLens3D actionWithPosition:ccp(size.width/2,size.height/2) radius:200.0 grid:ccg(15,10) duration:10.0];
-//    lens.lensEffect = 10.0f;
-//    [self runAction:lens];
+    
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    [name runAction:[CCSequence actions:
+                     [CCMoveTo actionWithDuration:0.3 position:ccp(winSize.width * 0.5, winSize.height * 0.5)],
+                     [CCDelayTime actionWithDuration:2.0],
+                     [CCCallBlockN actionWithBlock:^(CCNode *node) {
+                        [name runAction:[CCFadeOut actionWithDuration:0.25]];
+                      }],
+                     nil]];
 }
 
 -(void) onExit {
@@ -311,6 +323,7 @@
 
         [bubble runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0], nil]];
         [kid runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.25 position:ccpToRatio(kid.position.x, -kid.contentSize.height)], nil]];
+        [self blurGameLayer:NO withDuration:0.25];
     };
     
     // TODO: set this up to speed up on a touch maybe
@@ -356,6 +369,16 @@
 
 -(void) dealloc {
     [super dealloc];
+}
+
+-(void) blurGameLayer: (BOOL) blur withDuration: (GLfloat) duration {
+    if (blur) {
+        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:0.0 sigmaEnd:2.0 desaturateStart:0.0 desaturateEnd:0.7];
+        [gameLayer runAction:blur];
+    } else {
+        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:2.0 sigmaEnd:0.0 desaturateStart:0.7 desaturateEnd:0.0];
+        [gameLayer runAction:blur];
+    }
 }
 
 @end

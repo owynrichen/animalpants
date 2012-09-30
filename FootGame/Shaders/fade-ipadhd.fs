@@ -2,14 +2,12 @@
 precision mediump float;
 #endif
 
-varying vec4 v_fragmentColor;
 varying vec2 v_texCoord;
 varying vec2 v_blurCoords[9];
 
 uniform sampler2D CC_Texture0;
 
 uniform mediump vec2 u_blurSize;
-uniform vec4 u_substract;
 uniform float u_desaturate;
 
 

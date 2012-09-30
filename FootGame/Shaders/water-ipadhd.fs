@@ -16,17 +16,19 @@ vec2 getSample(vec2 pos, float wlength, float timeamp, float amp) {
     float distance = length(center);
     
     vec2 uv = v_texCoord + (center / distance) * (cos(wlength * distance - u_time * timeamp) * amp) * 0.005;
-    
+
     return uv;
 }
 
 void main()
 {
-    // vec2 col1 = getSample(vec2(1.0,0.5), 24.0, 8.0, 2.0);
+    vec2 col1 = getSample(vec2(1.0,0.5), 24.0, 8.0, 2.0);
+    //vec2 col2 = getSample(vec2(0.34,0.0), 16.0, 4.0, 4.5);
+    //vec2 col3 = getSample(vec2(0.0,0.78), 4.0, 15.0, 1.1);
     vec2 col4 = getSample(u_touchPos, 20.0, 9.0, u_touchAmp);
     
-    // vec2 uv = (col1 + col4) / 2.0;
-    vec2 uv = col4;
+    //vec2 uv = (col1 + col2 + col3 + col4) / 4.0;
+    vec2 uv = (col1 + col4) / 2.0;
     vec2 uv_ref = vec2(uv.x, 1.0-uv.y);
     vec4 col = texture2D(CC_Texture0,uv);
     vec4 ref = texture2D(u_reflect_texture,uv_ref);
@@ -35,5 +37,5 @@ void main()
     
     gl_FragColor = col + (height * 20.0) * ref;
     
-    gl_FragColor = v_fragmentColor * texture2D(CC_Texture0, v_texCoord);
+    // gl_FragColor = v_fragmentColor * texture2D(CC_Texture0, v_texCoord);
 }

@@ -26,6 +26,8 @@
     
     CCAutoScalingSprite *kid;
     SpeechBubble *bubble;
+    CCLayer *gameLayer;
+    CCLayer *hudLayer;
     
     BOOL nextTouched;
     BOOL bodyTouched;
@@ -39,5 +41,6 @@
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
 - (BOOL) testVictory;
+-(void) blurGameLayer: (BOOL) blur withDuration: (GLfloat) duration;
 
 @end

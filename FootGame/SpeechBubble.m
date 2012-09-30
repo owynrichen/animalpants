@@ -40,7 +40,7 @@
     
     storyText = NSLocalizedStringFromTable(storyKey, @"strings", @"");
     
-    label = [[CCLabelTTFWithStroke alloc] initWithString:storyText dimensions:labelSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice()];
+    label = [[CCLabelTTFWithStroke alloc] initWithString:storyText fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice() dimensions:labelSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap];
     label.color = ccWHITE;
     label.strokeSize = 3 * fontScaleForCurrentDevice();
     label.strokeColor = ccBLACK;
