@@ -6,10 +6,33 @@
   Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 */
 
+"back" = "Back";
 "play" = "Play!";
+"animals" = "Animals";
+"menu_elephant" = "Elephant";
+"menu_lion" = "Lion";
+"menu_penguin" = "Penguin";
+"menu_crocodile" = "Crocodile";
+"menu_giraffe" = "Giraffe";
+"menu_hippo" = "Hippo";
+"menu_kangaroo" = "Kangaroo";
+"menu_monkey" = "Monkey";
+"menu_panda" = "Panda";
+"menu_polarbear" = "Polar Bear";
+"menu_tiger" = "Tiger";
+"menu_zebra" = "Zebra";
 "elephant" = "The elephant's feet are gray with big toe nails";
 "lion" = "The lion's mane is fluffy and his paws are the same";
 "penguin" = "The penguin's feet are yellow and clawed";
+"crocodile" = "The crocodile's feet are scaly, and his tail is big";
+"giraffe" = "The giraffe's feet are yellow and have brown spots";
+"hippo" = "The hippo's feet are purple";
+"kangaroo" = "The kangaroo's feet are long and flat";
+"monkey" = "The monkey's feet are brown and furry";
+"panda" = "The panda's feet are black, white and fuzzy";
+"polarbear" = "The polar bear's feet are white and furry";
+"tiger" = "The tiger's feet are orange with black stripes";
+"zebra" = "The zebra's feet are black and white with hooves";
 "story1" = "Oh no!  It looks like all the animals have lost their pants!";
 "story2" = "We should help them find the right pants by matching their feet!";
 "story3" = "Great idea!  Let's go!";

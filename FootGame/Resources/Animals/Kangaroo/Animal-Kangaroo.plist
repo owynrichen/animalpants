@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Key</key>
+	<string>Kangaroo</string>
+	<key>Environment</key>
+	<string>blank</string>
+	<key>SuccessSound</key>
+	<string>elephant2.wav</string>
+	<key>Name</key>
+	<string>Kangaroo</string>
+	<key>FailSound</key>
+	<string></string>
+	<key>Body</key>
+	<dict>
+		<key>HappyImage</key>
+		<string>kangaroo_top_happy.png</string>
+		<key>AnchorFoot</key>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>137</integer>
+			<key>y</key>
+			<integer>354</integer>
+		</dict>
+		<key>Image</key>
+		<string>kangaroo_top.png</string>
+	</dict>
+	<key>Foot</key>
+	<dict>
+		<key>Anchor</key>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>142</integer>
+			<key>y</key>
+			<integer>197</integer>
+		</dict>
+		<key>Image</key>
+		<string>kangaroo_bottom.png</string>
+	</dict>
+	<key>Word</key>
+	<string>kangaroo_word.en.png</string>
+</dict>
+</plist>

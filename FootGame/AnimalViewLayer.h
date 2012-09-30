@@ -36,11 +36,14 @@
 
 // returns a CCScene that contains the AnimalViewLayer as the only child
 +(CCScene *) scene;
++(CCScene *) sceneWithAnimalKey: (NSString *) animal;
 
-- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
-- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
-- (BOOL) testVictory;
+-(id) initWithAnimalKey: (NSString *) animal;
+-(id) initWithAnimal: (Animal *) animal;
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
+-(BOOL) testVictory;
 -(void) blurGameLayer: (BOOL) blur withDuration: (GLfloat) duration;
 
 @end

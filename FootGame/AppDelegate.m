@@ -30,14 +30,15 @@
     
     [window_ setRootViewController:navController_];
     [[CCDirector sharedDirector] setDelegate:self];
-    //[[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
-    [[CCDirector sharedDirector] runWithScene: [AnimalViewLayer scene]];
-	
+    
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.mp3"];
     [[SoundManager sharedManager] preloadSound:@"glock__g1.mp3"];
     [[SoundManager sharedManager] preloadSound:@"game_intro_bgmusic.mp3"];
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
+    
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    //[[CCDirector sharedDirector] runWithScene: [AnimalViewLayer scene]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -23,6 +23,8 @@
 
 +(AnimalPartRepository *) sharedRepository;
 
+@property (readonly) NSDictionary *allAnimals;
+
 -(void) resetAnimals;
 -(Animal *) getRandomAnimal;
 -(Animal *) getAnimalByKey: (NSString *) key;

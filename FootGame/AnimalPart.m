@@ -90,8 +90,8 @@
 
 -(void) draw {
     [super draw];
-/*
-    int count = [fixPoints count];
+
+   /* int count = [fixPoints count];
     for (int i = 0; i < count; i++) {
         AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
         ccDrawColor4B(0, 0, 255, 255);

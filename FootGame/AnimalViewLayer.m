@@ -26,11 +26,21 @@
 
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
+	return [AnimalViewLayer sceneWithAnimalKey:nil];
+}
+
++(CCScene *) sceneWithAnimalKey: (NSString *) animal {
+    // 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	AnimalViewLayer *layer = [AnimalViewLayer node];
+	AnimalViewLayer *layer;
+    
+    if (animal == nil) {
+        layer = [AnimalViewLayer node];
+    } else {
+        layer = [[[AnimalViewLayer alloc] initWithAnimalKey:animal] autorelease];
+    }
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -39,8 +49,22 @@
 	return scene;
 }
 
--(id) init {
+-(id) initWithAnimalKey: (NSString *) anml {
+    self = [self initWithAnimal:[[AnimalPartRepository sharedRepository] getAnimalByKey:anml]];
+    
+    return self;
+}
+
+-(id) initWithAnimal: (Animal *) anml {
     self = [super init];
+    
+    animal = anml;
+    
+    return self;
+}
+
+-(id) init {
+    self = [self initWithAnimal:animal = [[AnimalPartRepository sharedRepository] getRandomAnimal]];
     
     return self;
 }
@@ -57,8 +81,6 @@
     [self addChild:hudLayer];
     
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
-    // animal = [[AnimalPartRepository sharedRepository] getRandomAnimal];
-    animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:@"Penguin"];
     
     environment = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
     background = [environment getLayer];
@@ -80,7 +102,8 @@
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
-        foot.position = ccpToRatio(100 + (310 * i), 130);
+        // foot.position = ccpToRatio(100 + (310 * i), 130);
+        foot.position = ccpToRatio(winSize.width * 0.25 * (i + 1), winSize.height * 0.15);
         [gameLayer addChild:foot];
     }
         
@@ -278,14 +301,16 @@
             
             // TODO: play bad noise
             
+            CGSize winSize = [[CCDirector sharedDirector] winSize];
+            
             for (int i = 0; i < [feet count]; i++) {
                 AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
                 foot.visible = YES;
                 
                 // TODO: when the above code gets cleaned up to lay out the feet in a better
                 // position, reuse here
-                
-                [foot runAction:[CCMoveTo actionWithDuration:0.5 position:ccpToRatio(100 + (310 * i), 130)]];
+                CGPoint pos = ccpToRatio(winSize.width * 0.25 * (i + 1), winSize.height * 0.15);
+                [foot runAction:[CCMoveTo actionWithDuration:0.5 position:pos]];
             }
         }
     } else if (nextTouched) {

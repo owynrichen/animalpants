@@ -51,6 +51,8 @@ static NSUInteger random_below(NSUInteger n) {
 static AnimalPartRepository * _instance;
 static NSString *_sync = @"";
 
+@synthesize allAnimals;
+
 +(AnimalPartRepository *) sharedRepository {
     if (_instance == nil) {
         @synchronized(_sync) {
@@ -82,6 +84,8 @@ static NSString *_sync = @"";
         
         [self loadAnimal:animal];
     }];
+    
+    allAnimals = animals;
         
     return self;
 }

@@ -8,6 +8,7 @@
 
 #import "MainMenuLayer.h"
 #import "StoryLayer.h"
+#import "AnimalSelectLayer.h"
 #import "CCMenuItemFontWithStroke.h"
 #import "CCAutoScaling.h"
 #import "SoundManager.h"
@@ -54,7 +55,12 @@
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
     }];
     
-    menu = [CCMenu menuWithItems:smenuItem, nil];
+    CCMenuItemFontWithStroke *smenuItem2 = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"animals", @"strings", @"Animals") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+    }];
+    smenuItem2.position = ccp(0, -72 * fontScaleForCurrentDevice());
+    
+    menu = [CCMenu menuWithItems:smenuItem, smenuItem2, nil];
     
     [self addChild:background];
     [self addChild:title];
