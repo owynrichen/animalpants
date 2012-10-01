@@ -48,13 +48,15 @@
     CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"back", @"strings", @"Back") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     }];
+    back.anchorPoint = ccp(0,0);
     back.position = ccp(0,0);
     
     menu = [CCMenu menuWithItems: nil];
     
     [menu addChild:back z:0 tag:1];
     menu.anchorPoint = ccp(0,0);
-    menu.position = ccp(winSize.width * 0.2, winSize.height * 0.8);
+    menu.position = ccp(winSize.width * 0.1, winSize.height * 0.9);
+    __block int count = 1;
     
     [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *menuKey = [NSString stringWithFormat:@"menu_%@", [key lowercaseString]];
@@ -64,7 +66,8 @@
         }];
         
         item.anchorPoint = ccp(0,0);
-        item.position = ccp(0, 48 + (48 * [menu.children count]));
+        item.position = ccp(0, -54 * count * fontScaleForCurrentDevice());
+        count++;
         [menu addChild:item z:0 tag:1];
     }];
     

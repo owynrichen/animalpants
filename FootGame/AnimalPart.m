@@ -88,22 +88,22 @@
     [super dealloc];
 }
 
--(void) draw {
-    [super draw];
-
-   /* int count = [fixPoints count];
-    for (int i = 0; i < count; i++) {
-        AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
-        ccDrawColor4B(0, 0, 255, 255);
-        ccPointSize(8 * CC_CONTENT_SCALE_FACTOR());
-        // NSLog(@"%f,%f -> %f, %f", pnt.point.x, pnt.point.y, glpnt.x, glpnt.y);
-        ccDrawPoint(pnt.point);
-    }
-    
-    ccDrawColor4B(0,255,0,180);
-    ccPointSize(8);
-    ccDrawPoint(self.anchorPointInPoints); */
-}
+//-(void) draw {
+//    [super draw];
+//
+//   int count = [fixPoints count];
+//    for (int i = 0; i < count; i++) {
+//        AnchorPoint *pnt = (AnchorPoint *) [fixPoints objectAtIndex:i];
+//        ccDrawColor4B(0, 0, 255, 255);
+//        ccPointSize(8 * CC_CONTENT_SCALE_FACTOR());
+//        // NSLog(@"%f,%f -> %f, %f", pnt.point.x, pnt.point.y, glpnt.x, glpnt.y);
+//        ccDrawPoint(pnt.point);
+//    }
+//    
+//    ccDrawColor4B(0,255,0,180);
+//    ccPointSize(8);
+//    ccDrawPoint(self.anchorPointInPoints);
+//}
 
 -(void) setState: (AnimalStateType) state {
     [self setTexture: [self.textureState objectForKey:[NSNumber numberWithInt: (int) state]]];

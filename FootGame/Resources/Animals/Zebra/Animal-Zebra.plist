@@ -21,9 +21,9 @@
 			<key>orientation</key>
 			<integer>0</integer>
 			<key>x</key>
-			<integer>132</integer>
+			<integer>138</integer>
 			<key>y</key>
-			<integer>345</integer>
+			<integer>338</integer>
 		</dict>
 		<key>Image</key>
 		<string>zebra_top.png</string>
@@ -37,7 +37,7 @@
 			<key>x</key>
 			<integer>84</integer>
 			<key>y</key>
-			<integer>0</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Image</key>
 		<string>zebra_bottom.png</string>

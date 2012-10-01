@@ -58,7 +58,7 @@
     CCMenuItemFontWithStroke *smenuItem2 = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"animals", @"strings", @"Animals") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
     }];
-    smenuItem2.position = ccp(0, -72 * fontScaleForCurrentDevice());
+    smenuItem2.position = ccp(0, -80 * fontScaleForCurrentDevice());
     
     menu = [CCMenu menuWithItems:smenuItem, smenuItem2, nil];
     

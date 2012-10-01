@@ -20,6 +20,7 @@
 -(AnimalPart *) getCorrectFoot;
 -(void) drawAttention: (ccTime) dtime;
 -(void) moveKids: (ccTime) dtime;
+-(CGPoint) startPositionForFoot: (int) index;
 @end
 
 @implementation AnimalViewLayer
@@ -98,15 +99,12 @@
     
     feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:3 includingAnimalFeet:animal] retain];
     
-    // TODO: do the math to get these laid out more cleanly
-    
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
-        // foot.position = ccpToRatio(100 + (310 * i), 130);
-        foot.position = ccpToRatio(winSize.width * 0.25 * (i + 1), winSize.height * 0.15);
+        foot.position = [self startPositionForFoot:i];
         [gameLayer addChild:foot];
     }
-        
+
     body = [animal.body copyWithZone:nil];
     body.position = background.animalPosition;
     
@@ -301,16 +299,13 @@
             
             // TODO: play bad noise
             
-            CGSize winSize = [[CCDirector sharedDirector] winSize];
-            
-            for (int i = 0; i < [feet count]; i++) {
-                AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
+            for(int i = 0; i < [feet count]; i++) {
+                AnimalPart *foot = [feet objectAtIndex:i];
                 foot.visible = YES;
-                
-                // TODO: when the above code gets cleaned up to lay out the feet in a better
-                // position, reuse here
-                CGPoint pos = ccpToRatio(winSize.width * 0.25 * (i + 1), winSize.height * 0.15);
-                [foot runAction:[CCMoveTo actionWithDuration:0.5 position:pos]];
+                CGPoint correctPos = [self startPositionForFoot:i];
+                if (foot.position.x != correctPos.x || foot.position.y != correctPos.y) {
+                    [foot runAction:[CCMoveTo actionWithDuration:0.5 position: correctPos]];
+                }
             }
         }
     } else if (nextTouched) {
@@ -330,6 +325,19 @@
     return nil;
 }
 
+//-(void) draw {
+//    [super draw];
+//    
+//    int count = [feet count];
+//    for (int i = 0; i < count; i++) {
+//        CGPoint pnt = [self startPositionForFoot:i];
+//        ccDrawColor4B(255, 0, 0, 255);
+//        ccPointSize(8 * CC_CONTENT_SCALE_FACTOR());
+//        // NSLog(@"%f,%f -> %f, %f", pnt.point.x, pnt.point.y, glpnt.x, glpnt.y);
+//        ccDrawPoint(pnt);
+//    }
+//}
+
 -(void) drawAttention: (ccTime) dtime {
     AnimalPart *foot = [self getCorrectFoot];
     
@@ -346,8 +354,12 @@
     
     void (^touchBlock)(CCNode *node, BOOL finished) = ^(CCNode *node, BOOL finished) {
 
-        [bubble runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0], nil]];
-        [kid runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.25 position:ccpToRatio(kid.position.x, -kid.contentSize.height)], nil]];
+        [bubble runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0],
+                           [CCCallBlockN actionWithBlock:^(CCNode *node) {
+                                [bubble stopAllActions];
+                            }],
+                            nil]];
+        [kid runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.25 position:ccpToRatio(kid.position.x, -1000)], nil]];
         [self blurGameLayer:NO withDuration:0.25];
     };
     
@@ -355,7 +367,7 @@
     CCCallBlockN *startText = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [bubble startWithFinishBlock:^(CCNode *node) {
             // TODO: set this up to go away on a timer or a touch
-            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            [bubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
                 [bubble ccTouchEnded:nil withEvent:nil];
             }], nil]];
         } touchBlock:touchBlock];
@@ -404,6 +416,32 @@
         FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:2.0 sigmaEnd:0.0 desaturateStart:0.7 desaturateEnd:0.0];
         [gameLayer runAction:blur];
     }
+}
+
+-(CGPoint) startPositionForFoot: (int) index {
+    AnimalPart *foot = [feet objectAtIndex:index];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    float offset = 0.0;
+    float ratio = 0.5;
+    
+    switch(index) {
+        case 0:
+            offset = foot.anchorPoint.x * (foot.contentSize.width / CC_CONTENT_SCALE_FACTOR());
+            ratio = 0.1;
+            break;
+        case 1:
+            break;
+        case 2:
+            offset = -(1.0 - foot.anchorPoint.x) * (foot.contentSize.width / CC_CONTENT_SCALE_FACTOR());
+            ratio = 0.9;
+            break;
+        default:
+            return ccp(winSize.width * 0.5, winSize.height * 0.5);
+            break;
+    }
+    
+    CGPoint point = ccp(winSize.width * ratio + offset, winSize.height * 0.2);
+    return point;
 }
 
 @end
