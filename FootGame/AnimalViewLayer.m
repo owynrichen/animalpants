@@ -421,6 +421,11 @@
 -(CGPoint) startPositionForFoot: (int) index {
     AnimalPart *foot = [feet objectAtIndex:index];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    if (positionScaleForCurrentDevice(kDimensionY) < 1) {
+        winSize.width = (positionScaleForCurrentDevice(kDimensionY) * 2.0) * winSize.width;
+    }
+    
     float offset = 0.0;
     float ratio = 0.5;
     

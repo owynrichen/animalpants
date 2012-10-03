@@ -8,6 +8,12 @@
 
 "back" = "Back";
 "play" = "Play!";
+"languages" = "Languages";
+"settings" = "Settings";
+"lang_english" = "English";
+"lang_spanish" = "Spanish";
+"lang_french" = "French";
+"lang_japanese" = "Japanese";
 "animals" = "Animals";
 "menu_elephant" = "Elephant";
 "menu_lion" = "Lion";

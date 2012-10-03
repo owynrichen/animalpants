@@ -73,7 +73,7 @@ float positionScaleForDevice(DeviceResolutionType device, DimensionType d) {
         case kiPhoneRetina:
         case kiPhone:
             if (d == kDimensionX) {
-                autoScaleFactor = 0.41015625; // ~ 420 / 1024
+                autoScaleFactor = 0.46875; // ~ 480 / 1024
             } else {
                 autoScaleFactor = 0.4166666666666; // ~ 320 / 768
             }

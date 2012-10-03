@@ -10,4 +10,6 @@
 
 @interface SettingsLayer : CCLayer
 
++(CCScene *) scene;
+
 @end

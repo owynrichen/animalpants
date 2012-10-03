@@ -51,6 +51,7 @@
 		364B084215A9F4310054E69A /* CCMenuItemFontWithStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 364B084015A9F4310054E69A /* CCMenuItemFontWithStroke.m */; };
 		365C75B2161900550030CD0C /* hello-chiptune-cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 365C75B1161900550030CD0C /* hello-chiptune-cover.mp3 */; };
 		365C75B6161901730030CD0C /* AnimalSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 365C75B5161901730030CD0C /* AnimalSelectLayer.m */; };
+		365C763E1619F2A50030CD0C /* StreakGlow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 365C763D1619F2A50030CD0C /* StreakGlow.plist */; };
 		365DFBE116176E3200E8B708 /* water-ipadhd.fs in Resources */ = {isa = PBXBuildFile; fileRef = 365DFBDB16176DA900E8B708 /* water-ipadhd.fs */; };
 		365DFBE216176E3200E8B708 /* fade.vs in Resources */ = {isa = PBXBuildFile; fileRef = 365DFBD716176C8300E8B708 /* fade.vs */; };
 		365DFBE316176E3200E8B708 /* fade.fs in Resources */ = {isa = PBXBuildFile; fileRef = 365DFBD916176CB200E8B708 /* fade.fs */; };
@@ -971,6 +972,7 @@
 		365C75B1161900550030CD0C /* hello-chiptune-cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "hello-chiptune-cover.mp3"; path = "Audio/hello-chiptune-cover.mp3"; sourceTree = "<group>"; };
 		365C75B4161901730030CD0C /* AnimalSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalSelectLayer.h; sourceTree = "<group>"; };
 		365C75B5161901730030CD0C /* AnimalSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalSelectLayer.m; sourceTree = "<group>"; };
+		365C763D1619F2A50030CD0C /* StreakGlow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StreakGlow.plist; sourceTree = "<group>"; };
 		365DFBD716176C8300E8B708 /* fade.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = fade.vs; path = Shaders/fade.vs; sourceTree = "<group>"; };
 		365DFBD916176CB200E8B708 /* fade.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = fade.fs; path = Shaders/fade.fs; sourceTree = "<group>"; };
 		365DFBDB16176DA900E8B708 /* water-ipadhd.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = "water-ipadhd.fs"; path = "Shaders/water-ipadhd.fs"; sourceTree = "<group>"; };
@@ -1830,6 +1832,15 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
+		365C763C1619F2A40030CD0C /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				365C763D1619F2A50030CD0C /* StreakGlow.plist */,
+			);
+			name = Particles;
+			path = Resources/Particles;
+			sourceTree = "<group>";
+		};
 		365DFBE61617D82800E8B708 /* Blank */ = {
 			isa = PBXGroup;
 			children = (
@@ -2292,6 +2303,7 @@
 		367EC2F1133A4782003F7FF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				365C763C1619F2A40030CD0C /* Particles */,
 				361506FB1594C9FD000F46D9 /* Animals */,
 				361506F01594C96C000F46D9 /* Environments */,
 				368005FD1375AC4200F6603F /* Audio */,
@@ -3435,6 +3447,7 @@
 				365DFD431618D29A00E8B708 /* zebra_word.en-ipadhd.png in Resources */,
 				365DFD441618D29A00E8B708 /* zebra_word.en.png in Resources */,
 				365C75B2161900550030CD0C /* hello-chiptune-cover.mp3 in Resources */,
+				365C763E1619F2A50030CD0C /* StreakGlow.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3582,7 +3595,7 @@
 				GCC_PREFIX_HEADER = FootGame/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = FootGame/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FootGame\"",
@@ -3609,7 +3622,7 @@
 				GCC_PREFIX_HEADER = FootGame/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = FootGame/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FootGame\"",

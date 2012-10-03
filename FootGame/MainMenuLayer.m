@@ -9,9 +9,11 @@
 #import "MainMenuLayer.h"
 #import "StoryLayer.h"
 #import "AnimalSelectLayer.h"
+#import "SettingsLayer.h"
 #import "CCMenuItemFontWithStroke.h"
 #import "CCAutoScaling.h"
 #import "SoundManager.h"
+
 
 @implementation MainMenuLayer
 
@@ -59,6 +61,16 @@
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
     }];
     smenuItem2.position = ccp(0, -80 * fontScaleForCurrentDevice());
+    
+    CCMenuItemFontWithStroke *smenuItem3 = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"languages", @"strings", @"Languages") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+    }];
+    smenuItem3.position = ccp(0, -80 * 2 * fontScaleForCurrentDevice());
+    
+    CCMenuItemFontWithStroke *smenuItem4 = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"settings", @"strings", @"Settings") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[SettingsLayer scene] backwards:false]];
+    }];
+    smenuItem4.position = ccp(0, -80 * 3 * fontScaleForCurrentDevice());
     
     menu = [CCMenu menuWithItems:smenuItem, smenuItem2, nil];
     
