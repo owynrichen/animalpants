@@ -6,10 +6,42 @@
   Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 */
 
+"back" = "戻る";
 "play" = "プレイ！";
-"elephant" = "象の足には足の親指の爪の付いたグレーです。";
-"lion" = "ライオンのたてがみはふわふわであり、彼の足は同じです。";
-"penguin" = "ペンギンの足は黄色と爪です。";
-"story1" = "Oh no!  It looks like all the animals have lost their pants!";
-"story2" = "We should help them find the right pants by matching their feet!";
-"story3" = "Great idea!  Let's go!";
+"animals" = "動物";
+"languages" = "言語";
+"settings" = "設定";
+"en" = "英語";
+"es" = "スペイン語";
+"fr" = "フランス語";
+"ja" = "日本語";
+
+"menu_elephant" = "象";
+"menu_lion" = "獅子";
+"menu_penguin" = "ペンギン";
+"menu_crocodile" = "鰐";
+"menu_giraffe" = "麒麟";
+"menu_hippo" = "カバ";
+"menu_kangaroo" = "カンガルー";
+"menu_monkey" = "猿";
+"menu_panda" = "パンダ";
+"menu_polarbear" = "北极熊";
+"menu_tiger" = "虎";
+"menu_zebra" = "縞馬";
+
+"elephant" = "オリー象の足は足の親指の爪が付いている灰色アール";
+"lion" = "ロイドライオンのたてがみはふわふわであり、彼の足は同じです";
+"penguin" = "パーシバルペンギンの足は黄色と爪アール";
+"crocodile" = "クータークロコダイルの足がうろこ状であり、彼の尾は大きいです";
+"giraffe" = "Gervisキリンの足は黄色で、茶色の斑点がある";
+"hippo" = "カバの足は紫色であり、彼は大きな尻を持ってホレス";
+"kangaroo" = "ケンドラカンガルーの足は長く、平坦である";
+"monkey" = "メリンダ猿の足は茶色と毛皮で覆われたアール";
+"panda" = "パトリックパンダの足は黒、白、ぼやけて";
+"polarbear" = "パリポーラーベアの足は白と毛皮で覆われたアール";
+"tiger" = "トミータイガーの足は黒のストライプが入ったオレンジ色です";
+"zebra" = "ゼブゼブラの足は黒と蹄を持つ白です";
+
+"story1" = "ああ、いや！すべての私たちの動物の友達が自分のパンツを失っているように見えます！";
+"story2" = "私たちは、自分の足を照合することによって、それらは右パンツを見つけるのに役立つはずです！";
+"story3" = "素晴らしいアイデア！行こう！";

@@ -6,10 +6,42 @@
   Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 */
 
+"back" = "volver";
 "play" = "Jugar!";
-"elephant" = "Los pies del elefante son de color gris, con uñas de los pies grandes";
-"lion" = "La melena del león es suave y esponjosa y sus patas son los mismos";
-"penguin" = "Los pies del pingüino son amarillas y con garras";
-"story1" = "Oh no!  It looks like all the animals have lost their pants!";
-"story2" = "We should help them find the right pants by matching their feet!";
-"story3" = "Great idea!  Let's go!";
+"animals" = "Animales";
+"languages" = "Idiomas";
+"settings" = "Configuración";
+"en" = "Inglés";
+"es" = "español";
+"fr" = "español";
+"ja" = "japonés";
+
+"menu_elephant" = "elefante";
+"menu_lion" = "león";
+"menu_penguin" = "pingüino";
+"menu_crocodile" = "cocodrilo";
+"menu_giraffe" = "jirafa";
+"menu_hippo" = "hipopótamo";
+"menu_kangaroo" = "canguro";
+"menu_monkey" = "mono";
+"menu_panda" = "panda";
+"menu_polarbear" = "Oso Polar";
+"menu_tiger" = "tigre";
+"menu_zebra" = "cebra";
+
+"elephant" = "Olly pies de los elefantes son grises con uñas de los pies grandes";
+"lion" = "Lloyd melena del León es mullida y sus patas son iguales";
+"penguin" = "Percival el Penguin pies son de color amarillo y con garras";
+"crocodile" = "Cooter pies del cocodrilo son escamosa, y su cola es grande";
+"giraffe" = "Gervis pies de la jirafa son de color amarillo y tiene manchas marrones";
+"hippo" = "Horace pies del hipopótamo son de color morado y tiene un trasero grande";
+"kangaroo" = "Kendra pies del canguro son largas y planas";
+"monkey" = "Melinda pies de los monos son de color marrón y peludo";
+"panda" = "Patrick pies del Panda son el negro, el blanco y borroso";
+"polarbear" = "París pies del oso polar son de color blanco y peludo";
+"tiger" = "Tommy pies del Tigre son de color naranja con rayas negras";
+"zebra" = "Zeb pies de la cebra en blanco y negro con cascos";
+
+"story1" = "Oh no! Parece que todos nuestros amigos los animales han perdido sus pantalones!";
+"story2" = "Debemos ayudarles a encontrar los pantalones adecuados, haciendo coincidir sus pies!";
+"story3" = "Gran idea! ¡Vamos!";

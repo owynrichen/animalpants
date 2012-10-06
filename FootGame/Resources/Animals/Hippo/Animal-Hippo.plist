@@ -5,7 +5,7 @@
 	<key>Key</key>
 	<string>Hippo</string>
 	<key>Environment</key>
-	<string>blank</string>
+	<string>river</string>
 	<key>SuccessSound</key>
 	<string>elephant2.wav</string>
 	<key>Name</key>

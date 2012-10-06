@@ -7,8 +7,12 @@
 //
 
 #import "CCLayer.h"
+#import "CCAutoScalingSprite.h"
 
 @interface SettingsLayer : CCLayer
+
+@property (nonatomic, retain) CCMenu *menu;
+@property (nonatomic, retain) CCAutoScalingSprite *background;
 
 +(CCScene *) scene;
 

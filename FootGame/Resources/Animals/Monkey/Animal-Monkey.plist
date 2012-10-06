@@ -5,7 +5,7 @@
 	<key>Key</key>
 	<string>Monkey</string>
 	<key>Environment</key>
-	<string>blank</string>
+	<string>mangrove_forest</string>
 	<key>SuccessSound</key>
 	<string>elephant2.wav</string>
 	<key>Name</key>

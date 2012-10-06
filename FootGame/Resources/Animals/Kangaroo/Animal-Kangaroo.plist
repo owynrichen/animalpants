@@ -5,7 +5,7 @@
 	<key>Key</key>
 	<string>Kangaroo</string>
 	<key>Environment</key>
-	<string>blank</string>
+	<string>outback</string>
 	<key>SuccessSound</key>
 	<string>elephant2.wav</string>
 	<key>Name</key>

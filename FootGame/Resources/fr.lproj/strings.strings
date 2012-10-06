@@ -7,9 +7,41 @@
 */
 
 "play" = "Jouer!";
-"elephant" = "Les pieds de l'éléphant sont de couleur grise avec des clous gros orteil";
-"lion" = "La crinière de lion est moelleux et ses pattes sont les mêmes";
-"penguin" = "Le pingouin pieds sont jaunes et griffes";
-"story1" = "Oh no!  It looks like all the animals have lost their pants!";
-"story2" = "We should help them find the right pants by matching their feet!";
-"story3" = "Great idea!  Let's go!";
+"back" = "revenir";
+"animals" = "Animaux";
+"languages" = "Langues";
+"settings" = "Réglages";
+"en" = "Anglais";
+"es" = "espagnol";
+"fr" = "français";
+"ja" = "japonais";
+
+"menu_elephant" = "éléphant";
+"menu_lion" = "Lion";
+"menu_penguin" = "manchot";
+"menu_crocodile" = "crocodile";
+"menu_giraffe" = "girafe";
+"menu_hippo" = "hippopotame";
+"menu_kangaroo" = "kangourou";
+"menu_monkey" = "singe";
+"menu_panda" = "panda";
+"menu_polarbear" = "ours blanc";
+"menu_tiger" = "tigre";
+"menu_zebra" = "zèbre";
+
+"elephant" = "Olly pieds de l'éléphant sont de couleur grise avec des clous gros orteil";
+"lion" = "Lloyd crinière du Lion est moelleux et ses pattes sont les mêmes";
+"penguin" = "Percival pieds du pingouin sont jaunes et griffes";
+"crocodile" = "Cooter le Crocodile pieds sont écailleuse, et sa queue est grosse";
+"giraffe" = "Gervis la girafe les pieds sont jaunes et ont des taches brunes";
+"hippo" = "Horace pieds de l'hippopotame sont violet et il a un arrière grand";
+"kangaroo" = "Kendra pieds du Kangourou sont longs et plats";
+"monkey" = "Melinda du singe pieds sont brun et poilu";
+"panda" = "Patrick le Panda pieds sont noirs, blancs et floue";
+"polarbear" = "Paris de l'ours polaire pieds sont blancs et duveteux";
+"tiger" = "Tommy pieds du Tigre sont de couleur orange avec des rayures noires";
+"zebra" = "Zeb pieds du zèbre sont en noir et blanc avec des sabots";
+
+"story1" = "Oh non! Il ressemble à tous nos amis les animaux ont perdu leurs pantalons!";
+"story2" = "Nous devons les aider à trouver le pantalon droit en faisant correspondre leurs pieds!";
+"story3" = "Excellente idée! Allons-y!";

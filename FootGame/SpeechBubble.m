@@ -8,6 +8,7 @@
 
 #import "SpeechBubble.h"
 #import "CCAutoScaling.h"
+#import "LocalizationManager.h"
 
 @interface SpeechBubble()
 -(CGPoint *) buildBubblePointsFromRect: (CGRect) rect andPoint: (CGPoint) point withScale: (CGPoint) scale andOffset: (CGPoint) offset;
@@ -38,7 +39,7 @@
     // TODO: MAKE SURE NO DIMENSION IS > 2048
     CGSize labelSize = CGSizeMake(talkDrawRect.size.width - (talkDrawRect.size.width * 0.1), talkDrawRect.size.height - (talkDrawRect.size.height * 0.1));
     
-    storyText = NSLocalizedStringFromTable(storyKey, @"strings", @"");
+    storyText = locstr(storyKey, @"strings", @"");
     
     label = [[CCLabelTTFWithStroke alloc] initWithString:storyText fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice() dimensions:labelSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap];
     label.color = ccWHITE;

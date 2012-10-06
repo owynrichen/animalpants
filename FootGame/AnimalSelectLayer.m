@@ -11,6 +11,7 @@
 #import "AnimalViewLayer.h"
 #import "CCMenuItemFontWithStroke.h"
 #import "MainMenuLayer.h"
+#import "LocalizationManager.h"
 
 @implementation AnimalSelectLayer
 
@@ -45,7 +46,7 @@
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);
     
-    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:NSLocalizedStringFromTable(@"back", @"strings", @"Back") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"back", @"strings", @"Back") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     }];
     back.anchorPoint = ccp(0,0);
@@ -58,9 +59,11 @@
     menu.position = ccp(winSize.width * 0.1, winSize.height * 0.9);
     __block int count = 1;
     
+    // TODO: this doesn't fit on an iphone... scrolling?
+    
     [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *menuKey = [NSString stringWithFormat:@"menu_%@", [key lowercaseString]];
-        NSString *name = NSLocalizedStringFromTable(menuKey, @"strings", @"");
+        NSString *name = menulocstr(menuKey, @"strings", @"");
         CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:name color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
         }];

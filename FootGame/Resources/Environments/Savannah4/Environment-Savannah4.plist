@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Music</key>
+	<string>hello-chiptune-cover.mp3</string>
+	<key>Key</key>
+	<string>savannah4</string>
+	<key>StoryKey</key>
+	<string>zebra</string>
+	<key>KidPosition</key>
+	<dict>
+		<key>x</key>
+		<integer>80</integer>
+		<key>y</key>
+		<integer>30</integer>
+	</dict>
+	<key>TextPosition</key>
+	<dict>
+		<key>x</key>
+		<integer>80</integer>
+		<key>y</key>
+		<integer>600</integer>
+	</dict>
+	<key>AnimalPosition</key>
+	<dict>
+		<key>x</key>
+		<integer>500</integer>
+		<key>y</key>
+		<integer>400</integer>
+	</dict>
+	<key>Sky</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>0</integer>
+		<key>imageName</key>
+		<string>bg_savannah4.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

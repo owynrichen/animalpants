@@ -5,7 +5,7 @@
 	<key>Key</key>
 	<string>Crocodile</string>
 	<key>Environment</key>
-	<string>blank</string>
+	<string>swamp</string>
 	<key>SuccessSound</key>
 	<string>glock__e1.mp3</string>
 	<key>Name</key>

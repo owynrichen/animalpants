@@ -5,7 +5,7 @@
 	<key>Key</key>
 	<string>Panda</string>
 	<key>Environment</key>
-	<string>blank</string>
+	<string>bamboo_forest</string>
 	<key>SuccessSound</key>
 	<string>elephant2.wav</string>
 	<key>Name</key>
