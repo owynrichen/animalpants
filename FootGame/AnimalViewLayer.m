@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "MainMenuLayer.h"
 #import "AnimalViewLayer.h"
 #import "AnimalPartRepository.h"
 #import "EnvironmentRepository.h"
@@ -130,6 +131,15 @@
     kid.anchorPoint = ccp(0,0);
     kid.position = ccpToRatio(background.kidPosition.x, 0.0 - kid.contentSize.height);
     [hudLayer addChild:kid];
+    
+    head1 = [CCAutoScalingSprite spriteWithFile:@"girl1_head.png"];
+    head1.position = ccpToRatio(800, 690);
+    [hudLayer addChild:head1];
+    
+    head2 = [CCAutoScalingSprite spriteWithFile:@"girl2_head.png"];
+    head2.position = ccpToRatio(930, 690);
+    [hudLayer addChild:head2];
+    
 //
 //    // TODO: this is all fucking wrong
 //    
@@ -198,6 +208,14 @@
     if (next.visible && CGRectContainsPoint([next boundingBox], pnt)) {
         nextTouched = YES;
         return YES;
+    }
+    
+    if (head1.visible && CGRectContainsPoint([head1 boundingBox], pnt)) {
+        head1Touched = YES;
+    }
+    
+    if (head2.visible && CGRectContainsPoint([head2 boundingBox], pnt)) {
+        head2Touched = YES;
     }
     
     if ([body hitTest:pnt]) {
@@ -311,6 +329,13 @@
     } else if (nextTouched) {
         [next stopAllActions];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
+    } else if (head1Touched) {
+        head1Touched = NO;
+        [self blurGameLayer:YES withDuration:0.25];
+        [self moveKids:0];
+    } else if (head2Touched) {
+        head2Touched = NO;
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     }
 }
 

@@ -2,6 +2,102 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Seal1</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>imageName</key>
+		<string>arctic2_seal1.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>216</integer>
+			<key>y</key>
+			<integer>158</integer>
+		</dict>
+	</dict>
+	<key>GlacierFront</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>imageName</key>
+		<string>arctic2_glacier_front.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>GlacierBack</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>2</integer>
+		<key>imageName</key>
+		<string>arctic2_glacier_back.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>344</integer>
+		</dict>
+	</dict>
+	<key>Water</key>
+	<dict>
+		<key>type</key>
+		<string>Water</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>arctic2_water.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>75</integer>
+		</dict>
+	</dict>
+	<key>Cloud2</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>arctic2_cloud2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>583</integer>
+			<key>y</key>
+			<integer>561</integer>
+		</dict>
+	</dict>
+	<key>Cloud1</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>arctic2_cloud1.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>68</integer>
+			<key>y</key>
+			<integer>561</integer>
+		</dict>
+	</dict>
 	<key>Music</key>
 	<string>hello-chiptune-cover.mp3</string>
 	<key>Key</key>
@@ -36,13 +132,13 @@
 		<key>z</key>
 		<integer>0</integer>
 		<key>imageName</key>
-		<string>bg_arctic2.png</string>
+		<string>arctic2_sky.png</string>
 		<key>position</key>
 		<dict>
 			<key>x</key>
 			<integer>0</integer>
 			<key>y</key>
-			<integer>0</integer>
+			<integer>210</integer>
 		</dict>
 	</dict>
 </dict>

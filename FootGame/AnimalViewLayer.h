@@ -29,8 +29,13 @@
     CCLayer *gameLayer;
     CCLayer *hudLayer;
     
+    CCAutoScalingSprite *head1;
+    CCAutoScalingSprite *head2;
+    
     BOOL nextTouched;
     BOOL bodyTouched;
+    BOOL head1Touched;
+    BOOL head2Touched;
     BOOL victory;
 }
 

@@ -13,6 +13,8 @@
 
 @property (nonatomic, retain) CCAutoScalingSprite *title;
 @property (nonatomic, retain) CCMenu *menu;
+@property (nonatomic, retain) CCAutoScalingSprite *titleScroll;
+@property (nonatomic, retain) CCAutoScalingSprite *foreground;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) CCSprite *splashFade;
 

@@ -44,7 +44,7 @@
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);
     
-    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:locstr(@"back", @"strings", @"Back") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:locstr(@"back", @"strings", @"Back") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     }];
     back.anchorPoint = ccp(0,0);

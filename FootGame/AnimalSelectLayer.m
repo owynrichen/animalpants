@@ -41,12 +41,12 @@
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
     
-    [CCMenuItemFont setFontSize:48 * fontScaleForCurrentDevice()];
+    [CCMenuItemFont setFontSize:40 * fontScaleForCurrentDevice()];
     
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);
     
-    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"back", @"strings", @"Back") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"back", @"strings", @"Back") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     }];
     back.anchorPoint = ccp(0,0);
@@ -64,12 +64,12 @@
     [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *menuKey = [NSString stringWithFormat:@"menu_%@", [key lowercaseString]];
         NSString *name = menulocstr(menuKey, @"strings", @"");
-        CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:name color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:name color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
         }];
         
         item.anchorPoint = ccp(0,0);
-        item.position = ccp(0, -54 * count * fontScaleForCurrentDevice());
+        item.position = ccp(0, -44 * count * fontScaleForCurrentDevice());
         count++;
         [menu addChild:item z:0 tag:1];
     }];

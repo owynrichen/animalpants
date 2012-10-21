@@ -1,8 +1,9 @@
 #! /bin/bash
 
-ipad=`echo $1 | sed 's/-ipadhd.png/-ipad/'`
-hd=`echo $1 | sed 's/-ipadhd.png/-hd/'`
-phone=`echo $1 | sed 's/-ipadhd.png//'`
+# TODO: fix this to work with non-pngs..
+ipad=`echo $1 | sed 's/-ipadhd/-ipad/' | sed 's/.png//'`
+hd=`echo $1 | sed 's/-ipadhd/-hd/' | sed 's/.png//'`
+phone=`echo $1 | sed 's/-ipadhd//' | sed 's/.png//'`
 
 convert -resize 50% -quality 5 $1 $ipad
 convert -resize 41.666666% -quality 5 $1 $hd

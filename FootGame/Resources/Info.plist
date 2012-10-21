@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>9</string>
+	<string>10</string>
 	<key>Icon files</key>
 	<array>
 		<string>Icon.png</string>
@@ -52,6 +52,10 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>foo.ttf</string>
 	</array>
 </dict>
 </plist>

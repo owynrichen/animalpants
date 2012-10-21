@@ -27,6 +27,7 @@
 -(NSString *) getAppPreferredLocale;
 
 -(NSString *) getLocalizedFilename: (NSString *) baseFilename;
+-(NSString *) getLocalizedImageFilename: (NSString *) baseImageFilename;
 
 -(NSArray *) getAvailableLanguages;
 -(NSArray *) getAvailableLanguageStrings;

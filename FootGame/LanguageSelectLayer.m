@@ -44,7 +44,7 @@
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);
     
-    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"back", @"strings", @"Back") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"back", @"strings", @"Back") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     }];
     back.anchorPoint = ccp(0,0);
@@ -59,7 +59,7 @@
     
     for(NSString *lang in [[LocalizationManager sharedManager] getAvailableLanguages]) {
         NSString *langStr = [[LocalizationManager sharedManager] getLanguageNameString:lang];
-        CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:langStr color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:langStr color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
             [[LocalizationManager sharedManager] setAppPreferredLocale:((CCNode *)sender).userData];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
         }];

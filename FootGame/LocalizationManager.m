@@ -15,6 +15,7 @@
 -(void) loadPreferredLanguageBundle: (NSString *) lang;
 -(NSBundle *) getPreferredLanguageBundle: (NSString *) lang;
 -(NSString *) getLocalizedStringForKey:(NSString *) key fromTable: (NSString *) table withBundle: (NSBundle *) bundle;
+-(NSString *) getLocalizedFilename: (NSString *) baseFilename withLocale: (NSString *) lang;
 @end
 
 @implementation LocalizationManager
@@ -107,7 +108,30 @@ static NSString *_sync = @"";
 }
 
 -(NSString *) getLocalizedFilename: (NSString *) baseFilename {
+    return [self getLocalizedFilename:baseFilename withLocale:[self getAppPreferredLocale]];
+}
+
+-(NSString *) getLocalizedFilename: (NSString *) baseFilename withLocale: (NSString *) lang {
+    NSString *pathWithoutExtension = [baseFilename stringByDeletingPathExtension];
+    NSString *extension = [baseFilename pathExtension];
+
+    NSString *returnPath = nil;
+    NSString *localePath = [NSString stringWithFormat:@"%@.%@.%@", pathWithoutExtension, lang, extension];
+    NSString *fullPath = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath: localePath];
+        
+    NSString *relPath = [fullPath lastPathComponent];
+    returnPath = [strBundle pathForResource:relPath ofType:nil];
     
+    if (returnPath == nil) {
+        // NSString *dir = [fullPath stringByDeletingLastPathComponent];
+        returnPath = [[NSBundle mainBundle] pathForResource:relPath ofType:nil];
+    }
+    
+    return returnPath;
+}
+
+-(NSString *) getLocalizedImageFilename: (NSString *) baseImageFilename {
+    return nil;
 }
 
 -(NSArray *) getAvailableLanguages {

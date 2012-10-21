@@ -10,6 +10,11 @@
 #import "SimpleAudioEngine.h"
 
 @interface SoundManager : NSObject {
+    CDSoundEngine* soundEngine;
+    CDAudioManager *am;
+    CDBufferManager *bufferManager;
+    
+    
     SimpleAudioEngine *audioEngine;
 }
 

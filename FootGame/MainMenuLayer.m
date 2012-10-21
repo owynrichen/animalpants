@@ -19,7 +19,9 @@
 @implementation MainMenuLayer
 
 @synthesize title;
+@synthesize titleScroll;
 @synthesize menu;
+@synthesize foreground;
 @synthesize background;
 @synthesize splashFade;
 
@@ -43,41 +45,53 @@
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    title = [CCAutoScalingSprite spriteWithFile:@"title.png"];
-    title.position = ccp(winSize.width * 0.5, winSize.height * 0.85);
+    background = [CCAutoScalingSprite spriteWithFile:@"menu_background.png"];
+    background.position = ccpToRatio(512, 384);
+    [self addChild:background];
     
-    background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
-    background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+    titleScroll = [CCAutoScalingSprite spriteWithFile:@"title_scroll.png"];
+    titleScroll.position = ccpToRatio(512,winSize.height + titleScroll.contentSize.height);
+    [self addChild:titleScroll];
+    
+    NSString *titleStr = [[LocalizationManager sharedManager] getLocalizedFilename:@"title.png"];
+    
+    title = [CCAutoScalingSprite spriteWithFile:titleStr];
+    title.position = ccpToRatio(512,winSize.height + titleScroll.contentSize.height + 40);
+    [self addChild:title];
 
     [CCMenuItemFont setFontSize:72 * fontScaleForCurrentDevice()];
+    [CCMenuItemFont setFontName:@"Foo"];
     
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);
-    
-    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"play", @"strings", @"Play!") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+
+    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"play", @"strings", @"Play!") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
     }];
     
-    CCMenuItemFontWithStroke *smenuItem2 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"animals", @"strings", @"Animals") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *smenuItem2 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"animals", @"strings", @"Animals") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
     }];
     smenuItem2.position = ccp(0, -80 * fontScaleForCurrentDevice());
     
-    CCMenuItemFontWithStroke *smenuItem3 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"languages", @"strings", @"Languages") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *smenuItem3 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"languages", @"strings", @"Languages") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
     }];
     smenuItem3.position = ccp(0, -80 * 2 * fontScaleForCurrentDevice());
     
-    CCMenuItemFontWithStroke *smenuItem4 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"settings", @"strings", @"Settings") color:ccBLUE strokeColor:ccWHITE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CCMenuItemFontWithStroke *smenuItem4 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"settings", @"strings", @"Settings") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[SettingsLayer scene] backwards:false]];
     }];
     smenuItem4.position = ccp(0, -80 * 3 * fontScaleForCurrentDevice());
     
     menu = [CCMenu menuWithItems:smenuItem, smenuItem2, smenuItem3, smenuItem4, nil];
-    
-    [self addChild:background];
-    [self addChild:title];
+    menu.opacity = 0;
+    menu.position = ccpToRatio(512, 384);
     [self addChild:menu];
+    
+    foreground = [CCAutoScalingSprite spriteWithFile:@"menu_foreground.png"];
+    foreground.position = ccpToRatio(512, 384);
+    [self addChild:foreground];
 
     // TODO: until I can figure out how to remove the flicker, disable this
 //    splashFade = [CCSprite spriteWithFile:@"AlchemistKids@2x.png"];
@@ -98,7 +112,14 @@
 //    }
     [[SoundManager sharedManager] playBackground:@"game_intro_bgmusic.mp3"];
     CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
+    
+    // TODO: make this bounce?
+    [titleScroll runAction:[CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 550)]];
     [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
+    [title runAction:[CCSequence actions:
+                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 520)],
+                       nil]];
+    [menu runAction:[CCFadeIn actionWithDuration:0.50]];
     [super onEnter];
 }
 

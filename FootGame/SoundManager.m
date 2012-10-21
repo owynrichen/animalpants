@@ -27,6 +27,10 @@ static NSString *_sync = @"";
 
 -(id) init {
     self = [super init];
+    am = [CDAudioManager sharedManager];
+    soundEngine = am.soundEngine;
+    bufferManager = [[CDBufferManager alloc] initWithEngine:soundEngine];
+    
     audioEngine = [SimpleAudioEngine sharedEngine];
     return self;
 }

@@ -16,6 +16,7 @@
 -(id) initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect rotated:(BOOL)rotated {
     self = [super initWithTexture:texture rect:rect rotated:rotated];
     
+    // TODO: make this parameterized
     reflectTexture = [[[CCTextureCache sharedTextureCache] addImage:@"glacier_arch.png"] retain];
     
     CCGLProgram *shader = [[[CCGLProgram alloc] initWithVertexShaderFilename:@"water.vs" fragmentShaderFilename:@"water.fs"] autorelease];

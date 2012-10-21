@@ -9,6 +9,7 @@
 #import "StoryLayer.h"
 #import "AnimalViewLayer.h"
 #import "SoundManager.h"
+#import "LocalizationManager.h"
 
 @implementation StoryLayer
 
@@ -65,15 +66,19 @@
     [super onEnterTransitionDidFinish];
     
     [girl1 runAction:[CCJumpBy actionWithDuration:30.0 position:ccp(0,0) height:20 * positionScaleForCurrentDevice(kDimensionY) jumps:50]];
+    [[SoundManager sharedManager] playSound:[[LocalizationManager sharedManager] getLocalizedFilename:@"story1.mp3"]];
+    
     [story1 startWithFinishBlock:^(CCNode *node) {
         // TODO: set this up to go away on a timer or a touch
         [girl1 stopAllActions];
         [girl2 runAction:[CCJumpBy actionWithDuration:30.0 position:ccp(0,0) height:20 * positionScaleForCurrentDevice(kDimensionY) jumps:50]];
+        [[SoundManager sharedManager] playSound:[[LocalizationManager sharedManager] getLocalizedFilename:@"story2.mp3"]];
         
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
             
             [story2 startWithFinishBlock:^(CCNode *node) {
                 [girl2 stopAllActions];
+                [[SoundManager sharedManager] playSound:[[LocalizationManager sharedManager] getLocalizedFilename:@"story3.mp3"]];
                 
                 [story3 startWithFinishBlock:^(CCNode *node) {
                     [girl1 runAction:[CCJumpBy actionWithDuration:30.0 position:ccp(0,0) height:20 * positionScaleForCurrentDevice(kDimensionY) jumps:50]];
