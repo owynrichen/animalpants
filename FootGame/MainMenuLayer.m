@@ -53,7 +53,7 @@
     titleScroll.position = ccpToRatio(512,winSize.height + titleScroll.contentSize.height);
     [self addChild:titleScroll];
     
-    NSString *titleStr = [[LocalizationManager sharedManager] getLocalizedFilename:@"title.png"];
+    NSString *titleStr = @"title.en.png"; //[[LocalizationManager sharedManager] getLocalizedFilename:@"title.png"];
     
     title = [CCAutoScalingSprite spriteWithFile:titleStr];
     title.position = ccpToRatio(512,winSize.height + titleScroll.contentSize.height + 40);
@@ -111,6 +111,10 @@
 //        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
 //    }
     [[SoundManager sharedManager] playBackground:@"game_intro_bgmusic.mp3"];
+    [super onEnter];
+}
+
+-(void) onEnterTransitionDidFinish {
     CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
     
     // TODO: make this bounce?
@@ -118,9 +122,10 @@
     [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
     [title runAction:[CCSequence actions:
                       [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 520)],
-                       nil]];
+                      nil]];
     [menu runAction:[CCFadeIn actionWithDuration:0.50]];
-    [super onEnter];
+    
+    [super onEnterTransitionDidFinish];
 }
 
 @end

@@ -4,6 +4,28 @@
 <dict>
 	<key>Lizard2</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Flip</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -20,6 +42,28 @@
 	</dict>
 	<key>Lizard1</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Flip</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

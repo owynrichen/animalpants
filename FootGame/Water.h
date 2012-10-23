@@ -17,4 +17,6 @@
 	GLuint		uniformReflectTexture, uniformTime, uniformTouchPos, uniformTouchAmp;
 }
 
+-(void) addReflectTexture: (NSString *) fileName;
+
 @end

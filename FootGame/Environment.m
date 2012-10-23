@@ -63,6 +63,7 @@
 -(Water *) getWater: (NSDictionary *) data {
     NSString *img = (NSString *) [data objectForKey:@"imageName"];
     Water *sprite = [Water spriteWithFile:img];
+    [sprite addReflectTexture:[data objectForKey:@"reflectImageName"]];
     [self applyCommonParameters:data toNode:sprite];
     return sprite;
 }

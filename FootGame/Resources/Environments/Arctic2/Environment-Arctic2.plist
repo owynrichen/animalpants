@@ -2,8 +2,68 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Seal2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Flip</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>imageName</key>
+		<string>arctic2_seal1.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>820</integer>
+			<key>y</key>
+			<integer>120</integer>
+		</dict>
+	</dict>
 	<key>Seal1</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Flip</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -52,6 +112,8 @@
 	</dict>
 	<key>Water</key>
 	<dict>
+		<key>reflectImageName</key>
+		<string>arctic2_reflect.png</string>
 		<key>type</key>
 		<string>Water</string>
 		<key>z</key>

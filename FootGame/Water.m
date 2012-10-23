@@ -16,9 +16,6 @@
 -(id) initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect rotated:(BOOL)rotated {
     self = [super initWithTexture:texture rect:rect rotated:rotated];
     
-    // TODO: make this parameterized
-    reflectTexture = [[[CCTextureCache sharedTextureCache] addImage:@"glacier_arch.png"] retain];
-    
     CCGLProgram *shader = [[[CCGLProgram alloc] initWithVertexShaderFilename:@"water.vs" fragmentShaderFilename:@"water.fs"] autorelease];
     
     [shader addAttribute:kCCAttributeNamePosition index:kCCVertexAttrib_Position];
@@ -75,8 +72,10 @@
     glUniform1f(uniformTime, time_);
     glUniform1f(uniformTouchAmp, touchAmp);
     
-    ccGLBindTexture2DN(1, [reflectTexture name]);
-    [self.shaderProgram setUniformLocation:uniformReflectTexture withI1:1];
+    if (reflectTexture != nil) {
+      ccGLBindTexture2DN(1, [reflectTexture name]);
+      [self.shaderProgram setUniformLocation:uniformReflectTexture withI1:1];
+    }
 }
 
 
@@ -104,5 +103,13 @@
     touchDown = NO;
 }
 
+-(void) addReflectTexture:(NSString *)fileName {
+    if (reflectTexture != nil) {
+        [reflectTexture release];
+        reflectTexture = nil;
+    }
+    
+    reflectTexture = [[[CCTextureCache sharedTextureCache] addImage:fileName] retain];
+}
 
 @end
