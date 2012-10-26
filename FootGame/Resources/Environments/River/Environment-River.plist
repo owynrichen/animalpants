@@ -2,6 +2,148 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Bird2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Flip</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>5</integer>
+		<key>imageName</key>
+		<string>river_bird.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>48</integer>
+			<key>y</key>
+			<integer>414</integer>
+		</dict>
+	</dict>
+	<key>Bird1</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>giraffes.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Flip</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>backflip</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>5</integer>
+		<key>imageName</key>
+		<string>river_bird.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>190</integer>
+			<key>y</key>
+			<integer>440</integer>
+		</dict>
+	</dict>
+	<key>FgGrass</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>imageName</key>
+		<string>river_bg_grass.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>BgRock</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>imageName</key>
+		<string>river_bg_grass2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>105</integer>
+		</dict>
+	</dict>
+	<key>Water</key>
+	<dict>
+		<key>reflectImageName</key>
+		<string>river_reflect.png</string>
+		<key>type</key>
+		<string>Water</string>
+		<key>z</key>
+		<integer>2</integer>
+		<key>imageName</key>
+		<string>river_water.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>Clouds</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>river_clouds.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>164</integer>
+			<key>y</key>
+			<integer>579</integer>
+		</dict>
+	</dict>
 	<key>Music</key>
 	<string>hello-chiptune-cover.mp3</string>
 	<key>Key</key>
@@ -36,13 +178,13 @@
 		<key>z</key>
 		<integer>0</integer>
 		<key>imageName</key>
-		<string>bg_river.png</string>
+		<string>river_sky.png</string>
 		<key>position</key>
 		<dict>
 			<key>x</key>
 			<integer>0</integer>
 			<key>y</key>
-			<integer>0</integer>
+			<integer>479</integer>
 		</dict>
 	</dict>
 </dict>

@@ -29,6 +29,20 @@
     emitter.speed *= positionScaleForCurrentDevice(kDimensionY);
     emitter.speedVar *= positionScaleForCurrentDevice(kDimensionY);
     
+    NSString *imageName = [params objectForKey:@"imageName"];
+    
+    if (imageName != nil) {
+        CCTexture2D *texture = [[CCTextureCache sharedTextureCache] textureForKey:imageName];
+        
+        if (texture == nil) {
+            texture = [[CCTextureCache sharedTextureCache] addImage:imageName];
+        }
+        
+        if (texture != nil) {
+            emitter.texture = texture;
+        }
+    }
+    
     CCCallBlockN *start = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [node addChild:emitter z:1 tag:433];
     }];
