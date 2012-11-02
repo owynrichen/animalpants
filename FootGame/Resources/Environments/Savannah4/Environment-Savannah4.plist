@@ -162,6 +162,8 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>imageName</key>
+					<string>jungle_leaf1.png</string>
 					<key>position</key>
 					<dict>
 						<key>x</key>
@@ -233,6 +235,8 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>imageName</key>
+					<string>jungle_leaf1.png</string>
 					<key>position</key>
 					<dict>
 						<key>x</key>
@@ -304,6 +308,8 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>imageName</key>
+					<string>jungle_leaf1.png</string>
 					<key>position</key>
 					<dict>
 						<key>x</key>
@@ -375,6 +381,8 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>imageName</key>
+					<string>jungle_leaf1.png</string>
 					<key>position</key>
 					<dict>
 						<key>x</key>
@@ -446,6 +454,8 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>imageName</key>
+					<string>jungle_leaf1.png</string>
 					<key>position</key>
 					<dict>
 						<key>x</key>

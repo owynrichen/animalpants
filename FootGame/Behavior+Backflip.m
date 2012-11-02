@@ -18,7 +18,7 @@
         origAnchor = node.anchorPoint;
         origPosition = node.position;
         node.anchorPoint = ccp(0.5,0.5);
-        node.position = ccp((node.contentSize.width * node.scale / 2) + node.position.x, (node.contentSize.height * node.scale / 2) + node.position.y);
+        node.position = ccp((node.contentSize.width * node.scaleX / 2) + node.position.x, (node.contentSize.height * node.scaleY / 2) + node.position.y);
     }];
     
     CCCallBlockN *resetAnchor = [CCCallBlockN actionWithBlock:^(CCNode *node) {

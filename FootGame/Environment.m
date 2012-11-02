@@ -18,6 +18,7 @@
 // END TODO
 -(void) applyCommonParameters: (NSDictionary *) parameters toNode: (CCNode *) node;
 -(void) applyBehaviors: (NSDictionary *) parameters toNode: (CCNode<BehaviorManagerDelegate> *) node;
+-(CGPoint) parseCoordinate: (NSDictionary *) coordinate;
 -(CGPoint) parsePosition: (NSDictionary *) position;
 @end
 
@@ -68,10 +69,15 @@
     return sprite;
 }
 
+-(CGPoint) parseCoordinate:(NSDictionary *)coordinate {
+    NSNumber *x = (NSNumber *) [coordinate objectForKey:@"x"];
+    NSNumber *y = (NSNumber *) [coordinate objectForKey:@"y"];
+    return CGPointMake([x floatValue],[y floatValue]);
+}
+
 -(CGPoint) parsePosition: (NSDictionary *) position {
-    NSNumber *x = (NSNumber *) [position objectForKey:@"x"];
-    NSNumber *y = (NSNumber *) [position objectForKey:@"y"];
-    return ccpToRatio([x intValue],[y intValue]);
+    CGPoint coord = [self parseCoordinate:position];
+    return ccpToRatio(coord.x, coord.y);
 }
 
 -(void) applyBehaviors: (NSDictionary *) parameters toNode: (CCNode<BehaviorManagerDelegate> *) node {
@@ -96,6 +102,19 @@
     node.anchorPoint = ccp(0,0);
     node.position = position;
     node.zOrder = [z intValue];
+    
+    if ([parameters objectForKey:@"scale"] != nil) {
+        CGPoint scale = [self parseCoordinate:[parameters objectForKey:@"scale"]];
+        
+        node.scaleX = scale.x;
+        node.scaleY = scale.y;
+    }
+    
+    // TODO: make this around a different anchor?
+    if ([parameters objectForKey:@"rotate"] != nil) {
+        NSNumber *rot = (NSNumber *) [parameters objectForKey:@"rotate"];
+        node.rotation = [rot floatValue];
+    }
     
     if ([node.class conformsToProtocol:@protocol(BehaviorManagerDelegate)]) {
         [self applyBehaviors:parameters toNode:(CCNode<BehaviorManagerDelegate> *) node];

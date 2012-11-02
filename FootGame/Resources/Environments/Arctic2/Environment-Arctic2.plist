@@ -4,6 +4,13 @@
 <dict>
 	<key>Seal2</key>
 	<dict>
+		<key>scale</key>
+		<dict>
+			<key>x</key>
+			<real>-0.7</real>
+			<key>y</key>
+			<real>0.7</real>
+		</dict>
 		<key>Behaviors</key>
 		<dict>
 			<key>Sound</key>
