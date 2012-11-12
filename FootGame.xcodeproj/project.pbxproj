@@ -855,6 +855,8 @@
 		36F3BF3616434EB70039D1F6 /* swamp_water-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F3BF0616434EB70039D1F6 /* swamp_water-ipadhd.png */; };
 		36F3BF3716434EB70039D1F6 /* swamp_water.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F3BF0716434EB70039D1F6 /* swamp_water.png */; };
 		36F3BF39164351000039D1F6 /* swamp_reflect.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F3BF38164351000039D1F6 /* swamp_reflect.png */; };
+		36F3C27D1646F7FA0039D1F6 /* Facts-Elephant.en.html in Resources */ = {isa = PBXBuildFile; fileRef = 36F3C27C1646F7FA0039D1F6 /* Facts-Elephant.en.html */; };
+		36F3C27F1646FA720039D1F6 /* facts.css in Resources */ = {isa = PBXBuildFile; fileRef = 36F3C27E1646FA710039D1F6 /* facts.css */; };
 		36F9A12D15BA759600A0A8F3 /* monkey1.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12815BA759600A0A8F3 /* monkey1.png */; };
 		36F9A12E15BA759600A0A8F3 /* monkey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12915BA759600A0A8F3 /* monkey2.png */; };
 		36F9A12F15BA759600A0A8F3 /* savannah1_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A12A15BA759600A0A8F3 /* savannah1_clouds.png */; };
@@ -867,6 +869,11 @@
 		36F9A1B315BCBB3200A0A8F3 /* BehaviorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F9A1B215BCBB3100A0A8F3 /* BehaviorManager.m */; };
 		36F9BE91154AE6B000059C14 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36F9BE90154AE6B000059C14 /* Entitlements.plist */; };
 		36F9BE95154AE6DB00059C14 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F9BE93154AE6DB00059C14 /* libTestFlight.a */; };
+		36FBBD7D164F9D68002B0138 /* elephant_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD7C164F9D68002B0138 /* elephant_photo.png */; };
+		36FBBD80164FA28F002B0138 /* facts.js in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD7F164FA28F002B0138 /* facts.js */; };
+		36FBBD82164FA973002B0138 /* jquery-1.8.2-min.js in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */; };
+		36FBBD83164FADE4002B0138 /* facts.js in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD7F164FA28F002B0138 /* facts.js */; };
+		36FBBD84164FADE4002B0138 /* jquery-1.8.2-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */; };
 		36FBEEB115B2396E000E15C8 /* CCAutoScaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */; };
 		36FBEEB415B53497000E15C8 /* AlchemistKids-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FBEEB215B53497000E15C8 /* AlchemistKids-iphone.png */; };
 		36FBEEB515B53497000E15C8 /* AlchemistKids-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FBEEB315B53497000E15C8 /* AlchemistKids-iphone@2x.png */; };
@@ -2231,6 +2238,8 @@
 		36F3BF0616434EB70039D1F6 /* swamp_water-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swamp_water-ipadhd.png"; sourceTree = "<group>"; };
 		36F3BF0716434EB70039D1F6 /* swamp_water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swamp_water.png; sourceTree = "<group>"; };
 		36F3BF38164351000039D1F6 /* swamp_reflect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swamp_reflect.png; sourceTree = "<group>"; };
+		36F3C27C1646F7FA0039D1F6 /* Facts-Elephant.en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "Facts-Elephant.en.html"; path = "Resources/Animals/Elephant/Facts-Elephant.en.html"; sourceTree = "<group>"; };
+		36F3C27E1646FA710039D1F6 /* facts.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = facts.css; path = Resources/facts.css; sourceTree = "<group>"; };
 		36F9A12815BA759600A0A8F3 /* monkey1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monkey1.png; path = Resources/Environments/Savannah1/Graphics/monkey1.png; sourceTree = "<group>"; };
 		36F9A12915BA759600A0A8F3 /* monkey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monkey2.png; path = Resources/Environments/Savannah1/Graphics/monkey2.png; sourceTree = "<group>"; };
 		36F9A12A15BA759600A0A8F3 /* savannah1_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = savannah1_clouds.png; path = Resources/Environments/Savannah1/Graphics/savannah1_clouds.png; sourceTree = "<group>"; };
@@ -2245,6 +2254,9 @@
 		36F9BE90154AE6B000059C14 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		36F9BE93154AE6DB00059C14 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = FootGame/libTestFlight.a; sourceTree = "<group>"; };
 		36F9BE94154AE6DB00059C14 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		36FBBD7C164F9D68002B0138 /* elephant_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant_photo.png; path = Resources/Animals/Elephant/Graphics/elephant_photo.png; sourceTree = "<group>"; };
+		36FBBD7F164FA28F002B0138 /* facts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = facts.js; path = Resources/facts.js; sourceTree = "<group>"; };
+		36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.8.2-min.js"; path = "Resources/jquery-1.8.2-min.js"; sourceTree = "<group>"; };
 		36FBEEAF15B2396D000E15C8 /* CCAutoScaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAutoScaling.h; sourceTree = "<group>"; };
 		36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAutoScaling.m; sourceTree = "<group>"; };
 		36FBEEB215B53497000E15C8 /* AlchemistKids-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AlchemistKids-iphone.png"; path = "Resources/AlchemistKids-iphone.png"; sourceTree = "<group>"; };
@@ -2365,6 +2377,7 @@
 				364B079C15A901EB0054E69A /* Animal-Elephant.plist */,
 				361507051594CA6B000F46D9 /* Audio */,
 				361507011594CA41000F46D9 /* Graphics */,
+				36F3C27C1646F7FA0039D1F6 /* Facts-Elephant.en.html */,
 			);
 			name = Elephant;
 			sourceTree = "<group>";
@@ -2372,6 +2385,7 @@
 		361507011594CA41000F46D9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				36FBBD7C164F9D68002B0138 /* elephant_photo.png */,
 				36CAC05515F42A6F00563EE9 /* elephant_bottom-hd.png */,
 				36CAC05615F42A6F00563EE9 /* elephant_bottom-ipad.png */,
 				36CAC05715F42A6F00563EE9 /* elephant_bottom-ipadhd.png */,
@@ -3220,6 +3234,7 @@
 		367EC2F1133A4782003F7FF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				36FBBD7E164FA26B002B0138 /* Facts */,
 				362C15F6162B995E00A29F2F /* Fonts */,
 				365C763C1619F2A40030CD0C /* Particles */,
 				361506FB1594C9FD000F46D9 /* Animals */,
@@ -4081,6 +4096,16 @@
 			name = Particles;
 			sourceTree = "<group>";
 		};
+		36FBBD7E164FA26B002B0138 /* Facts */ = {
+			isa = PBXGroup;
+			children = (
+				36F3C27E1646FA710039D1F6 /* facts.css */,
+				36FBBD7F164FA28F002B0138 /* facts.js */,
+				36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */,
+			);
+			name = Facts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4591,6 +4616,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36FBBD83164FADE4002B0138 /* facts.js in Resources */,
+				36FBBD84164FADE4002B0138 /* jquery-1.8.2-min.js in Resources */,
 				365DFBE116176E3200E8B708 /* water-ipadhd.fs in Resources */,
 				365DFBE216176E3200E8B708 /* fade.vs in Resources */,
 				365DFBE316176E3200E8B708 /* fade.fs in Resources */,
@@ -5409,6 +5436,9 @@
 				36F3BF3616434EB70039D1F6 /* swamp_water-ipadhd.png in Resources */,
 				36F3BF3716434EB70039D1F6 /* swamp_water.png in Resources */,
 				36F3BF39164351000039D1F6 /* swamp_reflect.png in Resources */,
+				36F3C27D1646F7FA0039D1F6 /* Facts-Elephant.en.html in Resources */,
+				36F3C27F1646FA720039D1F6 /* facts.css in Resources */,
+				36FBBD7D164F9D68002B0138 /* elephant_photo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5456,6 +5486,8 @@
 				36867946161C957300D98199 /* LocalizationManager.m in Sources */,
 				368679BE16208F0200D98199 /* LanguageSelectLayer.m in Sources */,
 				362C162C162B9D4200A29F2F /* InGameMenuLayer.m in Sources */,
+				36FBBD80164FA28F002B0138 /* facts.js in Sources */,
+				36FBBD82164FA973002B0138 /* jquery-1.8.2-min.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

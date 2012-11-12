@@ -17,6 +17,7 @@
 
 @synthesize background;
 @synthesize menu;
+@synthesize facts;
 
 +(CCScene *) scene
 {
@@ -65,7 +66,11 @@
         NSString *menuKey = [NSString stringWithFormat:@"menu_%@", [key lowercaseString]];
         NSString *name = menulocstr(menuKey, @"strings", @"");
         CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:name color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
+            NSString *html = ((Animal *) obj).factsHtml;
+            NSLog(@"HTML: %@", html);
+            NSString *path = [[NSBundle mainBundle] bundlePath];
+            NSURL *baseURL = [NSURL fileURLWithPath:path];
+            [facts loadHTMLString: html baseURL:baseURL];
         }];
         
         item.anchorPoint = ccp(0,0);
@@ -77,7 +82,59 @@
     [self addChild:background];
     [self addChild:menu];
     
+    facts = [[UIWebView alloc] init];
+    facts.opaque = NO;
+    facts.backgroundColor = [UIColor clearColor];
+    // TODO: make this scale
+    CGPoint pos = ccpToRatio(300, 0);
+    CGPoint size = ccpToRatio(724, 768);
+    facts.frame = CGRectMake(pos.x, pos.y, size.x, size.y);
+    facts.delegate = self;
+    
     return self;
+}
+
+-(void) onEnterTransitionDidFinish {
+    [super onEnterTransitionDidFinish];
+    [[CCDirector sharedDirector].view addSubview:facts];
+}
+
+-(void) onExitTransitionDidStart {
+    [facts removeFromSuperview];
+    [super onExitTransitionDidStart];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSLog(@"webView shouldStartLoadWithRequest");
+    if ([request.URL.scheme isEqualToString:@"animalpants"]) {
+        NSString *key = [request.URL.pathComponents objectAtIndex:1];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
+        
+        return NO;
+    } else {
+      return YES;
+    }
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"webView didStartLoadWithRequest");
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"webView didFinishLoadWithRequest");
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    
+}
+
+-(void) dealloc {
+    facts.delegate = nil;
+    [facts release];
+    facts = nil;
+    
+    [super dealloc];
 }
 
 @end

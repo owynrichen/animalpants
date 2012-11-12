@@ -14,7 +14,8 @@
 #import "CCAutoScaling.h"
 #import "FadeGrid3D.h"
 
-#define SNAP_DISTANCE 30
+#define SNAP_DISTANCE 50
+#define CORRECT_SNAP_DISTANCE 100
 #define ROTATE_DISTANCE 300
 
 @interface AnimalViewLayer ()
@@ -236,12 +237,17 @@
             
             AnchorPointPair *pair = [foot getClosestAnchorWithinDistance:ROTATE_DISTANCE withAnimalPart:body];
             
-            if (pair != nil && pair.distance <= SNAP_DISTANCE) { // SNAP IN PLACE
+            int distance = SNAP_DISTANCE;
+            if (foot == [self getCorrectFoot]) {
+                distance = CORRECT_SNAP_DISTANCE;
+            }
+            
+            if (pair != nil && pair.distance <= distance) { // SNAP IN PLACE
                 [foot runAction:[CCRotateTo actionWithDuration:0.1 angle:pair.second.orientation]];
                 // foot.rotation = pair.second.orientation;
                 foot.position = [body convertToWorldSpace: pair.second.point];
             } else if (pair != nil) {  // ROTATE BUT DON'T SNAP
-                float rot = pair.first.orientation + ((pair.second.orientation - pair.first.orientation) * (1 / (pair.distance - SNAP_DISTANCE)));
+                float rot = pair.first.orientation + ((pair.second.orientation - pair.first.orientation) * (1 / (pair.distance - distance)));
                 // NSLog(@"%f", rot);
                 [foot runAction:[CCRotateTo actionWithDuration:0.1 angle:rot]];
                 // foot.rotation = rot;

@@ -30,6 +30,8 @@
     
     [window_ setRootViewController:navController_];
     [[CCDirector sharedDirector] setDelegate:self];
+    [window_ setMultipleTouchEnabled:YES];
+    [[CCDirector sharedDirector].view setMultipleTouchEnabled:YES];
     
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.mp3"];

@@ -19,6 +19,8 @@
     NSString *successSound;
     NSString *failSound;
     NSString *word;
+    
+    NSString *factsHtml;
 }
 
 @property (nonatomic, retain) NSString *key;
@@ -29,6 +31,8 @@
 @property (nonatomic, retain) NSString *failSound;
 @property (nonatomic, retain) NSString *environment;
 @property (nonatomic, retain) NSString *word;
+
+@property (nonatomic, retain) NSString *factsHtml;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict;
 
