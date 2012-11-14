@@ -8,7 +8,6 @@
 
 #import "SoundManager.h"
 
-
 @implementation SoundManager
 static SoundManager* _instance;
 static NSString *_sync = @"";
@@ -27,11 +26,8 @@ static NSString *_sync = @"";
 
 -(id) init {
     self = [super init];
-    am = [CDAudioManager sharedManager];
-    soundEngine = am.soundEngine;
-    bufferManager = [[CDBufferManager alloc] initWithEngine:soundEngine];
-    
     audioEngine = [SimpleAudioEngine sharedEngine];
+    
     return self;
 }
 
@@ -45,6 +41,17 @@ static NSString *_sync = @"";
 
 -(void) playBackground:(NSString *)name {
     [audioEngine playBackgroundMusic:name loop:YES];
+}
+
+-(void) playSoundWithCues: (AudioCues *) cues withDelegate: (id<AudioCuesDelegate>) delegate; {
+    if (runningCue != nil && ![runningCue isStopped]) {
+        NSLog(@"Can only run 1 AudioCue audio entry at a time");
+        return;
+    }
+    
+    runningCue = cues;
+    [audioEngine playEffect:cues.audioFilename];
+    [cues startWithDelegate:delegate];
 }
 
 -(void) fadeOutBackground {

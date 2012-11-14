@@ -874,6 +874,11 @@
 		36FBBD82164FA973002B0138 /* jquery-1.8.2-min.js in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */; };
 		36FBBD83164FADE4002B0138 /* facts.js in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD7F164FA28F002B0138 /* facts.js */; };
 		36FBBD84164FADE4002B0138 /* jquery-1.8.2-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */; };
+		36FBBD871651590C002B0138 /* AudioCues.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD861651590C002B0138 /* AudioCues.m */; };
+		36FBBD8916515971002B0138 /* jquery.mobile-1.2.0.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD8816515971002B0138 /* jquery.mobile-1.2.0.min.js */; };
+		36FBBD8B16515A0E002B0138 /* jquery.mobile.structure-1.2.0.css in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD8A16515A0E002B0138 /* jquery.mobile.structure-1.2.0.css */; };
+		36FBBD8D16517030002B0138 /* Cue-story1.en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD8C16517030002B0138 /* Cue-story1.en.plist */; };
+		36FBBD90165178A5002B0138 /* AudioCueRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD8F165178A5002B0138 /* AudioCueRepository.m */; };
 		36FBEEB115B2396E000E15C8 /* CCAutoScaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */; };
 		36FBEEB415B53497000E15C8 /* AlchemistKids-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FBEEB215B53497000E15C8 /* AlchemistKids-iphone.png */; };
 		36FBEEB515B53497000E15C8 /* AlchemistKids-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FBEEB315B53497000E15C8 /* AlchemistKids-iphone@2x.png */; };
@@ -2257,6 +2262,13 @@
 		36FBBD7C164F9D68002B0138 /* elephant_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant_photo.png; path = Resources/Animals/Elephant/Graphics/elephant_photo.png; sourceTree = "<group>"; };
 		36FBBD7F164FA28F002B0138 /* facts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = facts.js; path = Resources/facts.js; sourceTree = "<group>"; };
 		36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.8.2-min.js"; path = "Resources/jquery-1.8.2-min.js"; sourceTree = "<group>"; };
+		36FBBD851651590C002B0138 /* AudioCues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioCues.h; sourceTree = "<group>"; };
+		36FBBD861651590C002B0138 /* AudioCues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioCues.m; sourceTree = "<group>"; };
+		36FBBD8816515971002B0138 /* jquery.mobile-1.2.0.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery.mobile-1.2.0.min.js"; path = "Resources/jquery.mobile-1.2.0.min.js"; sourceTree = "<group>"; };
+		36FBBD8A16515A0E002B0138 /* jquery.mobile.structure-1.2.0.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "jquery.mobile.structure-1.2.0.css"; path = "Resources/jquery.mobile.structure-1.2.0.css"; sourceTree = "<group>"; };
+		36FBBD8C16517030002B0138 /* Cue-story1.en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-story1.en.plist"; path = "Resources/Audio/Cue-story1.en.plist"; sourceTree = "<group>"; };
+		36FBBD8E165178A5002B0138 /* AudioCueRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioCueRepository.h; sourceTree = "<group>"; };
+		36FBBD8F165178A5002B0138 /* AudioCueRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioCueRepository.m; sourceTree = "<group>"; };
 		36FBEEAF15B2396D000E15C8 /* CCAutoScaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAutoScaling.h; sourceTree = "<group>"; };
 		36FBEEB015B2396E000E15C8 /* CCAutoScaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAutoScaling.m; sourceTree = "<group>"; };
 		36FBEEB215B53497000E15C8 /* AlchemistKids-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AlchemistKids-iphone.png"; path = "Resources/AlchemistKids-iphone.png"; sourceTree = "<group>"; };
@@ -2296,6 +2308,10 @@
 			children = (
 				3614697B15C6415700DD75B1 /* SpeechBubble.h */,
 				3614697C15C6415700DD75B1 /* SpeechBubble.m */,
+				36FBBD851651590C002B0138 /* AudioCues.h */,
+				36FBBD861651590C002B0138 /* AudioCues.m */,
+				36FBBD8E165178A5002B0138 /* AudioCueRepository.h */,
+				36FBBD8F165178A5002B0138 /* AudioCueRepository.m */,
 			);
 			name = Kids;
 			sourceTree = "<group>";
@@ -3276,6 +3292,7 @@
 				36CAC14515F5C27100563EE9 /* glock__e1.mp3 */,
 				36CAC14615F5C27100563EE9 /* glock__g1.mp3 */,
 				36CAC14715F5C27100563EE9 /* level_complete.mp3 */,
+				36FBBD8C16517030002B0138 /* Cue-story1.en.plist */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -4102,6 +4119,8 @@
 				36F3C27E1646FA710039D1F6 /* facts.css */,
 				36FBBD7F164FA28F002B0138 /* facts.js */,
 				36FBBD81164FA973002B0138 /* jquery-1.8.2-min.js */,
+				36FBBD8816515971002B0138 /* jquery.mobile-1.2.0.min.js */,
+				36FBBD8A16515A0E002B0138 /* jquery.mobile.structure-1.2.0.css */,
 			);
 			name = Facts;
 			sourceTree = "<group>";
@@ -5439,6 +5458,8 @@
 				36F3C27D1646F7FA0039D1F6 /* Facts-Elephant.en.html in Resources */,
 				36F3C27F1646FA720039D1F6 /* facts.css in Resources */,
 				36FBBD7D164F9D68002B0138 /* elephant_photo.png in Resources */,
+				36FBBD8B16515A0E002B0138 /* jquery.mobile.structure-1.2.0.css in Resources */,
+				36FBBD8D16517030002B0138 /* Cue-story1.en.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5488,6 +5509,9 @@
 				362C162C162B9D4200A29F2F /* InGameMenuLayer.m in Sources */,
 				36FBBD80164FA28F002B0138 /* facts.js in Sources */,
 				36FBBD82164FA973002B0138 /* jquery-1.8.2-min.js in Sources */,
+				36FBBD871651590C002B0138 /* AudioCues.m in Sources */,
+				36FBBD8916515971002B0138 /* jquery.mobile-1.2.0.min.js in Sources */,
+				36FBBD90165178A5002B0138 /* AudioCueRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

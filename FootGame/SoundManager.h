@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "SimpleAudioEngine.h"
+#import "AudioCues.h"
 
 @interface SoundManager : NSObject {
-    CDSoundEngine* soundEngine;
-    CDAudioManager *am;
-    CDBufferManager *bufferManager;
-    
-    
     SimpleAudioEngine *audioEngine;
+    AudioCues *runningCue;
 }
 
 + (SoundManager *) sharedManager;
@@ -23,6 +20,8 @@
 -(void) preloadSound: (NSString *) name;
 -(void) playSound: (NSString *) name;
 -(void) playBackground: (NSString *) name;
+-(void) playSoundWithCues: (AudioCues *) cues withDelegate: (id<AudioCuesDelegate>) delegate;
+
 -(void) fadeOutBackground;
 -(void) pauseBackground;
 -(void) resumeBackground;
