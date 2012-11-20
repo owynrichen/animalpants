@@ -62,7 +62,8 @@ static NSString *_sync = @"";
 }
 
 -(AudioCues *) getCues: (NSString *) audioFilename {
-    return [((AudioCues *) [audioCuesByFilename objectForKey:[audioFilename lastPathComponent]]) copyWithZone:nil];
+    NSString *fname = [audioFilename lastPathComponent];
+    return [[((AudioCues *) [audioCuesByFilename objectForKey:fname]) copyWithZone:nil] autorelease];
 }
 
 @end

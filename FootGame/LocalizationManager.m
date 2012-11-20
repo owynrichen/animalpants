@@ -36,7 +36,17 @@ static NSString *_sync = @"";
 }
 
 -(void) loadPreferredLanguageBundle:(NSString *)lang {
-    strBundle = [self getPreferredLanguageBundle:lang];
+    if (strBundle != nil)
+        [strBundle release];
+    
+    strBundle = [[self getPreferredLanguageBundle:lang] retain];
+}
+
+-(void) dealloc {
+    if (strBundle != nil) {
+        [strBundle release];
+    }
+    [super dealloc];
 }
 
 -(NSBundle *) getPreferredLanguageBundle: (NSString *) lang {
@@ -104,7 +114,14 @@ static NSString *_sync = @"";
 }
 
 -(NSString *) getAppPreferredLocale {
-    return (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_PREFERRED_LOCALE];
+    NSString *appLocale = (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_PREFERRED_LOCALE];
+    
+    if (appLocale != nil) {
+        return appLocale;
+    } else {
+        NSLocale *loc = [NSLocale currentLocale];
+        return [loc.localeIdentifier substringToIndex:2];
+    }
 }
 
 -(NSString *) getLocalizedFilename: (NSString *) baseFilename {

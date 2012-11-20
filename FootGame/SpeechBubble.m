@@ -9,6 +9,7 @@
 #import "SpeechBubble.h"
 #import "CCAutoScaling.h"
 #import "LocalizationManager.h"
+#import "SoundManager.h"
 
 @interface SpeechBubble()
 -(CGPoint *) buildBubblePointsFromRect: (CGRect) rect andPoint: (CGPoint) point withScale: (CGPoint) scale andOffset: (CGPoint) offset;
@@ -59,9 +60,11 @@
 -(void) dealloc {
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
     
-    if (touchBlock != NULL) {
-        touchBlock = NULL;
-    }
+    if (touchBlock != nil)
+        [touchBlock release];
+    
+    if (finishBlock != nil)
+        [finishBlock release];
     
     if (storyText != NULL) {
         [storyText release];
@@ -193,6 +196,48 @@
     free(brp);
     
     return retPoints;
+}
+
+-(void) startWithCues: (AudioCues *) cues finishBlock: (void (^)(CCNode *node)) callback touchBlock: (void(^)(CCNode *node, BOOL finished)) touchCallback {
+    audioCues = cues;
+    
+    touchBlock = [touchCallback copy];
+    finishBlock = [callback copy];
+    storyText = locstr(cues.storyKey, @"strings", @"");
+    // [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:@"story1.mp3"]];
+    [[SoundManager sharedManager] playSoundWithCues:audioCues withDelegate:self];
+}
+
+
+-(void) cuedAudioStarted: (AudioCues *) cues {
+    NSLog(@"CUES: cue started");
+}
+-(void) cuedAudioComplete: (AudioCues *) cues {
+    NSLog(@"CUES: cue complete");
+    
+    finishBlock(label);
+}
+
+-(void) cueHit: (AudioCues *) cues forCueKey: (NSString *) key atTime: (ccTime) time {
+    NSDictionary *currentCue = (NSDictionary *) [cues.cues objectForKey:key];
+    // NSNumber *startIndex = (NSNumber *) [currentCue objectForKey:@"startIndex"];
+    NSNumber *endIndex = (NSNumber *) [currentCue objectForKey:@"end_index"];
+    int e = [endIndex intValue];
+    
+    if (e == 0) {
+        NSLog(@"CUES: cue '%@' hit at %f - finishing...", key, time);
+        return;
+    }
+    
+    if (e > storyText.length) {
+        e = storyText.length;
+    }
+    
+    NSLog(@"CUES: cue '%@' hit at %f", key, time);
+    
+    [label setString:[storyText substringToIndex:e]];
+    [label drawStroke];
+    [label visit];
 }
 
 -(void) startWithFinishBlock: (void (^)(CCNode *node)) callback touchBlock: (void(^)(CCNode *node, BOOL finished)) touchCallback {

@@ -29,19 +29,17 @@
 "menu_tiger" = "Tiger";
 "menu_zebra" = "Zebra";
 
-"elephant" = "Olly the Elephant's feet are gray with big toe nails";
-"lion" = "Lloyd the Lion's mane is fluffy and his paws are the same";
-"penguin" = "Percival the Penguin's feet are yellow and clawed";
-"crocodile" = "Cooter the Crocodile's feet are scaly, and his tail is big";
-"giraffe" = "Gervis the Giraffe's feet are yellow and have brown spots";
-"hippo" = "Horace the Hippo's feet are purple and he has a big backside";
-"kangaroo" = "Kendra the Kangaroo's feet are long and flat";
-"monkey" = "Melinda the Monkey's feet are brown and furry";
-"panda" = "Patrick the Panda's feet are black, white and fuzzy";
-"polarbear" = "Paris the Polar Bear's feet are white and furry";
-"tiger" = "Tommy the Tiger's feet are orange with black stripes";
-"zebra" = "Zeb the Zebra's feet are black and white with hooves";
+"elephant" = "Olly the Elephant's feet are gray with big toe nails.";
+"lion" = "Lloyd the Lion's feet are brown with blue pants.";
+"penguin" = "Pedro the Penguin's feet are yellow and his legs have white feathers.";
+"crocodile" = "Carl the Crocodile's feet are green and scaly with a big tail.";
+"giraffe" = "Jerome the Giraffe's feet are yellow and have brown spots.";
+"hippo" = "Horace the Hippo's feet are purple and he is wearing grey pants.";
+"kangaroo" = "Kendra the Kangaroo's feet are brown with striped purple pants.";
+"monkey" = "Melinda the Monkey's feet are brown with skinny legs.";
+"panda" = "Patrick the Panda's feet are black and fuzzy with red striped pants.";
+"polarbear" = "Peggy the Polar Bear's feet are white, furry and she’s wearing a blue skirt.";
+"tiger" = "Tommy the Tiger's feet are orange and his shorts have green seams.";
+"zebra" = "Zeb the Zebra's feet are black and white with yellow striped shorts.";
 
-"story1" = "Oh no!  It looks like all our animal friends have lost their pants!";
-"story2" = "We should help them find the right pants by matching their feet!";
-"story3" = "Great idea!  Let's go!";
+"story1" = "Oh no! It looks like all our animal friends have lost their pants! Can you help the animals find their pants?";

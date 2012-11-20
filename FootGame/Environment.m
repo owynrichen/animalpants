@@ -51,7 +51,7 @@
 +(Environment *) initWithDictionary:(NSDictionary *)setupData {
     Environment *env = [[Environment alloc] initWithDictionary:setupData];
     
-    return env;
+    return [env autorelease];
 }
 
 -(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data {

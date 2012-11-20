@@ -13,6 +13,8 @@
 #import "SoundManager.h"
 #import "CCAutoScaling.h"
 #import "FadeGrid3D.h"
+#import "AudioCueRepository.h"
+#import "LocalizationManager.h"
 
 #define SNAP_DISTANCE 50
 #define CORRECT_SNAP_DISTANCE 100
@@ -394,14 +396,21 @@
         [self blurGameLayer:NO withDuration:0.25];
     };
     
-    // TODO: set this up to speed up on a touch maybe
     CCCallBlockN *startText = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [bubble startWithFinishBlock:^(CCNode *node) {
-            // TODO: set this up to go away on a timer or a touch
+        NSString *file = [NSString stringWithFormat:@"%@_story.mp3", background.storyKey];
+        AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file]];
+        
+        void (^callback)(CCNode *node) =  ^(CCNode *node) {
             [bubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
                 [bubble ccTouchEnded:nil withEvent:nil];
             }], nil]];
-        } touchBlock:touchBlock];
+        };
+        
+        if (cues != nil) {
+            [bubble startWithCues:cues finishBlock:callback touchBlock:touchBlock];
+        } else {
+            [bubble startWithFinishBlock:callback touchBlock:touchBlock];
+        }
     }];
 
     CCSequence *seq = [CCSequence actions:move, scaleBlock, startText, nil];

@@ -17,6 +17,7 @@
 
 @implementation AudioCues
 
+@synthesize storyKey;
 @synthesize audioFilename;
 @synthesize locale;
 @synthesize cues;
@@ -26,13 +27,14 @@
     AudioCues *cues = [[AudioCues alloc] init];
     
     cues.data = dict;
+    cues.storyKey = (NSString *) [dict objectForKey:@"storyKey"];
     cues.audioFilename = (NSString *) [dict objectForKey:@"audioFile"];
     cues.locale = (NSString *) [dict objectForKey:@"locale"];
     
     // TODO: make this only the cues data
     cues.cues = dict;
     
-    return cues;
+    return [cues autorelease];
 }
 
 -(NSString *) key {
@@ -40,7 +42,7 @@
 }
 
 -(id) copyWithZone:(NSZone *)zone {
-    AudioCues *newCues = [AudioCues initWithDictionary:self.data];
+    AudioCues *newCues = [[AudioCues initWithDictionary:self.data] retain];
     
     return newCues;
 }
@@ -58,7 +60,7 @@
 }
 
 -(NSMutableArray *) buildCueSequence {
-    NSMutableArray *seq = [[NSMutableArray alloc] init];
+    NSMutableArray *seq = [[[NSMutableArray alloc] init] autorelease];
     
     [self.cues enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
@@ -124,10 +126,11 @@
                 
                 if ([cueSequence count] == 0) {
                     [((id<AudioCuesDelegate>)delegate) cuedAudioComplete:self];
-                    [[CCDirector sharedDirector].scheduler unscheduleSelector:@selector(updateRunTime:) forTarget:self];
+                    // [[CCDirector sharedDirector].scheduler unscheduleSelector:@selector(updateRunTime:) forTarget:self];
                     stopped = YES;
                     totalTime = 0;
                     delegate = nil;
+                    cueHit = NO;
                 }
             }
         } else {

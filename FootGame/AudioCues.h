@@ -15,6 +15,7 @@
     ccTime totalTime;
 }
 
+@property (nonatomic, retain) NSString *storyKey;
 @property (nonatomic, retain) NSString *audioFilename;
 @property (nonatomic, retain) NSString *locale;
 @property (nonatomic, retain) NSDictionary* cues;
