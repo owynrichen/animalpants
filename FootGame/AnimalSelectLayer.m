@@ -12,6 +12,9 @@
 #import "CCMenuItemFontWithStroke.h"
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
+#import "PremiumContentStore.h"
+#import "PromotionCodeManager.h"
+#import "InAppPurchaseManager.h"
 
 @implementation AnimalSelectLayer
 
@@ -61,13 +64,22 @@
     __block int count = 1;
     
     // TODO: this doesn't fit on an iphone... scrolling?
+    //[[PromotionCodeManager instance] usePromotionCode:@"TESTERS" withDelegate:nil];
+//    [[PremiumContentStore instance] returnedProductId:@"com.alchemistinteractive.footgame.premium"];
     
     [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *menuKey = [NSString stringWithFormat:@"menu_%@", [key lowercaseString]];
         NSString *name = menulocstr(menuKey, @"strings", @"");
+        
+        BOOL owned = [[PremiumContentStore instance] ownsProductId:((Animal *) obj).productId];
+        
+        if (!owned) {
+            name = [NSString stringWithFormat:@"%@ (%@)", name, locstr(@"buy", @"strings","")];
+        }
+        
         CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:name color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
             NSString *html = ((Animal *) obj).factsHtml;
-            NSLog(@"HTML: %@", html);
+//            NSLog(@"HTML: %@", html);
             NSString *path = [[NSBundle mainBundle] bundlePath];
             NSURL *baseURL = [NSURL fileURLWithPath:path];
             [facts loadHTMLString: html baseURL:baseURL];
@@ -109,7 +121,13 @@
     NSLog(@"webView shouldStartLoadWithRequest");
     if ([request.URL.scheme isEqualToString:@"animalpants"]) {
         NSString *key = [request.URL.pathComponents objectAtIndex:1];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
+        Animal *animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:key];
+        
+        if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
+        } else {
+            NSLog(@"Animal %@ isn't owned", key);
+        }
         
         return NO;
     } else {

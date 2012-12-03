@@ -19,6 +19,7 @@
     NSString *successSound;
     NSString *failSound;
     NSString *word;
+    NSString *productId;
     
     NSString *factsHtml;
 }
@@ -31,6 +32,7 @@
 @property (nonatomic, retain) NSString *failSound;
 @property (nonatomic, retain) NSString *environment;
 @property (nonatomic, retain) NSString *word;
+@property (nonatomic, retain) NSString *productId;
 
 @property (nonatomic, retain) NSString *factsHtml;
 

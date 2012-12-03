@@ -9,6 +9,7 @@
 #import "Animal.h"
 #import "SoundManager.h"
 #import "LocalizationManager.h"
+#import "PremiumContentStore.h"
 
 @implementation Animal
 
@@ -21,6 +22,7 @@
 @synthesize environment;
 @synthesize word;
 @synthesize factsHtml;
+@synthesize productId;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict {
     Animal *anml = [[Animal alloc] init];
@@ -39,6 +41,12 @@
     NSString *facts = [NSString stringWithContentsOfFile:[[LocalizationManager sharedManager] getLocalizedFilename:[NSString stringWithFormat:@"Facts-%@.html", anml.key]]
                               encoding:NSUTF8StringEncoding
                                                    error:NULL];
+    
+    NSString *productId = [dict objectForKey:@"productId"];
+    if (productId == nil) {
+        productId = FREE_PRODUCT_ID;
+    }
+    anml.productId = productId;
     
     if (facts == nil) {
         anml.factsHtml = [NSString stringWithFormat:@"<html><head></head><body style='background: transparent'><h1>%@</h1><p>%@ wears pants</p><a href='animalpants://scene/%@'>Go to scene>></a></body></html>", name, name, anml.key];

@@ -10,6 +10,7 @@
 #import "CCMenuItemFontWithStroke.h"
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
+#import "PremiumContentStore.h"
 
 @implementation LanguageSelectLayer
 
@@ -59,6 +60,13 @@
     
     for(NSString *lang in [[LocalizationManager sharedManager] getAvailableLanguages]) {
         NSString *langStr = [[LocalizationManager sharedManager] getLanguageNameString:lang];
+        
+        BOOL owned = [[PremiumContentStore instance] ownsProductId:[NSString stringWithFormat:@"com.alchemistinteractive.footgame.language.%@", lang]];
+        
+        if (!owned) {
+            langStr = [NSString stringWithFormat:@"%@ - %@", langStr, locstr(@"buy", @"strings","")];
+        }
+        
         CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:langStr color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
             [[LocalizationManager sharedManager] setAppPreferredLocale:((CCNode *)sender).userData];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];

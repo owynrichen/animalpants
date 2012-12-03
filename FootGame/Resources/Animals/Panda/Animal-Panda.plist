@@ -12,6 +12,8 @@
 	<string>Panda</string>
 	<key>FailSound</key>
 	<string></string>
+	<key>productId</key>
+	<string>com.alchemistinteractive.footgame.apack2</string>
 	<key>Body</key>
 	<dict>
 		<key>HappyImage</key>
