@@ -21,5 +21,6 @@
 -(BOOL) ownsProductId: (NSString *) productId;
 -(void) boughtProductId: (NSString *) productId;
 -(void) returnedProductId: (NSString *) productId;
+-(void) returnAllProducts;
 
 @end

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>productId</key>
-	<string>com.alchemistinteractive.footgame.apack2</string>
+	<string>com.alchemistinteractive.footgame.apack.all</string>
 	<key>Key</key>
 	<string>Crocodile</string>
 	<key>Environment</key>

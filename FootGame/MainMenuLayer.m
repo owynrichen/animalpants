@@ -58,9 +58,13 @@
     title = [CCAutoScalingSprite spriteWithFile:titleStr];
     title.position = ccpToRatio(512,winSize.height + titleScroll.contentSize.height + 40);
     [self addChild:title];
+    
+    [(NSArray *) [UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"%@", obj);
+    }];
 
     [CCMenuItemFont setFontSize:72 * fontScaleForCurrentDevice()];
-    [CCMenuItemFont setFontName:@"Foo"];
+    [CCMenuItemFont setFontName:@"Pacifico"];
     
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);

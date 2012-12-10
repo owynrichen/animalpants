@@ -26,18 +26,26 @@ static NSString *_sync = @"sync";
     return _instance;
 }
 
--(void) getProducts: (id<PurchaseDelegate>)del {
+-(void) getProducts: (id<ProductRetrievalDelegate>)del {
+    [self getProducts: del withData:nil];
+}
+
+-(void) getProducts: (id<ProductRetrievalDelegate>)del withData:(NSObject *)obj {
     // TODO: block and unload
-    if (delegate)
-        delegate = nil;
+    if (prodDelegate)
+        prodDelegate = nil;
     
-    delegate = del;
+    if (del == nil)
+        prodDelegate = self;
+    else
+        prodDelegate = del;
     
     if (cachedProducts) {
-        if (delegate) {
-            [delegate productsRetrieved:cachedProducts];
+        if (prodDelegate) {
+            [prodDelegate productsRetrieved:cachedProducts withData:obj];
         }
     } else {
+        state = [obj retain];
         NSArray *productIds = [[PremiumContentStore instance] products];
         
         NSSet *products = [NSSet setWithArray:productIds];
@@ -46,6 +54,32 @@ static NSString *_sync = @"sync";
         
         [req start];
     }
+}
+
+-(void) productsRetrieved: (NSArray *) products withData:(NSObject *)data {
+    [cachedProducts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        SKProduct *prod = (SKProduct *) obj;
+        
+        if ([prod.productIdentifier isEqualToString:(NSString *) data]) {
+            [self purchaseProduct:prod];
+            return;
+        }
+    }];
+    
+    if (delegate)
+        [delegate purchaseFailed:(NSString *)data];
+}
+
+-(void) productsRetrievedFailed: (NSError *) error withData:(NSObject *)data {
+    if (delegate)
+        [delegate purchaseFailed:(NSString *)data];
+}
+
+-(void) purchaseProductById: (NSString *) productId {
+    if (delegate)
+        [delegate purchaseStarted];
+    
+    [self getProducts:self withData:productId];
 }
 
 -(BOOL) canMakePayments {
@@ -64,15 +98,17 @@ static NSString *_sync = @"sync";
         cachedProducts = [products retain];
         NSLog(@"Name: %@", product.localizedTitle);
         NSLog(@"Price: %@", product.price);
-        if (delegate) {
-            [delegate productsRetrieved: products];
+        if (prodDelegate) {
+            [prodDelegate productsRetrieved: products withData:state];
         }
     } else {
-        if (delegate) {
-            [delegate purchaseFailed:nil];
+        if (prodDelegate) {
+            [prodDelegate productsRetrievedFailed:nil withData:state];
         }
-        return;
     }
+    
+    if (state != nil)
+        [state release];
 }
 
 -(void) purchaseProduct: (SKProduct *) product {
@@ -180,6 +216,22 @@ static NSString *_sync = @"sync";
                 break;
         }
     }
+}
+
+@end
+
+@implementation SKProduct (priceAsString)
+
+- (NSString *) priceAsString
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setLocale:[self priceLocale]];
+    
+    NSString *str = [formatter stringFromNumber:[self price]];
+    [formatter release];
+    return str;
 }
 
 @end

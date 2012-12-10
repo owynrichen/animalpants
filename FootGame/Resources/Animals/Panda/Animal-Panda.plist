@@ -13,7 +13,7 @@
 	<key>FailSound</key>
 	<string></string>
 	<key>productId</key>
-	<string>com.alchemistinteractive.footgame.apack2</string>
+	<string>com.alchemistinteractive.footgame.apack.all</string>
 	<key>Body</key>
 	<dict>
 		<key>HappyImage</key>

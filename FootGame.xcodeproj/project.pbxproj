@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360A75771670691C00A60455 /* PurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A75751670691C00A60455 /* PurchaseViewController.m */; };
+		360A75781670691C00A60455 /* PurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 360A75761670691C00A60455 /* PurchaseViewController.xib */; };
 		3614697D15C6415700DD75B1 /* SpeechBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3614697C15C6415700DD75B1 /* SpeechBubble.m */; };
 		361CCDB31663381900531153 /* Hippo_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 361CCDB21663381900531153 /* Hippo_1.mp3 */; };
 		361CCDB51663383000531153 /* Lion_1_whatdoyouthinkj.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 361CCDB41663383000531153 /* Lion_1_whatdoyouthinkj.mp3 */; };
@@ -106,6 +108,7 @@
 		362C16E61633337600A29F2F /* title.en-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362C16E31633337500A29F2F /* title.en-ipad.png */; };
 		362C16E71633337600A29F2F /* title.en-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362C16E41633337600A29F2F /* title.en-ipadhd.png */; };
 		362C16E916338EAF00A29F2F /* arctic_reflect.png in Resources */ = {isa = PBXBuildFile; fileRef = 362C16E816338EAF00A29F2F /* arctic_reflect.png */; };
+		3636E110166DCF61008628FE /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3636E10F166DCF61008628FE /* Pacifico.ttf */; };
 		3638D5AC15E14FF100408245 /* aurora_borealis.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5AB15E14FF100408245 /* aurora_borealis.png */; };
 		3638D5B515E1635400408245 /* glacier_arch.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5AD15E1635400408245 /* glacier_arch.png */; };
 		3638D5B615E1635400408245 /* glacier_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3638D5AE15E1635400408245 /* glacier_floor.png */; };
@@ -1368,6 +1371,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		360A75741670691C00A60455 /* PurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseViewController.h; sourceTree = "<group>"; };
+		360A75751670691C00A60455 /* PurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseViewController.m; sourceTree = "<group>"; };
+		360A75761670691C00A60455 /* PurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseViewController.xib; sourceTree = "<group>"; };
 		3614697B15C6415700DD75B1 /* SpeechBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechBubble.h; sourceTree = "<group>"; };
 		3614697C15C6415700DD75B1 /* SpeechBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechBubble.m; sourceTree = "<group>"; };
 		361CCDB21663381900531153 /* Hippo_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hippo_1.mp3; sourceTree = "<group>"; };
@@ -1469,6 +1475,7 @@
 		362C16E31633337500A29F2F /* title.en-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title.en-ipad.png"; sourceTree = "<group>"; };
 		362C16E41633337600A29F2F /* title.en-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title.en-ipadhd.png"; sourceTree = "<group>"; };
 		362C16E816338EAF00A29F2F /* arctic_reflect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arctic_reflect.png; path = Resources/Environments/Arctic/Graphics/arctic_reflect.png; sourceTree = "<group>"; };
+		3636E10F166DCF61008628FE /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		3638D5AB15E14FF100408245 /* aurora_borealis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aurora_borealis.png; path = Resources/Environments/Arctic/Graphics/aurora_borealis.png; sourceTree = "<group>"; };
 		3638D5AD15E1635400408245 /* glacier_arch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glacier_arch.png; path = Resources/Environments/Arctic/Graphics/glacier_arch.png; sourceTree = "<group>"; };
 		3638D5AE15E1635400408245 /* glacier_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glacier_floor.png; path = Resources/Environments/Arctic/Graphics/glacier_floor.png; sourceTree = "<group>"; };
@@ -2674,6 +2681,7 @@
 		362C15F6162B995E00A29F2F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3636E10F166DCF61008628FE /* Pacifico.ttf */,
 				362C15F2162A855200A29F2F /* foo.ttf */,
 			);
 			name = Fonts;
@@ -3329,6 +3337,8 @@
 				367CE957166521210046ED1C /* PremiumContentStore.m */,
 				367CE9591665A0F20046ED1C /* PromotionCodeManager.h */,
 				367CE95A1665A0F20046ED1C /* PromotionCodeManager.m */,
+				360A75741670691C00A60455 /* PurchaseViewController.h */,
+				360A75751670691C00A60455 /* PurchaseViewController.m */,
 				3642BBD615AF267F00DBA483 /* SettingsLayer.h */,
 				3642BBD715AF267F00DBA483 /* SettingsLayer.m */,
 				3642BBCF15ADD48400DBA483 /* StoryLayer.h */,
@@ -3346,6 +3356,7 @@
 		367EC2F1133A4782003F7FF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				360A75761670691C00A60455 /* PurchaseViewController.xib */,
 				36FBBD7E164FA26B002B0138 /* Facts */,
 				362C15F6162B995E00A29F2F /* Fonts */,
 				365C763C1619F2A40030CD0C /* Particles */,
@@ -5560,6 +5571,8 @@
 				361CCDB31663381900531153 /* Hippo_1.mp3 in Resources */,
 				361CCDB51663383000531153 /* Lion_1_whatdoyouthinkj.mp3 in Resources */,
 				366548DA16686F520073B3BA /* Products.plist in Resources */,
+				3636E110166DCF61008628FE /* Pacifico.ttf in Resources */,
+				360A75781670691C00A60455 /* PurchaseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5621,6 +5634,7 @@
 				366548EC166919530073B3BA /* SBJsonBase.m in Sources */,
 				366548ED166919530073B3BA /* SBJsonParser.m in Sources */,
 				366548EE166919530073B3BA /* SBJsonWriter.m in Sources */,
+				360A75771670691C00A60455 /* PurchaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

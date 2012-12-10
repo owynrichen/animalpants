@@ -174,11 +174,25 @@ static NSString *_sync = @"sync";
 }
 
 -(void) boughtProductId: (NSString *) productId {
-    [[NSUserDefaults standardUserDefaults] setObject:@"bought" forKey:productId];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"bought" forKey:productId];
+    [defaults synchronize];
 }
 
 -(void) returnedProductId: (NSString *) productId {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:productId];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:productId];
+    [defaults synchronize];
+}
+
+-(void) returnAllProducts {
+    [productMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        Product *product = (Product *) obj;
+        
+        if (![product.status isEqualToString:FREE_PRODUCT_ID]) {
+            [self returnedProductId:(NSString *) key];
+        }
+    }];
 }
 
 @end

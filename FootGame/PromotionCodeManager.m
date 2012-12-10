@@ -42,6 +42,16 @@ static NSString *_sync = @"sync";
     
     NSError *error = nil;
     
+    // Test code to clear products
+    if ([code isEqualToString:@"!clear"]) {
+        [[PremiumContentStore instance] returnAllProducts];
+        
+        if (del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:success:)]) {
+            [del usePromotionCodeSuccess: nil success:YES];
+        }
+        return;
+    }
+    
     NSArray *codes = [self getDataFromServer:del withError:&error];
     
     if (error != nil) {
@@ -49,6 +59,8 @@ static NSString *_sync = @"sync";
             [del usePromotionCodeError:nil error:error];
         }
     }
+    
+    __block BOOL codeSuccess = NO;
     
     [codes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Promotion *promoCode = (Promotion *) obj;
@@ -60,14 +72,25 @@ static NSString *_sync = @"sync";
                 
                 [[PremiumContentStore instance] boughtProductId:promoCode.productId];
                 
-                if (del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:)]) {
+                if (del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:success:)]) {
                     [del usePromotionCodeSuccess: nil success:YES];
                 }
+                
+                codeSuccess = YES;
+                *stop = YES;
             }
         } else {
             NSLog(@"Promo code %@ isn't valid %@ - %@-%@", promoCode.code, [[NSDate date] description], [promoCode.startDate description], [promoCode.endDate description]);
+            
+            codeSuccess = NO;
+            *stop = YES;
         }
     }];
+    
+    if (!codeSuccess && del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:success:)]) {
+        [del usePromotionCodeSuccess: nil success:NO];
+        return;
+    }
 }
 
 -(NSArray *) getDataFromServer: (id<PromotionCodeDelegate>) del withError: (NSError **) error {

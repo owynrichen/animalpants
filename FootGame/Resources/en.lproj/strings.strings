@@ -8,6 +8,17 @@
 
 "back" = "Back";
 "buy" = "Buy";
+"okay" = "Okay";
+"promocode" = "Promotional code";
+
+"product_fetch_error_title" = "Error Fetching Products";
+"product_fetch_error_desc" = "There was an issue getting product information from iTunes, please try again later.";
+"product_buy_error_title" = "Error with Purchase";
+"product_buy_error_desc" = "There was an error when attempting to purchase this product, please try again later.";
+"invalid_promo_error_title" = "Invalid Promotion Code";
+"invalid_promo_error_desc" = "The promotional code attempted was invalid, please try again.";
+"promo_code_error_title" = "Error Checking Promotion Code";
+"promo_code_error_desc" = "There was an error when checking the promotion code, please try again later.";
 
 "play" = "Play!";
 "animals" = "Animals";
