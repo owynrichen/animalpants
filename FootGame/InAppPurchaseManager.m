@@ -61,7 +61,7 @@ static NSString *_sync = @"sync";
         SKProduct *prod = (SKProduct *) obj;
         
         if ([prod.productIdentifier isEqualToString:(NSString *) data]) {
-            [self purchaseProduct:prod];
+            [self purchaseProduct:prod delegate:delegate];
             return;
         }
     }];
@@ -71,11 +71,18 @@ static NSString *_sync = @"sync";
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData:(NSObject *)data {
+    apErr(error);
+    
     if (delegate)
         [delegate purchaseFailed:(NSString *)data];
 }
 
--(void) purchaseProductById: (NSString *) productId {
+-(void) purchaseProductById: (NSString *) productId delegate: (id<PurchaseDelegate>) del {
+    if (delegate)
+        delegate = nil;
+    
+    delegate = del;
+    
     if (delegate)
         [delegate purchaseStarted];
     
@@ -111,10 +118,22 @@ static NSString *_sync = @"sync";
         [state release];
 }
 
--(void) purchaseProduct: (SKProduct *) product {
+-(void) purchaseProduct: (SKProduct *) product delegate: (id<PurchaseDelegate>) del {
+    if (delegate != nil)
+        delegate = nil;
+    
+    delegate = del;
+    
+    if (delegate)
+        [delegate purchaseStarted];
+    
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     SKPayment *payment = [SKPayment paymentWithProduct:product];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+-(void) restorePurchases: (id<PurchaseDelegate>) del {
+    // TODO!
 }
 
 //
@@ -181,7 +200,7 @@ static NSString *_sync = @"sync";
     NSLog(@"Transaction failed...");
     if (transaction.error.code != SKErrorPaymentCancelled)
     {
-        // error!
+        apErrMsg([transaction.error debugDescription])
         [self finishTransaction:transaction wasSuccessful:NO];
     }
     else

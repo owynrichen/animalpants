@@ -42,11 +42,13 @@
 
 -(void) getProducts: (id<ProductRetrievalDelegate>) del;
 -(void) getProducts: (id<ProductRetrievalDelegate>) del withData: (NSObject *) obj;
+-(void) purchaseProductById: (NSString *) productId delegate: (id<PurchaseDelegate>) del;
+-(BOOL) canMakePayments;
+-(void) purchaseProduct: (SKProduct *) product delegate: (id<PurchaseDelegate>) del;
+-(void) restorePurchases: (id<PurchaseDelegate>) del;
+
 -(void) productsRetrieved: (NSArray *) products withData:(NSObject *)data;
 -(void) productsRetrievedFailed: (NSError *) error withData:(NSObject *)data;
--(void) purchaseProductById: (NSString *) productId;
--(BOOL) canMakePayments;
--(void) purchaseProduct: (SKProduct *) product;
 -(void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response;
 -(void) paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions;
 

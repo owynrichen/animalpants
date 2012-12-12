@@ -12,6 +12,12 @@
 		3614697D15C6415700DD75B1 /* SpeechBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3614697C15C6415700DD75B1 /* SpeechBubble.m */; };
 		361CCDB31663381900531153 /* Hippo_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 361CCDB21663381900531153 /* Hippo_1.mp3 */; };
 		361CCDB51663383000531153 /* Lion_1_whatdoyouthinkj.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 361CCDB41663383000531153 /* Lion_1_whatdoyouthinkj.mp3 */; };
+		3625983F1677C7E300E1D3A0 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625983E1677C7E200E1D3A0 /* libGoogleAnalytics.a */; };
+		362598411677CE8E00E1D3A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362598401677CE8E00E1D3A0 /* SystemConfiguration.framework */; };
+		362598431677CE9900E1D3A0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362598421677CE9900E1D3A0 /* CoreData.framework */; };
+		362598461677DC6900E1D3A0 /* AnalyticsPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = 362598451677DC6800E1D3A0 /* AnalyticsPublisher.m */; };
+		3625984816785A1700E1D3A0 /* products.css in Resources */ = {isa = PBXBuildFile; fileRef = 3625984716785A1600E1D3A0 /* products.css */; };
+		3625984A16785FB100E1D3A0 /* Giraffe_style1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3625984916785FB100E1D3A0 /* Giraffe_style1.mp3 */; };
 		362C155B16253F5800A29F2F /* story1.en.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 362C154F16253F5800A29F2F /* story1.en.mp3 */; };
 		362C155C16253F5800A29F2F /* story1.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 362C155016253F5800A29F2F /* story1.es.mp3 */; };
 		362C155D16253F5800A29F2F /* story1.fr.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 362C155116253F5800A29F2F /* story1.fr.mp3 */; };
@@ -1378,6 +1384,18 @@
 		3614697C15C6415700DD75B1 /* SpeechBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechBubble.m; sourceTree = "<group>"; };
 		361CCDB21663381900531153 /* Hippo_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hippo_1.mp3; sourceTree = "<group>"; };
 		361CCDB41663383000531153 /* Lion_1_whatdoyouthinkj.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Lion_1_whatdoyouthinkj.mp3; sourceTree = "<group>"; };
+		362598391677C7DF00E1D3A0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = ../GAI.h; sourceTree = "<group>"; };
+		3625983A1677C7E000E1D3A0 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = ../GAITrackedViewController.h; sourceTree = "<group>"; };
+		3625983B1677C7E000E1D3A0 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = ../GAITracker.h; sourceTree = "<group>"; };
+		3625983C1677C7E100E1D3A0 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = ../GAITransaction.h; sourceTree = "<group>"; };
+		3625983D1677C7E100E1D3A0 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = ../GAITransactionItem.h; sourceTree = "<group>"; };
+		3625983E1677C7E200E1D3A0 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		362598401677CE8E00E1D3A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		362598421677CE9900E1D3A0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		362598441677DC6800E1D3A0 /* AnalyticsPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnalyticsPublisher.h; path = ../AnalyticsPublisher.h; sourceTree = "<group>"; };
+		362598451677DC6800E1D3A0 /* AnalyticsPublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnalyticsPublisher.m; path = ../AnalyticsPublisher.m; sourceTree = "<group>"; };
+		3625984716785A1600E1D3A0 /* products.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = products.css; path = Resources/products.css; sourceTree = "<group>"; };
+		3625984916785FB100E1D3A0 /* Giraffe_style1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Giraffe_style1.mp3; sourceTree = "<group>"; };
 		362C154F16253F5800A29F2F /* story1.en.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = story1.en.mp3; path = Resources/Audio/story1.en.mp3; sourceTree = "<group>"; };
 		362C155016253F5800A29F2F /* story1.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = story1.es.mp3; path = Resources/Audio/story1.es.mp3; sourceTree = "<group>"; };
 		362C155116253F5800A29F2F /* story1.fr.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = story1.fr.mp3; path = Resources/Audio/story1.fr.mp3; sourceTree = "<group>"; };
@@ -2347,6 +2365,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				362598431677CE9900E1D3A0 /* CoreData.framework in Frameworks */,
+				362598411677CE8E00E1D3A0 /* SystemConfiguration.framework in Frameworks */,
 				367CE95D1666EEBF0046ED1C /* StoreKit.framework in Frameworks */,
 				36C220C1160E887900B31A11 /* libCocosDenshion.a in Frameworks */,
 				36C220BA160E881E00B31A11 /* libcocos2d.a in Frameworks */,
@@ -2359,6 +2379,7 @@
 				367EC2ED133A4782003F7FF0 /* Foundation.framework in Frameworks */,
 				367EC2EF133A4782003F7FF0 /* CoreGraphics.framework in Frameworks */,
 				36F9BE95154AE6DB00059C14 /* libTestFlight.a in Frameworks */,
+				3625983F1677C7E300E1D3A0 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3293,6 +3314,9 @@
 		367EC2DF133A4782003F7FF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3625983E1677C7E200E1D3A0 /* libGoogleAnalytics.a */,
+				362598421677CE9900E1D3A0 /* CoreData.framework */,
+				362598401677CE8E00E1D3A0 /* SystemConfiguration.framework */,
 				36F9BE93154AE6DB00059C14 /* libTestFlight.a */,
 				367CE95C1666EEBF0046ED1C /* StoreKit.framework */,
 				367EC2E0133A4782003F7FF0 /* QuartzCore.framework */,
@@ -3315,6 +3339,8 @@
 				364B077D15A739F30054E69A /* CCExtensions */,
 				364B025C159B5EE10054E69A /* Animal */,
 				364B025B159B5ED60054E69A /* Environment */,
+				362598441677DC6800E1D3A0 /* AnalyticsPublisher.h */,
+				362598451677DC6800E1D3A0 /* AnalyticsPublisher.m */,
 				36A92CD0133C6D48004DFEFC /* AnimalViewLayer.h */,
 				36A92CD1133C6D48004DFEFC /* AnimalViewLayer.m */,
 				365C75B4161901730030CD0C /* AnimalSelectLayer.h */,
@@ -3367,6 +3393,7 @@
 				36AD649815C4E0790089FC82 /* Info.plist */,
 				36AD648D15C4E01D0089FC82 /* strings.strings */,
 				366548D816686F520073B3BA /* Products.plist */,
+				3625984716785A1600E1D3A0 /* products.css */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3375,6 +3402,11 @@
 			isa = PBXGroup;
 			children = (
 				367EC48C133A4785003F7FF0 /* Prefix.pch */,
+				362598391677C7DF00E1D3A0 /* GAI.h */,
+				3625983A1677C7E000E1D3A0 /* GAITrackedViewController.h */,
+				3625983B1677C7E000E1D3A0 /* GAITracker.h */,
+				3625983C1677C7E100E1D3A0 /* GAITransaction.h */,
+				3625983D1677C7E100E1D3A0 /* GAITransactionItem.h */,
 				367EC48D133A4785003F7FF0 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -3785,6 +3817,7 @@
 		3686797816207A9E00D98199 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				3625984916785FB100E1D3A0 /* Giraffe_style1.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -5573,6 +5606,8 @@
 				366548DA16686F520073B3BA /* Products.plist in Resources */,
 				3636E110166DCF61008628FE /* Pacifico.ttf in Resources */,
 				360A75781670691C00A60455 /* PurchaseViewController.xib in Resources */,
+				3625984816785A1700E1D3A0 /* products.css in Resources */,
+				3625984A16785FB100E1D3A0 /* Giraffe_style1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5635,6 +5670,7 @@
 				366548ED166919530073B3BA /* SBJsonParser.m in Sources */,
 				366548EE166919530073B3BA /* SBJsonWriter.m in Sources */,
 				360A75771670691C00A60455 /* PurchaseViewController.m in Sources */,
+				362598461677DC6900E1D3A0 /* AnalyticsPublisher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5736,8 +5772,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5748,6 +5784,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FootGame\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Animal Pants";
@@ -5764,8 +5801,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FootGame/Prefix.pch;
@@ -5775,6 +5812,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FootGame\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Animal Pants";

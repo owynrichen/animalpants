@@ -64,6 +64,8 @@
     
     [self addChild:background];
     [self addChild:menu];
+    
+    apView(@"Animal Select View");
 }
 
 -(void) onEnterTransitionDidFinish {
@@ -95,10 +97,6 @@
     menu.anchorPoint = ccp(0,0);
     menu.position = ccp(winSize.width * 0.1, winSize.height * 0.9);
     __block int count = 1;
-    
-    // TODO: this doesn't fit on an iphone... scrolling?
-    //[[PromotionCodeManager instance] usePromotionCode:@"TESTERS" withDelegate:nil];
-    //    [[PremiumContentStore instance] returnedProductId:@"com.alchemistinteractive.footgame.premium"];
     
     [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *menuKey = [NSString stringWithFormat:@"menu_%@", [key lowercaseString]];
@@ -161,32 +159,11 @@
     if (purchase != nil)
         [purchase release];
     
-    NSString *productId = (NSString *) data;
-    __block SKProduct *product = nil;
-    
-    [products enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        SKProduct *p = (SKProduct *) obj;
-        if ([productId isEqualToString:p.productIdentifier]) {
-            product = (SKProduct *) obj;
-            *stop = YES;
-        }
-    }];
-    
-    purchase = [[PurchaseViewController alloc] initWithProduct:product delegate:self];
-    [[CCDirector sharedDirector].view addSubview:purchase.view];
-    CGPoint pviewSize = ccpToRatio(1024, 768);
-    purchase.view.frame = CGRectMake(0, 0, pviewSize.x, pviewSize.y);
+    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:(NSString *) data upsell:PREMIUM_PRODUCT_ID];
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_fetch_error_title", @"strings", @"")
-                                                    message:locstr(@"product_fetch_error_desc", @"strings", @"")
-                                                   delegate:nil
-                                          cancelButtonTitle:locstr(@"okay", @"strings", @"")
-                                          otherButtonTitles:nil];
-    
-    [alert show];
-    [alert release];
+    [PurchaseViewController handleProductsRetrievedFail];
 }
 
 -(void) purchaseFinished: (BOOL) success {

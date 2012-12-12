@@ -101,6 +101,7 @@ static NSString *_sync = @"sync";
     NSString *response = [NSString stringWithContentsOfURL:metaUrl encoding:NSUTF8StringEncoding error:error];
     
     if (*error) {
+        apErr(*error);
         NSLog(@"Error getting data: %@", [*error localizedDescription]);
         return nil;
     }

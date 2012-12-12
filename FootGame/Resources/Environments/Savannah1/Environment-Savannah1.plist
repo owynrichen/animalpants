@@ -65,33 +65,6 @@
 	</dict>
 	<key>Clouds</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Puffy</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>position</key>
-					<dict>
-						<key>x</key>
-						<integer>450</integer>
-						<key>y</key>
-						<integer>160</integer>
-					</dict>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>puff</string>
-			</dict>
-			<key>Float</key>
-			<dict>
-				<key>event</key>
-				<string>start</string>
-				<key>action</key>
-				<string>floaty</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

@@ -15,6 +15,7 @@
 #import "FadeGrid3D.h"
 #import "AudioCueRepository.h"
 #import "LocalizationManager.h"
+#import "AnalyticsPublisher.h"
 
 #define SNAP_DISTANCE 50
 #define CORRECT_SNAP_DISTANCE 100
@@ -161,6 +162,9 @@
     [super onEnter];
     [[SoundManager sharedManager] fadeOutBackground];
     [[SoundManager sharedManager] playBackground:environment.bgMusic];
+    
+    NSString *alog = [NSString stringWithFormat: @"Game View %@", animal.key];
+    apView(alog);
 }
 
 -(void) onEnterTransitionDidFinish {

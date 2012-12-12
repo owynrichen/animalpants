@@ -108,6 +108,10 @@ static NSString *_sync = @"";
     return locStr;
 }
 
+-(NSString *) getLanguageProductForKey: (NSString *) key {
+    return [NSString stringWithFormat:@"com.alchemistinteractive.footgame.language.%@", key];
+}
+
 -(void) setAppPreferredLocale: (NSString *) locale {
     [[NSUserDefaults standardUserDefaults] setObject:locale forKey:USER_DEFAULTS_KEY_PREFERRED_LOCALE];
     [self loadPreferredLanguageBundle:locale];

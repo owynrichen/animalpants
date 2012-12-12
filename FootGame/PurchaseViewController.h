@@ -22,6 +22,7 @@
 @interface PurchaseViewController : UIViewController<PurchaseDelegate, PromotionCodeDelegate> {
     BOOL buying;
     SKProduct *product;
+    SKProduct *upsellProduct;
     id<PurchaseViewDelegate> delegate;
 }
 
@@ -29,10 +30,11 @@
 @property (nonatomic, readonly) IBOutlet UIWebView *productContent;
 @property (nonatomic, readonly) IBOutlet UITextField *promoCodeField;
 @property (nonatomic, readonly) IBOutlet UIButton *buyButton;
+@property (nonatomic, readonly) IBOutlet UIButton *buyAllButton;
 @property (nonatomic, readonly) IBOutlet UIButton *cancelButton;
 @property (nonatomic, readonly) IBOutlet UIActivityIndicatorView *buyActivity;
 
--(id) initWithProduct: (SKProduct *) product delegate: (id<PurchaseViewDelegate>) del;
+-(id) initWithProduct: (SKProduct *) product upsellProduct: (SKProduct *) upsell delegate: (id<PurchaseViewDelegate>) del;
 
 -(void) purchaseStarted;
 -(void) purchaseSucceeded: (NSString *) productId;
@@ -43,6 +45,10 @@
 -(void) usePromotionCodeError: (Promotion *) promo error: (NSError *) error;
 
 -(IBAction) buyClick: (id) sender;
+-(IBAction) buyAllClick:(id)sender;
 -(IBAction) cancelClick: (id) sender;
+
++(PurchaseViewController *) handleProductsRetrievedWithDelegate: (id<PurchaseViewDelegate>) del products: (NSArray *) products withProductId: (NSString *) productId upsell: (NSString *) upsellId;
++(void) handleProductsRetrievedFail;
 
 @end

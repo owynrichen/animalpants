@@ -9,6 +9,7 @@
 #import "PurchaseViewController.h"
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
+#import "CCAutoScaling.h"
 
 @interface PurchaseViewController ()
 -(NSString *) htmlForProduct: (SKProduct *) product;
@@ -21,17 +22,21 @@
 
 @synthesize buyActivity;
 @synthesize buyButton;
+@synthesize buyAllButton;
 @synthesize productName;
 @synthesize productContent;
 @synthesize promoCodeField;
 @synthesize cancelButton;
 
--(id) initWithProduct: (SKProduct *) prod delegate:(id<PurchaseViewDelegate>)del {
+-(id) initWithProduct: (SKProduct *) prod upsellProduct: (SKProduct *) upsell delegate:(id<PurchaseViewDelegate>)del {
     self = [self initWithNibName:@"PurchaseViewController" bundle:nil];
     
     delegate = del;
     
     product = [prod retain];
+    if (upsell != nil) {
+        upsellProduct = [upsell retain];
+    }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboard:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardDidHideNotification object:nil];
@@ -54,6 +59,10 @@
     if (product != nil)
         [product release];
     
+    if (upsellProduct != nil) {
+        [upsellProduct release];
+    }
+    
     if (delegate != nil)
         delegate = nil;
     
@@ -65,6 +74,15 @@
     [super viewDidLoad];
     
     [self.buyButton setTitle:locstr(@"buy", @"strings", "") forState:UIControlStateNormal];;
+    
+    if (upsellProduct != nil) {
+        NSString * buyText = [NSString stringWithFormat:locstr(@"buy_upsell", @"strings", @""), upsellProduct.priceAsString];
+        [self.buyAllButton setTitle:buyText forState:UIControlStateNormal];
+        self.buyAllButton.hidden = NO;
+    } else {
+        self.buyAllButton.hidden = YES;
+    }
+    
     self.productName.text = product.localizedTitle;
     self.promoCodeField.placeholder = locstr(@"promocode", @"strings", "");
     
@@ -81,7 +99,7 @@
 }
 
 -(NSString *) htmlForProduct: (SKProduct *) pduct {
-    NSString *html = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=\"product.css\" /></head><body>%@<br /><div class=\"cost\">%@</div></body></html>", pduct.localizedDescription, [pduct priceAsString]];
+    NSString *html = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=\"products.css\" /></head><body><p>%@</p><br /><div class=\"cost\">%@</div></body></html>", pduct.localizedDescription, [pduct priceAsString]];
     
     return html;
 }
@@ -89,12 +107,14 @@
 -(void) purchaseStarted {
     buying = YES;
     [self.buyActivity startAnimating];
+    self.buyActivity.hidden = NO;
     NSLog(@"starting purchase");
 }
 
 -(void) purchaseSucceeded: (NSString *) productId {
     buying = NO;
     [self.buyActivity stopAnimating];
+    self.buyActivity.hidden = YES;
     NSLog(@"purchase succeeded");
     
     if (delegate != nil && [delegate respondsToSelector:@selector(purchaseFinished:)]) {
@@ -107,6 +127,8 @@
 -(void) purchaseFailed: (NSString *) productId {
     buying = NO;
     [self.buyActivity stopAnimating];
+    self.buyActivity.hidden = YES;
+    
      NSLog(@"purchase failed");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_buy_error_title", @"strings", @"")
                                                     message:locstr(@"product_buy_error_desc", @"strings", @"")
@@ -127,11 +149,14 @@
 -(void) usePromotionCodeStarted: (Promotion *) promo {
     buying = YES;
     [self.buyActivity startAnimating];
+    self.buyActivity.hidden = NO;
 }
 
 -(void) usePromotionCodeSuccess: (Promotion *) promo success: (BOOL) successful {
     buying = NO;
     [self.buyActivity stopAnimating];
+    self.buyActivity.hidden = YES;
+    
     if (successful) {
         NSLog(@"promotion code succeeded");
     } else {
@@ -154,6 +179,8 @@
 -(void) usePromotionCodeError: (Promotion *) promo error: (NSError *) error {
     buying = NO;
     [self.buyActivity stopAnimating];
+    self.buyActivity.hidden = YES;
+    
     NSLog(@"promotion code failed");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"promo_code_error_title", @"strings", @"")
                                                     message:locstr(@"promo_code_error_desc", @"strings", @"")
@@ -176,7 +203,7 @@
         NSString *promoText = self.promoCodeField.text;
         
         if ([promoText isEqualToString:@""]) {
-            [[InAppPurchaseManager instance] purchaseProduct:product];
+            [[InAppPurchaseManager instance] purchaseProduct:product delegate: self];
         } else {
             [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate:self];
         }
@@ -190,6 +217,18 @@
     
     if (!buying) {
         [self.view removeFromSuperview];
+    }
+}
+
+-(IBAction) buyAllClick:(id)sender {
+    if (!buying) {
+        NSString *promoText = self.promoCodeField.text;
+        
+        if ([promoText isEqualToString:@""]) {
+            [[InAppPurchaseManager instance] purchaseProduct:upsellProduct delegate: self];
+        } else {
+            [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate:self];
+        }
     }
 }
 
@@ -210,13 +249,50 @@
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height + keyboardFrameBeginRect.size.width);
 }
 
--(IBAction) editingDidBegin: (id) sender {
-
-}
-
--(IBAction) editingDidEnd: (id) sender {
++(PurchaseViewController *) handleProductsRetrievedWithDelegate: (id<PurchaseViewDelegate>) del products: (NSArray *) products withProductId: (NSString *) productId upsell: (NSString *) upsellId {
     
+    __block SKProduct *product = nil;
+    __block SKProduct *upsell = nil;
+    
+    [products enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        SKProduct *p = (SKProduct *) obj;
+        if ([productId isEqualToString:p.productIdentifier]) {
+            product = p;
+        }
+        
+        if (upsellId != nil && [upsellId isEqualToString:p.productIdentifier]) {
+            upsell = p;
+        }
+    }];
+    
+    PurchaseViewController *purchase = [[PurchaseViewController alloc] initWithProduct:product upsellProduct: upsell delegate:del];
+    [[CCDirector sharedDirector].view addSubview:purchase.view];
+    
+    DeviceResolutionType device = runningDevice();
+    CGPoint pviewSize;
+    CGPoint pViewOrigin;
+    
+    if (device == kiPad || device == kiPadRetina ) {
+        pviewSize = ccpToRatio(512, 384);
+        pViewOrigin = ccpToRatio(512/2, 384/2);
+    } else {
+        pviewSize = ccp(480, 320);
+        pViewOrigin = ccp(0, 0);
+    }
+    purchase.view.frame = CGRectMake(pViewOrigin.x, pViewOrigin.y, pviewSize.x, pviewSize.y);
+    
+    return purchase;
 }
 
++(void) handleProductsRetrievedFail {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_fetch_error_title", @"strings", @"")
+                                                    message:locstr(@"product_fetch_error_desc", @"strings", @"")
+                                                   delegate:nil
+                                          cancelButtonTitle:locstr(@"okay", @"strings", @"")
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+    [alert release];
+}
 
 @end

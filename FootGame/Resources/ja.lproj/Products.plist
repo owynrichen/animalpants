@@ -26,7 +26,7 @@
 		<string>com.alchemistinteractive.footgame.language.es</string>
 		<string>com.alchemistinteractive.footgame.language.en</string>
 	</array>
-	<key>com.alchemistinteractive.footgame.premium</key>
+	<key>com.alchemistinteractive.footgame.premo</key>
 	<array>
 		<string>com.alchemistinteractive.footgame.language.all</string>
 		<string>com.alchemistinteractive.footgame.apack.all</string>

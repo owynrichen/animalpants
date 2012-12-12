@@ -64,7 +64,8 @@
     }];
 
     [CCMenuItemFont setFontSize:72 * fontScaleForCurrentDevice()];
-    [CCMenuItemFont setFontName:@"Pacifico"];
+    //[CCMenuItemFont setFontName:@"Pacifico"];
+    [CCMenuItemFont setFontName:@"Foo"];
     
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);
@@ -114,6 +115,7 @@
 //    if (splashFade.opacity == 255) {
 //        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
 //    }
+    apView(@"Main Menu");
     [[SoundManager sharedManager] playBackground:@"game_intro_bgmusic.mp3"];
     [super onEnter];
 }

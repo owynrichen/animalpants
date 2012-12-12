@@ -9,7 +9,7 @@
 "back" = "Back";
 "buy" = "Buy";
 "okay" = "Okay";
-"promocode" = "Promotional code";
+"promocode" = "Promotional code?";
 
 "product_fetch_error_title" = "Error Fetching Products";
 "product_fetch_error_desc" = "There was an issue getting product information from iTunes, please try again later.";
@@ -19,6 +19,8 @@
 "invalid_promo_error_desc" = "The promotional code attempted was invalid, please try again.";
 "promo_code_error_title" = "Error Checking Promotion Code";
 "promo_code_error_desc" = "There was an error when checking the promotion code, please try again later.";
+"buy_upsell" = "Upsell! (%@)";
+"restore_purchases" = "Restore Purchases";
 
 "play" = "Play!";
 "animals" = "Animals";
@@ -50,7 +52,7 @@
 "hippo" = "Horace the Hippo's feet are purple and he is wearing grey pants.";
 "kangaroo" = "Kendra the Kangaroo's feet are brown with striped purple pants.";
 "monkey" = "Melinda the Monkey's feet are brown with skinny legs.";
-"panda" = "Patrick the Panda's feet are black and fuzzy with red striped pants.";
+"panda" = "Patrick the Panda's feet are black and fuzzy with striped red pants.";
 "polarbear" = "Peggy the Polar Bear's feet are white, furry and she’s wearing a blue skirt.";
 "tiger" = "Tommy the Tiger's feet are orange and his shorts have green seams.";
 "zebra" = "Zeb the Zebra's feet are black and white with yellow striped shorts.";

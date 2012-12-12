@@ -14,6 +14,7 @@
 #import "SoundManager.h"
 #import "TestFlight.h"
 #import "MainMenuLayer.h"
+#import "AnalyticsPublisher.h"
 
 @implementation AppDelegate
 
@@ -32,6 +33,9 @@
     [[CCDirector sharedDirector] setDelegate:self];
     [window_ setMultipleTouchEnabled:YES];
     [[CCDirector sharedDirector].view setMultipleTouchEnabled:YES];
+
+    // warm up the analytis publisher
+    [AnalyticsPublisher instance];
     
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.mp3"];
@@ -40,7 +44,7 @@
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
     
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
-    //[[CCDirector sharedDirector] runWithScene: [AnimalViewLayer scene]];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

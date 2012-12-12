@@ -28,5 +28,6 @@
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data;
+-(void) purchaseFinished: (BOOL) success;
 
 @end

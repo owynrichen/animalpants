@@ -8,12 +8,21 @@
 
 #import "CCLayer.h"
 #import "CCAutoScalingSprite.h"
+#import "PurchaseViewController.h"
 
-@interface LanguageSelectLayer : CCLayer
+@interface LanguageSelectLayer : CCLayer <ProductRetrievalDelegate, PurchaseViewDelegate> {
+    PurchaseViewController *purchase;
+}
 
 @property (nonatomic, retain) CCMenu *menu;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 
 +(CCScene *) scene;
+
+-(void) redrawMenu;
+
+-(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;
+-(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data;
+-(void) purchaseFinished: (BOOL) success;
 
 @end

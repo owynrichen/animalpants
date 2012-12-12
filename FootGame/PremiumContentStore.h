@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseRepository.h"
+#import "AnalyticsPublisher.h"
 
 #define FREE_PRODUCT_ID @"free"
+#define PREMIUM_PRODUCT_ID @"com.alchemistinteractive.footgame.premo"
 
 @interface PremiumContentStore : BaseRepository {
     NSMutableDictionary *productMap;

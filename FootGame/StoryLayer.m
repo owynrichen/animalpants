@@ -55,6 +55,10 @@
     return self;
 }
 
+-(void) onEnter {
+    apView(@"Story View");
+}
+
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
     

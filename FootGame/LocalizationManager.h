@@ -25,6 +25,7 @@
 -(NSString *) getLocalizedStringForKey:(NSString *) key fromTable: (NSString *) table forLanguage: (NSString *) lang;
 -(void) setAppPreferredLocale: (NSString *) locale;
 -(NSString *) getAppPreferredLocale;
+-(NSString *) getLanguageProductForKey: (NSString *) key;
 
 -(NSString *) getLocalizedFilename: (NSString *) baseFilename;
 -(NSString *) getLocalizedImageFilename: (NSString *) baseImageFilename;
