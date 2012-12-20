@@ -23,6 +23,8 @@
 -(id) initWithKey: (NSString *) k data: (NSDictionary *) d {
     self = [super init];
     
+    srand(time(nil));
+    
     self.key = k;
     self.data = d;
     self.event = [self.data objectForKey:@"event"];
@@ -30,10 +32,12 @@
     return self;
 }
 
--(CCAction *) getAction: (CCNode *) node {
+-(CCAction *) getAction: (CCNode *) node withParams: (NSDictionary *) p {
     NSString *action = (NSString *) [data objectForKey:@"action"];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *) [data objectForKey:@"params"]];
     [params setObject:node forKey:@"node"];
+    
+    [params setValuesForKeysWithDictionary:p];
 
     SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@:", action]);
     CCAction *act = nil;
@@ -62,6 +66,19 @@
         return CGPointMake(CGFLOAT_MAX, CGFLOAT_MAX);
     
     return ccp([x intValue]/* * positionRatioForCurrentDevice() */,[y intValue]/* * positionRatioForCurrentDevice() */);
+}
+
+-(float) randWithBase: (float) base deviation: (float) dev {
+    int doubleDev = dev * 2.0 * 1000;
+    int newDev = dev * 1000;
+    
+    float r = base + ((float)((rand() % doubleDev) - (rand() % newDev)) / 1000.0);
+    
+    return r;
+}
+
+-(CGPoint) randXYWithBase: (CGPoint) base deviation: (CGPoint) dev {
+    return CGPointMake([self randWithBase:base.x deviation:dev.x], [self randWithBase:base.y deviation:dev.y]);
 }
 
 @end

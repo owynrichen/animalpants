@@ -9,7 +9,7 @@
 	<key>Environment</key>
 	<string>arctic2</string>
 	<key>SuccessSound</key>
-	<string>elephant2.wav</string>
+	<string>PolarBear_noise.wav</string>
 	<key>Name</key>
 	<string>PolarBear</string>
 	<key>FailSound</key>

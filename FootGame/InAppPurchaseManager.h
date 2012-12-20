@@ -15,6 +15,7 @@
 
 @protocol ProductRetrievalDelegate <NSObject>
 
+-(void) productRetrievalStarted;
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data;
 
@@ -47,6 +48,7 @@
 -(void) purchaseProduct: (SKProduct *) product delegate: (id<PurchaseDelegate>) del;
 -(void) restorePurchases: (id<PurchaseDelegate>) del;
 
+-(void) productRetrievalStarted;
 -(void) productsRetrieved: (NSArray *) products withData:(NSObject *)data;
 -(void) productsRetrievedFailed: (NSError *) error withData:(NSObject *)data;
 -(void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response;

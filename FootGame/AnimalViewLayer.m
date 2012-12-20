@@ -16,6 +16,8 @@
 #import "AudioCueRepository.h"
 #import "LocalizationManager.h"
 #import "AnalyticsPublisher.h"
+#import "PremiumContentStore.h"
+#import "MBProgressHUD.h"
 
 #define SNAP_DISTANCE 50
 #define CORRECT_SNAP_DISTANCE 100
@@ -26,6 +28,7 @@
 -(void) drawAttention: (ccTime) dtime;
 -(void) moveKids: (ccTime) dtime;
 -(CGPoint) startPositionForFoot: (int) index;
+-(void) startLevel;
 @end
 
 @implementation AnimalViewLayer
@@ -64,7 +67,7 @@
 -(id) initWithAnimal: (Animal *) anml {
     self = [super init];
     
-    animal = anml;
+    animal = [anml retain];
     
     return self;
 }
@@ -167,17 +170,27 @@
     apView(alog);
 }
 
--(void) onEnterTransitionDidFinish {
-    [super onEnterTransitionDidFinish];
-    
+-(void) startLevel {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     [name runAction:[CCSequence actions:
                      [CCMoveTo actionWithDuration:0.3 position:ccp(winSize.width * 0.5, winSize.height * 0.5)],
                      [CCDelayTime actionWithDuration:2.0],
                      [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                        [name runAction:[CCFadeOut actionWithDuration:0.25]];
-                      }],
-                     nil]];
+        [name runAction:[CCFadeOut actionWithDuration:0.25]];
+    }],
+    nil]];
+}
+
+-(void) onEnterTransitionDidFinish {
+    [super onEnterTransitionDidFinish];
+    
+    if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
+        [self startLevel];
+    } else {
+        [[CCDirector sharedDirector] pause];
+        [[InAppPurchaseManager instance] getProducts:self withData:nil];
+        apEvent(@"story", @"freemium", @"complete");
+    }
 }
 
 -(void) onExit {
@@ -205,7 +218,7 @@
         if ([foot hitTest:pnt]) {
             foot.touch = touch;
             foot.position = pnt;
-            [[SoundManager sharedManager] playSound:@"glock__c2.wav"];
+            [[SoundManager sharedManager] playSound:@"glock__c2.mp3"];
 
             [streak setPosition:pnt];
             return YES;
@@ -449,6 +462,9 @@
 }
 
 -(void) dealloc {
+    if (animal != nil)
+        [animal release];
+    
     [super dealloc];
 }
 
@@ -491,6 +507,48 @@
     
     CGPoint point = ccp(winSize.width * ratio + offset, winSize.height * 0.2);
     return point;
+}
+
+-(void) productRetrievalStarted {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+    hud.labelText = locstr(@"get_products", @"strings", @"");
+    apEvent(@"story", @"freemium", @"product start");
+}
+
+-(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+    
+    if (purchase != nil)
+        [purchase release];
+    
+    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:animal.productId upsell:PREMIUM_PRODUCT_ID];
+    apEvent(@"story", @"freemium", @"product success");
+}
+
+-(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+    
+    [PurchaseViewController handleProductsRetrievedFail];
+    apEvent(@"story", @"freemium", @"product error");
+}
+
+-(BOOL) cancelClicked: (BOOL) buying {
+    [[CCDirector sharedDirector] resume];
+    apEvent(@"story", @"freemium", @"cancel click");
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+    [purchase.view removeFromSuperview];
+    return NO;
+}
+
+-(void) purchaseFinished: (BOOL) success {
+    if (success) {
+        [[CCDirector sharedDirector] resume];
+        apEvent(@"story", @"freemium", @"purchase complete");
+        [self startLevel];
+        [purchase.view removeFromSuperview];
+    } else {
+        apEvent(@"story", @"freemium", @"purchase fail");
+    }
 }
 
 @end

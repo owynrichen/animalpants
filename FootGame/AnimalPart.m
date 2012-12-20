@@ -122,7 +122,6 @@
 -(BOOL) hitTest:(CGPoint)point {
     CGRect rect = [self boundingBox];
     if (CGRectContainsPoint(rect, point) && self.visible) {
-        // TODO: more detailed alpha-channel testing
         return YES;
     }
     return NO;

@@ -9,7 +9,7 @@
 	<key>Environment</key>
 	<string>swamp</string>
 	<key>SuccessSound</key>
-	<string>glock__e1.mp3</string>
+	<string>Crocodile_noise.wav</string>
 	<key>Name</key>
 	<string>Crocodile</string>
 	<key>FailSound</key>

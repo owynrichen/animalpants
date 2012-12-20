@@ -18,9 +18,6 @@
 -(id) initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect rotated:(BOOL)rotated {
     self = [super initWithTexture:texture rect:rect rotated:rotated];
     
-    // TODO: this is a pretty naive approach to scaling, we really should scale it before we cache the
-    // actual texture to be more conservative about memory
-    
     bitMask = [[BitVector alloc] initWithSprite: self];
     
     autoScaleFactor = autoScaleForCurrentDevice();
@@ -33,7 +30,10 @@
 -(void) onEnter {
     [super onEnter];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:NO];
-    [behaviorManager_ runBehaviors:@"start" onNode: self];
+    
+    NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
+    
+    [behaviorManager_ runBehaviors:@"start" onNode: self withParams:params];
 }
 
 -(void) onEnterTransitionDidFinish {
@@ -155,7 +155,14 @@
         }
         
         if (hit) {
-            return [behaviorManager_ runBehaviors:@"touch" onNode: self];
+            NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
+            NSMutableDictionary *touch = [[[NSMutableDictionary alloc] init] autorelease];
+            
+            [touch setObject:[NSNumber numberWithFloat: pnt.x] forKey:@"x"];
+            [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
+            [params setObject:touch forKey:@"touch"];
+            
+            return [behaviorManager_ runBehaviors:@"touch" onNode: self withParams: params];
         }
     }
     
@@ -163,7 +170,30 @@
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
-
+    CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
+    
+    if (self.visible && CGRectContainsPoint([self boundingBox], pnt)) {
+        pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
+        BOOL hit = NO;
+        NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
+        
+        if ([self.bitMask getPercentCoverage] > 40) {
+            hit = [self.bitMask hitx:pnt.x y:pnt.y];
+        } else {
+            hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
+        }
+        
+        if (hit) {
+            NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
+            NSMutableDictionary *touch = [[[NSMutableDictionary alloc] init] autorelease];
+            
+            [touch setObject:[NSNumber numberWithFloat: pnt.x] forKey:@"x"];
+            [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
+            [params setObject:touch forKey:@"touch"];
+            
+            [behaviorManager_ runBehaviors:@"move" onNode: self withParams: params];
+        }
+    }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {

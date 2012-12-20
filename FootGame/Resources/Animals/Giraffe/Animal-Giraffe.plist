@@ -7,7 +7,7 @@
 	<key>Environment</key>
 	<string>savannah3</string>
 	<key>SuccessSound</key>
-	<string>elephant2.wav</string>
+	<string>Giraffe_noise.mp3</string>
 	<key>Name</key>
 	<string>Giraffe</string>
 	<key>FailSound</key>

@@ -17,7 +17,8 @@
 -(NSArray *) getBehaviors: (NSString *) event;
 -(void) removeBehaviors: (NSString *) event;
 -(BOOL) hasBehaviors;
--(BOOL) runBehaviors: (NSString *) event onNode: (CCNode *) node;
+// -(BOOL) runBehaviors: (NSString *) event onNode: (CCNode *) node;
+-(BOOL) runBehaviors: (NSString *) event onNode: (CCNode *) node withParams: (NSDictionary *) params;
 
 @end
 

@@ -12,8 +12,8 @@
 #define apView(view) \
 [[AnalyticsPublisher instance] trackView:(view)]
 
-#define apEvent(event, action, label) \
-[[AnalyticsPublisher instance] trackEvent:(event) action: (action) label: (label)]
+#define apEvent(evt, act, lbl) \
+[[AnalyticsPublisher instance] trackEvent:(evt) action:(act) label:(lbl)]
 
 #define apErr(error) \
 [[AnalyticsPublisher instance] trackError:(error)];

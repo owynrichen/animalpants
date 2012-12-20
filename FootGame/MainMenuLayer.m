@@ -15,6 +15,7 @@
 #import "SoundManager.h"
 #import "LocalizationManager.h"
 #import "LanguageSelectLayer.h"
+#import "AnimalPartRepository.h"
 
 @implementation MainMenuLayer
 
@@ -71,6 +72,8 @@
     NSLog(@"Locale: %@", currentLocale);
 
     CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"play", @"strings", @"Play!") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        [[AnimalPartRepository sharedRepository] resetAnimals];
+        
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
     }];
     
@@ -116,7 +119,7 @@
 //        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
 //    }
     apView(@"Main Menu");
-    [[SoundManager sharedManager] playBackground:@"game_intro_bgmusic.mp3"];
+    [[SoundManager sharedManager] playBackground:@"The Animals.mp3"];
     [super onEnter];
 }
 

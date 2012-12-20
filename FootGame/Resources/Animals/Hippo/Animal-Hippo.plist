@@ -9,7 +9,7 @@
 	<key>Environment</key>
 	<string>river</string>
 	<key>SuccessSound</key>
-	<string>elephant2.wav</string>
+	<string>hippo_edited.wav</string>
 	<key>Name</key>
 	<string>Hippo</string>
 	<key>FailSound</key>

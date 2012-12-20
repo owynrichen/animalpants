@@ -7,6 +7,7 @@
 //
 
 #import "AnimalPartRepository.h"
+#import "PremiumContentStore.h"
 
 @interface NSMutableArray (ArchUtils_Shuffle)
 - (void)shuffle;
@@ -67,12 +68,13 @@ static NSString *_sync = @"";
 
 -(id) init {
     self = [super init];
+    srand(time(nil));
     
     parts = [[NSMutableArray alloc] init];
     feet = [[NSMutableArray alloc] init];
     animals = [[NSMutableDictionary alloc] init];
     partsByType = [[NSMutableDictionary alloc] init];
-    usedAnimalNames = [[NSMutableDictionary alloc] init];
+    animalList = [[NSMutableArray alloc] init];
     
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"body"];
     [partsByType setValue:[[[NSMutableArray alloc] init] autorelease] forKey:@"foot"];
@@ -86,6 +88,8 @@ static NSString *_sync = @"";
     }];
     
     allAnimals = animals;
+    
+    [self resetAnimals];
         
     return self;
 }
@@ -100,23 +104,40 @@ static NSString *_sync = @"";
 }
 
 -(void) resetAnimals {
-    [usedAnimalNames removeAllObjects];
+    [animalList removeAllObjects];
+    // build list
+    srand(time(nil));
+    
+    [animals enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [animalList addObject:obj];
+    }];
+    
+    [animalList shuffle];
+    
+    [animalList sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        Animal *first = (Animal *) obj1;
+        Animal *second = (Animal *) obj2;
+        
+        BOOL ownsFirst = [[PremiumContentStore instance] ownsProductId:first.productId];
+        BOOL ownsSecond = [[PremiumContentStore instance] ownsProductId:second.productId];
+        
+        if (!ownsFirst && ownsSecond) {
+            return NSOrderedDescending;
+        } else if (!ownsSecond && ownsFirst) {
+            return NSOrderedAscending;
+        }
+        
+        return NSOrderedSame;
+    }];
 }
 
 -(Animal *) getRandomAnimal {
-    srand(time(nil));
-    if ([usedAnimalNames count] == [animals count])
+    if ([animalList count] == 0)
         [self resetAnimals];
     
-    NSString *nextAnimal = [[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]];
-    
-    while([usedAnimalNames objectForKey:nextAnimal] != nil) {
-        nextAnimal = [[animals allKeys] objectAtIndex: rand() % [[animals allKeys] count]];
-    }
-    
-    [usedAnimalNames setValue:@"USED" forKey: nextAnimal];
-    
-    return [animals objectForKey: nextAnimal];
+    Animal *first = [animalList objectAtIndex:0];
+    [animalList removeObjectAtIndex:0];
+    return first;
 }
 
 -(Animal *) getAnimalByKey: (NSString *) key {
@@ -124,8 +145,6 @@ static NSString *_sync = @"";
 }
 
 -(NSArray *) getRandomFeet: (int) count includingAnimalFeet:(Animal *)animal {
-    srand(time(nil));
-    
     NSMutableArray *feetToReturn = [[[NSMutableArray alloc] init] autorelease];
     
     if (animal != nil) {

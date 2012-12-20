@@ -9,7 +9,7 @@
 	<key>Environment</key>
 	<string>jungle</string>
 	<key>SuccessSound</key>
-	<string>lion.wav</string>
+	<string>Tiger_noise.wav</string>
 	<key>Name</key>
 	<string>Tiger</string>
 	<key>FailSound</key>

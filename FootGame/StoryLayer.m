@@ -11,6 +11,7 @@
 #import "SoundManager.h"
 #import "LocalizationManager.h"
 #import "AudioCueRepository.h"
+#import "AnalyticsPublisher.h"
 
 @implementation StoryLayer
 

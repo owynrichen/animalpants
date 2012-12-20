@@ -18,7 +18,7 @@
     NSMutableArray *parts;
     
     NSMutableDictionary *aplist;
-    NSMutableDictionary *usedAnimalNames;
+    NSMutableArray *animalList;
 }
 
 +(AnimalPartRepository *) sharedRepository;

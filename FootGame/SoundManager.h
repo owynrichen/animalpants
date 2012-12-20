@@ -17,8 +17,12 @@
 
 + (SoundManager *) sharedManager;
 
+-(void) setMusicVolume: (float) vol;
+-(void) setSoundVolume: (float) vol;
+
 -(void) preloadSound: (NSString *) name;
 -(void) playSound: (NSString *) name;
+-(void) playSound: (NSString *) name withVol: (float) vol;
 -(void) playBackground: (NSString *) name;
 -(void) playSoundWithCues: (AudioCues *) cues withDelegate: (id<AudioCuesDelegate>) delegate;
 

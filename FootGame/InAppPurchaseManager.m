@@ -31,7 +31,6 @@ static NSString *_sync = @"sync";
 }
 
 -(void) getProducts: (id<ProductRetrievalDelegate>)del withData:(NSObject *)obj {
-    // TODO: block and unload
     if (prodDelegate)
         prodDelegate = nil;
     
@@ -39,6 +38,9 @@ static NSString *_sync = @"sync";
         prodDelegate = self;
     else
         prodDelegate = del;
+    
+    if (prodDelegate)
+        [prodDelegate productRetrievalStarted];
     
     if (cachedProducts) {
         if (prodDelegate) {
@@ -54,6 +56,10 @@ static NSString *_sync = @"sync";
         
         [req start];
     }
+}
+
+-(void) productRetrievalStarted {
+    
 }
 
 -(void) productsRetrieved: (NSArray *) products withData:(NSObject *)data {
@@ -133,7 +139,16 @@ static NSString *_sync = @"sync";
 }
 
 -(void) restorePurchases: (id<PurchaseDelegate>) del {
-    // TODO!
+    if (delegate != nil)
+        delegate = nil;
+    
+    delegate = del;
+    
+    if (delegate)
+        [delegate purchaseStarted];
+    
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
 //

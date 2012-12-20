@@ -13,6 +13,7 @@
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
+#import "MBProgressHUD.h"
 
 @implementation AnimalSelectLayer
 
@@ -155,7 +156,14 @@
     
 }
 
+-(void) productRetrievalStarted {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+    hud.labelText = locstr(@"get_products", @"strings", @"");
+}
+
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+    
     if (purchase != nil)
         [purchase release];
     
@@ -163,6 +171,8 @@
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+    
     [PurchaseViewController handleProductsRetrievedFail];
 }
 

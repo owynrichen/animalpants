@@ -7,7 +7,7 @@
 	<key>Environment</key>
 	<string>bamboo_forest</string>
 	<key>SuccessSound</key>
-	<string>elephant2.wav</string>
+	<string>Panda_noise.wav</string>
 	<key>Name</key>
 	<string>Panda</string>
 	<key>FailSound</key>

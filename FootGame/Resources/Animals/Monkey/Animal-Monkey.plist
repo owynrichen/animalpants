@@ -9,7 +9,7 @@
 	<key>Environment</key>
 	<string>mangrove_forest</string>
 	<key>SuccessSound</key>
-	<string>elephant2.wav</string>
+	<string>Monkey_noise.wav</string>
 	<key>Name</key>
 	<string>Monkey</string>
 	<key>FailSound</key>

@@ -11,9 +11,9 @@
 #import "Environment.h"
 #import "EnvironmentLayer.h"
 #import "SpeechBubble.h"
+#import "PurchaseViewController.h"
 
-
-@interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate> {
+@interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
     AnimalPart *body;
     NSArray *feet;
@@ -37,6 +37,8 @@
     BOOL head1Touched;
     BOOL head2Touched;
     BOOL victory;
+    
+    PurchaseViewController *purchase;
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child
@@ -50,5 +52,12 @@
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
 -(BOOL) testVictory;
 -(void) blurGameLayer: (BOOL) blur withDuration: (GLfloat) duration;
+
+-(void) productRetrievalStarted;
+-(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;
+-(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data;
+
+-(BOOL) cancelClicked: (BOOL) buying;
+-(void) purchaseFinished: (BOOL) success;
 
 @end

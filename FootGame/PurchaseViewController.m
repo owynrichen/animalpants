@@ -10,6 +10,8 @@
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
 #import "CCAutoScaling.h"
+#import "AnalyticsPublisher.h"
+#import "MBProgressHUD.h"
 
 @interface PurchaseViewController ()
 -(NSString *) htmlForProduct: (SKProduct *) product;
@@ -108,14 +110,21 @@
     buying = YES;
     [self.buyActivity startAnimating];
     self.buyActivity.hidden = NO;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+    hud.labelText = locstr(@"buying_product", @"strings", @"");
+    
     NSLog(@"starting purchase");
+    apEvent(@"purchase", @"start", @"");
 }
 
 -(void) purchaseSucceeded: (NSString *) productId {
     buying = NO;
     [self.buyActivity stopAnimating];
     self.buyActivity.hidden = YES;
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+    
     NSLog(@"purchase succeeded");
+    apEvent(@"purchase", @"success", productId);
     
     if (delegate != nil && [delegate respondsToSelector:@selector(purchaseFinished:)]) {
         [delegate purchaseFinished: YES];
@@ -128,8 +137,11 @@
     buying = NO;
     [self.buyActivity stopAnimating];
     self.buyActivity.hidden = YES;
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     
-     NSLog(@"purchase failed");
+    NSLog(@"purchase failed");
+    apEvent(@"purchase", @"fail", productId);
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_buy_error_title", @"strings", @"")
                                                     message:locstr(@"product_buy_error_desc", @"strings", @"")
                                                    delegate:nil
@@ -150,16 +162,23 @@
     buying = YES;
     [self.buyActivity startAnimating];
     self.buyActivity.hidden = NO;
+    apEvent(@"promo", @"start", @"");
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+    hud.labelText = locstr(@"checking_code", @"strings", @"");
 }
 
 -(void) usePromotionCodeSuccess: (Promotion *) promo success: (BOOL) successful {
     buying = NO;
     [self.buyActivity stopAnimating];
     self.buyActivity.hidden = YES;
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     
     if (successful) {
         NSLog(@"promotion code succeeded");
+        apEvent(@"promo", @"success", promo.code);
     } else {
+        apEvent(@"promo", @"fail", promo.code);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"invalid_promo_error_title", @"strings", @"")
                                                         message:locstr(@"invalid_promo_error_desc", @"strings", @"")
                                                        delegate:nil
@@ -180,8 +199,11 @@
     buying = NO;
     [self.buyActivity stopAnimating];
     self.buyActivity.hidden = YES;
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     
     NSLog(@"promotion code failed");
+    apEvent(@"promo", @"fail", promo.code);
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"promo_code_error_title", @"strings", @"")
                                                     message:locstr(@"promo_code_error_desc", @"strings", @"")
                                                    delegate:nil
@@ -203,20 +225,32 @@
         NSString *promoText = self.promoCodeField.text;
         
         if ([promoText isEqualToString:@""]) {
+            apEvent(@"buy", @"click", @"start for product");
             [[InAppPurchaseManager instance] purchaseProduct:product delegate: self];
         } else {
+            apEvent(@"buy", @"click", @"start with promo");
             [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate:self];
         }
+    } else {
+        apEvent(@"buy", @"click", @"still in progress");
     }
 }
 
 -(IBAction) cancelClick: (id) sender {
+    BOOL cancelAllowed = YES;
     if (delegate != nil && [delegate respondsToSelector:@selector(cancelClicked:)]) {
-        [delegate cancelClicked: buying];
+        cancelAllowed = [delegate cancelClicked: buying];
     }
     
     if (!buying) {
-        [self.view removeFromSuperview];
+        if (cancelAllowed) {
+            apEvent(@"buy", @"cancel click", @"start");
+            [self.view removeFromSuperview];
+        } else {
+            apEvent(@"buy", @"cancel click", @"not allowed");
+        }
+    } else {
+        apEvent(@"buy", @"cancel click", @"still in progress");
     }
 }
 
@@ -225,10 +259,14 @@
         NSString *promoText = self.promoCodeField.text;
         
         if ([promoText isEqualToString:@""]) {
+            apEvent(@"buy", @"upsell click", @"start for product");
             [[InAppPurchaseManager instance] purchaseProduct:upsellProduct delegate: self];
         } else {
+            apEvent(@"buy", @"upsell click", @"start with promo");
             [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate:self];
         }
+    } else {
+        apEvent(@"buy", @"upsell click", @"still in progress");
     }
 }
 

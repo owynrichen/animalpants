@@ -41,13 +41,13 @@
     return [behaviors count] > 0;
 }
 
--(BOOL) runBehaviors: (NSString *) event onNode: (CCNode *) node {
+-(BOOL) runBehaviors: (NSString *) event onNode: (CCNode *) node withParams: (NSDictionary *) params {
     NSArray *bh = [self getBehaviors:event];
     
     if (bh != nil) {
         [bh enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             Behavior *b = (Behavior *) obj;
-            [node runAction:[b getAction:node]];
+            [node runAction:[b getAction:node withParams: params]];
         }];
         
         return YES;

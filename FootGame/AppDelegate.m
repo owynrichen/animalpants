@@ -37,6 +37,16 @@
     // warm up the analytis publisher
     [AnalyticsPublisher instance];
     
+    // record a fresh install
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"install_recorded?"]) {
+        NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+        NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+        NSString *vb = [NSString stringWithFormat:@"%@ (%@)", version, build];
+        
+        apEvent(@"application", @"install", vb);
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"install_recorded?"];
+    }
+    
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.mp3"];
     [[SoundManager sharedManager] preloadSound:@"glock__g1.mp3"];

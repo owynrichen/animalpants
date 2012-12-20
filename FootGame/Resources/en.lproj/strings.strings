@@ -21,6 +21,9 @@
 "promo_code_error_desc" = "There was an error when checking the promotion code, please try again later.";
 "buy_upsell" = "Upsell! (%@)";
 "restore_purchases" = "Restore Purchases";
+"get_products" = "Talking to iTunes";
+"buying_product" = "Talking to iTunes";
+"checking_code" = "Activating Promo Code";
 
 "play" = "Play!";
 "animals" = "Animals";

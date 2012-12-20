@@ -9,7 +9,7 @@
 	<key>Environment</key>
 	<string>outback</string>
 	<key>SuccessSound</key>
-	<string>elephant2.wav</string>
+	<string>Kangaroo_noise.mp3</string>
 	<key>Name</key>
 	<string>Kangaroo</string>
 	<key>FailSound</key>

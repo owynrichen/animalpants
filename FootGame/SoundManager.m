@@ -8,6 +8,9 @@
 
 #import "SoundManager.h"
 
+#define MUSIC_VOLUME_KEY @"musicVolume"
+#define SOUND_VOLUME_KEY @"soundVolume"
+
 @implementation SoundManager
 static SoundManager* _instance;
 static NSString *_sync = @"";
@@ -28,7 +31,29 @@ static NSString *_sync = @"";
     self = [super init];
     audioEngine = [SimpleAudioEngine sharedEngine];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:MUSIC_VOLUME_KEY] != nil) {
+        // This wastes some cycles by re-saving to NSUserDefaults...
+        [self setMusicVolume:[defaults floatForKey:MUSIC_VOLUME_KEY]];
+    }
+    
+    if ([defaults objectForKey:SOUND_VOLUME_KEY] != nil) {
+        // This wastes some cycles by re-saving to NSUserDefaults...
+        [self setSoundVolume:[defaults floatForKey:SOUND_VOLUME_KEY]];
+    }
+
     return self;
+}
+
+-(void) setMusicVolume: (float) vol {
+    [audioEngine setBackgroundMusicVolume:vol];
+    [[NSUserDefaults standardUserDefaults] setFloat:vol forKey:MUSIC_VOLUME_KEY];
+}
+
+-(void) setSoundVolume: (float) vol {
+    [audioEngine setEffectsVolume:vol];
+    [[NSUserDefaults standardUserDefaults] setFloat:vol forKey:SOUND_VOLUME_KEY];
 }
 
 -(void) preloadSound:(NSString *)name {
@@ -36,7 +61,11 @@ static NSString *_sync = @"";
 }
 
 -(void) playSound: (NSString *) name {
-    [audioEngine playEffect:name];
+    [self playSound:name withVol:1.0f];
+}
+
+-(void) playSound: (NSString *) name withVol: (float) vol {
+    [audioEngine playEffect:name pitch:1.0f pan:0.0 gain:vol];
 }
 
 -(void) playBackground:(NSString *)name {
