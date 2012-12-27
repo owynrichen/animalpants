@@ -21,7 +21,6 @@
 
 -(id) initWithKey: (NSString *) k data: (NSDictionary *) d;
 -(CCAction *) getAction: (CCNode *) node withParams: (NSDictionary *) p;
--(CGPoint) parsePosition: (NSDictionary *) position;
 -(float) randWithBase: (float) base deviation: (float) dev;
 -(CGPoint) randXYWithBase: (CGPoint) base deviation: (CGPoint) dev;
 

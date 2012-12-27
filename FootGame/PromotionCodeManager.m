@@ -114,6 +114,7 @@ static NSString *_sync = @"sync";
     NSLog(@"Data From Server: %@", [dataSet description]);
     
     if (*error) {
+        apErr(*error);
         NSLog(@"Error parsing data: %@", [*error localizedDescription]);
         return nil;
     }

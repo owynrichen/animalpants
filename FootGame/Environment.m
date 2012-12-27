@@ -18,7 +18,7 @@
 // END TODO
 -(void) applyCommonParameters: (NSDictionary *) parameters toNode: (CCNode *) node;
 -(void) applyBehaviors: (NSDictionary *) parameters toNode: (CCNode<BehaviorManagerDelegate> *) node;
--(CGPoint) parseCoordinate: (NSDictionary *) coordinate;
+
 -(CGPoint) parsePosition: (NSDictionary *) position;
 @end
 
@@ -67,12 +67,6 @@
     [sprite addReflectTexture:[data objectForKey:@"reflectImageName"]];
     [self applyCommonParameters:data toNode:sprite];
     return sprite;
-}
-
--(CGPoint) parseCoordinate:(NSDictionary *)coordinate {
-    NSNumber *x = (NSNumber *) [coordinate objectForKey:@"x"];
-    NSNumber *y = (NSNumber *) [coordinate objectForKey:@"y"];
-    return CGPointMake([x floatValue],[y floatValue]);
 }
 
 -(CGPoint) parsePosition: (NSDictionary *) position {

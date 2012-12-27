@@ -122,7 +122,7 @@
     BOOL val = byteArray[((height - y) * width + x) * sizeof(BOOL)];
     return val;
 #else
-    int index = ((height - y) * width + x);
+    int index = ((height - y) * (width - 1) + x);
     signed char offset = (0x80 >> (index % 8));
     
     return (byteArray[index / 8] & offset) == offset;

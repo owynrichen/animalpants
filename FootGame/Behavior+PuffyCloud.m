@@ -34,13 +34,14 @@
     }
     
     if (sDevDict != nil) {
-        scaleDev = [self parsePosition:sDevDict];
+        scaleDev = [self parseCoordinate:sDevDict];
     } else {
-        scaleDev = CGPointMake(0.075,0.075);
+        scaleDev = CGPointMake(0.12,0.12);
+        // scaleDev = CGPointMake(0.5,0.5);
     }
     
     if (pDevDict != nil) {
-        posDev = [self parsePosition:pDevDict];
+        posDev = [self parseCoordinate:pDevDict];
     } else {
         posDev = ccpToRatio(20, 20);
     }
@@ -49,15 +50,13 @@
     float yDur = [self randWithBase:duration deviation:durationDeviation];
     CGPoint sDev = [self randXYWithBase:CGPointMake(0, 0) deviation:scaleDev];
     
-    CCScaleBy *scaleX = [CCScaleBy actionWithDuration:xDur / 2.0 scaleX:1.0 + sDev.x scaleY:1];
-    CCScaleBy *scaleXRev = [CCScaleBy actionWithDuration: xDur scaleX: 1.0 + sDev.x * 2.0 * -1.0 scaleY:1];
-    CCScaleBy *scaleXFwd = [CCScaleBy actionWithDuration: xDur scaleX: 1.0 + sDev.x * 2.0 scaleY:1];
+    CCScaleTo *scaleX = [CCScaleTo actionWithDuration:xDur / 2.0 scaleX:1.0 + sDev.x scaleY:1];
+    CCScaleTo *scaleXRev = [CCScaleTo actionWithDuration: xDur scaleX: 1.0 + sDev.x * 2.0 * -1.0 scaleY:1];
+    CCScaleTo *scaleXFwd = [CCScaleTo actionWithDuration: xDur scaleX: 1.0 + sDev.x * 2.0 scaleY:1];
     
-    CCScaleBy *scaleY = [CCScaleBy actionWithDuration:yDur / 2.0 scaleX:1 scaleY:1.0 + sDev.y];
-    CCScaleBy *scaleYRev = [CCScaleBy actionWithDuration: yDur scaleX:1 scaleY: 1.0 + sDev.y * 2.0 * -1.0];
-    CCScaleBy *scaleYFwd = [CCScaleBy actionWithDuration: yDur scaleX:1 scaleY: 1.0 + sDev.y * 2.0];
-    
-    //CCMoveBy *move = [CCMoveBy actionWithDuration:duration position:posDev];
+    CCScaleTo *scaleY = [CCScaleTo actionWithDuration:yDur / 2.0 scaleX:1 scaleY:1.0 + sDev.y];
+    CCScaleTo *scaleYRev = [CCScaleTo actionWithDuration: yDur scaleX:1 scaleY: 1.0 + sDev.y * 2.0 * -1.0];
+    CCScaleTo *scaleYFwd = [CCScaleTo actionWithDuration: yDur scaleX:1 scaleY: 1.0 + sDev.y * 2.0];
     
     CCCallBlockN *repXBlock = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         CCSequence *seq = [CCSequence actions:scaleXRev, scaleXFwd, nil];
@@ -73,14 +72,12 @@
     
     CCSequence *scaleXseq = [CCSequence actions: scaleX, repXBlock, nil];
     CCSequence *scaleYseq = [CCSequence actions: scaleY, repYBlock, nil];
-    // CCRepeatForever *moveSeq = [CCRepeatForever actionWithAction:[CCSequence actions:move, [move reverse], nil]];
     
     CCCallBlockN *callBlock = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         node.anchorPoint = ccp(0.5,0.5);
         node.position = ccp((node.contentSize.width * node.scaleX / 2) + node.position.x, (node.contentSize.height * node.scaleY / 2) + node.position.y);
         [node runAction:scaleXseq];
         [node runAction:scaleYseq];
-        //[node runAction:moveSeq];
     }];
     
     return callBlock;

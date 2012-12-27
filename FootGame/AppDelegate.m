@@ -53,7 +53,8 @@
     [[SoundManager sharedManager] preloadSound:@"game_intro_bgmusic.mp3"];
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
     
-    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Zebra"]];
     
 }
 

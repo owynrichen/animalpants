@@ -137,6 +137,54 @@
 	</dict>
 	<key>Cloud2</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>PuffyMove</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>move</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Puffy</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Float</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>floaty</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -153,6 +201,54 @@
 	</dict>
 	<key>Cloud1</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>PuffyMove</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>move</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Puffy</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Float</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>floaty</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

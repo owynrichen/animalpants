@@ -66,10 +66,6 @@
     if (finishBlock != nil)
         [finishBlock release];
     
-    if (storyText != NULL) {
-        [storyText release];
-    }
-    
     [super dealloc];
 }
 

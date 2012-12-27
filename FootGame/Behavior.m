@@ -55,24 +55,11 @@
     return nil;
 }
 
--(CGPoint) parsePosition: (NSDictionary *) position {
-    if (position == nil)
-        return CGPointMake(CGFLOAT_MAX, CGFLOAT_MAX);
-    
-    NSNumber *x = (NSNumber *) [position objectForKey:@"x"];
-    NSNumber *y = (NSNumber *) [position objectForKey:@"y"];
-    
-    if (x == nil || y == nil)
-        return CGPointMake(CGFLOAT_MAX, CGFLOAT_MAX);
-    
-    return ccp([x intValue]/* * positionRatioForCurrentDevice() */,[y intValue]/* * positionRatioForCurrentDevice() */);
-}
-
 -(float) randWithBase: (float) base deviation: (float) dev {
-    int doubleDev = dev * 2.0 * 1000;
+    int halfDev = dev * 0.5 * 1000;
     int newDev = dev * 1000;
     
-    float r = base + ((float)((rand() % doubleDev) - (rand() % newDev)) / 1000.0);
+    float r = base + ((float)((rand() % halfDev) - (rand() % newDev)) / 1000.0);
     
     return r;
 }

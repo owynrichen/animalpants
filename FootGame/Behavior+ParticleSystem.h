@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Behavior.h"
+#import "CCParticleSystem+Extras.h"
+
+#define BEHAVIOR_PARTICLE_TAG 433
 
 @interface Behavior(ParticleSystem)
 

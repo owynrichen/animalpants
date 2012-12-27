@@ -470,10 +470,10 @@
 
 -(void) blurGameLayer: (BOOL) blur withDuration: (GLfloat) duration {
     if (blur) {
-        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:0.0 sigmaEnd:2.0 desaturateStart:0.0 desaturateEnd:0.7];
+        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:0.0 sigmaEnd:1.0 desaturateStart:0.0 desaturateEnd:0.7];
         [gameLayer runAction:blur];
     } else {
-        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:2.0 sigmaEnd:0.0 desaturateStart:0.7 desaturateEnd:0.0];
+        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:1.0 sigmaEnd:0.0 desaturateStart:0.7 desaturateEnd:0.0];
         [gameLayer runAction:blur];
     }
 }

@@ -22,13 +22,13 @@ vec2 getSample(vec2 pos, float wlength, float timeamp, float amp) {
 
 void main()
 {
-    vec2 col1 = getSample(vec2(1.0,0.5), 24.0, 8.0, 2.0);
-    //vec2 col2 = getSample(vec2(0.34,0.0), 16.0, 4.0, 4.5);
+    vec2 col1 = getSample(vec2(1.0,0.62), 24.0, 8.0, 2.0);
+    vec2 col2 = getSample(vec2(0.34,0.12), 16.0, 4.0, 4.5);
     //vec2 col3 = getSample(vec2(0.0,0.78), 4.0, 15.0, 1.1);
     vec2 col4 = getSample(u_touchPos, 20.0, 9.0, u_touchAmp);
     
     //vec2 uv = (col1 + col2 + col3 + col4) / 4.0;
-    vec2 uv = (col1 + col4) / 2.0;
+    vec2 uv = (col1 + col2 + col4) / 3.0;
     vec2 uv_ref = vec2(uv.x, 1.0-uv.y);
     vec4 col = texture2D(CC_Texture0,uv);
     vec4 ref = texture2D(u_reflect_texture,uv_ref);

@@ -128,20 +128,132 @@
 			<integer>0</integer>
 		</dict>
 	</dict>
-	<key>Clouds</key>
+	<key>Clouds1</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>PuffyMove</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>move</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Puffy</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Float</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>floaty</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
 		<integer>1</integer>
 		<key>imageName</key>
-		<string>river_clouds.png</string>
+		<string>river_cloud1.png</string>
 		<key>position</key>
 		<dict>
 			<key>x</key>
 			<integer>164</integer>
 			<key>y</key>
 			<integer>579</integer>
+		</dict>
+	</dict>
+	<key>Clouds2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>PuffyMove</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>move</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Puffy</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>puff</string>
+			</dict>
+			<key>Float</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>floaty</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>river_cloud2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>542</integer>
+			<key>y</key>
+			<integer>570</integer>
 		</dict>
 	</dict>
 	<key>Music</key>
