@@ -11,7 +11,7 @@
 @implementation Behavior(BlowingGrass)
 
 -(CCAction *) windyGrass: (NSDictionary *) params {
-//    CCSprite *node = (CCSprite *) [params objectForKey:@"node"];
+    CCSprite *node = (CCSprite *) [params objectForKey:@"node"];
     NSNumber *durNum = (NSNumber *) [params objectForKey:@"duration"];
     NSNumber *durDevNum = (NSNumber *) [params objectForKey:@"durationDeviation"];
     NSNumber *skewBaseNum = (NSNumber *) [params objectForKey:@"skew"];
@@ -47,6 +47,13 @@
     float revDur = [self randWithBase:duration deviation:durationDeviation];
     float x = [self randWithBase:skew deviation:skewDev];
     float revX = -[self randWithBase:skew deviation:skewDev];
+    
+    double side = node.contentSize.height;
+    double skewPix2 = (pow(side, 2.0) + pow(side, 2.0)) - (2.0 * side * side * cos(x * M_PI/180));
+    double skewPix = sqrt(skewPix2);
+    double scaleX = (skewPix * 2.0 + node.contentSize.width) / (double) node.contentSize.width;
+    node.scaleX = scaleX;
+    node.position = ccp(node.position.x - skewPix, node.position.y);
     
     CCSkewTo *skewTo = [CCSkewTo actionWithDuration:dur skewX:x skewY:0];
     CCSkewTo *revSkewTo = [CCSkewTo actionWithDuration:revDur skewX:revX skewY:0];

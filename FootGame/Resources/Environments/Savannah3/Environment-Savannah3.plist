@@ -4,6 +4,28 @@
 <dict>
 	<key>GrassFg</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>tree_shake.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Windy</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>windyGrass</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -20,6 +42,28 @@
 	</dict>
 	<key>GrassSemiFg</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>tree_shake.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Windy</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>windyGrass</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

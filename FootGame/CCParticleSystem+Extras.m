@@ -75,6 +75,30 @@
         self.duration = [(NSNumber *) [params objectForKey:@"duration"] floatValue];
     }
     
+    if ([params objectForKey:@"angle"] != nil) {
+        self.angle = [(NSNumber *) [params objectForKey:@"angle"] floatValue];
+    }
+    
+    if ([params objectForKey:@"angleVariance"] != nil) {
+        self.angleVar = [(NSNumber *) [params objectForKey:@"angleVariance"] floatValue];
+    }
+    
+    if ([params objectForKey:@"speed"] != nil) {
+        self.speed = [(NSNumber *) [params objectForKey:@"speed"] floatValue];
+    }
+    
+    if ([params objectForKey:@"speedVariance"] != nil) {
+        self.speedVar = [(NSNumber *) [params objectForKey:@"speedVariance"] floatValue];
+    }
+    
+    if ([params objectForKey:@"particleLifespan"] != nil) {
+        self.life = [(NSNumber *) [params objectForKey:@"particleLifespan"] floatValue];
+    }
+    
+    if ([params objectForKey:@"particleLifespanVariance"] != nil) {
+        self.lifeVar = [(NSNumber *) [params objectForKey:@"particleLifespanVariance"] floatValue];
+    }
+    
     // TODO: insert more overrides here as needed...
     
     self.startSize = self.startSize * positionScaleForCurrentDevice(kDimensionY);
