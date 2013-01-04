@@ -54,7 +54,7 @@
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
     
     // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
-    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Kangaroo"]];
+    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
     
 }
 

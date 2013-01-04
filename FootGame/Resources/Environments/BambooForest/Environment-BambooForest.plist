@@ -279,6 +279,33 @@
 	</dict>
 	<key>Light</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Bugs</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sourcePositionVariance</key>
+					<dict>
+						<key>x</key>
+						<integer>1024</integer>
+						<key>y</key>
+						<integer>400</integer>
+					</dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>512</integer>
+						<key>y</key>
+						<integer>400</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>bugSwarm</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

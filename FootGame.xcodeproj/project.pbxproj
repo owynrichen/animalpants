@@ -221,6 +221,8 @@
 		3652C911168C0BEF00A57F73 /* Behavior+AirplaneTracer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3652C910168C0BED00A57F73 /* Behavior+AirplaneTracer.m */; };
 		3652C914168C12F100A57F73 /* CCParticleSystem+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 3652C913168C12F000A57F73 /* CCParticleSystem+Extras.m */; };
 		3652C917168C2FC700A57F73 /* NSObject+PListHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3652C916168C2FC600A57F73 /* NSObject+PListHelpers.m */; };
+		3652C9A01695E9FD00A57F73 /* BugSwarm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3652C99F1695E9FC00A57F73 /* BugSwarm.plist */; };
+		3652C9A31695EC9C00A57F73 /* Behavior+Bugs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3652C9A21695EC9600A57F73 /* Behavior+Bugs.m */; };
 		365C75B2161900550030CD0C /* hello-chiptune-cover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 365C75B1161900550030CD0C /* hello-chiptune-cover.mp3 */; };
 		365C75B6161901730030CD0C /* AnimalSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 365C75B5161901730030CD0C /* AnimalSelectLayer.m */; };
 		365C763E1619F2A50030CD0C /* StreakGlow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 365C763D1619F2A50030CD0C /* StreakGlow.plist */; };
@@ -1666,6 +1668,9 @@
 		3652C913168C12F000A57F73 /* CCParticleSystem+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCParticleSystem+Extras.m"; sourceTree = "<group>"; };
 		3652C915168C2FC500A57F73 /* NSObject+PListHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PListHelpers.h"; sourceTree = "<group>"; };
 		3652C916168C2FC600A57F73 /* NSObject+PListHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PListHelpers.m"; sourceTree = "<group>"; };
+		3652C99F1695E9FC00A57F73 /* BugSwarm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BugSwarm.plist; sourceTree = "<group>"; };
+		3652C9A11695EC9100A57F73 /* Behavior+Bugs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Bugs.h"; sourceTree = "<group>"; };
+		3652C9A21695EC9600A57F73 /* Behavior+Bugs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Bugs.m"; sourceTree = "<group>"; };
 		365C75B1161900550030CD0C /* hello-chiptune-cover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "hello-chiptune-cover.mp3"; path = "Audio/hello-chiptune-cover.mp3"; sourceTree = "<group>"; };
 		365C75B4161901730030CD0C /* AnimalSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalSelectLayer.h; sourceTree = "<group>"; };
 		365C75B5161901730030CD0C /* AnimalSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalSelectLayer.m; sourceTree = "<group>"; };
@@ -2983,6 +2988,7 @@
 		365C763C1619F2A40030CD0C /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				3652C99F1695E9FC00A57F73 /* BugSwarm.plist */,
 				3652C90D168C0AD600A57F73 /* AirplaneTracer.plist */,
 				3652C89E1682B87500A57F73 /* CloudPuffy.plist */,
 				365C763D1619F2A50030CD0C /* StreakGlow.plist */,
@@ -4288,6 +4294,8 @@
 				3652C903168BD43100A57F73 /* Behavior+BlowingGrass.m */,
 				3652C90F168C0BEB00A57F73 /* Behavior+AirplaneTracer.h */,
 				3652C910168C0BED00A57F73 /* Behavior+AirplaneTracer.m */,
+				3652C9A11695EC9100A57F73 /* Behavior+Bugs.h */,
+				3652C9A21695EC9600A57F73 /* Behavior+Bugs.m */,
 			);
 			name = Behaviors;
 			sourceTree = "<group>";
@@ -5821,6 +5829,7 @@
 				3652C90B168C071400A57F73 /* emma-pilot-ipadhd.png in Resources */,
 				3652C90C168C071400A57F73 /* emma-pilot.png in Resources */,
 				3652C90E168C0AD600A57F73 /* AirplaneTracer.plist in Resources */,
+				3652C9A01695E9FD00A57F73 /* BugSwarm.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5889,6 +5898,7 @@
 				3652C911168C0BEF00A57F73 /* Behavior+AirplaneTracer.m in Sources */,
 				3652C914168C12F100A57F73 /* CCParticleSystem+Extras.m in Sources */,
 				3652C917168C2FC700A57F73 /* NSObject+PListHelpers.m in Sources */,
+				3652C9A31695EC9C00A57F73 /* Behavior+Bugs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

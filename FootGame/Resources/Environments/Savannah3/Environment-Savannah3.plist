@@ -174,12 +174,23 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>startParticleSize</key>
+					<integer>3</integer>
+					<key>startParticleSizeVariance</key>
+					<integer>2</integer>
+					<key>sourcePositionVariance</key>
+					<dict>
+						<key>x</key>
+						<integer>130</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
 					<key>position</key>
 					<dict>
 						<key>x</key>
-						<integer>450</integer>
+						<integer>140</integer>
 						<key>y</key>
-						<integer>160</integer>
+						<integer>38</integer>
 					</dict>
 				</dict>
 				<key>event</key>
