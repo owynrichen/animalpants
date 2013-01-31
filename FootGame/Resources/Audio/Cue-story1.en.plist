@@ -8,241 +8,483 @@
 	<string>story1.en.mp3</string>
 	<key>locale</key>
 	<string>en</string>
-	<key>Oh</key>
+	<key>Twin</key>
 	<dict>
 		<key>start</key>
-		<real>0.067933</real>
+		<real>0.044406</real>
 		<key>duration</key>
-		<real>0.407599</real>
+		<real>0.317041</real>
 		<key>start_index</key>
 		<integer>0</integer>
 		<key>end_index</key>
-		<integer>2</integer>
+		<integer>4</integer>
 	</dict>
-	<key>no!</key>
+	<key>sisters,</key>
 	<dict>
 		<key>start</key>
-		<real>0.475532</real>
+		<real>0.361447</real>
 		<key>duration</key>
-		<real>0.66801</real>
+		<real>0.766268</real>
 		<key>start_index</key>
-		<integer>3</integer>
+		<integer>5</integer>
 		<key>end_index</key>
-		<integer>6</integer>
+		<integer>13</integer>
 	</dict>
-	<key>It</key>
+	<key>Emma</key>
 	<dict>
 		<key>start</key>
-		<real>1.293561</real>
+		<real>1.464377</real>
 		<key>duration</key>
-		<real>0.083501</real>
+		<real>0.346989</real>
 		<key>start_index</key>
-		<integer>7</integer>
+		<integer>14</integer>
 		<key>end_index</key>
-		<integer>9</integer>
+		<integer>18</integer>
 	</dict>
-	<key>looks</key>
+	<key>and</key>
 	<dict>
 		<key>start</key>
-		<real>1.377062</real>
+		<real>1.871263</real>
 		<key>duration</key>
-		<real>0.263241</real>
+		<real>0.187952</real>
 		<key>start_index</key>
-		<integer>10</integer>
+		<integer>19</integer>
 		<key>end_index</key>
-		<integer>15</integer>
+		<integer>22</integer>
 	</dict>
-	<key>like</key>
+	<key>Avery,</key>
 	<dict>
 		<key>start</key>
-		<real>1.640303</real>
+		<real>2.059215</real>
 		<key>duration</key>
-		<real>0.176909</real>
+		<real>0.597937</real>
 		<key>start_index</key>
-		<integer>16</integer>
+		<integer>23</integer>
 		<key>end_index</key>
-		<integer>20</integer>
+		<integer>29</integer>
 	</dict>
-	<key>all</key>
+	<key>are</key>
 	<dict>
 		<key>start</key>
-		<real>1.817212</real>
+		<real>3.015501</real>
 		<key>duration</key>
-		<real>0.145773</real>
+		<real>0.169363</real>
 		<key>start_index</key>
-		<integer>21</integer>
+		<integer>30</integer>
 		<key>end_index</key>
-		<integer>24</integer>
+		<integer>33</integer>
 	</dict>
-	<key>our</key>
+	<key>going</key>
 	<dict>
 		<key>start</key>
-		<real>1.962985</real>
+		<real>3.184864</real>
 		<key>duration</key>
-		<real>0.133036</real>
+		<real>0.295354</real>
 		<key>start_index</key>
-		<integer>25</integer>
+		<integer>34</integer>
 		<key>end_index</key>
-		<integer>28</integer>
+		<integer>39</integer>
+	</dict>
+	<key>on</key>
+	<dict>
+		<key>start</key>
+		<real>3.480218</real>
+		<key>duration</key>
+		<real>0.134252</real>
+		<key>start_index</key>
+		<integer>40</integer>
+		<key>end_index</key>
+		<integer>42</integer>
+	</dict>
+	<key>an</key>
+	<dict>
+		<key>start</key>
+		<real>3.61447</real>
+		<key>duration</key>
+		<real>0.131153</real>
+		<key>start_index</key>
+		<integer>43</integer>
+		<key>end_index</key>
+		<integer>45</integer>
 	</dict>
 	<key>animal</key>
 	<dict>
 		<key>start</key>
-		<real>2.096021</real>
+		<real>3.762147</real>
 		<key>duration</key>
-		<real>0.352404</real>
+		<real>0.421344</real>
 		<key>start_index</key>
-		<integer>29</integer>
+		<integer>46</integer>
 		<key>end_index</key>
-		<integer>35</integer>
+		<integer>52</integer>
 	</dict>
-	<key>friends</key>
+	<key>adventure!</key>
 	<dict>
 		<key>start</key>
-		<real>2.448425</real>
+		<real>4.242355</real>
 		<key>duration</key>
-		<real>0.348157</real>
+		<real>0.590708</real>
 		<key>start_index</key>
-		<integer>36</integer>
-		<key>end_index</key>
-		<integer>43</integer>
-	</dict>
-	<key>have</key>
-	<dict>
-		<key>start</key>
-		<real>2.796582</real>
-		<key>duration</key>
-		<real>0.076425</real>
-		<key>start_index</key>
-		<integer>44</integer>
-		<key>end_index</key>
-		<integer>48</integer>
-	</dict>
-	<key>lost</key>
-	<dict>
-		<key>start</key>
-		<real>2.873007</real>
-		<key>duration</key>
-		<real>0.358064</real>
-		<key>start_index</key>
-		<integer>49</integer>
-		<key>end_index</key>
 		<integer>53</integer>
-	</dict>
-	<key>their</key>
-	<dict>
-		<key>start</key>
-		<real>3.231071</real>
-		<key>duration</key>
-		<real>0.15285</real>
-		<key>start_index</key>
-		<integer>54</integer>
 		<key>end_index</key>
-		<integer>59</integer>
+		<integer>63</integer>
 	</dict>
-	<key>pants!</key>
+	<key>All</key>
 	<dict>
 		<key>start</key>
-		<real>3.383921</real>
+		<real>5.655096</real>
 		<key>duration</key>
-		<real>0.604322</real>
+		<real>0.204476</real>
 		<key>start_index</key>
-		<integer>60</integer>
+		<integer>64</integer>
 		<key>end_index</key>
-		<integer>66</integer>
-	</dict>
-	<key>Can</key>
-	<dict>
-		<key>start</key>
-		<real>4.620871</real>
-		<key>duration</key>
-		<real>0.117467</real>
-		<key>start_index</key>
 		<integer>67</integer>
-		<key>end_index</key>
-		<integer>70</integer>
-	</dict>
-	<key>you</key>
-	<dict>
-		<key>start</key>
-		<real>4.738338</real>
-		<key>duration</key>
-		<real>0.167003</real>
-		<key>start_index</key>
-		<integer>71</integer>
-		<key>end_index</key>
-		<integer>74</integer>
-	</dict>
-	<key>help</key>
-	<dict>
-		<key>start</key>
-		<real>4.905341</real>
-		<key>duration</key>
-		<real>0.20946</real>
-		<key>start_index</key>
-		<integer>75</integer>
-		<key>end_index</key>
-		<integer>79</integer>
 	</dict>
 	<key>the</key>
 	<dict>
 		<key>start</key>
-		<real>5.114801</real>
+		<real>5.859572</real>
 		<key>duration</key>
-		<real>0.0764250000000004</real>
+		<real>0.121859</real>
+		<key>start_index</key>
+		<integer>68</integer>
+		<key>end_index</key>
+		<integer>71</integer>
+	</dict>
+	<key>animals</key>
+	<dict>
+		<key>start</key>
+		<real>5.981431</real>
+		<key>duration</key>
+		<real>0.507059</real>
+		<key>start_index</key>
+		<integer>72</integer>
+		<key>end_index</key>
+		<integer>79</integer>
+	</dict>
+	<key>are1</key>
+	<dict>
+		<key>start</key>
+		<real>6.48849</real>
+		<key>duration</key>
+		<real>0.163167000000001</real>
 		<key>start_index</key>
 		<integer>80</integer>
 		<key>end_index</key>
 		<integer>83</integer>
 	</dict>
-	<key>animals</key>
+	<key>having</key>
 	<dict>
 		<key>start</key>
-		<real>5.191226</real>
+		<real>6.71775</real>
 		<key>duration</key>
-		<real>0.478363</real>
+		<real>0.254046000000001</real>
 		<key>start_index</key>
 		<integer>84</integer>
 		<key>end_index</key>
-		<integer>91</integer>
+		<integer>90</integer>
 	</dict>
-	<key>find</key>
+	<key>fun</key>
 	<dict>
 		<key>start</key>
-		<real>5.669589</real>
+		<real>7.050282</real>
 		<key>duration</key>
-		<real>0.203799</real>
+		<real>0.440965</real>
 		<key>start_index</key>
-		<integer>92</integer>
+		<integer>91</integer>
 		<key>end_index</key>
-		<integer>96</integer>
+		<integer>94</integer>
+	</dict>
+	<key>playing</key>
+	<dict>
+		<key>start</key>
+		<real>7.762848</real>
+		<key>duration</key>
+		<real>0.462653</real>
+		<key>start_index</key>
+		<integer>95</integer>
+		<key>end_index</key>
+		<integer>102</integer>
+	</dict>
+	<key>with</key>
+	<dict>
+		<key>start</key>
+		<real>8.225501</real>
+		<key>duration</key>
+		<real>0.120826000000001</real>
+		<key>start_index</key>
+		<integer>103</integer>
+		<key>end_index</key>
+		<integer>107</integer>
+	</dict>
+	<key>their</key>
+	<dict>
+		<key>start</key>
+		<real>8.346327</real>
+		<key>duration</key>
+		<real>0.183821999999999</real>
+		<key>start_index</key>
+		<integer>108</integer>
+		<key>end_index</key>
+		<integer>113</integer>
+	</dict>
+	<key>animal1</key>
+	<dict>
+		<key>start</key>
+		<real>8.530149</real>
+		<key>duration</key>
+		<real>0.403788</real>
+		<key>start_index</key>
+		<integer>114</integer>
+		<key>end_index</key>
+		<integer>120</integer>
+	</dict>
+	<key>friends,</key>
+	<dict>
+		<key>start</key>
+		<real>8.933937</real>
+		<key>duration</key>
+		<real>0.640276999999999</real>
+		<key>start_index</key>
+		<integer>121</integer>
+		<key>end_index</key>
+		<integer>129</integer>
+	</dict>
+	<key>but</key>
+	<dict>
+		<key>start</key>
+		<real>10.317762</real>
+		<key>duration</key>
+		<real>0.171429</real>
+		<key>start_index</key>
+		<integer>130</integer>
+		<key>end_index</key>
+		<integer>133</integer>
+	</dict>
+	<key>wait,</key>
+	<dict>
+		<key>start</key>
+		<real>10.489191</real>
+		<key>duration</key>
+		<real>0.566955999999999</real>
+		<key>start_index</key>
+		<integer>134</integer>
+		<key>end_index</key>
+		<integer>139</integer>
+	</dict>
+	<key>it</key>
+	<dict>
+		<key>start</key>
+		<real>11.510537</real>
+		<key>duration</key>
+		<real>0.136317</real>
+		<key>start_index</key>
+		<integer>140</integer>
+		<key>end_index</key>
+		<integer>142</integer>
+	</dict>
+	<key>looks</key>
+	<dict>
+		<key>start</key>
+		<real>11.646854</real>
+		<key>duration</key>
+		<real>0.219967</real>
+		<key>start_index</key>
+		<integer>143</integer>
+		<key>end_index</key>
+		<integer>148</integer>
+	</dict>
+	<key>like</key>
+	<dict>
+		<key>start</key>
+		<real>11.866821</real>
+		<key>duration</key>
+		<real>0.142513000000001</real>
+		<key>start_index</key>
+		<integer>149</integer>
+		<key>end_index</key>
+		<integer>153</integer>
+	</dict>
+	<key>they</key>
+	<dict>
+		<key>start</key>
+		<real>12.009334</real>
+		<key>duration</key>
+		<real>0.0937089999999987</real>
+		<key>start_index</key>
+		<integer>154</integer>
+		<key>end_index</key>
+		<integer>158</integer>
+	</dict>
+	<key>have</key>
+	<dict>
+		<key>start</key>
+		<real>12.103043</real>
+		<key>duration</key>
+		<real>0.0880470000000013</real>
+		<key>start_index</key>
+		<integer>159</integer>
+		<key>end_index</key>
+		<integer>163</integer>
+	</dict>
+	<key>all</key>
+	<dict>
+		<key>start</key>
+		<real>12.193392</real>
+		<key>duration</key>
+		<real>0.22635</real>
+		<key>start_index</key>
+		<integer>164</integer>
+		<key>end_index</key>
+		<integer>167</integer>
+	</dict>
+	<key>lost</key>
+	<dict>
+		<key>start</key>
+		<real>12.419318</real>
+		<key>duration</key>
+		<real>0.278831</real>
+		<key>start_index</key>
+		<integer>168</integer>
+		<key>end_index</key>
+		<integer>172</integer>
 	</dict>
 	<key>their1</key>
 	<dict>
 		<key>start</key>
-		<real>5.873388</real>
+		<real>12.698149</real>
 		<key>duration</key>
-		<real>0.155681</real>
+		<real>0.190017999999998</real>
 		<key>start_index</key>
-		<integer>97</integer>
+		<integer>173</integer>
 		<key>end_index</key>
-		<integer>102</integer>
+		<integer>178</integer>
+	</dict>
+	<key>pants.</key>
+	<dict>
+		<key>start</key>
+		<real>12.888167</real>
+		<key>duration</key>
+		<real>0.597936000000001</real>
+		<key>start_index</key>
+		<integer>179</integer>
+		<key>end_index</key>
+		<integer>185</integer>
+	</dict>
+	<key>That's</key>
+	<dict>
+		<key>start</key>
+		<real>13.972508</real>
+		<key>duration</key>
+		<real>0.350087</real>
+		<key>start_index</key>
+		<integer>186</integer>
+		<key>end_index</key>
+		<integer>192</integer>
+	</dict>
+	<key>silly!</key>
+	<dict>
+		<key>start</key>
+		<real>14.322595</real>
+		<key>duration</key>
+		<real>0.504993000000001</real>
+		<key>start_index</key>
+		<integer>193</integer>
+		<key>end_index</key>
+		<integer>199</integer>
+	</dict>
+	<key>Can</key>
+	<dict>
+		<key>start</key>
+		<real>15.498847</real>
+		<key>duration</key>
+		<real>0.140448000000001</real>
+		<key>start_index</key>
+		<integer>200</integer>
+		<key>end_index</key>
+		<integer>203</integer>
+	</dict>
+	<key>you</key>
+	<dict>
+		<key>start</key>
+		<real>15.639295</real>
+		<key>duration</key>
+		<real>0.156970999999999</real>
+		<key>start_index</key>
+		<integer>204</integer>
+		<key>end_index</key>
+		<integer>207</integer>
+	</dict>
+	<key>help</key>
+	<dict>
+		<key>start</key>
+		<real>15.796266</real>
+		<key>duration</key>
+		<real>0.327368</real>
+		<key>start_index</key>
+		<integer>208</integer>
+		<key>end_index</key>
+		<integer>212</integer>
+	</dict>
+	<key>the1</key>
+	<dict>
+		<key>start</key>
+		<real>16.130862</real>
+		<key>duration</key>
+		<real>0.130120999999999</real>
+		<key>start_index</key>
+		<integer>213</integer>
+		<key>end_index</key>
+		<integer>216</integer>
+	</dict>
+	<key>animals1</key>
+	<dict>
+		<key>start</key>
+		<real>16.260983</real>
+		<key>duration</key>
+		<real>0.601035</real>
+		<key>start_index</key>
+		<integer>217</integer>
+		<key>end_index</key>
+		<integer>224</integer>
+	</dict>
+	<key>find</key>
+	<dict>
+		<key>start</key>
+		<real>16.949798</real>
+		<key>duration</key>
+		<real>0.261274999999998</real>
+		<key>start_index</key>
+		<integer>225</integer>
+		<key>end_index</key>
+		<integer>229</integer>
+	</dict>
+	<key>their2</key>
+	<dict>
+		<key>start</key>
+		<real>17.211073</real>
+		<key>duration</key>
+		<real>0.135284000000002</real>
+		<key>start_index</key>
+		<integer>230</integer>
+		<key>end_index</key>
+		<integer>235</integer>
 	</dict>
 	<key>pants?</key>
 	<dict>
 		<key>start</key>
-		<real>6.029069</real>
+		<real>17.361848</real>
 		<key>duration</key>
-		<real>0.525066</real>
+		<real>0.605165000000003</real>
 		<key>start_index</key>
-		<integer>103</integer>
+		<integer>236</integer>
 		<key>end_index</key>
-		<integer>109</integer>
+		<integer>242</integer>
 	</dict>
 	<key>---</key>
 	<dict>
 		<key>start</key>
-		<real>6.554135</real>
+		<real>17.967013</real>
 		<key>duration</key>
 		<real>0.0</real>
 		<key>start_index</key>

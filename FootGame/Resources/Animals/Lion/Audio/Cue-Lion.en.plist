@@ -11,9 +11,9 @@
 	<key>Lloyd</key>
 	<dict>
 		<key>start</key>
-		<real>0.03483</real>
+		<real>0.137191</real>
 		<key>duration</key>
-		<real>0.290249</real>
+		<real>0.565094</real>
 		<key>start_index</key>
 		<integer>0</integer>
 		<key>end_index</key>
@@ -22,95 +22,161 @@
 	<key>the</key>
 	<dict>
 		<key>start</key>
-		<real>0.325079</real>
+		<real>0.82641</real>
 		<key>duration</key>
-		<real>0.1161</real>
+		<real>0.130658</real>
 		<key>start_index</key>
 		<integer>6</integer>
 		<key>end_index</key>
 		<integer>9</integer>
 	</dict>
-	<key>lion's</key>
+	<key>lion</key>
 	<dict>
 		<key>start</key>
-		<real>0.406349</real>
+		<real>0.957068</real>
 		<key>duration</key>
-		<real>0.383129</real>
+		<real>0.467101</real>
 		<key>start_index</key>
 		<integer>10</integer>
 		<key>end_index</key>
-		<integer>16</integer>
+		<integer>14</integer>
 	</dict>
-	<key>feet</key>
+	<key>has</key>
 	<dict>
 		<key>start</key>
-		<real>0.754649</real>
+		<real>1.535228</real>
 		<key>duration</key>
-		<real>0.174149</real>
+		<real>0.195987</real>
 		<key>start_index</key>
-		<integer>17</integer>
+		<integer>15</integer>
 		<key>end_index</key>
-		<integer>21</integer>
-	</dict>
-	<key>are</key>
-	<dict>
-		<key>start</key>
-		<real>0.905578</real>
-		<key>duration</key>
-		<real>0.20898</real>
-		<key>start_index</key>
-		<integer>22</integer>
-		<key>end_index</key>
-		<integer>25</integer>
-	</dict>
-	<key>brown</key>
-	<dict>
-		<key>start</key>
-		<real>1.114558</real>
-		<key>duration</key>
-		<real>0.818503</real>
-		<key>start_index</key>
-		<integer>26</integer>
-		<key>end_index</key>
-		<integer>31</integer>
-	</dict>
-	<key>with</key>
-	<dict>
-		<key>start</key>
-		<real>1.962086</real>
-		<key>duration</key>
-		<real>0.261225</real>
-		<key>start_index</key>
-		<integer>32</integer>
-		<key>end_index</key>
-		<integer>36</integer>
+		<integer>18</integer>
 	</dict>
 	<key>blue</key>
 	<dict>
 		<key>start</key>
-		<real>2.223311</real>
+		<real>1.731215</real>
 		<key>duration</key>
-		<real>0.417959</real>
+		<real>0.300513</real>
 		<key>start_index</key>
-		<integer>37</integer>
+		<integer>19</integer>
 		<key>end_index</key>
-		<integer>41</integer>
+		<integer>23</integer>
 	</dict>
-	<key>pants.</key>
+	<key>pants</key>
 	<dict>
 		<key>start</key>
-		<real>2.612245</real>
+		<real>2.031728</real>
 		<key>duration</key>
-		<real>0.359909</real>
+		<real>0.499766</real>
 		<key>start_index</key>
-		<integer>42</integer>
+		<integer>24</integer>
 		<key>end_index</key>
-		<integer>49</integer>
+		<integer>29</integer>
+	</dict>
+	<key>and</key>
+	<dict>
+		<key>start</key>
+		<real>2.756878</real>
+		<key>duration</key>
+		<real>0.130658</real>
+		<key>start_index</key>
+		<integer>30</integer>
+		<key>end_index</key>
+		<integer>33</integer>
+	</dict>
+	<key>his</key>
+	<dict>
+		<key>start</key>
+		<real>2.887536</real>
+		<key>duration</key>
+		<real>0.244983</real>
+		<key>start_index</key>
+		<integer>34</integer>
+		<key>end_index</key>
+		<integer>37</integer>
+	</dict>
+	<key>feet</key>
+	<dict>
+		<key>start</key>
+		<real>3.132519</real>
+		<key>duration</key>
+		<real>0.19272</real>
+		<key>start_index</key>
+		<integer>38</integer>
+		<key>end_index</key>
+		<integer>42</integer>
+	</dict>
+	<key>are</key>
+	<dict>
+		<key>start</key>
+		<real>3.325239</real>
+		<key>duration</key>
+		<real>0.107793</real>
+		<key>start_index</key>
+		<integer>43</integer>
+		<key>end_index</key>
+		<integer>46</integer>
+	</dict>
+	<key>covered</key>
+	<dict>
+		<key>start</key>
+		<real>3.433032</real>
+		<key>duration</key>
+		<real>0.326644</real>
+		<key>start_index</key>
+		<integer>47</integer>
+		<key>end_index</key>
+		<integer>54</integer>
+	</dict>
+	<key>in</key>
+	<dict>
+		<key>start</key>
+		<real>3.759676</real>
+		<key>duration</key>
+		<real>0.222119</real>
+		<key>start_index</key>
+		<integer>55</integer>
+		<key>end_index</key>
+		<integer>57</integer>
+	</dict>
+	<key>tan</key>
+	<dict>
+		<key>start</key>
+		<real>3.981795</real>
+		<key>duration</key>
+		<real>0.4867</real>
+		<key>start_index</key>
+		<integer>58</integer>
+		<key>end_index</key>
+		<integer>61</integer>
+	</dict>
+	<key>colored</key>
+	<dict>
+		<key>start</key>
+		<real>4.505749</real>
+		<key>duration</key>
+		<real>0.508242</real>
+		<key>start_index</key>
+		<integer>62</integer>
+		<key>end_index</key>
+		<integer>69</integer>
+	</dict>
+	<key>fur.</key>
+	<dict>
+		<key>start</key>
+		<real>5.013991</real>
+		<key>duration</key>
+		<real>0.482105</real>
+		<key>start_index</key>
+		<integer>70</integer>
+		<key>end_index</key>
+		<integer>74</integer>
 	</dict>
 	<key>---</key>
 	<dict>
 		<key>start</key>
-		<real>3.157914</real>
+		<real>5.496096</real>
 		<key>duration</key>
 		<real>0.0</real>
 		<key>start_index</key>

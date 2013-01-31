@@ -288,7 +288,7 @@
 					<key>sourcePositionVariance</key>
 					<dict>
 						<key>x</key>
-						<integer>1024</integer>
+						<integer>512</integer>
 						<key>y</key>
 						<integer>400</integer>
 					</dict>

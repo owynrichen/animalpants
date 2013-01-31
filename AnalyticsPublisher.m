@@ -79,4 +79,8 @@ static NSString *_sync = @"sync";
     [ga trackException:NO withDescription:msg];
 }
 
++(void) dispatch {
+    [[GAI sharedInstance] dispatch];
+}
+
 @end

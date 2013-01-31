@@ -6,6 +6,30 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Petals</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>params</key>
+				<dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>50</integer>
+						<key>y</key>
+						<integer>50</integer>
+					</dict>
+				</dict>
+				<key>action</key>
+				<string>petals</string>
+			</dict>
+			<key>Spin</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>spin</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -17,13 +41,6 @@
 				<string>touch</string>
 				<key>action</key>
 				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -44,6 +61,23 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Petals</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>params</key>
+				<dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>55</integer>
+						<key>y</key>
+						<integer>55</integer>
+					</dict>
+				</dict>
+				<key>action</key>
+				<string>petals</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -56,12 +90,12 @@
 				<key>action</key>
 				<string>playSound</string>
 			</dict>
-			<key>Flip</key>
+			<key>Spin</key>
 			<dict>
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>backflip</string>
+				<string>spin</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -82,6 +116,30 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Petals</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>params</key>
+				<dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>110</integer>
+						<key>y</key>
+						<integer>55</integer>
+					</dict>
+				</dict>
+				<key>action</key>
+				<string>petals</string>
+			</dict>
+			<key>Spin</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>spin</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -93,13 +151,6 @@
 				<string>touch</string>
 				<key>action</key>
 				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -210,10 +261,12 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>maxParticles</key>
+					<integer>1000</integer>
 					<key>sourcePositionVariance</key>
 					<dict>
 						<key>x</key>
-						<integer>1024</integer>
+						<integer>512</integer>
 						<key>y</key>
 						<integer>400</integer>
 					</dict>

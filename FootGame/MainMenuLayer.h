@@ -12,10 +12,12 @@
 @interface MainMenuLayer : CCLayer<CCTargetedTouchDelegate>
 
 @property (nonatomic, retain) CCAutoScalingSprite *title;
-@property (nonatomic, retain) CCMenu *menu;
-@property (nonatomic, retain) CCAutoScalingSprite *titleScroll;
-@property (nonatomic, retain) CCAutoScalingSprite *foreground;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
+@property (nonatomic, retain) CCAutoScalingSprite *girls;
+@property (nonatomic, retain) CCAutoScalingSprite *play;
+@property (nonatomic, retain) CCAutoScalingSprite *languages;
+@property (nonatomic, retain) CCAutoScalingSprite *animals;
+@property (nonatomic, retain) CCAutoScalingSprite *credits;
 @property (nonatomic, retain) CCSprite *splashFade;
 
 +(CCScene *) scene;

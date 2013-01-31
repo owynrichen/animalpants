@@ -8,6 +8,7 @@
 
 #import "CCSprite.h"
 #import "BehaviorManager.h"
+#import "BlockBehavior.h"
 #import "BitVector.h"
 
 @interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate>

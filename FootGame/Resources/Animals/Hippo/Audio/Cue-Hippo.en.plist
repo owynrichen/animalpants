@@ -8,12 +8,12 @@
 	<string>hippo_story.en.mp3</string>
 	<key>locale</key>
 	<string>en</string>
-	<key>horace</key>
+	<key>Horace</key>
 	<dict>
 		<key>start</key>
-		<real>0.075465</real>
+		<real>0.087084</real>
 		<key>duration</key>
-		<real>0.307664</real>
+		<real>0.522504</real>
 		<key>start_index</key>
 		<integer>0</integer>
 		<key>end_index</key>
@@ -22,9 +22,9 @@
 	<key>the</key>
 	<dict>
 		<key>start</key>
-		<real>0.383129</real>
+		<real>0.609588</real>
 		<key>duration</key>
-		<real>0.12771</real>
+		<real>0.184413</real>
 		<key>start_index</key>
 		<integer>7</integer>
 		<key>end_index</key>
@@ -33,9 +33,9 @@
 	<key>hippo's</key>
 	<dict>
 		<key>start</key>
-		<real>0.487619</real>
+		<real>0.794001</real>
 		<key>duration</key>
-		<real>0.458594</real>
+		<real>0.432858</real>
 		<key>start_index</key>
 		<integer>11</integer>
 		<key>end_index</key>
@@ -44,9 +44,9 @@
 	<key>feet</key>
 	<dict>
 		<key>start</key>
-		<real>0.946213</real>
+		<real>1.226859</real>
 		<key>duration</key>
-		<real>0.145125</real>
+		<real>0.43542</real>
 		<key>start_index</key>
 		<integer>19</integer>
 		<key>end_index</key>
@@ -55,9 +55,9 @@
 	<key>are</key>
 	<dict>
 		<key>start</key>
-		<real>1.091338</real>
+		<real>1.731433</real>
 		<key>duration</key>
-		<real>0.191564</real>
+		<real>0.220272</real>
 		<key>start_index</key>
 		<integer>24</integer>
 		<key>end_index</key>
@@ -66,9 +66,9 @@
 	<key>purple</key>
 	<dict>
 		<key>start</key>
-		<real>1.282902</real>
+		<real>1.951705</real>
 		<key>duration</key>
-		<real>0.928799</real>
+		<real>0.566045</real>
 		<key>start_index</key>
 		<integer>28</integer>
 		<key>end_index</key>
@@ -77,9 +77,9 @@
 	<key>and</key>
 	<dict>
 		<key>start</key>
-		<real>2.211701</real>
+		<real>2.745705</real>
 		<key>duration</key>
-		<real>0.226394</real>
+		<real>0.13831</real>
 		<key>start_index</key>
 		<integer>35</integer>
 		<key>end_index</key>
@@ -88,9 +88,9 @@
 	<key>he</key>
 	<dict>
 		<key>start</key>
-		<real>2.380045</real>
+		<real>2.884015</real>
 		<key>duration</key>
-		<real>0.171248</real>
+		<real>0.174168</real>
 		<key>start_index</key>
 		<integer>39</integer>
 		<key>end_index</key>
@@ -99,9 +99,9 @@
 	<key>is</key>
 	<dict>
 		<key>start</key>
-		<real>2.551293</real>
+		<real>3.058183</real>
 		<key>duration</key>
-		<real>0.188662</real>
+		<real>0.0819609999999997</real>
 		<key>start_index</key>
 		<integer>42</integer>
 		<key>end_index</key>
@@ -110,40 +110,51 @@
 	<key>wearing</key>
 	<dict>
 		<key>start</key>
-		<real>2.739955</real>
+		<real>3.140144</real>
 		<key>duration</key>
-		<real>0.359909</real>
+		<real>0.473839</real>
 		<key>start_index</key>
 		<integer>45</integer>
 		<key>end_index</key>
 		<integer>52</integer>
 	</dict>
-	<key>gray</key>
+	<key>big</key>
 	<dict>
 		<key>start</key>
-		<real>3.099864</real>
+		<real>3.613983</real>
 		<key>duration</key>
-		<real>0.429569</real>
+		<real>0.325284</real>
 		<key>start_index</key>
 		<integer>53</integer>
 		<key>end_index</key>
-		<integer>57</integer>
+		<integer>56</integer>
 	</dict>
-	<key>pants.</key>
+	<key>blue</key>
 	<dict>
 		<key>start</key>
-		<real>3.529433</real>
+		<real>3.939267</real>
 		<key>duration</key>
-		<real>0.626939</real>
+		<real>0.37651</real>
 		<key>start_index</key>
-		<integer>58</integer>
+		<integer>57</integer>
 		<key>end_index</key>
-		<integer>64</integer>
+		<integer>61</integer>
+	</dict>
+	<key>overalls.</key>
+	<dict>
+		<key>start</key>
+		<real>4.315777</real>
+		<key>duration</key>
+		<real>0.630078</real>
+		<key>start_index</key>
+		<integer>62</integer>
+		<key>end_index</key>
+		<integer>71</integer>
 	</dict>
 	<key>---</key>
 	<dict>
 		<key>start</key>
-		<real>4.156372</real>
+		<real>4.945855</real>
 		<key>duration</key>
 		<real>0.0</real>
 		<key>start_index</key>

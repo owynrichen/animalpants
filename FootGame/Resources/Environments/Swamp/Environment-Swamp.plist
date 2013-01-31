@@ -299,6 +299,8 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>maxParticles</key>
+					<integer>200</integer>
 					<key>sourcePositionVariance</key>
 					<dict>
 						<key>x</key>

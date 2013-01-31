@@ -197,7 +197,30 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     
+    if (self.visible && CGRectContainsPoint([self boundingBox], pnt)) {
+        pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
+        BOOL hit = NO;
+        NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
+        
+        if ([self.bitMask getPercentCoverage] > 40) {
+            hit = [self.bitMask hitx:pnt.x y:pnt.y];
+        } else {
+            hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
+        }
+        
+        if (hit) {
+            NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
+            NSMutableDictionary *touch = [[[NSMutableDictionary alloc] init] autorelease];
+            
+            [touch setObject:[NSNumber numberWithFloat: pnt.x] forKey:@"x"];
+            [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
+            [params setObject:touch forKey:@"touch"];
+            
+            [behaviorManager_ runBehaviors:@"touchup" onNode: self withParams: params];
+        }
+    }
 }
 
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {

@@ -20,10 +20,12 @@
 @implementation MainMenuLayer
 
 @synthesize title;
-@synthesize titleScroll;
-@synthesize menu;
-@synthesize foreground;
 @synthesize background;
+@synthesize girls;
+@synthesize play;
+@synthesize animals;
+@synthesize languages;
+@synthesize credits;
 @synthesize splashFade;
 
 +(CCScene *) scene
@@ -46,78 +48,89 @@
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    background = [CCAutoScalingSprite spriteWithFile:@"menu_background.png"];
+    background = [CCAutoScalingSprite spriteWithFile:@"menu_bg.png"];
     background.position = ccpToRatio(512, 384);
     [self addChild:background];
     
-    titleScroll = [CCAutoScalingSprite spriteWithFile:@"title_scroll.png"];
-    titleScroll.position = ccpToRatio(512,winSize.height + titleScroll.contentSize.height);
-    [self addChild:titleScroll];
+    girls = [CCAutoScalingSprite spriteWithFile:@"menu_girls.png"];
+    girls.position = ccpToRatio(800, 100);
+    [self addChild:girls];
     
-    NSString *titleStr = @"title.en.png"; //[[LocalizationManager sharedManager] getLocalizedFilename:@"title.png"];
+    NSString *titleStr = @"text_animalswithpants.en.png"; //[[LocalizationManager sharedManager] getLocalizedFilename:@"title.png"];
     
     title = [CCAutoScalingSprite spriteWithFile:titleStr];
-    title.position = ccpToRatio(512,winSize.height + titleScroll.contentSize.height + 40);
+    title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     [self addChild:title];
     
     [(NSArray *) [UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSLog(@"%@", obj);
     }];
-
-    [CCMenuItemFont setFontSize:72 * fontScaleForCurrentDevice()];
-    //[CCMenuItemFont setFontName:@"Pacifico"];
-    [CCMenuItemFont setFontName:@"Foo"];
     
-	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
-    NSLog(@"Locale: %@", currentLocale);
-
-    CCMenuItemFontWithStroke *smenuItem = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"play", @"strings", @"Play!") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    play = [CCAutoScalingSprite spriteWithFile:@"icon_play.png"];
+    play.position = ccpToRatio(512, 170);
+    [play.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
         [[AnimalPartRepository sharedRepository] resetAnimals];
         
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
-    }];
+    }]];
+    [self addChild:play];
+    play.opacity = 0;
     
-    CCMenuItemFontWithStroke *smenuItem2 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"animals", @"strings", @"Animals") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
-    }];
-    smenuItem2.position = ccp(0, -80 * fontScaleForCurrentDevice());
+    animals = [CCAutoScalingSprite spriteWithFile:@"icon_animals.png"];
+    animals.position = ccpToRatio(890, 650);
+    [animals.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
+        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+    }]];
+    [self addChild:animals];
     
-    CCMenuItemFontWithStroke *smenuItem3 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"languages", @"strings", @"Languages") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
-    }];
-    smenuItem3.position = ccp(0, -80 * 2 * fontScaleForCurrentDevice());
+    languages = [CCAutoScalingSprite spriteWithFile:@"icon_language.en.png"];
+    languages.position = ccpToRatio(890, 530);
+    [languages.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
+        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
+    }]];
+    [self addChild:languages];
     
-    CCMenuItemFontWithStroke *smenuItem4 = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"settings", @"strings", @"Settings") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[SettingsLayer scene] backwards:false]];
-    }];
-    smenuItem4.position = ccp(0, -80 * 3 * fontScaleForCurrentDevice());
+    credits = [CCAutoScalingSprite spriteWithFile:@"icon_credits.png"];
+    credits.position = ccpToRatio(890, 410);
+    [credits.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
+        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[SettingsLayer scene] backwards:false]];
+    }]];
     
-    menu = [CCMenu menuWithItems:smenuItem, smenuItem2, smenuItem3, smenuItem4, nil];
-    menu.opacity = 0;
-    menu.position = ccpToRatio(512, 384);
-    [self addChild:menu];
-    
-    foreground = [CCAutoScalingSprite spriteWithFile:@"menu_foreground.png"];
-    foreground.position = ccpToRatio(512, 384);
-    [self addChild:foreground];
+    [self addChild:credits];
 
     // TODO: until I can figure out how to remove the flicker, disable this
-//    splashFade = [CCSprite spriteWithFile:@"AlchemistKids@2x.png"];
-//    splashFade.rotation = -90;
-//    splashFade.opacity = 255;
+    
+    NSString *file = @"AlchemistKids.png";
+    switch (runningDevice()) {
+        case kiPhone:
+            file = @"AlchemistKids-iphone.png";
+            break;
+        case kiPhoneRetina:
+            file = @"AlchemistKids-iphone@2x.png";
+            break;
+        case kiPad:
+            break;
+        case kiPadRetina:
+            file = @"AlchemistKids@2x.png";
+            break;
+    }
+    
+    splashFade = [CCSprite spriteWithFile:file];
+    splashFade.rotation = -90;
+    splashFade.opacity = 255;
 //    splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
-//    splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
-//
-//    [self addChild:splashFade];
+    splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+
+    [self addChild:splashFade];
     
     return self;
 }
 
 -(void) onEnter {
     // TODO: until I can figure out how to remove the flicker, disable this
-//    if (splashFade.opacity == 255) {
-//        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
-//    }
+    if (splashFade.opacity == 255) {
+        [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
+    }
     apView(@"Main Menu");
     [[SoundManager sharedManager] playBackground:@"The Animals.mp3"];
     [super onEnter];
@@ -127,12 +140,11 @@
     CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
     
     // TODO: make this bounce?
-    [titleScroll runAction:[CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 550)]];
     [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
     [title runAction:[CCSequence actions:
                       [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 520)],
                       nil]];
-    [menu runAction:[CCFadeIn actionWithDuration:0.50]];
+    [play runAction:[CCFadeIn actionWithDuration:0.50]];
     
     [super onEnterTransitionDidFinish];
 }

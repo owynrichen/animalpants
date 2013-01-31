@@ -52,9 +52,10 @@
     [[SoundManager sharedManager] preloadSound:@"glock__g1.mp3"];
     [[SoundManager sharedManager] preloadSound:@"game_intro_bgmusic.mp3"];
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
+    [[SoundManager sharedManager] setMusicVolume:0.6];
     
-    // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
-    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
     
 }
 
@@ -64,6 +65,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    [AnalyticsPublisher dispatch];
 	[[CCDirector sharedDirector] pause];
 }
 
@@ -84,6 +86,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    [AnalyticsPublisher dispatch];
     CC_DIRECTOR_END();
 }
 

@@ -30,5 +30,6 @@
 -(void) trackEvent: (NSString *) event action: (NSString *) action label: (NSString *) label;
 -(void) trackError: (NSError *) error;
 -(void) trackErrorWithMessage: (NSString *) msg;
++(void) dispatch;
 
 @end
