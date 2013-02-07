@@ -15,7 +15,6 @@
 -(void) loadPreferredLanguageBundle: (NSString *) lang;
 -(NSBundle *) getPreferredLanguageBundle: (NSString *) lang;
 -(NSString *) getLocalizedStringForKey:(NSString *) key fromTable: (NSString *) table withBundle: (NSBundle *) bundle;
--(NSString *) getLocalizedFilename: (NSString *) baseFilename withLocale: (NSString *) lang;
 @end
 
 @implementation LocalizationManager

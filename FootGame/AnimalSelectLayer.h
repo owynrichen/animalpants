@@ -12,9 +12,10 @@
 
 @interface AnimalSelectLayer : CCLayer<UIWebViewDelegate, ProductRetrievalDelegate, PurchaseViewDelegate>
 
+@property (nonatomic, retain) CCAutoScalingSprite *back;
 @property (nonatomic, retain) CCMenu *menu;
+@property (nonatomic, retain) CCAutoScalingSprite *title;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
-@property (nonatomic, retain) UIWebView *facts;
 @property (nonatomic, retain) PurchaseViewController *purchase;
 
 +(CCScene *) scene;

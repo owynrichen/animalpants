@@ -22,6 +22,8 @@
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event;
 
+-(void) addEvent: (NSString *) event withBlock: (void (^)(CCNode * sender)) blk;
+
 -(void) afterDrawInit;
 
 @end

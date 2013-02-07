@@ -58,6 +58,10 @@
     [super setAnchorPoint:anchorPoint];
 }
 
+-(void) addEvent: (NSString *) event withBlock: (void (^)(CCNode * sender)) blk {
+    [[self behaviorManager] addBehavior:[BlockBehavior behaviorFromKey:event dictionary:[NSDictionary dictionaryWithObject:event forKey:@"event"] block:blk]];
+}
+
 -(void) draw {
     CC_PROFILER_START_CATEGORY(kCCProfilerCategorySprite, @"CCSprite - draw");
     
@@ -162,7 +166,7 @@
             [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
             [params setObject:touch forKey:@"touch"];
             
-            return [behaviorManager_ runBehaviors:@"touch" onNode: self withParams: params];
+            return [behaviorManager_ runBehaviors:@"touch" onNode: self withParams: params] || [behaviorManager_ hasBehaviorsForEvent:@"move"] || [behaviorManager_ hasBehaviorsForEvent:@"touchup"] || [behaviorManager_ hasBehaviorsForEvent:@"touchupoutside"];
         }
     }
     
@@ -199,26 +203,32 @@
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     
-    if (self.visible && CGRectContainsPoint([self boundingBox], pnt)) {
-        pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
-        BOOL hit = NO;
-        NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
+    if (self.visible) {
+        NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
+        NSMutableDictionary *touch = [[[NSMutableDictionary alloc] init] autorelease];
         
-        if ([self.bitMask getPercentCoverage] > 40) {
-            hit = [self.bitMask hitx:pnt.x y:pnt.y];
-        } else {
-            hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
-        }
+        [touch setObject:[NSNumber numberWithFloat: pnt.x] forKey:@"x"];
+        [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
+        [params setObject:touch forKey:@"touch"];
         
-        if (hit) {
-            NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
-            NSMutableDictionary *touch = [[[NSMutableDictionary alloc] init] autorelease];
+        if (CGRectContainsPoint([self boundingBox], pnt)) {
+            pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
+            BOOL hit = NO;
+            NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
             
-            [touch setObject:[NSNumber numberWithFloat: pnt.x] forKey:@"x"];
-            [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
-            [params setObject:touch forKey:@"touch"];
+            if ([self.bitMask getPercentCoverage] > 40) {
+                hit = [self.bitMask hitx:pnt.x y:pnt.y];
+            } else {
+                hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
+            }
             
-            [behaviorManager_ runBehaviors:@"touchup" onNode: self withParams: params];
+            if (hit) {
+                [behaviorManager_ runBehaviors:@"touchup" onNode: self withParams: params];
+            } else {
+                [behaviorManager_ runBehaviors:@"touchupoutside" onNode: self withParams: params];
+            }
+        } else {            
+            [behaviorManager_ runBehaviors:@"touchupoutside" onNode: self withParams: params];
         }
     }
 }

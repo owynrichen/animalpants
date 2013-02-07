@@ -79,6 +79,7 @@
 }
 
 -(void) onEnter {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     victory = NO;
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -352,6 +353,9 @@
             }
         }
     } else if (nextTouched) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+        hud.labelText = locstr(@"loading", @"strings", @"");
+        
         [next stopAllActions];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
     } else if (head1Touched) {
@@ -420,10 +424,12 @@
         void (^callback)(CCNode *node) =  ^(CCNode *node) {
             [bubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
                 [bubble ccTouchEnded:nil withEvent:nil];
+                [[SoundManager sharedManager] setMusicVolume:0.6];
             }], nil]];
         };
         
         if (cues != nil) {
+            [[SoundManager sharedManager] setMusicVolume:0.4];
             [bubble startWithCues:cues finishBlock:callback touchBlock:touchBlock];
         } else {
             [bubble startWithFinishBlock:callback touchBlock:touchBlock];

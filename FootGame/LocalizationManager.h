@@ -14,6 +14,12 @@
 #define menulocstr(key, tbl, comment) \
 [[LocalizationManager sharedManager] getSystemLanguageHelperString: (key) fromTable: (tbl)]
 
+#define locfile(file) \
+[[LocalizationManager sharedManager] getLocalizedFilename: (file)]
+
+#define locfile2(file, locale) \
+[[LocalizationManager sharedManager] getLocalizedFilename: (file) withLocale: (locale)]
+
 @interface LocalizationManager : NSObject {
     NSBundle *strBundle;
 }
@@ -29,6 +35,7 @@
 
 -(NSString *) getLocalizedFilename: (NSString *) baseFilename;
 -(NSString *) getLocalizedImageFilename: (NSString *) baseImageFilename;
+-(NSString *) getLocalizedFilename: (NSString *) baseFilename withLocale: (NSString *) lang;
 
 -(NSArray *) getAvailableLanguages;
 -(NSArray *) getAvailableLanguageStrings;

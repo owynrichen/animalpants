@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
+#import "AnimalSelectLayer.h"
 #import "AnimalViewLayer.h"
 #import "SoundManager.h"
 #import "TestFlight.h"
@@ -55,6 +56,7 @@
     [[SoundManager sharedManager] setMusicVolume:0.6];
     
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
     
 }

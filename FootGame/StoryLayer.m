@@ -12,6 +12,7 @@
 #import "LocalizationManager.h"
 #import "AudioCueRepository.h"
 #import "AnalyticsPublisher.h"
+#import "MBProgressHUD.h"
 
 @implementation StoryLayer
 
@@ -57,6 +58,7 @@
 }
 
 -(void) onEnter {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     apView(@"Story View");
 }
 
@@ -67,11 +69,19 @@
     
     AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:@"story1.mp3"]];
     
+    [[SoundManager sharedManager] setMusicVolume:0.4];
+    
     [story1 startWithCues: cues finishBlock:^(CCNode *node) {
         // TODO: set this up to go away on a timer or a touch
         [girl1 stopAllActions];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
     } touchBlock:^(CCNode *node, BOOL finished) {}];
+}
+
+-(void) onExitTransitionDidStart {
+    [[SoundManager sharedManager] setMusicVolume:0.6];
+    
+    [super onExitTransitionDidStart];
 }
 
 @end

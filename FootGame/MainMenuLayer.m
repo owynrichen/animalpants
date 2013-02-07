@@ -16,6 +16,7 @@
 #import "LocalizationManager.h"
 #import "LanguageSelectLayer.h"
 #import "AnimalPartRepository.h"
+#import "MBProgressHUD.h"
 
 @implementation MainMenuLayer
 
@@ -56,7 +57,7 @@
     girls.position = ccpToRatio(800, 100);
     [self addChild:girls];
     
-    NSString *titleStr = @"text_animalswithpants.en.png"; //[[LocalizationManager sharedManager] getLocalizedFilename:@"title.png"];
+    NSString *titleStr = @"text_animalswithpants.en.png";
     
     title = [CCAutoScalingSprite spriteWithFile:titleStr];
     title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
@@ -68,33 +69,74 @@
     
     play = [CCAutoScalingSprite spriteWithFile:@"icon_play.png"];
     play.position = ccpToRatio(512, 170);
-    [play.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
-        [[AnimalPartRepository sharedRepository] resetAnimals];
+    
+    [play addEvent:@"touch" withBlock:^(CCNode * sender) {
+        [[SoundManager sharedManager] playSound:locfile(@"play.mp3")];
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];
+    }];
+    
+    [play addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+    }];
+    
+    [play addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+        hud.labelText = locstr(@"loading", @"strings", @"");
         
+        [[AnimalPartRepository sharedRepository] resetAnimals];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
-    }]];
+    }];
+
     [self addChild:play];
     play.opacity = 0;
     
     animals = [CCAutoScalingSprite spriteWithFile:@"icon_animals.png"];
     animals.position = ccpToRatio(890, 650);
-    [animals.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
+    [animals addEvent:@"touch" withBlock:^(CCNode * sender) {
+        [[SoundManager sharedManager] playSound:locfile(@"animals.mp3")];
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];
+    }];
+    
+    [animals addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+    }];
+    
+    [animals addEvent:@"touchup" withBlock:^(CCNode * sender) {
         [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
-    }]];
+    }];
     [self addChild:animals];
     
-    languages = [CCAutoScalingSprite spriteWithFile:@"icon_language.en.png"];
+    languages = [CCAutoScalingSprite spriteWithFile:locfile(@"icon_language.png")];
     languages.position = ccpToRatio(890, 530);
-    [languages.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
+    [languages addEvent:@"touch" withBlock:^(CCNode * sender) {
+        [[SoundManager sharedManager] playSound:locfile(@"languages.mp3")];
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];
+    }];
+    
+    [languages addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+    }];
+    
+    [languages addEvent:@"touchup" withBlock:^(CCNode * sender) {
         [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
-    }]];
+    }];
     [self addChild:languages];
     
     credits = [CCAutoScalingSprite spriteWithFile:@"icon_credits.png"];
     credits.position = ccpToRatio(890, 410);
-    [credits.behaviorManager addBehavior:[BlockBehavior behaviorFromKey:@"touch" dictionary:[NSDictionary dictionaryWithObject:@"touch" forKey:@"event"] block:^(id sender) {
+    [credits addEvent:@"touch" withBlock:^(CCNode * sender) {
+        [[SoundManager sharedManager] playSound:locfile(@"settings.mp3")];
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];
+    }];
+    
+    [credits addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+    }];
+    
+    [credits addEvent:@"touchup" withBlock:^(CCNode * sender) {
         [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[SettingsLayer scene] backwards:false]];
-    }]];
+    }];
     
     [self addChild:credits];
 
@@ -118,15 +160,21 @@
     splashFade = [CCSprite spriteWithFile:file];
     splashFade.rotation = -90;
     splashFade.opacity = 255;
-//    splashFade.scale = 0.5 * CC_CONTENT_SCALE_FACTOR();
     splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
     [self addChild:splashFade];
+    // TODO: preload this for the appropriate language
+    
+    [[SoundManager sharedManager] preloadSound:locfile(@"play.mp3")];
+    [[SoundManager sharedManager] preloadSound:locfile(@"animals.mp3")];
+    [[SoundManager sharedManager] preloadSound:locfile(@"languages.mp3")];
+    [[SoundManager sharedManager] preloadSound:locfile(@"settings.mp3")];
     
     return self;
 }
 
 -(void) onEnter {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     // TODO: until I can figure out how to remove the flicker, disable this
     if (splashFade.opacity == 255) {
         [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];

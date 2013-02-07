@@ -11,9 +11,9 @@
 	<key>Kendra</key>
 	<dict>
 		<key>start</key>
-		<real>0.053569</real>
+		<real>0.192848</real>
 		<key>duration</key>
-		<real>0.430693</real>
+		<real>0.47569</real>
 		<key>start_index</key>
 		<integer>0</integer>
 		<key>end_index</key>
@@ -22,20 +22,20 @@
 	<key>the</key>
 	<dict>
 		<key>start</key>
-		<real>0.484262</real>
+		<real>0.668538</real>
 		<key>duration</key>
-		<real>0.130707</real>
+		<real>0.0985670000000001</real>
 		<key>start_index</key>
 		<integer>7</integer>
 		<key>end_index</key>
 		<integer>10</integer>
 	</dict>
-	<key>kangaroo's</key>
+	<key>Kangaroo's</key>
 	<dict>
 		<key>start</key>
-		<real>0.614969</real>
+		<real>0.767105</real>
 		<key>duration</key>
-		<real>0.623541</real>
+		<real>0.569971</real>
 		<key>start_index</key>
 		<integer>11</integer>
 		<key>end_index</key>
@@ -44,9 +44,9 @@
 	<key>feet</key>
 	<dict>
 		<key>start</key>
-		<real>1.23851</real>
+		<real>1.337076</real>
 		<key>duration</key>
-		<real>0.359982</real>
+		<real>0.385695</real>
 		<key>start_index</key>
 		<integer>22</integer>
 		<key>end_index</key>
@@ -55,9 +55,9 @@
 	<key>are</key>
 	<dict>
 		<key>start</key>
-		<real>1.686345</real>
+		<real>1.829909</real>
 		<key>duration</key>
-		<real>0.154278</real>
+		<real>0.167134</real>
 		<key>start_index</key>
 		<integer>27</integer>
 		<key>end_index</key>
@@ -66,9 +66,9 @@
 	<key>brown</key>
 	<dict>
 		<key>start</key>
-		<real>1.840623</real>
+		<real>2.035613</real>
 		<key>duration</key>
-		<real>0.591399</real>
+		<real>0.527117</real>
 		<key>start_index</key>
 		<integer>31</integer>
 		<key>end_index</key>
@@ -77,9 +77,9 @@
 	<key>with</key>
 	<dict>
 		<key>start</key>
-		<real>2.627012</real>
+		<real>2.764148</real>
 		<key>duration</key>
-		<real>0.122137</real>
+		<real>0.312842</real>
 		<key>start_index</key>
 		<integer>37</integer>
 		<key>end_index</key>
@@ -88,9 +88,9 @@
 	<key>striped</key>
 	<dict>
 		<key>start</key>
-		<real>2.749149</real>
+		<real>3.07699</real>
 		<key>duration</key>
-		<real>0.621398</real>
+		<real>0.441406</real>
 		<key>start_index</key>
 		<integer>42</integer>
 		<key>end_index</key>
@@ -99,9 +99,9 @@
 	<key>purple</key>
 	<dict>
 		<key>start</key>
-		<real>3.494826</real>
+		<real>3.646961</real>
 		<key>duration</key>
-		<real>0.394266</real>
+		<real>0.419979</real>
 		<key>start_index</key>
 		<integer>50</integer>
 		<key>end_index</key>
@@ -110,9 +110,9 @@
 	<key>pants.</key>
 	<dict>
 		<key>start</key>
-		<real>3.889092</real>
+		<real>4.06694</real>
 		<key>duration</key>
-		<real>0.531401999999999</real>
+		<real>0.557116000000001</real>
 		<key>start_index</key>
 		<integer>57</integer>
 		<key>end_index</key>
@@ -121,7 +121,7 @@
 	<key>---</key>
 	<dict>
 		<key>start</key>
-		<real>4.420494</real>
+		<real>4.624056</real>
 		<key>duration</key>
 		<real>0.0</real>
 		<key>start_index</key>

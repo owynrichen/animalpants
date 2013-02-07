@@ -9,18 +9,20 @@
 #import "AnimalSelectLayer.h"
 #import "AnimalPartRepository.h"
 #import "AnimalViewLayer.h"
-#import "CCMenuItemFontWithStroke.h"
+#import "SoundManager.h"
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
 #import "MBProgressHUD.h"
+#import "CCMenuItemImageTouchDown.h"
 
 @implementation AnimalSelectLayer
 
 @synthesize background;
 @synthesize menu;
-@synthesize facts;
+@synthesize title;
 @synthesize purchase;
+@synthesize back;
 
 +(CCScene *) scene
 {
@@ -40,24 +42,40 @@
 -(id) init {
     self = [super init];
     
-    facts = [[UIWebView alloc] init];
-    facts.opaque = NO;
-    facts.backgroundColor = [UIColor clearColor];
+//    facts = [[UIWebView alloc] init];
+//    facts.opaque = NO;
+//    facts.backgroundColor = [UIColor clearColor];
     // TODO: make this scale
-    CGPoint pos = ccpToRatio(300, 0);
-    CGPoint size = ccpToRatio(724, 768);
-    facts.frame = CGRectMake(pos.x, pos.y, size.x, size.y);
-    facts.delegate = self;
+//    CGPoint pos = ccpToRatio(300, 0);
+//    CGPoint size = ccpToRatio(724, 768);
+//    facts.frame = CGRectMake(pos.x, pos.y, size.x, size.y);
+//    facts.delegate = self;
     
     return self;
 }
 
 -(void) onEnter {
     [super onEnter];
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    title = [CCAutoScalingSprite spriteWithFile:@"text_theanimals.en.png"];
+    title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+    
+    back = [CCAutoScalingSprite spriteWithFile:@"arrow.png"];
+    back.scaleX = -0.4 * fontScaleForCurrentDevice();
+    back.scaleY = 0.4 * fontScaleForCurrentDevice();
+    back.anchorPoint = ccp(0,0);
+    back.position = ccpToRatio(130, winSize.height - 100);
+    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+        hud.labelText = locstr(@"loading", @"strings", @"");
+        
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+    }];
     
     menu = [CCMenu menuWithItems: nil];
     
@@ -65,17 +83,27 @@
     
     [self addChild:background];
     [self addChild:menu];
+    [self addChild:title];
+    [self addChild:back];
     
     apView(@"Animal Select View");
 }
 
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
-    [[CCDirector sharedDirector].view addSubview:facts];
+//    [[CCDirector sharedDirector].view addSubview:facts];
+    CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
+    
+    // TODO: make this bounce?
+    [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
+    
+    [title runAction:[CCSequence actions:
+                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 620)],
+                      nil]];
 }
 
 -(void) onExitTransitionDidStart {
-    [facts removeFromSuperview];
+//    [facts removeFromSuperview];
     [super onExitTransitionDidStart];
 }
 
@@ -87,39 +115,55 @@
     
 	NSString *currentLocale = [[NSLocale currentLocale] localeIdentifier];
     NSLog(@"Locale: %@", currentLocale);
-    
-    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"back", @"strings", @"Back") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
-    }];
-    back.anchorPoint = ccp(0,0);
-    back.position = ccp(0,0);
-    
-    [menu addChild:back z:0 tag:1];
+
     menu.anchorPoint = ccp(0,0);
-    menu.position = ccp(winSize.width * 0.1, winSize.height * 0.9);
-    __block int count = 1;
+    menu.position = ccpToRatio(100, 400);
+    __block int count = 0;
+    __block int row = 0;
     
     [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSString *menuKey = [NSString stringWithFormat:@"menu_%@", [key lowercaseString]];
-        NSString *name = menulocstr(menuKey, @"strings", @"");
+        NSString *imageKey = [NSString stringWithFormat:@"circle-%@.png", [key lowercaseString]];
+        NSString *selectedImageKey = [NSString stringWithFormat:@"circle-%@-happy.png", [key lowercaseString]];
+        
+        CCMenuItemImageTouchDown *item = [CCMenuItemImageTouchDown itemWithNormalImage:imageKey selectedImage:selectedImageKey block:^(id sender) {
+            NSString *key = (NSString *) ((CCNode *) sender).userData;
+            Animal *animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:key];
+            
+            if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+                hud.labelText = locstr(@"loading", @"strings", @"");
+                
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
+            } else {
+                NSLog(@"Animal %@ isn't owned", key);
+                [[InAppPurchaseManager instance] getProducts:self withData:animal.productId];
+            }
+        }];
+        
+        NSString *sound = [[NSString stringWithFormat:@"%@.mp3", key] lowercaseString];
+        NSString *soundfname = locfile(sound);
+        [[SoundManager sharedManager] preloadSound:soundfname];
+        
+        [item addDownEvent:^(id sender) {
+            NSString *s = [[NSString stringWithFormat:@"%@.mp3", ((CCNode *) sender).userData] lowercaseString];
+            NSString *sf = locfile(s);
+            [[SoundManager sharedManager] playSound:sf];
+        }];
         
         BOOL owned = [[PremiumContentStore instance] ownsProductId:((Animal *) obj).productId];
         
         if (!owned) {
-            name = [NSString stringWithFormat:@"%@ (%@)", name, locstr(@"buy", @"strings","")];
+            item.opacity = 220;
         }
         
-        CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:name color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-            NSString *html = ((Animal *) obj).factsHtml;
-            //            NSLog(@"HTML: %@", html);
-            NSString *path = [[NSBundle mainBundle] bundlePath];
-            NSURL *baseURL = [NSURL fileURLWithPath:path];
-            [facts loadHTMLString: html baseURL:baseURL];
-        }];
-        
+        float gap = (winSize.width - (200 * positionScaleForCurrentDevice(kDimensionX)) - (item.contentSize.width * 4)) / 3;
+        item.userData = key;
         item.anchorPoint = ccp(0,0);
-        item.position = ccp(0, -44 * count * fontScaleForCurrentDevice());
+        item.position = ccp((item.contentSize.width + gap) * (count % 4), row * (-item.contentSize.height - gap / 3));
         count++;
+        if (count % 4 == 0)
+            row++;
+        
         [menu addChild:item z:0 tag:1];
     }];
 }
@@ -181,9 +225,9 @@
 }
 
 -(void) dealloc {
-    facts.delegate = nil;
-    [facts release];
-    facts = nil;
+//    facts.delegate = nil;
+//    [facts release];
+//    facts = nil;
     
     if (purchase != nil)
         [purchase release];

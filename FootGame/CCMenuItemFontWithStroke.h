@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Alchemist Interactive LLC. All rights reserved.
 //
 
-@interface CCMenuItemFontWithStroke : CCMenuItemFont
+@interface CCMenuItemFontWithStroke : CCMenuItemFont {
+    void (^downBlock)(id sender);
+}
 
 +(id) itemFromString: (NSString*) value target:(id) r selector:(SEL) s color:(ccColor3B)color strokeColor:(ccColor3B) sColor strokeSize: (float) size;
 
@@ -22,4 +24,5 @@
 -(void) setStrokeSize:(float)strokeSize;
 -(void) setString:(NSString *)string;
 -(void) resetContentSize;
+-(void) addDownEvent: (void (^)(id sender)) block;
 @end

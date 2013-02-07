@@ -41,6 +41,11 @@
     return [behaviors count] > 0;
 }
 
+-(BOOL) hasBehaviorsForEvent: (NSString *) event {
+    NSArray *bh = [self getBehaviors:event];
+    return bh != nil && [bh count] > 0;
+}
+
 -(BOOL) runBehaviors: (NSString *) event onNode: (CCNode *) node withParams: (NSDictionary *) params {
     NSArray *bh = [self getBehaviors:event];
     

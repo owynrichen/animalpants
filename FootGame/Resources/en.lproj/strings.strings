@@ -10,6 +10,7 @@
 "buy" = "Buy";
 "okay" = "Okay";
 "promocode" = "Promotional code?";
+"loading" = "Searching for Animals...";
 
 "product_fetch_error_title" = "Error Fetching Products";
 "product_fetch_error_desc" = "There was an issue getting product information from iTunes, please try again later.";

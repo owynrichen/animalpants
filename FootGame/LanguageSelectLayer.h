@@ -14,6 +14,8 @@
     PurchaseViewController *purchase;
 }
 
+@property (nonatomic, retain) CCAutoScalingSprite *back;
+@property (nonatomic, retain) CCAutoScalingSprite *title;
 @property (nonatomic, retain) CCMenu *menu;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 

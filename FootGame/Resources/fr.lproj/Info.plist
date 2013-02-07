@@ -55,8 +55,8 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Pacifico.ttf</string>
-		<string>foo.ttf</string>
+		<string>existencelight.ttf</string>
+		<string>ratherloud.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -9,11 +9,11 @@
 #import "Behavior.h"
 
 @interface BlockBehavior : Behavior {
-    void (^block)(id sender);
+    void (^block)(CCNode * sender);
 }
 
-+(BlockBehavior *) behaviorFromKey: (NSString *) key dictionary: (NSDictionary *) data block: (void (^)(id sender)) blk;
++(BlockBehavior *) behaviorFromKey: (NSString *) key dictionary: (NSDictionary *) data block: (void (^)(CCNode * sender)) blk;
 
--(id) initWithKey:(NSString *)k data:(NSDictionary *)d block: (void (^)(id sender)) blk;
+-(id) initWithKey:(NSString *)k data:(NSDictionary *)d block: (void (^)(CCNode * sender)) blk;
 
 @end

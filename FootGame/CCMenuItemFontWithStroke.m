@@ -11,6 +11,19 @@
 
 @implementation CCMenuItemFontWithStroke
 
+-(void) dealloc {
+    if (downBlock != nil)
+        [downBlock release];
+    
+    downBlock = nil;
+    
+    [super dealloc];
+}
+
+-(void) addDownEvent: (void (^)(id sender)) block {
+    downBlock = [block retain];
+}
+
 +(id) itemFromString: (NSString*) value target:(id) r selector:(SEL) s color:(ccColor3B)color strokeColor:(ccColor3B) sColor strokeSize: (float) size
 {
 	return [[[self alloc] initFromString: value target:r selector:s color:color strokeColor:sColor strokeSize:size] autorelease];
@@ -110,5 +123,11 @@
     [self setContentSize:self.label.contentSize];
 }
 
+-(void) selected {
+    [super selected];
+    if (downBlock != nil) {
+        downBlock(self);
+    }
+}
 
 @end

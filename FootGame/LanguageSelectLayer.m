@@ -12,11 +12,14 @@
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
 #import "MBProgressHUD.h"
+#import "SoundManager.h"
 
 @implementation LanguageSelectLayer
 
+@synthesize title;
 @synthesize menu;
 @synthesize background;
+@synthesize back;
 
 +(CCScene *) scene
 {
@@ -40,12 +43,29 @@
 }
 
 -(void) onEnter {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    title = [CCAutoScalingSprite spriteWithFile:@"text_languages.en.png"];
+    title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
     
     [CCMenuItemFont setFontSize:48 * fontScaleForCurrentDevice()];
+    [CCMenuItemFont setFontName:@"Rather Loud"];
+    
+    back = [CCAutoScalingSprite spriteWithFile:@"arrow.png"];
+    back.scaleX = -0.4 * fontScaleForCurrentDevice();
+    back.scaleY = 0.4 * fontScaleForCurrentDevice();
+    back.anchorPoint = ccp(0,0);
+    back.position = ccpToRatio(130, winSize.height - 100);
+    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+        hud.labelText = locstr(@"loading", @"strings", @"");
+        
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+    }];
     
     menu = [CCMenu menuWithItems: nil];
     
@@ -53,9 +73,24 @@
     
     [self addChild:background];
     [self addChild:menu];
+    [self addChild:title];
+    [self addChild:back];
     
     apView(@"Language Select View");
     [super onEnter];
+}
+
+-(void) onEnterTransitionDidFinish {
+    CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
+    
+    // TODO: make this bounce?
+    [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
+    
+    [title runAction:[CCSequence actions:
+                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 620)],
+                      nil]];
+
+    [super onEnterTransitionDidFinish];
 }
 
 -(void) redrawMenu {
@@ -63,17 +98,10 @@
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:menulocstr(@"back", @"strings", @"Back") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
-    }];
-    back.anchorPoint = ccp(0,0);
-    back.position = ccp(0,0);
-    
-    [menu addChild:back z:0 tag:1];
     menu.anchorPoint = ccp(0,0);
-    menu.position = ccp(winSize.width * 0.1, winSize.height * 0.9);
+    menu.position = ccp(winSize.width * 0.5, winSize.height * 0.6);
     
-    __block int count = 1;
+    __block int count = 0;
     
     for(NSString *lang in [[LocalizationManager sharedManager] getAvailableLanguages]) {
         NSString *langStr = [[LocalizationManager sharedManager] getLanguageNameString:lang];
@@ -96,8 +124,18 @@
                 [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
             }
         }];
+        
+        NSString *sound = [[NSString stringWithFormat:@"%@.mp3", lang] lowercaseString];
+        NSString *soundfname = locfile(sound);
+        [[SoundManager sharedManager] preloadSound:soundfname];
+        
+        [item addDownEvent:^(id sender) {
+            NSString *s = [[NSString stringWithFormat:@"%@.mp3", ((CCNode *) sender).userData] lowercaseString];
+            NSString *sf = locfile(s);
+            [[SoundManager sharedManager] playSound:sf];
+        }];
+        
         item.userData = lang;
-        item.anchorPoint = ccp(0,0);
         item.position = ccp(0, -54 * count * fontScaleForCurrentDevice());
         count++;
         [menu addChild:item z:0 tag:1];
