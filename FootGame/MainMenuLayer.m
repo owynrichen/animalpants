@@ -107,20 +107,20 @@
     }];
     [self addChild:animals];
     
-    languages = [CCAutoScalingSprite spriteWithFile:locfile(@"icon_language.png")];
+    languages = [FlagCircleButton buttonWithLanguageCode:[[LocalizationManager sharedManager] getAppPreferredLocale]];
     languages.position = ccpToRatio(890, 530);
-    [languages addEvent:@"touch" withBlock:^(CCNode * sender) {
-        [[SoundManager sharedManager] playSound:locfile(@"languages.mp3")];
-        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];
-    }];
-    
-    [languages addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
-        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
-    }];
-    
-    [languages addEvent:@"touchup" withBlock:^(CCNode * sender) {
-        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
-    }];
+//    [languages addEvent:@"touch" withBlock:^(CCNode * sender) {
+//        [[SoundManager sharedManager] playSound:locfile(@"languages.mp3")];
+//        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];
+//    }];
+//    
+//    [languages addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+//        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+//    }];
+//    
+//    [languages addEvent:@"touchup" withBlock:^(CCNode * sender) {
+//        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
+//    }];
     [self addChild:languages];
     
     credits = [CCAutoScalingSprite spriteWithFile:@"icon_credits.png"];

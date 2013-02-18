@@ -8,6 +8,7 @@
 
 #import "CCLayer.h"
 #import "CCAutoScalingSprite.h"
+#import "FlagCircleButton.h"
 
 @interface MainMenuLayer : CCLayer<CCTargetedTouchDelegate>
 
@@ -15,7 +16,7 @@
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) CCAutoScalingSprite *girls;
 @property (nonatomic, retain) CCAutoScalingSprite *play;
-@property (nonatomic, retain) CCAutoScalingSprite *languages;
+@property (nonatomic, retain) FlagCircleButton *languages;
 @property (nonatomic, retain) CCAutoScalingSprite *animals;
 @property (nonatomic, retain) CCAutoScalingSprite *credits;
 @property (nonatomic, retain) CCSprite *splashFade;

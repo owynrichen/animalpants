@@ -10,8 +10,9 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "AnimalSelectLayer.h"
+#import "AnimalFactsLayer.h"
 #import "AnimalViewLayer.h"
+#import "AnimalSelectLayer.h"
 #import "SoundManager.h"
 #import "TestFlight.h"
 #import "MainMenuLayer.h"
@@ -55,9 +56,12 @@
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
     [[SoundManager sharedManager] setMusicVolume:0.6];
     
+    [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
+    
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
+    // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Crocodile"]];
     
 }
 

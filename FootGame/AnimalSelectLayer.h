@@ -10,7 +10,7 @@
 #import "CCAutoScalingSprite.h"
 #import "PurchaseViewController.h"
 
-@interface AnimalSelectLayer : CCLayer<UIWebViewDelegate, ProductRetrievalDelegate, PurchaseViewDelegate>
+@interface AnimalSelectLayer : CCLayer<ProductRetrievalDelegate, PurchaseViewDelegate>
 
 @property (nonatomic, retain) CCAutoScalingSprite *back;
 @property (nonatomic, retain) CCMenu *menu;
@@ -21,11 +21,6 @@
 +(CCScene *) scene;
 
 -(void) redrawMenu;
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
-- (void)webViewDidStartLoad:(UIWebView *)webView;
-- (void)webViewDidFinishLoad:(UIWebView *)webView;
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
 
 -(void) productRetrievalStarted;
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;

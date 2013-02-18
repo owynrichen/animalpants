@@ -13,7 +13,7 @@
 
 -(CCAction *) bugSwarm: (NSDictionary *) params {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:params];
-    CCNode *node = (CCNode *) [params objectForKey:@"node"];
+    // CCNode *node = (CCNode *) [params objectForKey:@"node"];
     
     
     CCAction *def = [self particleSystemActionWithDef:@"BugSwarm.plist" params:dict];

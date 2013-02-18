@@ -9,6 +9,7 @@
 #import "AnimalSelectLayer.h"
 #import "AnimalPartRepository.h"
 #import "AnimalViewLayer.h"
+#import "AnimalFactsLayer.h"
 #import "SoundManager.h"
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
@@ -41,15 +42,6 @@
 
 -(id) init {
     self = [super init];
-    
-//    facts = [[UIWebView alloc] init];
-//    facts.opaque = NO;
-//    facts.backgroundColor = [UIColor clearColor];
-    // TODO: make this scale
-//    CGPoint pos = ccpToRatio(300, 0);
-//    CGPoint size = ccpToRatio(724, 768);
-//    facts.frame = CGRectMake(pos.x, pos.y, size.x, size.y);
-//    facts.delegate = self;
     
     return self;
 }
@@ -91,7 +83,6 @@
 
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
-//    [[CCDirector sharedDirector].view addSubview:facts];
     CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
     
     // TODO: make this bounce?
@@ -103,7 +94,6 @@
 }
 
 -(void) onExitTransitionDidStart {
-//    [facts removeFromSuperview];
     [super onExitTransitionDidStart];
 }
 
@@ -133,7 +123,7 @@
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
                 hud.labelText = locstr(@"loading", @"strings", @"");
                 
-                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalFactsLayer sceneWithAnimalKey: key] backwards:false]];
             } else {
                 NSLog(@"Animal %@ isn't owned", key);
                 [[InAppPurchaseManager instance] getProducts:self withData:animal.productId];
@@ -168,38 +158,6 @@
     }];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    NSLog(@"webView shouldStartLoadWithRequest");
-    if ([request.URL.scheme isEqualToString:@"animalpants"]) {
-        NSString *key = [request.URL.pathComponents objectAtIndex:1];
-        Animal *animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:key];
-        
-        if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: key] backwards:false]];
-        } else {
-            NSLog(@"Animal %@ isn't owned", key);
-            [[InAppPurchaseManager instance] getProducts:self withData:animal.productId];
-        }
-        
-        return NO;
-    } else {
-      return YES;
-    }
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"webView didStartLoadWithRequest");
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"webView didFinishLoadWithRequest");
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
-}
-
 -(void) productRetrievalStarted {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
     hud.labelText = locstr(@"get_products", @"strings", @"");
@@ -225,10 +183,6 @@
 }
 
 -(void) dealloc {
-//    facts.delegate = nil;
-//    [facts release];
-//    facts = nil;
-    
     if (purchase != nil)
         [purchase release];
     purchase = nil;
