@@ -4,6 +4,21 @@
 <dict>
 	<key>productId</key>
 	<string>com.alchemistinteractive.footgame.apack.all</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>-90.714111</real>
+			<key>lat</key>
+			<real>15.887376</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-81.07360799999999</real>
+			<key>lat</key>
+			<real>25.482951</real>
+		</dict>
+	</array>
 	<key>Key</key>
 	<string>Crocodile</string>
 	<key>Environment</key>

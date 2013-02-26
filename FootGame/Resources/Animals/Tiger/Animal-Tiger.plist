@@ -8,6 +8,27 @@
 	<string>Tiger</string>
 	<key>Environment</key>
 	<string>jungle</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>80.859375</real>
+			<key>lat</key>
+			<real>27.371767</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>96.45996100000001</real>
+			<key>lat</key>
+			<real>26.39187</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>75.849609</real>
+			<key>lat</key>
+			<real>11.523088</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>Tiger_noise.wav</string>
 	<key>Name</key>

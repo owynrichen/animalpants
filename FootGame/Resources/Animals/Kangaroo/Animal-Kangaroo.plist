@@ -8,6 +8,27 @@
 	<string>Kangaroo</string>
 	<key>Environment</key>
 	<string>outback</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>120.585938</real>
+			<key>lat</key>
+			<real>-28.304381</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>135.351563</real>
+			<key>lat</key>
+			<real>-21.943046</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>141.328125</real>
+			<key>lat</key>
+			<real>-31.052934</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>Kangaroo_noise.mp3</string>
 	<key>Name</key>

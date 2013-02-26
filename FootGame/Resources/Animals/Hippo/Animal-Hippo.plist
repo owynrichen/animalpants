@@ -8,6 +8,33 @@
 	<string>Hippo</string>
 	<key>Environment</key>
 	<string>river</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>34.804688</real>
+			<key>lat</key>
+			<real>-14.604847</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-9.140625</real>
+			<key>lat</key>
+			<real>8.407168</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>22.5</real>
+			<key>lat</key>
+			<real>5.965754</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>39.023438</real>
+			<key>lat</key>
+			<real>0.703107</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>hippo_edited.wav</string>
 	<key>Name</key>

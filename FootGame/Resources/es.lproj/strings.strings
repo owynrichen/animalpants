@@ -45,6 +45,14 @@
 "tiger" = "Tommy pies del Tigre son de color naranja con rayas negras";
 "zebra" = "Zeb pies de la cebra en blanco y negro con cascos";
 
+"crocodile_name" = "Carl";
+"crocodile_fact_height" = "Carl is tall";
+"crocodile_fact_weight" = "Carl is fat";
+"crocodile_fact_food" = "Carl eats humans";
+"crocodile_fact_speed" = "Carl is super fast";
+"crocodile_fact_location" = "Carl is EVERYWHERE!";
+"crocodile_fact_photo" = "This is Carl's friend, Johann";
+
 "story1" = "Oh no! Parece que todos nuestros amigos los animales han perdido sus pantalones!";
 "story2" = "Debemos ayudarles a encontrar los pantalones adecuados, haciendo coincidir sus pies!";
 "story3" = "Gran idea! ¡Vamos!";

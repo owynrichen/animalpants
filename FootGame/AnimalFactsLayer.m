@@ -55,6 +55,9 @@
     animal = [anml retain];
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    popup = [FactDetailPopup popup];
+    popup.position = ccpToRatio(512, 300);
 
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
@@ -87,32 +90,62 @@
     heightFrame = [FactFrame factFrameWithAnimal:animal frameType:kHeightFactFrame];
     heightFrame.anchorPoint = ccp(0,0);
     heightFrame.position = ccpToRatio(50, 38);
+    heightFrame.userData = popup;
     [self addChild:heightFrame];
+    [heightFrame addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
+        [p showFact:kHeightFactFrame forAnimal:animal];
+    }];
     
     weightFrame = [FactFrame factFrameWithAnimal:animal frameType:kWeightFactFrame];
     weightFrame.anchorPoint = ccp(0,0);
     weightFrame.position = ccpToRatio(365, 253);
+    weightFrame.userData = popup;
     [self addChild:weightFrame];
+    [weightFrame addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
+        [p showFact:kWeightFactFrame forAnimal:animal];
+    }];
     
     locFrame = [FactFrame factFrameWithAnimal:animal frameType:kEarthFactFrame];
     locFrame.anchorPoint = ccp(0,0);
     locFrame.position = ccpToRatio(780, 320);
+    locFrame.userData = popup;
     [self addChild:locFrame];
+    [locFrame addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
+        [p showFact:kEarthFactFrame forAnimal:animal];
+    }];
     
     foodFrame = [FactFrame factFrameWithAnimal:animal frameType:kFoodFactFrame];
     foodFrame.anchorPoint = ccp(0,0);
     foodFrame.position = ccpToRatio(375, 38);
+    foodFrame.userData = popup;
     [self addChild:foodFrame];
+    [foodFrame addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
+        [p showFact:kFoodFactFrame forAnimal:animal];
+    }];
     
     speedFrame = [FactFrame factFrameWithAnimal:animal frameType:kSpeedFactFrame];
     speedFrame.anchorPoint = ccp(0,0);
     speedFrame.position = ccpToRatio(578, 38);
+    speedFrame.userData = popup;
     [self addChild:speedFrame];
+    [speedFrame addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
+        [p showFact:kSpeedFactFrame forAnimal:animal];
+    }];
     
     photoFrame = [FactFrame factFrameWithAnimal:animal frameType:kFaceFactFrame];
     photoFrame.anchorPoint = ccp(0,0);
     photoFrame.position = ccpToRatio(780, 38);
+    photoFrame.userData = popup;
     [self addChild:photoFrame];
+    [photoFrame addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
+        [p showFact:kFaceFactFrame forAnimal:animal];
+    }];
     
     playbuy = [CCAutoScalingSprite spriteWithFile:@"buy-button.png"];
     playbuy.anchorPoint = ccp(0,0);
@@ -137,6 +170,8 @@
     
     [self addChild:playbuy];
     
+    [self addChild:popup];
+    
     return self;
 }
 
@@ -156,7 +191,7 @@
 -(void) onEnter {
     [super onEnter];
     [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-//    photoFrame.anchorPoint = ccp(1.0,1.0);
+//    photoFrame.anchorPoint = ccp(0.5,0.5);
 //    CCRotateTo *rot = [CCRotateTo actionWithDuration:2.0 angle:20];
 //    CCRotateTo *rrot = [CCRotateTo actionWithDuration:2.0 angle:-20];
 //    [photoFrame runAction:[CCRepeatForever actionWithAction:[CCSequence actions:rot, rrot, nil]]];
@@ -170,7 +205,7 @@
     // TODO: make this bounce?
     [title runAction:bfscale];
     [title runAction:[CCMoveTo actionWithDuration:0.50 position:ccpToRatio(550, 620)]];
-    [circle runAction:[CCMoveTo actionWithDuration:0.50 position:ccpToRatio(500, 620)]];
+    [circle runAction:[CCMoveTo actionWithDuration:0.50 position:ccpToRatio(500, 580)]];
 }
 
 -(void) productRetrievalStarted {

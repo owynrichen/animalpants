@@ -88,4 +88,28 @@
     [cfNode runAction:[CCSequence actions:delay, action, nil]];
 }
 
+-(void) setColor:(ccColor3B)color {
+    color_ = color;
+    for (int i = 0; i < [self.children count]; i++) {
+        CCSprite *sprite = (CCSprite *) [self.children objectAtIndex:i];
+        sprite.color = color;
+    }
+}
+
+-(ccColor3B) color {
+    return color_;
+}
+
+-(GLubyte) opacity {
+    return opacity_;
+}
+
+-(void) setOpacity: (GLubyte) opacity {
+    opacity_ = opacity;
+    for (int i = 0; i < [self.children count]; i++) {
+        CCSprite *sprite = (CCSprite *) [self.children objectAtIndex:i];
+        sprite.opacity = opacity;
+    }
+}
+
 @end

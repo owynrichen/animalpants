@@ -10,6 +10,7 @@
 #import "Animal.h"
 #import "PurchaseViewController.h"
 #import "FactFrame.h"
+#import "FactDetailPopup.h"
 
 @interface AnimalFactsLayer :  CCLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
@@ -27,6 +28,8 @@
     FactFrame *speedFrame;
     FactFrame *photoFrame;
     FactFrame *locFrame;
+    
+    FactDetailPopup *popup;
 }
 
 +(CCScene *) sceneWithAnimalKey: (NSString *) animal;

@@ -44,6 +44,33 @@
 	<string>Lion</string>
 	<key>Environment</key>
 	<string>savannah2</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>-13.623047</real>
+			<key>lat</key>
+			<real>11.436955</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>21.005859</real>
+			<key>lat</key>
+			<real>9.882275</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>33.134766</real>
+			<key>lat</key>
+			<real>-4.91583</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>23.90625</real>
+			<key>lat</key>
+			<real>-21.207459</real>
+		</dict>
+	</array>
 	<key>Word</key>
 	<string>lion_word.en.png</string>
 </dict>

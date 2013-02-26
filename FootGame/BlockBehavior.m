@@ -18,7 +18,7 @@
 
 -(id) initWithKey:(NSString *)k data:(NSDictionary *)d block: (void (^)(CCNode * sender)) blk {
     self = [super initWithKey:k data:d];
-    block = [blk retain];
+    block = [[blk copy] retain];
     
     return self;
 }

@@ -8,6 +8,27 @@
 	<string>Monkey</string>
 	<key>Environment</key>
 	<string>mangrove_forest</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>-8.085936999999999</real>
+			<key>lat</key>
+			<real>6.664608</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>11.25</real>
+			<key>lat</key>
+			<real>1.054628</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>24.257813</real>
+			<key>lat</key>
+			<real>3.162456</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>Monkey_noise.wav</string>
 	<key>Name</key>

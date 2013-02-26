@@ -8,6 +8,33 @@
 	<string>Zebra</string>
 	<key>Environment</key>
 	<string>savannah4</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>41.484375</real>
+			<key>lat</key>
+			<real>-0.615223</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>29.091797</real>
+			<key>lat</key>
+			<real>-25.005973</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>24.521484</real>
+			<key>lat</key>
+			<real>-16.214675</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>31.552734</real>
+			<key>lat</key>
+			<real>-5.353521</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>Zebra_noise.wav</string>
 	<key>Name</key>

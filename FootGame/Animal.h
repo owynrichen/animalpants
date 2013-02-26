@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AnimalPart.h"
+#import "LocationManager.h"
 
 @interface Animal : NSObject {
     NSString *key;
@@ -21,7 +22,7 @@
     NSString *word;
     NSString *productId;
     
-    NSString *factsHtml;
+    NSArray *habitatLocations;
 }
 
 @property (nonatomic, retain) NSString *key;
@@ -33,9 +34,11 @@
 @property (nonatomic, retain) NSString *environment;
 @property (nonatomic, retain) NSString *word;
 @property (nonatomic, retain) NSString *productId;
-
-@property (nonatomic, retain) NSString *factsHtml;
+@property (nonatomic, retain) NSArray *habitatLocations;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict;
+
+-(void) enumerateHabitiatLocationsWithBlock: (void (^)(LatitudeLongitude ll)) block;
+-(NSString *) localizedName;
 
 @end

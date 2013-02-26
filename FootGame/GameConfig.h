@@ -19,8 +19,8 @@
 #define kGameAutorotationCCDirector 1
 #define kGameAutorotationUIViewController 2
 
-#define MENU_COLOR ccc3(198,220,15)
-#define MENU_STROKE ccc3(125,139,9)
+#define MENU_STROKE ccc3(198,220,15)
+#define MENU_COLOR ccc3(125,139,9)
 
 //
 // Define here the type of autorotation that you want for your game

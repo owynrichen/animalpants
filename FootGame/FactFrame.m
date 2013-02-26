@@ -22,9 +22,6 @@
     animal = [anml retain];
     type = ft;
     
-    CCAutoScalingSprite *frame;
-    CCAutoScalingSprite *photo;
-    
     switch(type) {
         case kEarthFactFrame:
             frame = [CCAutoScalingSprite spriteWithFile:@"earth-frame.png"];
@@ -78,7 +75,42 @@
     [self addChild:frame];
     [self addChild:photo];
     
+    self.contentSize = frame.contentSize;
+    
     return self;
+}
+
+-(void) addEvent: (NSString *) event withBlock: (void (^)(CCNode * sender)) blk {
+    [frame addEvent:event withBlock:blk];
+}
+
+//-(void) draw {
+//    [super draw];
+//
+//    ccDrawColor4B(0,0,255,180);
+//    ccDrawRect(self.boundingBox.origin, CGPointMake(self.boundingBox.origin.x + self.boundingBox.size.width, self.boundingBox.size.height));
+//
+//    ccDrawColor4B(0,255,0,180);
+//    ccPointSize(8);
+//    ccDrawPoint(self.anchorPointInPoints);
+//}
+
+-(void) setColor:(ccColor3B)color {
+    frame.color = color;
+    photo.color = color;
+}
+
+-(ccColor3B) color {
+    return frame.color;
+}
+
+-(GLubyte) opacity {
+    return frame.opacity;
+}
+
+-(void) setOpacity: (GLubyte) opacity {
+    frame.opacity = opacity;
+    photo.opacity = opacity;
 }
 
 -(void) dealloc {

@@ -8,6 +8,69 @@
 	<string>PolarBear</string>
 	<key>Environment</key>
 	<string>arctic2</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>60.117188</real>
+			<key>lat</key>
+			<real>68.784144</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>110.390625</real>
+			<key>lat</key>
+			<real>73.124945</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>173.320313</real>
+			<key>lat</key>
+			<real>68.784144</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-67.148437</real>
+			<key>lat</key>
+			<real>56.36525</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-131.132812</real>
+			<key>lat</key>
+			<real>68.39918</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-99.140625</real>
+			<key>lat</key>
+			<real>65.512963</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-84.023437</real>
+			<key>lat</key>
+			<real>79.874297</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-17.578125</real>
+			<key>lat</key>
+			<real>65.658275</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-47.460937</real>
+			<key>lat</key>
+			<real>75.75894</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-156.445312</real>
+			<key>lat</key>
+			<real>70.259452</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>PolarBear_noise.wav</string>
 	<key>Name</key>

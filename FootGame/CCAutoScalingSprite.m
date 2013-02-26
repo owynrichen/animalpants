@@ -147,8 +147,10 @@
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     
-    if (self.visible && CGRectContainsPoint([self boundingBox], pnt)) {
-        pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
+    CGRect bbox = CGRectApplyAffineTransform(CGRectApplyAffineTransform([self boundingBox], [self parentToNodeTransform]), [self nodeToWorldTransform]);
+    
+    if (self.visible && CGRectContainsPoint(bbox, pnt)) {
+        pnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
         BOOL hit = NO;
         NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
         
@@ -176,8 +178,10 @@
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     
-    if (self.visible && CGRectContainsPoint([self boundingBox], pnt)) {
-        pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
+    CGRect bbox = CGRectApplyAffineTransform(CGRectApplyAffineTransform([self boundingBox], [self parentToNodeTransform]), [self nodeToWorldTransform]);
+    
+    if (self.visible && CGRectContainsPoint(bbox, pnt)) {
+        pnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
         BOOL hit = NO;
         NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
         
@@ -211,8 +215,10 @@
         [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
         [params setObject:touch forKey:@"touch"];
         
-        if (CGRectContainsPoint([self boundingBox], pnt)) {
-            pnt = CGPointApplyAffineTransform(pnt, [self parentToNodeTransform]);
+        CGRect bbox = CGRectApplyAffineTransform(CGRectApplyAffineTransform([self boundingBox], [self parentToNodeTransform]), [self nodeToWorldTransform]);
+        
+        if (CGRectContainsPoint(bbox, pnt)) {
+            pnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
             BOOL hit = NO;
             NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
             

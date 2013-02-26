@@ -6,6 +6,27 @@
 	<string>Giraffe</string>
 	<key>Environment</key>
 	<string>savannah3</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>16.347656</real>
+			<key>lat</key>
+			<real>9.968851000000001</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>29.179688</real>
+			<key>lat</key>
+			<real>-20.96144</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>35.683594</real>
+			<key>lat</key>
+			<real>0.878872</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>Giraffe_noise.mp3</string>
 	<key>Name</key>

@@ -6,6 +6,33 @@
 	<string>Elephant</string>
 	<key>Environment</key>
 	<string>savannah1</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>17.578125</real>
+			<key>lat</key>
+			<real>-16.804541</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>37.265625</real>
+			<key>lat</key>
+			<real>-12.039321</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>22.324219</real>
+			<key>lat</key>
+			<real>4.915833</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>-3.515625</real>
+			<key>lat</key>
+			<real>9.622413999999999</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>elephant2.wav</string>
 	<key>Name</key>

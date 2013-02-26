@@ -22,7 +22,7 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
-    [TestFlight takeOff:@"d3beeb5b8630b754a3ec1bf5620b131d_NTgxNzgyMDEyLTAzLTEzIDAyOjQ1OjMzLjA4MTE5OQ"];
+    //[TestFlight takeOff:@"d3beeb5b8630b754a3ec1bf5620b131d_NTgxNzgyMDEyLTAzLTEzIDAyOjQ1OjMzLjA4MTE5OQ"];
     
 #define TESTING 1
 #ifdef TESTING
@@ -58,10 +58,10 @@
     
     [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
     
-    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
-    // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Crocodile"]];
+    [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Crocodile"]];
     
 }
 

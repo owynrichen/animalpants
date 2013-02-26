@@ -6,6 +6,15 @@
 	<string>Panda</string>
 	<key>Environment</key>
 	<string>bamboo_forest</string>
+	<key>habitatLocations</key>
+	<array>
+		<dict>
+			<key>lng</key>
+			<real>103.974609</real>
+			<key>lat</key>
+			<real>33.797409</real>
+		</dict>
+	</array>
 	<key>SuccessSound</key>
 	<string>Panda_noise.wav</string>
 	<key>Name</key>
