@@ -258,12 +258,16 @@ static NSString *_sync = @"sync";
 
 - (NSString *) priceAsString
 {
+    return [SKProduct localeFormattedPrice:[self price] locale:[self priceLocale]];
+}
+
++(NSString *) localeFormattedPrice: (NSNumber *) price locale: (NSLocale *) locale {
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [formatter setLocale:[self priceLocale]];
+    [formatter setLocale:locale];
     
-    NSString *str = [formatter stringFromNumber:[self price]];
+    NSString *str = [formatter stringFromNumber:price];
     [formatter release];
     return str;
 }

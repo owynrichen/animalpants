@@ -14,31 +14,34 @@
 #import "MBProgressHUD.h"
 
 @interface PurchaseViewController ()
--(NSString *) htmlForProduct: (SKProduct *) product;
 - (void)showKeyboard:(NSNotification*)notification;
 - (void)hideKeyboard:(NSNotification*)notification;
 @end
-
 
 @implementation PurchaseViewController
 
 @synthesize buyActivity;
 @synthesize buyButton;
 @synthesize buyAllButton;
+@synthesize titleLabel;
 @synthesize productName;
-@synthesize productContent;
+@synthesize productCost;
+@synthesize upsellProductName;
 @synthesize promoCodeField;
 @synthesize cancelButton;
 
 -(id) initWithProduct: (SKProduct *) prod upsellProduct: (SKProduct *) upsell delegate:(id<PurchaseViewDelegate>)del {
     self = [self initWithNibName:@"PurchaseViewController" bundle:nil];
     
-    delegate = del;
+    if (del != nil)
+        delegate = [del retain];
     
     product = [prod retain];
     if (upsell != nil) {
         upsellProduct = [upsell retain];
     }
+    
+    currentProduct = product;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboard:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardDidHideNotification object:nil];
@@ -50,7 +53,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+    
     }
     return self;
 }
@@ -65,8 +68,10 @@
         [upsellProduct release];
     }
     
-    if (delegate != nil)
+    if (delegate != nil) {
+        [delegate release];
         delegate = nil;
+    }
     
     [super dealloc];
 }
@@ -75,23 +80,31 @@
 {
     [super viewDidLoad];
     
-    [self.buyButton setTitle:locstr(@"buy", @"strings", "") forState:UIControlStateNormal];;
+    self.titleLabel.font = [UIFont fontWithName:@"Rather Loud" size:48];
+    self.productName.font = [UIFont fontWithName:@"Rather Loud" size:30];
+    self.upsellProductName.font = [UIFont fontWithName:@"Rather Loud" size:30];
+    self.productCost.font = [UIFont fontWithName:@"Rather Loud" size:30];
+    self.buyButton.titleLabel.font = [UIFont fontWithName:@"Rather Loud" size:20];
+    self.buyAllButton.titleLabel.font = [UIFont fontWithName:@"Rather Loud" size:20];
+    self.promoCodeField.font = [UIFont fontWithName:@"Rather Loud" size:20];
+    
+    self.titleLabel.text = locstr(@"confirm_title",@"strings", @"");
+    self.productCost.text = product.priceAsString;
+    [self.buyButton setTitle:locstr(@"confirm", @"strings", @"") forState:UIControlStateNormal];;
     
     if (upsellProduct != nil) {
-        NSString * buyText = [NSString stringWithFormat:locstr(@"buy_upsell", @"strings", @""), upsellProduct.priceAsString];
+        NSString * buyText = [NSString stringWithFormat:locstr(@"buy_upsell", @"strings", @""), [SKProduct localeFormattedPrice: [upsellProduct.price decimalNumberBySubtracting: product.price] locale:[upsellProduct priceLocale]]];
         [self.buyAllButton setTitle:buyText forState:UIControlStateNormal];
+        self.upsellProductName.text = upsellProduct.localizedTitle;
         self.buyAllButton.hidden = NO;
+        self.upsellProductName.hidden = NO;
     } else {
         self.buyAllButton.hidden = YES;
+        self.upsellProductName.hidden = YES;
     }
     
     self.productName.text = product.localizedTitle;
     self.promoCodeField.placeholder = locstr(@"promocode", @"strings", "");
-    
-    NSString *path = [[NSBundle mainBundle] bundlePath];
-    NSURL *baseURL = [NSURL fileURLWithPath:path];
-    
-    [self.productContent loadHTMLString:[self htmlForProduct:product] baseURL:baseURL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,11 +113,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSString *) htmlForProduct: (SKProduct *) pduct {
-    NSString *html = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=\"products.css\" /></head><body><p>%@</p><br /><div class=\"cost\">%@</div></body></html>", pduct.localizedDescription, [pduct priceAsString]];
-    
-    return html;
-}
 
 -(void) purchaseStarted {
     buying = YES;
@@ -226,7 +234,7 @@
         
         if ([promoText isEqualToString:@""]) {
             apEvent(@"buy", @"click", @"start for product");
-            [[InAppPurchaseManager instance] purchaseProduct:product delegate: self];
+            [[InAppPurchaseManager instance] purchaseProduct:currentProduct delegate: self];
         } else {
             apEvent(@"buy", @"click", @"start with promo");
             [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate:self];
@@ -256,15 +264,12 @@
 
 -(IBAction) buyAllClick:(id)sender {
     if (!buying) {
-        NSString *promoText = self.promoCodeField.text;
-        
-        if ([promoText isEqualToString:@""]) {
-            apEvent(@"buy", @"upsell click", @"start for product");
-            [[InAppPurchaseManager instance] purchaseProduct:upsellProduct delegate: self];
-        } else {
-            apEvent(@"buy", @"upsell click", @"start with promo");
-            [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate:self];
-        }
+        apEvent(@"buy", @"upsell click", @"add upsell");
+        currentProduct = upsellProduct;
+        upsellProductName.hidden = YES;
+        buyAllButton.hidden = YES;
+        productCost.text = upsellProduct.priceAsString;
+        productName.text = upsellProduct.localizedTitle;
     } else {
         apEvent(@"buy", @"upsell click", @"still in progress");
     }
@@ -276,15 +281,43 @@
     NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     
-    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - keyboardFrameBeginRect.size.width);
+    titleLabel.hidden = YES;
+    productName.hidden = YES;
+    productCost.hidden = YES;
+    
+    if (upsellProduct != nil) {
+        upsellProductName.hidden = YES;
+        buyAllButton.hidden = YES;
+    }
+    
+    [buyButton setTitle: locstr(@"use_code",@"strings",@"") forState:UIControlStateNormal];
+    
+    originalFrame = self.view.frame;
+    
+    // the width of the keyboard is it's height in landscape mode...
+    CGFloat newHeight = self.view.frame.size.height / 3;
+    
+    self.view.frame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, newHeight);
 }
 
 - (void)hideKeyboard:(NSNotification*)notification {
     NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    // NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    // CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     
-    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height + keyboardFrameBeginRect.size.width);
+    titleLabel.hidden = NO;
+    productName.hidden = NO;
+    productCost.hidden = NO;
+    
+    if (upsellProduct != nil && currentProduct != upsellProduct) {
+        upsellProductName.hidden = NO;
+        buyAllButton.hidden = NO;
+    }
+    
+    [buyButton setTitle: locstr(@"confirm",@"strings",@"") forState:UIControlStateNormal];
+    promoCodeField.text = @"";
+    
+    self.view.frame = originalFrame;
 }
 
 +(PurchaseViewController *) handleProductsRetrievedWithDelegate: (id<PurchaseViewDelegate>) del products: (NSArray *) products withProductId: (NSString *) productId upsell: (NSString *) upsellId {

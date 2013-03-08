@@ -24,10 +24,14 @@
     SKProduct *product;
     SKProduct *upsellProduct;
     id<PurchaseViewDelegate> delegate;
+    SKProduct *currentProduct;
+    CGRect originalFrame;
 }
 
-@property (nonatomic, readonly) IBOutlet UILabel* productName;
-@property (nonatomic, readonly) IBOutlet UIWebView *productContent;
+@property (nonatomic, readonly) IBOutlet UILabel *titleLabel;
+@property (nonatomic, readonly) IBOutlet UILabel *productName;
+@property (nonatomic, readonly) IBOutlet UILabel *productCost;
+@property (nonatomic, readonly) IBOutlet UILabel *upsellProductName;
 @property (nonatomic, readonly) IBOutlet UITextField *promoCodeField;
 @property (nonatomic, readonly) IBOutlet UIButton *buyButton;
 @property (nonatomic, readonly) IBOutlet UIButton *buyAllButton;

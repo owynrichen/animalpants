@@ -58,4 +58,5 @@
 
 @interface SKProduct (priceAsString)
 @property (nonatomic, readonly) NSString *priceAsString;
++(NSString *) localeFormattedPrice: (NSNumber *) price locale: (NSLocale *) locale;
 @end

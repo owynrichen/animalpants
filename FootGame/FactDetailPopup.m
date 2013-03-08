@@ -10,6 +10,7 @@
 #import "LocalizationManager.h"
 #import "LocationManager.h"
 #import "WorldMapNode.h"
+#import "AnalyticsPublisher.h"
 
 #define BORDER_SCALE 1.0
 
@@ -31,7 +32,16 @@
     close.scale = 0.6;
     close.position = ccp(900, 550);
     [self addChild:close z:100];
+    [close addEvent:@"touch" withBlock:^(CCNode * sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
+    }];
+    
+    [close addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.6]];
+    }];
+    
     [close addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.6]];
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.parent;
         [p hide];
     }];
@@ -44,7 +54,7 @@
     return self;
 }
 
--(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal {
+-(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal withOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock {
     if (factData) {
         [self removeChild:factData cleanup:YES];
         factData = nil;
@@ -102,7 +112,7 @@
             break;
         case kFoodFactFrame:
             key = @"food";
-            imgFile = [NSString stringWithFormat:@"%@_%@.png", [animal.key lowercaseString], key];
+            imgFile = [NSString stringWithFormat:@"%@-%@.png", [animal.key lowercaseString], key];
             break;
         case kSpeedFactFrame:
             key = @"speed";
@@ -111,7 +121,7 @@
         case kFaceFactFrame:
             key = @"photo";
             // TODO: wire this up when we have a photo
-            factData = [CCNode node];
+            factData = [CCAutoScalingSprite spriteWithFile:@"girl1_head.png"];
             break;
     }
     
@@ -149,12 +159,23 @@
     [self addChild:factData];
     [self addChild:factText];
     
+    if (openBlock != nil)
+        openBlock(self);
+    
+    cBlock = [[closeBlock copy] retain];
     
     [self runAction:[CCFadeIn actionWithDuration:0.3]];
     [self runAction:[CCScaleTo actionWithDuration:0.3 scale:1.0]];
+    NSString *alog = [NSString stringWithFormat: @"Fact Detail %@ %@", animal.key, key];
+    apView(alog);
 }
 
 -(void) hide {
+    if (cBlock != nil) {
+        cBlock(self);
+        [cBlock release];
+        cBlock = nil;
+    }
     [self runAction:[CCFadeOut actionWithDuration:0.3]];
     [self runAction:[CCScaleTo actionWithDuration:0.3 scale:0.8]];
 }

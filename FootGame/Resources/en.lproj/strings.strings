@@ -7,7 +7,6 @@
 */
 
 "back" = "Back";
-"buy" = "Buy";
 "okay" = "Okay";
 "promocode" = "Promotional code?";
 "loading" = "Searching for Animals...";
@@ -20,7 +19,10 @@
 "invalid_promo_error_desc" = "The promotional code attempted was invalid, please try again.";
 "promo_code_error_title" = "Error Checking Promotion Code";
 "promo_code_error_desc" = "There was an error when checking the promotion code, please try again later.";
-"buy_upsell" = "Upsell! (%@)";
+"buy_upsell" = "Add (%@)";
+"confirm" = "Confirm";
+"use_code" = "Use Promo Code";
+"confirm_title" = "Confirm Purchase";
 "restore_purchases" = "Restore Purchases";
 "get_products" = "Talking to iTunes";
 "buying_product" = "Talking to iTunes";

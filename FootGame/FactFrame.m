@@ -52,8 +52,8 @@
 
             break;
     }
-    frame.anchorPoint = ccp(0,0);
-    photo.anchorPoint = ccp(0,0);
+    // frame.anchorPoint = ccp(0,0);
+    // photo.anchorPoint = ccp(0,0);
     float scale = 1.0;
     if (photo.contentSize.width > frame.contentSize.width * FRAME_BORDER_SCALE) {
         float s = frame.contentSize.width * FRAME_BORDER_SCALE / photo.contentSize.width;
@@ -71,7 +71,7 @@
     
     photo.scale = scale;
     
-    photo.position = ccp((frame.contentSize.width - photo.contentSize.width * scale) / 2, (frame.contentSize.height - photo.contentSize.height * scale) / 2);
+    // photo.position = ccp((frame.contentSize.width - photo.contentSize.width * scale) / 2, (frame.contentSize.height - photo.contentSize.height * scale) / 2);
     [self addChild:frame];
     [self addChild:photo];
     

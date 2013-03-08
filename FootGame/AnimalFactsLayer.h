@@ -29,6 +29,8 @@
     FactFrame *photoFrame;
     FactFrame *locFrame;
     
+    CCLayer *fadeLayer;
+    
     FactDetailPopup *popup;
 }
 

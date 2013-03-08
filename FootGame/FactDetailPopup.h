@@ -11,16 +11,20 @@
 #import "Animal.h"
 #import "FactFrame.h"
 
+typedef void (^PopupBlock)(CCNode<CCRGBAProtocol> *popup);
+
 @interface FactDetailPopup : CCNode<CCRGBAProtocol> {
     CircleButton *close;
     CCLayerColor *background;
     CCLabelTTF *factText;
     CCNode<CCRGBAProtocol> *factData;
+    
+    PopupBlock cBlock;
 }
 
 +(FactDetailPopup *) popup;
 
--(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal;
+-(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal withOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock;
 -(void) hide;
 
 -(void) setColor:(ccColor3B)color;
