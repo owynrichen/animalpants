@@ -120,4 +120,9 @@
     [super dealloc];
 }
 
+-(void) enableTouches:(BOOL) on {
+    [frame enableTouches:on];
+    [photo enableTouches:on];
+}
+
 @end

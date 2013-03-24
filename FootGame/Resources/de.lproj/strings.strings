@@ -1,0 +1,159 @@
+/* 
+  strings.strings
+  FootGame
+
+  Created by Owyn Richen on 7/28/12.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+*/
+
+"back" = "Back";
+"okay" = "Okay";
+"promocode" = "Promotional code?";
+"loading" = "Searching for Animals...";
+
+"product_fetch_error_title" = "Error Fetching Products";
+"product_fetch_error_desc" = "There was an issue getting product information from iTunes, please try again later.";
+"product_buy_error_title" = "Error with Purchase";
+"product_buy_error_desc" = "There was an error when attempting to purchase this product, please try again later.";
+"invalid_promo_error_title" = "Invalid Promotion Code";
+"invalid_promo_error_desc" = "The promotional code attempted was invalid, please try again.";
+"promo_code_error_title" = "Error Checking Promotion Code";
+"promo_code_error_desc" = "There was an error when checking the promotion code, please try again later.";
+"buy_upsell" = "Add (%@)";
+"confirm" = "Confirm";
+"use_code" = "Use Promo Code";
+"confirm_title" = "Confirm Purchase";
+"restore_purchases" = "Restore Purchases";
+"get_products" = "Talking to iTunes";
+"buying_product" = "Talking to iTunes";
+"checking_code" = "Activating Promo Code";
+"play_button" = "Go See %@";
+
+"play" = "Play!";
+"animals" = "Animals";
+"languages" = "Languages";
+"settings" = "Settings";
+"en" = "English";
+"es" = "Spanish";
+"fr" = "French";
+"ja" = "Japanese";
+"de" = "German";
+
+"menu_elephant" = "Elephant";
+"menu_lion" = "Lion";
+"menu_penguin" = "Penguin";
+"menu_crocodile" = "Crocodile";
+"menu_giraffe" = "Giraffe";
+"menu_hippo" = "Hippo";
+"menu_kangaroo" = "Kangaroo";
+"menu_monkey" = "Monkey";
+"menu_panda" = "Panda";
+"menu_polarbear" = "Polar Bear";
+"menu_tiger" = "Tiger";
+"menu_zebra" = "Zebra";
+
+"elephant" = "Olly the Elephant has big toe nails and is wearing grey pants.";
+"lion" = "Lloyd the Lion has blue pants and his feet are covered in tan colored fur.";
+"penguin" = "Pedro the Penguin's feet are yellow and his legs have white feathers.";
+"crocodile" = "Carl the Crocodile has blue shorts and his feet are green and scaly with a big tail.";
+"giraffe" = "Jerome the Giraffe's legs are yellow with brown spots and he's wearing blue shorts.";
+"hippo" = "Horace the Hippo's feet are purple and he is wearing big blue overalls.";
+"kangaroo" = "Kendra the Kangaroo's feet are brown with striped purple pants.";
+"monkey" = "Melinda the Monkey is wearing a pink skirt and has skinny brown legs.";
+"panda" = "Patrick the Panda's feet are black and fuzzy with red striped pants.";
+"polarbear" = "Peggy the Polar Bear has a blue skirt and her feet are white and furry.";
+"tiger" = "Tommy the Tiger's feet are orange and is wearing green pants.";
+"zebra" = "Zeb the Zebra's legs are black and white and he’s wearing yellow striped shorts.";
+
+"story1" = "Twin sisters, Emma and Avery, are going on an animal adventure! All the animals are having fun playing with their animal friends, but wait, it looks like they have all lost their pants. That’s silly! Can you help the animals find their pants?";
+"upsell" = "You are doing great and Emma and Avery are so happy. Don’t stop now. The fun is just beginning!";
+"outro" = "Hooray! You have helped Emma and Avery put the correct pants back on the animals. Way to go! Let’s go learn more about our animal friends.";
+
+"kilometers" = "kilometers";
+"miles" = "miles";
+"distance_from_you_string" = "You are %1.2f %@ from %@'s closest habitat.";
+
+"crocodile_name" = "Carl";
+"crocodile_fact_height" = "Carl is tall";
+"crocodile_fact_weight" = "Carl is fat";
+"crocodile_fact_food" = "Carl eats humans";
+"crocodile_fact_speed" = "Carl is super fast";
+"crocodile_fact_location" = "Carl is EVERYWHERE!";
+"crocodile_fact_photo" = "This is Carl's friend, Johann";
+"giraffe_name" = "Jerome";
+"giraffe_fact_height" = "Jerome is tall";
+"giraffe_fact_weight" = "Jerome is fat";
+"giraffe_fact_food" = "Jerome eats humans";
+"giraffe_fact_speed" = "Jerome is super fast";
+"giraffe_fact_location" = "Jerome is EVERYWHERE!";
+"giraffe_fact_photo" = "This is Jerome's friend, Bob";
+"hippo_name" = "Horace";
+"hippo_fact_height" = "Horace is tall";
+"hippo_fact_weight" = "Horace is fat";
+"hippo_fact_food" = "Horace eats humans";
+"hippo_fact_speed" = "Horace is super fast";
+"hippo_fact_location" = "Horace is EVERYWHERE!";
+"hippo_fact_photo" = "This is Horace's friend, Tubby";
+"kangaroo_name" = "Kendra";
+"kangaroo_fact_height" = "Kendra is tall";
+"kangaroo_fact_weight" = "Kendra is fat";
+"kangaroo_fact_food" = "Kendra eats humans";
+"kangaroo_fact_speed" = "Kendra is super fast";
+"kangaroo_fact_location" = "Kendra is EVERYWHERE!";
+"kangaroo_fact_photo" = "This is Kendra's friend, Candice";
+"monkey_name" = "Melinda";
+"monkey_fact_height" = "Melinda is tall";
+"monkey_fact_weight" = "Melinda is fat";
+"monkey_fact_food" = "Melinda eats humans";
+"monkey_fact_speed" = "Melinda is super fast";
+"monkey_fact_location" = "Melinda is EVERYWHERE!";
+"monkey_fact_photo" = "This is Melinda's friend, Horacio";
+"panda_name" = "Patrick";
+"panda_fact_height" = "Patrick is tall";
+"panda_fact_weight" = "Patrick is fat";
+"panda_fact_food" = "Patrick eats humans";
+"panda_fact_speed" = "Patrick is super fast";
+"panda_fact_location" = "Patrick is EVERYWHERE!";
+"panda_fact_photo" = "This is Patrick's friend, Genevive";
+"polarbear_name" = "Peggy";
+"polarbear_fact_height" = "Peggy is tall";
+"polarbear_fact_weight" = "Peggy is fat";
+"polarbear_fact_food" = "Peggy eats humans";
+"polarbear_fact_speed" = "Peggy is super fast";
+"polarbear_fact_location" = "Peggy is EVERYWHERE!";
+"polarbear_fact_photo" = "This is Peggy's friend, Paris";
+"tiger_name" = "Tommy";
+"tiger_fact_height" = "Tommy is tall";
+"tiger_fact_weight" = "Tommy is fat";
+"tiger_fact_food" = "Tommy eats humans";
+"tiger_fact_speed" = "Tommy is super fast";
+"tiger_fact_location" = "Tommy is EVERYWHERE!";
+"tiger_fact_photo" = "This is Tommy's friend, Albert";
+"zebra_name" = "Zeb";
+"zebra_fact_height" = "Zeb is tall";
+"zebra_fact_weight" = "Zeb is fat";
+"zebra_fact_food" = "Zeb eats humans";
+"zebra_fact_speed" = "Zeb is super fast";
+"zebra_fact_location" = "Zeb is EVERYWHERE!";
+"zebra_fact_photo" = "This is Zeb's friend, Percival";
+"lion_name" = "Lloyd";
+"lion_fact_height" = "Lloyd is tall";
+"lion_fact_weight" = "Lloyd is fat";
+"lion_fact_food" = "Lloyd eats humans";
+"lion_fact_speed" = "Lloyd is super fast";
+"lion_fact_location" = "Lloyd is EVERYWHERE!";
+"lion_fact_photo" = "This is Lloyd's friend, Simba";
+"penguin_name" = "Pedro";
+"penguin_fact_height" = "Pedro is tall";
+"penguin_fact_weight" = "Pedro is fat";
+"penguin_fact_food" = "Pedro eats humans";
+"penguin_fact_speed" = "Pedro is super fast";
+"penguin_fact_location" = "Pedro is EVERYWHERE!";
+"penguin_fact_photo" = "This is Pedro's friend, Cameron";
+"elephant_name" = "Olly";
+"elephant_fact_height" = "Olly is tall";
+"elephant_fact_weight" = "Olly is fat";
+"elephant_fact_food" = "Olly eats humans";
+"elephant_fact_speed" = "Olly is super fast";
+"elephant_fact_location" = "Olly is EVERYWHERE!";
+"elephant_fact_photo" = "This is Olly's friend, Terrance";

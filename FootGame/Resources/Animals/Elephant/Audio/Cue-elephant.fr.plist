@@ -28,7 +28,7 @@
 		<key>start_index</key>
 		<integer>5</integer>
 		<key>end_index</key>
-		<integer>18</integer>
+		<integer>15</integer>
 	</dict>
 	<key>a</key>
 	<dict>
@@ -37,9 +37,9 @@
 		<key>duration</key>
 		<real>0.031038</real>
 		<key>start_index</key>
-		<integer>19</integer>
+		<integer>16</integer>
 		<key>end_index</key>
-		<integer>20</integer>
+		<integer>17</integer>
 	</dict>
 	<key>des</key>
 	<dict>
@@ -48,9 +48,9 @@
 		<key>duration</key>
 		<real>0.128927</real>
 		<key>start_index</key>
-		<integer>21</integer>
+		<integer>18</integer>
 		<key>end_index</key>
-		<integer>24</integer>
+		<integer>21</integer>
 	</dict>
 	<key>gros</key>
 	<dict>
@@ -59,9 +59,9 @@
 		<key>duration</key>
 		<real>0.467957</real>
 		<key>start_index</key>
-		<integer>25</integer>
+		<integer>22</integer>
 		<key>end_index</key>
-		<integer>29</integer>
+		<integer>26</integer>
 	</dict>
 	<key>ongles</key>
 	<dict>
@@ -70,9 +70,9 @@
 		<key>duration</key>
 		<real>0.367681</real>
 		<key>start_index</key>
-		<integer>30</integer>
+		<integer>27</integer>
 		<key>end_index</key>
-		<integer>36</integer>
+		<integer>33</integer>
 	</dict>
 	<key>de</key>
 	<dict>
@@ -81,9 +81,9 @@
 		<key>duration</key>
 		<real>0.0549130000000002</real>
 		<key>start_index</key>
-		<integer>37</integer>
+		<integer>34</integer>
 		<key>end_index</key>
-		<integer>39</integer>
+		<integer>36</integer>
 	</dict>
 	<key>pied</key>
 	<dict>
@@ -92,9 +92,9 @@
 		<key>duration</key>
 		<real>0.276954</real>
 		<key>start_index</key>
-		<integer>40</integer>
+		<integer>37</integer>
 		<key>end_index</key>
-		<integer>44</integer>
+		<integer>41</integer>
 	</dict>
 	<key>et</key>
 	<dict>
@@ -103,9 +103,9 @@
 		<key>duration</key>
 		<real>0.0692390000000001</real>
 		<key>start_index</key>
-		<integer>45</integer>
+		<integer>42</integer>
 		<key>end_index</key>
-		<integer>47</integer>
+		<integer>44</integer>
 	</dict>
 	<key>porte</key>
 	<dict>
@@ -114,9 +114,9 @@
 		<key>duration</key>
 		<real>0.179066</real>
 		<key>start_index</key>
-		<integer>48</integer>
+		<integer>45</integer>
 		<key>end_index</key>
-		<integer>53</integer>
+		<integer>50</integer>
 	</dict>
 	<key>un</key>
 	<dict>
@@ -125,9 +125,9 @@
 		<key>duration</key>
 		<real>0.167128</real>
 		<key>start_index</key>
-		<integer>54</integer>
+		<integer>51</integer>
 		<key>end_index</key>
-		<integer>56</integer>
+		<integer>53</integer>
 	</dict>
 	<key>pantalon</key>
 	<dict>
@@ -136,9 +136,9 @@
 		<key>duration</key>
 		<real>0.444082</real>
 		<key>start_index</key>
-		<integer>57</integer>
+		<integer>54</integer>
 		<key>end_index</key>
-		<integer>65</integer>
+		<integer>62</integer>
 	</dict>
 	<key>gris.</key>
 	<dict>
@@ -147,9 +147,9 @@
 		<key>duration</key>
 		<real>0.288892</real>
 		<key>start_index</key>
-		<integer>66</integer>
+		<integer>63</integer>
 		<key>end_index</key>
-		<integer>71</integer>
+		<integer>68</integer>
 	</dict>
 	<key>---</key>
 	<dict>

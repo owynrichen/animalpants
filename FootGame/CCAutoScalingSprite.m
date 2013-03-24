@@ -29,7 +29,7 @@
 
 -(void) onEnter {
     [super onEnter];
-    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:NO];
+    [self enableTouches:YES];
     
     NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
     
@@ -41,7 +41,7 @@
 }
 
 -(void) onExit {
-    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+    [self enableTouches:NO];
     [super onExit];
 }
 
@@ -245,6 +245,14 @@
 
 -(void) afterDrawInit {
     
+}
+
+-(void) enableTouches:(BOOL) on {
+    if (on) {
+        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:NO];
+    } else {
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+    }
 }
 
 @end

@@ -277,9 +277,9 @@
 
 - (void)showKeyboard:(NSNotification*)notification
 {
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+//    NSDictionary* keyboardInfo = [notification userInfo];
+//    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+//    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     
     titleLabel.hidden = YES;
     productName.hidden = YES;
@@ -301,7 +301,7 @@
 }
 
 - (void)hideKeyboard:(NSNotification*)notification {
-    NSDictionary* keyboardInfo = [notification userInfo];
+    // NSDictionary* keyboardInfo = [notification userInfo];
     // NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     // CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     

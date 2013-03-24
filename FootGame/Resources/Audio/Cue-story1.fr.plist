@@ -11,9 +11,9 @@
 	<key>Emma</key>
 	<dict>
 		<key>start</key>
-		<real>0.1027</real>
+		<real>0</real>
 		<key>duration</key>
-		<real>0.282427</real>
+		<real>0.385127</real>
 		<key>start_index</key>
 		<integer>0</integer>
 		<key>end_index</key>
@@ -138,7 +138,7 @@
 		<key>start_index</key>
 		<integer>60</integer>
 		<key>end_index</key>
-		<integer>68</integer>
+		<integer>67</integer>
 	</dict>
 	<key>avec</key>
 	<dict>
@@ -147,9 +147,9 @@
 		<key>duration</key>
 		<real>0.0526489999999997</real>
 		<key>start_index</key>
-		<integer>69</integer>
+		<integer>68</integer>
 		<key>end_index</key>
-		<integer>74</integer>
+		<integer>72</integer>
 	</dict>
 	<key>les</key>
 	<dict>
@@ -158,9 +158,9 @@
 		<key>duration</key>
 		<real>0.111216</real>
 		<key>start_index</key>
-		<integer>75</integer>
+		<integer>73</integer>
 		<key>end_index</key>
-		<integer>78</integer>
+		<integer>76</integer>
 	</dict>
 	<key>animaux.</key>
 	<dict>
@@ -169,9 +169,9 @@
 		<key>duration</key>
 		<real>0.452338</real>
 		<key>start_index</key>
-		<integer>79</integer>
+		<integer>77</integer>
 		<key>end_index</key>
-		<integer>87</integer>
+		<integer>85</integer>
 	</dict>
 	<key>Tous</key>
 	<dict>
@@ -180,9 +180,9 @@
 		<key>duration</key>
 		<real>0.192563</real>
 		<key>start_index</key>
-		<integer>88</integer>
+		<integer>86</integer>
 		<key>end_index</key>
-		<integer>92</integer>
+		<integer>90</integer>
 	</dict>
 	<key>les1</key>
 	<dict>
@@ -191,31 +191,31 @@
 		<key>duration</key>
 		<real>0.104305</real>
 		<key>start_index</key>
-		<integer>93</integer>
+		<integer>91</integer>
 		<key>end_index</key>
-		<integer>96</integer>
+		<integer>94</integer>
 	</dict>
 	<key>animaux</key>
 	<dict>
 		<key>start</key>
 		<real>4.834944</real>
 		<key>duration</key>
-		<real>0.516712</real>
+		<real>0.5167119999999999</real>
 		<key>start_index</key>
-		<integer>97</integer>
+		<integer>95</integer>
 		<key>end_index</key>
-		<integer>104</integer>
+		<integer>102</integer>
 	</dict>
-	<key>s'amusent</key>
+	<key>s&apos;amusent</key>
 	<dict>
 		<key>start</key>
 		<real>5.351656</real>
 		<key>duration</key>
 		<real>0.306497</real>
 		<key>start_index</key>
-		<integer>105</integer>
+		<integer>103</integer>
 		<key>end_index</key>
-		<integer>114</integer>
+		<integer>112</integer>
 	</dict>
 	<key>entre</key>
 	<dict>
@@ -224,9 +224,9 @@
 		<key>duration</key>
 		<real>0.163679</real>
 		<key>start_index</key>
-		<integer>115</integer>
+		<integer>113</integer>
 		<key>end_index</key>
-		<integer>120</integer>
+		<integer>118</integer>
 	</dict>
 	<key>eux,</key>
 	<dict>
@@ -235,9 +235,9 @@
 		<key>duration</key>
 		<real>0.216633</real>
 		<key>start_index</key>
-		<integer>121</integer>
+		<integer>119</integer>
 		<key>end_index</key>
-		<integer>125</integer>
+		<integer>123</integer>
 	</dict>
 	<key>mais</key>
 	<dict>
@@ -246,9 +246,9 @@
 		<key>duration</key>
 		<real>0.29045</real>
 		<key>start_index</key>
-		<integer>126</integer>
+		<integer>124</integer>
 		<key>end_index</key>
-		<integer>130</integer>
+		<integer>128</integer>
 	</dict>
 	<key>attends,</key>
 	<dict>
@@ -257,9 +257,9 @@
 		<key>duration</key>
 		<real>0.253541</real>
 		<key>start_index</key>
-		<integer>131</integer>
+		<integer>129</integer>
 		<key>end_index</key>
-		<integer>139</integer>
+		<integer>137</integer>
 	</dict>
 	<key>il</key>
 	<dict>
@@ -268,9 +268,9 @@
 		<key>duration</key>
 		<real>0.15726</real>
 		<key>start_index</key>
-		<integer>140</integer>
+		<integer>138</integer>
 		<key>end_index</key>
-		<integer>142</integer>
+		<integer>140</integer>
 	</dict>
 	<key>semble</key>
 	<dict>
@@ -279,20 +279,20 @@
 		<key>duration</key>
 		<real>0.303287</real>
 		<key>start_index</key>
-		<integer>143</integer>
+		<integer>141</integer>
 		<key>end_index</key>
-		<integer>149</integer>
+		<integer>147</integer>
 	</dict>
-	<key>qu'ils</key>
+	<key>qu&apos;ils</key>
 	<dict>
 		<key>start</key>
 		<real>7.665625</real>
 		<key>duration</key>
 		<real>0.147632</real>
 		<key>start_index</key>
-		<integer>150</integer>
+		<integer>148</integer>
 		<key>end_index</key>
-		<integer>156</integer>
+		<integer>154</integer>
 	</dict>
 	<key>ont</key>
 	<dict>
@@ -301,42 +301,42 @@
 		<key>duration</key>
 		<real>0.178121</real>
 		<key>start_index</key>
-		<integer>157</integer>
+		<integer>155</integer>
 		<key>end_index</key>
-		<integer>160</integer>
+		<integer>158</integer>
 	</dict>
 	<key>tous</key>
 	<dict>
 		<key>start</key>
-		<real>8.095683</real>
+		<real>8.095682999999999</real>
 		<key>duration</key>
 		<real>0.190959000000001</real>
 		<key>start_index</key>
-		<integer>161</integer>
+		<integer>159</integer>
 		<key>end_index</key>
-		<integer>165</integer>
+		<integer>163</integer>
 	</dict>
 	<key>perdu</key>
 	<dict>
 		<key>start</key>
-		<real>8.336388</real>
+		<real>8.336387999999999</real>
 		<key>duration</key>
 		<real>0.259960000000001</real>
 		<key>start_index</key>
-		<integer>166</integer>
+		<integer>164</integer>
 		<key>end_index</key>
-		<integer>171</integer>
+		<integer>169</integer>
 	</dict>
 	<key>leurs</key>
 	<dict>
 		<key>start</key>
-		<real>8.596348</real>
+		<real>8.596348000000001</real>
 		<key>duration</key>
 		<real>0.139609</real>
 		<key>start_index</key>
-		<integer>172</integer>
+		<integer>170</integer>
 		<key>end_index</key>
-		<integer>177</integer>
+		<integer>175</integer>
 	</dict>
 	<key>pantalons!</key>
 	<dict>
@@ -345,9 +345,9 @@
 		<key>duration</key>
 		<real>0.450918999999999</real>
 		<key>start_index</key>
-		<integer>178</integer>
+		<integer>176</integer>
 		<key>end_index</key>
-		<integer>188</integer>
+		<integer>186</integer>
 	</dict>
 	<key>Peux-tu</key>
 	<dict>
@@ -356,9 +356,9 @@
 		<key>duration</key>
 		<real>0.213424</real>
 		<key>start_index</key>
-		<integer>189</integer>
+		<integer>187</integer>
 		<key>end_index</key>
-		<integer>196</integer>
+		<integer>194</integer>
 	</dict>
 	<key>les2</key>
 	<dict>
@@ -367,9 +367,9 @@
 		<key>duration</key>
 		<real>0.0818399999999997</real>
 		<key>start_index</key>
-		<integer>197</integer>
+		<integer>195</integer>
 		<key>end_index</key>
-		<integer>200</integer>
+		<integer>198</integer>
 	</dict>
 	<key>aider</key>
 	<dict>
@@ -378,9 +378,9 @@
 		<key>duration</key>
 		<real>0.428453000000001</real>
 		<key>start_index</key>
-		<integer>201</integer>
+		<integer>199</integer>
 		<key>end_index</key>
-		<integer>206</integer>
+		<integer>204</integer>
 	</dict>
 	<key>à</key>
 	<dict>
@@ -389,9 +389,9 @@
 		<key>duration</key>
 		<real>0.0818399999999997</real>
 		<key>start_index</key>
-		<integer>207</integer>
+		<integer>205</integer>
 		<key>end_index</key>
-		<integer>209</integer>
+		<integer>206</integer>
 	</dict>
 	<key>retrouver</key>
 	<dict>
@@ -400,9 +400,9 @@
 		<key>duration</key>
 		<real>0.229471</real>
 		<key>start_index</key>
-		<integer>210</integer>
+		<integer>207</integer>
 		<key>end_index</key>
-		<integer>219</integer>
+		<integer>216</integer>
 	</dict>
 	<key>leurs1</key>
 	<dict>
@@ -411,9 +411,9 @@
 		<key>duration</key>
 		<real>0.1027</real>
 		<key>start_index</key>
-		<integer>220</integer>
+		<integer>217</integer>
 		<key>end_index</key>
-		<integer>225</integer>
+		<integer>222</integer>
 	</dict>
 	<key>pantalons?</key>
 	<dict>
@@ -422,16 +422,16 @@
 		<key>duration</key>
 		<real>0.412406000000001</real>
 		<key>start_index</key>
-		<integer>226</integer>
+		<integer>223</integer>
 		<key>end_index</key>
-		<integer>236</integer>
+		<integer>235</integer>
 	</dict>
 	<key>---</key>
 	<dict>
 		<key>start</key>
 		<real>11.415796</real>
 		<key>duration</key>
-		<real>0.0</real>
+		<real>0</real>
 		<key>start_index</key>
 		<integer>0</integer>
 		<key>end_index</key>

@@ -39,7 +39,7 @@
 		<key>start_index</key>
 		<integer>13</integer>
 		<key>end_index</key>
-		<integer>21</integer>
+		<integer>22</integer>
 	</dict>
 	<key>a</key>
 	<dict>
@@ -48,9 +48,9 @@
 		<key>duration</key>
 		<real>0.0843289999999999</real>
 		<key>start_index</key>
-		<integer>22</integer>
-		<key>end_index</key>
 		<integer>23</integer>
+		<key>end_index</key>
+		<integer>24</integer>
 	</dict>
 	<key>des</key>
 	<dict>
@@ -59,9 +59,9 @@
 		<key>duration</key>
 		<real>0.084328</real>
 		<key>start_index</key>
-		<integer>24</integer>
+		<integer>25</integer>
 		<key>end_index</key>
-		<integer>27</integer>
+		<integer>28</integer>
 	</dict>
 	<key>pattes</key>
 	<dict>
@@ -70,9 +70,9 @@
 		<key>duration</key>
 		<real>0.343337</real>
 		<key>start_index</key>
-		<integer>28</integer>
+		<integer>29</integer>
 		<key>end_index</key>
-		<integer>34</integer>
+		<integer>35</integer>
 	</dict>
 	<key>marron</key>
 	<dict>
@@ -81,9 +81,9 @@
 		<key>duration</key>
 		<real>0.361408</real>
 		<key>start_index</key>
-		<integer>35</integer>
+		<integer>36</integer>
 		<key>end_index</key>
-		<integer>41</integer>
+		<integer>42</integer>
 	</dict>
 	<key>et</key>
 	<dict>
@@ -92,9 +92,9 @@
 		<key>duration</key>
 		<real>0.0843289999999999</real>
 		<key>start_index</key>
-		<integer>42</integer>
+		<integer>43</integer>
 		<key>end_index</key>
-		<integer>44</integer>
+		<integer>45</integer>
 	</dict>
 	<key>porte</key>
 	<dict>
@@ -103,9 +103,9 @@
 		<key>duration</key>
 		<real>0.150586</real>
 		<key>start_index</key>
-		<integer>45</integer>
+		<integer>46</integer>
 		<key>end_index</key>
-		<integer>50</integer>
+		<integer>51</integer>
 	</dict>
 	<key>un</key>
 	<dict>
@@ -114,9 +114,9 @@
 		<key>duration</key>
 		<real>0.114446</real>
 		<key>start_index</key>
-		<integer>51</integer>
+		<integer>52</integer>
 		<key>end_index</key>
-		<integer>53</integer>
+		<integer>54</integer>
 	</dict>
 	<key>pantalon</key>
 	<dict>
@@ -125,9 +125,9 @@
 		<key>duration</key>
 		<real>0.451759</real>
 		<key>start_index</key>
-		<integer>54</integer>
+		<integer>55</integer>
 		<key>end_index</key>
-		<integer>62</integer>
+		<integer>63</integer>
 	</dict>
 	<key>à</key>
 	<dict>
@@ -136,7 +136,7 @@
 		<key>duration</key>
 		<real>0.138539</real>
 		<key>start_index</key>
-		<integer>63</integer>
+		<integer>64</integer>
 		<key>end_index</key>
 		<integer>65</integer>
 	</dict>

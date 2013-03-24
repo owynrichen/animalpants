@@ -9,7 +9,14 @@
 #import "Animal.h"
 #import "SoundManager.h"
 #import "LocalizationManager.h"
+#import "LocationManager.h"
 #import "PremiumContentStore.h"
+
+@interface Animal()
+
+-(NSString *) factKey: (FactType) ftype;
+
+@end
 
 @implementation Animal
 
@@ -81,6 +88,43 @@
 -(NSString *) localizedName {
     NSString *k = [NSString stringWithFormat:@"%@_name", [key lowercaseString]];
     return locstr(k, @"strings", @"");
+}
+
+-(NSString *) factKey:(FactType)ftype {
+    switch(ftype) {
+        case kFaceFact:
+            return @"photo";
+        case kEarthFact:
+            return @"location";
+        case kFoodFact:
+            return @"food";
+        case kHeightFact:
+            return @"height";
+        case kWeightFact:
+            return @"weight";
+        case kSpeedFact:
+            return @"speed";
+    }
+}
+
+-(NSString *) factTitle: (FactType) ftype {
+    NSString *strkey = [NSString stringWithFormat:@"%@_fact_%@", [key lowercaseString], [self factKey:ftype]];
+    return locstr(strkey, @"strings", @"");
+}
+
+-(NSString *) factText: (FactType) ftype {
+    NSString *format;
+    
+    if ([[LocationManager sharedManager] currentLocaleUsesMetric] &&
+        (ftype == kHeightFact || ftype == kWeightFact || ftype == kSpeedFact)) {
+        format = @"%@_fact_%@_details_metric";
+    } else {
+        format = @"%@_fact_%@_details";
+    }
+    
+    NSString *strkey = [NSString stringWithFormat:format, [key lowercaseString], [self factKey:ftype]];
+    
+    return locstr(strkey, @"strings", @"");
 }
 
 @end

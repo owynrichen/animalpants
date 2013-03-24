@@ -59,8 +59,8 @@ File.foreach(options[:input], options[:separator]) do |line|
   start_t = items[0].to_f
   end_t = items[1].to_f
   start_index = index
-  end_index = index + items[2].length - 1
-  index += items[2].length
+  end_index = index + items[2].scan(/./mu).length - 1
+  index += items[2].scan(/./mu).length
 
   if (items[2].rstrip == "---")
     puts "end hit" if options[:verbose]

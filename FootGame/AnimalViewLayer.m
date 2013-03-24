@@ -529,6 +529,7 @@
     
     purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:animal.productId upsell:PREMIUM_PRODUCT_ID];
     apEvent(@"story", @"freemium", @"product success");
+    [self blurGameLayer:YES withDuration:0.5];
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
@@ -536,11 +537,13 @@
     
     [PurchaseViewController handleProductsRetrievedFail];
     apEvent(@"story", @"freemium", @"product error");
+    [self blurGameLayer:NO withDuration:0.1];
 }
 
 -(BOOL) cancelClicked: (BOOL) buying {
     [[CCDirector sharedDirector] resume];
     apEvent(@"story", @"freemium", @"cancel click");
+    [self blurGameLayer:NO withDuration:0.1];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     [purchase.view removeFromSuperview];
     return NO;
@@ -555,6 +558,7 @@
     } else {
         apEvent(@"story", @"freemium", @"purchase fail");
     }
+    [self blurGameLayer:NO withDuration:0.1];
 }
 
 @end

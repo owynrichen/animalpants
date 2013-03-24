@@ -156,7 +156,7 @@ static NSString *_sync = @"";
 
 -(NSArray *) getAvailableLanguages {
     // TODO: sort by preferred languages first?
-    return [NSArray arrayWithObjects:@"en", @"es", @"fr", @"ja", nil];
+    return [NSArray arrayWithObjects:@"en", @"es", @"fr", @"de", @"ja", nil];
 }
 
 -(NSString *) getSystemLanguageHelperString: (NSString *) key fromTable: (NSString *) table {

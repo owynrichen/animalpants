@@ -29,6 +29,8 @@ typedef void (^LocationManagerCallback)(LatitudeLongitude);
 
 - (void)locationManager:(CLLocationManager *)manager
 	 didUpdateLocations:(NSArray *)locations;
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error;
 
 @end
 

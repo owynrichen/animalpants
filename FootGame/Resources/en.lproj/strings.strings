@@ -8,8 +8,13 @@
 
 "back" = "Back";
 "okay" = "Okay";
-"promocode" = "Promotional code?";
 "loading" = "Searching for Animals...";
+
+/*
+ 
+ Purchase flow and promo code text
+ 
+ */
 
 "product_fetch_error_title" = "Error Fetching Products";
 "product_fetch_error_desc" = "There was an issue getting product information from iTunes, please try again later.";
@@ -19,6 +24,10 @@
 "invalid_promo_error_desc" = "The promotional code attempted was invalid, please try again.";
 "promo_code_error_title" = "Error Checking Promotion Code";
 "promo_code_error_desc" = "There was an error when checking the promotion code, please try again later.";
+"location_error_title" = "Error Finding Location";
+"location_error_desc" = "Sorry, we couldn't get your location right now.";
+
+"promocode" = "Promotional code?";
 "buy_upsell" = "Add (%@)";
 "confirm" = "Confirm";
 "use_code" = "Use Promo Code";
@@ -27,7 +36,12 @@
 "get_products" = "Talking to iTunes";
 "buying_product" = "Talking to iTunes";
 "checking_code" = "Activating Promo Code";
-"play_button" = "Go See %@";
+
+/* 
+ 
+ Main and Language menu options
+ 
+ */
 
 "play" = "Play!";
 "animals" = "Animals";
@@ -37,6 +51,13 @@
 "es" = "Spanish";
 "fr" = "French";
 "ja" = "Japanese";
+"de" = "German";
+
+/*
+ 
+ Animal types
+ 
+ */
 
 "menu_elephant" = "Elephant";
 "menu_lion" = "Lion";
@@ -50,6 +71,12 @@
 "menu_polarbear" = "Polar Bear";
 "menu_tiger" = "Tiger";
 "menu_zebra" = "Zebra";
+
+/*
+ 
+ Narration section
+ 
+ */
 
 "elephant" = "Olly the Elephant has big toe nails and is wearing grey pants.";
 "lion" = "Lloyd the Lion has blue pants and his feet are covered in tan colored fur.";
@@ -68,91 +95,245 @@
 "upsell" = "You are doing great and Emma and Avery are so happy. Don’t stop now. The fun is just beginning!";
 "outro" = "Hooray! You have helped Emma and Avery put the correct pants back on the animals. Way to go! Let’s go learn more about our animal friends.";
 
+/*
+ 
+ Facts and facts page strings
+ 
+ */
+
 "kilometers" = "kilometers";
 "miles" = "miles";
-"distance_from_you_string" = "You are %1.2f %@ from %@'s closest habitat.";
+"feet" = "feet";
+"meters" = "meters";
+"pounds" = "pounds";
+"kilograms" = "kilograms";
+"distance_from_you_string" = "You are %1.2f %@ from %@'s closest habitat."; // example: "You are 1034.23 kilometers from Kendra's closest habitat."
+"play_button" = "Go See %@";  // example: "Go See Kendra"
+
+// crocodile
 
 "crocodile_name" = "Carl";
-"crocodile_fact_height" = "Carl is tall";
-"crocodile_fact_weight" = "Carl is fat";
-"crocodile_fact_food" = "Carl eats humans";
-"crocodile_fact_speed" = "Carl is super fast";
-"crocodile_fact_location" = "Carl is EVERYWHERE!";
+"crocodile_fact_height" = "Carl is short, but long";
+"crocodile_fact_height_details" = "Adult crocodiles are low to the ground, but can get up to 11 feet long!";
+"crocodile_fact_height_details_metric" = "Adult crocodiles are low to the ground, but can get up to 3.35 meters long!";
+"crocodile_fact_weight" = "Carl is very heavy";
+"crocodile_fact_weight_details" = "Adult crocodiles can weigh between 880-2200 pounds! The average human weighs 150 pounds.";
+"crocodile_fact_weight_details_metric" = "Adult crocodiles can weigh between 399-998 kilograms! The average human weighs 68 kilograms.";
+"crocodile_fact_food" = "Carl eats almost anything";
+"crocodile_fact_food_details" = "Crocodiles are predatory and eat almost anything.";
+"crocodile_fact_speed" = "*Carl is super fast";
+"crocodile_fact_speed_details" = "*Carl can do a mean running man.";
+"crocodile_fact_speed_details_metric" = "*Carl can do a mean running man in kilometers.";
+"crocodile_fact_location" = "Carl hangs out in swamps and rivers";
+"crocodile_fact_location_details" = "";
 "crocodile_fact_photo" = "This is Carl's friend, Johann";
+"crocodile_fact_phto_details" = "Their favorite show is Blues Clues.";
+
+// giraffe
+
 "giraffe_name" = "Jerome";
-"giraffe_fact_height" = "Jerome is tall";
-"giraffe_fact_weight" = "Jerome is fat";
-"giraffe_fact_food" = "Jerome eats humans";
-"giraffe_fact_speed" = "Jerome is super fast";
-"giraffe_fact_location" = "Jerome is EVERYWHERE!";
-"giraffe_fact_photo" = "This is Jerome's friend, Bob";
+"giraffe_fact_height" = "Jerome is very tall";
+"giraffe_fact_height_details" = "Adult giraffes range from 16-20 feet in height because of their long, long necks";
+"giraffe_fact_height_details_metric" = "Adult giraffes range from 4.9-6.1 meters in height because of their long, long necks";
+"giraffe_fact_weight" = "Jerome is very heavy";
+"giraffe_fact_weight_details" = "Jerome weighs 3000 pounds.  The average human weighs 150 pounds.";
+"giraffe_fact_weight_details" = "Jerome weighs 1361 kilograms.  The average human weighs 68 kilograms.";
+"giraffe_fact_food" = "Jerome eats leaves";
+"giraffe_fact_food_details" = "Because giraffes are taller than other animals they can reach leaves others cannot.";
+"giraffe_fact_speed" = "*Jerome can run fast";
+"giraffe_fact_speed_details" = "*He can do a mean running man";
+"giraffe_fact_speed_details_metric" = "*He can do a mean running man in kilometers";
+"giraffe_fact_location" = "Jerome lives in grasslands, woodlands and savannas of Africa";
+"giraffe_fact_location_details" = "";
+"giraffe_fact_photo" = "This is Jerome's friend, Alfie";
+"giraffe_fact_photo_details" = "He lives in South Africa, and loves to watch sunsets.";
+
+// hippo
+
 "hippo_name" = "Horace";
-"hippo_fact_height" = "Horace is tall";
-"hippo_fact_weight" = "Horace is fat";
-"hippo_fact_food" = "Horace eats humans";
-"hippo_fact_speed" = "Horace is super fast";
-"hippo_fact_location" = "Horace is EVERYWHERE!";
+"hippo_fact_height" = "Horace is big";
+"hippo_fact_height_details" = "Full-size hippos grow to around 5 feet when on all 4 legs.";
+"hippo_fact_height_details" = "Full-size hippos grow to around 1.5 meters when on all 4 legs.";
+"hippo_fact_weight" = "Horace weighs a lot";
+"hippo_fact_weight_details" = "Adult hippos can weigh between 3000-6000 pounds full grown.";
+"hippo_fact_weight_details_metric" = "Adult hippos can weigh between 1360-2720 kilograms full grown.";
+"hippo_fact_food" = "Horace eats grass";
+"hippo_fact_food_details" = "Horace grazes on short grass, which is their main food source.";
+"hippo_fact_speed" = "Horace is a bit slow";
+"hippo_fact_speed_details" = "Hippos have been clocked at 19 miles per hour over short distances, but usually are slow";
+"hippo_fact_speed_details_metric" = "Hippos have been clocked at 30 kilometers per hour over short distances, but usually are slow";
+"hippo_fact_location" = "Horace loves the rivers, lakes and swamps of Africa";
+"hippo_fact_location_details" = "";
 "hippo_fact_photo" = "This is Horace's friend, Tubby";
+"hippo_fact_photo_details" = "He likes to party";
+
+// kangaroo
+
 "kangaroo_name" = "Kendra";
-"kangaroo_fact_height" = "Kendra is tall";
-"kangaroo_fact_weight" = "Kendra is fat";
-"kangaroo_fact_food" = "Kendra eats humans";
-"kangaroo_fact_speed" = "Kendra is super fast";
-"kangaroo_fact_location" = "Kendra is EVERYWHERE!";
+"kangaroo_fact_height" = "Kendra is average height";
+"kangaroo_fact_height_details" = "Kendra and her friends are between 4.3-5.2 feet tall.";
+"kangaroo_fact_height_details_metric" = "Kendra and her friends are between 1.3-1.6 meters tall.";
+"kangaroo_fact_weight" = "Kendra is heavier than a child";
+"kangaroo_fact_weight_details" = "Adult kangaroos weigh between 120-190 pounds.  The average human weighs 150 pounts.";
+"kangaroo_fact_weight_details_metric" = "Adult kangaroos weigh between 54.4-86.2 kilograms.  The average human weighs 68 kilograms.";
+"kangaroo_fact_food" = "Kendra eats grasses and shrubs";
+"kangaroo_fact_food_details" = "Kangaroos will also eat meat, but love grasses and shrubs the most";
+"kangaroo_fact_speed" = "*Kendra is fast";
+"kangaroo_fact_speed_details" = "*Kendra can do a mean running man.";
+"kangaroo_fact_speed_details_metric" = "*Kendra can do a mean running man in kilometers.";
+"kangaroo_fact_location" = "Kendra lives in Australia";
+"kangaroo_fact_location_details" = "";
 "kangaroo_fact_photo" = "This is Kendra's friend, Candice";
+"kangaroo_fact_photo_details" = "Candice is a boxing champion!";
+
+// monkey
+
 "monkey_name" = "Melinda";
-"monkey_fact_height" = "Melinda is tall";
-"monkey_fact_weight" = "Melinda is fat";
-"monkey_fact_food" = "Melinda eats humans";
-"monkey_fact_speed" = "Melinda is super fast";
-"monkey_fact_location" = "Melinda is EVERYWHERE!";
+"monkey_fact_height" = "Melinda is as tall as a human";
+"monkey_fact_height_details" = "Adult chimpanzees can be 5 to 6 feet tall.";
+"monkey_fact_height_details_metric" = "Adult chimpanzees can be 1.5 to 1.8 meters tall.";
+"monkey_fact_weight" = "Melinda isn't too heavy";
+"monkey_fact_weight_details" = "Melinda weighs 150 pounds.  The average human weighs 150 pounds.";
+"monkey_fact_weight_details_metric" = "Melinda weighs 68 kilograms.  The average human weighs 68 kilograms.";
+"monkey_fact_food" = "Melinda is an omnivore";
+"monkey_fact_food_details" = "*TODO!!!!";
+"monkey_fact_speed" = "Melinda is pretty fast";
+"monkey_fact_speed_details" = "*Melinda can do a mean running man";
+"monkey_fact_speed_details_metric" = "*Melinda can do a mean running man in kilometers";
+"monkey_fact_location" = "Melinda and her friends live in Africa";
+"monkey_fact_location_details" = "";
 "monkey_fact_photo" = "This is Melinda's friend, Horacio";
+"monkey_fact_photo_details" = "*He enjoys bananas, long walks on the beach, and flinging poo.";
+
+// panda
+
 "panda_name" = "Patrick";
-"panda_fact_height" = "Patrick is tall";
-"panda_fact_weight" = "Patrick is fat";
-"panda_fact_food" = "Patrick eats humans";
-"panda_fact_speed" = "Patrick is super fast";
-"panda_fact_location" = "Patrick is EVERYWHERE!";
+"panda_fact_height" = "Patrick is short";
+"panda_fact_height_details" = "On all 4 legs, pandas are only 2 to 3 feet tall.";
+"panda_fact_height_details_metric" = "On all 4 legs, pandas are only 0.6 to 0.9 meters tall.";
+"panda_fact_weight" = "Patrick is heavy";
+"panda_fact_weight_details" = "Adult pandas can weigh between 170 and 220 pounds.  The average human weighs 150 pounds.";
+"panda_fact_weight_details_metric" = "Adult pandas can weigh between 77 and 127 kilograms.  The average human weighs 68 kilograms.";
+"panda_fact_food" = "Patrick eats bamboo";
+"panda_fact_food_details" = "Giant pandas eat as much as 1/3 of their weight of bamboo each day.";
+"panda_fact_speed" = "Patrick mostly sit around";
+"panda_fact_speed_details" = "*Pandas can move pretty fast, but spend most of their day eating.";
+"panda_fact_speed_details_metric" = "*Pandas can move pretty fast in kilometers, but spend most of their day eating.";
+"panda_fact_location" = "Patrick lives in China";
+"panda_fact_location_details" = "";
 "panda_fact_photo" = "This is Patrick's friend, Genevive";
+"panda_fact_photo_details" = "*Genevive has a newborn baby, who's tiny.";
+
+// polar bear
+
 "polarbear_name" = "Peggy";
 "polarbear_fact_height" = "Peggy is tall";
-"polarbear_fact_weight" = "Peggy is fat";
-"polarbear_fact_food" = "Peggy eats humans";
-"polarbear_fact_speed" = "Peggy is super fast";
-"polarbear_fact_location" = "Peggy is EVERYWHERE!";
+"polarbear_fact_height_details" = "Polar bears are 4.36 feet when standing on all four legs.";
+"polarbear_fact_height_details_metric" = "Polar bears are 1.33 meters when standing on all four legs.";
+"polarbear_fact_weight" = "Peggy is very heavy";
+"polarbear_fact_weight_details" = "Peggy and her friends weigh between 770-1500 pounds.  The average human weighs 150 pounds.";
+"polarbear_fact_weight_details" = "Peggy and her friends weigh between 349-680 kilograms.  The average human weighs 68 kilograms.";
+"polarbear_fact_food" = "Peggy eats seals";
+"polarbear_fact_food_details" = "Polar bears are carnivores, with a diet consisting mostly of seals.";
+"polarbear_fact_speed" = "*Peggy is super fast";
+"polarbear_fact_speed_details" = "*Polar bears can moonwalk like crazy";
+"polarbear_fact_speed_details_metric" = "*Polar bears can moonwalk like crazy in the metric system";
+"polarbear_fact_location" = "Peggy lives at the arctic circle";
+"polarbear_fact_location_details" = "";
 "polarbear_fact_photo" = "This is Peggy's friend, Paris";
+"polarbear_fact_photo_details" = "She lives in Newfoundland, but they talk all the time.";
+
+// tiger
+
 "tiger_name" = "Tommy";
 "tiger_fact_height" = "Tommy is tall";
-"tiger_fact_weight" = "Tommy is fat";
-"tiger_fact_food" = "Tommy eats humans";
-"tiger_fact_speed" = "Tommy is super fast";
-"tiger_fact_location" = "Tommy is EVERYWHERE!";
+"tiger_fact_height_details" = "*Tommy has moon shoes on";
+"tiger_fact_height_details_metric" = "*Tommy has metric moon shoes on";
+"tiger_fact_weight" = "Tommy is heavy";
+"tiger_fact_weight_details" = "Adult tigers can weigh up to 670 pounds of pure muscle.";
+"tiger_fact_weight_details" = "Adult tigers can weigh up to 304 kilograms of pure muscle.";
+"tiger_fact_food" = "Tommy eats meat";
+"tiger_fact_food_details" = "In the wild, tigers mostly fed on medium to large sized animals";
+"tiger_fact_speed" = "*Tommy is super fast";
+"tiger_fact_speed_details" = "*He runs like the wind.";
+"tiger_fact_speed_details_metric" = "*He runs like the metric wind.";
+"tiger_fact_location" = "Tommy lives in Asia";
+"tiger_fact_location_details" = "";
 "tiger_fact_photo" = "This is Tommy's friend, Albert";
+"tiger_fact_photo_details" = "He lives in Sumatra, enjoying island living.";
+
+// zebra
+
 "zebra_name" = "Zeb";
 "zebra_fact_height" = "Zeb is tall";
-"zebra_fact_weight" = "Zeb is fat";
-"zebra_fact_food" = "Zeb eats humans";
-"zebra_fact_speed" = "Zeb is super fast";
-"zebra_fact_location" = "Zeb is EVERYWHERE!";
+"zebra_fact_height_details" = "Zeb and his friends are between 4 and 5 feet tall on all four legs.";
+"zebra_fact_height_details_metric" = "Zeb and his friends are between 1.2 and 1.5 meters tall on all four legs.";
+"zebra_fact_weight" = "Zeb is heavy";
+"zebra_fact_weight_details" = "Adult zebras can weigh up to  770 pounds.";
+"zebra_fact_weight_details_metric" = "Adult zebras can weigh up to 349 kilograms.";
+"zebra_fact_food" = "Zeb eats grass";
+"zebra_fact_food_details" = "Zebras eat grass almost all the time, but sometimes eat shrubs and bark.";
+"zebra_fact_speed" = "*Zeb is pretty fast";
+"zebra_fact_speed_details" = "*Zebras run like horses";
+"zebra_fact_speed_details_metric" = "*Zebras run like metric horses";
+"zebra_fact_location" = "Zeb lives in Africa";
+"zebra_fact_location_details" = "";
 "zebra_fact_photo" = "This is Zeb's friend, Percival";
+"zebra_fact_photo_details" = "Percival, like all zebras, sleeps standing up.";
+
+// lion
+
 "lion_name" = "Lloyd";
 "lion_fact_height" = "Lloyd is tall";
-"lion_fact_weight" = "Lloyd is fat";
-"lion_fact_food" = "Lloyd eats humans";
-"lion_fact_speed" = "Lloyd is super fast";
-"lion_fact_location" = "Lloyd is EVERYWHERE!";
+"lion_fact_height_details" = "Adult lions can be 6 to 8 feet tall, depending on if they're standing on their hind legs.";
+"lion_fact_height_details_metric" = "Adult lions can be 1.8 to 2.4 meters tall, depending on if they're standing on their hind legs.";
+"lion_fact_weight" = "Lloyd is heavy";
+"lion_fact_weight_details" = "Lloyd and his buddies can weigh between 330 and 550 pounds. The average human weighs 150 pounds.";
+"lion_fact_weight_details_metric" = "Lloyd and his buddies can weigh between 150 and 249 kilograms. The average human weighs 68 kilograms.";
+"lion_fact_food" = "Lloyd eats meat";
+"lion_fact_food_details" = "Lions eat large mammals, with a preference of bufallo, wildebeest, impalas, gazelles, zebra and warthogs.";
+"lion_fact_speed" = "*Lloyd is super fast";
+"lion_fact_speed_details" = "*TODO";
+"lion_fact_speed_details_metric" = "*TODO metric";
+"lion_fact_location" = "Lloyd and his friends live in Africa.";
+"lion_fact_location_details" = "";
 "lion_fact_photo" = "This is Lloyd's friend, Simba";
+"lion_fact_photo_details" = "He was in a movie a long time ago, but has retired since then.";
+
+// penguin
+
 "penguin_name" = "Pedro";
-"penguin_fact_height" = "Pedro is tall";
-"penguin_fact_weight" = "Pedro is fat";
-"penguin_fact_food" = "Pedro eats humans";
+"penguin_fact_height" = "Pedro is short";
+"penguin_fact_height_details" = "Adult penguins grow up to 4 feet tall.  About the size of the average kid.";
+"penguin_fact_height_details_metric" = "Adult penguins grow up to 1.2 meters tall.  About the size of the average kid.";
+"penguin_fact_weight" = "Pedro is light";
+"penguin_fact_weight_details" = "Pedro and his friends usually weigh between 49 and 99 pounds.";
+"penguin_fact_weight_details_metric" = "Pedro and his friends usually weigh between 22 and 45 kilograms.";
+"penguin_fact_food" = "Pedro eats fish";
+"penguin_fact_food_details" = "Penguins diet is mosly fish, but can also include krill, squid, and crustaceans.";
 "penguin_fact_speed" = "Pedro is super fast";
-"penguin_fact_location" = "Pedro is EVERYWHERE!";
+"penguin_fact_speed_details" = "*TODO";
+"penguin_fact_speed_details_metric" = "*TODO metric";
+"penguin_fact_location" = "Pedro lives in Antarctica.";
+"penguin_fact_location_details" = "";
 "penguin_fact_photo" = "This is Pedro's friend, Cameron";
+"penguin_fact_photo_details" = "When they're looking for food, they can stay underwater for up to 18 minutes!";
+
+// elephant
+
 "elephant_name" = "Olly";
-"elephant_fact_height" = "Olly is tall";
-"elephant_fact_weight" = "Olly is fat";
-"elephant_fact_food" = "Olly eats humans";
-"elephant_fact_speed" = "Olly is super fast";
-"elephant_fact_location" = "Olly is EVERYWHERE!";
+"elephant_fact_height" = "Olly is pretty tall";
+"elephant_fact_height_details" = "Adult elephants can be between 10-13 feet tall on all four legs.";
+"elephant_fact_height_details_metric" = "Adult elephants can be between %i-%i %@ tall on all four legs.";
+"elephant_fact_weight" = "Olly is really heavy";
+"elephant_fact_weight_details" = "Olly weighs 10,000 pounds.  Some of his friends can weigh up to 13,300 pounds!";
+"elephant_fact_weight_details_metric" = "Olly weighs 4536 kilograms.  Some of his friends can weigh up to 6033 kilograms!";
+"elephant_fact_food" = "Olly eats leaves, grass and shrubs";
+"elephant_fact_food_details" = "African elephants can eat up to %i %@ of vegitation per day.";
+"elephant_fact_speed" = "*Olly is super fast";
+"elephant_fact_speed_details" = "*Olly is super fast in imperial units";
+"elephant_fact_speed_details_metric" = "*Olly is super fast in metric units";
+"elephant_fact_location" = "Olly lives in Africa";
+"elephant_fact_location_details" = "";
 "elephant_fact_photo" = "This is Olly's friend, Terrance";
+"elephant_fact_photo_details" = "Terrance is also an African elephant, but he's got cousins from India too.";

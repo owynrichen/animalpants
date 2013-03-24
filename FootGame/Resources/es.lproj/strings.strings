@@ -15,9 +15,10 @@
 "languages" = "Idiomas";
 "settings" = "Configuración";
 "en" = "Inglés";
-"es" = "español";
-"fr" = "francés";
-"ja" = "japonés";
+"es" = "Español";
+"fr" = "Francés";
+"ja" = "Japonés";
+"de" = "Alemán";
 
 "menu_elephant" = "elefante";
 "menu_lion" = "león";

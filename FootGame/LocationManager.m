@@ -7,6 +7,7 @@
 //
 
 #import "LocationManager.h"
+#import "LocalizationManager.h"
 
 @implementation LocationManager
 
@@ -30,7 +31,7 @@ static NSString *_sync = @"";
     
     mgr = [[CLLocationManager alloc] init];
     [mgr setDelegate:self];
-    [mgr setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    [mgr setDesiredAccuracy:kCLLocationAccuracyKilometer];
     
     return self;
 }
@@ -73,6 +74,17 @@ static NSString *_sync = @"";
         [callback release];
         callback = nil;
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"location_error_title", @"strings", @"")
+                                                    message:locstr(@"location_error_desc", @"strings", @"")
+                                                   delegate:nil
+                                          cancelButtonTitle:locstr(@"okay", @"strings", @"")
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
 }
 
 

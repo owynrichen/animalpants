@@ -13,6 +13,11 @@
 #import "PremiumContentStore.h"
 #import "MBProgressHUD.h"
 #import "SoundManager.h"
+#import "FadeGrid3D.h"
+
+@interface LanguageSelectLayer()
+-(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration;
+@end
 
 @implementation LanguageSelectLayer
 
@@ -154,16 +159,34 @@
         [purchase release];
     
     purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:(NSString *) data upsell:PREMIUM_PRODUCT_ID];
+    [self blurFadeLayer:YES withDuration:0.5];
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
     [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     
     [PurchaseViewController handleProductsRetrievedFail];
+    [self blurFadeLayer:NO withDuration:0.1];
 }
 
 -(void) purchaseFinished: (BOOL) success {
     [self redrawMenu];
+    [self blurFadeLayer:NO withDuration:0.1];
+}
+
+-(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration {
+    if (blur) {
+        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:0.0 sigmaEnd:1.0 desaturateStart:0.0 desaturateEnd:0.7];
+        [self runAction:blur];
+    } else {
+        FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:1.0 sigmaEnd:0.0 desaturateStart:0.7 desaturateEnd:0.0];
+        [self runAction:blur];
+    }
+}
+
+-(BOOL) cancelClicked: (BOOL) buying {
+    [self blurFadeLayer:NO withDuration:0.1];
+    return !buying;
 }
 
 @end

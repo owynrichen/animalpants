@@ -17,6 +17,8 @@
 @property (nonatomic, readonly) BehaviorManager *behaviorManager;
 @property (nonatomic, readonly) BitVector *bitMask;
 
+-(void) enableTouches:(BOOL) on;
+
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;

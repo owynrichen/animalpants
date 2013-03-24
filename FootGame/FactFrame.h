@@ -10,12 +10,12 @@
 #import "Animal.h"
 
 typedef enum {
-    kFaceFactFrame,
-    kHeightFactFrame,
-    kWeightFactFrame,
-    kEarthFactFrame,
-    kSpeedFactFrame,
-    kFoodFactFrame,
+    kFaceFactFrame = 0,
+    kHeightFactFrame = 1,
+    kWeightFactFrame = 2,
+    kEarthFactFrame = 3,
+    kSpeedFactFrame = 4,
+    kFoodFactFrame = 5,
 } FactFrameType;
 
 @interface FactFrame : CCNode<CCRGBAProtocol> {
@@ -35,5 +35,7 @@ typedef enum {
 
 -(GLubyte) opacity;
 -(void) setOpacity: (GLubyte) opacity;
+
+-(void) enableTouches:(BOOL) on;
 
 @end

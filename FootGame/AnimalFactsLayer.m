@@ -19,6 +19,7 @@
 
 -(void) startPurchase: (NSString *) productId;
 -(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration;
+-(void) enableTouches: (BOOL) on;
 @end
 
 @implementation AnimalFactsLayer
@@ -111,8 +112,10 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kHeightFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:NO];
             [self blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:YES];
             [self blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -137,8 +140,10 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kWeightFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:NO];
             [self blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:YES];
             [self blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -163,8 +168,10 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kEarthFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:NO];
             [self blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:YES];
             [self blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -189,8 +196,10 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kFoodFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:NO];
             [self blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:YES];
             [self blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -215,8 +224,10 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kSpeedFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:NO];
             [self blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:YES];
             [self blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -241,8 +252,10 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kFaceFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:NO];
             [self blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [self enableTouches:YES];
             [self blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -277,9 +290,8 @@
             
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: anml.key] backwards:false]];
         } else {
-            AnimalFactsLayer *me = (AnimalFactsLayer *) sender.parent;
             NSLog(@"%@", anml.productId);
-            [me startPurchase:anml.productId];
+            [self startPurchase:anml.productId];
         }
     }];
     
@@ -359,6 +371,7 @@
     
     purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:animal.productId upsell:PREMIUM_PRODUCT_ID];
     apEvent(@"facts", @"freemium", @"product success");
+    [self blurFadeLayer:YES withDuration:0.5];
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
@@ -366,12 +379,13 @@
     
     [PurchaseViewController handleProductsRetrievedFail];
     apEvent(@"facts", @"freemium", @"product error");
+    [self blurFadeLayer:NO withDuration:0.1];
 }
 
 -(BOOL) cancelClicked: (BOOL) buying {
     [[CCDirector sharedDirector] resume];
     apEvent(@"facts", @"freemium", @"cancel click");
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:true]];
+    [self blurFadeLayer:NO withDuration:0.1];
     [purchase.view removeFromSuperview];
     return NO;
 }
@@ -385,7 +399,10 @@
     } else {
         apEvent(@"facts", @"freemium", @"purchase fail");
     }
+    [self blurFadeLayer:NO withDuration:0.1];
 }
+
+
 
 -(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration {
     if (blur) {
@@ -395,6 +412,17 @@
         FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:1.0 sigmaEnd:0.0 desaturateStart:0.7 desaturateEnd:0.0];
         [fadeLayer runAction:blur];
     }
+}
+
+-(void) enableTouches: (BOOL) on {
+    [heightFrame enableTouches:on];
+    [weightFrame enableTouches:on];
+    [locFrame enableTouches:on];
+    [foodFrame enableTouches:on];
+    [speedFrame enableTouches:on];
+    [photoFrame enableTouches:on];
+    [back enableTouches:on];
+    [playbuy enableTouches:on];
 }
 
 @end

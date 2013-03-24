@@ -10,6 +10,15 @@
 #import "AnimalPart.h"
 #import "LocationManager.h"
 
+typedef enum {
+    kFaceFact = 0,
+    kHeightFact = 1,
+    kWeightFact = 2,
+    kEarthFact = 3,
+    kSpeedFact = 4,
+    kFoodFact = 5,
+} FactType;
+
 @interface Animal : NSObject {
     NSString *key;
     NSString *name;
@@ -40,5 +49,8 @@
 
 -(void) enumerateHabitiatLocationsWithBlock: (void (^)(LatitudeLongitude ll)) block;
 -(NSString *) localizedName;
+
+-(NSString *) factTitle: (FactType) ftype;
+-(NSString *) factText: (FactType) ftype;
 
 @end

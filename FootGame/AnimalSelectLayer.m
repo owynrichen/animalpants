@@ -117,17 +117,9 @@
         
         CCMenuItemImageTouchDown *item = [CCMenuItemImageTouchDown itemWithNormalImage:imageKey selectedImage:selectedImageKey block:^(id sender) {
             NSString *key = (NSString *) ((CCNode *) sender).userData;
-            Animal *animal = [[AnimalPartRepository sharedRepository] getAnimalByKey:key];
-            
-            if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-                hud.labelText = locstr(@"loading", @"strings", @"");
                 
-                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalFactsLayer sceneWithAnimalKey: key] backwards:false]];
-            } else {
-                NSLog(@"Animal %@ isn't owned", key);
-                [[InAppPurchaseManager instance] getProducts:self withData:animal.productId];
-            }
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalFactsLayer sceneWithAnimalKey: key] backwards:false]];
+
         }];
         
         NSString *sound = [[NSString stringWithFormat:@"%@.mp3", key] lowercaseString];

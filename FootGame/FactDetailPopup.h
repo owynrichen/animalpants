@@ -16,6 +16,7 @@ typedef void (^PopupBlock)(CCNode<CCRGBAProtocol> *popup);
 @interface FactDetailPopup : CCNode<CCRGBAProtocol> {
     CircleButton *close;
     CCLayerColor *background;
+    CCLabelTTF *factTitle;
     CCLabelTTF *factText;
     CCNode<CCRGBAProtocol> *factData;
     

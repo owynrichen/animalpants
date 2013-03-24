@@ -171,7 +171,7 @@
 		<key>start_index</key>
 		<integer>75</integer>
 		<key>end_index</key>
-		<integer>89</integer>
+		<integer>86</integer>
 	</dict>
 	<key>Il</key>
 	<dict>
@@ -180,9 +180,9 @@
 		<key>duration</key>
 		<real>0.143959</real>
 		<key>start_index</key>
-		<integer>90</integer>
+		<integer>87</integer>
 		<key>end_index</key>
-		<integer>92</integer>
+		<integer>89</integer>
 	</dict>
 	<key>a</key>
 	<dict>
@@ -191,9 +191,9 @@
 		<key>duration</key>
 		<real>0.0785240000000007</real>
 		<key>start_index</key>
-		<integer>93</integer>
+		<integer>90</integer>
 		<key>end_index</key>
-		<integer>94</integer>
+		<integer>91</integer>
 	</dict>
 	<key>aussi</key>
 	<dict>
@@ -202,9 +202,9 @@
 		<key>duration</key>
 		<real>0.336996</real>
 		<key>start_index</key>
-		<integer>95</integer>
+		<integer>92</integer>
 		<key>end_index</key>
-		<integer>100</integer>
+		<integer>97</integer>
 	</dict>
 	<key>une</key>
 	<dict>
@@ -213,9 +213,9 @@
 		<key>duration</key>
 		<real>0.163589999999999</real>
 		<key>start_index</key>
-		<integer>101</integer>
+		<integer>98</integer>
 		<key>end_index</key>
-		<integer>104</integer>
+		<integer>101</integer>
 	</dict>
 	<key>longue</key>
 	<dict>
@@ -224,9 +224,9 @@
 		<key>duration</key>
 		<real>0.464597</real>
 		<key>start_index</key>
-		<integer>105</integer>
+		<integer>102</integer>
 		<key>end_index</key>
-		<integer>111</integer>
+		<integer>108</integer>
 	</dict>
 	<key>queue.</key>
 	<dict>
@@ -235,9 +235,9 @@
 		<key>duration</key>
 		<real>0.212667</real>
 		<key>start_index</key>
-		<integer>112</integer>
+		<integer>109</integer>
 		<key>end_index</key>
-		<integer>118</integer>
+		<integer>115</integer>
 	</dict>
 	<key>---</key>
 	<dict>

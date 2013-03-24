@@ -15,9 +15,10 @@
 "languages" = "Langues";
 "settings" = "Réglages";
 "en" = "Anglais";
-"es" = "espagnol";
-"fr" = "français";
-"ja" = "japonais";
+"es" = "Espagnol";
+"fr" = "Français";
+"ja" = "Japonais";
+"de" = "Allemand";
 
 "menu_elephant" = "éléphant";
 "menu_lion" = "lion";
@@ -43,7 +44,7 @@
 "panda" = "Patrick le Panda a des pattes noires et poilues et porte un pantalon à rayures rouges.";
 "polarbear" = "Peggy l’Ours Polaire porte une jupe bleue et ses pattes sont blanches et poilues.";
 "tiger" = "Tommy le Tigre a des pattes orange et porte un pantalon vert.";
-"zebra" = "– Zeb le Zèbre a des pattes noires et blanches et il porte un short à rayures jaunes.";
+"zebra" = "Zeb le Zèbre a des pattes noires et blanches et il porte un short à rayures jaunes.";
 
 "crocodile_name" = "Carl";
 "crocodile_fact_height" = "Carl is tall";
