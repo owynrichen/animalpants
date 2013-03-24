@@ -89,7 +89,7 @@ static NSString *_sync = @"";
 
 
 -(BOOL) currentLocaleUsesMetric {
-    return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
+    return [[[[LocalizationManager sharedManager] getAppPreferredNSLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
 -(float) getLocalizedDistance: (float) distanceInKm {

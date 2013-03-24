@@ -117,13 +117,17 @@ static NSString *_sync = @"";
 }
 
 -(NSString *) getAppPreferredLocale {
+    NSLocale *loc = [self getAppPreferredNSLocale];
+    return [loc.localeIdentifier substringToIndex:2];
+}
+
+-(NSLocale *) getAppPreferredNSLocale {
     NSString *appLocale = (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_PREFERRED_LOCALE];
     
     if (appLocale != nil) {
-        return appLocale;
+        return [[NSLocale alloc] initWithLocaleIdentifier:appLocale];
     } else {
-        NSLocale *loc = [NSLocale currentLocale];
-        return [loc.localeIdentifier substringToIndex:2];
+        return [NSLocale currentLocale];
     }
 }
 

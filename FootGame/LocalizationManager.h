@@ -42,4 +42,6 @@
 -(NSString *) getSystemLanguageHelperString: (NSString *) key fromTable: (NSString *) table;
 -(NSString *) getLanguageNameString: (NSString *) lang;
 
+-(NSLocale *) getAppPreferredNSLocale;
+
 @end

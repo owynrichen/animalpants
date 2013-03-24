@@ -24,6 +24,7 @@
 	<key>com.alchemistinteractive.footgame.language.all</key>
 	<array>
 		<string>com.alchemistinteractive.footgame.language.ja</string>
+		<string>com.alchemistinteractive.footgame.language.de</string>
 		<string>com.alchemistinteractive.footgame.language.fr</string>
 		<string>com.alchemistinteractive.footgame.language.es</string>
 		<string>com.alchemistinteractive.footgame.language.en</string>

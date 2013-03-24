@@ -37,7 +37,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>existencelight.ttf</string>
+		<string>Mill.ttf</string>
 		<string>ratherloud.ttf</string>
 	</array>
 	<key>UILaunchImageFile~ipad</key>

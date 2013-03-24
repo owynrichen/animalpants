@@ -14,6 +14,7 @@
 #import "LocalizationManager.h"
 #import "InAppPurchaseManager.h"
 #import "FadeGrid3D.h"
+#import "SoundManager.h"
 
 @interface AnimalFactsLayer()
 
@@ -76,6 +77,7 @@
     [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
         hud.labelText = locstr(@"loading", @"strings", @"");
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:true]];
     }];

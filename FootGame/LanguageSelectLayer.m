@@ -68,7 +68,7 @@
     [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
         hud.labelText = locstr(@"loading", @"strings", @"");
-        
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     }];
     

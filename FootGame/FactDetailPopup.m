@@ -11,8 +11,13 @@
 #import "LocationManager.h"
 #import "WorldMapNode.h"
 #import "AnalyticsPublisher.h"
+#import "SoundManager.h"
 
 #define BORDER_SCALE 1.0
+#define TITLE_FONT @"Rather Loud"
+#define TEXT_FONT @"Mill"
+#define TITLE_FONT_SIZE 48
+#define TEXT_FONT_SIZE 44
 
 @interface FactDetailPopup()
 -(CGSize) setFactDataScale: (CCNode<CCRGBAProtocol> *) fdata;
@@ -37,6 +42,7 @@
     close.position = ccp(900, 550);
     [self addChild:close z:100];
     [close addEvent:@"touch" withBlock:^(CCNode * sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
     }];
     
@@ -86,10 +92,10 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(half.x + (half.x - (cSize.width / 2)), half.y);
             
-            titleSize = CGSizeMake(half.x, 200);
-            textSize = CGSizeMake(half.x, 200);
+            titleSize = CGSizeMake(half.x, 500);
+            textSize = CGSizeMake(half.x * 0.8, 500);
             titlePos = ccpToRatio(half.x * 0.05, half.y + (half.y * 0.75));
-            textPos = ccpToRatio(half.x * 0.05, half.y + (half.y * 0.75) - (48 * fontScaleForCurrentDevice()));
+            textPos = ccpToRatio(half.x * 0.05, half.y + (half.y * 0.75));
             break;
         case kWeightFactFrame:
             key = @"weight";
@@ -98,10 +104,10 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(cSize.width / 2, half.y);
             
-            titleSize = CGSizeMake(half.x * 0.75, 200);
-            textSize = CGSizeMake(half.x * 0.75, 200);
+            titleSize = CGSizeMake(half.x * 0.75, 500);
+            textSize = CGSizeMake(half.x * 0.75, 500);
             titlePos = ccpToRatio(half.x + (half.x * 0.2), half.y + (half.y / 2));
-            textPos = ccpToRatio(half.x + (half.x * 0.2), half.y + (half.y / 2) - (48 * fontScaleForCurrentDevice()));
+            textPos = ccpToRatio(half.x + (half.x * 0.2), half.y + (half.y / 2));
             break;
         case kEarthFactFrame:
             key = @"location";
@@ -136,10 +142,10 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(half.x, half.y + (half.y - (cSize.height / 2)) - (half.x * 0.05));
             
-            titleSize = CGSizeMake(cSize.width * 0.8, 48);
-            textSize = CGSizeMake(cSize.width * 0.8, 200);
-            titlePos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2) + (24 * fontScaleForCurrentDevice())); 
-            textPos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2) - (24 * fontScaleForCurrentDevice()));
+            titleSize = CGSizeMake(cSize.width * 0.8, 500);
+            textSize = CGSizeMake(cSize.width * 0.8, 500);
+            titlePos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2)); 
+            textPos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2));
             
             break;
         case kFoodFactFrame:
@@ -149,10 +155,10 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(half.x, half.y - (half.y - (cSize.height / 2)));
             
-            titleSize = CGSizeMake(half.x, 48 * fontScaleForCurrentDevice());
-            textSize = CGSizeMake(half.x, 200);
+            titleSize = CGSizeMake(half.x, 500);
+            textSize = CGSizeMake(half.x, 500);
             titlePos = ccpToRatio(half.x * 0.85, half.y + (half.y * 0.75));
-            textPos = ccpToRatio(half.x * 0.85, half.y + (half.y * 0.75) - (48 * fontScaleForCurrentDevice()));
+            textPos = ccpToRatio(half.x * 0.85, half.y + (half.y * 0.75));
             break;
         case kSpeedFactFrame:
             key = @"speed";
@@ -161,10 +167,10 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(half.x, half.y - (half.y - (cSize.height / 2)));
             
-            titleSize = CGSizeMake(half.x, 200);
-            textSize = CGSizeMake(half.x, 200);
+            titleSize = CGSizeMake(half.x, 500);
+            textSize = CGSizeMake(half.x, 500);
             titlePos = ccpToRatio(half.x * 0.05, half.y + (half.y * 0.75));
-            textPos = ccpToRatio(half.x * 0.05, half.y + (half.y * 0.75) - (48 * fontScaleForCurrentDevice()));
+            textPos = ccpToRatio(half.x * 0.05, half.y + (half.y * 0.75));
             break;
         case kFaceFactFrame:
             key = @"photo";
@@ -173,26 +179,28 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio((cSize.width / 2) + (cSize.width * 0.05), half.y); // + (half.y - (cSize.height / 2))
             
-            titleSize = CGSizeMake(half.x * 0.8, 200);
-            textSize = CGSizeMake(half.x * 0.8, 200);
+            titleSize = CGSizeMake(half.x * 0.8, 500);
+            textSize = CGSizeMake(half.x * 0.8, 500);
             titlePos = ccpToRatio(factData.position.x + (cSize.width / 2) + (half.x * 0.02), half.y + (cSize.height / 2));
-            textPos = ccpToRatio(factData.position.x + (cSize.width / 2) + (half.x * 0.02), half.y + (cSize.height / 2) - (96 * fontScaleForCurrentDevice()));
+            textPos = ccpToRatio(factData.position.x + (cSize.width / 2) + (half.x * 0.02), half.y + (cSize.height / 2));
             break;
     }
     
     NSString *titlestr = [animal factTitle:fact];
     NSString *txtstr = [animal factText:fact];
     
-    // TODO: build a set of format parameters and process txtstr
+    titleSize = [titlestr sizeWithFont:[UIFont fontWithName:TITLE_FONT size:TITLE_FONT_SIZE * fontScaleForCurrentDevice()] constrainedToSize:titleSize lineBreakMode:NSLineBreakByWordWrapping];
+    textSize = [txtstr sizeWithFont:[UIFont fontWithName:TEXT_FONT size:TEXT_FONT_SIZE * fontScaleForCurrentDevice()] constrainedToSize:textSize lineBreakMode:NSLineBreakByWordWrapping];
     
+    textPos = ccp(textPos.x, textPos.y - titleSize.height);
 
-    factTitle = [CCLabelTTF labelWithString:locstr(titlestr,@"strings",@"") fontName:@"Rather Loud" fontSize:48 * fontScaleForCurrentDevice() dimensions:titleSize hAlignment:kCCTextAlignmentLeft];
+    factTitle = [CCLabelTTF labelWithString:titlestr fontName:TITLE_FONT fontSize:TITLE_FONT_SIZE * fontScaleForCurrentDevice() dimensions:titleSize hAlignment:kCCTextAlignmentLeft];
     factTitle.anchorPoint = ccp(0,1.0);
     factTitle.position = titlePos;
     factTitle.color = ccc3(198, 220, 15);
     
-    factText = [CCLabelTTF labelWithString:@" " fontName:@"Rather Loud" fontSize:44 * fontScaleForCurrentDevice() dimensions:textSize hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
-    factText.string = [factText.string stringByAppendingString:locstr(txtstr,@"strings",@"")];
+    factText = [CCLabelTTF labelWithString:@" " fontName:TEXT_FONT fontSize:TEXT_FONT_SIZE * fontScaleForCurrentDevice() dimensions:textSize hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
+    factText.string = [factText.string stringByAppendingString:txtstr];
     factText.anchorPoint = ccp(0,1.0);
     factText.position = textPos;
     factText.color = ccGRAY;

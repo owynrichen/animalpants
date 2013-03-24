@@ -37,8 +37,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>foo.ttf</string>
-		<string>Pacifico.ttf</string>
+		<string>existencelight.ttf</string>
+		<string>ratherloud.ttf</string>
 	</array>
 	<key>UILaunchImageFile~ipad</key>
 	<string>AlchemistKids.png</string>
