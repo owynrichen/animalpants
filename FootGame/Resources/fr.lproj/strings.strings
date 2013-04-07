@@ -62,7 +62,7 @@
 "meters" = "meters";
 "pounds" = "pounds";
 "kilograms" = "kilograms";
-"distance_from_you_string" = "You are %1.2f %@ from %@'s closest habitat."; // example: "You are 1034.23 kilometers from Kendra's closest habitat."
+"distance_from_you_string" = "%@ lives %1.2f %@ away from you."; // example: "You are 1034.23 kilometers from Kendra's closest habitat."
 "play_button" = "Go See %@";  // example: "Go See Kendra"
 
 // crocodile
@@ -108,7 +108,7 @@
 "hippo_name" = "Horace";
 "hippo_fact_height" = "Horace is big";
 "hippo_fact_height_details" = "Full-size hippos grow to around 5 feet when on all 4 legs.";
-"hippo_fact_height_details" = "Full-size hippos grow to around 1.5 meters when on all 4 legs.";
+"hippo_fact_height_details_metric" = "Full-size hippos grow to around 1.5 meters when on all 4 legs.";
 "hippo_fact_weight" = "Horace weighs a lot";
 "hippo_fact_weight_details" = "Adult hippos can weigh between 3000-6000 pounds full grown.";
 "hippo_fact_weight_details_metric" = "Adult hippos can weigh between 1360-2720 kilograms full grown.";
@@ -265,7 +265,7 @@
 "penguin_fact_weight_details" = "Pedro and his friends usually weigh between 49 and 99 pounds.";
 "penguin_fact_weight_details_metric" = "Pedro and his friends usually weigh between 22 and 45 kilograms.";
 "penguin_fact_food" = "Pedro eats fish";
-"penguin_fact_food_details" = "Penguins diet is mosly fish, but can also include krill, squid, and crustaceans.";
+"penguin_fact_food_details" = "A Penguin's diet is mosly fish, but can also include krill, squid, and crustaceans.";
 "penguin_fact_speed" = "Pedro is super fast";
 "penguin_fact_speed_details" = "*TODO";
 "penguin_fact_speed_details_metric" = "*TODO metric";

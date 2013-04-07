@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>SuccessSound</key>
-	<string>Monkey_noise.wav</string>
+	<string>monkey_noise.mp3</string>
 	<key>Name</key>
 	<string>Monkey</string>
 	<key>FailSound</key>

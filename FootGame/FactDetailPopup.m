@@ -84,6 +84,13 @@
     NSString *imgFile;
     CGSize cSize;
     
+    NSString *titlestr = [animal factTitle:fact];
+    NSString *txtstr = [animal factText:fact];
+    
+    factTitle = [CCLabelTTF labelWithString:titlestr fontName:TITLE_FONT fontSize:TITLE_FONT_SIZE * fontScaleForCurrentDevice() dimensions:titleSize hAlignment:kCCTextAlignmentLeft];
+    
+    factText = [CCLabelTTF labelWithString:txtstr fontName:TEXT_FONT fontSize:TEXT_FONT_SIZE * fontScaleForCurrentDevice() dimensions:textSize hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
+    
     switch(fact) {
         case kHeightFactFrame:
             key = @"height";
@@ -117,7 +124,7 @@
             [animal enumerateHabitiatLocationsWithBlock:^(LatitudeLongitude ll) {
                 [wmn addMapPin:[WorldMapPin worldMapPinWithImage:pinimg ll:ll]];
             }];
-            
+            // This block could return immediately if the lat/lng is cached
             [[LocationManager sharedManager] getLocation:^(LatitudeLongitude ll) {
                 NSString *unit = [[LocationManager sharedManager] currentLocaleUsesMetric] ? locstr(@"kilometers", @"strings",@"") : locstr(@"miles", @"string",@"");
                 __block CGFloat shortestDistance = MAX_INT;
@@ -128,12 +135,14 @@
                     }
                 }];
                 
+                shortestDistance = [[LocationManager sharedManager] getLocalizedDistance:shortestDistance];
+                
                 NSString *distanceStr = [NSString stringWithFormat:
                                          locstr(@"distance_from_you_string",@"strings",@""),
+                                         [animal localizedName],
                                          shortestDistance,
-                                         unit,
-                                         [animal localizedName]];
-                factText.string = [distanceStr stringByAppendingString:factText.string];
+                                         unit];
+                factText.string = distanceStr;
                 
                 [wmn addMapPin:[WorldMapPin worldMapPinWithImage:@"mappin-kids.png" ll:ll]];
             }];
@@ -142,8 +151,8 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(half.x, half.y + (half.y - (cSize.height / 2)) - (half.x * 0.05));
             
-            titleSize = CGSizeMake(cSize.width * 0.8, 500);
-            textSize = CGSizeMake(cSize.width * 0.8, 500);
+            titleSize = CGSizeMake(cSize.width * 0.9, 500);
+            textSize = CGSizeMake(cSize.width * 0.9, 500);
             titlePos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2)); 
             textPos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2));
             
@@ -186,27 +195,21 @@
             break;
     }
     
-    NSString *titlestr = [animal factTitle:fact];
-    NSString *txtstr = [animal factText:fact];
     
     titleSize = [titlestr sizeWithFont:[UIFont fontWithName:TITLE_FONT size:TITLE_FONT_SIZE * fontScaleForCurrentDevice()] constrainedToSize:titleSize lineBreakMode:NSLineBreakByWordWrapping];
     textSize = [txtstr sizeWithFont:[UIFont fontWithName:TEXT_FONT size:TEXT_FONT_SIZE * fontScaleForCurrentDevice()] constrainedToSize:textSize lineBreakMode:NSLineBreakByWordWrapping];
     
     textPos = ccp(textPos.x, textPos.y - titleSize.height);
-
-    factTitle = [CCLabelTTF labelWithString:titlestr fontName:TITLE_FONT fontSize:TITLE_FONT_SIZE * fontScaleForCurrentDevice() dimensions:titleSize hAlignment:kCCTextAlignmentLeft];
+    
+    factTitle.dimensions = titleSize;
     factTitle.anchorPoint = ccp(0,1.0);
     factTitle.position = titlePos;
     factTitle.color = ccc3(198, 220, 15);
     
-    factText = [CCLabelTTF labelWithString:@" " fontName:TEXT_FONT fontSize:TEXT_FONT_SIZE * fontScaleForCurrentDevice() dimensions:textSize hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
-    factText.string = [factText.string stringByAppendingString:txtstr];
+    factText.dimensions = textSize;
     factText.anchorPoint = ccp(0,1.0);
     factText.position = textPos;
     factText.color = ccGRAY;
-    
-    
-    //factData.position = ccp((background.contentSize.width - factData.contentSize.width * scale) / 2, (background.contentSize.height - factData.contentSize.height * scale) / 2);
     
     [self addChild:factData];
     [self addChild:factTitle];

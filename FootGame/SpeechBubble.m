@@ -42,14 +42,17 @@
     
     storyText = locstr(storyKey, @"strings", @"");
     
-    label = [[CCLabelTTFWithStroke alloc] initWithString:storyText fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice() dimensions:labelSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap];
-    label.color = ccWHITE;
-    label.strokeSize = 3 * fontScaleForCurrentDevice();
-    label.strokeColor = ccBLACK;
+    // label = [[CCLabelTTFWithStroke alloc] initWithString:storyText fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice() dimensions:labelSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap];
+    
+    label = [[CCLabelTTF alloc] initWithString:storyText fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice() dimensions:labelSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap];
+    
+    label.color = ccBLACK;
+    // label.strokeSize = 3 * fontScaleForCurrentDevice();
+    // label.strokeColor = ccBLACK;
     label.anchorPoint = ccp(0,0);
     label.position = ccpToRatio((talkPositionRect.size.width * 0.05), - (talkPositionRect.size.height  * 0.10));
     label.string = @"";
-    [label drawStroke];
+    // [label drawStroke];
     
     [self addChild:label];
     interval = ival;
@@ -232,7 +235,7 @@
     NSLog(@"CUES: cue '%@' hit at %f", key, time);
     
     [label setString:[storyText substringToIndex:e]];
-    [label drawStroke];
+    // [label drawStroke];
     [label visit];
 }
 

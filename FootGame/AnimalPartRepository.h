@@ -27,6 +27,8 @@
 
 -(void) resetAnimals;
 -(Animal *) getRandomAnimal;
+-(Animal *) getFirstAnimal;
+-(Animal *) getNextAnimal;
 -(Animal *) getAnimalByKey: (NSString *) key;
 -(NSArray *) getRandomFeet: (int) count includingAnimalFeet: (Animal *) animal;
 

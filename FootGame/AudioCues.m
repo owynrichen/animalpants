@@ -23,6 +23,11 @@
 @synthesize cues;
 @synthesize data;
 
+-(ccTime) totalRuntime {
+    NSDictionary *lastElem = [self.cues objectForKey:@"---"];
+    return [(NSNumber *)[lastElem objectForKey:@"start"] floatValue];
+}
+
 +(AudioCues *) initWithDictionary: (NSDictionary *) dict {
     AudioCues *cues = [[AudioCues alloc] init];
     

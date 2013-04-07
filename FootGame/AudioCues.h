@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString *locale;
 @property (nonatomic, retain) NSDictionary* cues;
 @property (nonatomic, retain) NSDictionary* data;
+@property (nonatomic, readonly) ccTime totalRuntime;
 
 +(AudioCues *) initWithDictionary: (NSDictionary *) dict;
 

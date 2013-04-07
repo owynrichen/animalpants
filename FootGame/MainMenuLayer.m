@@ -107,7 +107,6 @@
     }];
     [self addChild:animals];
     
-    // languages = [FlagCircleButton buttonWithLanguageCode:[[LocalizationManager sharedManager] getAppPreferredLocale]];
     languages = [FlagCircleButton buttonWithLanguageCode:@""];
     languages.position = ccpToRatio(890, 530);
     [languages addEvent:@"touch" withBlock:^(CCNode * sender) {

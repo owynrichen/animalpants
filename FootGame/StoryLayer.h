@@ -12,12 +12,10 @@
 #import "SpeechBubble.h"
 
 @interface StoryLayer : CCLayer {
-    CCAutoScalingSprite *background;
-    CCAutoScalingSprite *girl1;
-    CCAutoScalingSprite *girl2;
+    CCLayer *background;
+    CCLayer *foreground;
+    CCAutoScalingSprite *jeep;
     SpeechBubble *story1;
-    SpeechBubble *story2;
-    SpeechBubble *story3;
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child

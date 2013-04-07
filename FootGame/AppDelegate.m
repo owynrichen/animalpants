@@ -17,6 +17,7 @@
 #import "TestFlight.h"
 #import "MainMenuLayer.h"
 #import "AnalyticsPublisher.h"
+#import "GoodbyeLayer.h"
 
 @implementation AppDelegate
 
@@ -59,10 +60,11 @@
     // TODO: delete this when we launch
     // [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
 
-    // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
-    [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
+    // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
     
 }
 

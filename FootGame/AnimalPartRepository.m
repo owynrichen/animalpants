@@ -140,6 +140,21 @@ static NSString *_sync = @"";
     return first;
 }
 
+-(Animal *) getFirstAnimal {
+    if ([animalList count] == 0)
+        [self resetAnimals];
+    
+    Animal *first = [animalList objectAtIndex:0];
+    [animalList removeObjectAtIndex:0];
+    return first;
+}
+
+-(Animal *) getNextAnimal {
+    Animal *first = [animalList objectAtIndex:0];
+    [animalList removeObjectAtIndex:0];
+    return first;
+}
+
 -(Animal *) getAnimalByKey: (NSString *) key {
     return [animals objectForKey:key];
 }

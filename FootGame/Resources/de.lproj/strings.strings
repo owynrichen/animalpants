@@ -39,39 +39,39 @@
 "ja" = "Japanese";
 "de" = "German";
 
-"menu_elephant" = "Elephant";
-"menu_lion" = "Lion";
-"menu_penguin" = "Penguin";
-"menu_crocodile" = "Crocodile";
+"menu_elephant" = "Elefant";
+"menu_lion" = "Löwe";
+"menu_penguin" = "Pinguin";
+"menu_crocodile" = "Krokodil";
 "menu_giraffe" = "Giraffe";
-"menu_hippo" = "Hippo";
-"menu_kangaroo" = "Kangaroo";
-"menu_monkey" = "Monkey";
+"menu_hippo" = "Nilpferd";
+"menu_kangaroo" = "Känguru";
+"menu_monkey" = "Affe";
 "menu_panda" = "Panda";
-"menu_polarbear" = "Polar Bear";
+"menu_polarbear" = "Eisbär";
 "menu_tiger" = "Tiger";
 "menu_zebra" = "Zebra";
 
-"elephant" = "Olly the Elephant has big toe nails and is wearing grey pants.";
-"lion" = "Lloyd the Lion has blue pants and his feet are covered in tan colored fur.";
-"penguin" = "Pedro the Penguin's feet are yellow and his legs have white feathers.";
-"crocodile" = "Carl the Crocodile has blue shorts and his feet are green and scaly with a big tail.";
-"giraffe" = "Jerome the Giraffe's legs are yellow with brown spots and he's wearing blue shorts.";
-"hippo" = "Horace the Hippo's feet are purple and he is wearing big blue overalls.";
-"kangaroo" = "Kendra the Kangaroo's feet are brown with striped purple pants.";
-"monkey" = "Melinda the Monkey is wearing a pink skirt and has skinny brown legs.";
-"panda" = "Patrick the Panda's feet are black and fuzzy with red striped pants.";
-"polarbear" = "Peggy the Polar Bear has a blue skirt and her feet are white and furry.";
-"tiger" = "Tommy the Tiger's feet are orange and is wearing green pants.";
-"zebra" = "Zeb the Zebra's legs are black and white and he’s wearing yellow striped shorts.";
+"elephant" = "Emil der Elefant hat grosse Zehennägel und trägt eine graue Hose.";
+"lion" = "Luka der Löwe hat eine blaue Hose und seine Pfoten sind beige.";
+"penguin" = "Peter der Pinguin hat gelbe Füsse und seine Beine haben weisse Feder.";
+"crocodile" = "Kai der Krokodil hat eine blaue kurze Hose und seine Füsse und Schwanz sind grün und schuppig.";
+"giraffe" = "Georg der Giraffe hat gelbe Beine mit braunen Flecken und er trägt eine blaue kurze Hose.";
+"hippo" = "Norbert das Nilpferd hat lila Füsse und trägt eine blaue Latzhose.";
+"kangaroo" = "Kendra der Känguru hat braune Pfoten und eine lila Hose mit Streifen.";
+"monkey" = "Amelie der Affe trägt einen rosa Rock und hat schlanke, braune Beine.";
+"panda" = "Paul der Panda hat schwarze, flaumige Pfoten und eine rote Hose mit Streifen.";
+"polarbear" = "Nele der Eisbär hat einen blauen Rock und ein flaumiges, weisses Fell auf die Pfoten.";
+"tiger" = "Till der Tiger hat orange Pfoten und eine grüne Hose.";
+"zebra" = "Max das Zebra hat schwarz-weisse Beine und trägt eine blaue kurze Hose.";
 
-"story1" = "Twin sisters, Emma and Avery, are going on an animal adventure! All the animals are having fun playing with their animal friends, but wait, it looks like they have all lost their pants. That’s silly! Can you help the animals find their pants?";
-"upsell" = "You are doing great and Emma and Avery are so happy. Don’t stop now. The fun is just beginning!";
-"outro" = "Hooray! You have helped Emma and Avery put the correct pants back on the animals. Way to go! Let’s go learn more about our animal friends.";
+"story1" = "Die Zwillinge, Emma und Avery gehen auf Tierenabenteuer! Alle Tiere spielen gern mit ihren Tierfreunden, aber warte mal, es scheint so, dass alle Hosen verloren gegangen sind. Wie bescheuert! Kannst du ihnen helfen, ihre Hosen zu finden?";
+"upsell" = "Du machst das sehr gut, und Emma und Avery freuen sich sehr. Hör doch noch nicht auf! Der Spass fängt gerade erst an!";
+"outro" = "Juhuu! Du hast Emma und Avery geholfen, die richtige Hosen zu den richtigen Tieren zu bringen. Bravo! Nun lernen wir mal mehr über unsere Freunde: Die Tiere!";
 
 "kilometers" = "kilometers";
 "miles" = "miles";
-"distance_from_you_string" = "You are %1.2f %@ from %@'s closest habitat.";
+"distance_from_you_string" = "%@ lives %1.2f %@ away from you.";
 
 "crocodile_name" = "Carl";
 "crocodile_fact_height" = "Carl is tall";

@@ -11,7 +11,8 @@
 #import "AudioCues.h"
 
 @interface SpeechBubble : CCLayer<CCRGBAProtocol, CCTargetedTouchDelegate, AudioCuesDelegate> {
-    CCLabelTTFWithStroke *label;
+    // CCLabelTTFWithStroke *label;
+    CCLabelTTF *label;
     NSString *storyText;
     ccTime interval;
     CGRect talkDrawRect;

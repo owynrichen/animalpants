@@ -19,6 +19,7 @@ typedef void (^LocationManagerCallback)(LatitudeLongitude);
 @interface LocationManager : NSObject<CLLocationManagerDelegate> {
     CLLocationManager *mgr;
     LocationManagerCallback callback;
+    LatitudeLongitude *cachedLocation;
 }
 
 +(LocationManager *) sharedManager;
@@ -36,6 +37,19 @@ typedef void (^LocationManagerCallback)(LatitudeLongitude);
 
 static inline LatitudeLongitude llmk(CGFloat latitude, CGFloat longitude) {
     LatitudeLongitude ll; ll.latitude = latitude; ll.longitude = longitude; return ll;
+}
+
+static inline LatitudeLongitude* llmkp(CGFloat latitude, CGFloat longitude) {
+    LatitudeLongitude *llp = malloc(sizeof(LatitudeLongitude));
+    LatitudeLongitude ll = llmk(latitude, longitude);
+    memcpy(llp, &ll, sizeof(LatitudeLongitude));
+    
+    return llp;
+}
+
+static inline void llrelp(LatitudeLongitude *ll) {
+    free(ll);
+    ll = nil;
 }
 
 static LatitudeLongitude llFromDict(NSDictionary *dict) {

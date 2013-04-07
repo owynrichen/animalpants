@@ -57,3 +57,7 @@
 "story1" = "Oh no! Parece que todos nuestros amigos los animales han perdido sus pantalones!";
 "story2" = "Debemos ayudarles a encontrar los pantalones adecuados, haciendo coincidir sus pies!";
 "story3" = "Gran idea! ¡Vamos!";
+
+"kilometers" = "kilometers";
+"miles" = "miles";
+"distance_from_you_string" = "%@ lives %1.2f %@ away from you.";

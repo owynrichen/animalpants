@@ -30,6 +30,7 @@ static NSString *_sync = @"";
     self = [super init];
     
     mgr = [[CLLocationManager alloc] init];
+    cachedLocation = nil;
     [mgr setDelegate:self];
     [mgr setDesiredAccuracy:kCLLocationAccuracyKilometer];
     
@@ -46,6 +47,10 @@ static NSString *_sync = @"";
         callback = nil;
     }
     
+    if (cachedLocation != nil) {
+        llrelp(cachedLocation);
+    }
+    
     [super dealloc];
 }
 
@@ -58,18 +63,27 @@ static NSString *_sync = @"";
     
     callback = [[cb copy] retain];
     
-//    BOOL locationServicesEnabled = [CLLocationManager locationServicesEnabled];
-//    if (locationServicesEnabled) {
+    if (callback && cachedLocation) {
+        callback(*cachedLocation);
+        
+        [callback release];
+        callback = nil;
+    } else {
         [mgr startUpdatingLocation];
-//    }
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
 	 didUpdateLocations:(NSArray *)locations {
-    CLLocation *loc = (CLLocation *) [locations objectAtIndex:0];
+
+    CLLocation *loc = (CLLocation *) [[locations objectAtIndex:0] retain];
     if (callback) {
-        LatitudeLongitude ll = llmk(loc.coordinate.latitude, loc.coordinate.longitude);
-        callback(ll);
+        if (cachedLocation != nil) {
+            llrelp(cachedLocation);
+        }
+        
+        cachedLocation = llmkp(loc.coordinate.latitude, loc.coordinate.longitude);
+        callback(*cachedLocation);
         
         [callback release];
         callback = nil;
@@ -89,7 +103,14 @@ static NSString *_sync = @"";
 
 
 -(BOOL) currentLocaleUsesMetric {
-    return [[[[LocalizationManager sharedManager] getAppPreferredNSLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
+    NSLocale *locale = [[LocalizationManager sharedManager] getAppPreferredNSLocale];
+    NSLocale *curLocale = [NSLocale currentLocale];
+    if ([[locale.localeIdentifier substringToIndex:2] isEqualToString:@"en"] &&
+        [curLocale.localeIdentifier isEqualToString:@"en_US"]) {
+        return NO;
+    }
+    
+    return [[locale objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
 -(float) getLocalizedDistance: (float) distanceInKm {
