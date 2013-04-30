@@ -314,7 +314,7 @@
     
     [self addChild:popup];
     
-    manifestToLoad = [AnimalViewLayer manifestWithAnimalKey:anml.key];
+    manifestToLoad = [[AnimalViewLayer manifestWithAnimalKey:anml.key] retain];
     
     return self;
 }
