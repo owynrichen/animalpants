@@ -12,7 +12,7 @@
 #import "LocalizationManager.h"
 #import "AudioCueRepository.h"
 #import "AnalyticsPublisher.h"
-#import "MBProgressHUD.h"
+#import "AnimalPartRepository.h"
 
 @implementation StoryLayer
 
@@ -29,6 +29,38 @@
 	
 	// return the scene
 	return scene;
+}
+
+static ContentManifest *__manifest;
+static NSString *__sync = @"sync";
+
++(ContentManifest *) myManifest {
+    if (__manifest == nil) {
+        @synchronized(__sync) {
+            if (__manifest == nil) {
+                __manifest = [[ContentManifest alloc] initWithImages:
+                              [NSArray arrayWithObjects:
+                               @"intro-background1.jpg",
+                               @"intro-background2.jpg",
+                               @"intro-background3.jpg",
+                               @"jeep-back.png"
+                               @"jeep-side.png",
+                               @"intro-bggrass1.png",
+                               @"intro-bggrass2.png",
+                               @"intro-bggrass3.png",
+                               @"jeep-wheel-side1.png",
+                               nil] audio:
+                              [NSArray arrayWithObjects:
+                               @"story1.en.mp3",
+                               @"story1.es.mp3",
+                               @"story1.fr.mp3",
+                               @"story1.de.mp3",
+                               nil]];
+            }
+        }
+    }
+    
+    return [[__manifest copy] autorelease];
 }
 
 -(id) init {
@@ -102,8 +134,12 @@
 }
 
 -(void) onEnter {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     apView(@"Story View");
+    
+    [[AnimalPartRepository sharedRepository] resetAnimals:NO];
+    
+    manifestToLoad = [[ContentManifest alloc] initWithManifests:[AnimalViewLayer manifestWithAnimal:[[AnimalPartRepository sharedRepository] peekNextAnimal]], nil];
+
     [super onEnter];
 }
 
@@ -117,6 +153,8 @@
     [background runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
     [foreground runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
     
+    __block StoryLayer *pointer = self;
+    
     CCSequence *jeepSeq = [CCSequence actions:[CCMoveTo actionWithDuration:t * 0.10 position:ccpToRatio(400, 280)],
                            [CCDelayTime actionWithDuration:t * 0.70],
                            [CCCallBlockN actionWithBlock:^(CCNode *node) {
@@ -127,7 +165,10 @@
                                 [jeep removeAllChildrenWithCleanup:YES];
                                 [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:0.3]];
                                 [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(1200, 380)], [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
+                                    [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+                                        // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
+                                        [[CCDirector sharedDirector] replaceScene:[AnimalViewLayer scene]];
+                                    }];
                                 }], nil]];
                             }],
                            nil];

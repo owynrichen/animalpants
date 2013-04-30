@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CCLayer.h"
 #import "CCAutoScalingSprite.h"
 #import "FlagCircleButton.h"
+#import "ContentManifest.h"
 
-@interface MainMenuLayer : CCLayer<CCTargetedTouchDelegate>
+@interface MainMenuLayer : CCPreloadingLayer<CCTargetedTouchDelegate>
 
 @property (nonatomic, retain) CCAutoScalingSprite *title;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
@@ -22,5 +22,6 @@
 @property (nonatomic, retain) CCSprite *splashFade;
 
 +(CCScene *) scene;
+
 
 @end

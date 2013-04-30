@@ -6,7 +6,8 @@
 //
 //
 
-#import "CCLayer.h"
+#import "CCNode.h"
+#import "ContentManifest.h"
 #import "Animal.h"
 
 typedef enum {
@@ -26,6 +27,7 @@ typedef enum {
 }
 
 +(FactFrame *) factFrameWithAnimal: (Animal *) anml frameType: (FactFrameType) ft;
++(ContentManifest *) manifestWithAnimal: (Animal *) anml;
 
 -(id) initFrameWithAnimal: (Animal *) anml frameType: (FactFrameType) ft;
 -(void) addEvent: (NSString *) event withBlock: (void (^)(CCNode * sender)) blk;

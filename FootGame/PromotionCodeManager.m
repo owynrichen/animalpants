@@ -121,14 +121,12 @@ static NSString *_sync = @"sync";
     
     NSArray *entries = (NSArray *) [dataSet objectForKey:@"entries"];
     
-    [dataSet release];
-    
     NSMutableArray *possibleCodes = [[NSMutableArray alloc] init];
     
     [entries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSDictionary *promo = (NSDictionary *) obj;
         
-        Promotion *code = [[Promotion alloc] initWithDictionary:promo];
+        Promotion *code = [[[Promotion alloc] initWithDictionary:promo] autorelease];
         
         [possibleCodes addObject:code];
     }];

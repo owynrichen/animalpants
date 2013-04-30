@@ -6,11 +6,11 @@
 //
 //
 
-#import "CCLayer.h"
 #import "CCAutoScalingSprite.h"
 #import "PurchaseViewController.h"
+#import "ContentManifest.h"
 
-@interface AnimalSelectLayer : CCLayer<ProductRetrievalDelegate, PurchaseViewDelegate>
+@interface AnimalSelectLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseViewDelegate>
 
 @property (nonatomic, retain) CCAutoScalingSprite *back;
 @property (nonatomic, retain) CCMenu *menu;

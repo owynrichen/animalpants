@@ -16,6 +16,24 @@
     return [[[FactFrame alloc] initFrameWithAnimal:anml frameType:ft] autorelease];
 }
 
++(ContentManifest *) manifestWithAnimal: (Animal *) anml {
+    ContentManifest *mfest = [[[ContentManifest alloc] initWithImages:
+                               [NSArray arrayWithObjects:
+                                @"earth-frame.png",
+                                @"earth.png",
+                                @"face-frame.png",
+                                [NSString stringWithFormat:@"%@.png", [anml.key lowercaseString]],
+                                @"smallbottom-frame.png",
+                                @"carrot.png",
+                                @"stopwatch.png",
+                                @"weight-frame.png",
+                                [NSString stringWithFormat:@"%@_weight.png", [anml.key lowercaseString]],
+                                @"height-frame.png",
+                                [NSString stringWithFormat:@"%@_height.png", [anml.key lowercaseString]], nil] audio:nil] autorelease];
+    
+    return mfest;
+}
+
 -(id) initFrameWithAnimal: (Animal *) anml frameType: (FactFrameType) ft {
     self = [super init];
     

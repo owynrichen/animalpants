@@ -6,13 +6,13 @@
 //
 //
 
-#import "CCLayer.h"
+#import "ContentManifest.h"
 #import "Animal.h"
 #import "PurchaseViewController.h"
 #import "FactFrame.h"
 #import "FactDetailPopup.h"
 
-@interface AnimalFactsLayer :  CCLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
+@interface AnimalFactsLayer :  CCPreloadingLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
     PurchaseViewController *purchase;
     
@@ -35,6 +35,9 @@
 }
 
 +(CCScene *) sceneWithAnimalKey: (NSString *) animal;
+
++(ContentManifest *) manifestWithAnimalKey: (NSString *) animal;
++(ContentManifest *) manifestWithAnimal: (Animal *) animal;
 
 -(id) initWithAnimalKey: (NSString *) anml;
 -(id) initWithAnimal: (Animal *) anml;

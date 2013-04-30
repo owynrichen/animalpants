@@ -14,7 +14,6 @@
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
-#import "MBProgressHUD.h"
 #import "CCMenuItemImageTouchDown.h"
 
 @implementation AnimalSelectLayer
@@ -40,6 +39,40 @@
 	return scene;
 }
 
+static ContentManifest *__manifest;
+static NSString *__sync = @"sync";
+
++(ContentManifest *) myManifest {
+    if (__manifest == nil) {
+        @synchronized(__sync) {
+            if (__manifest == nil) {
+                NSMutableArray *images = [[[NSMutableArray alloc] init] autorelease];
+                NSMutableArray *audio = [[[NSMutableArray alloc] init] autorelease];
+                [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                    
+                    NSString *imageKey = [NSString stringWithFormat:@"circle-%@.png", [key lowercaseString]];
+                    NSString *selectedImageKey = [NSString stringWithFormat:@"circle-%@-happy.png", [key lowercaseString]];
+                    
+                    [images addObject:imageKey];
+                    [images addObject:selectedImageKey];
+                    
+                    // TODO: this only loads the current language strings and won't
+                    // preload any others again... figure out what to do
+                    NSString *sound = [[NSString stringWithFormat:@"%@.mp3", key] lowercaseString];
+                    NSString *soundfname = locfile(sound);
+                    
+                    [audio addObject:soundfname];
+                }];
+                // TODO: preload title
+                
+                __manifest = [[ContentManifest alloc] initWithImages:images audio:audio];
+            }
+        }
+    }
+    
+    return [[__manifest copy] autorelease];
+}
+
 -(id) init {
     self = [super init];
     
@@ -47,8 +80,6 @@
 }
 
 -(void) onEnter {
-    [super onEnter];
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     title = [CCAutoScalingSprite spriteWithFile:@"text_theanimals.en.png"];
@@ -63,12 +94,14 @@
     back.anchorPoint = ccp(0,0);
     back.position = ccpToRatio(130, winSize.height - 100);
     [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-        hud.labelText = locstr(@"loading", @"strings", @"");
+//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+//        hud.labelText = locstr(@"loading", @"strings", @"");
         
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+        }];
     }];
     
     menu = [CCMenu menuWithItems: nil];
@@ -81,6 +114,7 @@
     [self addChild:back];
     
     apView(@"Animal Select View");
+    [super onEnter];
 }
 
 -(void) onEnterTransitionDidFinish {
@@ -153,13 +187,10 @@
 }
 
 -(void) productRetrievalStarted {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-    hud.labelText = locstr(@"get_products", @"strings", @"");
+
 }
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     if (purchase != nil)
         [purchase release];
     
@@ -167,8 +198,6 @@
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     [PurchaseViewController handleProductsRetrievedFail];
 }
 

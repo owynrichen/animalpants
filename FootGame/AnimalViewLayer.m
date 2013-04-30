@@ -17,7 +17,7 @@
 #import "LocalizationManager.h"
 #import "AnalyticsPublisher.h"
 #import "PremiumContentStore.h"
-#import "MBProgressHUD.h"
+#import "GoodbyeLayer.h"
 
 #define SNAP_DISTANCE 50
 #define CORRECT_SNAP_DISTANCE 100
@@ -39,23 +39,44 @@
 }
 
 +(CCScene *) sceneWithAnimalKey: (NSString *) animal {
-    // 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	AnimalViewLayer *layer;
+    Animal *anml;
     
     if (animal == nil) {
-        layer = [AnimalViewLayer node];
+        anml = [[AnimalPartRepository sharedRepository] getFirstAnimal];
     } else {
-        layer = [[[AnimalViewLayer alloc] initWithAnimalKey:animal] autorelease];
+        anml = [[AnimalPartRepository sharedRepository] getAnimalByKey:animal];
     }
+    
+    return [AnimalViewLayer sceneWithAnimal:anml];
+}
+
++(CCScene *) sceneWithAnimal: (Animal *) animal {
+    // 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+    
+    NSAssert(animal != nil, @"animal cannot be nil");
 	
+	// 'layer' is an autorelease object.
+	AnimalViewLayer *layer = [[[AnimalViewLayer alloc] initWithAnimal:animal] autorelease];
+    
 	// add layer as a child to scene
 	[scene addChild: layer];
 	
 	// return the scene
 	return scene;
+}
+
++(ContentManifest *) manifestWithAnimalKey: (NSString *) animal {
+    return [AnimalViewLayer manifestWithAnimal:[[AnimalPartRepository sharedRepository] getAnimalByKey:animal]];
+}
+
++(ContentManifest *) manifestWithAnimal: (Animal *) animal {
+    ContentManifest *mfest = [[[ContentManifest alloc] init] autorelease];
+    
+    [mfest addManifest:animal.manifest];
+    [mfest addManifest:[[EnvironmentRepository sharedRepository] getEnvironment:animal.environment].manifest];
+    
+    return mfest;
 }
 
 -(id) initWithAnimalKey: (NSString *) anml {
@@ -66,6 +87,7 @@
 
 -(id) initWithAnimal: (Animal *) anml {
     self = [super init];
+    isTouchEnabled_ = YES;
     
     animal = [anml retain];
     
@@ -73,13 +95,12 @@
 }
 
 -(id) init {
-    self = [self initWithAnimal:animal = [[AnimalPartRepository sharedRepository] getRandomAnimal]];
+    self = [self initWithAnimal:animal = [[AnimalPartRepository sharedRepository] getNextAnimal]];
     
     return self;
 }
 
 -(void) onEnter {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     victory = NO;
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -128,7 +149,6 @@
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:10 delay:5];
     
-    
     streak = [CCMotionStreak streakWithFade:1 minSeg:10 width:50 color:ccWHITE textureFilename:@"rainbow.png"];
     streak.fastMode = NO;
     [gameLayer addChild:streak];
@@ -163,21 +183,32 @@
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
     
-    [super onEnter];
     [[SoundManager sharedManager] fadeOutBackground];
     [[SoundManager sharedManager] playBackground:environment.bgMusic];
     
     NSString *alog = [NSString stringWithFormat: @"Game View %@", animal.key];
     apView(alog);
+    
+    Animal *nextAnimal = [[AnimalPartRepository sharedRepository] peekNextAnimal];
+    
+    if (nextAnimal != nil) {
+        manifestToLoad = [[AnimalViewLayer manifestWithAnimal:nextAnimal] retain];
+    } else {
+        manifestToLoad = [[GoodbyeLayer myManifest] retain];
+    }
+    
+    [super onEnter];
 }
 
 -(void) startLevel {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    __block CCAutoScalingSprite *pName = name;
+    
     [name runAction:[CCSequence actions:
                      [CCMoveTo actionWithDuration:0.3 position:ccp(winSize.width * 0.5, winSize.height * 0.5)],
                      [CCDelayTime actionWithDuration:2.0],
                      [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [name runAction:[CCFadeOut actionWithDuration:0.25]];
+        [pName runAction:[CCFadeOut actionWithDuration:0.25]];
     }],
     nil]];
 }
@@ -353,18 +384,36 @@
             }
         }
     } else if (nextTouched) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-        hud.labelText = locstr(@"loading", @"strings", @"");
+//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+//        hud.labelText = locstr(@"loading", @"strings", @"");
+        
+        // TODO: do-wait preloaded assets here
         
         [next stopAllActions];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
+        
+        Animal *nextAnimal = [[AnimalPartRepository sharedRepository] getNextAnimal];
+        CCScene *nextScene;
+        
+        if (nextAnimal != nil) {
+            nextScene = [AnimalViewLayer sceneWithAnimal:nextAnimal];
+        } else {
+            nextScene = [GoodbyeLayer scene];
+        }
+        
+        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
+            [[CCDirector sharedDirector] replaceScene:nextScene];
+        }];
     } else if (head1Touched) {
         head1Touched = NO;
         [self blurGameLayer:YES withDuration:0.25];
         [self moveKids:0];
     } else if (head2Touched) {
         head2Touched = NO;
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+            [[CCDirector sharedDirector] replaceScene:[MainMenuLayer scene]];
+        }];
     }
 }
 
@@ -401,38 +450,43 @@
 -(void) moveKids:(ccTime)dtime {
     CGPoint point = ccpToRatio(background.kidPosition.x, background.kidPosition.y);
     
+    __block AnimalViewLayer *pointer = self;
+    __block SpeechBubble *pBubble = bubble;
+    __block CCAutoScalingSprite *pKid = kid;
+    __block EnvironmentLayer *pBackground = background;
+    
     CCMoveTo *move = [CCMoveTo actionWithDuration:0.5 position:point];
     CCCallBlockN *scaleBlock = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [bubble runAction:[CCScaleTo actionWithDuration:0.2 scale:1.0]];
+        [pBubble runAction:[CCScaleTo actionWithDuration:0.2 scale:1.0]];
     }];
     
     void (^touchBlock)(CCNode *node, BOOL finished) = ^(CCNode *node, BOOL finished) {
 
-        [bubble runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0],
+        [pBubble runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0],
                            [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                                [bubble stopAllActions];
+                                [pBubble stopAllActions];
                             }],
                             nil]];
-        [kid runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.25 position:ccpToRatio(kid.position.x, -1000)], nil]];
-        [self blurGameLayer:NO withDuration:0.25];
+        [pKid runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.25 position:ccpToRatio(pKid.position.x, -1000)], nil]];
+        [pointer blurGameLayer:NO withDuration:0.25];
     };
     
     CCCallBlockN *startText = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        NSString *file = [NSString stringWithFormat:@"%@_story.mp3", background.storyKey];
+        NSString *file = [NSString stringWithFormat:@"%@_story.mp3", pBackground.storyKey];
         AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file]];
         
         void (^callback)(CCNode *node) =  ^(CCNode *node) {
-            [bubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                [bubble ccTouchEnded:nil withEvent:nil];
+            [pBubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+                [pBubble ccTouchEnded:nil withEvent:nil];
                 [[SoundManager sharedManager] setMusicVolume:0.6];
             }], nil]];
         };
         
         if (cues != nil) {
             [[SoundManager sharedManager] setMusicVolume:0.4];
-            [bubble startWithCues:cues finishBlock:callback touchBlock:touchBlock];
+            [pBubble startWithCues:cues finishBlock:callback touchBlock:touchBlock];
         } else {
-            [bubble startWithFinishBlock:callback touchBlock:touchBlock];
+            [pBubble startWithFinishBlock:callback touchBlock:touchBlock];
         }
     }];
 
@@ -516,14 +570,10 @@
 }
 
 -(void) productRetrievalStarted {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-    hud.labelText = locstr(@"get_products", @"strings", @"");
     apEvent(@"story", @"freemium", @"product start");
 }
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     if (purchase != nil)
         [purchase release];
     
@@ -533,8 +583,6 @@
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     [PurchaseViewController handleProductsRetrievedFail];
     apEvent(@"story", @"freemium", @"product error");
     [self blurGameLayer:NO withDuration:0.1];

@@ -20,6 +20,9 @@
 -(void) applyBehaviors: (NSDictionary *) parameters toNode: (CCNode<BehaviorManagerDelegate> *) node;
 
 -(CGPoint) parsePosition: (NSDictionary *) position;
+
+-(void) enumerateLayersWithBlock: (void (^)(NSDictionary * obj)) blk;
+
 @end
 
 @implementation Environment
@@ -36,6 +39,8 @@
 -(id) initWithDictionary: (NSDictionary *) setupData {
     self = [super init];
     
+    mfest = [[ContentManifest alloc] init];
+    
     self.key = (NSString *) [setupData objectForKey:@"Key"];
     self.layers = [setupData retain];
     self.animalPosition = [self parsePosition:(NSDictionary *) [self.layers objectForKey:@"AnimalPosition"]];
@@ -44,14 +49,33 @@
     self.storyKey = (NSString *) [self.layers objectForKey:@"StoryKey"];
     self.bgMusic = (NSString *) [setupData objectForKey:@"Music"];
     self.ambientFx = (NSString *) [setupData objectForKey:@"Ambient"];
+    
+    [mfest addAudioFile:self.bgMusic];
+    [mfest addAudioFile:self.ambientFx];
+    [self enumerateLayersWithBlock:^(NSDictionary *obj) {
+        [mfest addImageFile:[obj objectForKey:@"imageName"]];
+        if ([obj objectForKey:@"reflectImageName"]) {
+            [mfest addImageFile:[obj objectForKey:@"reflectImageName"]];
+        }
+    }];
 
     return self;
+}
+
+-(void) dealloc {
+    [mfest release];
+    
+    [super dealloc];
 }
 
 +(Environment *) initWithDictionary:(NSDictionary *)setupData {
     Environment *env = [[Environment alloc] initWithDictionary:setupData];
     
     return [env autorelease];
+}
+
+-(ContentManifest *) manifest {
+    return [[mfest copy] autorelease];
 }
 
 -(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data {
@@ -117,6 +141,13 @@
     }
 }
 
+-(void) enumerateLayersWithBlock: (void (^)(NSDictionary * o)) blk {
+    [self.layers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            blk((NSDictionary *) obj);
+        }
+    }];
+}
 
 -(EnvironmentLayer *) getLayer {
     __block EnvironmentLayer *env = [EnvironmentLayer node];
@@ -127,21 +158,14 @@
     env.storyKey = self.storyKey;
     env.key = self.key;
  
-    [self.layers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([obj isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *data = (NSDictionary *) obj;
-            NSString *type = (NSString *) [data objectForKey:@"type"];
-            if (type != nil) {
-                if ([type isEqualToString:@"CCAutoScalingSprite"]) {
-                    [env addChild:[self getAutoScalingSprite:data]];
-                } else if ([type isEqualToString:@"Water"]) {
-                    [env addChild:[self getWater:data]];
-                } else {
-                    NSLog(@"Unexpected type %@ in set %@", type, [data description]);
-                }
-            } else {
-                
-            }
+    [self enumerateLayersWithBlock:^(NSDictionary *obj) {
+        NSString *type = (NSString *) [obj objectForKey:@"type"];
+        if ([type isEqualToString:@"CCAutoScalingSprite"]) {
+            [env addChild:[self getAutoScalingSprite:obj]];
+        } else if ([type isEqualToString:@"Water"]) {
+            [env addChild:[self getWater:obj]];
+        } else {
+            NSLog(@"Unexpected type %@ in set %@", type, [obj description]);
         }
     }];
 

@@ -8,6 +8,8 @@
 
 #import <StoreKit/StoreKit.h>
 #import "InAppPurchaseManager.h"
+#import "MBProgressHUD.h"
+#import "LocalizationManager.h"
 
 static InAppPurchaseManager *_instance;
 static NSString *_sync = @"sync";
@@ -39,8 +41,12 @@ static NSString *_sync = @"sync";
     else
         prodDelegate = del;
     
-    if (prodDelegate)
+    if (prodDelegate) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
+        hud.labelText = locstr(@"get_products", @"strings", @"");
+        
         [prodDelegate productRetrievalStarted];
+    }
     
     if (cachedProducts) {
         if (prodDelegate) {
@@ -112,10 +118,14 @@ static NSString *_sync = @"sync";
         NSLog(@"Name: %@", product.localizedTitle);
         NSLog(@"Price: %@", product.price);
         if (prodDelegate) {
+            [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+            
             [prodDelegate productsRetrieved: products withData:state];
         }
     } else {
         if (prodDelegate) {
+            [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+            
             [prodDelegate productsRetrievedFailed:nil withData:state];
         }
     }

@@ -11,7 +11,6 @@
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
-#import "MBProgressHUD.h"
 #import "SoundManager.h"
 #import "FadeGrid3D.h"
 
@@ -48,7 +47,6 @@
 }
 
 -(void) onEnter {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     title = [CCAutoScalingSprite spriteWithFile:@"text_languages.en.png"];
@@ -66,10 +64,11 @@
     back.anchorPoint = ccp(0,0);
     back.position = ccpToRatio(130, winSize.height - 100);
     [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-        hud.labelText = locstr(@"loading", @"strings", @"");
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+        
+        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+           [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+        }];
     }];
     
     menu = [CCMenu menuWithItems: nil];
@@ -148,13 +147,10 @@
 }
 
 -(void) productRetrievalStarted {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-    hud.labelText = locstr(@"get_products", @"strings", @"");
+    
 }
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     if (purchase != nil)
         [purchase release];
     
@@ -162,9 +158,7 @@
     [self blurFadeLayer:YES withDuration:0.5];
 }
 
--(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
+-(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {   
     [PurchaseViewController handleProductsRetrievedFail];
     [self blurFadeLayer:NO withDuration:0.1];
 }

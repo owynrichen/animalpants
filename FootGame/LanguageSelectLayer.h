@@ -6,11 +6,11 @@
 //
 //
 
-#import "CCLayer.h"
+#import "ContentManifest.h"
 #import "CCAutoScalingSprite.h"
 #import "PurchaseViewController.h"
 
-@interface LanguageSelectLayer : CCLayer <ProductRetrievalDelegate, PurchaseViewDelegate> {
+@interface LanguageSelectLayer : CCPreloadingLayer <ProductRetrievalDelegate, PurchaseViewDelegate> {
     PurchaseViewController *purchase;
 }
 

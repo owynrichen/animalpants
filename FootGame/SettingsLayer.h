@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CCLayer.h"
+#import "ContentManifest.h"
 #import "CCAutoScalingSprite.h"
 #import "PurchaseViewController.h"
 
-@interface SettingsLayer : CCLayer<ProductRetrievalDelegate, PurchaseDelegate, PurchaseViewDelegate> {
+@interface SettingsLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseDelegate, PurchaseViewDelegate> {
     PurchaseViewController *purchase;
 }
 

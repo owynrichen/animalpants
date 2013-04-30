@@ -30,6 +30,8 @@ static NSString *_sync = @"";
 -(id) init {
     self = [super init];
     audioEngine = [SimpleAudioEngine sharedEngine];
+    soundQueue = dispatch_queue_create("com.alchemistinteractive.footgame.audioload", NULL);
+    preloadedEffects = [[NSMutableDictionary alloc] init];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -46,6 +48,11 @@ static NSString *_sync = @"";
     return self;
 }
 
+-(void) dealloc {
+    [preloadedEffects release];
+    [super dealloc];
+}
+
 -(void) setMusicVolume: (float) vol {
     [audioEngine setBackgroundMusicVolume:vol];
     [[NSUserDefaults standardUserDefaults] setFloat:vol forKey:MUSIC_VOLUME_KEY];
@@ -57,7 +64,32 @@ static NSString *_sync = @"";
 }
 
 -(void) preloadSound:(NSString *)name {
+    [preloadedEffects setObject:name forKey:name];
     [audioEngine preloadEffect:name];
+}
+
+-(void) preloadSoundAsync: (NSString *) name target: (id) target selector: (SEL) selector {
+    NSAssert(name != nil, @"SoundManager: name MUST not be nil");
+	NSAssert(target != nil, @"SoundManager: target can't be nil");
+	NSAssert(selector != NULL, @"SoundManager: selector can't be NULL");
+    
+    dispatch_async(soundQueue, ^{
+        [self preloadSound:name];
+        
+        [target performSelector:selector onThread:[[CCDirector sharedDirector] runningThread] withObject:name waitUntilDone:NO];
+    });
+}
+
+-(void) unloadSound: (NSString *) name {
+    [audioEngine unloadEffect:name];
+    [preloadedEffects removeObjectForKey:name];
+}
+
+-(void) unloadAllSounds {
+    [preloadedEffects enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [audioEngine unloadEffect:key];
+    }];
+    [preloadedEffects removeAllObjects];
 }
 
 -(void) playSound: (NSString *) name {

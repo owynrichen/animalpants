@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CCLayer.h"
+#import "ContentManifest.h"
 #import "CCAutoScalingSprite.h"
 #import "CCAutoScaling.h"
 #import "SpeechBubble.h"
 
-@interface GoodbyeLayer : CCLayer<CCTargetedTouchDelegate> {
+@interface GoodbyeLayer : CCPreloadingLayer<CCTargetedTouchDelegate> {
     CCLayer *background;
     CCLayer *midground;
     CCLayer *foreground;

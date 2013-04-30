@@ -127,7 +127,6 @@
 }
 
 -(void) onEnter {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     apView(@"Goodbye View");
     [super onEnter];
 }
@@ -156,6 +155,11 @@
         [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:1.0]];
         [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(200, 50)],
                          [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            [jeep runAction:[CCRepeatForever actionWithAction:
+                             [CCSequence actions:
+                              [CCTintTo actionWithDuration:0.2 red:192 green:192 blue:192],
+                              [CCTintTo actionWithDuration:0.2 red:255 green:255 blue:255], nil]]];
+            
             [jeep addEvent:@"touch" withBlock:^(CCNode *sender) {
                 [[SoundManager sharedManager] playSound:locfile(@"animals.mp3")];
                 [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];

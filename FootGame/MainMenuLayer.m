@@ -16,7 +16,6 @@
 #import "LocalizationManager.h"
 #import "LanguageSelectLayer.h"
 #import "AnimalPartRepository.h"
-#import "MBProgressHUD.h"
 
 @implementation MainMenuLayer
 
@@ -44,6 +43,48 @@
 	return scene;
 }
 
+static ContentManifest *__manifest;
+static NSString *__sync = @"sync";
+
++(ContentManifest *) myManifest {
+    if (__manifest == nil) {
+        @synchronized(__sync) {
+            if (__manifest == nil) {
+                __manifest = [[ContentManifest alloc] initWithImages:
+                              [NSArray arrayWithObjects:
+                               @"menu_bg.png",
+                               @"menu_girls.png",
+                               @"text_animalswithpants.en.png",
+                               // TODO: preload the other languages
+                               @"icon_play.png"
+                               @"icon_animals.png",
+                               @"icon_credits.png",
+                               nil] audio:
+                              [NSArray arrayWithObjects:
+                               @"play.en.mp3",
+                               @"animals.en.mp3",
+                               @"languages.en.mp3",
+                               @"settings.en.mp3",
+                               @"play.es.mp3",
+                               @"animals.es.mp3",
+                               @"languages.es.mp3",
+                               @"settings.es.mp3",
+                               @"play.fr.mp3",
+                               @"animals.fr.mp3",
+                               @"languages.fr.mp3",
+                               @"settings.fr.mp3",
+                               @"play.de.mp3",
+                               @"animals.de.mp3",
+                               @"languages.de.mp3",
+                               @"settings.de.mp3",
+                               nil]];
+            }
+        }
+    }
+    
+    return [[__manifest copy] autorelease];
+}
+
 -(id) init {
     self = [super init];
     
@@ -63,9 +104,11 @@
     title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     [self addChild:title];
     
-    [(NSArray *) [UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSLog(@"%@", obj);
-    }];
+//    [(NSArray *) [UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        NSLog(@"%@", obj);
+//    }];
+    
+    __block MainMenuLayer *pointer = self;
     
     play = [CCAutoScalingSprite spriteWithFile:@"icon_play.png"];
     play.position = ccpToRatio(512, 170);
@@ -81,11 +124,13 @@
     
     [play addEvent:@"touchup" withBlock:^(CCNode *sender) {
         [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-        hud.labelText = locstr(@"loading", @"strings", @"");
         
-        [[AnimalPartRepository sharedRepository] resetAnimals];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+            [[AnimalPartRepository sharedRepository] resetAnimals:NO];
+            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
+            [[CCDirector sharedDirector] replaceScene:[StoryLayer scene]];
+        }];
+        
     }];
 
     [self addChild:play];
@@ -103,7 +148,12 @@
     }];
     
     [animals addEvent:@"touchup" withBlock:^(CCNode * sender) {
-        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+        
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+            [[CCDirector sharedDirector] replaceScene:[AnimalSelectLayer scene]];
+        }];
     }];
     [self addChild:animals];
     
@@ -120,7 +170,11 @@
     
     [languages addEvent:@"touchup" withBlock:^(CCNode * sender) {
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
-        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
+        
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[LanguageSelectLayer scene] backwards:false]];
+            [[CCDirector sharedDirector] replaceScene:[LanguageSelectLayer scene]];
+        }];
     }];
     [self addChild:languages];
     
@@ -136,12 +190,14 @@
     }];
     
     [credits addEvent:@"touchup" withBlock:^(CCNode * sender) {
-        [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[SettingsLayer scene] backwards:false]];
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[SettingsLayer scene] backwards:false]];
+            [[CCDirector sharedDirector] replaceScene:[SettingsLayer scene]];
+        }];
     }];
     
     [self addChild:credits];
-
-    // TODO: until I can figure out how to remove the flicker, disable this
     
     NSString *file = @"AlchemistKids.png";
     switch (runningDevice()) {
@@ -164,24 +220,26 @@
     splashFade.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
     [self addChild:splashFade];
-    // TODO: preload this for the appropriate language
-    
-    [[SoundManager sharedManager] preloadSound:locfile(@"play.mp3")];
-    [[SoundManager sharedManager] preloadSound:locfile(@"animals.mp3")];
-    [[SoundManager sharedManager] preloadSound:locfile(@"languages.mp3")];
-    [[SoundManager sharedManager] preloadSound:locfile(@"settings.mp3")];
-    
+
     return self;
 }
 
+-(void) dealloc {
+    [super dealloc];
+}
+
 -(void) onEnter {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     // TODO: until I can figure out how to remove the flicker, disable this
     if (splashFade.opacity == 255) {
         [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
     }
     apView(@"Main Menu");
     [[SoundManager sharedManager] playBackground:@"The Animals.mp3"];
+    
+    [[AnimalPartRepository sharedRepository] resetAnimals: NO];
+    
+    manifestToLoad = [[ContentManifest alloc] initWithManifests:[StoryLayer myManifest], [[AnimalPartRepository sharedRepository] manifest], [AnimalSelectLayer myManifest], [LanguageSelectLayer myManifest], [SettingsLayer myManifest], nil];
+    
     [super onEnter];
 }
 
@@ -197,5 +255,6 @@
     
     [super onEnterTransitionDidFinish];
 }
+
 
 @end

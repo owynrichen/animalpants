@@ -10,6 +10,7 @@
 #import "AnimalPart.h"
 #import "Animal.h"
 #import "BaseRepository.h"
+#import "ContentManifest.h"
 
 @interface AnimalPartRepository : BaseRepository {
     NSDictionary *animals;
@@ -25,11 +26,13 @@
 
 @property (readonly) NSDictionary *allAnimals;
 
--(void) resetAnimals;
 -(Animal *) getRandomAnimal;
 -(Animal *) getFirstAnimal;
 -(Animal *) getNextAnimal;
+-(Animal *) peekNextAnimal;
+-(void) resetAnimals: (BOOL) rand;
 -(Animal *) getAnimalByKey: (NSString *) key;
 -(NSArray *) getRandomFeet: (int) count includingAnimalFeet: (Animal *) animal;
+-(ContentManifest *) manifest;
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AnimalPart.h"
 #import "LocationManager.h"
+#import "ContentManifest.h"
 
 typedef enum {
     kFaceFact = 0,
@@ -44,6 +45,7 @@ typedef enum {
 @property (nonatomic, retain) NSString *word;
 @property (nonatomic, retain) NSString *productId;
 @property (nonatomic, retain) NSArray *habitatLocations;
+@property (nonatomic, retain, getter = getManifest, setter = setManifest:) ContentManifest *manifest;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict;
 

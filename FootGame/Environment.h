@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "EnvironmentLayer.h"
+#import "ContentManifest.h"
 
-@interface Environment : NSObject
+@interface Environment : NSObject {
+    ContentManifest *mfest;
+}
 
 @property (nonatomic, retain) NSString *key;
 @property (nonatomic) CGPoint animalPosition;
@@ -24,5 +27,6 @@
 
 -(id) initWithDictionary: (NSDictionary *) setupData;
 -(EnvironmentLayer *) getLayer;
+-(ContentManifest *) manifest;
 
 @end

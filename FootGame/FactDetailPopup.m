@@ -77,19 +77,19 @@
     
     NSString *key;
     CGPoint half = ccp(background.contentSize.width / 2, background.contentSize.height / 2);
-    CGPoint titlePos = ccp(background.contentSize.width / 2, background.contentSize.height / 4);
-    CGPoint textPos = ccp(0,0);
-    CGSize titleSize;
-    CGSize textSize;
+//    CGPoint titlePos = ccp(background.contentSize.width / 2, background.contentSize.height / 4);
+//    CGPoint textPos = ccp(0,0);
+    CGPoint titlePos, textPos;
+    CGSize titleSize, textSize;
     NSString *imgFile;
     CGSize cSize;
     
     NSString *titlestr = [animal factTitle:fact];
     NSString *txtstr = [animal factText:fact];
     
-    factTitle = [CCLabelTTF labelWithString:titlestr fontName:TITLE_FONT fontSize:TITLE_FONT_SIZE * fontScaleForCurrentDevice() dimensions:titleSize hAlignment:kCCTextAlignmentLeft];
+    factTitle = [CCLabelTTF labelWithString:titlestr fontName:TITLE_FONT fontSize:TITLE_FONT_SIZE * fontScaleForCurrentDevice() dimensions:CGSizeMake(0, 0) hAlignment:kCCTextAlignmentLeft];
     
-    factText = [CCLabelTTF labelWithString:txtstr fontName:TEXT_FONT fontSize:TEXT_FONT_SIZE * fontScaleForCurrentDevice() dimensions:textSize hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
+    factText = [CCLabelTTF labelWithString:txtstr fontName:TEXT_FONT fontSize:TEXT_FONT_SIZE * fontScaleForCurrentDevice() dimensions:CGSizeMake(0, 0) hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
     
     switch(fact) {
         case kHeightFactFrame:
@@ -218,7 +218,7 @@
     if (openBlock != nil)
         openBlock(self);
     
-    cBlock = [[closeBlock copy] retain];
+    cBlock = [closeBlock copy];
     
     [self runAction:[CCFadeIn actionWithDuration:0.3]];
     [self runAction:[CCScaleTo actionWithDuration:0.3 scale:1.0]];
@@ -245,6 +245,14 @@
     fdata.scale = scale;
     
     return CGSizeMake(fdata.contentSize.width * fdata.scale, fdata.contentSize.height * fdata.scale);
+}
+
+-(void) dealloc {
+    if (cBlock != nil) {
+        [cBlock release];
+        cBlock = nil;
+    }
+    [super dealloc];
 }
 
 -(void) hide {

@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CCLayer.h"
+#import "ContentManifest.h"
 #import "CCAutoScalingSprite.h"
 #import "CCAutoScaling.h"
 #import "SpeechBubble.h"
 
-@interface StoryLayer : CCLayer {
+@interface StoryLayer : CCPreloadingLayer {
     CCLayer *background;
     CCLayer *foreground;
     CCAutoScalingSprite *jeep;

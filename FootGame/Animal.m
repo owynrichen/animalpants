@@ -30,6 +30,7 @@
 @synthesize word;
 @synthesize productId;
 @synthesize habitatLocations;
+@synthesize manifest = mfest;
 
 +(Animal *) initWithDictionary: (NSDictionary *) dict {
     Animal *anml = [[Animal alloc] init];
@@ -48,6 +49,19 @@
     }
     anml.productId = productId;
     
+    ContentManifest *m = [[[ContentManifest alloc] init] autorelease];
+    
+    [m addImageFile:anml.foot.imageName];
+    [m addImageFile:anml.body.imageName];
+    [m addImageFile:anml.body.happyImageName];
+    
+    [m addAudioFile:anml.successSound];
+    if (anml.failSound != nil) {
+        [m addAudioFile:anml.failSound];
+    }
+    
+    anml.manifest = m;
+    
     NSArray *habitats = (NSArray *) [dict objectForKey:@"habitatLocations"];
     if (habitats != nil) {
         anml.habitatLocations = habitats;
@@ -55,8 +69,6 @@
         anml.habitatLocations = [[[NSArray alloc] init] autorelease];
     }
     
-    [[SoundManager sharedManager] preloadSound:anml.successSound];
-    //[[SoundManager sharedManager] preloadSound:anml.failSound];
     
     return [anml autorelease];
 }
@@ -77,6 +89,17 @@
 
     }
     return YES;
+}
+
+-(ContentManifest *) manifest {
+    return [[mfest copy] autorelease];
+}
+
+-(void) setManifest:(ContentManifest *)manifest {
+    if (mfest != nil)
+        [mfest release];
+    
+    mfest = [manifest retain];
 }
 
 -(void) enumerateHabitiatLocationsWithBlock: (void (^)(LatitudeLongitude ll)) block {

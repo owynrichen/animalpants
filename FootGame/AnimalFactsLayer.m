@@ -8,7 +8,6 @@
 
 #import "AnimalFactsLayer.h"
 #import "AnimalPartRepository.h"
-#import "MBProgressHUD.h"
 #import "AnimalSelectLayer.h"
 #import "AnimalViewLayer.h"
 #import "LocalizationManager.h"
@@ -45,6 +44,19 @@
 	return scene;
 }
 
++(ContentManifest *) manifestWithAnimalKey: (NSString *) animal {
+    return [AnimalFactsLayer manifestWithAnimal:[[AnimalPartRepository sharedRepository] getAnimalByKey:animal]];
+}
+
++(ContentManifest *) manifestWithAnimal: (Animal *) animal {
+    ContentManifest *mfest = [[[ContentManifest alloc] init] autorelease];
+    
+    [mfest addManifest:animal.manifest];
+    // TODO: 
+    
+    return mfest;
+}
+
 -(id) initWithAnimalKey: (NSString *) anml {
     Animal *a = [[AnimalPartRepository sharedRepository] getAnimalByKey:anml];
     self = [self initWithAnimal:a];
@@ -56,6 +68,8 @@
     self = [super init];
     
     animal = [anml retain];
+    __block AnimalFactsLayer *pointer = self;
+    __block Animal *pAnimal = animal;
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
@@ -75,11 +89,11 @@
     back.anchorPoint = ccp(0,0);
     back.position = ccpToRatio(130, winSize.height - 100);
     [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-        hud.labelText = locstr(@"loading", @"strings", @"");
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:true]];
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:true]];
+        }];
     }];
     [fadeLayer addChild:back];
     
@@ -113,12 +127,12 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
-        [p showFact:kHeightFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:NO];
-            [self blurFadeLayer:YES withDuration:0.5];
+        [p showFact:kHeightFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer enableTouches:NO];
+            [pointer blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:YES];
-            [self blurFadeLayer:NO withDuration:0.1];
+            [pointer enableTouches:YES];
+            [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
     
@@ -141,12 +155,12 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
-        [p showFact:kWeightFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:NO];
-            [self blurFadeLayer:YES withDuration:0.5];
+        [p showFact:kWeightFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer enableTouches:NO];
+            [pointer blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:YES];
-            [self blurFadeLayer:NO withDuration:0.1];
+            [pointer enableTouches:YES];
+            [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
     
@@ -169,12 +183,12 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
-        [p showFact:kEarthFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:NO];
-            [self blurFadeLayer:YES withDuration:0.5];
+        [p showFact:kEarthFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer enableTouches:NO];
+            [pointer blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:YES];
-            [self blurFadeLayer:NO withDuration:0.1];
+            [pointer enableTouches:YES];
+            [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
     
@@ -197,12 +211,12 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
-        [p showFact:kFoodFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:NO];
-            [self blurFadeLayer:YES withDuration:0.5];
+        [p showFact:kFoodFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer enableTouches:NO];
+            [pointer blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:YES];
-            [self blurFadeLayer:NO withDuration:0.1];
+            [pointer enableTouches:YES];
+            [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
     
@@ -225,12 +239,12 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
-        [p showFact:kSpeedFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:NO];
-            [self blurFadeLayer:YES withDuration:0.5];
+        [p showFact:kSpeedFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer enableTouches:NO];
+            [pointer blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:YES];
-            [self blurFadeLayer:NO withDuration:0.1];
+            [pointer enableTouches:YES];
+            [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
     
@@ -253,12 +267,12 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
-        [p showFact:kFaceFactFrame forAnimal:animal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:NO];
-            [self blurFadeLayer:YES withDuration:0.5];
+        [p showFact:kFaceFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer enableTouches:NO];
+            [pointer blurFadeLayer:YES withDuration:0.5];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [self enableTouches:YES];
-            [self blurFadeLayer:NO withDuration:0.1];
+            [pointer enableTouches:YES];
+            [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
     
@@ -287,19 +301,20 @@
         Animal *anml = [[AnimalPartRepository sharedRepository] getAnimalByKey:(NSString *) sender.userData];
         
         if ([[PremiumContentStore instance] ownsProductId:anml.productId]) {
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-            hud.labelText = locstr(@"loading", @"strings", @"");
-            
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: anml.key] backwards:false]];
+            [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+               [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey: anml.key] backwards:false]];
+            }];
         } else {
             NSLog(@"%@", anml.productId);
-            [self startPurchase:anml.productId];
+            [pointer startPurchase:anml.productId];
         }
     }];
     
     [fadeLayer addChild:playbuy];
     
     [self addChild:popup];
+    
+    manifestToLoad = [AnimalViewLayer manifestWithAnimalKey:anml.key];
     
     return self;
 }
@@ -319,7 +334,6 @@
 
 -(void) onEnter {
     [super onEnter];
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     NSString *alog = [NSString stringWithFormat: @"Fact View %@", animal.key];
     apView(alog);
 }
@@ -360,14 +374,10 @@
 }
 
 -(void) productRetrievalStarted {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-    hud.labelText = locstr(@"get_products", @"strings", @"");
     apEvent(@"facts", @"freemium", @"product start");
 }
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     if (purchase != nil)
         [purchase release];
     
@@ -377,8 +387,6 @@
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     [PurchaseViewController handleProductsRetrievedFail];
     apEvent(@"facts", @"freemium", @"product error");
     [self blurFadeLayer:NO withDuration:0.1];

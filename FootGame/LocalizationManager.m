@@ -125,7 +125,7 @@ static NSString *_sync = @"";
     NSString *appLocale = (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_PREFERRED_LOCALE];
     
     if (appLocale != nil) {
-        return [[NSLocale alloc] initWithLocaleIdentifier:appLocale];
+        return [[[NSLocale alloc] initWithLocaleIdentifier:appLocale] autorelease];
     } else {
         return [NSLocale currentLocale];
     }

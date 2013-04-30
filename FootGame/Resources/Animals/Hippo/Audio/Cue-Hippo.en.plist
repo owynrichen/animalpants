@@ -24,13 +24,13 @@
 		<key>start</key>
 		<real>0.75302</real>
 		<key>duration</key>
-		<real>0.081961</real>
+		<real>0.08196100000000001</real>
 		<key>start_index</key>
 		<integer>7</integer>
 		<key>end_index</key>
 		<integer>10</integer>
 	</dict>
-	<key>hippo's</key>
+	<key>hippo&apos;s</key>
 	<dict>
 		<key>start</key>
 		<real>0.834981</real>
@@ -72,7 +72,7 @@
 		<key>start_index</key>
 		<integer>28</integer>
 		<key>end_index</key>
-		<integer>33</integer>
+		<integer>34</integer>
 	</dict>
 	<key>and</key>
 	<dict>
@@ -81,9 +81,9 @@
 		<key>duration</key>
 		<real>0.128065</real>
 		<key>start_index</key>
-		<integer>34</integer>
+		<integer>35</integer>
 		<key>end_index</key>
-		<integer>37</integer>
+		<integer>38</integer>
 	</dict>
 	<key>he</key>
 	<dict>
@@ -92,9 +92,9 @@
 		<key>duration</key>
 		<real>0.184413</real>
 		<key>start_index</key>
-		<integer>38</integer>
+		<integer>39</integer>
 		<key>end_index</key>
-		<integer>40</integer>
+		<integer>41</integer>
 	</dict>
 	<key>is</key>
 	<dict>
@@ -103,9 +103,9 @@
 		<key>duration</key>
 		<real>0.107574</real>
 		<key>start_index</key>
-		<integer>41</integer>
+		<integer>42</integer>
 		<key>end_index</key>
-		<integer>43</integer>
+		<integer>44</integer>
 	</dict>
 	<key>wearing</key>
 	<dict>
@@ -114,9 +114,9 @@
 		<key>duration</key>
 		<real>0.440543</real>
 		<key>start_index</key>
-		<integer>44</integer>
+		<integer>45</integer>
 		<key>end_index</key>
-		<integer>51</integer>
+		<integer>52</integer>
 	</dict>
 	<key>big</key>
 	<dict>
@@ -125,9 +125,9 @@
 		<key>duration</key>
 		<real>0.343213</real>
 		<key>start_index</key>
-		<integer>52</integer>
+		<integer>53</integer>
 		<key>end_index</key>
-		<integer>55</integer>
+		<integer>56</integer>
 	</dict>
 	<key>blue</key>
 	<dict>
@@ -136,9 +136,9 @@
 		<key>duration</key>
 		<real>0.373948</real>
 		<key>start_index</key>
-		<integer>56</integer>
+		<integer>57</integer>
 		<key>end_index</key>
-		<integer>60</integer>
+		<integer>61</integer>
 	</dict>
 	<key>overalls.</key>
 	<dict>
@@ -147,16 +147,16 @@
 		<key>duration</key>
 		<real>0.763265000000001</real>
 		<key>start_index</key>
-		<integer>61</integer>
+		<integer>62</integer>
 		<key>end_index</key>
-		<integer>70</integer>
+		<integer>71</integer>
 	</dict>
 	<key>---</key>
 	<dict>
 		<key>start</key>
 		<real>5.143074</real>
 		<key>duration</key>
-		<real>0.0</real>
+		<real>0</real>
 		<key>start_index</key>
 		<integer>0</integer>
 		<key>end_index</key>

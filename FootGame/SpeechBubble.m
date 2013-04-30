@@ -63,11 +63,15 @@
 -(void) dealloc {
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
     
-    if (touchBlock != nil)
+    if (touchBlock != nil) {
         [touchBlock release];
+        touchBlock = nil;
+    }
     
-    if (finishBlock != nil)
+    if (finishBlock != nil) {
         [finishBlock release];
+        finishBlock = nil;
+    }
     
     [super dealloc];
 }
@@ -200,6 +204,16 @@
 -(void) startWithCues: (AudioCues *) cues finishBlock: (void (^)(CCNode *node)) callback touchBlock: (void(^)(CCNode *node, BOOL finished)) touchCallback {
     audioCues = cues;
     
+    if (touchBlock != nil) {
+        [touchBlock release];
+        touchBlock = nil;
+    }
+    
+    if (finishBlock != nil) {
+        [finishBlock release];
+        finishBlock = nil;
+    }
+    
     touchBlock = [touchCallback copy];
     finishBlock = [callback copy];
     storyText = locstr(cues.storyKey, @"strings", @"");
@@ -209,10 +223,10 @@
 
 
 -(void) cuedAudioStarted: (AudioCues *) cues {
-    NSLog(@"CUES: cue started");
+    // NSLog(@"CUES: cue started");
 }
 -(void) cuedAudioComplete: (AudioCues *) cues {
-    NSLog(@"CUES: cue complete");
+    // NSLog(@"CUES: cue complete");
     
     finishBlock(label);
 }
@@ -224,7 +238,7 @@
     int e = [endIndex intValue];
     
     if (e == 0) {
-        NSLog(@"CUES: cue '%@' hit at %f - finishing...", key, time);
+        // NSLog(@"CUES: cue '%@' hit at %f - finishing...", key, time);
         return;
     }
     
@@ -232,7 +246,7 @@
         e = storyText.length;
     }
     
-    NSLog(@"CUES: cue '%@' hit at %f", key, time);
+    // NSLog(@"CUES: cue '%@' hit at %f", key, time);
     
     [label setString:[storyText substringToIndex:e]];
     // [label drawStroke];
@@ -240,6 +254,11 @@
 }
 
 -(void) startWithFinishBlock: (void (^)(CCNode *node)) callback touchBlock: (void(^)(CCNode *node, BOOL finished)) touchCallback {
+    if (touchBlock != nil) {
+        [touchBlock release];
+        touchBlock = nil;
+    }
+    
     touchBlock = [touchCallback copy];
     
     CCCallBlockN *updateTxt = [CCCallBlockN actionWithBlock:^(CCNode *node) {
@@ -248,7 +267,7 @@
             index = storyText.length;
         }
         [label setString:[storyText substringToIndex:index]];
-        [label drawStroke];
+        // [label drawStroke];
     }];
     CCDelayTime *delay = [CCDelayTime actionWithDuration:interval];
     CCSequence *update = [CCSequence actions:updateTxt, delay, nil];

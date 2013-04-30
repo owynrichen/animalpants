@@ -63,7 +63,7 @@ static NSString *_sync = @"sync";
 	if (label != nil)
 		lbl = label;
 	
-	[ga trackEventWithCategory:event withAction:action withLabel:label withValue:[NSNumber numberWithInt: 1]];
+	[ga trackEventWithCategory:event withAction:act withLabel:lbl withValue:[NSNumber numberWithInt: 1]];
 }
 
 -(void) trackError: (NSError *) error {

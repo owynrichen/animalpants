@@ -10,8 +10,8 @@
 #import "CCMenuItemFontWithStroke.h"
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
-#import "MBProgressHUD.h"
 #import "FadeGrid3D.h"
+#import "MBProgressHUD.h"
 
 @interface SettingsLayer()
 -(void) redrawMenu;
@@ -94,13 +94,10 @@
 }
 
 -(void) productRetrievalStarted {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-    hud.labelText = locstr(@"get_products", @"strings", @"");
+
 }
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     if (purchase != nil)
         [purchase release];
     
@@ -109,8 +106,6 @@
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
-    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
-    
     [PurchaseViewController handleProductsRetrievedFail];
     [self blurFadeLayer:NO withDuration:0.1];
 }

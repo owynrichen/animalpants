@@ -18,7 +18,7 @@
 
 -(id) initWithKey:(NSString *)k data:(NSDictionary *)d block: (void (^)(CCNode * sender)) blk {
     self = [super initWithKey:k data:d];
-    block = [[blk copy] retain];
+    block = [blk copy];
     
     return self;
 }
@@ -26,8 +26,9 @@
 -(void) dealloc {
     if (block != nil) {
         [block release];
+        block = nil;
     }
-    block = nil;
+    
     [super dealloc];
 }
 

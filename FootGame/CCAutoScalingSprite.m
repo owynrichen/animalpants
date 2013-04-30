@@ -46,7 +46,12 @@
 }
 
 -(void) dealloc {
+    CCLOG(@"dealloc: %@", self);
     [behaviorManager_ release];
+    behaviorManager_ = nil;
+    [bitMask release];
+    bitMask = nil;
+    
     [super dealloc];
 }
 

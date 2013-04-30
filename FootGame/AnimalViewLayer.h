@@ -12,8 +12,9 @@
 #import "EnvironmentLayer.h"
 #import "SpeechBubble.h"
 #import "PurchaseViewController.h"
+#import "ContentManifest.h"
 
-@interface AnimalViewLayer : CCLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
+@interface AnimalViewLayer : CCPreloadingLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
     AnimalPart *body;
     NSArray *feet;
@@ -44,6 +45,10 @@
 // returns a CCScene that contains the AnimalViewLayer as the only child
 +(CCScene *) scene;
 +(CCScene *) sceneWithAnimalKey: (NSString *) animal;
++(CCScene *) sceneWithAnimal: (Animal *) animal;
+
++(ContentManifest *) manifestWithAnimalKey: (NSString *) animal;
++(ContentManifest *) manifestWithAnimal: (Animal *) animal;
 
 -(id) initWithAnimalKey: (NSString *) animal;
 -(id) initWithAnimal: (Animal *) animal;

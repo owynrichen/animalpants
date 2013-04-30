@@ -13,12 +13,12 @@
 
 -(CCAction *) floaty: (NSDictionary *) params {
     NSDictionary *sDevDict = (NSDictionary *)[params objectForKey:@"scaleDeviation"];
-    NSDictionary *pDevDict = (NSDictionary *)[params objectForKey:@"positionDeviation"];
+    // NSDictionary *pDevDict = (NSDictionary *)[params objectForKey:@"positionDeviation"];
     NSNumber *durNum = (NSNumber *) [params objectForKey:@"duration"];
     NSNumber *durDevNum = (NSNumber *) [params objectForKey:@"durationDeviation"];
     
     CGPoint scaleDev;
-    CGPoint posDev;
+    // CGPoint posDev;
     float duration, durationDeviation;
     
     if (durNum != nil) {
@@ -40,11 +40,11 @@
         // scaleDev = CGPointMake(0.5,0.5);
     }
     
-    if (pDevDict != nil) {
-        posDev = [self parseCoordinate:pDevDict];
-    } else {
-        posDev = ccpToRatio(20, 20);
-    }
+//    if (pDevDict != nil) {
+//        posDev = [self parseCoordinate:pDevDict];
+//    } else {
+//        posDev = ccpToRatio(20, 20);
+//    }
     
     float xDur = [self randWithBase:duration deviation:durationDeviation];
     float yDur = [self randWithBase:duration deviation:durationDeviation];

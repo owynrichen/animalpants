@@ -13,6 +13,9 @@
 @interface SoundManager : NSObject {
     SimpleAudioEngine *audioEngine;
     AudioCues *runningCue;
+    
+    NSMutableDictionary *preloadedEffects;
+    dispatch_queue_t soundQueue;
 }
 
 + (SoundManager *) sharedManager;
@@ -21,6 +24,10 @@
 -(void) setSoundVolume: (float) vol;
 
 -(void) preloadSound: (NSString *) name;
+-(void) preloadSoundAsync: (NSString *) name target: (id) target selector: (SEL) selector;
+-(void) unloadSound: (NSString *) name;
+-(void) unloadAllSounds;
+
 -(void) playSound: (NSString *) name;
 -(void) playSound: (NSString *) name withVol: (float) vol;
 -(void) playBackground: (NSString *) name;

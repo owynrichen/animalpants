@@ -61,7 +61,7 @@ static NSString *_sync = @"";
         callback = nil;
     }
     
-    callback = [[cb copy] retain];
+    callback = [cb copy];
     
     if (callback && cachedLocation) {
         callback(*cachedLocation);
@@ -88,6 +88,7 @@ static NSString *_sync = @"";
         [callback release];
         callback = nil;
     }
+    [loc release];
 }
 
 - (void)locationManager:(CLLocationManager *)manager

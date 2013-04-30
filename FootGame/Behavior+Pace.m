@@ -35,7 +35,7 @@
         
         if (particles != nil) {
             particles.tag += 1;
-            update = [particles copy];
+            update = [[particles copy] autorelease];
 
             [particles moveToParentsParent];
         }
@@ -54,7 +54,7 @@
         
         if (particles != nil) {
             particles.tag += 1;
-            update = [particles copy];
+            update = [[particles copy] autorelease];
 
             [particles moveToParentsParent];
         }

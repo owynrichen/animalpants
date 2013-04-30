@@ -42,6 +42,8 @@ static NSUInteger random_below(NSUInteger n) {
 }
 @end
 
+NSString* ANIMAL_ORDER[12] = { @"Giraffe", @"Penguin", @"Hippo", @"Panda", @"Elephant", @"Lion", @"Crocodile", @"Kangaroo", @"Monkey", @"Tiger", @"PolarBear", @"Zebra" };
+
 @interface AnimalPartRepository()
 
 -(void) loadAnimal: (Animal *) animal;
@@ -89,7 +91,7 @@ static NSString *_sync = @"";
     
     allAnimals = animals;
     
-    [self resetAnimals];
+    [self resetAnimals: NO];
         
     return self;
 }
@@ -103,37 +105,55 @@ static NSString *_sync = @"";
     [parts addObject:animal.foot];
 }
 
--(void) resetAnimals {
-    [animalList removeAllObjects];
-    // build list
-    srand(time(nil));
+-(ContentManifest *) manifest {
+    ContentManifest *mfest = [[[ContentManifest alloc] init] autorelease];
     
     [animals enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [animalList addObject:obj];
+        [mfest addManifest:((Animal *) obj).manifest];
     }];
     
-    [animalList shuffle];
+    return mfest;
+}
+
+-(void) resetAnimals: (BOOL) rand {
+    [animalList removeAllObjects];
+    // build list
     
-    [animalList sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        Animal *first = (Animal *) obj1;
-        Animal *second = (Animal *) obj2;
+    if (rand) {
+        srand(time(nil));
+    
+        [animals enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [animalList addObject:obj];
+        }];
+    
+        [animalList shuffle];
         
-        BOOL ownsFirst = [[PremiumContentStore instance] ownsProductId:first.productId];
-        BOOL ownsSecond = [[PremiumContentStore instance] ownsProductId:second.productId];
-        
-        if (!ownsFirst && ownsSecond) {
-            return NSOrderedDescending;
-        } else if (!ownsSecond && ownsFirst) {
-            return NSOrderedAscending;
+        [animalList sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            Animal *first = (Animal *) obj1;
+            Animal *second = (Animal *) obj2;
+            
+            BOOL ownsFirst = [[PremiumContentStore instance] ownsProductId:first.productId];
+            BOOL ownsSecond = [[PremiumContentStore instance] ownsProductId:second.productId];
+            
+            if (!ownsFirst && ownsSecond) {
+                return NSOrderedDescending;
+            } else if (!ownsSecond && ownsFirst) {
+                return NSOrderedAscending;
+            }
+            
+            return NSOrderedSame;
+        }];
+    } else {
+        for (int i = 0; i < 12; i++) {
+            Animal *animal = (Animal *) [animals objectForKey:ANIMAL_ORDER[i]];
+            [animalList addObject:animal];
         }
-        
-        return NSOrderedSame;
-    }];
+    }
 }
 
 -(Animal *) getRandomAnimal {
     if ([animalList count] == 0)
-        [self resetAnimals];
+        [self resetAnimals: YES];
     
     Animal *first = [animalList objectAtIndex:0];
     [animalList removeObjectAtIndex:0];
@@ -142,16 +162,29 @@ static NSString *_sync = @"";
 
 -(Animal *) getFirstAnimal {
     if ([animalList count] == 0)
-        [self resetAnimals];
+        [self resetAnimals: NO];
     
-    Animal *first = [animalList objectAtIndex:0];
+    Animal *first = [self peekNextAnimal];
     [animalList removeObjectAtIndex:0];
     return first;
 }
 
 -(Animal *) getNextAnimal {
-    Animal *first = [animalList objectAtIndex:0];
+    Animal *first =[self peekNextAnimal];
+    
+    if (first == nil)
+        return nil;
+    
     [animalList removeObjectAtIndex:0];
+    return first;
+}
+
+-(Animal *) peekNextAnimal {
+    if ([animalList count] == 0) {
+        return nil;
+    }
+    
+    Animal *first = [animalList objectAtIndex:0];
     return first;
 }
 
