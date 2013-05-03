@@ -168,7 +168,7 @@
                 [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
             }];
             [jeep addEvent:@"touchup" withBlock:^(CCNode *sender) {
-                [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
             }];
         }], nil]];
 

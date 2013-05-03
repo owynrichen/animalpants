@@ -19,6 +19,10 @@
 #define TITLE_FONT_SIZE 48
 #define TEXT_FONT_SIZE 44
 
+#ifndef MAX_INT
+#define MAX_INT INT_MAX
+#endif
+
 @interface FactDetailPopup()
 -(CGSize) setFactDataScale: (CCNode<CCRGBAProtocol> *) fdata;
 @end
