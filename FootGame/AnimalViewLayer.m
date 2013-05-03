@@ -401,8 +401,10 @@
         }
         
         [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
-            [[CCDirector sharedDirector] replaceScene:nextScene];
+            [bubble stop];
+            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
+            // [[CCDirector sharedDirector] replaceScene:nextScene];
         }];
     } else if (head1Touched) {
         head1Touched = NO;
@@ -411,8 +413,10 @@
     } else if (head2Touched) {
         head2Touched = NO;
         [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
-            [[CCDirector sharedDirector] replaceScene:[MainMenuLayer scene]];
+            [bubble stop];
+            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+            // [[CCDirector sharedDirector] replaceScene:[MainMenuLayer scene]];
         }];
     }
 }
@@ -476,7 +480,7 @@
         AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file]];
         
         void (^callback)(CCNode *node) =  ^(CCNode *node) {
-            [pBubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:5.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            [pBubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
                 [pBubble ccTouchEnded:nil withEvent:nil];
                 [[SoundManager sharedManager] setMusicVolume:0.6];
             }], nil]];
@@ -592,6 +596,8 @@
     [[CCDirector sharedDirector] resume];
     apEvent(@"story", @"freemium", @"cancel click");
     [self blurGameLayer:NO withDuration:0.1];
+    
+    [bubble stop];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     [purchase.view removeFromSuperview];
     return NO;

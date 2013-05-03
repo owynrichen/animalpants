@@ -88,9 +88,16 @@
     back.scaleY = 0.4 * fontScaleForCurrentDevice();
     back.anchorPoint = ccp(0,0);
     back.position = ccpToRatio(130, winSize.height - 100);
-    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
+    [back addEvent:@"touch" withBlock:^(CCNode * sender) {
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
-        
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.6 scaleY:0.6]];
+    }];
+    
+    [back addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.4 scaleY:0.4]];
+    }];
+    
+    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
         [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:true]];
         }];

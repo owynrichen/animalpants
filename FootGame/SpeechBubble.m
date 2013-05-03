@@ -221,14 +221,24 @@
     [[SoundManager sharedManager] playSoundWithCues:audioCues withDelegate:self];
 }
 
-
 -(void) cuedAudioStarted: (AudioCues *) cues {
     // NSLog(@"CUES: cue started");
 }
 -(void) cuedAudioComplete: (AudioCues *) cues {
     // NSLog(@"CUES: cue complete");
     
-    finishBlock(label);
+    if (finishBlock != nil) {
+        finishBlock(label);
+    }
+}
+
+-(void) cuedAudioStopped:(AudioCues *)cues {
+
+}
+
+-(void) stop {
+    if (audioCues)
+        [audioCues stop];
 }
 
 -(void) cueHit: (AudioCues *) cues forCueKey: (NSString *) key atTime: (ccTime) time {

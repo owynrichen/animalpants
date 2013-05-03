@@ -7,6 +7,7 @@
 //
 
 #import "AudioCues.h"
+#import "SoundManager.h"
 
 @interface AudioCues()
 
@@ -54,12 +55,9 @@
 
 -(void) dealloc {
     NSLog(@"deallocating AudioCues %@", self.audioFilename);
-    if (cueSequence != nil)
-        [cueSequence release];
+    [self stop];
     
     [[CCDirector sharedDirector].scheduler unscheduleSelector:@selector(updateRunTime:) forTarget:self];
-    
-    delegate = nil;
     
     [super dealloc];
 }
@@ -93,15 +91,15 @@
     return stopped;
 }
 
--(void) startWithDelegate: (id) del {
+-(void) startWithDelegate: (id) del soundId: (ALuint) sid {
     id<AudioCuesDelegate> cueDel = (id<AudioCuesDelegate>) del;
+    soundID = sid;
+    
     NSAssert(cueDel != nil, @"argument del must be of type id<AudioCuesDelegate>");
     stopped = NO;
     totalTime = 0.0f;
 
     delegate = cueDel;
-    if (cueSequence != nil)
-        [cueSequence release];
     
     cueSequence = [[self buildCueSequence] retain];
     
@@ -110,13 +108,29 @@
     [[CCDirector sharedDirector].scheduler scheduleSelector:@selector(updateRunTime:) forTarget:self interval:0.01 paused:NO];
 }
 
--(void) updateRunTime: (ccTime) time {
-    bool cueHit = NO;
-    totalTime += time;
+-(void) stop {
+    if (delegate != nil) {
+        [((id<AudioCuesDelegate>)delegate) cuedAudioStopped:self];
+        delegate = nil;
+    }
     
+    if (cueSequence != nil) {
+        [cueSequence release];
+        cueSequence = nil;
+    }
+    
+    [[SoundManager sharedManager] stopSound:soundID];
+    stopped = YES;
+    totalTime = 0;
+}
+
+-(void) updateRunTime: (ccTime) time {
     if (cueSequence == nil || [cueSequence count] == 0) {
         return;
     }
+    
+    bool cueHit = NO;
+    totalTime += time;
     
     do {
         NSString *key = [cueSequence objectAtIndex:0];
@@ -131,11 +145,9 @@
                 
                 if ([cueSequence count] == 0) {
                     [((id<AudioCuesDelegate>)delegate) cuedAudioComplete:self];
-                    // [[CCDirector sharedDirector].scheduler unscheduleSelector:@selector(updateRunTime:) forTarget:self];
-                    stopped = YES;
-                    totalTime = 0;
-                    delegate = nil;
+                    
                     cueHit = NO;
+                    [self stop];
                 }
             }
         } else {

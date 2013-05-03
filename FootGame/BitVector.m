@@ -115,7 +115,7 @@
 -(BOOL) hitx:(int) x  y: (int) y {
     x = x * CC_CONTENT_SCALE_FACTOR();
     y = y * CC_CONTENT_SCALE_FACTOR();
-    if (x > width || x < 0 || y > height || y < 0)
+    if (x >= width || x < 0 || y >= height || y < 0)
         return NO;
     // because sprites are upside down on draw, invert the y
 #ifndef BITMASK

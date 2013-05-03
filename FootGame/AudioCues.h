@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OpenAL/al.h>
 
 @interface AudioCues : NSObject<NSCopying> {
     id delegate;
     NSMutableArray *cueSequence;
     BOOL stopped;
     ccTime totalTime;
+    ALuint soundID;
 }
 
 @property (nonatomic, retain) NSString *storyKey;
@@ -27,8 +29,9 @@
 -(id) copyWithZone:(NSZone *)zone;
 -(NSString *) key;
 
--(void) startWithDelegate: (id) del;
+-(void) startWithDelegate: (id) del soundId: (ALuint) sid;
 -(BOOL) isStopped;
+-(void) stop;
 
 @end
 
@@ -40,6 +43,7 @@
 -(void) cuedAudioStarted: (AudioCues *) cues;
 -(void) cuedAudioComplete: (AudioCues *) cues;
 -(void) cueHit: (AudioCues *) cues forCueKey: (NSString *) key atTime: (ccTime) time;
+-(void) cuedAudioStopped: (AudioCues *) cues;
 // TODO: should we fire if we need to skip a cue for some reason?
 
 @end

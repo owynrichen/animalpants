@@ -31,8 +31,11 @@
 
 -(void) startWithFinishBlock: (void (^)(CCNode *node)) callback touchBlock: (void(^)(CCNode *node, BOOL finished)) touchCallback;
 
+-(void) stop;
+
 -(void) cuedAudioStarted: (AudioCues *) cues;
 -(void) cuedAudioComplete: (AudioCues *) cues;
 -(void) cueHit: (AudioCues *) cues forCueKey: (NSString *) key atTime: (ccTime) time;
+-(void) cuedAudioStopped: (AudioCues *) cues;
 
 @end

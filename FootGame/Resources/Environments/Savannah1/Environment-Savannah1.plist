@@ -75,8 +75,6 @@
 	</dict>
 	<key>Music</key>
 	<string>savannah1_bgmusic.mp3</string>
-	<key>Ambient</key>
-	<string>savannah1_ambient.mp3</string>
 	<key>Key</key>
 	<string>savannah1</string>
 	<key>StoryKey</key>

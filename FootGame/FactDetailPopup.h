@@ -24,6 +24,7 @@ typedef void (^PopupBlock)(CCNode<CCRGBAProtocol> *popup);
 }
 
 +(FactDetailPopup *) popup;
++(ContentManifest *) manifestWithFrameType: (FactFrameType) fact animal: (Animal *) anml;
 
 -(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal withOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock;
 -(void) hide;

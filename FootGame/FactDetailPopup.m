@@ -19,18 +19,24 @@
 #define TITLE_FONT_SIZE 48
 #define TEXT_FONT_SIZE 44
 
-#ifndef MAX_INT
-#define MAX_INT INT_MAX
-#endif
-
 @interface FactDetailPopup()
 -(CGSize) setFactDataScale: (CCNode<CCRGBAProtocol> *) fdata;
+-(NSString *) imageForFactType: (FactFrameType) fact animal: (Animal *) anml;
+-(NSString *) keyForFactType: (FactFrameType) fact;
 @end
 
 @implementation FactDetailPopup
 
 +(FactDetailPopup *) popup {
     return [[[FactDetailPopup alloc] init] autorelease];
+}
+
++(ContentManifest *) manifestWithFrameType: (FactFrameType) fact animal: (Animal *) anml {
+    ContentManifest *mfest = [[[ContentManifest alloc] init] autorelease];
+    
+    
+    
+    return mfest;
 }
 
 -(id) init {
@@ -74,12 +80,17 @@
         factData = nil;
     }
     
+    if (factTitle) {
+        [self removeChild:factTitle cleanup:YES];
+        factTitle = nil;
+    }
+    
     if (factText) {
         [self removeChild:factText cleanup:YES];
         factText = nil;
     }
     
-    NSString *key;
+    NSString *key = [self keyForFactType: fact];
     CGPoint half = ccp(background.contentSize.width / 2, background.contentSize.height / 2);
 //    CGPoint titlePos = ccp(background.contentSize.width / 2, background.contentSize.height / 4);
 //    CGPoint textPos = ccp(0,0);
@@ -97,7 +108,6 @@
     
     switch(fact) {
         case kHeightFactFrame:
-            key = @"height";
             imgFile = [NSString stringWithFormat:@"%@_%@_large.png", [animal.key lowercaseString], key];
             factData = [CCAutoScalingSprite spriteWithFile:imgFile];
             cSize = [self setFactDataScale:factData];
@@ -109,7 +119,6 @@
             textPos = ccpToRatio(half.x * 0.05, half.y + (half.y * 0.75));
             break;
         case kWeightFactFrame:
-            key = @"weight";
             imgFile = [NSString stringWithFormat:@"%@_%@_large.png", [animal.key lowercaseString], key];
             factData = [CCAutoScalingSprite spriteWithFile:imgFile];
             cSize = [self setFactDataScale:factData];
@@ -121,7 +130,7 @@
             textPos = ccpToRatio(half.x + (half.x * 0.2), half.y + (half.y / 2));
             break;
         case kEarthFactFrame:
-            key = @"location";
+            key = [self keyForFactType: fact];
             WorldMapNode *wmn = [WorldMapNode worldMapWithMap:@"world-map.png" projectionType:kRobinsonProjection];
             
             NSString *pinimg = [NSString stringWithFormat:@"mappin-%@.png", [animal.key lowercaseString]];
@@ -131,7 +140,7 @@
             // This block could return immediately if the lat/lng is cached
             [[LocationManager sharedManager] getLocation:^(LatitudeLongitude ll) {
                 NSString *unit = [[LocationManager sharedManager] currentLocaleUsesMetric] ? locstr(@"kilometers", @"strings",@"") : locstr(@"miles", @"string",@"");
-                __block CGFloat shortestDistance = MAX_INT;
+                __block CGFloat shortestDistance = INT32_MAX;
                 [animal enumerateHabitiatLocationsWithBlock:^(LatitudeLongitude all) {
                     CGFloat d = hdist(ll, all);
                     if (d < shortestDistance) {
@@ -162,7 +171,6 @@
             
             break;
         case kFoodFactFrame:
-            key = @"food";
             imgFile = [NSString stringWithFormat:@"%@-%@.png", [animal.key lowercaseString], key];
             factData = [CCAutoScalingSprite spriteWithFile:imgFile];
             cSize = [self setFactDataScale:factData];
@@ -249,6 +257,46 @@
     fdata.scale = scale;
     
     return CGSizeMake(fdata.contentSize.width * fdata.scale, fdata.contentSize.height * fdata.scale);
+}
+
+-(NSString *) imageForFactType: (FactFrameType) fact animal:(Animal *)animal {
+    switch(fact) {
+        case kHeightFactFrame:
+            return [NSString stringWithFormat:@"%@_%@_large.png", [animal.key lowercaseString], [self keyForFactType: fact]];
+        case kWeightFactFrame:
+            return [NSString stringWithFormat:@"%@_%@_large.png", [animal.key lowercaseString], [self keyForFactType: fact]];
+        case kEarthFactFrame:
+            return [NSString stringWithFormat:@"mappin-%@.png", [animal.key lowercaseString]];
+        case kFoodFactFrame:
+            return [NSString stringWithFormat:@"%@-%@.png", [animal.key lowercaseString], [self keyForFactType: fact]];
+        case kSpeedFactFrame:
+            return [NSString stringWithFormat:@"%@_%@.png", [animal.key lowercaseString], [self keyForFactType: fact]];
+        case kFaceFactFrame:
+            return [NSString stringWithFormat:@"%@_%@.jpg", [animal.key lowercaseString], [self keyForFactType: fact]];
+    }
+}
+
+-(NSString *) keyForFactType: (FactFrameType) fact {
+    switch(fact) {
+        case kHeightFactFrame:
+            return @"height";
+            break;
+        case kWeightFactFrame:
+            return @"weight";
+            break;
+        case kEarthFactFrame:
+            return @"location";
+            break;
+        case kFoodFactFrame:
+            return @"food";
+            break;
+        case kSpeedFactFrame:
+            return @"speed";
+            break;
+        case kFaceFactFrame:
+            return @"photo";
+            break;
+    }
 }
 
 -(void) dealloc {

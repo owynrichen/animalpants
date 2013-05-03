@@ -93,25 +93,32 @@ static NSString *__sync = @"sync";
     back.scaleY = 0.4 * fontScaleForCurrentDevice();
     back.anchorPoint = ccp(0,0);
     back.position = ccpToRatio(130, winSize.height - 100);
-    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
-//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-//        hud.labelText = locstr(@"loading", @"strings", @"");
-        
+    
+    __block AnimalSelectLayer *pointer = self;
+    [back addEvent:@"touch" withBlock:^(CCNode * sender) {
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         
-        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.6 scaleY:0.6]];
+    }];
+    
+    [back addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.4 scaleY:0.4]];
+    }];
+    
+    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {        
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
         }];
     }];
     
     menu = [CCMenu menuWithItems: nil];
     
-    [self redrawMenu];
-    
     [self addChild:background];
     [self addChild:menu];
     [self addChild:title];
     [self addChild:back];
+    
+    [self redrawMenu];
     
     apView(@"Animal Select View");
     [super onEnter];
@@ -146,15 +153,18 @@ static NSString *__sync = @"sync";
     menu.position = ccpToRatio(100, 400);
     __block int count = 0;
     __block int row = 0;
+    __block AnimalSelectLayer *pointer = self;
     
     [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSString *imageKey = [NSString stringWithFormat:@"circle-%@.png", [key lowercaseString]];
         NSString *selectedImageKey = [NSString stringWithFormat:@"circle-%@-happy.png", [key lowercaseString]];
         
         CCMenuItemImageTouchDown *item = [CCMenuItemImageTouchDown itemWithNormalImage:imageKey selectedImage:selectedImageKey block:^(id sender) {
-            NSString *key = (NSString *) ((CCNode *) sender).userData;
-                
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalFactsLayer sceneWithAnimalKey: key] backwards:false]];
+            [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+                NSString *key = (NSString *) ((CCNode *) sender).userData;
+            
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalFactsLayer sceneWithAnimalKey: key] backwards:false]];
+            }];
 
         }];
         

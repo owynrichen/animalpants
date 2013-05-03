@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Music</key>
-	<string>arctic_bgmusic.mp3</string>
-	<key>Ambient</key>
-	<string>arctic_ambient.mp3</string>
+	<string>penguin_song.mp3</string>
 	<key>Mountains</key>
 	<dict>
 		<key>type</key>

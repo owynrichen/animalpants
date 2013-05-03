@@ -64,6 +64,9 @@ static NSString *_sync = @"";
 }
 
 -(void) preloadSound:(NSString *)name {
+    if (name == nil)
+        return;
+    
     [preloadedEffects setObject:name forKey:name];
     [audioEngine preloadEffect:name];
 }
@@ -105,14 +108,12 @@ static NSString *_sync = @"";
 }
 
 -(void) playSoundWithCues: (AudioCues *) cues withDelegate: (id<AudioCuesDelegate>) delegate; {
-    if (runningCue != nil && ![runningCue isStopped]) {
-        NSLog(@"Can only run 1 AudioCue audio entry at a time");
-        return;
-    }
-    
-    runningCue = cues;
-    [audioEngine playEffect:cues.audioFilename];
-    [cues startWithDelegate:delegate];
+    ALuint soundId = [audioEngine playEffect:cues.audioFilename];
+    [cues startWithDelegate:delegate soundId:soundId];
+}
+
+-(void) stopSound:(ALuint)soundId {
+    [audioEngine stopEffect:soundId];
 }
 
 -(void) fadeOutBackground {

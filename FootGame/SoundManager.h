@@ -12,7 +12,6 @@
 
 @interface SoundManager : NSObject {
     SimpleAudioEngine *audioEngine;
-    AudioCues *runningCue;
     
     NSMutableDictionary *preloadedEffects;
     dispatch_queue_t soundQueue;
@@ -32,6 +31,7 @@
 -(void) playSound: (NSString *) name withVol: (float) vol;
 -(void) playBackground: (NSString *) name;
 -(void) playSoundWithCues: (AudioCues *) cues withDelegate: (id<AudioCuesDelegate>) delegate;
+-(void) stopSound: (ALuint) soundId;
 
 -(void) fadeOutBackground;
 -(void) pauseBackground;

@@ -63,22 +63,32 @@
     back.scaleY = 0.4 * fontScaleForCurrentDevice();
     back.anchorPoint = ccp(0,0);
     back.position = ccpToRatio(130, winSize.height - 100);
-    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
+    
+    __block LanguageSelectLayer *pointer = self;
+    [back addEvent:@"touch" withBlock:^(CCNode * sender) {
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         
-        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.6 scaleY:0.6]];
+    }];
+    
+    [back addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.4 scaleY:0.4]];
+    }];
+    
+    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {        
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
         }];
     }];
     
     menu = [CCMenu menuWithItems: nil];
     
-    [self redrawMenu];
-    
     [self addChild:background];
     [self addChild:menu];
     [self addChild:title];
     [self addChild:back];
+    
+    [self redrawMenu];
     
     apView(@"Language Select View");
     [super onEnter];
@@ -106,6 +116,7 @@
     menu.position = ccp(winSize.width * 0.5, winSize.height * 0.6);
     
     __block int count = 0;
+    __block LanguageSelectLayer *pointer = self;
     
     for(NSString *lang in [[LocalizationManager sharedManager] getAvailableLanguages]) {
         NSString *langStr = [[LocalizationManager sharedManager] getLanguageNameString:lang];
@@ -117,16 +128,18 @@
         }
         
         CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:langStr color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-            NSString *l = ((CCNode *)sender).userData;
-            BOOL o = [[PremiumContentStore instance] ownsProductId:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
+            [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+                NSString *l = ((CCNode *)sender).userData;
+                BOOL o = [[PremiumContentStore instance] ownsProductId:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
             
-            if (o == YES) {
-                [[LocalizationManager sharedManager] setAppPreferredLocale:l];
-                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
-            } else {
-                NSLog(@"Language %@ isn't owned", l);
-                [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
-            }
+                if (o == YES) {
+                    [[LocalizationManager sharedManager] setAppPreferredLocale:l];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+                } else {
+                    NSLog(@"Language %@ isn't owned", l);
+                    [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
+                }
+            }];
         }];
         
         NSString *sound = [[NSString stringWithFormat:@"%@.mp3", lang] lowercaseString];

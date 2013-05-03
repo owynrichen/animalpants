@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Ambient</key>
-	<string>savannah2_ambient.mp3</string>
 	<key>Music</key>
 	<string>savannah2_bgmusic.mp3</string>
 	<key>Giraffe2</key>

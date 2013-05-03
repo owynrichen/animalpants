@@ -165,9 +165,12 @@ static NSString *__sync = @"sync";
                                 [jeep removeAllChildrenWithCleanup:YES];
                                 [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:0.3]];
                                 [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(1200, 380)], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+                                    
+                                    [story1 stop];
+                                    
                                     [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-                                        // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
-                                        [[CCDirector sharedDirector] replaceScene:[AnimalViewLayer scene]];
+                                        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
+                                        //[[CCDirector sharedDirector] replaceScene:[AnimalViewLayer scene]];
                                     }];
                                 }], nil]];
                             }],

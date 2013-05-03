@@ -141,6 +141,8 @@
     [background runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
     [midground runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
     [foreground runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
+    
+    __block GoodbyeLayer *pointer = self;
 
     CCSequence *jeepSeq = [CCSequence actions:[CCMoveTo actionWithDuration:t * 0.40 position:ccpToRatio(750, 240)],
                            [CCDelayTime actionWithDuration:t * 0.40],
@@ -168,7 +170,11 @@
                 [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
             }];
             [jeep addEvent:@"touchup" withBlock:^(CCNode *sender) {
-                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+                [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+                    [outro stop];
+                    
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+                }];
             }];
         }], nil]];
 
