@@ -56,7 +56,7 @@
     [m addImageFile:anml.body.happyImageName];
     
     [m addAudioFile:anml.successSound];
-    if (anml.failSound != nil) {
+    if (anml.failSound != nil && ![anml.failSound isEqualToString:@""]) {
         [m addAudioFile:anml.failSound];
     }
     

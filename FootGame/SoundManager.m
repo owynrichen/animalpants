@@ -67,6 +67,8 @@ static NSString *_sync = @"";
     if (name == nil)
         return;
     
+    // NSLog(@"preloading sound: %@", name);
+    
     [preloadedEffects setObject:name forKey:name];
     [audioEngine preloadEffect:name];
 }

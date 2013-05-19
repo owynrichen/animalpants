@@ -10,8 +10,6 @@
 #import "LocalizationManager.h"
 #import "LocationManager.h"
 #import "WorldMapNode.h"
-#import "AnalyticsPublisher.h"
-#import "SoundManager.h"
 
 #define BORDER_SCALE 1.0
 #define TITLE_FONT @"Rather Loud"
@@ -37,41 +35,6 @@
     
     
     return mfest;
-}
-
--(id) init {
-    self = [super init];
-    
-    background = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 0)];
-    background.contentSize = CGSizeMake(950, 600);
-    background.blendFunc = (ccBlendFunc) { GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA };
-    [self addChild:background];
-    
-    close = [CircleButton buttonWithFile:@"close-x.png"];
-    close.scale = 0.6;
-    close.position = ccp(900, 550);
-    [self addChild:close z:100];
-    [close addEvent:@"touch" withBlock:^(CCNode * sender) {
-        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
-    }];
-    
-    [close addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.6]];
-    }];
-    
-    [close addEvent:@"touchup" withBlock:^(CCNode *sender) {
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.6]];
-        FactDetailPopup *p = (FactDetailPopup *) sender.parent.parent;
-        [p hide];
-    }];
-    
-    self.contentSize = background.contentSize;
-    self.opacity = 0;
-    self.scale = 0.8;
-    self.anchorPoint = ccp(0.5,0.5);
-    
-    return self;
 }
 
 -(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal withOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock {
@@ -226,16 +189,9 @@
     [self addChild:factData];
     [self addChild:factTitle];
     [self addChild:factText];
-    
-    if (openBlock != nil)
-        openBlock(self);
-    
-    cBlock = [closeBlock copy];
-    
-    [self runAction:[CCFadeIn actionWithDuration:0.3]];
-    [self runAction:[CCScaleTo actionWithDuration:0.3 scale:1.0]];
     NSString *alog = [NSString stringWithFormat: @"Fact Detail %@ %@", animal.key, key];
-    apView(alog);
+    
+    [super showWithOpenBlock:openBlock closeBlock:closeBlock analyticsKey:alog];
 }
 
 -(CGSize) setFactDataScale: (CCNode<CCRGBAProtocol> *) fdata {
@@ -299,30 +255,8 @@
     }
 }
 
--(void) dealloc {
-    if (cBlock != nil) {
-        [cBlock release];
-        cBlock = nil;
-    }
-    [super dealloc];
-}
-
--(void) hide {
-    if (cBlock != nil) {
-        cBlock(self);
-        [cBlock release];
-        cBlock = nil;
-    }
-    
-    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
-    
-    [self runAction:[CCFadeOut actionWithDuration:0.3]];
-    [self runAction:[CCScaleTo actionWithDuration:0.3 scale:0.8]];
-}
-
 -(void) setColor:(ccColor3B)color {
-    background.color = color;
-    close.color = color;
+    [super setColor: color];
     factData.color = color;
     factTitle.color = color;
     factText.color = color;
@@ -337,8 +271,7 @@
 }
 
 -(void) setOpacity: (GLubyte) opacity {
-    background.opacity = opacity;
-    close.opacity = opacity;
+    [super setOpacity: opacity];
     factData.opacity = opacity;
     factTitle.opacity = opacity;
     factText.opacity = opacity;

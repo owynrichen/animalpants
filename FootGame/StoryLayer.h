@@ -10,12 +10,14 @@
 #import "CCAutoScalingSprite.h"
 #import "CCAutoScaling.h"
 #import "SpeechBubble.h"
+#import "LongPressButton.h"
 
 @interface StoryLayer : CCPreloadingLayer {
     CCLayer *background;
     CCLayer *foreground;
     CCAutoScalingSprite *jeep;
     SpeechBubble *story1;
+    LongPressButton *skip;
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child

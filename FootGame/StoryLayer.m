@@ -14,6 +14,12 @@
 #import "AnalyticsPublisher.h"
 #import "AnimalPartRepository.h"
 
+@interface StoryLayer()
+
+-(void) nextScene;
+
+@end
+
 @implementation StoryLayer
 
 +(CCScene *) scene
@@ -130,6 +136,16 @@ static NSString *__sync = @"sync";
     story1.position = ccpToRatio(100, 480);
     [self addChild:story1];
     
+    __block StoryLayer *pointer = self;
+    
+    skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
+        [pointer nextScene];
+    }];
+    
+    skip.position = ccpToRatio(950, 80);
+    skip.scale = 0.5;
+    [self addChild:skip];
+    
     return self;
 }
 
@@ -165,13 +181,7 @@ static NSString *__sync = @"sync";
                                 [jeep removeAllChildrenWithCleanup:YES];
                                 [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:0.3]];
                                 [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(1200, 380)], [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                                    
-                                    [story1 stop];
-                                    
-                                    [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-                                        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
-                                        //[[CCDirector sharedDirector] replaceScene:[AnimalViewLayer scene]];
-                                    }];
+                                    [pointer nextScene];
                                 }], nil]];
                             }],
                            nil];
@@ -184,12 +194,18 @@ static NSString *__sync = @"sync";
     } touchBlock:^(CCNode *node, BOOL finished) {}];
 }
 
-
-
 -(void) onExitTransitionDidStart {
     [[SoundManager sharedManager] setMusicVolume:0.6];
     
     [super onExitTransitionDidStart];
+}
+
+-(void) nextScene {
+    [story1 stop];
+    
+    [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
+    }];
 }
 
 @end

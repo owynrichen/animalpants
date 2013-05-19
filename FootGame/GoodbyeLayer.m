@@ -15,6 +15,12 @@
 #import "MBProgressHUD.h"
 #import "AnimalSelectLayer.h"
 
+@interface GoodbyeLayer()
+
+-(void) nextScene;
+
+@end
+
 @implementation GoodbyeLayer
 
 +(CCScene *) scene
@@ -30,6 +36,31 @@
 	
 	// return the scene
 	return scene;
+}
+
++(ContentManifest *) myManifest {
+    ContentManifest *mfest = [[[ContentManifest alloc] initWithImages:
+                                        [NSArray arrayWithObjects:
+                                         @"outro-background1.png",
+                                         @"outro-background2.png",
+                                         @"outro-background3.png",
+                                         @"outro-midground1.png",
+                                         @"outro-midground2.png",
+                                         @"outro-midground3.png",
+                                         @"outro-foreground1.png",
+                                         @"outro-foreground2.png",
+                                         @"outro-foreground3.png",
+                                         @"jeep-side-animals.png",
+                                         @"jeep-wheel-side1.png",
+                                         @"jeep_front.png",
+                                         nil]
+                                    audio:
+                                        [NSArray arrayWithObjects:
+                                         [[LocalizationManager sharedManager] getLocalizedFilename:@"outro.mp3"],
+                                        nil]] autorelease];
+    
+    
+    return mfest;
 }
 
 -(id) init {
@@ -123,6 +154,15 @@
     outro.position = ccpToRatio(100, 480);
     [self addChild:outro];
     
+    __block GoodbyeLayer *pointer = self;
+    
+    skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
+        [pointer nextScene];
+    }];
+    
+    skip.position = ccpToRatio(950, 80);
+    [self addChild:skip];
+    
     return self;
 }
 
@@ -171,9 +211,7 @@
             }];
             [jeep addEvent:@"touchup" withBlock:^(CCNode *sender) {
                 [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-                    [outro stop];
-                    
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
+                    [pointer nextScene];
                 }];
             }];
         }], nil]];
@@ -192,6 +230,12 @@
     [[SoundManager sharedManager] setMusicVolume:0.6];
     
     [super onExitTransitionDidStart];
+}
+
+-(void) nextScene {
+    [outro stop];
+    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalSelectLayer scene] backwards:false]];
 }
 
 @end

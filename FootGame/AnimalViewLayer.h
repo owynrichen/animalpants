@@ -13,6 +13,8 @@
 #import "SpeechBubble.h"
 #import "PurchaseViewController.h"
 #import "ContentManifest.h"
+#import "LongPressButton.h"
+#import "InGameMenuPopup.h"
 
 @interface AnimalViewLayer : CCPreloadingLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
@@ -21,17 +23,15 @@
     Environment *environment;
     EnvironmentLayer *background;
     CCSprite *next;
-    CCAutoScalingSprite *name;
+    LongPressButton *skip;
+    CircleButton *menuButton;
+    InGameMenuPopup *menu;
     
     CCMotionStreak *streak;
     
-    CCAutoScalingSprite *kid;
     SpeechBubble *bubble;
     CCLayer *gameLayer;
     CCLayer *hudLayer;
-    
-    CCAutoScalingSprite *head1;
-    CCAutoScalingSprite *head2;
     
     BOOL nextTouched;
     BOOL bodyTouched;

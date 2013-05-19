@@ -10,6 +10,7 @@
 #import "CCAutoScalingSprite.h"
 #import "CCAutoScaling.h"
 #import "SpeechBubble.h"
+#import "LongPressButton.h"
 
 @interface GoodbyeLayer : CCPreloadingLayer<CCTargetedTouchDelegate> {
     CCLayer *background;
@@ -17,6 +18,7 @@
     CCLayer *foreground;
     CCAutoScalingSprite *jeep;
     SpeechBubble *outro;
+    LongPressButton *skip;
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child

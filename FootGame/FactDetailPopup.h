@@ -6,33 +6,20 @@
 //
 //
 
-#import "CCLayer.h"
-#import "CircleButton.h"
 #import "Animal.h"
 #import "FactFrame.h"
+#import "Popup.h"
 
-typedef void (^PopupBlock)(CCNode<CCRGBAProtocol> *popup);
 
-@interface FactDetailPopup : CCNode<CCRGBAProtocol> {
-    CircleButton *close;
-    CCLayerColor *background;
+@interface FactDetailPopup : Popup {
     CCLabelTTF *factTitle;
     CCLabelTTF *factText;
     CCNode<CCRGBAProtocol> *factData;
-    
-    PopupBlock cBlock;
 }
 
 +(FactDetailPopup *) popup;
 +(ContentManifest *) manifestWithFrameType: (FactFrameType) fact animal: (Animal *) anml;
 
 -(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal withOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock;
--(void) hide;
-
--(void) setColor:(ccColor3B)color;
--(ccColor3B) color;
-
--(GLubyte) opacity;
--(void) setOpacity: (GLubyte) opacity;
 
 @end

@@ -26,7 +26,9 @@
 @interface AnimalViewLayer ()
 -(AnimalPart *) getCorrectFoot;
 -(void) drawAttention: (ccTime) dtime;
--(void) moveKids: (ccTime) dtime;
+-(void) startNarration: (ccTime) dtime;
+-(void) startNarration: (ccTime) dtime forLang: (NSString *) lang;
+-(void) stopNarration;
 -(CGPoint) startPositionForFoot: (int) index;
 -(void) startLevel;
 @end
@@ -103,8 +105,6 @@
 -(void) onEnter {
     victory = NO;
     
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
     gameLayer = [CCLayer node];
     [self addChild:gameLayer];
     
@@ -117,15 +117,6 @@
     background = [environment getLayer];
     
     [gameLayer addChild:background];
-    
-    name = [CCAutoScalingSprite spriteWithFile:animal.word];
-    // name.anchorPoint = ccp(0,0);
-    name.position = ccp(0-name.contentSize.width, winSize.height * 0.5);
-    name.opacity = 200;
-    name.scale *= 0.4;
-    name.color = ccWHITE;
-    
-    [self addChild:name];
     
     feet = [[[AnimalPartRepository sharedRepository] getRandomFeet:3 includingAnimalFeet:animal] retain];
     
@@ -153,27 +144,14 @@
     streak.fastMode = NO;
     [gameLayer addChild:streak];
     
-    [self blurGameLayer:YES withDuration:2.0];
-    
-    kid = [CCAutoScalingSprite spriteWithFile:@"girl1.png"];
-    kid.anchorPoint = ccp(0,0);
-    kid.position = ccpToRatio(background.kidPosition.x, 0.0 - kid.contentSize.height);
-    [hudLayer addChild:kid];
-    
-    head1 = [CCAutoScalingSprite spriteWithFile:@"girl1_head.png"];
-    head1.position = ccpToRatio(800, 690);
-    [hudLayer addChild:head1];
-    
-    head2 = [CCAutoScalingSprite spriteWithFile:@"girl2_head.png"];
-    head2.position = ccpToRatio(930, 690);
-    [hudLayer addChild:head2];
+    [self blurGameLayer:YES withDuration:0.1];
     
 //
 //    // TODO: this is all fucking wrong
 //    
     CGPoint bubbleTop = ccpToRatio(50, 580);
     CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
-    CGPoint bubblePoint = ccpToRatio(background.kidPosition.x, background.kidPosition.y + (kid.contentSize.height * autoScaleForCurrentDevice()));
+    CGPoint bubblePoint = ccpToRatio(0, 0);
     
     bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08 rect: bubbleRect point:bubblePoint] autorelease];
     bubble.anchorPoint = ccp(0,0);
@@ -181,7 +159,7 @@
     bubble.scale = 0.0;
     [self addChild:bubble];
     
-    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(moveKids:) forTarget:self interval:0.5 paused:NO];
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(startNarration:) forTarget:self interval:0.5 paused:NO];
     
     [[SoundManager sharedManager] fadeOutBackground];
     [[SoundManager sharedManager] playBackground:environment.bgMusic];
@@ -197,20 +175,57 @@
         manifestToLoad = [[GoodbyeLayer myManifest] retain];
     }
     
+    __block AnimalViewLayer *pointer = self;
+    __block SpeechBubble *pBubble = bubble;
+    
+    skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
+        [pointer stopNarration];
+    }];
+    skip.scale = 0.5;
+    
+    skip.position = ccpToRatio(950, 80);
+    [self addChild:skip];
+    skip.visible = NO;
+    
+    menu = [InGameMenuPopup inGameMenuWithNarrateInLanguageBlock:^(NSString *lang) {
+        [pointer blurGameLayer:YES withDuration:0.25];
+        [pointer startNarration:0 forLang:lang];
+    } goHomeBlock:^{
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+            [pBubble stop];
+            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+        }];
+    }];
+    menu.position = ccpToRatio(512, 300);
+    
+    [self addChild:menu];
+    
+    menuButton = [CircleButton buttonWithFile:@"flag-argentina.es.png"];
+    menuButton.scale = 0.5;
+    [menuButton addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:locfile(@"glock__g1.mp3")];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.7]];
+    }];
+    [menuButton addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+    }];
+    [menuButton addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        [menu showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer blurGameLayer:YES withDuration:0.2];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer blurGameLayer:NO withDuration:0.2];
+        } analyticsKey:@"In Game Menu"];
+    }];
+    menuButton.position = ccpToRatio(950, 700);
+    [self addChild:menuButton];
+    
     [super onEnter];
 }
 
 -(void) startLevel {
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    __block CCAutoScalingSprite *pName = name;
-    
-    [name runAction:[CCSequence actions:
-                     [CCMoveTo actionWithDuration:0.3 position:ccp(winSize.width * 0.5, winSize.height * 0.5)],
-                     [CCDelayTime actionWithDuration:2.0],
-                     [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [pName runAction:[CCFadeOut actionWithDuration:0.25]];
-    }],
-    nil]];
+
 }
 
 -(void) onEnterTransitionDidFinish {
@@ -231,7 +246,6 @@
         AnimalPart *foot = [feet objectAtIndex:i];
         [self removeChild:foot cleanup:YES];
     }
-    [self removeChild:name cleanup:YES];
     [self removeChild:background cleanup:YES];
     [feet release];
     
@@ -260,14 +274,6 @@
     if (next.visible && CGRectContainsPoint([next boundingBox], pnt)) {
         nextTouched = YES;
         return YES;
-    }
-    
-    if (head1.visible && CGRectContainsPoint([head1 boundingBox], pnt)) {
-        head1Touched = YES;
-    }
-    
-    if (head2.visible && CGRectContainsPoint([head2 boundingBox], pnt)) {
-        head2Touched = YES;
     }
     
     if ([body hitTest:pnt]) {
@@ -339,8 +345,6 @@
     
     if (footTouched) {
         if ([self testVictory]) {
-            name.color = ccBLUE;
-
             [body setState:kAnimalStateHappy];
             [[SoundManager sharedManager] fadeOutBackground];
             [[SoundManager sharedManager] playBackground:@"level_complete.mp3"];
@@ -359,8 +363,6 @@
                 }
             }
         } else {
-            name.color = ccWHITE;
-            
             [body setState:kAnimalStateNormal];
             if (victory) {
                 [[SoundManager sharedManager] fadeOutBackground];
@@ -384,11 +386,6 @@
             }
         }
     } else if (nextTouched) {
-//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
-//        hud.labelText = locstr(@"loading", @"strings", @"");
-        
-        // TODO: do-wait preloaded assets here
-        
         [next stopAllActions];
         
         Animal *nextAnimal = [[AnimalPartRepository sharedRepository] getNextAnimal];
@@ -404,19 +401,6 @@
             [bubble stop];
             
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
-            // [[CCDirector sharedDirector] replaceScene:nextScene];
-        }];
-    } else if (head1Touched) {
-        head1Touched = NO;
-        [self blurGameLayer:YES withDuration:0.25];
-        [self moveKids:0];
-    } else if (head2Touched) {
-        head2Touched = NO;
-        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            [bubble stop];
-            
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
-            // [[CCDirector sharedDirector] replaceScene:[MainMenuLayer scene]];
         }];
     }
 }
@@ -451,15 +435,15 @@
     [foot getAttention];
 }
 
--(void) moveKids:(ccTime)dtime {
-    CGPoint point = ccpToRatio(background.kidPosition.x, background.kidPosition.y);
-    
+-(void) startNarration:(ccTime)dtime {
+    [self startNarration:dtime forLang:[[LocalizationManager sharedManager] getAppPreferredLocale]];
+}
+
+-(void) startNarration:(ccTime)dtime forLang:(NSString *)lang {
     __block AnimalViewLayer *pointer = self;
     __block SpeechBubble *pBubble = bubble;
-    __block CCAutoScalingSprite *pKid = kid;
     __block EnvironmentLayer *pBackground = background;
     
-    CCMoveTo *move = [CCMoveTo actionWithDuration:0.5 position:point];
     CCCallBlockN *scaleBlock = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [pBubble runAction:[CCScaleTo actionWithDuration:0.2 scale:1.0]];
     }];
@@ -471,18 +455,16 @@
                                 [pBubble stopAllActions];
                             }],
                             nil]];
-        [pKid runAction:[CCSequence actions:[CCMoveTo actionWithDuration:0.25 position:ccpToRatio(pKid.position.x, -1000)], nil]];
         [pointer blurGameLayer:NO withDuration:0.25];
     };
     
     CCCallBlockN *startText = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         NSString *file = [NSString stringWithFormat:@"%@_story.mp3", pBackground.storyKey];
-        AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file]];
+        AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file withLocale:lang]];
         
         void (^callback)(CCNode *node) =  ^(CCNode *node) {
             [pBubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                [pBubble ccTouchEnded:nil withEvent:nil];
-                [[SoundManager sharedManager] setMusicVolume:0.6];
+                [pointer stopNarration];
             }], nil]];
         };
         
@@ -494,9 +476,17 @@
         }
     }];
 
-    CCSequence *seq = [CCSequence actions:move, scaleBlock, startText, nil];
-    [kid runAction:seq];
-    [[[CCDirector sharedDirector] scheduler] unscheduleSelector:@selector(moveKids:) forTarget:self];
+    CCSequence *bubseq = [CCSequence actions:scaleBlock, startText, nil];
+    [bubble runAction:bubseq];
+    [[[CCDirector sharedDirector] scheduler] unscheduleSelector:@selector(startNarration:) forTarget:self];
+    skip.visible = YES;
+}
+
+-(void) stopNarration {
+    [bubble ccTouchEnded:nil withEvent:nil];
+    [bubble stop];
+    [[SoundManager sharedManager] setMusicVolume:0.6];
+    skip.visible = NO;
 }
 
 -(BOOL) testVictory {
@@ -533,6 +523,7 @@
 }
 
 -(void) blurGameLayer: (BOOL) blur withDuration: (GLfloat) duration {
+    [gameLayer stopAllActions];
     if (blur) {
         FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:0.0 sigmaEnd:1.0 desaturateStart:0.0 desaturateEnd:0.7];
         [gameLayer runAction:blur];

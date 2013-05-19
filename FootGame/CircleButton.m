@@ -11,11 +11,11 @@
 @implementation CircleButton
 
 +(CircleButton *) buttonWithFile: (NSString *) img {
-    return [[[CircleButton alloc] initWithFile:img] autorelease];
+    return [[[[self class] alloc] initWithFile:img] autorelease];
 }
 
 +(CircleButton *) buttonWithNode: (CCNode *) node {
-    return [[[CircleButton alloc] initWithNode:node] autorelease];
+    return [[[[self class] alloc] initWithNode:node] autorelease];
 }
 
 -(id) initWithFile: (NSString *) img {
