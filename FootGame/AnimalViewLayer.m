@@ -146,18 +146,9 @@
     
     [self blurGameLayer:YES withDuration:0.1];
     
-//
-//    // TODO: this is all fucking wrong
-//    
-    CGPoint bubbleTop = ccpToRatio(50, 580);
-    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 140 * positionScaleForCurrentDevice(kDimensionY));
-    CGPoint bubblePoint = ccpToRatio(0, 0);
-    
-    bubble = [[[SpeechBubble alloc] initWithStoryKey:background.storyKey typingInterval:0.08 rect: bubbleRect point:bubblePoint] autorelease];
-    bubble.anchorPoint = ccp(0,0);
-    bubble.position = bubbleTop;
-    bubble.scale = 0.0;
-    [self addChild:bubble];
+    narration = [[NarrationNode alloc] initWithSize:CGSizeMake(900 * positionScaleForCurrentDevice(kDimensionY), 150 * positionScaleForCurrentDevice(kDimensionY))];
+    narration.position = ccpToRatio(50, 580);
+    [self addChild:narration];
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(startNarration:) forTarget:self interval:0.5 paused:NO];
     
@@ -176,12 +167,12 @@
     }
     
     __block AnimalViewLayer *pointer = self;
-    __block SpeechBubble *pBubble = bubble;
+    __block NarrationNode *pBubble = narration;
     
     skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
         [pointer stopNarration];
     }];
-    skip.scale = 0.5;
+    skip.scale = 0.8;
     
     skip.position = ccpToRatio(950, 80);
     [self addChild:skip];
@@ -202,16 +193,16 @@
     [self addChild:menu];
     
     menuButton = [CircleButton buttonWithFile:@"flag-argentina.es.png"];
-    menuButton.scale = 0.5;
+    menuButton.scale = 0.8;
     [menuButton addEvent:@"touch" withBlock:^(CCNode *sender) {
-        [[SoundManager sharedManager] playSound:locfile(@"glock__g1.mp3")];
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.7]];
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
     }];
     [menuButton addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
     }];
     [menuButton addEvent:@"touchup" withBlock:^(CCNode *sender) {
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
         [menu showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
             [pointer blurGameLayer:YES withDuration:0.2];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
@@ -398,7 +389,7 @@
         }
         
         [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            [bubble stop];
+            [narration stop];
             
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
         }];
@@ -441,50 +432,41 @@
 
 -(void) startNarration:(ccTime)dtime forLang:(NSString *)lang {
     __block AnimalViewLayer *pointer = self;
-    __block SpeechBubble *pBubble = bubble;
+    __block NarrationNode *pBubble = narration;
     __block EnvironmentLayer *pBackground = background;
     
     CCCallBlockN *scaleBlock = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [pBubble runAction:[CCScaleTo actionWithDuration:0.2 scale:1.0]];
+        [pBubble clear];
+        pBubble.scale = 1.0;
     }];
-    
-    void (^touchBlock)(CCNode *node, BOOL finished) = ^(CCNode *node, BOOL finished) {
-
-        [pBubble runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0],
-                           [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                                [pBubble stopAllActions];
-                            }],
-                            nil]];
-        [pointer blurGameLayer:NO withDuration:0.25];
-    };
     
     CCCallBlockN *startText = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         NSString *file = [NSString stringWithFormat:@"%@_story.mp3", pBackground.storyKey];
         AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file withLocale:lang]];
         
-        void (^callback)(CCNode *node) =  ^(CCNode *node) {
-            [pBubble runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.0], [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                [pointer stopNarration];
-            }], nil]];
-        };
-        
         if (cues != nil) {
-            [[SoundManager sharedManager] setMusicVolume:0.4];
-            [pBubble startWithCues:cues finishBlock:callback touchBlock:touchBlock];
-        } else {
-            [pBubble startWithFinishBlock:callback touchBlock:touchBlock];
+            [[SoundManager sharedManager] setMusicVolume:0.2];
+            [pBubble startForLanguage:lang cues:cues finishBlock:^(CCNode *node) {
+                [pointer stopNarration];
+            }];
         }
     }];
 
-    CCSequence *bubseq = [CCSequence actions:scaleBlock, startText, nil];
-    [bubble runAction:bubseq];
+    CCSequence *bubseq = [CCSequence actions:scaleBlock, [CCDelayTime actionWithDuration:0.25], startText, nil];
+    [narration runAction:bubseq];
     [[[CCDirector sharedDirector] scheduler] unscheduleSelector:@selector(startNarration:) forTarget:self];
     skip.visible = YES;
 }
 
 -(void) stopNarration {
-    [bubble ccTouchEnded:nil withEvent:nil];
-    [bubble stop];
+    [narration runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0],
+                        [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [narration stopAllActions];
+    }],
+    nil]];
+    
+    [self blurGameLayer:NO withDuration:0.25];
+    [narration stop];
     [[SoundManager sharedManager] setMusicVolume:0.6];
     skip.visible = NO;
 }
@@ -588,7 +570,7 @@
     apEvent(@"story", @"freemium", @"cancel click");
     [self blurGameLayer:NO withDuration:0.1];
     
-    [bubble stop];
+    [narration stop];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
     [purchase.view removeFromSuperview];
     return NO;

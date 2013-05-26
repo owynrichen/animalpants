@@ -10,14 +10,17 @@
 #import "AudioCues.h"
 
 @interface NarrationNode : CCNode<CCRGBAProtocol, AudioCuesDelegate> {
-    CCLabelTTF *label;
+    CCLabelBMFont *label;
     NSString *storyText;
     AudioCues *audioCues;
     void (^finishBlock)(CCNode *node);
+    CGSize tSize;
 }
 
 -(id) initWithSize: (CGSize) talkSize;
 
+-(void) clear;
+-(void) startWithCues: (AudioCues *) cues finishBlock: (void (^)(CCNode *node)) callback;
 -(void) startForLanguage: (NSString *) lang cues: (AudioCues *) cues finishBlock: (void (^)(CCNode *node)) callback;
 
 -(void) stop;

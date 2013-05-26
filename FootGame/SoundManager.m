@@ -11,6 +11,10 @@
 #define MUSIC_VOLUME_KEY @"musicVolume"
 #define SOUND_VOLUME_KEY @"soundVolume"
 
+@interface SoundManager()
+-(BOOL) fileExists: (NSString *) path;
+@end
+
 @implementation SoundManager
 static SoundManager* _instance;
 static NSString *_sync = @"";
@@ -102,10 +106,18 @@ static NSString *_sync = @"";
 }
 
 -(void) playSound: (NSString *) name withVol: (float) vol {
+    if ([self fileExists:name]) {
+        return;
+    }
+    
     [audioEngine playEffect:name pitch:1.0f pan:0.0 gain:vol];
 }
 
 -(void) playBackground:(NSString *)name {
+    if ([self fileExists:name]) {
+        return;
+    }
+    
     [audioEngine playBackgroundMusic:name loop:YES];
 }
 
@@ -130,4 +142,7 @@ static NSString *_sync = @"";
     [audioEngine resumeBackgroundMusic];
 }
 
+-(BOOL) fileExists: (NSString *) path {
+    return [[NSFileManager defaultManager] fileExistsAtPath:[CDUtilities fullPathFromRelativePath:path]];
+}
 @end

@@ -130,10 +130,10 @@ static NSString *__sync = @"sync";
     [backWheel runAction:[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:1.0 angle:360]]];
     [backWheel resumeSchedulerAndActions];
     
-    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 240 * positionScaleForCurrentDevice(kDimensionY));
+    CGSize bubbleRect = CGSizeMake(950 * positionScaleForCurrentDevice(kDimensionY), 240 * positionScaleForCurrentDevice(kDimensionY));
     
-    story1 = [[[SpeechBubble alloc] initWithStoryKey:@"story1" typingInterval:0.04 rect: bubbleRect point:ccp(0,0)] autorelease];
-    story1.position = ccpToRatio(100, 480);
+    story1 = [[[NarrationNode alloc] initWithSize: bubbleRect] autorelease];
+    story1.position = ccpToRatio(50, 550);
     [self addChild:story1];
     
     __block StoryLayer *pointer = self;
@@ -143,7 +143,7 @@ static NSString *__sync = @"sync";
     }];
     
     skip.position = ccpToRatio(950, 80);
-    skip.scale = 0.5;
+    skip.scale = 0.8;
     [self addChild:skip];
     
     return self;
@@ -190,8 +190,7 @@ static NSString *__sync = @"sync";
     
     [[SoundManager sharedManager] setMusicVolume:0.4];
     
-    [story1 startWithCues: cues finishBlock:^(CCNode *node) {
-    } touchBlock:^(CCNode *node, BOOL finished) {}];
+    [story1 startWithCues: cues finishBlock:^(CCNode *node) {}];
 }
 
 -(void) onExitTransitionDidStart {

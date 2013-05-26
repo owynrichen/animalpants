@@ -29,7 +29,6 @@
     menu = [CCMenu menuWithItems: nil];
     [self addChild:menu];
     [self redrawMenu];
-    menu.position = ccp(self.contentSize.width / 2, self.contentSize.height / 2);
     menu.opacity = 0;
 
     return self;
@@ -42,6 +41,8 @@
 }
 
 -(void) dealloc {
+    [self.narrateInLanguage release];
+    [self.goHome release];
     [super dealloc];
 }
 
@@ -96,7 +97,7 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     menu.anchorPoint = ccp(0,0);
-    menu.position = ccp(winSize.width * 0.5, winSize.height * 0.6);
+    menu.position = ccp(self.contentSize.width / 2, self.contentSize.height / 2);
     
     __block int count = 0;
     __block InGameMenuPopup *pointer = self;
@@ -127,6 +128,9 @@
         [[SoundManager sharedManager] preloadSound:soundfname];
         
         [item addDownEvent:^(id sender) {
+            if (pointer.opacity < 255)
+                return;
+            
             NSString *s = [[NSString stringWithFormat:@"%@.mp3", ((CCNode *) sender).userData] lowercaseString];
             NSString *sf = locfile(s);
             [[SoundManager sharedManager] playSound:sf];
@@ -141,9 +145,9 @@
     CCMenuItemFontWithStroke *go = [CCMenuItemFontWithStroke itemFromString:locstr(@"go_home",@"strings",@"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         if (pointer.opacity < 255)
             return;
-        
+
         [pointer hide];
-        [pointer goHome];
+        pointer.goHome();
     }];
     go.position = ccp(0, -54 * count * fontScaleForCurrentDevice());
     [menu addChild:go z:0 tag:1];

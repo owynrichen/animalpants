@@ -10,11 +10,11 @@
 #import "Animal.h"
 #import "Environment.h"
 #import "EnvironmentLayer.h"
-#import "SpeechBubble.h"
 #import "PurchaseViewController.h"
 #import "ContentManifest.h"
 #import "LongPressButton.h"
 #import "InGameMenuPopup.h"
+#import "NarrationNode.h"
 
 @interface AnimalViewLayer : CCPreloadingLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
@@ -26,10 +26,10 @@
     LongPressButton *skip;
     CircleButton *menuButton;
     InGameMenuPopup *menu;
+    NarrationNode *narration;
     
     CCMotionStreak *streak;
-    
-    SpeechBubble *bubble;
+
     CCLayer *gameLayer;
     CCLayer *hudLayer;
     

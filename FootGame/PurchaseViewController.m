@@ -171,7 +171,7 @@
     [self.buyActivity startAnimating];
     self.buyActivity.hidden = NO;
     apEvent(@"promo", @"start", @"");
-    
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[CCDirector sharedDirector].view animated:YES];
     hud.labelText = locstr(@"checking_code", @"strings", @"");
 }
@@ -252,6 +252,7 @@
     
     if (!buying) {
         if (cancelAllowed) {
+            [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
             apEvent(@"buy", @"cancel click", @"start");
             [self.view removeFromSuperview];
         } else {
@@ -293,11 +294,17 @@
     [buyButton setTitle: locstr(@"use_code",@"strings",@"") forState:UIControlStateNormal];
     
     originalFrame = self.view.frame;
+    CGFloat fieldYDiff = self.view.frame.size.height - promoCodeField.frame.origin.y;
+    CGFloat btnYDiff = self.view.frame.size.height - buyButton.frame.origin.y;
+    CGFloat actYDiff = self.view.frame.size.height - buyActivity.frame.origin.y;
     
     // the width of the keyboard is it's height in landscape mode...
     CGFloat newHeight = self.view.frame.size.height / 3;
     
     self.view.frame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, newHeight);
+    promoCodeField.frame = CGRectMake(promoCodeField.frame.origin.x, self.view.frame.size.height - fieldYDiff, promoCodeField.frame.size.width, promoCodeField.frame.size.height);
+    buyButton.frame = CGRectMake(buyButton.frame.origin.x, self.view.frame.size.height - btnYDiff, buyButton.frame.size.width, buyButton.frame.size.height);
+    buyActivity.frame = CGRectMake(buyActivity.frame.origin.x, self.view.frame.size.height - actYDiff, buyActivity.frame.size.width, buyActivity.frame.size.height);
 }
 
 - (void)hideKeyboard:(NSNotification*)notification {
@@ -316,8 +323,14 @@
     
     [buyButton setTitle: locstr(@"confirm",@"strings",@"") forState:UIControlStateNormal];
     promoCodeField.text = @"";
+    CGFloat fieldYDiff = self.view.frame.size.height - promoCodeField.frame.origin.y;
+    CGFloat btnYDiff = self.view.frame.size.height - buyButton.frame.origin.y;
+    CGFloat actYDiff = self.view.frame.size.height - buyActivity.frame.origin.y;
     
     self.view.frame = originalFrame;
+    promoCodeField.frame = CGRectMake(promoCodeField.frame.origin.x, self.view.frame.size.height - fieldYDiff, promoCodeField.frame.size.width, promoCodeField.frame.size.height);
+    buyButton.frame = CGRectMake(buyButton.frame.origin.x, self.view.frame.size.height - btnYDiff, buyButton.frame.size.width, buyButton.frame.size.height);
+    buyActivity.frame = CGRectMake(buyActivity.frame.origin.x, self.view.frame.size.height - actYDiff, buyActivity.frame.size.width, buyActivity.frame.size.height);
 }
 
 +(PurchaseViewController *) handleProductsRetrievedWithDelegate: (id<PurchaseViewDelegate>) del products: (NSArray *) products withProductId: (NSString *) productId upsell: (NSString *) upsellId {
@@ -356,6 +369,7 @@
 }
 
 +(void) handleProductsRetrievedFail {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_fetch_error_title", @"strings", @"")
                                                     message:locstr(@"product_fetch_error_desc", @"strings", @"")
                                                    delegate:nil

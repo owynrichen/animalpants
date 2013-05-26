@@ -9,7 +9,7 @@
 #import "ContentManifest.h"
 #import "CCAutoScalingSprite.h"
 #import "CCAutoScaling.h"
-#import "SpeechBubble.h"
+#import "NarrationNode.h"
 #import "LongPressButton.h"
 
 @interface GoodbyeLayer : CCPreloadingLayer<CCTargetedTouchDelegate> {
@@ -17,7 +17,7 @@
     CCLayer *midground;
     CCLayer *foreground;
     CCAutoScalingSprite *jeep;
-    SpeechBubble *outro;
+    NarrationNode *outro;
     LongPressButton *skip;
 }
 

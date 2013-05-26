@@ -16,14 +16,13 @@
 -(id) initWithSize: (CGSize) talkSize {
     self = [super init];
     
-    label = [[CCLabelTTF alloc] initWithString:@"" fontName:@"Marker Felt" fontSize:40 * fontScaleForCurrentDevice() dimensions:talkSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap];
-    
-    label.color = ccBLACK;
-    label.string = @"";
-    
-    [self addChild:label];
+    tSize = talkSize;
     
     return self;
+}
+
+-(void) startWithCues: (AudioCues *) cues finishBlock: (void (^)(CCNode *node)) callback {
+    [self startForLanguage:[[LocalizationManager sharedManager] getAppPreferredLocale] cues:cues finishBlock:callback];
 }
 
 -(void) startForLanguage: (NSString *) lang cues: (AudioCues *) cues finishBlock: (void (^)(CCNode *node)) callback {
@@ -36,7 +35,20 @@
     
     finishBlock = [callback copy];
     storyText = [[LocalizationManager sharedManager] getLocalizedStringForKey:cues.storyKey fromTable:@"strings" forLanguage:lang];
+    
+    [self removeAllChildrenWithCleanup:YES];
+    label = [[CCLabelBMFont alloc] initWithString:@"" fntFile:@"geneva.fnt" width:tSize.width alignment:kCCTextAlignmentLeft];
+
+    label.anchorPoint = ccp(0,0);
+    label.position = ccp(0,0);
+    
+    [self addChild:label];
+
     [[SoundManager sharedManager] playSoundWithCues:audioCues withDelegate:self];
+}
+
+-(void) clear {
+    label.string = @"";
 }
 
 -(void) stop {
@@ -77,7 +89,6 @@
     // NSLog(@"CUES: cue '%@' hit at %f", key, time);
     
     [label setString:[storyText substringToIndex:e]];
-    // [label drawStroke];
     [label visit];
 }
 

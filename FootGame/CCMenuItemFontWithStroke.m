@@ -21,7 +21,7 @@
 }
 
 -(void) addDownEvent: (void (^)(id sender)) block {
-    downBlock = [block retain];
+    downBlock = [block copy];
 }
 
 +(id) itemFromString: (NSString*) value target:(id) r selector:(SEL) s color:(ccColor3B)color strokeColor:(ccColor3B) sColor strokeSize: (float) size

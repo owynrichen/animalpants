@@ -148,10 +148,10 @@
     
     [self addChild:jeep z: 1];
     
-    CGRect bubbleRect = CGRectMake(0, 0, 900 * positionScaleForCurrentDevice(kDimensionY), 240 * positionScaleForCurrentDevice(kDimensionY));
+    CGSize bubbleRect = CGSizeMake(950 * positionScaleForCurrentDevice(kDimensionY), 240 * positionScaleForCurrentDevice(kDimensionY));
     
-    outro = [[[SpeechBubble alloc] initWithStoryKey:@"outro" typingInterval:0.04 rect: bubbleRect point:ccp(0,0)] autorelease];
-    outro.position = ccpToRatio(100, 480);
+    outro = [[[NarrationNode alloc] initWithSize: bubbleRect] autorelease];
+    outro.position = ccpToRatio(50, 480);
     [self addChild:outro];
     
     __block GoodbyeLayer *pointer = self;
@@ -222,8 +222,7 @@
     
     [[SoundManager sharedManager] setMusicVolume:0.4];
     
-    [outro startWithCues: cues finishBlock:^(CCNode *node) {
-    } touchBlock:^(CCNode *node, BOOL finished) {}];
+    [outro startWithCues: cues finishBlock:^(CCNode *node) {}];
 }
 
 -(void) onExitTransitionDidStart {
