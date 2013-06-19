@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+// TODO: precache/precompute this to speed up scene loading
+
 @interface BitVector : NSObject {
     signed char *byteArray;
     size_t width;

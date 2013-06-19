@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "EnvironmentLayer.h"
 #import "ContentManifest.h"
+#import "chipmunk.h"
 
 @interface Environment : NSObject {
     ContentManifest *mfest;
@@ -26,7 +27,7 @@
 +(Environment *) initWithDictionary: (NSDictionary *) setupData;
 
 -(id) initWithDictionary: (NSDictionary *) setupData;
--(EnvironmentLayer *) getLayer;
+-(EnvironmentLayer *) getLayerwithSpace: (cpSpace *) physicsSpace;
 -(ContentManifest *) manifest;
 
 @end

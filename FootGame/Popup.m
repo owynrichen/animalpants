@@ -32,16 +32,28 @@
     close.scale = 0.6;
     close.position = ccp(size.width - 50, size.height - 50);
     [self addChild:close z:100];
+    
+    __block Popup *pointer = self;
+    
     [close addEvent:@"touch" withBlock:^(CCNode * sender) {
+        if (pointer.opacity < 128)
+            return;
+        
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
     }];
     
     [close addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        if (pointer.opacity < 128)
+            return;
+        
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.6]];
     }];
     
     [close addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        if (pointer.opacity < 128)
+            return;
+        
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.6]];
         Popup *p = (Popup *) sender.parent.parent;
         [p hide];

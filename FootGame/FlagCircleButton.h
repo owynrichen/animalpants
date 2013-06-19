@@ -10,7 +10,7 @@
 
 @interface FlagCircleButton : CircleButton
 
-+(FlagCircleButton *) buttonWithLanguageCode: (NSString *) lang;
++(id) buttonWithLanguageCode: (NSString *) lang;
 
 -(id) initWithLanguageCode: (NSString *) lang;
 

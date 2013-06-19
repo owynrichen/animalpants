@@ -15,8 +15,8 @@
     CCAutoScalingSprite *sheen;
 }
 
-+(CircleButton *) buttonWithFile: (NSString *) img;
-+(CircleButton *) buttonWithNode: (CCNode<CCRGBAProtocol> *) node;
++(id) buttonWithFile: (NSString *) img;
++(id) buttonWithNode: (CCNode<CCRGBAProtocol> *) node;
 
 -(id) initWithFile: (NSString *) img;
 -(id) initWithNode: (CCNode *) node;

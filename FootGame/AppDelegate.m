@@ -19,6 +19,8 @@
 #import "AnalyticsPublisher.h"
 #import "GoodbyeLayer.h"
 
+#import "chipmunk.h"
+
 @implementation AppDelegate
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
@@ -50,6 +52,8 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"install_recorded?"];
     }
     
+    cpInitChipmunk();
+    
 	// Run the intro Scene
     [[SoundManager sharedManager] preloadSound:@"glock__c2.mp3"];
     [[SoundManager sharedManager] preloadSound:@"glock__g1.mp3"];
@@ -60,10 +64,10 @@
     // TODO: delete this when we launch
     // [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
 
-    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
-    // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
+    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Tiger"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
     
 }

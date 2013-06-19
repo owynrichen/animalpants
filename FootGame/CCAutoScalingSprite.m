@@ -8,6 +8,17 @@
 
 #import "CCAutoScalingSprite.h"
 #import "CCAutoScaling.h"
+#import "CPWrappers.h"
+#import "chipmunk.h"
+
+@interface CCAutoScalingSprite()
+
+-(void) setupPhysics: (cpBody *) body shape: (cpShape *) shape;
+-(void) teardownPhysics;
+//-(void) drawPhysics;
+-(void) drawHitSpace;
+
+@end
 
 @implementation CCAutoScalingSprite
 
@@ -15,16 +26,54 @@
 @synthesize behaviorManager=behaviorManager_;
 @synthesize bitMask;
 
++(id) spriteWithFile:(NSString *)filename space:(cpSpace *)physicsSpace {
+    return [[[self alloc] initWithFile:filename space:physicsSpace] autorelease];
+}
+
+-(id) initWithFile:(NSString *)filename space:(cpSpace *)physicsSpace {
+    self = [super initWithFile:filename];
+    
+    return self;
+}
+
 -(id) initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect rotated:(BOOL)rotated {
     self = [super initWithTexture:texture rect:rect rotated:rotated];
     
     bitMask = [[BitVector alloc] initWithSprite: self];
-    
+
     autoScaleFactor = autoScaleForCurrentDevice();
     // self.scale = autoScaleFactor;
     behaviorManager_ = [[BehaviorManager alloc] init];
      
     return self;
+}
+
+-(void) addToSpace:(cpSpace *)space {
+    cpBody *bdy = cpBodyNew(6, cpMomentForBox(6, self.contentSize.width, self.contentSize.height));
+    bdy->data = self;
+    bdy->p = CGPointApplyAffineTransform(self.position, [self nodeToWorldTransform]);
+    bdy->a = self.rotation;
+    
+    cpShape *shp = cpBoxShapeNew(bdy, self.contentSize.width, self.contentSize.height);
+    shp->e = 0.0f;
+    shp->u = 0.8f;
+    shp->collision_type = 0;
+    
+    [self addToSpace:space withBody:bdy andShape:shp];
+}
+
+-(void) addToSpace: (cpSpace *) space withBody:(cpBody *)body andShape:(cpShape *)shape {
+    if (_physicsSpace != NULL) {
+        [self removeFromSpace:_physicsSpace];
+    }
+    
+    _physicsSpace = space;
+    [self setupPhysics: body shape:shape];
+}
+
+-(void) removeFromSpace: (cpSpace *) space {
+    [self teardownPhysics];
+    _physicsSpace = NULL;
 }
 
 -(void) onEnter {
@@ -40,8 +89,13 @@
     [super onEnterTransitionDidFinish];
 }
 
--(void) onExit {
+-(void) onExitTransitionDidStart {
+    [self teardownPhysics];
     [self enableTouches:NO];
+    [super onExitTransitionDidStart];
+}
+
+-(void) onExit {
     [super onExit];
 }
 
@@ -51,8 +105,64 @@
     behaviorManager_ = nil;
     [bitMask release];
     bitMask = nil;
+    [self unscheduleUpdate];
     
+    if (_physicsShape != NULL) {
+        cpShapeFree(_physicsShape);
+        _physicsShape = NULL;
+    }
+    
+    if (_physicsBody != NULL) {
+        cpBodyFree(_physicsBody);
+        _physicsBody = NULL;
+    }
+
     [super dealloc];
+}
+
+-(void) setupPhysics: (cpBody *) body shape: (cpShape *) shape {
+    if (_physicsSpace == NULL) {
+        return;
+    }
+    
+    self.physicsEnabled = YES;
+    
+    _physicsBody = body;
+    cpSpaceAddBody(_physicsSpace, _physicsBody);
+    
+    _physicsShape = shape;
+    cpSpaceAddShape(_physicsSpace, _physicsShape);
+    
+    [self scheduleUpdate];
+}
+
+-(void) teardownPhysics {
+    self.physicsEnabled = NO;
+    
+    if (_physicsSpace == NULL) {
+        return;
+    }
+    [self unscheduleUpdate];
+    cpSpaceRemoveBody(_physicsSpace, _physicsBody);
+    cpBodyFree(_physicsBody);
+    cpSpaceRemoveShape(_physicsSpace, _physicsShape);
+    cpShapeFree(_physicsShape);
+}
+
+-(void) drawHitSpace {
+    if ([behaviorManager_ hasBehaviors]) {
+        ccDrawColor4B(0,0,255,180);
+        ccDrawRect(self.boundingBox.origin, CGPointMake(self.boundingBox.origin.x + self.boundingBox.size.width, self.boundingBox.size.height));
+        
+        ccDrawColor4B(0,255,0,180);
+        for (int y = 0; y < self.contentSize.height; y++) {
+            for (int x = 0; x < self.contentSize.width; x++) {
+                if ([self.bitMask hitx:x y:y]) {
+                    ccDrawPoint(ccp(x,y));
+                }
+            }
+        }
+    }
 }
 
 -(BehaviorManager *) behaviorManager {
@@ -65,6 +175,18 @@
 
 -(void) addEvent: (NSString *) event withBlock: (void (^)(CCNode * sender)) blk {
     [[self behaviorManager] addBehavior:[BlockBehavior behaviorFromKey:event dictionary:[NSDictionary dictionaryWithObject:event forKey:@"event"] block:blk]];
+}
+
+-(void) update:(ccTime)delta {
+    if (_physicsEnabled == YES && _physicsBody != NULL) {
+//        CGPoint p = CGPointApplyAffineTransform(_physicsBody->p, [self worldToNodeTransform]);
+        // CGPointApplyAffineTransform(parent, [self nodeToWorldTransform]);
+        self.position = _physicsBody->p;
+//        self.position = p;
+        self.rotation = _physicsBody->a;
+    }
+    
+    [super update:delta];
 }
 
 -(void) draw {
@@ -129,20 +251,9 @@
 	ccDrawPoly(vertices, 4, YES);
 #endif // CC_SPRITE_DEBUG_DRAW
     
-    
-    //    if ([behaviorManager_ hasBehaviors]) {
-    //        ccDrawColor4B(0,0,255,180);
-    //        ccDrawRect(self.boundingBox.origin, CGPointMake(self.boundingBox.origin.x + self.boundingBox.size.width, self.boundingBox.size.height));
-    //
-    //        ccDrawColor4B(0,255,0,180);
-    //        for (int y = 0; y < self.contentSize.height; y++) {
-    //            for (int x = 0; x < self.contentSize.width; x++) {
-    //                if ([self.bitMask hitx:x y:y]) {
-    //                    ccDrawPoint(ccp(x,y));
-    //                }
-    //            }
-    //        }
-    //    }
+#ifdef DRAW_HITSPACE
+    [self drawHitSpace];
+#endif
     
 	CC_INCREMENT_GL_DRAWS(1);
     
@@ -155,23 +266,28 @@
     CGRect bbox = CGRectApplyAffineTransform(CGRectApplyAffineTransform([self boundingBox], [self parentToNodeTransform]), [self nodeToWorldTransform]);
     
     if (self.visible && CGRectContainsPoint(bbox, pnt)) {
-        pnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
+        CGPoint localpnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
         BOOL hit = NO;
         NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
         
         if ([self.bitMask getPercentCoverage] > 40) {
-            hit = [self.bitMask hitx:pnt.x y:pnt.y];
+            hit = [self.bitMask hitx:localpnt.x y:localpnt.y];
         } else {
-            hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
+            hit = [self.bitMask hitx:localpnt.x y:localpnt.y radius:30 * autoScaleForCurrentDevice()];
         }
         
         if (hit) {
             NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
             NSMutableDictionary *touch = [[[NSMutableDictionary alloc] init] autorelease];
             
-            [touch setObject:[NSNumber numberWithFloat: pnt.x] forKey:@"x"];
-            [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
+            [touch setObject:[NSNumber numberWithFloat: localpnt.x] forKey:@"x"];
+            [touch setObject:[NSNumber numberWithFloat: localpnt.y] forKey:@"y"];
             [params setObject:touch forKey:@"touch"];
+            
+            
+            if (_physicsSpace != NULL && _physicsEnabled == YES && _physicsBody != NULL) {
+                [params setObject: [CPBody create: _physicsBody] forKey:@"physicsBody"];
+            }
             
             return [behaviorManager_ runBehaviors:@"touch" onNode: self withParams: params] || [behaviorManager_ hasBehaviorsForEvent:@"move"] || [behaviorManager_ hasBehaviorsForEvent:@"touchup"] || [behaviorManager_ hasBehaviorsForEvent:@"touchupoutside"];
         }
@@ -186,23 +302,27 @@
     CGRect bbox = CGRectApplyAffineTransform(CGRectApplyAffineTransform([self boundingBox], [self parentToNodeTransform]), [self nodeToWorldTransform]);
     
     if (self.visible && CGRectContainsPoint(bbox, pnt)) {
-        pnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
+        CGPoint localpnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
         BOOL hit = NO;
         NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
         
         if ([self.bitMask getPercentCoverage] > 40) {
-            hit = [self.bitMask hitx:pnt.x y:pnt.y];
+            hit = [self.bitMask hitx:localpnt.x y:localpnt.y];
         } else {
-            hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
+            hit = [self.bitMask hitx:localpnt.x y:localpnt.y radius:30 * autoScaleForCurrentDevice()];
         }
         
         if (hit) {
             NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
             NSMutableDictionary *touch = [[[NSMutableDictionary alloc] init] autorelease];
             
-            [touch setObject:[NSNumber numberWithFloat: pnt.x] forKey:@"x"];
-            [touch setObject:[NSNumber numberWithFloat: pnt.y] forKey:@"y"];
+            [touch setObject:[NSNumber numberWithFloat: localpnt.x] forKey:@"x"];
+            [touch setObject:[NSNumber numberWithFloat: localpnt.y] forKey:@"y"];
             [params setObject:touch forKey:@"touch"];
+            
+            if (_physicsSpace != NULL && _physicsEnabled == YES && _physicsBody != NULL) {
+                [params setObject: [CPBody create:_physicsBody] forKey:@"physicsBody"];
+            }
             
             [behaviorManager_ runBehaviors:@"move" onNode: self withParams: params];
         }
@@ -223,14 +343,18 @@
         CGRect bbox = CGRectApplyAffineTransform(CGRectApplyAffineTransform([self boundingBox], [self parentToNodeTransform]), [self nodeToWorldTransform]);
         
         if (CGRectContainsPoint(bbox, pnt)) {
-            pnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
+            CGPoint localpnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
             BOOL hit = NO;
             NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
             
             if ([self.bitMask getPercentCoverage] > 40) {
-                hit = [self.bitMask hitx:pnt.x y:pnt.y];
+                hit = [self.bitMask hitx:localpnt.x y:localpnt.y];
             } else {
-                hit = [self.bitMask hitx:pnt.x y:pnt.y radius:30 * autoScaleForCurrentDevice()];
+                hit = [self.bitMask hitx:localpnt.x y:localpnt.y radius:30 * autoScaleForCurrentDevice()];
+            }
+            
+            if (_physicsSpace != NULL && _physicsEnabled == YES && _physicsBody != NULL) {                
+                [params setObject: [CPBody create: _physicsBody] forKey:@"physicsBody"];
             }
             
             if (hit) {
@@ -259,5 +383,6 @@
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
     }
 }
+
 
 @end

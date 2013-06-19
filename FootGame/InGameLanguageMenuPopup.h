@@ -11,23 +11,18 @@
 #import "PurchaseViewController.h"
 
 typedef void (^NarrateInLanguageBlock)(NSString *lang);
-typedef void (^GoHomeBlock)(void);
 
-@interface InGameMenuPopup : Popup<PurchaseViewDelegate, ProductRetrievalDelegate> {
-    CCAutoScalingSprite *head1;
-    CCAutoScalingSprite *head2;
-    
+@interface InGameLanguageMenuPopup : Popup<PurchaseViewDelegate, ProductRetrievalDelegate> {
     CCMenu *menu;
     
     PurchaseViewController *purchase;
 }
 
 @property (nonatomic) NarrateInLanguageBlock narrateInLanguage;
-@property (nonatomic) GoHomeBlock goHome;
 
-+(InGameMenuPopup *) inGameMenuWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock goHomeBlock: (GoHomeBlock) ghBlock;
++(InGameLanguageMenuPopup *) inGameLanguageMenuWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock;
 
--(id) initWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock goHomeBlock: (GoHomeBlock) ghBlock;
+-(id) initWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock;
 
 -(void) productRetrievalStarted;
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;

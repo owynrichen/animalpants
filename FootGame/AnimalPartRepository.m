@@ -42,7 +42,7 @@ static NSUInteger random_below(NSUInteger n) {
 }
 @end
 
-NSString* ANIMAL_ORDER[12] = { @"Giraffe", @"Penguin", @"Hippo", @"Panda", @"Elephant", @"Lion", @"Crocodile", @"Kangaroo", @"Monkey", @"Tiger", @"PolarBear", @"Zebra" };
+NSString* ANIMAL_ORDER[12] = { @"Giraffe", @"Penguin", @"Monkey", @"Panda", @"Hippo", @"Elephant", @"Lion", @"Crocodile", @"Kangaroo", @"Tiger", @"PolarBear", @"Zebra" };
 
 @interface AnimalPartRepository()
 

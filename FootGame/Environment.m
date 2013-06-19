@@ -9,12 +9,15 @@
 #import "Environment.h"
 #import "CCAutoScaling.h"
 #import "Water.h"
+#import "Vine.h"
+#import "RopeNode.h"
 
 @interface Environment(Layers)
 
 // TODO: make this dynamic instead of stupid
--(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data;
--(Water *) getWater: (NSDictionary *) data;
+-(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data withSpace: (cpSpace *) space;
+-(Water *) getWater: (NSDictionary *) data withSpace: (cpSpace *) space;
+-(RopeNode *) getVine: (NSDictionary *) data withSpace: (cpSpace *) space;
 // END TODO
 -(void) applyCommonParameters: (NSDictionary *) parameters toNode: (CCNode *) node;
 -(void) applyBehaviors: (NSDictionary *) parameters toNode: (CCNode<BehaviorManagerDelegate> *) node;
@@ -78,19 +81,46 @@
     return [[mfest copy] autorelease];
 }
 
--(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data {
+-(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data withSpace:(cpSpace *)space {
     NSString *img = (NSString *) [data objectForKey:@"imageName"];
-    CCAutoScalingSprite *sprite = [CCAutoScalingSprite spriteWithFile:img];
+    CCAutoScalingSprite *sprite = [CCAutoScalingSprite spriteWithFile:img space:space];
     [self applyCommonParameters:data toNode:sprite];
     return sprite;
 }
 
--(Water *) getWater: (NSDictionary *) data {
+-(Water *) getWater: (NSDictionary *) data withSpace:(cpSpace *)space {
     NSString *img = (NSString *) [data objectForKey:@"imageName"];
-    Water *sprite = [Water spriteWithFile:img];
+    Water *sprite = [Water spriteWithFile:img space:space];
     [sprite addReflectTexture:[data objectForKey:@"reflectImageName"]];
     [self applyCommonParameters:data toNode:sprite];
     return sprite;
+}
+
+-(RopeNode *) getVine: (NSDictionary *) data withSpace: (cpSpace *) space {
+    CGPoint pos = [self parsePosition:[data objectForKey:@"position"]];
+    
+    cpBody *b1 = cpSpaceGetStaticBody(space);
+    b1->p = cpv(pos.x, pos.y);
+    
+    cpShape *rootShape = cpBoxShapeNew(b1, 1.0, 1.0);
+    rootShape->e = 1.0f;
+    rootShape->u = 1.0f;
+    cpSpaceAddShape(space, rootShape);
+    
+    cpBody *b2 = cpBodyNew(1, INFINITY);
+    b2->p = ccp(220,-600);
+    b2->a = 0;
+    cpSpaceAddBody(space, b2);
+    cpShape *s2 = cpBoxShapeNew(b2, 10, 10);
+    cpSpaceAddShape(space, s2);
+    
+    CPBody *bod1 = [CPBody create:b1];
+    CPBody *bod2 = [CPBody create:b2];
+    
+    RopeNode *vine = [[[RopeNode alloc] initWithLength:10.0f segments:10 body1:bod1 body2:bod2 offset1:ccp(0,0) offset2:ccp(0,0)] autorelease];
+//    Vine *vine = [Vine vineWithSpace:space];
+    [self applyCommonParameters:data toNode:vine];
+    return vine;
 }
 
 -(CGPoint) parsePosition: (NSDictionary *) position {
@@ -149,7 +179,7 @@
     }];
 }
 
--(EnvironmentLayer *) getLayer {
+-(EnvironmentLayer *) getLayerwithSpace: (cpSpace *) physicsSpace {
     __block EnvironmentLayer *env = [EnvironmentLayer node];
     
     env.animalPosition = self.animalPosition;
@@ -161,9 +191,11 @@
     [self enumerateLayersWithBlock:^(NSDictionary *obj) {
         NSString *type = (NSString *) [obj objectForKey:@"type"];
         if ([type isEqualToString:@"CCAutoScalingSprite"]) {
-            [env addChild:[self getAutoScalingSprite:obj]];
+            [env addChild:[self getAutoScalingSprite:obj withSpace:physicsSpace]];
         } else if ([type isEqualToString:@"Water"]) {
-            [env addChild:[self getWater:obj]];
+            [env addChild:[self getWater:obj withSpace:physicsSpace]];
+        } else if ([type isEqualToString:@"Vine"]) {
+            [env addChild:[self getVine: obj withSpace: physicsSpace]];
         } else {
             NSLog(@"Unexpected type %@ in set %@", type, [obj description]);
         }

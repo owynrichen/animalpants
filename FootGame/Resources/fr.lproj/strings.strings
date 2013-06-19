@@ -33,22 +33,22 @@
 "menu_tiger" = "tigre";
 "menu_zebra" = "zèbre";
 
-"elephant" = "Eric l’Eléphant a de gros ongles de pied et porte un pantalon gris.";
-"lion" = "Laurent le Lion porte un pantalon bleu et ses pattes sont couvertes d’une fourrure jaune.";
-"penguin" = "Pierre le Pingouin a des pieds jaunes et ses pattes ont plein de plumes blanches.";
-"crocodile" = "Carl le Crocodile porte un short bleu et ses pattes sont vertes et pleines d’écailles. Il a aussi une longue queue.";
-"giraffe" = "Géraldine la Girafe a des pattes jaunes avec des tâches marron et porte un short bleu.";
-"hippo" = "Horace l’Hippopotame a des pattes violettes et porte une grande salopette bleue.";
-"kangaroo" = "Catherine le Kangourou a des pattes marron et porte un pantalon à rayures violettes.";
-"monkey" = "Melinda le Singe a des pattes marron toutes menues et porte une jupe rose.";
-"panda" = "Patrick le Panda a des pattes noires et poilues et porte un pantalon à rayures rouges.";
-"polarbear" = "Peggy l’Ours Polaire porte une jupe bleue et ses pattes sont blanches et poilues.";
-"tiger" = "Tommy le Tigre a des pattes orange et porte un pantalon vert.";
-"zebra" = "Zeb le Zèbre a des pattes noires et blanches et il porte un short à rayures jaunes.";
+"elephant" = "Eric l'Eléphant a de gros ongles de pied et porte un pantalon gris. ";
+"lion" = "Laurent le Lion porte un pantalon bleu et ses pattes sont couvertes d'une fourrure jaune. ";
+"penguin" = "Pierre le Pingouin a des pieds jaunes et ses pattes ont plein de plumes blanches. ";
+"crocodile" = "Carl le Crocodile porte un short bleu et ses pattes sont vertes et pleines d'écailles. Il a aussi une longue queue. ";
+"giraffe" = "Géraldine la Girafe a des pattes jaunes avec des tâches marron et porte un short bleu. ";
+"hippo" = "Horace l'Hippopotame a des pattes violettes et porte une grande salopette bleue. ";
+"kangaroo" = "Catherine le Kangourou a des pattes marron et porte un pantalon à rayures violettes. ";
+"monkey" = "Melinda le Singe a des pattes marron toutes menues et porte une jupe rose. ";
+"panda" = "Patrick le Panda a des pattes noires et poilues et porte un pantalon à rayures rouges. ";
+"polarbear" = "Peggy l'Ours Polaire porte une jupe bleue et ses pattes sont blanches et poilues. ";
+"tiger" = "Tommy le Tigre a des pattes orange et porte un pantalon vert. ";
+"zebra" = "Zeb le Zèbre a des pattes noires et blanches et il porte un short à rayures jaunes. ";
 
-"story1" = "Emma et Avery sont deux sœurs jumelles qui vont passer une journée avec les animaux. Tous les animaux s’amusent entre eux, mais attends, il semble qu’ils ont tous perdu leurs pantalons ! Peux-tu les aider à retrouver leurs pantalons ?";
-"upsell" = "Tu t’en sors drôlement bien ! Emma et Avery sont très heureuses. Ne t’arrêtes pas maintenant, il y a encore beaucoup de nouveautés amusantes à découvrir !";
-"outro" = "Bravo ! Tu as aidé Emma et Avery à rendre leurs pantalons à tous les animaux. Apprenons-en plus sur nos nouveaux amis !";
+"story1" = "Emma et Avery sont deux sœurs jumelles qui vont passer une journée avec les animaux. Tous les animaux s'amusent entre eux, mais attends, il semble qu'ils ont tous perdu leurs pantalons! Peux-tu les aider à retrouver leurs pantalons? ";
+"upsell" = "Tu t'en sors drôlement bien! Emma et Avery sont très heureuses. Ne t'arrêtes pas maintenant, il y a encore beaucoup de nouveautés amusantes à découvrir! ";
+"outro" = "Bravo! Tu as aidé Emma et Avery à rendre leurs pantalons à tous les animaux. Apprenons-en plus sur nos nouveaux amis! ";
 
 /*
  
@@ -64,6 +64,7 @@
 "kilograms" = "kilograms";
 "distance_from_you_string" = "%@ lives %1.2f %@ away from you."; // example: "You are 1034.23 kilometers from Kendra's closest habitat."
 "play_button" = "Go See %@";  // example: "Go See Kendra"
+"hear_it_in" = "Version %@";
 
 // crocodile
 

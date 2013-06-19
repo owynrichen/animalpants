@@ -7,6 +7,7 @@
 //
 
 #import "LongPressButton.h"
+#import "CCParticleSystem+Extras.h"
 
 @implementation LongPressButton
 
@@ -15,10 +16,16 @@
 @synthesize startTime;
 
 +(LongPressButton *) buttonWithBlock: (LongPressBlock) blk {
-    LongPressButton *btn = (LongPressButton *) [LongPressButton buttonWithFile:@"arrow.png"];
+    // TODO: animate this better
+    __block CCAutoScalingSprite *clockHand = [CCAutoScalingSprite spriteWithFile:@"clockhand.png" space:nil];
+    clockHand.position = ccpToRatio(39,38);
+    CCAutoScalingSprite *clock = [CCAutoScalingSprite spriteWithFile:@"clock.png" space:nil];
+    
+    [clock addChild:clockHand];
+    
+    LongPressButton *btn = [LongPressButton buttonWithNode:clock];
     
     btn.delay = 1.0;
-    ((CCNode *) [btn.children objectAtIndex:1]).scale = 0.33;
     btn.baseScale = 1.0;
     __block LongPressButton *b = btn;
 
@@ -26,7 +33,18 @@
         if (!b.visible)
             return;
         
-        [((CCNode *)[sender.parent.children objectAtIndex:1]) runAction:[CCRotateBy actionWithDuration:b.delay angle:360]];
+        CCCallBlockN *start = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            CCParticleSystemQuad *emitter = [CCParticleSystemQuad particleWithFile:@"ExplodingRing.plist"];
+            emitter.position = ccpToRatio(39,38);
+            emitter.scale = 1.0;
+            [node addChild:emitter z:1 tag:1];
+            if (emitter.duration > -1) {
+                [emitter cleanupWhenDone];
+            }
+        }];
+        
+        CCSequence *seq = [CCSequence actions:[CCRotateBy actionWithDuration:b.delay angle:360], start, nil];
+        [clockHand runAction:seq];
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:b.baseScale * 1.2]];
         btn.startTime = [[NSDate date] timeIntervalSince1970];
     }];
@@ -35,8 +53,8 @@
         if (!b.visible)
             return;
         
-        [((CCNode *)[sender.parent.children objectAtIndex:1]) stopAllActions];
-        ((CCNode *)[sender.parent.children objectAtIndex:1]).rotation = 0;
+        [clockHand stopAllActions];
+        clockHand.rotation = 0;
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:b.baseScale * 1.0]];
     }];
 
@@ -47,8 +65,8 @@
         if (!b.visible)
             return;
         
-        [((CCNode *)[sender.parent.children objectAtIndex:1]) stopAllActions];
-        ((CCNode *)[sender.parent.children objectAtIndex:1]).rotation = 0;
+        [clockHand stopAllActions];
+        clockHand.rotation = 0;
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:b.baseScale * 1.0]];
         
         double endTime = [[NSDate date] timeIntervalSince1970];

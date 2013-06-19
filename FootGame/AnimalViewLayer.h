@@ -12,9 +12,23 @@
 #import "EnvironmentLayer.h"
 #import "PurchaseViewController.h"
 #import "ContentManifest.h"
+#import "EarFlagCircleButton.h"
 #import "LongPressButton.h"
-#import "InGameMenuPopup.h"
+#import "InGameLanguageMenuPopup.h"
+#import "InGameSettingsMenuPopup.h"
 #import "NarrationNode.h"
+#import "chipmunk.h"
+#import "cpMouse.h"
+
+
+@interface CCDrawLayer : CCLayer {
+     void (^blk)(void);
+}
+
++(id) layerWithBlock: (void (^)(void)) block;
+-(id) initWithBlock: (void (^)(void)) block;
+
+@end
 
 @interface AnimalViewLayer : CCPreloadingLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
@@ -24,9 +38,14 @@
     EnvironmentLayer *background;
     CCSprite *next;
     LongPressButton *skip;
-    CircleButton *menuButton;
-    InGameMenuPopup *menu;
+    EarFlagCircleButton *langMenuButton;
+    CircleButton *settingsMenuButton;
+    InGameLanguageMenuPopup *langMenu;
+    InGameSettingsMenuPopup *settingsMenu;
     NarrationNode *narration;
+    cpSpace *physicsSpace;
+    cpMouse *physicsMouse;
+    CCDrawLayer *drawLayer;
     
     CCMotionStreak *streak;
 

@@ -7,16 +7,16 @@
 //
 
 #import "FlagCircleButton.h"
-#import "FlagLayer.h"
+#import "FlagNode.h"
 
 @implementation FlagCircleButton
 
-+(FlagCircleButton *) buttonWithLanguageCode: (NSString *) lang {
++(id) buttonWithLanguageCode: (NSString *) lang {
     return [[[FlagCircleButton alloc] initWithLanguageCode:lang] autorelease];
 }
 
 -(id) initWithLanguageCode: (NSString *) lang {
-    FlagLayer *layer = [FlagLayer flagLayerWithLanguage:lang];
+    FlagNode *layer = [FlagNode flagNodeWithLanguage:lang];
     
     self = [super initWithNode:layer];
     

@@ -106,7 +106,7 @@ static NSString *_sync = @"";
 }
 
 -(void) playSound: (NSString *) name withVol: (float) vol {
-    if ([self fileExists:name]) {
+    if (![self fileExists:name]) {
         return;
     }
     
@@ -114,7 +114,7 @@ static NSString *_sync = @"";
 }
 
 -(void) playBackground:(NSString *)name {
-    if ([self fileExists:name]) {
+    if (![self fileExists:name]) {
         return;
     }
     

@@ -1,4 +1,4 @@
-﻿/* 
+/* 
   strings.strings
   FootGame
 
@@ -52,7 +52,7 @@
 "fr" = "French";
 "ja" = "Japanese";
 "de" = "German";
-"hear_it_in" = "Hear it in %@";
+"hear_it_in" = "Hear it in %@";  // example: Here it in French
 "go_home" = "Main menu";
 
 /*
@@ -80,22 +80,22 @@
  
  */
 
-"elephant" = "Olly the Elephant has big toe nails and is wearing grey pants.";
-"lion" = "Lloyd the Lion has blue pants and his feet are covered in tan colored fur.";
-"penguin" = "Pedro the Penguin's feet are yellow and his legs have white feathers.";
-"crocodile" = "Carl the Crocodile has blue shorts and his feet are green and scaly with a big tail.";
-"giraffe" = "Jerome the Giraffe's legs are yellow with brown spots and he's wearing blue shorts.";
-"hippo" = "Horace the Hippo's feet are purple and he is wearing big blue overalls.";
-"kangaroo" = "Kendra the Kangaroo's feet are brown with striped purple pants.";
-"monkey" = "Melinda the Monkey is wearing a pink skirt and has skinny brown legs.";
-"panda" = "Patrick the Panda's feet are black and fuzzy with red striped pants.";
-"polarbear" = "Peggy the Polar Bear has a blue skirt and her feet are white and furry.";
-"tiger" = "Tommy the Tiger's feet are orange and is wearing green pants.";
-"zebra" = "Zeb the Zebra's legs are black and white and he’s wearing yellow striped shorts.";
+"elephant" = "Olly the Elephant has big toe nails and is wearing grey pants. ";
+"lion" = "Lloyd the Lion has blue pants and his feet are covered in tan colored fur. ";
+"penguin" = "Pedro the Penguin's feet are yellow and his legs have white feathers. ";
+"crocodile" = "Carl the Crocodile has blue shorts and his feet are green and scaly with a big tail. ";
+"giraffe" = "Jerome the Giraffe's legs are yellow with brown spots and he's wearing blue shorts. ";
+"hippo" = "Horace the Hippo's feet are purple and he is wearing big blue overalls. ";
+"kangaroo" = "Kendra the Kangaroo's feet are brown with striped purple pants. ";
+"monkey" = "Melinda the Monkey is wearing a pink skirt and has skinny brown legs. ";
+"panda" = "Patrick the Panda's feet are black and fuzzy with red striped pants. ";
+"polarbear" = "Peggy the Polar Bear has a blue skirt and her feet are white and furry. ";
+"tiger" = "Tommy the Tiger's feet are orange and is wearing green pants. ";
+"zebra" = "Zeb the Zebra's legs are black and white and he’s wearing yellow striped shorts. ";
 
-"story1" = "Twin sisters, Emma and Avery, are going on an animal adventure! All the animals are having fun playing with their animal friends, but wait, it looks like they have all lost their pants. That’s silly! Can you help the animals find their pants?";
-"upsell" = "You are doing great and Emma and Avery are so happy. Don’t stop now. The fun is just beginning!";
-"outro" = "Hooray! You have helped Emma and Avery put the correct pants back on the animals. Way to go! Let’s go learn more about our animal friends.";
+"story1" = "Twin sisters, Emma and Avery, are going on an animal adventure! All the animals are having fun playing with their animal friends, but wait, it looks like they have all lost their pants. That’s silly! Can you help the animals find their pants? ";
+"upsell" = "You are doing great and Emma and Avery are so happy. Don’t stop now. The fun is just beginning! ";
+"outro" = "Hooray! You have helped Emma and Avery put the correct pants back on the animals. Way to go! Let’s go learn more about our animal friends. ";
 
 /*
  

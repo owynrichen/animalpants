@@ -179,8 +179,8 @@ static NSString *_sync = @"";
 
 -(NSString *) getLanguageNameString: (NSString *) lang {
     return [NSString stringWithFormat:@"%@ (%@)",
-            [self getLocalizedStringForKey:lang fromTable:@"strings" forLanguage:lang],
-            [self getLocalizedStringForKey:lang fromTable:@"strings"]
+            [self getLocalizedStringForKey:lang fromTable:@"strings"],
+            [self getLocalizedStringForKey:lang fromTable:@"strings" forLanguage:lang]
      ];
 }
 

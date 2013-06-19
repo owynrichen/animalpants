@@ -6,21 +6,21 @@
 //
 //
 
-#import "FlagLayer.h"
+#import "FlagNode.h"
 
 #define CROSSFADE_TIME 2.0
 #define DELAY_TIME 1.0
 
-@interface FlagLayer()
+@interface FlagNode()
 
 -(void) setupCrossfade: (CCNode *) node;
 
 @end
 
-@implementation FlagLayer
+@implementation FlagNode
 
-+(FlagLayer *) flagLayerWithLanguage: (NSString *) lang {
-    return [[FlagLayer alloc] initWithLanguage:lang];
++(FlagNode *) flagNodeWithLanguage: (NSString *) lang {
+    return [[FlagNode alloc] initWithLanguage:lang];
 }
 
 -(id) initWithLanguage: (NSString *) lang {

@@ -6,43 +6,44 @@
 //
 //
 
-#import "InGameMenuPopup.h"
+#import "InGameLanguageMenuPopup.h"
 #import "LocalizationManager.h"
-#import "CCMenuItemFontWithStroke.h"
 #import "SoundManager.h"
+#import "EarFlagCircleButton.h"
+#import "CCButtonMenuItem.h"
 
-@interface InGameMenuPopup()
+@interface InGameLanguageMenuPopup()
 
 -(void) redrawMenu;
 
 @end
 
-@implementation InGameMenuPopup
+@implementation InGameLanguageMenuPopup
 
--(id) initWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock goHomeBlock: (GoHomeBlock) ghBlock {
+-(id) initWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock {
     CGSize size = CGSizeMake(650, 500);
     self = [self initWithSize:size];
     
     self.narrateInLanguage = [nlBlock copy];
-    self.goHome = [ghBlock copy];
     
     menu = [CCMenu menuWithItems: nil];
     [self addChild:menu];
     [self redrawMenu];
+    menu.visible = NO;
+    menu.isTouchEnabled = NO;
     menu.opacity = 0;
 
     return self;
 }
 
-+(InGameMenuPopup *) inGameMenuWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock goHomeBlock: (GoHomeBlock) ghBlock {
-    InGameMenuPopup *igml = [[[InGameMenuPopup alloc] initWithNarrateInLanguageBlock:nlBlock goHomeBlock:ghBlock] autorelease];
++(InGameLanguageMenuPopup *) inGameLanguageMenuWithNarrateInLanguageBlock: (NarrateInLanguageBlock) nlBlock {
+    InGameLanguageMenuPopup *igml = [[[InGameLanguageMenuPopup alloc] initWithNarrateInLanguageBlock:nlBlock] autorelease];
     
     return igml;
 }
 
 -(void) dealloc {
     [self.narrateInLanguage release];
-    [self.goHome release];
     [super dealloc];
 }
 
@@ -94,33 +95,34 @@
 -(void) redrawMenu {
     [menu removeAllChildrenWithCleanup:YES];
     
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
-    menu.anchorPoint = ccp(0,0);
-    menu.position = ccp(self.contentSize.width / 2, self.contentSize.height / 2);
+    menu.position = ccp(self.contentSize.width * 0.1, self.contentSize.height * 0.775);
     
     __block int count = 0;
-    __block InGameMenuPopup *pointer = self;
+    __block InGameLanguageMenuPopup *pointer = self;
     
     for(NSString *lang in [[LocalizationManager sharedManager] getAvailableLanguages]) {
         NSString *langStr = [[LocalizationManager sharedManager] getLanguageNameString:lang];
         
         langStr = [NSString stringWithFormat:locstr(@"hear_it_in", @"strings", @""), langStr];
+        
+        EarFlagCircleButton *ear = [EarFlagCircleButton buttonWithLanguageCode: lang];
+        ear.position = ccp(0,0);
+        ear.scale = 0.7;
 
-        CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:langStr color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-                if (pointer.opacity < 255)
-                    return;
+        CCButtonMenuItem *item = [CCButtonMenuItem itemWithButton: ear text: langStr block:^(id sender) {
+            if (pointer.opacity < 255)
+                return;
             
-                [pointer hide];
-                NSString *l = ((CCNode *)sender).userData;
-                BOOL o = [[PremiumContentStore instance] ownsProductId:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
+            [pointer hide];
+            NSString *l = ((CCNode *)sender).userData;
+            BOOL o = [[PremiumContentStore instance] ownsProductId:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
             
-                if (o == YES) {
-                    pointer.narrateInLanguage(l);
-                } else {
-                    NSLog(@"Language %@ isn't owned", l);
-                    [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
-                }
+            if (o == YES) {
+                pointer.narrateInLanguage(l);
+            } else {
+                NSLog(@"Language %@ isn't owned", l);
+                [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
+            }
         }];
         
         NSString *sound = [[NSString stringWithFormat:@"%@.mp3", lang] lowercaseString];
@@ -137,20 +139,23 @@
         }];
 
         item.userData = lang;
-        item.position = ccp(0, -54 * count * fontScaleForCurrentDevice());
+        item.position = ccp(0, -(item.contentSize.height) * count * fontScaleForCurrentDevice());
         count++;
         [menu addChild:item z:0 tag:1];
     }
-    
-    CCMenuItemFontWithStroke *go = [CCMenuItemFontWithStroke itemFromString:locstr(@"go_home",@"strings",@"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        if (pointer.opacity < 255)
-            return;
+}
 
-        [pointer hide];
-        pointer.goHome();
-    }];
-    go.position = ccp(0, -54 * count * fontScaleForCurrentDevice());
-    [menu addChild:go z:0 tag:1];
+-(void) showWithOpenBlock:(PopupBlock)openBlock closeBlock:(PopupBlock)closeBlock analyticsKey:(NSString *)key {
+    [super showWithOpenBlock:openBlock closeBlock:closeBlock analyticsKey:key];
+    
+    menu.visible = YES;
+    menu.isTouchEnabled = YES;
+}
+
+-(void) hide {
+    menu.visible = NO;
+    menu.isTouchEnabled = NO;
+    [super hide];
 }
 
 @end

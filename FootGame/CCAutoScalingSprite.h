@@ -10,14 +10,26 @@
 #import "BehaviorManager.h"
 #import "BlockBehavior.h"
 #import "BitVector.h"
+#import "chipmunk.h"
 
 @interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate>
 
 @property (nonatomic, readonly) float autoScaleFactor;
 @property (nonatomic, readonly) BehaviorManager *behaviorManager;
 @property (nonatomic, readonly) BitVector *bitMask;
+@property (nonatomic, readonly) cpBody *physicsBody;
+@property (nonatomic, readonly) cpShape *physicsShape;
+@property (nonatomic, readonly) cpSpace *physicsSpace;
+@property (nonatomic) BOOL physicsEnabled;
+
++(id) spriteWithFile: (NSString *) filename space: (cpSpace *) physicsSpace;
+
+-(id) initWithFile:(NSString *)filename space: (cpSpace *) physicsSpace;
 
 -(void) enableTouches:(BOOL) on;
+-(void) addToSpace: (cpSpace *) space;
+-(void) addToSpace: (cpSpace *) space withBody: (cpBody *) body andShape: (cpShape *) shape;
+-(void) removeFromSpace: (cpSpace *) space;
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;

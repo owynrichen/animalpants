@@ -62,8 +62,8 @@
     NSString *imgFile;
     CGSize cSize;
     
-    NSString *titlestr = [animal factTitle:fact];
-    NSString *txtstr = [animal factText:fact];
+    NSString *titlestr = [animal factTitle:(FactType) fact];
+    NSString *txtstr = [animal factText:(FactType) fact];
     
     factTitle = [CCLabelTTF labelWithString:titlestr fontName:TITLE_FONT fontSize:TITLE_FONT_SIZE * fontScaleForCurrentDevice() dimensions:CGSizeMake(0, 0) hAlignment:kCCTextAlignmentLeft];
     

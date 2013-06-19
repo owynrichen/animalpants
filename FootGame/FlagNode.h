@@ -8,13 +8,13 @@
 
 #import "CCLayer.h"
 
-@interface FlagLayer : CCLayer<CCRGBAProtocol> {
+@interface FlagNode : CCNode<CCRGBAProtocol> {
     int currentFlagIndex;
     ccColor3B color_;
     GLubyte opacity_;
 }
 
-+(FlagLayer *) flagLayerWithLanguage: (NSString *) lang;
++(FlagNode *) flagNodeWithLanguage: (NSString *) lang;
 
 -(id) initWithLanguage: (NSString *) lang;
 

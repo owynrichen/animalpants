@@ -23,14 +23,51 @@
 #define CORRECT_SNAP_DISTANCE 100
 #define ROTATE_DISTANCE 300
 
+#define DRAW_PHYSICS 1
+// #define DRAW_FOOT_ANCHORS 1
+
+@implementation CCDrawLayer
++(id) layerWithBlock: (void(^)(void)) block {
+    return [[[CCDrawLayer alloc] initWithBlock:block] autorelease];
+}
+-(id) initWithBlock: (void(^)(void)) blck {
+    self = [super init];
+    
+    blk = [blck copy];
+    
+    return self;
+}
+
+-(void) dealloc {
+    blk = nil;
+    [super dealloc];
+}
+
+-(void) draw {
+    blk();
+    [super draw];
+}
+@end
+
 @interface AnimalViewLayer ()
+
 -(AnimalPart *) getCorrectFoot;
 -(void) drawAttention: (ccTime) dtime;
+-(CGPoint) startPositionForFoot: (int) index;
+
+-(void) setupLevel;
+-(void) teardownLevel;
+-(void) setupPhysics;
+-(void) teardownPhysics;
+-(void) createBoundary;
+
 -(void) startNarration: (ccTime) dtime;
 -(void) startNarration: (ccTime) dtime forLang: (NSString *) lang;
 -(void) stopNarration;
--(CGPoint) startPositionForFoot: (int) index;
 -(void) startLevel;
+
+-(void) drawPhysics;
+-(void) drawFootAnchors;
 @end
 
 @implementation AnimalViewLayer
@@ -105,6 +142,80 @@
 -(void) onEnter {
     victory = NO;
     
+    [self setupPhysics];
+    [self setupLevel];
+    [super onEnter];
+}
+
+-(void) onEnterTransitionDidFinish {
+    [super onEnterTransitionDidFinish];
+    
+    if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
+        [self startLevel];
+    } else {
+        [[CCDirector sharedDirector] pause];
+        [[InAppPurchaseManager instance] getProducts:self withData:nil];
+        apEvent(@"story", @"freemium", @"complete");
+    }
+}
+
+-(void) onExit {
+    [super onExit];
+    [self teardownLevel];
+    [self teardownPhysics];
+}
+
+-(void) setupPhysics {
+    physicsSpace = cpSpaceNew();
+    cpSpaceSetIterations(physicsSpace, 60);
+	cpSpaceSetGravity(physicsSpace, cpv(0, -100));
+	cpSpaceSetSleepTimeThreshold(physicsSpace, 0.5f);
+    [self createBoundary];
+    [self scheduleUpdate];
+}
+
+-(void) teardownPhysics {
+    cpSpaceFree(physicsSpace);
+    [self unscheduleUpdate];
+}
+
+- (void)createBoundary {
+    
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    CGPoint lowerLeft = ccp(0, 0);
+    CGPoint lowerRight = ccp(winSize.width, 0);
+    CGPoint upperLeft = ccp(0, winSize.height);
+    CGPoint upperRight = ccp(winSize.width, winSize.height);
+    
+    cpBody *groundBody = cpSpaceGetStaticBody(physicsSpace);
+    
+    float radius = 0.0f;
+    cpShape *groundShape = cpSegmentShapeNew(groundBody, lowerLeft, lowerRight, radius);
+    groundShape->e = 1.0f; // elasticity
+    groundShape->u = 1.0f; // friction
+    groundShape->collision_type = 0;
+    cpSpaceAddStaticShape(physicsSpace, groundShape);
+    
+    cpShape *leftShape = cpSegmentShapeNew(groundBody, lowerLeft, upperLeft, radius);
+    leftShape->e = 1.0f; // elasticity
+    leftShape->u = 1.0f; // friction
+    leftShape->collision_type = 0;
+    cpSpaceAddStaticShape(physicsSpace, leftShape);
+    
+    cpShape *rightShape = cpSegmentShapeNew(groundBody, lowerRight, upperRight, radius);
+    rightShape->e = 1.0f; // elasticity
+    rightShape->u = 1.0f; // friction
+    rightShape->collision_type = 0;
+    cpSpaceAddStaticShape(physicsSpace, rightShape);
+
+    cpShape *topShape = cpSegmentShapeNew(groundBody, upperLeft, upperRight, radius);
+    topShape->e = 1.0f; // elasticity
+    topShape->u = 1.0f; // friction
+    topShape->collision_type = 0;
+    cpSpaceAddStaticShape(physicsSpace, topShape);
+}
+
+-(void) setupLevel {
     gameLayer = [CCLayer node];
     [self addChild:gameLayer];
     
@@ -114,7 +225,7 @@
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
     
     environment = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
-    background = [environment getLayer];
+    background = [environment getLayerwithSpace:physicsSpace];
     
     [gameLayer addChild:background];
     
@@ -125,7 +236,7 @@
         foot.position = [self startPositionForFoot:i];
         [gameLayer addChild:foot];
     }
-
+    
     body = [animal.body copyWithZone:nil];
     body.position = background.animalPosition;
     
@@ -151,7 +262,7 @@
     [self addChild:narration];
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(startNarration:) forTarget:self interval:0.5 paused:NO];
-    
+//
     [[SoundManager sharedManager] fadeOutBackground];
     [[SoundManager sharedManager] playBackground:environment.bgMusic];
     
@@ -177,61 +288,86 @@
     skip.position = ccpToRatio(950, 80);
     [self addChild:skip];
     skip.visible = NO;
+
+    langMenuButton = [EarFlagCircleButton buttonWithLanguageCode:[[LocalizationManager sharedManager] getAppPreferredLocale]];
+    langMenuButton.scale = 0.8;
+    [langMenuButton addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+    }];
+    [langMenuButton addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
+    }];
+    [langMenuButton addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
+        [langMenu showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer blurGameLayer:YES withDuration:0.2];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer blurGameLayer:NO withDuration:0.2];
+        } analyticsKey:@"In Game Languages Menu"];
+    }];
+    langMenuButton.position = ccpToRatio(950, 620);
+    [self addChild:langMenuButton];
     
-    menu = [InGameMenuPopup inGameMenuWithNarrateInLanguageBlock:^(NSString *lang) {
+    settingsMenuButton = [CircleButton buttonWithFile:@"gear.png"];
+    settingsMenuButton.scale = 0.5;
+    [settingsMenuButton addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+    }];
+    [settingsMenuButton addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+    }];
+    [settingsMenuButton addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        [settingsMenu showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer blurGameLayer:YES withDuration:0.2];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+            [pointer blurGameLayer:NO withDuration:0.2];
+        } analyticsKey:@"In Game Settings Menu"];
+    }];
+    settingsMenuButton.position = ccpToRatio(950, 700);
+    [self addChild:settingsMenuButton];
+    
+    
+    langMenu = [InGameLanguageMenuPopup inGameLanguageMenuWithNarrateInLanguageBlock:^(NSString *lang) {
         [pointer blurGameLayer:YES withDuration:0.25];
         [pointer startNarration:0 forLang:lang];
-    } goHomeBlock:^{
+    }];
+    langMenu.position = ccpToRatio(512, 300);
+    
+    settingsMenu = [InGameSettingsMenuPopup inGameSettingsMenuPopupWithGoHomeBlock:^{
         [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
             [pBubble stop];
             
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
         }];
     }];
-    menu.position = ccpToRatio(512, 300);
+    settingsMenu.position = ccpToRatio(512, 300);
     
-    [self addChild:menu];
+    [self addChild:langMenu];
+    [self addChild:settingsMenu];
     
-    menuButton = [CircleButton buttonWithFile:@"flag-argentina.es.png"];
-    menuButton.scale = 0.8;
-    [menuButton addEvent:@"touch" withBlock:^(CCNode *sender) {
-        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+#if DRAW_PHYSICS || DRAW_FOOT_ANCHORS
+    drawLayer = [CCDrawLayer layerWithBlock:^{
+#if DRAW_PHYSICS
+        [self drawPhysics];
+#endif
+        
+        CHECK_GL_ERROR_DEBUG();
+        
+#if DRAW_FOOT_ANCHORS
+        [self drawFootAnchors];
+#endif
     }];
-    [menuButton addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
-    }];
-    [menuButton addEvent:@"touchup" withBlock:^(CCNode *sender) {
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
-        [menu showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer blurGameLayer:YES withDuration:0.2];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer blurGameLayer:NO withDuration:0.2];
-        } analyticsKey:@"In Game Menu"];
-    }];
-    menuButton.position = ccpToRatio(950, 700);
-    [self addChild:menuButton];
+    [drawLayer setContentSize:self.contentSize];
+    drawLayer.position = ccp(0,0);
     
-    [super onEnter];
+    [self addChild:drawLayer];
+#endif
 }
 
--(void) startLevel {
-
-}
-
--(void) onEnterTransitionDidFinish {
-    [super onEnterTransitionDidFinish];
-    
-    if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
-        [self startLevel];
-    } else {
-        [[CCDirector sharedDirector] pause];
-        [[InAppPurchaseManager instance] getProducts:self withData:nil];
-        apEvent(@"story", @"freemium", @"complete");
-    }
-}
-
--(void) onExit {
+-(void) teardownLevel {
     [self removeChild:animal.body cleanup:YES];
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -241,14 +377,24 @@
     [feet release];
     
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-    
-    [super onExit];
+}
+
+-(void) startLevel {
+
+}
+
+-(void) update:(ccTime)delta {
+    cpSpaceStep(physicsSpace, delta);
+    [super update:delta];
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     nextTouched = NO;
     bodyTouched = NO;
+    
+    physicsMouse = cpMouseNew(physicsSpace);
+    cpMouseGrab(physicsMouse, pnt, false);
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -267,16 +413,19 @@
         return YES;
     }
     
-    if ([body hitTest:pnt]) {
-        [streak setPosition:pnt];
-        bodyTouched = YES;
-        return YES;
-    }
-        
+// TURNING OFF BODY MOVEMENT
+//    if ([body hitTest:pnt]) {
+//        [streak setPosition:pnt];
+//        bodyTouched = YES;
+//        return YES;
+//    }
+    
     return YES;
 }
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
+    
+    cpMouseMove(physicsMouse, pnt);
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -319,6 +468,10 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     BOOL footTouched = NO;
+    
+    cpMouseRelease(physicsMouse);
+    cpMouseDestroy(physicsMouse);
+    physicsMouse = NULL;
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -406,19 +559,6 @@
     
     return nil;
 }
-
-//-(void) draw {
-//    [super draw];
-//    
-//    int count = [feet count];
-//    for (int i = 0; i < count; i++) {
-//        CGPoint pnt = [self startPositionForFoot:i];
-//        ccDrawColor4B(255, 0, 0, 255);
-//        ccPointSize(8 * CC_CONTENT_SCALE_FACTOR());
-//        // NSLog(@"%f,%f -> %f, %f", pnt.point.x, pnt.point.y, glpnt.x, glpnt.y);
-//        ccDrawPoint(pnt);
-//    }
-//}
 
 -(void) drawAttention: (ccTime) dtime {
     AnimalPart *foot = [self getCorrectFoot];
@@ -586,6 +726,91 @@
         apEvent(@"story", @"freemium", @"purchase fail");
     }
     [self blurGameLayer:NO withDuration:0.1];
+}
+
+-(void) drawPhysics {
+    glLineWidth( 1.0f );
+    if (physicsMouse != NULL) {
+        ccDrawColor4B(255, 100, 0, 180);
+        CGPoint c = physicsMouse->body->p;
+        ccDrawCircle(c, 8, 0, 8, NO);
+    }
+    
+    ccDrawColor4B(0,255,255,180);
+    
+    cpSpaceEachShape_b(physicsSpace, ^(cpShape *shape) {
+        cpBB bb = shape->bb;
+        CGPoint bl = ccp(bb.l,bb.b);
+        CGPoint tr = ccp(bb.r,bb.t);
+        ccDrawRect(bl,tr);
+    });
+    
+    cpSpaceEachConstraint_b(physicsSpace, ^(cpConstraint *constraint) {
+        cpBody *body_a = constraint->a;
+        cpBody *body_b = constraint->b;
+        
+        const cpConstraintClass *klass = constraint->klass_private;
+        if(klass == cpPinJointGetClass()){
+            cpPinJoint *joint = (cpPinJoint *)constraint;
+            
+            cpVect a = cpvadd(body_a->p, cpvrotate(joint->anchr1, body_a->rot));
+            cpVect b = cpvadd(body_b->p, cpvrotate(joint->anchr2, body_b->rot));
+            
+            // glPointSize(5.0f);
+            ccPointSize(5.0f);
+            ccDrawPoint(a);
+            ccDrawPoint(b);
+            ccDrawLine(a, b);
+            
+        } else if(klass == cpSlideJointGetClass()){
+            cpSlideJoint *joint = (cpSlideJoint *)constraint;
+            
+            cpVect a = cpvadd(body_a->p, cpvrotate(joint->anchr1, body_a->rot));
+            cpVect b = cpvadd(body_b->p, cpvrotate(joint->anchr2, body_b->rot));
+            
+            // glPointSize(5.0f);
+            ccPointSize(5.0f);
+            ccDrawPoint(a);
+            ccDrawPoint(b);
+            ccDrawLine(a, b);
+            
+        } else if(klass == cpPivotJointGetClass()){
+            cpPivotJoint *joint = (cpPivotJoint *)constraint;
+            
+            cpVect a = cpvadd(body_a->p, cpvrotate(joint->anchr1, body_a->rot));
+            cpVect b = cpvadd(body_b->p, cpvrotate(joint->anchr2, body_b->rot));
+            
+            // glPointSize(10.0f);
+            ccPointSize(10.0f);
+            ccDrawPoint(a);
+            ccDrawPoint(b);
+        } else if(klass == cpGrooveJointGetClass()){
+            cpGrooveJoint *joint = (cpGrooveJoint *)constraint;
+            
+            cpVect a = cpvadd(body_a->p, cpvrotate(joint->grv_a, body_a->rot));
+            cpVect b = cpvadd(body_a->p, cpvrotate(joint->grv_b, body_a->rot));
+            cpVect c = cpvadd(body_b->p, cpvrotate(joint->anchr2, body_b->rot));
+            
+            // glPointSize(5.0f);
+            ccPointSize(5.0f);
+            ccDrawPoint(c);
+            ccDrawLine(a, b);
+        } else if(klass == cpDampedSpringGetClass()){
+           // drawSpring((cpDampedSpring *)constraint, body_a, body_b);
+        } else {
+            //		printf("Cannot draw constraint\n");
+        }
+    });
+}
+
+-(void) drawFootAnchors {
+    int count = [feet count];
+    for (int i = 0; i < count; i++) {
+        CGPoint pnt = [self startPositionForFoot:i];
+        ccDrawColor4B(255, 0, 0, 255);
+        ccPointSize(8 * CC_CONTENT_SCALE_FACTOR());
+        ccDrawPoint(pnt);
+    }
 }
 
 @end
