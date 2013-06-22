@@ -257,7 +257,7 @@
     
     [self blurGameLayer:YES withDuration:0.1];
     
-    narration = [[NarrationNode alloc] initWithSize:CGSizeMake(900 * positionScaleForCurrentDevice(kDimensionY), 150 * positionScaleForCurrentDevice(kDimensionY))];
+    narration = [[NarrationNode alloc] initWithSize:CGSizeMake(800 * positionScaleForCurrentDevice(kDimensionY), 150 * positionScaleForCurrentDevice(kDimensionY))];
     narration.position = ccpToRatio(50, 580);
     [self addChild:narration];
     

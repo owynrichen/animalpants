@@ -947,6 +947,36 @@
 		364B10FC177159C7005D97EA /* clockhand-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B10F4177159C7005D97EA /* clockhand-ipad.png */; };
 		364B10FD177159C7005D97EA /* clockhand-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B10F5177159C7005D97EA /* clockhand-ipadhd.png */; };
 		364B10FE177159C7005D97EA /* clockhand.png in Resources */ = {isa = PBXBuildFile; fileRef = 364B10F6177159C7005D97EA /* clockhand.png */; };
+		364B11041775FE23005D97EA /* Cue-outro.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B10FF1775FE23005D97EA /* Cue-outro.es.plist */; };
+		364B11051775FE23005D97EA /* Cue-story1.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11001775FE23005D97EA /* Cue-story1.es.plist */; };
+		364B11061775FE23005D97EA /* Cue-upsell.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11011775FE23005D97EA /* Cue-upsell.es.plist */; };
+		364B11071775FE23005D97EA /* outro.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11021775FE23005D97EA /* outro.es.mp3 */; };
+		364B11081775FE23005D97EA /* upsell.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11031775FE23005D97EA /* upsell.es.mp3 */; };
+		364B110B1775FE36005D97EA /* crocodile_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11091775FE36005D97EA /* crocodile_story.es.mp3 */; };
+		364B110C1775FE36005D97EA /* Cue-Crocodile.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B110A1775FE36005D97EA /* Cue-Crocodile.es.plist */; };
+		364B110F1775FE44005D97EA /* Cue-Giraffe.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B110D1775FE44005D97EA /* Cue-Giraffe.es.plist */; };
+		364B11101775FE44005D97EA /* giraffe_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B110E1775FE44005D97EA /* giraffe_story.es.mp3 */; };
+		364B11131775FE52005D97EA /* Cue-Hippo.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11111775FE52005D97EA /* Cue-Hippo.es.plist */; };
+		364B11141775FE52005D97EA /* hippo_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11121775FE52005D97EA /* hippo_story.es.mp3 */; };
+		364B11171775FE67005D97EA /* Cue-Kangaroo.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11151775FE67005D97EA /* Cue-Kangaroo.es.plist */; };
+		364B11181775FE67005D97EA /* kangaroo_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11161775FE67005D97EA /* kangaroo_story.es.mp3 */; };
+		364B111B1775FE77005D97EA /* Cue-Monkey.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11191775FE77005D97EA /* Cue-Monkey.es.plist */; };
+		364B111C1775FE77005D97EA /* monkey_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B111A1775FE77005D97EA /* monkey_story.es.mp3 */; };
+		364B111F1775FF0A005D97EA /* Cue-Panda.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B111D1775FF0A005D97EA /* Cue-Panda.es.plist */; };
+		364B11201775FF0A005D97EA /* panda_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B111E1775FF0A005D97EA /* panda_story.es.mp3 */; };
+		364B11231775FF87005D97EA /* Cue-PolarBear.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11211775FF87005D97EA /* Cue-PolarBear.es.plist */; };
+		364B11241775FF87005D97EA /* polarbear_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11221775FF87005D97EA /* polarbear_story.es.mp3 */; };
+		364B11271775FF97005D97EA /* Cue-Tiger.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11251775FF97005D97EA /* Cue-Tiger.es.plist */; };
+		364B11281775FF97005D97EA /* tiger_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11261775FF97005D97EA /* tiger_story.es.mp3 */; };
+		364B112B1775FFA4005D97EA /* Cue-Zebra.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11291775FFA4005D97EA /* Cue-Zebra.es.plist */; };
+		364B112C1775FFA4005D97EA /* zebra_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B112A1775FFA4005D97EA /* zebra_story.es.mp3 */; };
+		364B112F1775FFC7005D97EA /* Cue-Lion.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B112D1775FFC7005D97EA /* Cue-Lion.es.plist */; };
+		364B11301775FFC7005D97EA /* lion_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B112E1775FFC7005D97EA /* lion_story.es.mp3 */; };
+		364B11331775FFE4005D97EA /* Cue-Penguin.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11311775FFE4005D97EA /* Cue-Penguin.es.plist */; };
+		364B11341775FFE4005D97EA /* penguin_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11321775FFE4005D97EA /* penguin_story.es.mp3 */; };
+		364B11371775FFFC005D97EA /* Cue-Elephant.es.plist in Resources */ = {isa = PBXBuildFile; fileRef = 364B11351775FFFC005D97EA /* Cue-Elephant.es.plist */; };
+		364B11381775FFFC005D97EA /* elephant_story.es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B11361775FFFC005D97EA /* elephant_story.es.mp3 */; };
+		364B113A17760848005D97EA /* de.fr.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 364B113917760848005D97EA /* de.fr.mp3 */; };
 		3652C88E1680439000A57F73 /* savannah1_clouds1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3652C87E1680439000A57F73 /* savannah1_clouds1-hd.png */; };
 		3652C88F1680439000A57F73 /* savannah1_clouds1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3652C87F1680439000A57F73 /* savannah1_clouds1-ipad.png */; };
 		3652C8901680439000A57F73 /* savannah1_clouds1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3652C8801680439000A57F73 /* savannah1_clouds1-ipadhd.png */; };
@@ -3403,6 +3433,36 @@
 		364B10F4177159C7005D97EA /* clockhand-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clockhand-ipad.png"; sourceTree = "<group>"; };
 		364B10F5177159C7005D97EA /* clockhand-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clockhand-ipadhd.png"; sourceTree = "<group>"; };
 		364B10F6177159C7005D97EA /* clockhand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockhand.png; sourceTree = "<group>"; };
+		364B10FF1775FE23005D97EA /* Cue-outro.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-outro.es.plist"; path = "Resources/Audio/Cue-outro.es.plist"; sourceTree = "<group>"; };
+		364B11001775FE23005D97EA /* Cue-story1.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-story1.es.plist"; path = "Resources/Audio/Cue-story1.es.plist"; sourceTree = "<group>"; };
+		364B11011775FE23005D97EA /* Cue-upsell.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-upsell.es.plist"; path = "Resources/Audio/Cue-upsell.es.plist"; sourceTree = "<group>"; };
+		364B11021775FE23005D97EA /* outro.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = outro.es.mp3; path = Resources/Audio/outro.es.mp3; sourceTree = "<group>"; };
+		364B11031775FE23005D97EA /* upsell.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = upsell.es.mp3; path = Resources/Audio/upsell.es.mp3; sourceTree = "<group>"; };
+		364B11091775FE36005D97EA /* crocodile_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crocodile_story.es.mp3; sourceTree = "<group>"; };
+		364B110A1775FE36005D97EA /* Cue-Crocodile.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Crocodile.es.plist"; sourceTree = "<group>"; };
+		364B110D1775FE44005D97EA /* Cue-Giraffe.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Giraffe.es.plist"; sourceTree = "<group>"; };
+		364B110E1775FE44005D97EA /* giraffe_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = giraffe_story.es.mp3; sourceTree = "<group>"; };
+		364B11111775FE52005D97EA /* Cue-Hippo.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Hippo.es.plist"; sourceTree = "<group>"; };
+		364B11121775FE52005D97EA /* hippo_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hippo_story.es.mp3; sourceTree = "<group>"; };
+		364B11151775FE67005D97EA /* Cue-Kangaroo.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Kangaroo.es.plist"; sourceTree = "<group>"; };
+		364B11161775FE67005D97EA /* kangaroo_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kangaroo_story.es.mp3; sourceTree = "<group>"; };
+		364B11191775FE77005D97EA /* Cue-Monkey.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Monkey.es.plist"; sourceTree = "<group>"; };
+		364B111A1775FE77005D97EA /* monkey_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monkey_story.es.mp3; sourceTree = "<group>"; };
+		364B111D1775FF0A005D97EA /* Cue-Panda.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Panda.es.plist"; sourceTree = "<group>"; };
+		364B111E1775FF0A005D97EA /* panda_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = panda_story.es.mp3; sourceTree = "<group>"; };
+		364B11211775FF87005D97EA /* Cue-PolarBear.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-PolarBear.es.plist"; sourceTree = "<group>"; };
+		364B11221775FF87005D97EA /* polarbear_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = polarbear_story.es.mp3; sourceTree = "<group>"; };
+		364B11251775FF97005D97EA /* Cue-Tiger.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Tiger.es.plist"; sourceTree = "<group>"; };
+		364B11261775FF97005D97EA /* tiger_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tiger_story.es.mp3; sourceTree = "<group>"; };
+		364B11291775FFA4005D97EA /* Cue-Zebra.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cue-Zebra.es.plist"; sourceTree = "<group>"; };
+		364B112A1775FFA4005D97EA /* zebra_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zebra_story.es.mp3; sourceTree = "<group>"; };
+		364B112D1775FFC7005D97EA /* Cue-Lion.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-Lion.es.plist"; path = "Resources/Animals/Lion/Audio/Cue-Lion.es.plist"; sourceTree = "<group>"; };
+		364B112E1775FFC7005D97EA /* lion_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lion_story.es.mp3; path = Resources/Animals/Lion/Audio/lion_story.es.mp3; sourceTree = "<group>"; };
+		364B11311775FFE4005D97EA /* Cue-Penguin.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-Penguin.es.plist"; path = "Resources/Animals/Penguin/Audio/Cue-Penguin.es.plist"; sourceTree = "<group>"; };
+		364B11321775FFE4005D97EA /* penguin_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = penguin_story.es.mp3; path = Resources/Animals/Penguin/Audio/penguin_story.es.mp3; sourceTree = "<group>"; };
+		364B11351775FFFC005D97EA /* Cue-Elephant.es.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-Elephant.es.plist"; path = "Resources/Animals/Elephant/Audio/Cue-Elephant.es.plist"; sourceTree = "<group>"; };
+		364B11361775FFFC005D97EA /* elephant_story.es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = elephant_story.es.mp3; path = Resources/Animals/Elephant/Audio/elephant_story.es.mp3; sourceTree = "<group>"; };
+		364B113917760848005D97EA /* de.fr.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = de.fr.mp3; path = Resources/Languages/Audio/de.fr.mp3; sourceTree = "<group>"; };
 		3652C87E1680439000A57F73 /* savannah1_clouds1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "savannah1_clouds1-hd.png"; path = "Resources/Environments/Savannah1/Graphics/savannah1_clouds1-hd.png"; sourceTree = "<group>"; };
 		3652C87F1680439000A57F73 /* savannah1_clouds1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "savannah1_clouds1-ipad.png"; path = "Resources/Environments/Savannah1/Graphics/savannah1_clouds1-ipad.png"; sourceTree = "<group>"; };
 		3652C8801680439000A57F73 /* savannah1_clouds1-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "savannah1_clouds1-ipadhd.png"; path = "Resources/Environments/Savannah1/Graphics/savannah1_clouds1-ipadhd.png"; sourceTree = "<group>"; };
@@ -4870,6 +4930,8 @@
 		361507051594CA6B000F46D9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11351775FFFC005D97EA /* Cue-Elephant.es.plist */,
+				364B11361775FFFC005D97EA /* elephant_story.es.mp3 */,
 				360472AF1710FFA200E76436 /* Cue-elephant.de.plist */,
 				360472971710F8CE00E76436 /* elephant_story.de.mp3 */,
 				3629E4E216ED975E00B62785 /* elephant.de.mp3 */,
@@ -4953,6 +5015,8 @@
 		3615070C1594CD3E000F46D9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11311775FFE4005D97EA /* Cue-Penguin.es.plist */,
+				364B11321775FFE4005D97EA /* penguin_story.es.mp3 */,
 				360472AD1710FF8300E76436 /* Cue-penguin.de.plist */,
 				360472951710F8B400E76436 /* penguin_story.de.mp3 */,
 				3629E4E416ED978000B62785 /* penguin.de.mp3 */,
@@ -5036,6 +5100,8 @@
 		361507131594CD6B000F46D9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B112D1775FFC7005D97EA /* Cue-Lion.es.plist */,
+				364B112E1775FFC7005D97EA /* lion_story.es.mp3 */,
 				360472AB1710FF1700E76436 /* Cue-lion.de.plist */,
 				360472931710F88E00E76436 /* lion_story.de.mp3 */,
 				3629E4E616ED97AB00B62785 /* lion.de.mp3 */,
@@ -5369,6 +5435,8 @@
 		365DFBF41617D86C00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11091775FE36005D97EA /* crocodile_story.es.mp3 */,
+				364B110A1775FE36005D97EA /* Cue-Crocodile.es.plist */,
 				360472991710FDEC00E76436 /* Cue-crocodile.de.plist */,
 				360472811710F74100E76436 /* crocodile_story.de.mp3 */,
 				3629E4F816ED983F00B62785 /* crocodile.de.mp3 */,
@@ -5453,6 +5521,8 @@
 		365DFC041617D86C00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B110D1775FE44005D97EA /* Cue-Giraffe.es.plist */,
+				364B110E1775FE44005D97EA /* giraffe_story.es.mp3 */,
 				3604729B1710FE4700E76436 /* Cue-giraffe.de.plist */,
 				360472831710F75400E76436 /* giraffe_story.de.mp3 */,
 				3629E4F616ED983000B62785 /* giraffe.de.mp3 */,
@@ -5537,6 +5607,8 @@
 		365DFC141617D86C00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11111775FE52005D97EA /* Cue-Hippo.es.plist */,
+				364B11121775FE52005D97EA /* hippo_story.es.mp3 */,
 				3604729D1710FE5800E76436 /* Cue-hippo.de.plist */,
 				360472851710F78100E76436 /* hippo_story.de.mp3 */,
 				3629E4F416ED982100B62785 /* hippo.de.mp3 */,
@@ -5621,6 +5693,8 @@
 		365DFC241617D86C00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11151775FE67005D97EA /* Cue-Kangaroo.es.plist */,
+				364B11161775FE67005D97EA /* kangaroo_story.es.mp3 */,
 				3604729F1710FE6200E76436 /* Cue-kangaroo.de.plist */,
 				360472871710F78F00E76436 /* kangaroo_story.de.mp3 */,
 				3629E4F216ED980600B62785 /* kangaroo.de.mp3 */,
@@ -5705,6 +5779,8 @@
 		365DFC341617D86D00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11191775FE77005D97EA /* Cue-Monkey.es.plist */,
+				364B111A1775FE77005D97EA /* monkey_story.es.mp3 */,
 				360472A11710FE6E00E76436 /* Cue-monkey.de.plist */,
 				360472891710F79C00E76436 /* monkey_story.de.mp3 */,
 				3604727F1710F45700E76436 /* monkey_noise.mp3 */,
@@ -5789,6 +5865,8 @@
 		365DFC441617D86D00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B111D1775FF0A005D97EA /* Cue-Panda.es.plist */,
+				364B111E1775FF0A005D97EA /* panda_story.es.mp3 */,
 				360472A31710FE7C00E76436 /* Cue-panda.de.plist */,
 				3604728B1710F7AC00E76436 /* panda_story.de.mp3 */,
 				3629E4EE16ED97E700B62785 /* panda.de.mp3 */,
@@ -5873,6 +5951,8 @@
 		365DFC541617D86D00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11211775FF87005D97EA /* Cue-PolarBear.es.plist */,
+				364B11221775FF87005D97EA /* polarbear_story.es.mp3 */,
 				360472A51710FED200E76436 /* Cue-polarbear.de.plist */,
 				3604728D1710F7C000E76436 /* polarbear_story.de.mp3 */,
 				3629E4EC16ED97D700B62785 /* polarbear.de.mp3 */,
@@ -5957,6 +6037,8 @@
 		365DFC5B1617D86D00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11251775FF97005D97EA /* Cue-Tiger.es.plist */,
+				364B11261775FF97005D97EA /* tiger_story.es.mp3 */,
 				360472A71710FEDF00E76436 /* Cue-tiger.de.plist */,
 				3604728F1710F7D600E76436 /* tiger_story.de.mp3 */,
 				3629E4EA16ED97C700B62785 /* tiger.de.mp3 */,
@@ -6041,6 +6123,8 @@
 		365DFC6B1617D86D00E8B708 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B11291775FFA4005D97EA /* Cue-Zebra.es.plist */,
+				364B112A1775FFA4005D97EA /* zebra_story.es.mp3 */,
 				360472A91710FEF000E76436 /* Cue-zebra.de.plist */,
 				360472911710F7E600E76436 /* zebra_story.de.mp3 */,
 				3629E4E816ED97BA00B62785 /* zebra.de.mp3 */,
@@ -6283,6 +6367,11 @@
 		368005FD1375AC4200F6603F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B10FF1775FE23005D97EA /* Cue-outro.es.plist */,
+				364B11001775FE23005D97EA /* Cue-story1.es.plist */,
+				364B11011775FE23005D97EA /* Cue-upsell.es.plist */,
+				364B11021775FE23005D97EA /* outro.es.mp3 */,
+				364B11031775FE23005D97EA /* upsell.es.mp3 */,
 				360472B11711004100E76436 /* Cue-outro.de.plist */,
 				360472B21711004100E76436 /* Cue-story1.de.plist */,
 				360472B31711004100E76436 /* Cue-upsell.de.plist */,
@@ -7432,6 +7521,7 @@
 		36C63F6516BEE97300DE2993 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				364B113917760848005D97EA /* de.fr.mp3 */,
 				3629E50216ED987300B62785 /* de.de.mp3 */,
 				3629E50316ED987300B62785 /* en.de.mp3 */,
 				3629E50416ED987300B62785 /* es.de.mp3 */,
@@ -9875,6 +9965,36 @@
 				364B10FC177159C7005D97EA /* clockhand-ipad.png in Resources */,
 				364B10FD177159C7005D97EA /* clockhand-ipadhd.png in Resources */,
 				364B10FE177159C7005D97EA /* clockhand.png in Resources */,
+				364B11041775FE23005D97EA /* Cue-outro.es.plist in Resources */,
+				364B11051775FE23005D97EA /* Cue-story1.es.plist in Resources */,
+				364B11061775FE23005D97EA /* Cue-upsell.es.plist in Resources */,
+				364B11071775FE23005D97EA /* outro.es.mp3 in Resources */,
+				364B11081775FE23005D97EA /* upsell.es.mp3 in Resources */,
+				364B110B1775FE36005D97EA /* crocodile_story.es.mp3 in Resources */,
+				364B110C1775FE36005D97EA /* Cue-Crocodile.es.plist in Resources */,
+				364B110F1775FE44005D97EA /* Cue-Giraffe.es.plist in Resources */,
+				364B11101775FE44005D97EA /* giraffe_story.es.mp3 in Resources */,
+				364B11131775FE52005D97EA /* Cue-Hippo.es.plist in Resources */,
+				364B11141775FE52005D97EA /* hippo_story.es.mp3 in Resources */,
+				364B11171775FE67005D97EA /* Cue-Kangaroo.es.plist in Resources */,
+				364B11181775FE67005D97EA /* kangaroo_story.es.mp3 in Resources */,
+				364B111B1775FE77005D97EA /* Cue-Monkey.es.plist in Resources */,
+				364B111C1775FE77005D97EA /* monkey_story.es.mp3 in Resources */,
+				364B111F1775FF0A005D97EA /* Cue-Panda.es.plist in Resources */,
+				364B11201775FF0A005D97EA /* panda_story.es.mp3 in Resources */,
+				364B11231775FF87005D97EA /* Cue-PolarBear.es.plist in Resources */,
+				364B11241775FF87005D97EA /* polarbear_story.es.mp3 in Resources */,
+				364B11271775FF97005D97EA /* Cue-Tiger.es.plist in Resources */,
+				364B11281775FF97005D97EA /* tiger_story.es.mp3 in Resources */,
+				364B112B1775FFA4005D97EA /* Cue-Zebra.es.plist in Resources */,
+				364B112C1775FFA4005D97EA /* zebra_story.es.mp3 in Resources */,
+				364B112F1775FFC7005D97EA /* Cue-Lion.es.plist in Resources */,
+				364B11301775FFC7005D97EA /* lion_story.es.mp3 in Resources */,
+				364B11331775FFE4005D97EA /* Cue-Penguin.es.plist in Resources */,
+				364B11341775FFE4005D97EA /* penguin_story.es.mp3 in Resources */,
+				364B11371775FFFC005D97EA /* Cue-Elephant.es.plist in Resources */,
+				364B11381775FFFC005D97EA /* elephant_story.es.mp3 in Resources */,
+				364B113A17760848005D97EA /* de.fr.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
