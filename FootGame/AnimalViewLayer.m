@@ -262,7 +262,7 @@
     [self addChild:narration];
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(startNarration:) forTarget:self interval:0.5 paused:NO];
-//
+
     [[SoundManager sharedManager] fadeOutBackground];
     [[SoundManager sharedManager] playBackground:environment.bgMusic];
     
@@ -313,7 +313,7 @@
     settingsMenuButton.scale = 0.5;
     [settingsMenuButton addEvent:@"touch" withBlock:^(CCNode *sender) {
         [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
-        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.7]];
     }];
     [settingsMenuButton addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
@@ -585,7 +585,7 @@
         AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file withLocale:lang]];
         
         if (cues != nil) {
-            [[SoundManager sharedManager] setMusicVolume:0.2];
+            [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
             [pBubble startForLanguage:lang cues:cues finishBlock:^(CCNode *node) {
                 [pointer stopNarration];
             }];
@@ -607,7 +607,7 @@
     
     [self blurGameLayer:NO withDuration:0.25];
     [narration stop];
-    [[SoundManager sharedManager] setMusicVolume:0.6];
+    [[SoundManager sharedManager] resetMusicVolume];
     skip.visible = NO;
 }
 

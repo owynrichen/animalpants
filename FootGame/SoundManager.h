@@ -19,8 +19,14 @@
 
 + (SoundManager *) sharedManager;
 
+
+-(void) setMusicVolumeTemporarily: (float) vol;
+-(void) resetMusicVolume;
+
 -(void) setMusicVolume: (float) vol;
+-(float) getMusicVolume;
 -(void) setSoundVolume: (float) vol;
+-(float) getSoundVolume;
 
 -(void) preloadSound: (NSString *) name;
 -(void) preloadSoundAsync: (NSString *) name target: (id) target selector: (SEL) selector;

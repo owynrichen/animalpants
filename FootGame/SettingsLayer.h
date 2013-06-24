@@ -9,9 +9,12 @@
 #import "ContentManifest.h"
 #import "CCAutoScalingSprite.h"
 #import "PurchaseViewController.h"
+#import "CCVolumeMenuItem.h"
 
 @interface SettingsLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseDelegate, PurchaseViewDelegate> {
     PurchaseViewController *purchase;
+    CCVolumeMenuItem *music;
+    CCVolumeMenuItem *narration;
 }
 
 @property (nonatomic, retain) CCMenu *menu;

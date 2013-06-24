@@ -57,6 +57,15 @@ static NSString *_sync = @"";
     [super dealloc];
 }
 
+-(void) setMusicVolumeTemporarily: (float) vol {
+    [audioEngine setBackgroundMusicVolume:vol];
+}
+
+-(void) resetMusicVolume {
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [audioEngine setBackgroundMusicVolume:[defaults floatForKey:MUSIC_VOLUME_KEY]];
+}
+
 -(void) setMusicVolume: (float) vol {
     [audioEngine setBackgroundMusicVolume:vol];
     [[NSUserDefaults standardUserDefaults] setFloat:vol forKey:MUSIC_VOLUME_KEY];
@@ -65,6 +74,14 @@ static NSString *_sync = @"";
 -(void) setSoundVolume: (float) vol {
     [audioEngine setEffectsVolume:vol];
     [[NSUserDefaults standardUserDefaults] setFloat:vol forKey:SOUND_VOLUME_KEY];
+}
+
+-(float) getMusicVolume {
+    return [audioEngine backgroundMusicVolume];
+}
+
+-(float) getSoundVolume {
+    return [audioEngine effectsVolume];
 }
 
 -(void) preloadSound:(NSString *)name {

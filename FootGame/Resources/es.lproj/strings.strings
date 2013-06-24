@@ -33,9 +33,9 @@
 "menu_tiger" = "tigre";
 "menu_zebra" = "cebra";
 
-"elephant" = "Ernesto el Elefante tiene unas de pie bien grandes y pantalones grises.";
+"elephant" = "Ernesto el Elefante tiene uñas de pie bien grandes y pantalones grises.";
 "lion" = "Leonardo el León tiene pantalones azules y sus pies están cuvierto de pelo color café claro.";
-"penguin" = "Pedro el Pinguino tiene pies amarillos y plumas blancas en sus piernas.";
+"penguin" = "Pedro el pingüino tiene pies amarillos y plumas blancas en sus piernas.";
 "crocodile" = "Dino el Cocodrilo tiene shorts azules y sus pies tienen escamas verdes y una cola larguísima.";
 "giraffe" = "Guillermo la Jirafa tiene piernas amarillas con manchas cafés y sus shorts son azules.";
 "hippo" = "Oracio el Hipopotamo tiene pies morados y tiene puesto overalls azules.";
@@ -44,11 +44,11 @@
 "panda" = "Paco el Panda tiene los pies negros y peludos con pantalones de rayas rojas.";
 "polarbear" = "Paola la Osa Polar tiene una falda azul y sus pies son blancos y peludos.";
 "tiger" = "Los pies de Tonyo el Tigre son naranjas y sus pantalones son verdes.";
-"zebra" = "Las piernas de Cesar la Zebra son blancas y negras y tien puesto unos shorts con rayas amarillas.";
+"zebra" = "Las piernas de Cesar la Zebra son blancas y negras y tiene puesto unos shorts con rayas amarillas.";
 
-"story1" = "La gemelas Ema y Avery están a punto de embarcar en una aventura animal. Todos los animales están jugando con sus amigos. Pero espera, parece que todos acaban de perder sus pantalones. ¡Que chistoso! ¿Puedes ayurdarlos a que encuentren sus pantalones?";
+"story1" = "La gemelas Ema y Avery están a punto de embarcar en una aventura animal. Todos los animales están jugando con sus amigos. Pero espera, parece que todos acaban de perder sus pantalones. ¡Qué chistoso! ¿Puedes ayurdarlos a que encuentren sus pantalones?";
 "upsell" = "Estás haciendo un trabajo excelente y las gemelas Emma y Avery están super felices. ¡No pares ahora! ¡La diversión está a punto de empezar!";
-"outro" = "¡Bravo! Has ayudado a Emma y a Avery a ponerle los pantalones correctos a sus amigos animales. ¡Bien hecho! Ahora vamos a apprender más sobre nuestros nuevos amigos!";
+"outro" = "¡Bravo! Has ayudado a Emma y a Avery a ponerle los pantalones correctos a sus amigos animales. ¡Bien hecho! Ahora vamos a apprender más sobre nuestros nuevos amigos.";
 
 "crocodile_name" = "Carl";
 "crocodile_fact_height" = "Carl is tall";

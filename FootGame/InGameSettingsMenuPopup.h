@@ -7,11 +7,14 @@
 //
 
 #import "Popup.h"
+#import "CCVolumeMenuItem.h"
 
 typedef void (^GoHomeBlock)(void);
 
 @interface InGameSettingsMenuPopup : Popup {
     CCMenu *menu;
+    CCVolumeMenuItem *music;
+    CCVolumeMenuItem *narration;
 }
 
 @property (nonatomic) GoHomeBlock goHome;

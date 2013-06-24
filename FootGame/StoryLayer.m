@@ -188,13 +188,13 @@ static NSString *__sync = @"sync";
     
     [jeep runAction:jeepSeq];
     
-    [[SoundManager sharedManager] setMusicVolume:0.4];
+    [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
     
     [story1 startWithCues: cues finishBlock:^(CCNode *node) {}];
 }
 
 -(void) onExitTransitionDidStart {
-    [[SoundManager sharedManager] setMusicVolume:0.6];
+    [[SoundManager sharedManager] resetMusicVolume];
     
     [super onExitTransitionDidStart];
 }

@@ -25,7 +25,7 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
-    //[TestFlight takeOff:@"d3beeb5b8630b754a3ec1bf5620b131d_NTgxNzgyMDEyLTAzLTEzIDAyOjQ1OjMzLjA4MTE5OQ"];
+    [TestFlight takeOff:@"54c4595d-90ef-4840-9b99-de15225b2d50"];
     
 #define TESTING 1
 #ifdef TESTING

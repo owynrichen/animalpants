@@ -55,8 +55,26 @@
     
     [self redrawMenu];
     
+    CircleButton *narrationIcon = [CircleButton buttonWithFile:@"lips.png"];
+    narrationIcon.position = ccp(0,0);
+    narrationIcon.scale = 0.7;
+    
+    narration = [CCVolumeMenuItem buttonWithVolumeType:kSoundVolume button:narrationIcon text:locstr(@"sound_volume", @"strings", @"")];
+    
+    narration.position = ccpToRatio(winSize.width * 0.1, 500);
+    
+    CircleButton *musicIcon = [CircleButton buttonWithFile:@"music.png"];
+    musicIcon.position = ccp(0,0);
+    musicIcon.scale = 0.7;
+    
+    music = [CCVolumeMenuItem buttonWithVolumeType:kMusicVolume button:musicIcon text:locstr(@"music_volume", @"strings", @"")];
+    
+    music.position = ccpToRatio(winSize.width * 0.1, 600);
+    
     [self addChild:background];
     [self addChild:menu];
+    [self addChild:narration];
+    [self addChild:music];
     
     return self;
 }
