@@ -82,13 +82,12 @@
     // [self blurFadeLayer:NO withDuration:0.1];
 }
 
--(void) purchaseFinished: (BOOL) success {
+-(BOOL) purchaseFinished: (BOOL) success {
     [self redrawMenu];
-    // [self blurFadeLayer:NO withDuration:0.1];
+    return YES;
 }
 
 -(BOOL) cancelClicked: (BOOL) buying {
-    // [self blurFadeLayer:NO withDuration:0.1];
     return !buying;
 }
 

@@ -15,7 +15,7 @@
 @optional
 
 -(BOOL) cancelClicked: (BOOL) buying;
--(void) purchaseFinished: (BOOL) success;
+-(BOOL) purchaseFinished: (BOOL) success;
 
 @end
 

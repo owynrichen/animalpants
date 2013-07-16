@@ -108,7 +108,7 @@
     cpSpaceAddShape(space, rootShape);
     
     cpBody *b2 = cpBodyNew(1, INFINITY);
-    b2->p = ccp(220,-600);
+    b2->p = ccp(420,50);
     b2->a = 0;
     cpSpaceAddBody(space, b2);
     cpShape *s2 = cpBoxShapeNew(b2, 10, 10);
@@ -116,9 +116,9 @@
     
     CPBody *bod1 = [CPBody create:b1];
     CPBody *bod2 = [CPBody create:b2];
-    
-    RopeNode *vine = [[[RopeNode alloc] initWithLength:10.0f segments:10 body1:bod1 body2:bod2 offset1:ccp(0,0) offset2:ccp(0,0)] autorelease];
-//    Vine *vine = [Vine vineWithSpace:space];
+
+    RopeNode *vine = [[[RopeNode alloc] initWithLength:20.0f segments:5 body1:bod1 body2:bod2 offset1:ccp(0,0) offset2:ccp(0,0)] autorelease];
+    // Vine *vine = [Vine vineWithSpace:space];
     [self applyCommonParameters:data toNode:vine];
     return vine;
 }

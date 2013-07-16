@@ -49,7 +49,13 @@
 -(void) onEnter {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    title = [CCAutoScalingSprite spriteWithFile:@"text_languages.en.png"];
+    title = [CCLabelTTFWithExtrude labelWithString:locstr(@"languages", @"strings", @"") fontName:@"Rather Loud" fontSize:200 * fontScaleForCurrentDevice()];
+    [title setColor: ccc3(206, 216, 47)];
+    [title setExtrudeColor: ccc3(130, 141, 55)];
+    title.extrudeDepth = 20 * fontScaleForCurrentDevice();
+    [title drawExtrude];
+    
+    title.rotation = -8.0;
     title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
@@ -176,9 +182,10 @@
     [self blurFadeLayer:NO withDuration:0.1];
 }
 
--(void) purchaseFinished: (BOOL) success {
+-(BOOL) purchaseFinished: (BOOL) success {
     [self redrawMenu];
     [self blurFadeLayer:NO withDuration:0.1];
+    return YES;
 }
 
 -(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration {

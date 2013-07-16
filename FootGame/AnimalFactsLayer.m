@@ -110,8 +110,32 @@
     circle.position = ccpToRatio(500, winSize.height + title.contentSize.height);
     [fadeLayer addChild:circle];
     
-    NSString *titleName = [NSString stringWithFormat:@"%@-name.en.png", [animal.key lowercaseString]];
-    title = [CCAutoScalingSprite spriteWithFile:titleName];
+    title = [CCNode node];
+    
+    NSString *nameKey = [NSString stringWithFormat:@"%@_name", [animal.key lowercaseString]];
+    NSString *kindKey = [NSString stringWithFormat:@"menu_%@", [animal.key lowercaseString]];
+    NSString *animalName = locstr(nameKey, @"strings", @"");
+    NSString *animalKind = locstr(kindKey, @"strings", @"");
+    
+    NSString *nameTheKind = [NSString stringWithFormat:locstr(@"name_the_kind", @"strings", @""), animalName];
+    
+    CCLabelTTFWithExtrude *name = [CCLabelTTFWithExtrude labelWithString:nameTheKind fontName:@"Rather Loud" fontSize:70 * fontScaleForCurrentDevice()];
+    [name setColor: ccc3(206, 216, 47)];
+    [name setExtrudeColor: ccc3(130, 141, 55)];
+    name.extrudeDepth = 10 * fontScaleForCurrentDevice();
+    [name drawExtrude];
+    name.position = ccpToRatio(0,name.contentSize.height * 1.1);
+    [title addChild:name];
+    
+    CCLabelTTFWithExtrude *kind = [CCLabelTTFWithExtrude labelWithString:animalKind fontName:@"Rather Loud" fontSize:180 * fontScaleForCurrentDevice()];
+    [kind setColor: ccc3(206, 216, 47)];
+    [kind setExtrudeColor: ccc3(130, 141, 55)];
+    kind.extrudeDepth = 10 * fontScaleForCurrentDevice();
+    [kind drawExtrude];
+    kind.position = ccpToRatio(0, 0);
+    [title addChild:kind];
+    
+    title.rotation = -8.0;
     title.position = ccpToRatio(550,winSize.height + title.contentSize.height);
     [fadeLayer addChild:title];
 
@@ -407,16 +431,18 @@
     return NO;
 }
 
--(void) purchaseFinished: (BOOL) success {
+-(BOOL) purchaseFinished: (BOOL) success {
     if (success) {
         [[CCDirector sharedDirector] resume];
+        [self blurFadeLayer:NO withDuration:0.1];
         apEvent(@"facts", @"freemium", @"purchase complete");
         [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer sceneWithAnimalKey:animal.key] backwards:false]];
         [purchase.view removeFromSuperview];
+        return YES;
     } else {
         apEvent(@"facts", @"freemium", @"purchase fail");
+        return NO;
     }
-    [self blurFadeLayer:NO withDuration:0.1];
 }
 
 

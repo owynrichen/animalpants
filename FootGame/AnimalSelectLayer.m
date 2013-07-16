@@ -82,7 +82,13 @@ static NSString *__sync = @"sync";
 -(void) onEnter {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    title = [CCAutoScalingSprite spriteWithFile:@"text_theanimals.en.png"];
+    title = title = [CCLabelTTFWithExtrude labelWithString:locstr(@"animals", @"strings", @"") fontName:@"Rather Loud" fontSize:200 * fontScaleForCurrentDevice()];
+    [title setColor: ccc3(206, 216, 47)];
+    [title setExtrudeColor: ccc3(130, 141, 55)];
+    title.extrudeDepth = 20 * fontScaleForCurrentDevice();
+    [title drawExtrude];
+    
+    title.rotation = -8.0;
     title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
@@ -132,7 +138,7 @@ static NSString *__sync = @"sync";
     [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
     
     [title runAction:[CCSequence actions:
-                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 620)],
+                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 670)],
                       nil]];
 }
 
@@ -211,8 +217,9 @@ static NSString *__sync = @"sync";
     [PurchaseViewController handleProductsRetrievedFail];
 }
 
--(void) purchaseFinished: (BOOL) success {
+-(BOOL) purchaseFinished: (BOOL) success {
     [self redrawMenu];
+    return YES;
 }
 
 -(void) dealloc {

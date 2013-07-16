@@ -230,8 +230,8 @@ static NSString *_sync = @"sync";
     }
     else
     {
-        // this is fine, the user just cancelled, so don’t notify
         [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+        [self finishTransaction:transaction wasSuccessful:NO];
     }
 }
 

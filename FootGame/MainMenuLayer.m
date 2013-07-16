@@ -98,9 +98,48 @@ static NSString *__sync = @"sync";
     girls.position = ccpToRatio(800, 100);
     [self addChild:girls];
     
-    NSString *titleStr = @"text_animalswithpants.en.png";
+    title = [CCNode node];
     
-    title = [CCAutoScalingSprite spriteWithFile:titleStr];
+    float yPos = 0;
+    
+    CCLabelTTFWithExtrude *line1 = [CCLabelTTFWithExtrude labelWithString:locstr(@"game_title1", @"strings", @"") fontName:@"Rather Loud" fontSize:250 * fontScaleForCurrentDevice()];
+    [line1 setColor: ccc3(206, 216, 47)];
+    [line1 setExtrudeColor: ccc3(130, 141, 55)];
+    line1.extrudeDepth = 20 * fontScaleForCurrentDevice();
+    [line1 drawExtrude];
+    line1.position = ccpToRatio(0,yPos);
+    [title addChild:line1];
+    
+    yPos -= line1.contentSize.height * 0.75;
+    
+    NSString *l2str = locstr(@"game_title2", @"strings", @"");
+    
+    if (![l2str isEqualToString:@""]) {
+        yPos += line1.contentSize.height * 0.3;
+        
+        CCLabelTTFWithExtrude *line2 = [CCLabelTTFWithExtrude labelWithString:l2str fontName:@"Rather Loud" fontSize:100 * fontScaleForCurrentDevice()];
+        [line2 setColor: ccc3(206, 216, 47)];
+        [line2 setExtrudeColor: ccc3(130, 141, 55)];
+        line2.extrudeDepth = 10 * fontScaleForCurrentDevice();
+        [line2 drawExtrude];
+        line2.position = ccpToRatio(0,yPos);
+        [title addChild:line2];
+        
+        yPos -= line2.contentSize.height * 0.95;
+    }
+    
+    CCLabelTTFWithExtrude *line3 = [CCLabelTTFWithExtrude labelWithString:locstr(@"game_title3", @"strings", @"") fontName:@"Rather Loud" fontSize:250 * fontScaleForCurrentDevice()];
+    [line3 setColor: ccc3(206, 216, 47)];
+    [line3 setExtrudeColor: ccc3(130, 141, 55)];
+    line3.extrudeDepth = 20 * fontScaleForCurrentDevice();
+    [line3 drawExtrude];
+    line3.position = ccpToRatio(0,yPos);
+    [title addChild:line3];
+    
+    title.rotation = -8.0;
+    
+    // TODO: set the title contentSize properly
+    
     title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     [self addChild:title];
     
@@ -249,7 +288,7 @@ static NSString *__sync = @"sync";
     // TODO: make this bounce?
     [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
     [title runAction:[CCSequence actions:
-                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 520)],
+                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 620)],
                       nil]];
     [play runAction:[CCFadeIn actionWithDuration:0.50]];
     

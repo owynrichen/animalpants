@@ -82,6 +82,6 @@
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data;
 
 -(BOOL) cancelClicked: (BOOL) buying;
--(void) purchaseFinished: (BOOL) success;
+-(BOOL) purchaseFinished: (BOOL) success;
 
 @end

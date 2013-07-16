@@ -9,10 +9,11 @@
 #import "CCAutoScalingSprite.h"
 #import "FlagCircleButton.h"
 #import "ContentManifest.h"
+#import "CCLabelTTFWithExtrude.h"
 
 @interface MainMenuLayer : CCPreloadingLayer<CCTargetedTouchDelegate>
 
-@property (nonatomic, retain) CCAutoScalingSprite *title;
+@property (nonatomic, retain) CCNode *title;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) CCAutoScalingSprite *girls;
 @property (nonatomic, retain) CCAutoScalingSprite *play;

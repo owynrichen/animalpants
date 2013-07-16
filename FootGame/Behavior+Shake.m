@@ -11,6 +11,7 @@
 @implementation Behavior(Shake)
 
 -(CCAction *) shake: (NSDictionary *) params {
+    
     CCMoveBy *shakeUp = [CCMoveBy actionWithDuration:0.1 position:ccpToRatio(0, -10)];
     CCMoveBy *shakeDown = (CCMoveBy *) [shakeUp reverse];
     CCSequence *shake = [CCSequence actions:shakeUp, shakeDown, shakeUp, shakeDown, nil];

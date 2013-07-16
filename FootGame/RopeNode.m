@@ -100,8 +100,10 @@ contract(Particle *particles, int i, int j, cpFloat dSQ, cpFloat ratio)
 	cpFloat damping = _damping;
 	for(int i=1; i<count; i++) particles[i] = stepParticle(particles[i], g, damping);
 	
-	particles[0].pos = cpBodyLocal2World(_body1.body, _offset1);
-	particles[count].pos = cpBodyLocal2World(_body2.body, _offset2);
+	// particles[0].pos = cpBodyLocal2World(_body1.body, _offset1);
+	// particles[count].pos = cpBodyLocal2World(_body2.body, _offset2);
+    particles[0].pos = cpBodyWorld2Local(_body1.body, _offset1);
+    particles[count].pos = cpBodyWorld2Local(_body2.body, _offset2);
 	
 	cpFloat dSQ = _segLength*_segLength;
 	for(int iteration=0; iteration<_iterations; iteration++){

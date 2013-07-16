@@ -28,7 +28,7 @@
 -(void) purchaseStarted;
 -(void) purchaseSucceeded: (NSString *) productId;
 -(void) purchaseFailed: (NSString *) productId;
--(void) purchaseFinished: (BOOL) success;
+-(BOOL) purchaseFinished: (BOOL) success;
 
 -(BOOL) cancelClicked: (BOOL) buying;
 

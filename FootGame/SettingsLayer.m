@@ -161,9 +161,10 @@
 }
 
 
--(void) purchaseFinished: (BOOL) success {
+-(BOOL) purchaseFinished: (BOOL) success {
     [self redrawMenu];
     [self blurFadeLayer:NO withDuration:0.1];
+    return YES;
 }
 
 -(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration {

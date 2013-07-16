@@ -9,12 +9,13 @@
 #import "CCAutoScalingSprite.h"
 #import "PurchaseViewController.h"
 #import "ContentManifest.h"
+#import "CCLabelTTFWithExtrude.h"
 
 @interface AnimalSelectLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseViewDelegate>
 
 @property (nonatomic, retain) CCAutoScalingSprite *back;
 @property (nonatomic, retain) CCMenu *menu;
-@property (nonatomic, retain) CCAutoScalingSprite *title;
+@property (nonatomic, retain) CCLabelTTFWithExtrude *title;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) PurchaseViewController *purchase;
 
@@ -25,6 +26,6 @@
 -(void) productRetrievalStarted;
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data;
--(void) purchaseFinished: (BOOL) success;
+-(BOOL) purchaseFinished: (BOOL) success;
 
 @end

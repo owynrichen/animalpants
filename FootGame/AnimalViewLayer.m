@@ -23,7 +23,7 @@
 #define CORRECT_SNAP_DISTANCE 100
 #define ROTATE_DISTANCE 300
 
-#define DRAW_PHYSICS 1
+// #define DRAW_PHYSICS 1
 // #define DRAW_FOOT_ANCHORS 1
 
 @implementation CCDrawLayer
@@ -57,6 +57,7 @@
 
 -(void) setupLevel;
 -(void) teardownLevel;
+-(void) quitToMainMenu;
 -(void) setupPhysics;
 -(void) teardownPhysics;
 -(void) createBoundary;
@@ -154,6 +155,7 @@
         [self startLevel];
     } else {
         [[CCDirector sharedDirector] pause];
+        [[SoundManager sharedManager] playSound:locfile(@"upsell.mp3")];
         [[InAppPurchaseManager instance] getProducts:self withData:nil];
         apEvent(@"story", @"freemium", @"complete");
     }
@@ -189,7 +191,7 @@
     
     cpBody *groundBody = cpSpaceGetStaticBody(physicsSpace);
     
-    float radius = 0.0f;
+    float radius = 3.0f;
     cpShape *groundShape = cpSegmentShapeNew(groundBody, lowerLeft, lowerRight, radius);
     groundShape->e = 1.0f; // elasticity
     groundShape->u = 1.0f; // friction
@@ -260,8 +262,6 @@
     narration = [[NarrationNode alloc] initWithSize:CGSizeMake(800 * positionScaleForCurrentDevice(kDimensionY), 150 * positionScaleForCurrentDevice(kDimensionY))];
     narration.position = ccpToRatio(50, 580);
     [self addChild:narration];
-    
-    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(startNarration:) forTarget:self interval:0.5 paused:NO];
 
     [[SoundManager sharedManager] fadeOutBackground];
     [[SoundManager sharedManager] playBackground:environment.bgMusic];
@@ -278,7 +278,6 @@
     }
     
     __block AnimalViewLayer *pointer = self;
-    __block NarrationNode *pBubble = narration;
     
     skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
         [pointer stopNarration];
@@ -338,9 +337,7 @@
     
     settingsMenu = [InGameSettingsMenuPopup inGameSettingsMenuPopupWithGoHomeBlock:^{
         [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            [pBubble stop];
-            
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+            [pointer quitToMainMenu];
         }];
     }];
     settingsMenu.position = ccpToRatio(512, 300);
@@ -380,7 +377,7 @@
 }
 
 -(void) startLevel {
-
+    [self startNarration:0.0];
 }
 
 -(void) update:(ccTime)delta {
@@ -702,30 +699,30 @@
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {
     [PurchaseViewController handleProductsRetrievedFail];
     apEvent(@"story", @"freemium", @"product error");
-    [self blurGameLayer:NO withDuration:0.1];
+    [self quitToMainMenu];
 }
 
 -(BOOL) cancelClicked: (BOOL) buying {
-    [[CCDirector sharedDirector] resume];
     apEvent(@"story", @"freemium", @"cancel click");
-    [self blurGameLayer:NO withDuration:0.1];
-    
-    [narration stop];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
-    [purchase.view removeFromSuperview];
+    if (!buying) {
+        [self quitToMainMenu];
+        return YES;
+    }
     return NO;
 }
 
--(void) purchaseFinished: (BOOL) success {
+-(BOOL) purchaseFinished: (BOOL) success {
     if (success) {
         [[CCDirector sharedDirector] resume];
         apEvent(@"story", @"freemium", @"purchase complete");
         [self startLevel];
         [purchase.view removeFromSuperview];
+        [self blurGameLayer:NO withDuration:0.1];
+        return YES;
     } else {
         apEvent(@"story", @"freemium", @"purchase fail");
+        return NO;
     }
-    [self blurGameLayer:NO withDuration:0.1];
 }
 
 -(void) drawPhysics {
@@ -811,6 +808,18 @@
         ccPointSize(8 * CC_CONTENT_SCALE_FACTOR());
         ccDrawPoint(pnt);
     }
+}
+
+-(void) quitToMainMenu {
+    [[CCDirector sharedDirector] resume];
+    [self blurGameLayer:NO withDuration:0.1];
+    
+    [narration stop];
+    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+
+    if (purchase != nil)
+        [purchase.view removeFromSuperview];
 }
 
 @end

@@ -9,6 +9,9 @@
 "back" = "Back";
 "okay" = "Okay";
 "loading" = "Searching for Animals...";
+"game_title1" = "Animal";
+"game_title2" = "";
+"game_title3" = "Pants";
 
 /*
  
@@ -113,6 +116,8 @@
 "kilograms" = "kilograms";
 "distance_from_you_string" = "%@ lives %1.2f %@ away from you."; // example: "Kendra lives 1034.23 kilometers away from you."
 "play_button" = "Go See %@";  // example: "Go See Kendra"
+"name_the_kind" = "%@ the"; // example: "Patrick the" (Panda)
+"name_the_kind_female" = "%@ the";
 
 // crocodile
 
@@ -131,7 +136,7 @@
 "crocodile_fact_location" = "Carl hangs out in swamps and rivers";
 "crocodile_fact_location_details" = "";
 "crocodile_fact_photo" = "This is Carl's friend, Johann";
-"crocodile_fact_phto_details" = "Crocodiles may look like they're smiling, but don't get too close!";
+"crocodile_fact_photo_details" = "Johann, like most crocodiles, likes to hunt for his food during the night and hangs out in the water during the day.";
 
 // giraffe
 
@@ -141,7 +146,7 @@
 "giraffe_fact_height_details_metric" = "Adult giraffes are up to 5.8 meters in height because of their long, long necks";
 "giraffe_fact_weight" = "Jerome is very heavy";
 "giraffe_fact_weight_details" = "Jerome weighs 3,000 pounds.  The average adult human weighs only 138 pounds.";
-"giraffe_fact_weight_details" = "Jerome weighs 1361 kilograms.  The average adult human weighs only 62 kilograms.";
+"giraffe_fact_weight_details_metric" = "Jerome weighs 1361 kilograms.  The average adult human weighs only 62 kilograms.";
 "giraffe_fact_food" = "Jerome eats tree leaves, shrubs and vines";
 "giraffe_fact_food_details" = "Because giraffes are taller than other animals they can reach food that others cannot.";
 "giraffe_fact_speed" = "Jerome is really fast";
@@ -298,7 +303,7 @@
 "lion_fact_food_details" = "Lions eat large mammals, with a preference of buffalo, wildebeest, impalas, gazelles, zebra and warthogs.";
 "lion_fact_speed" = "Lloyd is super fast";
 "lion_fact_speed_details" = "Lions run 30 miles per hour and faster on short sprints.";
-"lion_fact_speed_details_metric" = "*Lions run 48 kilometers per hour and faster on short sprints.";
+"lion_fact_speed_details_metric" = "Lions run 48 kilometers per hour and faster on short sprints.";
 "lion_fact_location" = "Lloyd and his friends live in Africa.";
 "lion_fact_location_details" = "";
 "lion_fact_photo" = "This is Lloyd's friend, Simba";
@@ -316,10 +321,10 @@
 "penguin_fact_food" = "Pedro likes to eat fish";
 "penguin_fact_food_details" = "A Penguin's diet is mostly fish, but can also include krill, squid, and crustaceans.";
 "penguin_fact_speed" = "Pedro is super fast in the water";
-"penguin_fact_speed_details" = "*Pedro can swim up to 12 miles per hour";
-"penguin_fact_speed_details_metric" = "*Pedro can swim up to 19 kilometers per hour";
+"penguin_fact_speed_details" = "Pedro can swim up to 15 miles per hour";
+"penguin_fact_speed_details_metric" = "Pedro can swim up to 24 kilometers per hour";
 "penguin_fact_location" = "Pedro lives in Antarctica.";
-"penguin_fact_location_details" = "Pedro prefers the Antarctic ice pack";
+"penguin_fact_location_details" = "";
 "penguin_fact_photo" = "This is Pedro's friend, Cameron";
 "penguin_fact_photo_details" = "When they're looking for food, they can stay underwater for up to 18 minutes!";
 
@@ -334,9 +339,9 @@
 "elephant_fact_weight_details_metric" = "Olly can weigh up to 6,500 kilograms!";
 "elephant_fact_food" = "Olly eats grass, foliage, fruit, branches";
 "elephant_fact_food_details" = "African elephants can eat up to 300 pounds of vegetation per day.";
-"elephant_fact_speed" = "*Olly is one of the most powerful land animals.";
-"elephant_fact_speed_details" = "*Olly does't run much but can charge up to 25 miles per hour";
-"elephant_fact_speed_details_metric" = "*Olly does't run much but can charge up to 40 miles per hour";
+"elephant_fact_speed" = "Olly is one of the most powerful land animals.";
+"elephant_fact_speed_details" = "Olly does't run much but can charge up to 25 miles per hour";
+"elephant_fact_speed_details_metric" = "Olly does't run much but can charge up to 40 kilometers per hour";
 "elephant_fact_location" = "Olly lives in Africa";
 "elephant_fact_location_details" = "Olly prefers to live in savannas and forests in sub-Saharan Africa";
 "elephant_fact_photo" = "This is Olly's friend, Terrance";

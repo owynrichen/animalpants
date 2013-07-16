@@ -134,11 +134,15 @@
     NSLog(@"purchase succeeded");
     apEvent(@"purchase", @"success", productId);
     
+    BOOL hideView = YES;
+    
     if (delegate != nil && [delegate respondsToSelector:@selector(purchaseFinished:)]) {
-        [delegate purchaseFinished: YES];
+        hideView = [delegate purchaseFinished: YES];
     }
     
-    [self.view removeFromSuperview];
+    if (hideView) {
+        [self.view removeFromSuperview];
+    }
 }
 
 -(void) purchaseFailed: (NSString *) productId {
@@ -159,11 +163,15 @@
     [alert show];
     [alert release];
     
+    BOOL hideView = YES;
+    
     if (delegate != nil && [delegate respondsToSelector:@selector(purchaseFinished:)]) {
-        [delegate purchaseFinished: NO];
+        hideView = [delegate purchaseFinished: NO];
     }
     
-    [self.view removeFromSuperview];
+    if (hideView) {
+        [self.view removeFromSuperview];
+    }
 }
 
 -(void) usePromotionCodeStarted: (Promotion *) promo {
@@ -196,11 +204,15 @@
         [alert release];
     }
     
+    BOOL hideView = YES;
+    
     if (delegate != nil && [delegate respondsToSelector:@selector(purchaseFinished:)]) {
-        [delegate purchaseFinished: successful];
+        hideView = [delegate purchaseFinished: successful];
     }
     
-    [self.view removeFromSuperview];
+    if (hideView) {
+        [self.view removeFromSuperview];
+    }
 }
 
 -(void) usePromotionCodeError: (Promotion *) promo error: (NSError *) error {
@@ -221,11 +233,15 @@
     [alert show];
     [alert release];
     
+    BOOL hideView = YES;
+    
     if (delegate != nil && [delegate respondsToSelector:@selector(purchaseFinished:)]) {
-        [delegate purchaseFinished: NO];
+        hideView = [delegate purchaseFinished: NO];
     }
     
-    [self.view removeFromSuperview];
+    if (hideView) {
+        [self.view removeFromSuperview];
+    }
 }
 
 -(IBAction) buyClick: (id) sender {

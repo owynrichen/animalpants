@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Vine5</key>
+	<dict>
+		<key>z</key>
+		<integer>20</integer>
+		<key>type</key>
+		<string>Vine</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>200</integer>
+			<key>y</key>
+			<integer>500</integer>
+		</dict>
+	</dict>
 	<key>Plane</key>
 	<dict>
 		<key>scale</key>
