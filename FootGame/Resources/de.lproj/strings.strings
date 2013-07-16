@@ -87,11 +87,17 @@
 "kilograms" = "kilograms";
 "distance_from_you_string" = "%@ lives %1.2f %@ away from you."; // example: "Kendra lives 1034.23 kilometers away from you."
 "play_button" = "Go See %@";  // example: "Go See Kendra"
-"name_the_kind" = "%@"; // example: "Patrick the" (Panda)
+"name_the_kind" = "%@ das"; // example: "Georg der" (Giraffe)
+"name_the_kind_male" = "%@ der";
+"name_the_kind_female" = "%@ die"; // example: "Norbert das" (Nilpferd)
+"kind" = "%@";  // example: Tiger
+"kind_male" = "%@";
+"kind_female" = "%@";  // example: Zebra
 
 // crocodile
 
 "crocodile_name" = "Kai";
+"crocodile_word_gender" = "male";
 "crocodile_fact_height" = "Carl is short, but long";
 "crocodile_fact_height_details" = "Adult crocodiles are low to the ground, but can get up to 24 feet long!";
 "crocodile_fact_height_details_metric" = "Adult crocodiles are low to the ground, but can get up to 7 meters long!";
@@ -111,6 +117,7 @@
 // giraffe
 
 "giraffe_name" = "Georg";
+"giraffe_word_gender" = "male";
 "giraffe_fact_height" = "Jerome is very tall";
 "giraffe_fact_height_details" = "Adult giraffes are up to 19 feet in height because of their long, long necks.";
 "giraffe_fact_height_details_metric" = "Adult giraffes are up to 5.8 meters in height because of their long, long necks";
@@ -130,6 +137,7 @@
 // hippo
 
 "hippo_name" = "Norbert";
+"hippo_word_gender" = "";
 "hippo_fact_height" = "Horace is big";
 "hippo_fact_height_details" = "Full-size hippos grow to around 5 feet when on all 4 legs.";
 "hippo_fact_height_details_metric" = "Full-size hippos grow to around 1.5 meters when on all 4 legs.";
@@ -149,6 +157,7 @@
 // kangaroo
 
 "kangaroo_name" = "Kendra";
+"kangaroo_word_gender" = "male";
 "kangaroo_fact_height" = "Kendra is average height";
 "kangaroo_fact_height_details" = "Kendra and her friends can be up to 6.5 feettall.";
 "kangaroo_fact_height_details_metric" = "Kendra and her friends can be up to 2 meters tall.";
@@ -168,6 +177,7 @@
 // monkey
 
 "monkey_name" = "Amelie";
+"monkey_word_gender" = "male";
 "monkey_fact_height" = "Melinda is as tall as a human";
 "monkey_fact_height_details" = "Adult chimpanzees can be 5 to 6 feet tall.";
 "monkey_fact_height_details_metric" = "Adult chimpanzees can be 1.5 to 1.8 meters tall.";
@@ -187,6 +197,7 @@
 // panda
 
 "panda_name" = "Paul";
+"panda_word_gender" = "male";
 "panda_fact_height" = "Patrick is short";
 "panda_fact_height_details" = "On all 4 legs, pandas are only 2 to 3 feet tall.";
 "panda_fact_height_details_metric" = "On all 4 legs, pandas are only 0.6 to 0.9 meters tall.";
@@ -206,6 +217,7 @@
 // polar bear
 
 "polarbear_name" = "Nele";
+"polarbear_word_gender" = "male";
 "polarbear_fact_height" = "Peggy is pretty tall";
 "polarbear_fact_height_details" = "Polar bears are around 9 to 10 feet when standing on their hind legs.";
 "polarbear_fact_height_details_metric" = "Polar bears are 2 to 3 meters when standing on thier hind legs.";
@@ -225,6 +237,7 @@
 // tiger
 
 "tiger_name" = "Till";
+"tiger_word_gender" = "male";
 "tiger_fact_height" = "Tommy is average height";
 "tiger_fact_height_details" = "Bengal Tigers are 5 to 6 feet tall.";
 "tiger_fact_height_details_metric" = "Bengal Tigers are 1.5 to 1.8 meters tall.";
@@ -244,6 +257,7 @@
 // zebra
 
 "zebra_name" = "Max";
+"zebra_word_gender" = "";
 "zebra_fact_height" = "Zeb is of average height";
 "zebra_fact_height_details" = "Zeb and his friends are between 3 and 5 feet tall on all four legs.";
 "zebra_fact_height_details_metric" = "Zeb and his friends are between 1.1 and 1.5 meters tall on all four legs.";
@@ -263,6 +277,7 @@
 // lion
 
 "lion_name" = "Luka";
+"lion_word_gender" = "male";
 "lion_fact_height" = "Lloyd is tall";
 "lion_fact_height_details" = "Adult lions can be 6 to 8 feet tall, depending on if they're standing on their hind legs.";
 "lion_fact_height_details_metric" = "Adult lions can be 1.8 to 2.4 meters tall, depending on if they're standing on their hind legs.";
@@ -282,6 +297,7 @@
 // penguin
 
 "penguin_name" = "Peter";
+"penguin_word_gender" = "male";
 "penguin_fact_height" = "Pedro is pretty short";
 "penguin_fact_height_details" = "Adult penguins grow up to 4 feet tall.  About the size of the average kid.";
 "penguin_fact_height_details_metric" = "Adult penguins grow up to 1.2 meters tall.  About the size of the average kid.";
@@ -301,6 +317,7 @@
 // elephant
 
 "elephant_name" = "Emil";
+"elephant_word_gender" = "male";
 "elephant_fact_height" = "Olly is big and tall";
 "elephant_fact_height_details" = "Adult elephants can be between 8-13 feet tall on all four legs.";
 "elephant_fact_height_details_metric" = "Adult elephants can be between 2.4 to 4 meters tall on all four legs.";

@@ -68,12 +68,16 @@
 "distance_from_you_string" = "%@ lives %1.2f %@ away from you."; // example: "You are 1034.23 kilometers from Kendra's closest habitat."
 "play_button" = "Go See %@";  // example: "Go See Kendra"
 "hear_it_in" = "Version %@";
-"name_the_kind" = "%@ le"; // example: "Patrick the" (Panda)
-"name_the_kind_female" = "%@ l'";
-
+"name_the_kind" = "%@"; // example: "Patrick the" (Panda)
+"name_the_kind_male" = "%@ le";
+"name_the_kind_female" = "%@ la";
+"kind" = "l'%@";  // example: l'Hippopatme
+"kind_male" = "%@";
+"kind_female" = "%@";  // example: Hippopatme
 // crocodile
 
 "crocodile_name" = "Carl";
+"crocodile_word_gender" = "male";
 "crocodile_fact_height" = "Carl is short, but long";
 "crocodile_fact_height_details" = "Adult crocodiles are low to the ground, but can get up to 11 feet long!";
 "crocodile_fact_height_details_metric" = "Adult crocodiles are low to the ground, but can get up to 3.35 meters long!";
@@ -93,6 +97,7 @@
 // giraffe
 
 "giraffe_name" = "Géraldine";
+"giraffe_word_gender" = "female";
 "giraffe_fact_height" = "Jerome is very tall";
 "giraffe_fact_height_details" = "Adult giraffes range from 16-20 feet in height because of their long, long necks";
 "giraffe_fact_height_details_metric" = "Adult giraffes range from 4.9-6.1 meters in height because of their long, long necks";
@@ -112,6 +117,7 @@
 // hippo
 
 "hippo_name" = "Horace";
+"hippo_word_gender" = "";
 "hippo_fact_height" = "Horace is big";
 "hippo_fact_height_details" = "Full-size hippos grow to around 5 feet when on all 4 legs.";
 "hippo_fact_height_details_metric" = "Full-size hippos grow to around 1.5 meters when on all 4 legs.";
@@ -131,6 +137,7 @@
 // kangaroo
 
 "kangaroo_name" = "Catherine";
+"kangaroo_word_gender" = "male";
 "kangaroo_fact_height" = "Kendra is average height";
 "kangaroo_fact_height_details" = "Kendra and her friends are between 4.3-5.2 feet tall.";
 "kangaroo_fact_height_details_metric" = "Kendra and her friends are between 1.3-1.6 meters tall.";
@@ -150,6 +157,7 @@
 // monkey
 
 "monkey_name" = "Melinda";
+"monkey_word_gender" = "male";
 "monkey_fact_height" = "Melinda is as tall as a human";
 "monkey_fact_height_details" = "Adult chimpanzees can be 5 to 6 feet tall.";
 "monkey_fact_height_details_metric" = "Adult chimpanzees can be 1.5 to 1.8 meters tall.";
@@ -169,6 +177,7 @@
 // panda
 
 "panda_name" = "Patrick";
+"panda_word_gender" = "male";
 "panda_fact_height" = "Patrick is short";
 "panda_fact_height_details" = "On all 4 legs, pandas are only 2 to 3 feet tall.";
 "panda_fact_height_details_metric" = "On all 4 legs, pandas are only 0.6 to 0.9 meters tall.";
@@ -188,6 +197,7 @@
 // polar bear
 
 "polarbear_name" = "Peggy";
+"polarbear_word_gender" = "";
 "polarbear_fact_height" = "Peggy is tall";
 "polarbear_fact_height_details" = "Polar bears are 4.36 feet when standing on all four legs.";
 "polarbear_fact_height_details_metric" = "Polar bears are 1.33 meters when standing on all four legs.";
@@ -207,6 +217,7 @@
 // tiger
 
 "tiger_name" = "Tommy";
+"tiger_word_gender" = "male";
 "tiger_fact_height" = "Tommy is tall";
 "tiger_fact_height_details" = "*Tommy has moon shoes on";
 "tiger_fact_height_details_metric" = "*Tommy has metric moon shoes on";
@@ -245,6 +256,7 @@
 // lion
 
 "lion_name" = "Laurent";
+"lion_word_gender" = "male";
 "lion_fact_height" = "Lloyd is tall";
 "lion_fact_height_details" = "Adult lions can be 6 to 8 feet tall, depending on if they're standing on their hind legs.";
 "lion_fact_height_details_metric" = "Adult lions can be 1.8 to 2.4 meters tall, depending on if they're standing on their hind legs.";
@@ -264,6 +276,7 @@
 // penguin
 
 "penguin_name" = "Pierre";
+"penguin_word_gender" = "male";
 "penguin_fact_height" = "Pedro is short";
 "penguin_fact_height_details" = "Adult penguins grow up to 4 feet tall.  About the size of the average kid.";
 "penguin_fact_height_details_metric" = "Adult penguins grow up to 1.2 meters tall.  About the size of the average kid.";
@@ -283,6 +296,7 @@
 // elephant
 
 "elephant_name" = "Eric";
+"elephant_word_gender" = "";
 "elephant_fact_height" = "Olly is pretty tall";
 "elephant_fact_height_details" = "Adult elephants can be between 10-13 feet tall on all four legs.";
 "elephant_fact_height_details_metric" = "Adult elephants can be between %i-%i %@ tall on all four legs.";

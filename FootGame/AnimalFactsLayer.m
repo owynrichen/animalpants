@@ -20,6 +20,7 @@
 -(void) startPurchase: (NSString *) productId;
 -(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration;
 -(void) enableTouches: (BOOL) on;
+-(NSString *) genderStringForAnimalKey: (NSString *) key formatKey: (NSString *) formatPrefix replacement: (NSString *) replacement;
 @end
 
 @implementation AnimalFactsLayer
@@ -114,12 +115,10 @@
     
     NSString *nameKey = [NSString stringWithFormat:@"%@_name", [animal.key lowercaseString]];
     NSString *kindKey = [NSString stringWithFormat:@"menu_%@", [animal.key lowercaseString]];
-    NSString *animalName = locstr(nameKey, @"strings", @"");
-    NSString *animalKind = locstr(kindKey, @"strings", @"");
+    NSString *animalName = [self genderStringForAnimalKey:animal.key formatKey:@"name_the_kind" replacement:locstr(nameKey, @"strings", @"")];
+    NSString *animalKind = [self genderStringForAnimalKey:animal.key formatKey:@"kind" replacement:locstr(kindKey, @"strings", @"")];
     
-    NSString *nameTheKind = [NSString stringWithFormat:locstr(@"name_the_kind", @"strings", @""), animalName];
-    
-    CCLabelTTFWithExtrude *name = [CCLabelTTFWithExtrude labelWithString:nameTheKind fontName:@"Rather Loud" fontSize:70 * fontScaleForCurrentDevice()];
+    CCLabelTTFWithExtrude *name = [CCLabelTTFWithExtrude labelWithString:animalName fontName:@"Rather Loud" fontSize:70 * fontScaleForCurrentDevice()];
     [name setColor: ccc3(206, 216, 47)];
     [name setExtrudeColor: ccc3(130, 141, 55)];
     name.extrudeDepth = 10 * fontScaleForCurrentDevice();
@@ -348,6 +347,19 @@
     manifestToLoad = [[AnimalViewLayer manifestWithAnimalKey:anml.key] retain];
     
     return self;
+}
+
+-(NSString *) genderStringForAnimalKey: (NSString *) key formatKey: (NSString *) formatPrefix replacement: (NSString *) replacement {
+    NSString *genderKey = [NSString stringWithFormat: @"%@_word_gender", [key lowercaseString]];
+    NSString *gender = locstr(genderKey, @"strings", @"");
+    
+    NSString *formatKey = formatPrefix;
+    
+    if (![gender isEqualToString:@""]) {
+        formatKey = [NSString stringWithFormat:@"%@_%@", formatPrefix, gender];
+    }
+    
+    return [NSString stringWithFormat: locstr(formatKey, @"strings", @""), replacement];
 }
 
 -(void) startPurchase:(NSString *)productId {
