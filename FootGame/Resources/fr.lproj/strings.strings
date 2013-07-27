@@ -25,14 +25,14 @@
 
 "menu_elephant" = "éléphant";
 "menu_lion" = "lion";
-"menu_penguin" = "manchot";
+"menu_penguin" = "Pingouin";
 "menu_crocodile" = "crocodile";
 "menu_giraffe" = "girafe";
 "menu_hippo" = "hippopotame";
 "menu_kangaroo" = "kangourou";
 "menu_monkey" = "singe";
 "menu_panda" = "panda";
-"menu_polarbear" = "ours blanc";
+"menu_polarbear" = "ours Polaire";
 "menu_tiger" = "tigre";
 "menu_zebra" = "zèbre";
 
@@ -103,13 +103,13 @@
 "giraffe_fact_height_details_metric" = "Adult giraffes range from 4.9-6.1 meters in height because of their long, long necks";
 "giraffe_fact_weight" = "Jerome is very heavy";
 "giraffe_fact_weight_details" = "Jerome weighs 3000 pounds.  The average human weighs 150 pounds.";
-"giraffe_fact_weight_details" = "Jerome weighs 1361 kilograms.  The average human weighs 68 kilograms.";
+"giraffe_fact_weight_details_metric" = "Jerome weighs 1361 kilograms.  The average human weighs 68 kilograms.";
 "giraffe_fact_food" = "Jerome eats leaves";
 "giraffe_fact_food_details" = "Because giraffes are taller than other animals they can reach leaves others cannot.";
 "giraffe_fact_speed" = "*Jerome can run fast";
 "giraffe_fact_speed_details" = "*He can do a mean running man";
 "giraffe_fact_speed_details_metric" = "*He can do a mean running man in kilometers";
-"giraffe_fact_location" = "Jerome lives in grasslands, woodlands and savannas of Africa";
+"giraffe_fact_location" = "Jerome lives in Africa";
 "giraffe_fact_location_details" = "";
 "giraffe_fact_photo" = "This is Jerome's friend, Alfie";
 "giraffe_fact_photo_details" = "He lives in South Africa, and loves to watch sunsets.";
@@ -203,7 +203,7 @@
 "polarbear_fact_height_details_metric" = "Polar bears are 1.33 meters when standing on all four legs.";
 "polarbear_fact_weight" = "Peggy is very heavy";
 "polarbear_fact_weight_details" = "Peggy and her friends weigh between 770-1500 pounds.  The average human weighs 150 pounds.";
-"polarbear_fact_weight_details" = "Peggy and her friends weigh between 349-680 kilograms.  The average human weighs 68 kilograms.";
+"polarbear_fact_weight_details_metric" = "Peggy and her friends weigh between 349-680 kilograms.  The average human weighs 68 kilograms.";
 "polarbear_fact_food" = "Peggy eats seals";
 "polarbear_fact_food_details" = "Polar bears are carnivores, with a diet consisting mostly of seals.";
 "polarbear_fact_speed" = "*Peggy is super fast";
@@ -223,7 +223,7 @@
 "tiger_fact_height_details_metric" = "*Tommy has metric moon shoes on";
 "tiger_fact_weight" = "Tommy is heavy";
 "tiger_fact_weight_details" = "Adult tigers can weigh up to 670 pounds of pure muscle.";
-"tiger_fact_weight_details" = "Adult tigers can weigh up to 304 kilograms of pure muscle.";
+"tiger_fact_weight_details_metric" = "Adult tigers can weigh up to 304 kilograms of pure muscle.";
 "tiger_fact_food" = "Tommy eats meat";
 "tiger_fact_food_details" = "In the wild, tigers mostly fed on medium to large sized animals";
 "tiger_fact_speed" = "*Tommy is super fast";
@@ -237,6 +237,7 @@
 // zebra
 
 "zebra_name" = "Zeb";
+"zebra_word_gender" = "male";
 "zebra_fact_height" = "Zeb is tall";
 "zebra_fact_height_details" = "Zeb and his friends are between 4 and 5 feet tall on all four legs.";
 "zebra_fact_height_details_metric" = "Zeb and his friends are between 1.2 and 1.5 meters tall on all four legs.";

@@ -10,10 +10,10 @@
 #import "FactFrame.h"
 #import "Popup.h"
 
-
 @interface FactDetailPopup : Popup {
     CCLabelTTF *factTitle;
-    CCLabelTTF *factText;
+    // CCLabelTTF *factText;
+    CCLabelBMFont *factText;
     CCNode<CCRGBAProtocol> *factData;
 }
 

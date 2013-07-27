@@ -96,11 +96,11 @@
 "panda" = "Patrick the Panda's feet are black and fuzzy with red striped pants. ";
 "polarbear" = "Peggy the Polar Bear has a blue skirt and her feet are white and furry. ";
 "tiger" = "Tommy the Tiger's feet are orange and is wearing green pants. ";
-"zebra" = "Zeb the Zebra's legs are black and white and he’s wearing yellow striped shorts. ";
+"zebra" = "Zeb the Zebra's legs are black and white and he's wearing yellow striped shorts.  ";
 
 "story1" = "Twin sisters, Emma and Avery, are going on an animal adventure! All the animals are having fun playing with their animal friends, but wait, it looks like they have all lost their pants. That’s silly! Can you help the animals find their pants? ";
 "upsell" = "You are doing great and Emma and Avery are so happy. Don’t stop now. The fun is just beginning! ";
-"outro" = "Hooray! You have helped Emma and Avery put the correct pants back on the animals. Way to go! Let’s go learn more about our animal friends. ";
+"outro" = "Hooray! You have helped Emma and Avery put the correct pants back on the animals. Way to go! Let's go learn more about our animal friends. ";
 
 /*
  
@@ -188,7 +188,7 @@
 "kangaroo_name" = "Kendra";
 "kangaroo_word_gender" = "";
 "kangaroo_fact_height" = "Kendra is average height";
-"kangaroo_fact_height_details" = "Kendra and her friends can be up to 6.5 feettall.";
+"kangaroo_fact_height_details" = "Kendra and her friends can be up to 6.5 feet tall.";
 "kangaroo_fact_height_details_metric" = "Kendra and her friends can be up to 2 meters tall.";
 "kangaroo_fact_weight" = "Kendra is heavier than a child";
 "kangaroo_fact_weight_details" = "Adult kangaroos weigh nearly 200 pounds.  The average adult human weighs only 138 pounds.";
@@ -196,7 +196,7 @@
 "kangaroo_fact_food" = "Kendra eats grasses and shrubs";
 "kangaroo_fact_food_details" = "Kangaroos will also eat meat, but love grasses and shrubs the most.";
 "kangaroo_fact_speed" = "Kendra is really fast";
-"kangaroo_fact_speed_details" = "Kendra can hop up to 40 miles per hour and jump 9 feet hight. The fastest human is only 28 miles per hour.";
+"kangaroo_fact_speed_details" = "Kendra can hop up to 40 miles per hour and jump 9 feet high. The fastest human is only 28 miles per hour.";
 "kangaroo_fact_speed_details_metric" = "Kendra can hop up to 64 kilometers per hour and jump 2.75 meters high.  The fastest human is only 44.7 kilometers per hour.";
 "kangaroo_fact_location" = "Kendra lives in Australia";
 "kangaroo_fact_location_details" = "";
@@ -252,11 +252,11 @@
 "polarbear_fact_height_details_metric" = "Polar bears are 2 to 3 meters when standing on thier hind legs.";
 "polarbear_fact_weight" = "Peggy is very heavy";
 "polarbear_fact_weight_details" = "Peggy and her friends weigh between 650-1600 pounds.  The average human weighs 150 pounds.";
-"polarbear_fact_weight_details" = "Peggy and her friends weigh between 1433-3500 kilograms.  The average human weighs 68 kilograms.";
+"polarbear_fact_weight_details_metric" = "Peggy and her friends weigh between 1433-3500 kilograms.  The average human weighs 68 kilograms.";
 "polarbear_fact_food" = "Peggy eats seal fat and skin along with vegetation";
 "polarbear_fact_food_details" = "Polar bears are carnivores, with a diet consisting mostly of seals.";
 "polarbear_fact_speed" = "Peggy can sprint up to 24 miles per hour";
-"polarbear_fact_speed_details" = "*Polar bears are excellent swimmers and are sometimes spotted in waters up to sixy miles from land.";
+"polarbear_fact_speed_details" = "Polar bears are excellent swimmers and are sometimes spotted in waters up to sixty miles from land.";
 "polarbear_fact_speed_details_metric" = "*Polar bears are excellent swimmers and are sometimes spotted in waters up to 100 kilometers from land.";
 "polarbear_fact_location" = "Peggy lives at the norther coasts of North America, Russia, Greeland, and the Arctic Ocean";
 "polarbear_fact_location_details" = "";
@@ -272,7 +272,7 @@
 "tiger_fact_height_details_metric" = "Bengal Tigers are 1.5 to 1.8 meters tall.";
 "tiger_fact_weight" = "Tommy is heavy";
 "tiger_fact_weight_details" = "Adult tigers can weigh up to 500 pounds of pure muscle.";
-"tiger_fact_weight_details" = "Adult tigers can weigh up to 227 kilograms of pure muscle.";
+"tiger_fact_weight_details_metric" = "Adult tigers can weigh up to 227 kilograms of pure muscle.";
 "tiger_fact_food" = "Tommy eats meat";
 "tiger_fact_food_details" = "In the wild, tigers mostly feed on medium to large sized animals.";
 "tiger_fact_speed" = "Tommy is super fast";
@@ -295,9 +295,9 @@
 "zebra_fact_weight_details_metric" = "Adult zebras can weigh up to 408 kilograms.";
 "zebra_fact_food" = "Zeb eats grasses, leaves, and bark from trees";
 "zebra_fact_food_details" = "Zebras eat grass almost all the time, but sometimes eat shrubs and bark.";
-"zebra_fact_speed" = "*Zeb is really fast";
-"zebra_fact_speed_details" = "*Zebras run like horses and can reach speeds of 40 miles per hour";
-"zebra_fact_speed_details_metric" = "*Zebras run like horses and can reach speeds of 64 miles per hour";
+"zebra_fact_speed" = "Zeb is really fast";
+"zebra_fact_speed_details" = "Zebras run like horses and can reach speeds of 40 miles per hour";
+"zebra_fact_speed_details_metric" = "Zebras run like horses and can reach speeds of 64 kilometers per hour";
 "zebra_fact_location" = "Zeb lives in Africa";
 "zebra_fact_location_details" = "Zeb prefers grasslands, savannas, woodlands and scrublands";
 "zebra_fact_photo" = "This is Zeb's friend, Percival";

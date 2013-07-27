@@ -37,7 +37,7 @@
     storyText = [[LocalizationManager sharedManager] getLocalizedStringForKey:cues.storyKey fromTable:@"strings" forLanguage:lang];
     
     [self removeAllChildrenWithCleanup:YES];
-    label = [[CCLabelBMFont alloc] initWithString:@"" fntFile:@"geneva.fnt" width:tSize.width alignment:kCCTextAlignmentLeft];
+    label = [[CCLabelBMFont alloc] initWithString:@"" fntFile:@"CooperBlack.fnt" width:tSize.width alignment:kCCTextAlignmentLeft];
 
     label.anchorPoint = ccp(0,0);
     label.position = ccp(0,0);

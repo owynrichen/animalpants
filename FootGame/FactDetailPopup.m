@@ -14,7 +14,7 @@
 #define BORDER_SCALE 1.0
 #define TITLE_FONT @"Rather Loud"
 #define TEXT_FONT @"Mill"
-#define TITLE_FONT_SIZE 48
+#define TITLE_FONT_SIZE 44
 #define TEXT_FONT_SIZE 44
 
 @interface FactDetailPopup()
@@ -67,7 +67,9 @@
     
     factTitle = [CCLabelTTF labelWithString:titlestr fontName:TITLE_FONT fontSize:TITLE_FONT_SIZE * fontScaleForCurrentDevice() dimensions:CGSizeMake(0, 0) hAlignment:kCCTextAlignmentLeft];
     
-    factText = [CCLabelTTF labelWithString:txtstr fontName:TEXT_FONT fontSize:TEXT_FONT_SIZE * fontScaleForCurrentDevice() dimensions:CGSizeMake(0, 0) hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
+    // factText = [CCLabelTTF labelWithString:txtstr fontName:TEXT_FONT fontSize:TEXT_FONT_SIZE * fontScaleForCurrentDevice() dimensions:CGSizeMake(0, 0) hAlignment:kCCTextAlignmentLeft vAlignment:kCCVerticalTextAlignmentTop];
+    
+    factText = [CCLabelBMFont labelWithString:txtstr fntFile:@"RobotoThin.fnt" width:0 alignment:kCCTextAlignmentLeft];
     
     switch(fact) {
         case kHeightFactFrame:
@@ -181,7 +183,8 @@
     factTitle.position = titlePos;
     factTitle.color = ccc3(198, 220, 15);
     
-    factText.dimensions = textSize;
+    // factText.dimensions = textSize;
+    [factText setWidth:textSize.width];
     factText.anchorPoint = ccp(0,1.0);
     factText.position = textPos;
     factText.color = ccGRAY;

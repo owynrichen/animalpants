@@ -203,7 +203,7 @@
 "polarbear_fact_height_details_metric" = "Polar bears are 2 to 3 meters when standing on thier hind legs.";
 "polarbear_fact_weight" = "Peggy is very heavy";
 "polarbear_fact_weight_details" = "Peggy and her friends weigh between 650-1600 pounds.  The average human weighs 150 pounds.";
-"polarbear_fact_weight_details" = "Peggy and her friends weigh between 1433-3500 kilograms.  The average human weighs 68 kilograms.";
+"polarbear_fact_weight_details_metric" = "Peggy and her friends weigh between 1433-3500 kilograms.  The average human weighs 68 kilograms.";
 "polarbear_fact_food" = "Peggy eats seal fat and skin along with vegetation";
 "polarbear_fact_food_details" = "Polar bears are carnivores, with a diet consisting mostly of seals.";
 "polarbear_fact_speed" = "Peggy can sprint up to 24 miles per hour";
@@ -223,7 +223,7 @@
 "tiger_fact_height_details_metric" = "Bengal Tigers are 1.5 to 1.8 meters tall.";
 "tiger_fact_weight" = "Tommy is heavy";
 "tiger_fact_weight_details" = "Adult tigers can weigh up to 500 pounds of pure muscle.";
-"tiger_fact_weight_details" = "Adult tigers can weigh up to 227 kilograms of pure muscle.";
+"tiger_fact_weight_details_metric" = "Adult tigers can weigh up to 227 kilograms of pure muscle.";
 "tiger_fact_food" = "Tommy eats meat";
 "tiger_fact_food_details" = "In the wild, tigers mostly feed on medium to large sized animals.";
 "tiger_fact_speed" = "Tommy is super fast";

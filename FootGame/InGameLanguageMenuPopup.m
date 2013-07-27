@@ -118,6 +118,7 @@
             
             if (o == YES) {
                 pointer.narrateInLanguage(l);
+                apEvent(@"listen",l,[[LocalizationManager sharedManager] getAppPreferredLocale]);
             } else {
                 NSLog(@"Language %@ isn't owned", l);
                 [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
