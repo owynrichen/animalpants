@@ -7,6 +7,7 @@
 //
 
 #import "AnalyticsPublisher.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 #define GA_ID @"UA-4051939-10"
 
@@ -77,6 +78,25 @@ static NSString *_sync = @"sync";
 -(void) trackErrorWithMessage: (NSString *) msg {
     // TODO: grab stack trace and deliver it...
     [ga trackException:NO withDescription:msg];
+}
+
+-(void) trackPurchase: (SKProduct *) skpdct txn: (SKPaymentTransaction *) sktxn {
+    apEvent(@"Purchase", sktxn.payment.productIdentifier, sktxn.transactionIdentifier);
+    
+    if (skpdct == nil) {
+        return;
+    }
+    
+    GAITransaction *txn = [GAITransaction transactionWithId:sktxn.transactionIdentifier withAffiliation:@"In-App Store"];
+    
+    int64_t price = (int64_t) (skpdct.price.doubleValue * 1000000);
+    txn.taxMicros = 0;
+    txn.shippingMicros = 0;
+    txn.revenueMicros =  price; // TODO: convert currency to US
+    
+    [txn addItemWithCode:skpdct.productIdentifier name:skpdct.localizedTitle category:@"Animal Pants In-App" priceMicros:price quantity:sktxn.payment.quantity];
+    
+    [ga trackTransaction:txn];
 }
 
 +(void) dispatch {

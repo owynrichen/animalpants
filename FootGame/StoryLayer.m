@@ -139,6 +139,7 @@ static NSString *__sync = @"sync";
     __block StoryLayer *pointer = self;
     
     skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
+        apEvent(@"story", @"skip", @"complete");
         [pointer nextScene];
     }];
     

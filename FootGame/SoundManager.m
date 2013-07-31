@@ -10,6 +10,8 @@
 
 #define MUSIC_VOLUME_KEY @"musicVolume"
 #define SOUND_VOLUME_KEY @"soundVolume"
+#define DEFAULT_MUSIC_VOLUME 0.5f
+#define DEFAULT_SOUND_VOLUME 1.0f
 
 @interface SoundManager()
 -(BOOL) fileExists: (NSString *) path;
@@ -42,11 +44,15 @@ static NSString *_sync = @"";
     if ([defaults objectForKey:MUSIC_VOLUME_KEY] != nil) {
         // This wastes some cycles by re-saving to NSUserDefaults...
         [self setMusicVolume:[defaults floatForKey:MUSIC_VOLUME_KEY]];
+    } else {
+        [self setMusicVolume:DEFAULT_MUSIC_VOLUME];
     }
     
     if ([defaults objectForKey:SOUND_VOLUME_KEY] != nil) {
         // This wastes some cycles by re-saving to NSUserDefaults...
         [self setSoundVolume:[defaults floatForKey:SOUND_VOLUME_KEY]];
+    } else {
+        [self setSoundVolume:DEFAULT_SOUND_VOLUME];
     }
 
     return self;

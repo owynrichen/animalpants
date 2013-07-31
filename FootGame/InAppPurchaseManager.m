@@ -10,6 +10,7 @@
 #import "InAppPurchaseManager.h"
 #import "MBProgressHUD.h"
 #import "LocalizationManager.h"
+#import "AnalyticsPublisher.h"
 
 static InAppPurchaseManager *_instance;
 static NSString *_sync = @"sync";
@@ -182,6 +183,18 @@ static NSString *_sync = @"sync";
     if (wasSuccessful)
     {
         [[PremiumContentStore instance] boughtProductId:transaction.payment.productIdentifier];
+        
+        if (cachedProducts) {
+            [cachedProducts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                SKProduct *product = (SKProduct *) obj;
+                if ([product.productIdentifier isEqualToString:transaction.payment.productIdentifier]) {
+                    apPurchase(product, transaction);
+                }
+            }];
+        } else {
+            NSLog(@"No cached products to check");
+            apPurchase(nil, transaction);
+        }
         if (delegate) {
             [delegate purchaseSucceeded:transaction.payment.productIdentifier];
         }

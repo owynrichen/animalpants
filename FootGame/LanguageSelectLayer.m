@@ -64,7 +64,7 @@
     [CCMenuItemFont setFontSize:48 * fontScaleForCurrentDevice()];
     [CCMenuItemFont setFontName:@"Rather Loud"];
     
-    back = [CCAutoScalingSprite spriteWithFile:@"arrow.png"];
+    back = [CCAutoScalingSprite spriteWithFile:@"rightarrow.png"];
     back.scaleX = -0.4 * fontScaleForCurrentDevice();
     back.scaleY = 0.4 * fontScaleForCurrentDevice();
     back.anchorPoint = ccp(0,0);
@@ -134,18 +134,19 @@
         }
         
         CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:langStr color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-            [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
                 NSString *l = ((CCNode *)sender).userData;
                 BOOL o = [[PremiumContentStore instance] ownsProductId:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
-            
                 if (o == YES) {
-                    [[LocalizationManager sharedManager] setAppPreferredLocale:l];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+                    [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+                        apEvent(@"language select",l,[[LocalizationManager sharedManager] getAppPreferredLocale]);
+                        [[LocalizationManager sharedManager] setAppPreferredLocale:l];
+                        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+                    }];
                 } else {
                     NSLog(@"Language %@ isn't owned", l);
                     [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
                 }
-            }];
+
         }];
         
         NSString *sound = [[NSString stringWithFormat:@"%@.mp3", lang] lowercaseString];
@@ -166,12 +167,14 @@
 }
 
 -(void) productRetrievalStarted {
-    
+    apEvent(@"languages", @"freemium", @"product start");
 }
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
     if (purchase != nil)
         [purchase release];
+    
+    apEvent(@"languages", @"freemium", @"product success");
     
     purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:(NSString *) data upsell:PREMIUM_PRODUCT_ID];
     [self blurFadeLayer:YES withDuration:0.5];
@@ -180,12 +183,21 @@
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {   
     [PurchaseViewController handleProductsRetrievedFail];
     [self blurFadeLayer:NO withDuration:0.1];
+    apEvent(@"languages", @"freemium", @"product error");
 }
 
--(BOOL) purchaseFinished: (BOOL) success {
+-(BOOL) purchaseFinished: (BOOL) success {    
+    BOOL returnVal = YES;
+    if (success) {
+      apEvent(@"languages", @"freemium", @"purchase success");
+    } else {
+        returnVal = NO;
+        apEvent(@"languages", @"freemium", @"purchase fail");
+    }
+    
     [self redrawMenu];
     [self blurFadeLayer:NO withDuration:0.1];
-    return YES;
+    return returnVal;
 }
 
 -(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration {
@@ -199,6 +211,7 @@
 }
 
 -(BOOL) cancelClicked: (BOOL) buying {
+    apEvent(@"languages", @"freemium", @"cancel click");
     [self blurFadeLayer:NO withDuration:0.1];
     return !buying;
 }

@@ -18,8 +18,11 @@
 #import "MainMenuLayer.h"
 #import "AnalyticsPublisher.h"
 #import "GoodbyeLayer.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 #import "chipmunk.h"
+
+#define USE_PHYSICS_ENGINE 0
 
 @implementation AppDelegate
 
@@ -59,13 +62,12 @@
     [[SoundManager sharedManager] preloadSound:@"glock__g1.mp3"];
     [[SoundManager sharedManager] preloadSound:@"game_intro_bgmusic.mp3"];
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
-    [[SoundManager sharedManager] setMusicVolume:0.6];
     
     // TODO: delete this when we launch
     // [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
 
-    // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
-    [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Tiger"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
@@ -84,6 +86,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
+    [FBAppCall handleDidBecomeActive];
+    [FBAppEvents activateApp];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -100,6 +104,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [AnalyticsPublisher dispatch];
+    [FBSession.activeSession close];
     CC_DIRECTOR_END();
 }
 

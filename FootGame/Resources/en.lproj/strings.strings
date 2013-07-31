@@ -56,7 +56,8 @@
 "ja" = "Japanese";
 "de" = "German";
 "hear_it_in" = "Hear it in %@";  // example: Here it in French
-"go_home" = "Main menu";
+"go_home" = "Main Menu";
+"facts_about" = "Facts about %@";  // example: Facts about Pedro
 "music_volume" = "Music Volume";
 "sound_volume" = "Sound Volume";
 

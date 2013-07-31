@@ -18,6 +18,8 @@
 #import "AnalyticsPublisher.h"
 #import "PremiumContentStore.h"
 #import "GoodbyeLayer.h"
+#import "StoryLayer.h"
+#import "AnimalFactsLayer.h"
 
 #define SNAP_DISTANCE 50
 #define CORRECT_SNAP_DISTANCE 100
@@ -58,6 +60,7 @@
 -(void) setupLevel;
 -(void) teardownLevel;
 -(void) quitToMainMenu;
+-(void) openFactPage;
 -(void) setupPhysics;
 -(void) teardownPhysics;
 -(void) createBoundary;
@@ -143,7 +146,9 @@
 -(void) onEnter {
     victory = NO;
     
+#if USE_PHYSICS_ENGINE
     [self setupPhysics];
+#endif
     [self setupLevel];
     [super onEnter];
 }
@@ -164,7 +169,9 @@
 -(void) onExit {
     [super onExit];
     [self teardownLevel];
+#if USE_PHYSICS_ENGINE
     [self teardownPhysics];
+#endif
 }
 
 -(void) setupPhysics {
@@ -244,12 +251,19 @@
     
     [gameLayer addChild:body];
     
-    next = [CCSprite spriteWithFile:@"arrow.png"];
+    next = [CCSprite spriteWithFile:@"rightarrow.png"];
     next.scale = 0.4 * fontScaleForCurrentDevice();
     next.position = ccpToRatio(920, 90);
     next.visible = false;
     
     [gameLayer addChild:next];
+    
+    prev = [CCSprite spriteWithFile:@"rightarrow.png"];
+    prev.scale = -0.4 * fontScaleForCurrentDevice();
+    prev.position = ccpToRatio(100, 90);
+    prev.visible = false;
+    
+    [gameLayer addChild:prev];
     
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:10 delay:5];
     
@@ -280,6 +294,7 @@
     __block AnimalViewLayer *pointer = self;
     
     skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
+        apEvent(animal.key, @"skip", @"complete");
         [pointer stopNarration];
     }];
     skip.scale = 0.8;
@@ -338,8 +353,15 @@
     settingsMenu = [InGameSettingsMenuPopup inGameSettingsMenuPopupWithGoHomeBlock:^{
         [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
             [pointer quitToMainMenu];
-        }];
-    }];
+        }]; }
+        factPageBlock:^(NSString *key) {
+            [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+                [pointer openFactPage];
+            }];
+        } forAnimalKey: animal.key];
+        
+    
+   
     settingsMenu.position = ccpToRatio(512, 300);
     
     [self addChild:langMenu];
@@ -347,7 +369,7 @@
     
 #if DRAW_PHYSICS || DRAW_FOOT_ANCHORS
     drawLayer = [CCDrawLayer layerWithBlock:^{
-#if DRAW_PHYSICS
+#if USE_PHYSICS_ENGINE && DRAW_PHYSICS
         [self drawPhysics];
 #endif
         
@@ -390,8 +412,10 @@
     nextTouched = NO;
     bodyTouched = NO;
     
+#if USE_PHYSICS_ENGINE
     physicsMouse = cpMouseNew(physicsSpace);
     cpMouseGrab(physicsMouse, pnt, false);
+#endif
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -410,6 +434,11 @@
         return YES;
     }
     
+    if (prev.visible && CGRectContainsPoint([prev boundingBox], pnt)) {
+        prevTouched = YES;
+        return YES;
+    }
+    
 // TURNING OFF BODY MOVEMENT
 //    if ([body hitTest:pnt]) {
 //        [streak setPosition:pnt];
@@ -422,7 +451,9 @@
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     
+#if USE_PHYSICS_ENGINE
     cpMouseMove(physicsMouse, pnt);
+#endif
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -466,9 +497,11 @@
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     BOOL footTouched = NO;
     
+#if USE_PHYSICS_ENGINE
     cpMouseRelease(physicsMouse);
     cpMouseDestroy(physicsMouse);
     physicsMouse = NULL;
+#endif
     
     for(int i = 0; i < [feet count]; i++) {
         AnimalPart *foot = [feet objectAtIndex:i];
@@ -496,6 +529,10 @@
             next.position = ccpToRatio(920, 90);
             [next runAction:[CCRepeatForever actionWithAction:[CCJumpBy actionWithDuration:2 position:ccpToRatio(0,0) height:30 jumps:2]]];
             
+            prev.visible = true;
+            prev.position = ccpToRatio(100, 90);
+            [prev runAction:[CCRepeatForever actionWithAction:[CCJumpBy actionWithDuration:2 position:ccpToRatio(0,0) height:30 jumps:2]]];
+            
             AnimalPart *correctFoot = [self getCorrectFoot];
             for (int i = 0; i < [feet count]; i++) {
                 AnimalPart *foot = (AnimalPart *) [feet objectAtIndex:i];
@@ -514,6 +551,9 @@
             
             [next stopAllActions];
             next.visible = false;
+            
+            [prev stopAllActions];
+            prev.visible = false;
             
             // TODO: play bad noise
             
@@ -542,6 +582,23 @@
             [narration stop];
             
             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
+        }];
+    } else if (prevTouched) {
+        [prev stopAllActions];
+        
+        Animal *prevAnimal = [[AnimalPartRepository sharedRepository] getPreviousAnimal];
+        CCScene *prevScene;
+        
+        if (prevAnimal != nil) {
+            prevScene = [AnimalViewLayer sceneWithAnimal:prevAnimal];
+        } else {
+            prevScene = [StoryLayer scene];
+        }
+        
+        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+            [narration stop];
+            
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:prevScene backwards:true]];
         }];
     }
 }
@@ -820,6 +877,15 @@
 
     if (purchase != nil)
         [purchase.view removeFromSuperview];
+}
+
+-(void) openFactPage {
+    [[CCDirector sharedDirector] resume];
+    [self blurGameLayer:NO withDuration:0.1];
+    
+    [narration stop];
+    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalFactsLayer sceneWithAnimalKey:animal.key] backwards:true]];
 }
 
 @end

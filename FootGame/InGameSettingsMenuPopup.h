@@ -10,6 +10,7 @@
 #import "CCVolumeMenuItem.h"
 
 typedef void (^GoHomeBlock)(void);
+typedef void (^FactPageBlock)(NSString *animalKey);
 
 @interface InGameSettingsMenuPopup : Popup {
     CCMenu *menu;
@@ -18,8 +19,10 @@ typedef void (^GoHomeBlock)(void);
 }
 
 @property (nonatomic) GoHomeBlock goHome;
+@property (nonatomic) FactPageBlock facts;
+@property (nonatomic) NSString *animalKey;
 
-+(id) inGameSettingsMenuPopupWithGoHomeBlock: (GoHomeBlock) ghBlock;
--(id) initwithGoHomeBlock: (GoHomeBlock) ghBlock;
++(id) inGameSettingsMenuPopupWithGoHomeBlock: (GoHomeBlock) ghBlock factPageBlock: (FactPageBlock) fpBlock forAnimalKey: (NSString *) key;
+-(id) initwithGoHomeBlock: (GoHomeBlock) ghBlock factPageBlock: (FactPageBlock) fpBlock  forAnimalKey: (NSString *) key;
 
 @end

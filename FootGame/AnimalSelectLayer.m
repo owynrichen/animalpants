@@ -94,7 +94,7 @@ static NSString *__sync = @"sync";
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
     
-    back = [CCAutoScalingSprite spriteWithFile:@"arrow.png"];
+    back = [CCAutoScalingSprite spriteWithFile:@"rightarrow.png"];
     back.scaleX = -0.4 * fontScaleForCurrentDevice();
     back.scaleY = 0.4 * fontScaleForCurrentDevice();
     back.anchorPoint = ccp(0,0);

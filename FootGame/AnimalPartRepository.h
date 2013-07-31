@@ -20,6 +20,7 @@
     
     NSMutableDictionary *aplist;
     NSMutableArray *animalList;
+    int curAnimalIndex;
 }
 
 +(AnimalPartRepository *) sharedRepository;
@@ -29,6 +30,7 @@
 -(Animal *) getRandomAnimal;
 -(Animal *) getFirstAnimal;
 -(Animal *) getNextAnimal;
+-(Animal *) getPreviousAnimal;
 -(Animal *) peekNextAnimal;
 -(void) resetAnimals: (BOOL) rand;
 -(Animal *) getAnimalByKey: (NSString *) key;

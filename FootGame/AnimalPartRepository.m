@@ -149,43 +149,53 @@ static NSString *_sync = @"";
             [animalList addObject:animal];
         }
     }
+    
+    curAnimalIndex = 0;
 }
 
 -(Animal *) getRandomAnimal {
-    if ([animalList count] == 0)
+    if (curAnimalIndex >= animalList.count)
         [self resetAnimals: YES];
     
-    Animal *first = [animalList objectAtIndex:0];
-    [animalList removeObjectAtIndex:0];
+    Animal *first = [animalList objectAtIndex:curAnimalIndex];
+    curAnimalIndex++;
     return first;
 }
 
 -(Animal *) getFirstAnimal {
-    if ([animalList count] == 0)
+    if (curAnimalIndex >= animalList.count)
         [self resetAnimals: NO];
     
-    Animal *first = [self peekNextAnimal];
-    [animalList removeObjectAtIndex:0];
+    Animal *first = [animalList objectAtIndex:curAnimalIndex];
     return first;
 }
 
 -(Animal *) getNextAnimal {
+    curAnimalIndex++;
     Animal *first =[self peekNextAnimal];
     
     if (first == nil)
         return nil;
     
-    [animalList removeObjectAtIndex:0];
     return first;
 }
 
 -(Animal *) peekNextAnimal {
-    if ([animalList count] == 0) {
+    if (curAnimalIndex >= animalList.count) {
         return nil;
     }
     
-    Animal *first = [animalList objectAtIndex:0];
+    Animal *first = [animalList objectAtIndex:curAnimalIndex];
     return first;
+}
+
+-(Animal *) getPreviousAnimal {
+    if (curAnimalIndex <= 0)
+        return nil;
+    
+    curAnimalIndex--;
+    Animal *prev = [animalList objectAtIndex:curAnimalIndex];
+    return prev;
 }
 
 -(Animal *) getAnimalByKey: (NSString *) key {

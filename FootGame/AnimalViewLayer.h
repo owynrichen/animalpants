@@ -37,6 +37,7 @@
     Environment *environment;
     EnvironmentLayer *background;
     CCSprite *next;
+    CCSprite *prev;
     LongPressButton *skip;
     EarFlagCircleButton *langMenuButton;
     CircleButton *settingsMenuButton;
@@ -53,6 +54,7 @@
     CCLayer *hudLayer;
     
     BOOL nextTouched;
+    BOOL prevTouched;
     BOOL bodyTouched;
     BOOL head1Touched;
     BOOL head2Touched;

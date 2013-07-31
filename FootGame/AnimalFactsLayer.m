@@ -14,6 +14,7 @@
 #import "InAppPurchaseManager.h"
 #import "FadeGrid3D.h"
 #import "SoundManager.h"
+#import "EnvironmentRepository.h"
 
 @interface AnimalFactsLayer()
 
@@ -84,7 +85,7 @@
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
     [fadeLayer addChild:background];
     
-    back = [CCAutoScalingSprite spriteWithFile:@"arrow.png"];
+    back = [CCAutoScalingSprite spriteWithFile:@"rightarrow.png"];
     back.scaleX = -0.4 * fontScaleForCurrentDevice();
     back.scaleY = 0.4 * fontScaleForCurrentDevice();
     back.anchorPoint = ccp(0,0);
@@ -383,6 +384,10 @@
 
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
+    
+    Environment *environment = [[EnvironmentRepository sharedRepository] getEnvironment:animal.environment];
+    [[SoundManager sharedManager] playBackground:environment.bgMusic];
+    
     CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
     CCRepeatForever *bfscale = [CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]];
     
@@ -418,6 +423,7 @@
 
 -(void) productRetrievalStarted {
     apEvent(@"facts", @"freemium", @"product start");
+    [self enableTouches:NO];
 }
 
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data {
@@ -433,6 +439,7 @@
     [PurchaseViewController handleProductsRetrievedFail];
     apEvent(@"facts", @"freemium", @"product error");
     [self blurFadeLayer:NO withDuration:0.1];
+    [self enableTouches:YES];
 }
 
 -(BOOL) cancelClicked: (BOOL) buying {
@@ -455,6 +462,7 @@
         apEvent(@"facts", @"freemium", @"purchase fail");
         return NO;
     }
+    [self enableTouches:YES];
 }
 
 

@@ -9,6 +9,7 @@
 #import "CCVolumeMenuItem.h"
 #import "CCAutoScaling.h"
 #import "SoundManager.h"
+#import "AnalyticsPublisher.h"
 
 @interface CCVolumeMenuItem()
 -(float) getVolume;
@@ -33,7 +34,17 @@
     potentiometer.value = [self getVolume];
     potentiometer.position = ccp(self.contentSize.width * 1.12, 20);
     [potentiometer setBlock:^(id sender, CCControlEvent event) {
-        [self setVolume:((CCControlPotentiometer *)sender).value];
+        float volume = ((CCControlPotentiometer *)sender).value;
+        [self setVolume:volume];
+        NSString *vType;
+        
+        if (t == kMusicVolume)
+            vType = @"music";
+        else
+            vType = @"sound";
+        
+        NSString *sVol = [NSString stringWithFormat:@"%f", volume];
+        apEvent(@"volume", vType, sVol);
     } forControlEvents:CCControlEventValueChanged];
     potentiometer.scale = 0.7;
     [self addChild:potentiometer];

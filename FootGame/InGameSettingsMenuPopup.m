@@ -9,18 +9,21 @@
 #import "InGameSettingsMenuPopup.h"
 #import "CCButtonMenuItem.h"
 #import "LocalizationManager.h"
+#import "AnimalPartRepository.h"
 
 @implementation InGameSettingsMenuPopup
 
-+(id) inGameSettingsMenuPopupWithGoHomeBlock: (GoHomeBlock) ghBlock {
-    return [[[InGameSettingsMenuPopup alloc] initwithGoHomeBlock:ghBlock] autorelease];
++(id) inGameSettingsMenuPopupWithGoHomeBlock: (GoHomeBlock) ghBlock factPageBlock: (FactPageBlock) fpBlock forAnimalKey: (NSString *) key {
+    return [[[InGameSettingsMenuPopup alloc] initwithGoHomeBlock:ghBlock factPageBlock:fpBlock forAnimalKey:key] autorelease];
 }
 
--(id) initwithGoHomeBlock: (GoHomeBlock) ghBlock {
+-(id) initwithGoHomeBlock: (GoHomeBlock) ghBlock factPageBlock: (FactPageBlock) fpBlock forAnimalKey: (NSString *) key {
     CGSize size = CGSizeMake(650, 500);
     self = [super initWithSize:size];
     
     _goHome = [ghBlock copy];
+    _facts = [fpBlock copy];
+    _animalKey = [key retain];
     
     InGameSettingsMenuPopup *pointer = self;
     
@@ -38,13 +41,27 @@
     
     go.position = ccp(0,0);
     
+    CircleButton *factIcon = [CircleButton buttonWithFile:@"lips.png"];
+    factIcon.position = ccp(0,0);
+    factIcon.scale = 0.7;
+    
+    CCButtonMenuItem *fact = [CCButtonMenuItem itemWithButton: factIcon text:[NSString stringWithFormat:locstr(@"facts_about",@"strings",@""), [[[AnimalPartRepository sharedRepository] getAnimalByKey:_animalKey] localizedName]] block:^(id sender) {
+        if (pointer.opacity < 255)
+            return;
+        
+        [pointer hide];
+        pointer.facts(_animalKey);
+    }];
+    
+    fact.position = ccpToRatio(0, -homeIcon.contentSize.height);
+    
     CircleButton *narrationIcon = [CircleButton buttonWithFile:@"lips.png"];
     narrationIcon.position = ccp(0,0);
     narrationIcon.scale = 0.7;
     
     narration = [CCVolumeMenuItem buttonWithVolumeType:kSoundVolume button:narrationIcon text:locstr(@"sound_volume", @"strings", @"")];
     
-    narration.position = ccpToRatio(self.contentSize.width * 0.1, go.contentSize.height * 2);
+    narration.position = ccpToRatio(self.contentSize.width * 0.1, (self.contentSize.height * 0.8) + (-1 *(go.contentSize.height + fact.contentSize.height)));
     narration.opacity = 0;
     narration.visible = NO;
     
@@ -54,11 +71,11 @@
     
     music = [CCVolumeMenuItem buttonWithVolumeType:kMusicVolume button:musicIcon text:locstr(@"music_volume", @"strings", @"")];
     
-    music.position = ccpToRatio(self.contentSize.width * 0.1, go.contentSize.height * 2.9);
+    music.position = ccpToRatio(self.contentSize.width * 0.1, (self.contentSize.height * 0.8) + (-1 * (go.contentSize.height + fact.contentSize.height + narration.contentSize.height)));
     music.opacity = 0;
     music.visible = NO;
     
-    menu = [CCMenu menuWithItems:go, nil];
+    menu = [CCMenu menuWithItems:go, fact, nil];
     menu.position = ccp(self.contentSize.width * 0.1, self.contentSize.height * 0.8);
     menu.visible = NO;
     menu.isTouchEnabled = NO;
@@ -74,6 +91,14 @@
 -(void) dealloc {
     if (_goHome) {
         [_goHome release];
+    }
+    
+    if (_facts) {
+        [_facts release];
+    }
+    
+    if (_animalKey) {
+        [_animalKey release];
     }
     
     [super dealloc];
