@@ -173,6 +173,17 @@ static NSString *_sync = @"sync";
     return NO;
 }
 
+-(NSString *) ownedProducts {
+    NSMutableArray *products = [NSMutableArray array];
+    [productMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([self ownsProductId:key]) {
+            [products addObject:[key stringByReplacingOccurrencesOfString:@"com.alchemistinteractive.footgame." withString:@""]];
+        }
+    }];
+    
+    return [products componentsJoinedByString:@", "];
+}
+
 -(void) boughtProductId: (NSString *) productId {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"bought" forKey:productId];

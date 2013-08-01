@@ -10,13 +10,18 @@
 #import "CCAutoScalingSprite.h"
 #import "PurchaseViewController.h"
 #import "CCVolumeMenuItem.h"
+#import "FeedbackPrompt.h"
+#import "CCLabelTTFWithExtrude.h"
 
 @interface SettingsLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseDelegate, PurchaseViewDelegate> {
     PurchaseViewController *purchase;
     CCVolumeMenuItem *music;
     CCVolumeMenuItem *narration;
+    FeedbackPrompt *feedback;
 }
 
+@property (nonatomic, retain) CCLabelTTFWithExtrude *title;
+@property (nonatomic, retain) CCAutoScalingSprite *back;
 @property (nonatomic, retain) CCMenu *menu;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 

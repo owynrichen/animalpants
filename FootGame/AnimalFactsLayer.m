@@ -446,6 +446,7 @@
     [[CCDirector sharedDirector] resume];
     apEvent(@"facts", @"freemium", @"cancel click");
     [self blurFadeLayer:NO withDuration:0.1];
+    [self enableTouches:YES];
     [purchase.view removeFromSuperview];
     return NO;
 }

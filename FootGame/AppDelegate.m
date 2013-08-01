@@ -71,7 +71,6 @@
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Tiger"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -88,6 +87,13 @@
 	[[CCDirector sharedDirector] resume];
     [FBAppCall handleDidBecomeActive];
     [FBAppEvents activateApp];
+    
+    if ([FeedbackPrompt shouldShowRateDialog]) {
+        prompt = [[FeedbackPrompt alloc] init];
+        [prompt showRateThisAppAlert];
+    } else {
+        [FeedbackPrompt updateCountForPromptByOne:YES];
+    }
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -114,6 +120,9 @@
 
 - (void)dealloc {
 	[window_ release];
+    if (prompt != nil)
+        [prompt release];
+    
 	[super dealloc];
 }
 

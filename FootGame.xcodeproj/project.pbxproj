@@ -1211,6 +1211,9 @@
 		3684444817A6F92C009A59F6 /* rightarrow-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3684444417A6F92C009A59F6 /* rightarrow-ipadhd.png */; };
 		3684444917A6F92C009A59F6 /* rightarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3684444517A6F92C009A59F6 /* rightarrow.png */; };
 		3684448617A71CC2009A59F6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3684448517A71CC2009A59F6 /* FacebookSDK.framework */; };
+		3684448C17A948C5009A59F6 /* FeedbackPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3684448B17A948C3009A59F6 /* FeedbackPrompt.m */; };
+		3684448E17A9AE11009A59F6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3684448D17A9AE10009A59F6 /* MessageUI.framework */; };
+		3684449117AAA7FB009A59F6 /* NSString+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 3684449017AAA7FB009A59F6 /* NSString+NSHash.m */; };
 		36867946161C957300D98199 /* LocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36867945161C957300D98199 /* LocalizationManager.m */; };
 		3686798B16207A9E00D98199 /* Environment-Arctic2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3686794916207A9E00D98199 /* Environment-Arctic2.plist */; };
 		3686799016207A9E00D98199 /* Environment-BambooForest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3686795116207A9E00D98199 /* Environment-BambooForest.plist */; };
@@ -3712,6 +3715,11 @@
 		3684444417A6F92C009A59F6 /* rightarrow-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rightarrow-ipadhd.png"; path = "Resources/rightarrow-ipadhd.png"; sourceTree = "<group>"; };
 		3684444517A6F92C009A59F6 /* rightarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightarrow.png; path = Resources/rightarrow.png; sourceTree = "<group>"; };
 		3684448517A71CC2009A59F6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		3684448A17A948C2009A59F6 /* FeedbackPrompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackPrompt.h; sourceTree = "<group>"; };
+		3684448B17A948C3009A59F6 /* FeedbackPrompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackPrompt.m; sourceTree = "<group>"; };
+		3684448D17A9AE10009A59F6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3684448F17AAA7FB009A59F6 /* NSString+NSHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSHash.h"; sourceTree = "<group>"; };
+		3684449017AAA7FB009A59F6 /* NSString+NSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSHash.m"; sourceTree = "<group>"; };
 		36867944161C957300D98199 /* LocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationManager.h; sourceTree = "<group>"; };
 		36867945161C957300D98199 /* LocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationManager.m; sourceTree = "<group>"; };
 		3686794916207A9E00D98199 /* Environment-Arctic2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Arctic2.plist"; sourceTree = "<group>"; };
@@ -4511,6 +4519,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3684448E17A9AE11009A59F6 /* MessageUI.framework in Frameworks */,
 				369FC19A1752C50600DDC04F /* libChipmunk.a in Frameworks */,
 				36819427173361D200325B2B /* libcocos2d.a in Frameworks */,
 				36819428173361D200325B2B /* libCocosDenshion.a in Frameworks */,
@@ -5309,6 +5318,8 @@
 				362763B417662B8700E8F066 /* CCButtonMenuItem.m */,
 				3671A4AA1792F8E9000D5CCB /* CCLabelTTFWithExtrude.h */,
 				3671A4AB1792F8E9000D5CCB /* CCLabelTTFWithExtrude.m */,
+				3684448F17AAA7FB009A59F6 /* NSString+NSHash.h */,
+				3684449017AAA7FB009A59F6 /* NSString+NSHash.m */,
 			);
 			name = CCExtensions;
 			sourceTree = "<group>";
@@ -6209,6 +6220,7 @@
 		367EC2D1133A4780003F7FF0 = {
 			isa = PBXGroup;
 			children = (
+				3684448D17A9AE10009A59F6 /* MessageUI.framework */,
 				3681936617335FD400325B2B /* cocos2d-ios.xcodeproj */,
 				36F9BE90154AE6B000059C14 /* Entitlements.plist */,
 				366548DE166919530073B3BA /* SBJson */,
@@ -6273,6 +6285,8 @@
 				362DC03016CD4BD000881B32 /* CircleButton.m */,
 				362763B01765841700E8F066 /* EarFlagCircleButton.h */,
 				362763B11765841900E8F066 /* EarFlagCircleButton.m */,
+				3684448A17A948C2009A59F6 /* FeedbackPrompt.h */,
+				3684448B17A948C3009A59F6 /* FeedbackPrompt.m */,
 				362DC12F16D1F20100881B32 /* FlagCircleButton.h */,
 				362DC13016D1F20100881B32 /* FlagCircleButton.m */,
 				362DC13516D1FD0100881B32 /* FlagNode.h */,
@@ -10044,6 +10058,8 @@
 				364B116317761770005D97EA /* CCScale9Sprite.m in Sources */,
 				364B117F177621C3005D97EA /* CCVolumeMenuItem.m in Sources */,
 				3671A4AC1792F8E9000D5CCB /* CCLabelTTFWithExtrude.m in Sources */,
+				3684448C17A948C5009A59F6 /* FeedbackPrompt.m in Sources */,
+				3684449117AAA7FB009A59F6 /* NSString+NSHash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

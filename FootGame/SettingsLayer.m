@@ -20,6 +20,8 @@
 
 @implementation SettingsLayer
 
+@synthesize back;
+@synthesize title;
 @synthesize menu;
 @synthesize background;
 
@@ -46,12 +48,30 @@
     background = [CCAutoScalingSprite spriteWithFile:@"tropical.png"];
     background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
     
+    title = [CCLabelTTFWithExtrude labelWithString:locstr(@"settings", @"strings", @"") fontName:@"Rather Loud" fontSize:100 * fontScaleForCurrentDevice()];
+    [title setColor: ccc3(206, 216, 47)];
+    [title setExtrudeColor: ccc3(130, 141, 55)];
+    title.extrudeDepth = 20 * fontScaleForCurrentDevice();
+    [title drawExtrude];
+    
+    title.rotation = -8.0;
+    title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
+    
+    back = [CCAutoScalingSprite spriteWithFile:@"rightarrow.png"];
+    back.scaleX = -0.4 * fontScaleForCurrentDevice();
+    back.scaleY = 0.4 * fontScaleForCurrentDevice();
+    back.anchorPoint = ccp(0,0);
+    back.position = ccpToRatio(130, winSize.height - 100);
+    
     [CCMenuItemFont setFontSize:48 * fontScaleForCurrentDevice()];
+    [CCMenuItemFont setFontName:@"Rather Loud"];
+    
+    feedback = [[FeedbackPrompt alloc] init];
     
     menu = [CCMenu menuWithItems: nil];
 
     menu.anchorPoint = ccp(0,0);
-    menu.position = ccp(winSize.width * 0.1, winSize.height * 0.9);
+    menu.position = ccpToRatio(winSize.width * 0.1, 500);
     
     [self redrawMenu];
     
@@ -61,7 +81,7 @@
     
     narration = [CCVolumeMenuItem buttonWithVolumeType:kSoundVolume button:narrationIcon text:locstr(@"sound_volume", @"strings", @"")];
     
-    narration.position = ccpToRatio(winSize.width * 0.1, 500);
+    narration.position = ccpToRatio(winSize.width * 0.1, menu.position.y + (((int)[menu.children count]) * -46));
     
     CircleButton *musicIcon = [CircleButton buttonWithFile:@"music.png"];
     musicIcon.position = ccp(0,0);
@@ -69,9 +89,11 @@
     
     music = [CCVolumeMenuItem buttonWithVolumeType:kMusicVolume button:musicIcon text:locstr(@"music_volume", @"strings", @"")];
     
-    music.position = ccpToRatio(winSize.width * 0.1, 600);
+    music.position = ccpToRatio(winSize.width * 0.1, menu.position.y - narration.contentSize.height + (((int)[menu.children count]) * -46));
     
     [self addChild:background];
+    [self addChild:back];
+    [self addChild:title];
     [self addChild:menu];
     [self addChild:narration];
     [self addChild:music];
@@ -79,34 +101,53 @@
     return self;
 }
 
+-(void) dealloc {
+    [feedback release];
+    [super dealloc];
+}
+
 -(void) onEnter {
     apView(@"Settings View");
     [super onEnter];
 }
 
+-(void) onEnterTransitionDidFinish {
+    CCScaleBy *titleScale = [CCScaleBy actionWithDuration:0.5 scale:1.025];
+    
+    // TODO: make this bounce?
+    [title runAction:[CCRepeatForever actionWithAction:[CCSequence actions:titleScale, [titleScale reverse], nil]]];
+    
+    [title runAction:[CCSequence actions:
+                      [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 670)],
+                      nil]];
+    
+    [super onEnterTransitionDidFinish];
+}
+
 -(void) redrawMenu {
     [menu removeAllChildrenWithCleanup:YES];
-    
-    CCMenuItemFontWithStroke *back = [CCMenuItemFontWithStroke itemFromString:locstr(@"back", @"strings", @"Back") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
-    }];
-    back.anchorPoint = ccp(0,0);
-    back.position = ccp(0,0);
-    [menu addChild:back z:0 tag:1];
     
     CCMenuItemFontWithStroke *restore = [CCMenuItemFontWithStroke itemFromString:locstr(@"restore_purchases", @"strings", @"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
         [[InAppPurchaseManager instance] restorePurchases:self];
     }];
     restore.anchorPoint = ccp(0,0);
-    restore.position = ccp(0,-44);
+    restore.position = ccp(0,0);
     [menu addChild:restore z:0 tag:1];
+    
+    CCMenuItemFontWithStroke *fb = [CCMenuItemFontWithStroke itemFromString:locstr(@"send_feedback", @"strings", @"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+         [feedback showRateThisAppAlert];
+        
+    }];
+    fb.anchorPoint = ccp(0,0);
+    fb.position = ccp(0,-46);
+    [menu addChild:fb z:0 tag:1];
 
     if (![[PremiumContentStore instance] ownsProductId:PREMIUM_PRODUCT_ID]) {
         CCMenuItemFontWithStroke *buyAll = [CCMenuItemFontWithStroke itemFromString:locstr(@"buy", @"strings", @"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
             [[InAppPurchaseManager instance] getProducts:self withData:PREMIUM_PRODUCT_ID];
         }];
         buyAll.anchorPoint = ccp(0,0);
-        buyAll.position = ccp(0,-88);
+        buyAll.position = ccp(0,-92);
         [menu addChild:buyAll z:0 tag:1];
     }
 }
@@ -148,6 +189,7 @@
     apEvent(@"purchase", @"restore fail", productId);
     [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     
+    apView(@"Settings Purchase Error Dialog");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_buy_error_title", @"strings", @"")
                                                     message:locstr(@"product_buy_error_desc", @"strings", @"")
                                                    delegate:nil

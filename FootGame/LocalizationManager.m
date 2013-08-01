@@ -121,6 +121,10 @@ static NSString *_sync = @"";
     return [loc.localeIdentifier substringToIndex:2];
 }
 
+-(NSString *) getSystemLocale {
+    return ((NSLocale *) [NSLocale currentLocale]).localeIdentifier;
+}
+
 -(NSLocale *) getAppPreferredNSLocale {
     NSString *appLocale = (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_KEY_PREFERRED_LOCALE];
     

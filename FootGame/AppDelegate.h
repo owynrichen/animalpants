@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeedbackPrompt.h"
 
 @class RootViewController;
 
@@ -14,6 +15,7 @@
     CCDirector          *director_;
 	UIWindow			*window_;
     UINavigationController *navController_;
+    FeedbackPrompt *prompt;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;

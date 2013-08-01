@@ -11,10 +11,12 @@
 #import "PremiumContentStore.h"
 
 #define PROMO_LIST_URL @"http://www.alchemistkids.com/index.php/apantspcodes/1cbd27a7c9c01a865a13386b3fb27db7/list/json"
+#define PROMO_ATTEMPTS_KEY @"AttemptedPromoCodes"
 
 @interface PromotionCodeManager()
 
 -(NSArray *) getDataFromServer: (id<PromotionCodeDelegate>) del withError: (NSError **) error;
+-(void) storeCodeAttempt: (NSString *) code success:(BOOL) success currentAvailableCodes: (NSArray *) codes;
 
 @end
 
@@ -41,10 +43,12 @@ static NSString *_sync = @"sync";
     }
     
     NSError *error = nil;
+    code = [code lowercaseString];
     
     // Test code to clear products
     if ([code isEqualToString:@"!clear"]) {
         [[PremiumContentStore instance] returnAllProducts];
+        [self storeCodeAttempt:code success:YES currentAvailableCodes:[NSArray arrayWithObject:@"cleared products"]];
         
         if (del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:success:)]) {
             [del usePromotionCodeSuccess: nil success:YES];
@@ -55,6 +59,8 @@ static NSString *_sync = @"sync";
     NSArray *codes = [self getDataFromServer:del withError:&error];
     
     if (error != nil) {
+        [self storeCodeAttempt:code success:NO currentAvailableCodes:[NSArray arrayWithObject:[error description]]];
+        
         if (del != nil && [del respondsToSelector:@selector(usePromotionCodeError:error:)]) {
             [del usePromotionCodeError:nil error:error];
         }
@@ -68,10 +74,10 @@ static NSString *_sync = @"sync";
         NSLog(@"checking code '%@' against promo '%@' - %@", code, promoCode.code, promoCode.productId);
         
         if ([promoCode isValid]) {
-            if ([[promoCode.code lowercaseString] isEqualToString:[code lowercaseString]]) {
+            if ([[promoCode.code lowercaseString] isEqualToString:code]) {
                 
                 [[PremiumContentStore instance] boughtProductId:promoCode.productId];
-                
+                [self storeCodeAttempt:code success:YES currentAvailableCodes:codes];
                 if (del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:success:)]) {
                     [del usePromotionCodeSuccess: nil success:YES];
                 }
@@ -81,16 +87,54 @@ static NSString *_sync = @"sync";
             }
         } else {
             NSLog(@"Promo code %@ isn't valid %@ - %@-%@", promoCode.code, [[NSDate date] description], [promoCode.startDate description], [promoCode.endDate description]);
-            
             codeSuccess = NO;
-            *stop = YES;
         }
     }];
     
-    if (!codeSuccess && del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:success:)]) {
-        [del usePromotionCodeSuccess: nil success:NO];
-        return;
+    if (!codeSuccess) {
+        [self storeCodeAttempt:code success:NO currentAvailableCodes:codes];
+        if (del != nil && [del respondsToSelector:@selector(usePromotionCodeSuccess:success:)]) {
+            [del usePromotionCodeSuccess: nil success:NO];
+        }
     }
+}
+
+-(void) storeCodeAttempt:(NSString *) code success:(BOOL)success currentAvailableCodes: (NSArray *) codes {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *d = [ud dictionaryForKey:PROMO_ATTEMPTS_KEY];
+    NSMutableDictionary *md;
+    
+    if (d == nil) {
+        md = [NSMutableDictionary dictionary];
+    } else {
+        md = [d mutableCopy];
+    }
+    
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 code, @"code",
+                                 [NSString stringWithFormat:@"%i", success], @"success",
+                                 [[NSDate date] description], @"attempt_time",
+                                 [codes description], @"available_codes", nil];
+    
+    NSArray *a = [md objectForKey:code];
+    NSMutableArray *attempts;
+    
+    if (a == nil) {
+        attempts = [NSMutableArray array];
+    } else {
+        attempts = [a mutableCopy];
+    }
+    
+    [attempts addObject:[NSDictionary dictionaryWithDictionary:data]];
+    [md setObject:[NSArray arrayWithArray:attempts] forKey:code];
+    [ud setObject:[NSDictionary dictionaryWithDictionary:md] forKey:PROMO_ATTEMPTS_KEY];
+    [ud synchronize];
+}
+
+-(NSDictionary *) attemptedCodes {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *d = [ud dictionaryForKey:PROMO_ATTEMPTS_KEY];
+    return d;
 }
 
 -(NSArray *) getDataFromServer: (id<PromotionCodeDelegate>) del withError: (NSError **) error {
@@ -165,6 +209,28 @@ static NSString *_sync = @"sync";
     self.productId = (NSString *) [data objectForKey:@"product_id"];
     
     return self;
+}
+
+-(id) copyWithZone:(NSZone *)zone {
+    return [self toDict];
+}
+
+-(NSDictionary *) toDict {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 self.code, @"code",
+                                 self.productId, @"productId",
+                                 [formatter stringFromDate:self.startDate], @"startDate",
+                                 [formatter stringFromDate: self.endDate], @"endDate", nil];
+    
+    return dict;
+}
+
+-(NSString *) description {
+    return [[self toDict] description];
 }
 
 @end

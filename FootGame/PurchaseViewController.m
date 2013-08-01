@@ -105,6 +105,9 @@
     
     self.productName.text = product.localizedTitle;
     self.promoCodeField.placeholder = locstr(@"promocode", @"strings", "");
+    
+    NSString *viewString = [NSString stringWithFormat:@"Purchase View %@", product.productIdentifier];
+    apView(viewString);
 }
 
 - (void)didReceiveMemoryWarning
@@ -153,6 +156,7 @@
     
     NSLog(@"purchase failed");
     apEvent(@"purchase", @"fail", productId);
+    apView(@"Purchase Error Dialog");
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_buy_error_title", @"strings", @"")
                                                     message:locstr(@"product_buy_error_desc", @"strings", @"")
@@ -195,6 +199,8 @@
         apEvent(@"promo", @"success", promo.code);
     } else {
         apEvent(@"promo", @"fail", promo.code);
+        apView(@"Promotion Code Error Dialog");
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"invalid_promo_error_title", @"strings", @"")
                                                         message:locstr(@"invalid_promo_error_desc", @"strings", @"")
                                                        delegate:nil
@@ -223,6 +229,7 @@
     
     NSLog(@"promotion code failed");
     apEvent(@"promo", @"fail", promo.code);
+    apView(@"Promotion Code Error Dialog");
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"promo_code_error_title", @"strings", @"")
                                                     message:locstr(@"promo_code_error_desc", @"strings", @"")
@@ -386,6 +393,8 @@
 
 +(void) handleProductsRetrievedFail {
     [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+    apView(@"Product Retrieval Error Dialog");
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"product_fetch_error_title", @"strings", @"")
                                                     message:locstr(@"product_fetch_error_desc", @"strings", @"")
                                                    delegate:nil

@@ -49,7 +49,7 @@
 "play" = "Play!";
 "animals" = "Animals";
 "languages" = "Languages";
-"settings" = "Settings";
+"settings" = "Settings & Credits";
 "en" = "English";
 "es" = "Spanish";
 "fr" = "French";
@@ -60,7 +60,20 @@
 "facts_about" = "Facts about %@";  // example: Facts about Pedro
 "music_volume" = "Music Volume";
 "sound_volume" = "Sound Volume";
-
+"send_feedback" = "Send us feedback!";
+"like_animal_pants?" = "Like Animal Pants so far?"; // for the feedback dialog
+"like_animal_pants_details" = "We hope you like Animal Pants, if so, please rate it!  If not, please tell us how to make it better!";
+"yes" = "Yes";
+"no" = "No";
+"feedback_email_subject" = "Thoughts about Animal Pants";
+"technical_details" = "Technical Details"; // for the feedback email
+"encrypted_technical_details" = "Encrypted Technical Details"; // for the feedback email
+"thanks_for_feedback_title" = "Thanks for the Feedback!";
+"thanks_for_feedback_details" = "Thanks for helping us make Animal Pants better! We'll look at your issue and get back to you as soon as we can!";
+"feedback_submit_error_title" = "Feeback Submission Error";
+"feedback_submit_error_details" = "There was an issue when trying to send your feedback to us.  We really want to hear how to make Animal Pants better, so we're sorry about that, please try again soon.";
+"feedback_mail_unavailable_title" = "Email is Unavailable";
+"feedback_mail_unavailable_details" = "For some reason, sending email is not available on your device right now.  Please ensure you have an email account and it's enabled and send us what you think so we can make Animal Pants better!";
 /*
  
  Animal types

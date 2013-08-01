@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Promotion : NSObject
+@interface Promotion : NSObject<NSCopying>
 
 @property (nonatomic, retain) NSString *code;
 @property (nonatomic, retain) NSString *productId;
@@ -17,6 +17,7 @@
 
 -(BOOL) isValid;
 -(id) initWithDictionary: (NSDictionary *) data;
+-(NSDictionary *) toDict;
 
 @end
 
@@ -34,6 +35,7 @@
 +(PromotionCodeManager *) instance;
 
 -(void) usePromotionCode: (NSString *) code withDelegate: (id<PromotionCodeDelegate>) del;
+-(NSDictionary *) attemptedCodes;
 
 
 @end

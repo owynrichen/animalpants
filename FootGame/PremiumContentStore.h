@@ -24,5 +24,6 @@
 -(void) boughtProductId: (NSString *) productId;
 -(void) returnedProductId: (NSString *) productId;
 -(void) returnAllProducts;
+-(NSString *) ownedProducts;
 
 @end
