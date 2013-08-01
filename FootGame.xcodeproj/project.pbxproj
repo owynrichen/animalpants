@@ -1214,6 +1214,7 @@
 		3684448C17A948C5009A59F6 /* FeedbackPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3684448B17A948C3009A59F6 /* FeedbackPrompt.m */; };
 		3684448E17A9AE11009A59F6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3684448D17A9AE10009A59F6 /* MessageUI.framework */; };
 		3684449117AAA7FB009A59F6 /* NSString+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 3684449017AAA7FB009A59F6 /* NSString+NSHash.m */; };
+		3684449417AB004E009A59F6 /* CreditsNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3684449317AB004C009A59F6 /* CreditsNode.m */; };
 		36867946161C957300D98199 /* LocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36867945161C957300D98199 /* LocalizationManager.m */; };
 		3686798B16207A9E00D98199 /* Environment-Arctic2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3686794916207A9E00D98199 /* Environment-Arctic2.plist */; };
 		3686799016207A9E00D98199 /* Environment-BambooForest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3686795116207A9E00D98199 /* Environment-BambooForest.plist */; };
@@ -3720,6 +3721,8 @@
 		3684448D17A9AE10009A59F6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3684448F17AAA7FB009A59F6 /* NSString+NSHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSHash.h"; sourceTree = "<group>"; };
 		3684449017AAA7FB009A59F6 /* NSString+NSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSHash.m"; sourceTree = "<group>"; };
+		3684449217AB004A009A59F6 /* CreditsNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsNode.h; sourceTree = "<group>"; };
+		3684449317AB004C009A59F6 /* CreditsNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsNode.m; sourceTree = "<group>"; };
 		36867944161C957300D98199 /* LocalizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationManager.h; sourceTree = "<group>"; };
 		36867945161C957300D98199 /* LocalizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationManager.m; sourceTree = "<group>"; };
 		3686794916207A9E00D98199 /* Environment-Arctic2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Environment-Arctic2.plist"; sourceTree = "<group>"; };
@@ -6283,6 +6286,8 @@
 				364B077615A50E510054E69A /* BaseRepository.m */,
 				362DC02F16CD4BCF00881B32 /* CircleButton.h */,
 				362DC03016CD4BD000881B32 /* CircleButton.m */,
+				3684449217AB004A009A59F6 /* CreditsNode.h */,
+				3684449317AB004C009A59F6 /* CreditsNode.m */,
 				362763B01765841700E8F066 /* EarFlagCircleButton.h */,
 				362763B11765841900E8F066 /* EarFlagCircleButton.m */,
 				3684448A17A948C2009A59F6 /* FeedbackPrompt.h */,
@@ -10060,6 +10065,7 @@
 				3671A4AC1792F8E9000D5CCB /* CCLabelTTFWithExtrude.m in Sources */,
 				3684448C17A948C5009A59F6 /* FeedbackPrompt.m in Sources */,
 				3684449117AAA7FB009A59F6 /* NSString+NSHash.m in Sources */,
+				3684449417AB004E009A59F6 /* CreditsNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "CCVolumeMenuItem.h"
 #import "FeedbackPrompt.h"
 #import "CCLabelTTFWithExtrude.h"
+#import "CreditsNode.h"
 
 @interface SettingsLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseDelegate, PurchaseViewDelegate> {
     PurchaseViewController *purchase;
@@ -24,6 +25,7 @@
 @property (nonatomic, retain) CCAutoScalingSprite *back;
 @property (nonatomic, retain) CCMenu *menu;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
+@property (nonatomic, retain) CreditsNode *credits;
 
 +(CCScene *) scene;
 

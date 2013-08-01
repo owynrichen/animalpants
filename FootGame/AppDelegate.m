@@ -18,6 +18,7 @@
 #import "MainMenuLayer.h"
 #import "AnalyticsPublisher.h"
 #import "GoodbyeLayer.h"
+#import "SettingsLayer.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 #import "chipmunk.h"
@@ -67,7 +68,7 @@
     // [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
 
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
-    // [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
+    // [[CCDirector sharedDirector] runWithScene: [SettingsLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Tiger"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];

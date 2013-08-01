@@ -73,7 +73,7 @@
 "feedback_submit_error_title" = "Feeback Submission Error";
 "feedback_submit_error_details" = "There was an issue when trying to send your feedback to us.  We really want to hear how to make Animal Pants better, so we're sorry about that, please try again soon.";
 "feedback_mail_unavailable_title" = "Email is Unavailable";
-"feedback_mail_unavailable_details" = "For some reason, sending email is not available on your device right now.  Please ensure you have an email account and it's enabled and send us what you think so we can make Animal Pants better!";
+"feedback_mail_unavailable_details" = "For some reason, sending email is not available on your device right now.  Please ensure you have an email account and that it's enabled so you can send us what you think so we can make Animal Pants better!";
 /*
  
  Animal types
@@ -376,3 +376,83 @@
 "elephant_fact_location_details" = "Olly prefers to live in savannas and forests in sub-Saharan Africa";
 "elephant_fact_photo" = "This is Olly's friend, Terrance";
 "elephant_fact_photo_details" = "Terrance is also an African elephant, but he's got cousins from India too.";
+
+/*
+ 
+ Credits
+ 
+ */
+
+"credits_markup" = "
+<h>AlchemistKids is...
+
+Owyn Richen
+Mike Kocher
+James Salvatore
+
+<h>Original Concept by
+Jonathan Tweet
+
+<h>Illustrations
+Alessandro Vene
+
+<h>Design
+Suyrn Longbotham
+
+<h>Music
+Reuben Chng
+
+<h>Programming
+Owyn Richen
+
+<h>English Narration
+Joanne Nott
+
+<h>Spanish Narration
+Nikolai Gutierrez Anthron
+
+<h>French Narration
+David Delevoye
+
+<h>German Narration
+Tod ???
+
+<h>Translators
+Nikolai Gutierrez Anthron
+David Delevoye
+Tod ???
+
+<h>Marketing
+Mike Kocher
+James Salvatore
+
+<h>Coordination
+Mike Kocher
+James Salvatore
+
+<h>Quality Assurance
+Mike Kocher
+James Salvatore
+Owyn Richen
+
+<h>Additional Illustrations
+Owyn Richen
+
+<h>With help from
+Troy Morris
+Michael Bolling
+The folks who work on Cocos2D
+Chris Laurel
+Solomon English
+
+<h>Other stuff
+Someone
+Someone else
+Someone even cooler than that
+Your Mom
+
+<h>Thanks!
+To our families who have put
+up with us and inspired us
+to build this game!
+";

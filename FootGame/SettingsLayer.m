@@ -24,6 +24,7 @@
 @synthesize title;
 @synthesize menu;
 @synthesize background;
+@synthesize credits;
 
 +(CCScene *) scene
 {
@@ -63,6 +64,24 @@
     back.anchorPoint = ccp(0,0);
     back.position = ccpToRatio(130, winSize.height - 100);
     
+    __block SettingsLayer *pointer = self;
+
+    [back addEvent:@"touch" withBlock:^(CCNode * sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.6 scaleY:0.6]];
+    }];
+    
+    [back addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scaleX:-0.4 scaleY:0.4]];
+    }];
+    
+    [back addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[MainMenuLayer scene] backwards:true]];
+        }];
+    }];
+    
     [CCMenuItemFont setFontSize:48 * fontScaleForCurrentDevice()];
     [CCMenuItemFont setFontName:@"Rather Loud"];
     
@@ -93,7 +112,7 @@
     
     [self addChild:background];
     [self addChild:back];
-    [self addChild:title];
+    [self addChild:title z:100];
     [self addChild:menu];
     [self addChild:narration];
     [self addChild:music];
@@ -108,6 +127,11 @@
 
 -(void) onEnter {
     apView(@"Settings View");
+    
+    credits = [CreditsNode node];
+    credits.position = ccpToRatio(1024 * 0.95 - (credits.contentSize.width / 2), 0);
+    [self addChild:credits];
+    
     [super onEnter];
 }
 
@@ -120,6 +144,10 @@
     [title runAction:[CCSequence actions:
                       [CCMoveTo actionWithDuration:0.50 position:ccpToRatio(512, 670)],
                       nil]];
+    
+    CGFloat duration = (credits.contentSize.height + 768) / 768 * 20;
+    
+    [credits runAction:[CCMoveTo actionWithDuration:duration position:ccpToRatio(credits.position.x, credits.contentSize.height + 768)]];
     
     [super onEnterTransitionDidFinish];
 }

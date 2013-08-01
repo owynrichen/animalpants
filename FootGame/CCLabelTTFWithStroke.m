@@ -63,9 +63,11 @@
 {
 	CCRenderTexture* rt = [CCRenderTexture renderTextureWithWidth:label.texture.contentSize.width+size*2 height:label.texture.contentSize.height+size*2];
 	CGPoint originalPos = [label position];
+    CGPoint originalAnchor = [label anchorPoint];
 	ccColor3B originalColor = [label color];
 	BOOL originalVisibility = [label visible];
 	[label setColor:cor];
+    [label setAnchorPoint:ccp(0.0,0.0)];
 	[label setVisible:YES];
 	ccBlendFunc originalBlend = [label blendFunc];
 	[label setBlendFunc:(ccBlendFunc) { GL_SRC_ALPHA, GL_ONE }];
@@ -81,10 +83,12 @@
 	}
 	[rt end];
 	[label setPosition:originalPos];
+    [label setAnchorPoint:originalAnchor];
 	[label setColor:originalColor];
 	[label setBlendFunc:originalBlend];
 	[label setVisible:originalVisibility];
 	[rt setPosition:position];
+    [rt setAnchorPoint:originalAnchor];
     [rt.sprite.texture setAntiAliasTexParameters];
     
 	return rt;

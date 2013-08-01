@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FacebookDisplayName</key>
-	<string>Animal Pants</string>
-	<key>FacebookAppID</key>
-	<string>224682804348182</string>
-	<key>Schemes</key>
-	<array>
-		<string>fb224682804348182</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -31,7 +23,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>23</string>
+	<key>FacebookAppID</key>
+	<string>224682804348182</string>
+	<key>FacebookDisplayName</key>
+	<string>Animal Pants</string>
 	<key>Icon files</key>
 	<array>
 		<string>Icon.png</string>
@@ -43,6 +39,15 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>Schemes</key>
+	<array>
+		<string>fb224682804348182</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Mill.ttf</string>
+		<string>ratherloud.ttf</string>
+	</array>
 	<key>UILaunchImageFile~ipad</key>
 	<string>AlchemistKids.png</string>
 	<key>UILaunchImageFile~iphone</key>
@@ -60,11 +65,6 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Mill.ttf</string>
-		<string>ratherloud.ttf</string>
 	</array>
 </dict>
 </plist>
