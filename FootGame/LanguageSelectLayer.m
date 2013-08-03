@@ -7,7 +7,7 @@
 //
 
 #import "LanguageSelectLayer.h"
-#import "CCMenuItemFontWithStroke.h"
+#import "CCButtonMenuItem.h"
 #import "MainMenuLayer.h"
 #import "LocalizationManager.h"
 #import "PremiumContentStore.h"
@@ -118,8 +118,8 @@
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    menu.anchorPoint = ccp(0,0);
-    menu.position = ccp(winSize.width * 0.5, winSize.height * 0.6);
+//     menu.anchorPoint = ccp(0,0);
+    menu.position = ccp(winSize.width * 0.3, winSize.height * 0.6);
     
     __block int count = 0;
     __block LanguageSelectLayer *pointer = self;
@@ -133,7 +133,11 @@
             langStr = [NSString stringWithFormat:@"%@ - %@", langStr, locstr(@"buy", @"strings","")];
         }
         
-        CCMenuItemFontWithStroke *item = [CCMenuItemFontWithStroke itemFromString:langStr color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        FlagCircleButton *flag = [FlagCircleButton buttonWithLanguageCode: lang];
+        flag.position = ccp(0,0);
+        flag.scale = 0.7;
+        
+        CCButtonMenuItem *item = [CCButtonMenuItem itemWithButton: flag text: langStr block:^(id sender) {
                 NSString *l = ((CCNode *)sender).userData;
                 BOOL o = [[PremiumContentStore instance] ownsProductId:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
                 if (o == YES) {
@@ -160,7 +164,7 @@
         }];
         
         item.userData = lang;
-        item.position = ccp(0, -54 * count * fontScaleForCurrentDevice());
+        item.position = ccp(0, -item.contentSize.height * 1.05 * count * fontScaleForCurrentDevice());
         count++;
         [menu addChild:item z:0 tag:1];
     }

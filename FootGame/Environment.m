@@ -164,6 +164,8 @@
         node.rotation = [rot floatValue];
     }
     
+    node.userData = parameters;
+    
     if ([node.class conformsToProtocol:@protocol(BehaviorManagerDelegate)]) {
         [self applyBehaviors:parameters toNode:(CCNode<BehaviorManagerDelegate> *) node];
     } else {

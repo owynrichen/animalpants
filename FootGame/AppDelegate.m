@@ -65,7 +65,7 @@
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
     
     // TODO: delete this when we launch
-    // [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
+    [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
 
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [SettingsLayer scene]];

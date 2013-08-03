@@ -13,7 +13,9 @@
 -(CCAction *) shake: (NSDictionary *) params {
     CCMoveBy *shakeUp = [CCMoveBy actionWithDuration:0.1 position:ccpToRatio(0, -10)];
     CCMoveBy *shakeDown = (CCMoveBy *) [shakeUp reverse];
-    CCSequence *shake = [CCSequence actions:shakeUp, shakeDown, shakeUp, shakeDown, nil];
+    CCMoveTo *reset =[CCMoveTo actionWithDuration:0.1 position:CGPointMake([((NSNumber *)[params objectForKey:@"original_x"]) floatValue], [((NSNumber *)[params objectForKey:@"original_y"]) floatValue])];
+
+    CCSequence *shake = [CCSequence actions:reset, shakeUp, shakeDown, shakeUp, shakeDown, nil];
     shake.tag = BEHAVIOR_TAG_SHAKE;
     return shake;
 }

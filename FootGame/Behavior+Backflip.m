@@ -11,19 +11,18 @@
 @implementation Behavior(Backflip)
 
 -(CCAction *) backflip: (NSDictionary *) params {
-    __block CGPoint origAnchor;
-    __block CGPoint origPosition;
+    __block CGPoint origPosition = CGPointMake([((NSNumber *)[params objectForKey:@"original_x"]) floatValue], [((NSNumber *)[params objectForKey:@"original_y"]) floatValue]);
+    __block CGFloat origRotate = [((NSNumber *) [params objectForKey:@"original_rotate"]) floatValue];
     
     CCCallBlockN *centerAnchor = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        origAnchor = node.anchorPoint;
-        origPosition = node.position;
         node.anchorPoint = ccp(0.5,0.5);
         node.position = ccp((node.contentSize.width * node.scaleX / 2) + node.position.x, (node.contentSize.height * node.scaleY / 2) + node.position.y);
     }];
     
     CCCallBlockN *resetAnchor = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        node.anchorPoint = origAnchor;
+        node.anchorPoint = ccp(0,0);
         node.position = origPosition;
+        node.rotation = origRotate;
     }];
     
     CGPoint jump = ccpToRatio(0, 100);

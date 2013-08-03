@@ -174,17 +174,21 @@ static NSString *__sync = @"sync";
     
     CCSequence *jeepSeq = [CCSequence actions:[CCMoveTo actionWithDuration:t * 0.10 position:ccpToRatio(400, 280)],
                            [CCDelayTime actionWithDuration:t * 0.70],
+//                           [CCCallBlockN actionWithBlock:^(CCNode *node) {
+//                                CCTexture2D *back = [[CCTextureCache sharedTextureCache] addImage:@"jeep-back.png"];
+//                                [jeep setTexture:back];
+//                                [jeep setTextureRect:CGRectMake(0,0,back.contentSize.width,back.contentSize.height) rotated:NO untrimmedSize:back.contentSize];
+//                                jeep.scale = 2.0;
+//                                [jeep removeAllChildrenWithCleanup:YES];
+//                                [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:0.3]];
+//                                [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(1200, 380)], [CCCallBlockN actionWithBlock:^(CCNode *node) {
+//                                    [pointer nextScene];
+//                                }], nil]];
+//                            }],
+                           [CCMoveTo actionWithDuration:t * 0.2 position:ccpToRatio(1500, 280)],
                            [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                                CCTexture2D *back = [[CCTextureCache sharedTextureCache] addImage:@"jeep-back.png"];
-                                [jeep setTexture:back];
-                                [jeep setTextureRect:CGRectMake(0,0,back.contentSize.width,back.contentSize.height) rotated:NO untrimmedSize:back.contentSize];
-                                jeep.scale = 2.0;
-                                [jeep removeAllChildrenWithCleanup:YES];
-                                [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:0.3]];
-                                [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(1200, 380)], [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                                    [pointer nextScene];
-                                }], nil]];
-                            }],
+                                [pointer nextScene];
+                           }],
                            nil];
     
     [jeep runAction:jeepSeq];

@@ -53,7 +53,7 @@
         pointer.facts(_animalKey);
     }];
     
-    fact.position = ccpToRatio(0, -homeIcon.contentSize.height);
+    fact.position = ccpToRatio(0, -go.contentSize.height);
     
     CircleButton *narrationIcon = [CircleButton buttonWithFile:@"lips.png"];
     narrationIcon.position = ccp(0,0);
@@ -61,7 +61,7 @@
     
     narration = [CCVolumeMenuItem buttonWithVolumeType:kSoundVolume button:narrationIcon text:locstr(@"sound_volume", @"strings", @"")];
     
-    narration.position = ccpToRatio(self.contentSize.width * 0.1, (self.contentSize.height * 0.8) + (-1 *(go.contentSize.height + fact.contentSize.height)));
+    narration.position = ccpToRatio(self.contentSize.width * 0.1, (self.contentSize.height * 0.8) + (-1 * (go.contentSize.height + fact.contentSize.height)));
     narration.opacity = 0;
     narration.visible = NO;
     

@@ -90,7 +90,7 @@
     menu = [CCMenu menuWithItems: nil];
 
     menu.anchorPoint = ccp(0,0);
-    menu.position = ccpToRatio(winSize.width * 0.1, 500);
+    menu.position = ccpToRatio(winSize.width * 0.05, 450);
     
     [self redrawMenu];
     
@@ -100,7 +100,7 @@
     
     narration = [CCVolumeMenuItem buttonWithVolumeType:kSoundVolume button:narrationIcon text:locstr(@"sound_volume", @"strings", @"")];
     
-    narration.position = ccpToRatio(winSize.width * 0.1, menu.position.y + (((int)[menu.children count]) * -46));
+    narration.position = ccpToRatio(winSize.width * 0.05, menu.position.y + (((int)[menu.children count]) * -narration.contentSize.height));
     
     CircleButton *musicIcon = [CircleButton buttonWithFile:@"music.png"];
     musicIcon.position = ccp(0,0);
@@ -108,7 +108,7 @@
     
     music = [CCVolumeMenuItem buttonWithVolumeType:kMusicVolume button:musicIcon text:locstr(@"music_volume", @"strings", @"")];
     
-    music.position = ccpToRatio(winSize.width * 0.1, menu.position.y - narration.contentSize.height + (((int)[menu.children count]) * -46));
+    music.position = ccpToRatio(winSize.width * 0.05, menu.position.y - narration.contentSize.height + (((int)[menu.children count]) * -narration.contentSize.height));
     
     [self addChild:background];
     [self addChild:back];
@@ -155,27 +155,39 @@
 -(void) redrawMenu {
     [menu removeAllChildrenWithCleanup:YES];
     
-    CCMenuItemFontWithStroke *restore = [CCMenuItemFontWithStroke itemFromString:locstr(@"restore_purchases", @"strings", @"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CircleButton *restoreIcon = [CircleButton buttonWithFile:@"lips.png"];
+    restoreIcon.position = ccp(0,0);
+    restoreIcon.scale = 0.7;
+    
+    CCButtonMenuItem *restore = [CCButtonMenuItem itemWithButton: restoreIcon text:locstr(@"restore_purchases", @"strings", @"") block:^(id sender) {
         [[InAppPurchaseManager instance] restorePurchases:self];
     }];
     restore.anchorPoint = ccp(0,0);
     restore.position = ccp(0,0);
     [menu addChild:restore z:0 tag:1];
     
-    CCMenuItemFontWithStroke *fb = [CCMenuItemFontWithStroke itemFromString:locstr(@"send_feedback", @"strings", @"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+    CircleButton *fbIcon = [CircleButton buttonWithFile:@"lips.png"];
+    fbIcon.position = ccp(0,0);
+    fbIcon.scale = 0.7;
+    
+    CCButtonMenuItem *fb = [CCButtonMenuItem itemWithButton: fbIcon text:locstr(@"send_feedback", @"strings", @"") block:^(id sender) {
          [feedback showRateThisAppAlert];
         
     }];
     fb.anchorPoint = ccp(0,0);
-    fb.position = ccp(0,-46);
+    fb.position = ccp(0,-restore.contentSize.height);
     [menu addChild:fb z:0 tag:1];
 
     if (![[PremiumContentStore instance] ownsProductId:PREMIUM_PRODUCT_ID]) {
-        CCMenuItemFontWithStroke *buyAll = [CCMenuItemFontWithStroke itemFromString:locstr(@"buy", @"strings", @"") color:MENU_COLOR strokeColor:MENU_STROKE strokeSize:(4 * fontScaleForCurrentDevice()) block:^(id sender) {
+        CircleButton *buyIcon = [CircleButton buttonWithFile:@"lips.png"];
+        buyIcon.position = ccp(0,0);
+        buyIcon.scale = 0.7;
+        
+        CCButtonMenuItem *buyAll = [CCButtonMenuItem itemWithButton: buyIcon text:locstr(@"buy", @"strings", @"") block:^(id sender) {
             [[InAppPurchaseManager instance] getProducts:self withData:PREMIUM_PRODUCT_ID];
         }];
         buyAll.anchorPoint = ccp(0,0);
-        buyAll.position = ccp(0,-92);
+        buyAll.position = ccp(0,-restore.contentSize.height -fb.contentSize.height);
         [menu addChild:buyAll z:0 tag:1];
     }
 }

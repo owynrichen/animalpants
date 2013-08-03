@@ -20,7 +20,7 @@ typedef void (^FactPageBlock)(NSString *animalKey);
 
 @property (nonatomic) GoHomeBlock goHome;
 @property (nonatomic) FactPageBlock facts;
-@property (nonatomic) NSString *animalKey;
+@property (nonatomic, retain) NSString *animalKey;
 
 +(id) inGameSettingsMenuPopupWithGoHomeBlock: (GoHomeBlock) ghBlock factPageBlock: (FactPageBlock) fpBlock forAnimalKey: (NSString *) key;
 -(id) initwithGoHomeBlock: (GoHomeBlock) ghBlock factPageBlock: (FactPageBlock) fpBlock  forAnimalKey: (NSString *) key;

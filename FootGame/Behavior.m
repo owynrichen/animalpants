@@ -37,9 +37,19 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *) [data objectForKey:@"params"]];
     [params setObject:node forKey:@"node"];
     
-    
-    
     [params setValuesForKeysWithDictionary:p];
+    
+    NSDictionary *origParams = (NSDictionary *) node.userData;
+    NSDictionary *origPos = [origParams objectForKey:@"position"];
+    [params setObject:[origPos objectForKey:@"x"] forKey:@"original_x"];
+    [params setObject:[origPos objectForKey:@"y"] forKey:@"original_y"];
+    
+    NSNumber *origRotation = [origParams objectForKey:@"rotate"];
+    if (origRotation == nil) {
+        origRotation = [NSNumber numberWithFloat:0.0];
+    }
+    
+    [params setObject:origRotation forKey:@"original_rotate"];
 
     SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@:", action]);
     CCAction *act = nil;

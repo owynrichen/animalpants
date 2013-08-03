@@ -6223,7 +6223,6 @@
 		367EC2D1133A4780003F7FF0 = {
 			isa = PBXGroup;
 			children = (
-				3684448D17A9AE10009A59F6 /* MessageUI.framework */,
 				3681936617335FD400325B2B /* cocos2d-ios.xcodeproj */,
 				36F9BE90154AE6B000059C14 /* Entitlements.plist */,
 				366548DE166919530073B3BA /* SBJson */,
@@ -6245,6 +6244,7 @@
 		367EC2DF133A4782003F7FF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3684448D17A9AE10009A59F6 /* MessageUI.framework */,
 				3684448517A71CC2009A59F6 /* FacebookSDK.framework */,
 				3612EA8B16D71F35009B6FC9 /* CoreLocation.framework */,
 				3625983E1677C7E200E1D3A0 /* libGoogleAnalytics.a */,

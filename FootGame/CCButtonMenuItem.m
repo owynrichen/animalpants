@@ -29,12 +29,13 @@
     label.color = MENU_COLOR;
     label.strokeColor = MENU_STROKE;
     label.anchorPoint = ccp(0, -0.5);
-    label.position = ccpToRatio(button.contentSize.width * 1.05, 0);
+    [label drawStroke];
+    label.position = ccpToRatio(button.contentSize.width * 1.02, -label.contentSize.height / 4);
     [self addChild:label];
     originalScale = 1.0;
     
-    self.contentSize = CGSizeMake(button.contentSize.width * 1.05 + label.contentSize.width,
-                                  button.contentSize.height);
+    self.contentSize = CGSizeMake(button.contentSize.width * button.scaleX * 1.02 + label.contentSize.width,
+                                  button.contentSize.height * button.scaleY);
     
     return self;
 }

@@ -32,7 +32,7 @@
                                                                               thumbFile:@"potentiometerButton.png"];
     
     potentiometer.value = [self getVolume];
-    potentiometer.position = ccp(self.contentSize.width * 1.12, 20);
+    potentiometer.position = ccp(360, 20);
     [potentiometer setBlock:^(id sender, CCControlEvent event) {
         float volume = ((CCControlPotentiometer *)sender).value;
         [self setVolume:volume];
