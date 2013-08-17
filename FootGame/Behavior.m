@@ -48,8 +48,17 @@
     if (origRotation == nil) {
         origRotation = [NSNumber numberWithFloat:0.0];
     }
-    
     [params setObject:origRotation forKey:@"original_rotate"];
+    
+    NSDictionary *origScale = [origParams objectForKey:@"scale"];
+    
+    if (origScale == nil) {
+        [params setObject:[NSNumber numberWithFloat:1.0] forKey:@"original_scaleX"];
+        [params setObject:[NSNumber numberWithFloat:1.0] forKey:@"original_scaleY"];
+    } else {
+        [params setObject:[origScale objectForKey:@"x"] forKey:@"original_scaleX"];
+        [params setObject:[origScale objectForKey:@"y"] forKey:@"original_scaleY"];
+    }
 
     SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@:", action]);
     CCAction *act = nil;
@@ -78,6 +87,31 @@
 
 -(CGPoint) randXYWithBase: (CGPoint) base deviation: (CGPoint) dev {
     return CGPointMake([self randWithBase:base.x deviation:dev.x], [self randWithBase:base.y deviation:dev.y]);
+}
+
+
+-(CGPoint) getOriginalPosition: (NSDictionary *) params {
+    return CGPointMake([((NSNumber *)[params objectForKey:@"original_x"]) floatValue], [((NSNumber *)[params objectForKey:@"original_y"]) floatValue]);
+}
+
+-(float) getOriginalRotation: (NSDictionary *) params {
+    return [((NSNumber *) [params objectForKey:@"original_rotate"]) floatValue];
+}
+
+-(CCFiniteTimeAction *) resetPositionAction: (NSDictionary *) params {
+    return [CCMoveTo actionWithDuration:0.1 position: [self getOriginalPosition:params]];
+}
+
+-(CCFiniteTimeAction *) resetRotationAction: (NSDictionary *) params {
+    return [CCRotateTo actionWithDuration:0.1 angle:[self getOriginalRotation:params]];
+}
+
+-(CCFiniteTimeAction *) resetScaleAction: (NSDictionary *) params {
+    return [CCScaleTo actionWithDuration:0.1 scaleX:[((NSNumber *) [params objectForKey:@"original_scaleX"]) floatValue] scaleY:[((NSNumber *) [params objectForKey:@"original_scaleY"]) floatValue]];
+}
+
+-(CCFiniteTimeAction *) resetNodeAction:(NSDictionary *)params {
+    return [CCSpawn actions:[self resetPositionAction:params], [self resetRotationAction:params], [self resetScaleAction:params], nil];
 }
 
 @end

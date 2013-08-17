@@ -24,4 +24,12 @@
 -(float) randWithBase: (float) base deviation: (float) dev;
 -(CGPoint) randXYWithBase: (CGPoint) base deviation: (CGPoint) dev;
 
+-(CGPoint) getOriginalPosition: (NSDictionary *) params;
+-(float) getOriginalRotation: (NSDictionary *) params;
+
+-(CCFiniteTimeAction *) resetPositionAction: (NSDictionary *) params;
+-(CCFiniteTimeAction *) resetRotationAction: (NSDictionary *) params;
+-(CCFiniteTimeAction *) resetScaleAction: (NSDictionary *) params;
+-(CCFiniteTimeAction *) resetNodeAction: (NSDictionary *) params;
+
 @end

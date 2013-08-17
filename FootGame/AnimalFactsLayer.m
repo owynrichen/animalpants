@@ -447,8 +447,13 @@
     apEvent(@"facts", @"freemium", @"cancel click");
     [self blurFadeLayer:NO withDuration:0.1];
     [self enableTouches:YES];
-    [purchase.view removeFromSuperview];
-    return NO;
+    
+    if (!buying) {
+        [purchase.view removeFromSuperview];
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 -(BOOL) purchaseFinished: (BOOL) success {

@@ -2,6 +2,112 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GrassSemiFg2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>tree_shake.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Windy</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>windyGrass</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>5</integer>
+		<key>imageName</key>
+		<string>savannah3_grass_semi_fg.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>211</integer>
+		</dict>
+	</dict>
+	<key>Rock2</key>
+	<dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>imageName</key>
+		<string>savannah3_rocks2.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>610</integer>
+			<key>y</key>
+			<integer>272</integer>
+		</dict>
+	</dict>
+	<key>Emma</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>Awesome_Emma.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>80</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>imageName</key>
+		<string>emma_binocs.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>640</integer>
+			<key>y</key>
+			<integer>277</integer>
+		</dict>
+	</dict>
 	<key>GrassFg</key>
 	<dict>
 		<key>Behaviors</key>
@@ -29,7 +135,7 @@
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>7</integer>
+		<integer>9</integer>
 		<key>imageName</key>
 		<string>savannah3_grass_fg.png</string>
 		<key>position</key>
@@ -67,7 +173,7 @@
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>6</integer>
+		<integer>8</integer>
 		<key>imageName</key>
 		<string>savannah3_grass_semi_fg.png</string>
 		<key>position</key>
@@ -82,6 +188,25 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Move</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>1.5</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>800</integer>
+						<key>y</key>
+						<integer>-100</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>meerkatMove</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -94,18 +219,11 @@
 				<key>action</key>
 				<string>playSound</string>
 			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
 		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>5</integer>
+		<integer>7</integer>
 		<key>imageName</key>
 		<string>savannah3_meerkat.png</string>
 		<key>position</key>
@@ -120,6 +238,25 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Move</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<integer>2</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>600</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>meerkatMove</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -132,18 +269,11 @@
 				<key>action</key>
 				<string>playSound</string>
 			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
 		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>5</integer>
+		<integer>7</integer>
 		<key>imageName</key>
 		<string>savannah3_meerkat.png</string>
 		<key>position</key>
@@ -236,12 +366,12 @@
 			<integer>384</integer>
 		</dict>
 	</dict>
-	<key>Rocks</key>
+	<key>Rock</key>
 	<dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>3</integer>
+		<integer>6</integer>
 		<key>imageName</key>
 		<string>savannah3_rocks.png</string>
 		<key>position</key>
