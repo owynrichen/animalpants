@@ -2,6 +2,58 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Avery</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>Awesome_Emma.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>-80</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>5</integer>
+		<key>imageName</key>
+		<string>avery_polar.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>90</integer>
+			<key>y</key>
+			<integer>190</integer>
+		</dict>
+	</dict>
 	<key>Music</key>
 	<string>penguin_song.mp3</string>
 	<key>Mountains</key>

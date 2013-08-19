@@ -10,7 +10,7 @@
 
 #define MUSIC_VOLUME_KEY @"musicVolume"
 #define SOUND_VOLUME_KEY @"soundVolume"
-#define DEFAULT_MUSIC_VOLUME 0.5f
+#define DEFAULT_MUSIC_VOLUME 0.4f
 #define DEFAULT_SOUND_VOLUME 1.0f
 
 @interface SoundManager()
