@@ -18,6 +18,10 @@
         animation.delayPerUnit = [((NSNumber *)[params objectForKey:@"delay"]) floatValue];
     }
     
+    if ([params objectForKey:@"loops"] != nil) {
+        animation.loops = [((NSNumber *)[params objectForKey:@"loops"]) intValue];
+    }
+    
     [frames enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSDictionary *frame = obj;
 

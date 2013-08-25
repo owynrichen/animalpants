@@ -85,10 +85,12 @@
     
     if ([params objectForKey:@"speed"] != nil) {
         self.speed = [(NSNumber *) [params objectForKey:@"speed"] floatValue];
+        self.speed *= positionScaleForCurrentDevice(kDimensionY);
     }
     
     if ([params objectForKey:@"speedVariance"] != nil) {
         self.speedVar = [(NSNumber *) [params objectForKey:@"speedVariance"] floatValue];
+        self.speedVar *= positionScaleForCurrentDevice(kDimensionY);
     }
     
     if ([params objectForKey:@"particleLifespan"] != nil) {
@@ -106,8 +108,6 @@
     self.endSize = self.endSize * positionScaleForCurrentDevice(kDimensionY);
     self.endSizeVar = self.endSizeVar * positionScaleForCurrentDevice(kDimensionY);
     self.posVar = ccp(self.posVar.x * positionScaleForCurrentDevice(kDimensionY), self.posVar.y * positionScaleForCurrentDevice(kDimensionY));
-    self.speed *= positionScaleForCurrentDevice(kDimensionY);
-    self.speedVar *= positionScaleForCurrentDevice(kDimensionY);
     
     NSString *imageName = [params objectForKey:@"imageName"];
     

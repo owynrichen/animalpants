@@ -13,6 +13,54 @@
 		</dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Move</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>loops</key>
+					<integer>12</integer>
+					<key>delay</key>
+					<real>0.25</real>
+					<key>frames</key>
+					<array>
+						<dict>
+							<key>delay</key>
+							<real>0.5</real>
+							<key>file</key>
+							<string>panda_small_move.png</string>
+						</dict>
+						<dict>
+							<key>file</key>
+							<string>panda_small.png</string>
+						</dict>
+					</array>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>animate</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<integer>3</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>-300</integer>
+					</dict>
+					<key>holdDuration</key>
+					<integer>0</integer>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -24,13 +72,6 @@
 				<string>touch</string>
 				<key>action</key>
 				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -51,6 +92,54 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<integer>3</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>-300</integer>
+					</dict>
+					<key>holdDuration</key>
+					<integer>0</integer>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+			<key>Move</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>loops</key>
+					<integer>12</integer>
+					<key>delay</key>
+					<real>0.25</real>
+					<key>frames</key>
+					<array>
+						<dict>
+							<key>delay</key>
+							<real>0.5</real>
+							<key>file</key>
+							<string>panda_small_move.png</string>
+						</dict>
+						<dict>
+							<key>file</key>
+							<string>panda_small.png</string>
+						</dict>
+					</array>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>animate</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -62,13 +151,6 @@
 				<string>touch</string>
 				<key>action</key>
 				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -151,6 +233,42 @@
 	</dict>
 	<key>PagodaLight</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Bugs</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>maxParticles</key>
+					<integer>200</integer>
+					<key>sourcePositionVariance</key>
+					<dict>
+						<key>x</key>
+						<integer>125</integer>
+						<key>y</key>
+						<integer>125</integer>
+					</dict>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>120</integer>
+						<key>y</key>
+						<integer>55</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>bugSwarm</string>
+			</dict>
+			<key>Lantern</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>lantern</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -229,8 +347,82 @@
 			<integer>136</integer>
 		</dict>
 	</dict>
+	<key>Emma</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>Awesome_Emma.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>70</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>2</integer>
+		<key>imageName</key>
+		<string>emma_dress1.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>600</integer>
+			<key>y</key>
+			<integer>5</integer>
+		</dict>
+	</dict>
 	<key>Floor</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>tree_shake.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Windy</key>
+			<dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>windyGrass</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -285,6 +477,8 @@
 			<dict>
 				<key>params</key>
 				<dict>
+					<key>maxParticles</key>
+					<integer>500</integer>
 					<key>sourcePositionVariance</key>
 					<dict>
 						<key>x</key>
@@ -349,6 +543,23 @@
 	</dict>
 	<key>Sky</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>BugsTouch</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>maxParticles</key>
+					<integer>150</integer>
+				</dict>
+				<key>event</key>
+				<string>move</string>
+				<key>action</key>
+				<string>bugTouch</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

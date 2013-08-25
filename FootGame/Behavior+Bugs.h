@@ -11,5 +11,6 @@
 @interface Behavior(Bugs)
 
 -(CCAction *) bugSwarm: (NSDictionary *) params;
+-(CCAction *) bugTouch: (NSDictionary *) params;
 
 @end

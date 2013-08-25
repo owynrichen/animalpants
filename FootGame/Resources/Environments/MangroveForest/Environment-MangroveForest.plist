@@ -416,6 +416,23 @@
 	</dict>
 	<key>Sky</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>BugsTouch</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>touch_responsive</key>
+					<true/>
+					<key>maxParticles</key>
+					<integer>50</integer>
+				</dict>
+				<key>event</key>
+				<string>move</string>
+				<key>action</key>
+				<string>bugTouch</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>

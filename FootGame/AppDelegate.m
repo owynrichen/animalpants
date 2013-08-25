@@ -70,7 +70,7 @@
     //[[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [SettingsLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
-     [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Monkey"]];
+    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Hippo"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
 }
 
