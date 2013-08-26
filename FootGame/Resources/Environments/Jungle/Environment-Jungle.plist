@@ -13,17 +13,22 @@
 		</dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>Sound</key>
+			<key>Parachute</key>
 			<dict>
 				<key>params</key>
 				<dict>
-					<key>sound</key>
-					<string>whale_spout.mp3</string>
+					<key>bottomPosition</key>
+					<dict>
+						<key>y</key>
+						<integer>300</integer>
+						<key>x</key>
+						<integer>0</integer>
+					</dict>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>playSound</string>
+				<string>chute</string>
 			</dict>
 			<key>Tracer</key>
 			<dict>

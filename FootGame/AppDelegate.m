@@ -65,12 +65,12 @@
     [[SoundManager sharedManager] preloadSound:@"level_complete.mp3"];
     
     // TODO: delete this when we launch
-    //[[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.apack.all"];
+    // [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.premo"];
 
-    //[[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [SettingsLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
-    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Hippo"]];
+    // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Elephant"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
 }
 

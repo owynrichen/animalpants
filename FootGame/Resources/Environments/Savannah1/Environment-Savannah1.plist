@@ -13,17 +13,22 @@
 		</dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>Sound</key>
+			<key>Parachute</key>
 			<dict>
 				<key>params</key>
 				<dict>
-					<key>sound</key>
-					<string>whale_spout.mp3</string>
+					<key>bottomPosition</key>
+					<dict>
+						<key>y</key>
+						<integer>300</integer>
+						<key>x</key>
+						<integer>0</integer>
+					</dict>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>playSound</string>
+				<string>chute</string>
 			</dict>
 			<key>Tracer</key>
 			<dict>
@@ -402,6 +407,65 @@
 			<integer>60</integer>
 			<key>y</key>
 			<integer>50</integer>
+		</dict>
+	</dict>
+	<key>Avery</key>
+	<dict>
+		<key>scale</key>
+		<dict>
+			<key>x</key>
+			<real>-0.7</real>
+			<key>y</key>
+			<real>0.7</real>
+		</dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>Awesome_Emma.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>-50</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>imageName</key>
+		<string>avery_camo.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>540</integer>
+			<key>y</key>
+			<integer>170</integer>
 		</dict>
 	</dict>
 	<key>TreeTrunk</key>

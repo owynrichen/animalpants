@@ -246,6 +246,23 @@
 		361E1DF017CA9F820046B473 /* emma_dress1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DEC17CA9F820046B473 /* emma_dress1-ipadhd.png */; };
 		361E1DF117CA9F820046B473 /* emma_dress1.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DED17CA9F820046B473 /* emma_dress1.png */; };
 		361E1DF317CAA34B0046B473 /* BugTouch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DF217CAA34B0046B473 /* BugTouch.plist */; };
+		361E1DF817CAB11F0046B473 /* river_bird_chirp-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DF417CAB11F0046B473 /* river_bird_chirp-hd.png */; };
+		361E1DF917CAB11F0046B473 /* river_bird_chirp-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DF517CAB11F0046B473 /* river_bird_chirp-ipad.png */; };
+		361E1DFA17CAB11F0046B473 /* river_bird_chirp-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DF617CAB11F0046B473 /* river_bird_chirp-ipadhd.png */; };
+		361E1DFB17CAB11F0046B473 /* river_bird_chirp.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DF717CAB11F0046B473 /* river_bird_chirp.png */; };
+		361E1E0017CADE4D0046B473 /* emma_detective-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DFC17CADE4D0046B473 /* emma_detective-hd.png */; };
+		361E1E0117CADE4D0046B473 /* emma_detective-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DFD17CADE4D0046B473 /* emma_detective-ipad.png */; };
+		361E1E0217CADE4D0046B473 /* emma_detective-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DFE17CADE4D0046B473 /* emma_detective-ipadhd.png */; };
+		361E1E0317CADE4D0046B473 /* emma_detective.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1DFF17CADE4D0046B473 /* emma_detective.png */; };
+		361E1E0817CAE59E0046B473 /* avery-parachute-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E0417CAE59E0046B473 /* avery-parachute-hd.png */; };
+		361E1E0917CAE59E0046B473 /* avery-parachute-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E0517CAE59E0046B473 /* avery-parachute-ipad.png */; };
+		361E1E0A17CAE59E0046B473 /* avery-parachute-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E0617CAE59E0046B473 /* avery-parachute-ipadhd.png */; };
+		361E1E0B17CAE59E0046B473 /* avery-parachute.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E0717CAE59E0046B473 /* avery-parachute.png */; };
+		361E1E0E17CAE6110046B473 /* Behavior+Parachute.m in Sources */ = {isa = PBXBuildFile; fileRef = 361E1E0D17CAE6110046B473 /* Behavior+Parachute.m */; };
+		361E1E1317CAF53E0046B473 /* avery_camo-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E0F17CAF53E0046B473 /* avery_camo-hd.png */; };
+		361E1E1417CAF53E0046B473 /* avery_camo-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E1017CAF53E0046B473 /* avery_camo-ipad.png */; };
+		361E1E1517CAF53E0046B473 /* avery_camo-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E1117CAF53E0046B473 /* avery_camo-ipadhd.png */; };
+		361E1E1617CAF53E0046B473 /* avery_camo.png in Resources */ = {isa = PBXBuildFile; fileRef = 361E1E1217CAF53E0046B473 /* avery_camo.png */; };
 		36204E2417BEEF490027BA9B /* girls_camo-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E1C17BEEF490027BA9B /* girls_camo-hd.png */; };
 		36204E2517BEEF490027BA9B /* girls_camo-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E1D17BEEF490027BA9B /* girls_camo-ipad.png */; };
 		36204E2617BEEF490027BA9B /* girls_camo-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E1E17BEEF490027BA9B /* girls_camo-ipadhd.png */; };
@@ -2726,6 +2743,24 @@
 		361E1DEC17CA9F820046B473 /* emma_dress1-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emma_dress1-ipadhd.png"; sourceTree = "<group>"; };
 		361E1DED17CA9F820046B473 /* emma_dress1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emma_dress1.png; sourceTree = "<group>"; };
 		361E1DF217CAA34B0046B473 /* BugTouch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BugTouch.plist; sourceTree = "<group>"; };
+		361E1DF417CAB11F0046B473 /* river_bird_chirp-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "river_bird_chirp-hd.png"; sourceTree = "<group>"; };
+		361E1DF517CAB11F0046B473 /* river_bird_chirp-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "river_bird_chirp-ipad.png"; sourceTree = "<group>"; };
+		361E1DF617CAB11F0046B473 /* river_bird_chirp-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "river_bird_chirp-ipadhd.png"; sourceTree = "<group>"; };
+		361E1DF717CAB11F0046B473 /* river_bird_chirp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = river_bird_chirp.png; sourceTree = "<group>"; };
+		361E1DFC17CADE4D0046B473 /* emma_detective-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emma_detective-hd.png"; sourceTree = "<group>"; };
+		361E1DFD17CADE4D0046B473 /* emma_detective-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emma_detective-ipad.png"; sourceTree = "<group>"; };
+		361E1DFE17CADE4D0046B473 /* emma_detective-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emma_detective-ipadhd.png"; sourceTree = "<group>"; };
+		361E1DFF17CADE4D0046B473 /* emma_detective.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emma_detective.png; sourceTree = "<group>"; };
+		361E1E0417CAE59E0046B473 /* avery-parachute-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avery-parachute-hd.png"; path = "Resources/avery-parachute-hd.png"; sourceTree = "<group>"; };
+		361E1E0517CAE59E0046B473 /* avery-parachute-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avery-parachute-ipad.png"; path = "Resources/avery-parachute-ipad.png"; sourceTree = "<group>"; };
+		361E1E0617CAE59E0046B473 /* avery-parachute-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avery-parachute-ipadhd.png"; path = "Resources/avery-parachute-ipadhd.png"; sourceTree = "<group>"; };
+		361E1E0717CAE59E0046B473 /* avery-parachute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avery-parachute.png"; path = "Resources/avery-parachute.png"; sourceTree = "<group>"; };
+		361E1E0C17CAE6110046B473 /* Behavior+Parachute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Parachute.h"; sourceTree = "<group>"; };
+		361E1E0D17CAE6110046B473 /* Behavior+Parachute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Parachute.m"; sourceTree = "<group>"; };
+		361E1E0F17CAF53E0046B473 /* avery_camo-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avery_camo-hd.png"; path = "Resources/Environments/Savannah1/Graphics/avery_camo-hd.png"; sourceTree = "<group>"; };
+		361E1E1017CAF53E0046B473 /* avery_camo-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avery_camo-ipad.png"; path = "Resources/Environments/Savannah1/Graphics/avery_camo-ipad.png"; sourceTree = "<group>"; };
+		361E1E1117CAF53E0046B473 /* avery_camo-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avery_camo-ipadhd.png"; path = "Resources/Environments/Savannah1/Graphics/avery_camo-ipadhd.png"; sourceTree = "<group>"; };
+		361E1E1217CAF53E0046B473 /* avery_camo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avery_camo.png; path = Resources/Environments/Savannah1/Graphics/avery_camo.png; sourceTree = "<group>"; };
 		36204E1C17BEEF490027BA9B /* girls_camo-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "girls_camo-hd.png"; path = "Resources/girls_camo-hd.png"; sourceTree = "<group>"; };
 		36204E1D17BEEF490027BA9B /* girls_camo-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "girls_camo-ipad.png"; path = "Resources/girls_camo-ipad.png"; sourceTree = "<group>"; };
 		36204E1E17BEEF490027BA9B /* girls_camo-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "girls_camo-ipadhd.png"; path = "Resources/girls_camo-ipadhd.png"; sourceTree = "<group>"; };
@@ -4955,6 +4990,10 @@
 		361507041594CA5F000F46D9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				361E1E0F17CAF53E0046B473 /* avery_camo-hd.png */,
+				361E1E1017CAF53E0046B473 /* avery_camo-ipad.png */,
+				361E1E1117CAF53E0046B473 /* avery_camo-ipadhd.png */,
+				361E1E1217CAF53E0046B473 /* avery_camo.png */,
 				3652C87E1680439000A57F73 /* savannah1_clouds1-hd.png */,
 				3652C87F1680439000A57F73 /* savannah1_clouds1-ipad.png */,
 				3652C8801680439000A57F73 /* savannah1_clouds1-ipadhd.png */,
@@ -6987,6 +7026,14 @@
 		3686797216207A9E00D98199 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				361E1DFC17CADE4D0046B473 /* emma_detective-hd.png */,
+				361E1DFD17CADE4D0046B473 /* emma_detective-ipad.png */,
+				361E1DFE17CADE4D0046B473 /* emma_detective-ipadhd.png */,
+				361E1DFF17CADE4D0046B473 /* emma_detective.png */,
+				361E1DF417CAB11F0046B473 /* river_bird_chirp-hd.png */,
+				361E1DF517CAB11F0046B473 /* river_bird_chirp-ipad.png */,
+				361E1DF617CAB11F0046B473 /* river_bird_chirp-ipadhd.png */,
+				361E1DF717CAB11F0046B473 /* river_bird_chirp.png */,
 				3652C8DA16881CFE00A57F73 /* river_cloud1-hd.png */,
 				3652C8DB16881CFE00A57F73 /* river_cloud1-ipad.png */,
 				3652C8DC16881CFE00A57F73 /* river_cloud1-ipadhd.png */,
@@ -7287,6 +7334,10 @@
 		36A92CDF133D0194004DFEFC /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				361E1E0417CAE59E0046B473 /* avery-parachute-hd.png */,
+				361E1E0517CAE59E0046B473 /* avery-parachute-ipad.png */,
+				361E1E0617CAE59E0046B473 /* avery-parachute-ipadhd.png */,
+				361E1E0717CAE59E0046B473 /* avery-parachute.png */,
 				36204E1C17BEEF490027BA9B /* girls_camo-hd.png */,
 				36204E1D17BEEF490027BA9B /* girls_camo-ipad.png */,
 				36204E1E17BEEF490027BA9B /* girls_camo-ipadhd.png */,
@@ -7391,6 +7442,8 @@
 				36204E6517C141010027BA9B /* Behavior+Notes.m */,
 				36CFD26217C6E6D500D64251 /* Behavior+Lantern.h */,
 				36CFD26317C6E6D500D64251 /* Behavior+Lantern.m */,
+				361E1E0C17CAE6110046B473 /* Behavior+Parachute.h */,
+				361E1E0D17CAE6110046B473 /* Behavior+Parachute.m */,
 			);
 			name = Behaviors;
 			sourceTree = "<group>";
@@ -10170,6 +10223,22 @@
 				361E1DF017CA9F820046B473 /* emma_dress1-ipadhd.png in Resources */,
 				361E1DF117CA9F820046B473 /* emma_dress1.png in Resources */,
 				361E1DF317CAA34B0046B473 /* BugTouch.plist in Resources */,
+				361E1DF817CAB11F0046B473 /* river_bird_chirp-hd.png in Resources */,
+				361E1DF917CAB11F0046B473 /* river_bird_chirp-ipad.png in Resources */,
+				361E1DFA17CAB11F0046B473 /* river_bird_chirp-ipadhd.png in Resources */,
+				361E1DFB17CAB11F0046B473 /* river_bird_chirp.png in Resources */,
+				361E1E0017CADE4D0046B473 /* emma_detective-hd.png in Resources */,
+				361E1E0117CADE4D0046B473 /* emma_detective-ipad.png in Resources */,
+				361E1E0217CADE4D0046B473 /* emma_detective-ipadhd.png in Resources */,
+				361E1E0317CADE4D0046B473 /* emma_detective.png in Resources */,
+				361E1E0817CAE59E0046B473 /* avery-parachute-hd.png in Resources */,
+				361E1E0917CAE59E0046B473 /* avery-parachute-ipad.png in Resources */,
+				361E1E0A17CAE59E0046B473 /* avery-parachute-ipadhd.png in Resources */,
+				361E1E0B17CAE59E0046B473 /* avery-parachute.png in Resources */,
+				361E1E1317CAF53E0046B473 /* avery_camo-hd.png in Resources */,
+				361E1E1417CAF53E0046B473 /* avery_camo-ipad.png in Resources */,
+				361E1E1517CAF53E0046B473 /* avery_camo-ipadhd.png in Resources */,
+				361E1E1617CAF53E0046B473 /* avery_camo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10280,6 +10349,7 @@
 				36204E5617C00B8C0027BA9B /* Behavior+Animation.m in Sources */,
 				36204E6617C141020027BA9B /* Behavior+Notes.m in Sources */,
 				36CFD26417C6E6D500D64251 /* Behavior+Lantern.m in Sources */,
+				361E1E0E17CAE6110046B473 /* Behavior+Parachute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

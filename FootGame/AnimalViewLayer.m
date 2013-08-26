@@ -639,7 +639,9 @@
         AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:file withLocale:lang]];
         
         if (cues != nil) {
-            [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
+            if ([[SoundManager sharedManager] getMusicVolume] >= 0.1) {
+                [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
+            }
             [pBubble startForLanguage:lang cues:cues finishBlock:^(CCNode *node) {
                 [pointer stopNarration];
             }];
