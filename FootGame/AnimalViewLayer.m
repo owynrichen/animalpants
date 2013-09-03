@@ -446,7 +446,7 @@
 //        return YES;
 //    }
     
-    return YES;
+    return NO;
 }
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];

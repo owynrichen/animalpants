@@ -11,6 +11,7 @@
 #import "Water.h"
 #import "Vine.h"
 #import "RopeNode.h"
+#import "BirdFlock.h"
 
 @interface Environment(Layers)
 
@@ -18,6 +19,7 @@
 -(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data withSpace: (cpSpace *) space;
 -(Water *) getWater: (NSDictionary *) data withSpace: (cpSpace *) space;
 -(RopeNode *) getVine: (NSDictionary *) data withSpace: (cpSpace *) space;
+-(BirdFlock *) getBirdFlock: (NSDictionary *) data withSpace: (cpSpace *) space;
 // END TODO
 -(void) applyCommonParameters: (NSDictionary *) parameters toNode: (CCNode *) node;
 -(void) applyBehaviors: (NSDictionary *) parameters toNode: (CCNode<BehaviorManagerDelegate> *) node;
@@ -123,6 +125,15 @@
     return vine;
 }
 
+-(BirdFlock *) getBirdFlock:(NSDictionary *)data withSpace:(cpSpace *)space {
+    CGPoint pos = [self parsePosition:[data objectForKey:@"position"]];
+    float scale = [((NSNumber *) [[data objectForKey:@"scale"] objectForKey:@"x"]) floatValue];
+    
+    BirdFlock *flock = [BirdFlock birdsWithBirds:50 position:pos direction:ccp(1200,pos.y) scale: scale color: ccWHITE];
+    flock.zOrder = [(NSNumber *) [data objectForKey:@"z"] intValue];
+    return flock;
+}
+
 -(CGPoint) parsePosition: (NSDictionary *) position {
     CGPoint coord = [self parseCoordinate:position];
     return ccpToRatio(coord.x, coord.y);
@@ -198,6 +209,8 @@
             [env addChild:[self getWater:obj withSpace:physicsSpace]];
         } else if ([type isEqualToString:@"Vine"]) {
             [env addChild:[self getVine: obj withSpace: physicsSpace]];
+        } else if ([type isEqualToString:@"BirdFlock"]) {
+            [env addChild:[self getBirdFlock: obj withSpace: physicsSpace]];
         } else {
             NSLog(@"Unexpected type %@ in set %@", type, [obj description]);
         }

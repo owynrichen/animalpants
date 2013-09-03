@@ -291,6 +291,29 @@
 			<integer>177</integer>
 		</dict>
 	</dict>
+	<key>Birds</key>
+	<dict>
+		<key>type</key>
+		<string>BirdFlock</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>scale</key>
+		<dict>
+			<key>x</key>
+			<real>0.25</real>
+			<key>y</key>
+			<real>0.25</real>
+		</dict>
+		<key>imageName</key>
+		<string>birdsheet.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>600</integer>
+		</dict>
+	</dict>
 	<key>Rock</key>
 	<dict>
 		<key>type</key>

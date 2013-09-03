@@ -82,28 +82,6 @@
 	</dict>
 	<key>BigTree2</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>tree_shake.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Shake</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>shake</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -120,28 +98,6 @@
 	</dict>
 	<key>BigTree1</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>tree_shake.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Shake</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>shake</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -186,6 +142,29 @@
 			<integer>0</integer>
 			<key>y</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>Birds</key>
+	<dict>
+		<key>type</key>
+		<string>BirdFlock</string>
+		<key>z</key>
+		<integer>3</integer>
+		<key>scale</key>
+		<dict>
+			<key>x</key>
+			<real>0.4</real>
+			<key>y</key>
+			<real>0.4</real>
+		</dict>
+		<key>imageName</key>
+		<string>birdsheet.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>600</integer>
 		</dict>
 	</dict>
 	<key>Clouds</key>
