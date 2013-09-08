@@ -71,6 +71,8 @@
     
     factText = [CCLabelBMFont labelWithString:txtstr fntFile:@"RobotoThin.fnt" width:0 alignment:kCCTextAlignmentLeft];
     
+    float titleMult = 1.0;
+    
     switch(fact) {
         case kHeightFactFrame:
             imgFile = [NSString stringWithFormat:@"%@_%@_large.png", [animal.key lowercaseString], key];
@@ -129,6 +131,7 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(half.x, half.y + (half.y - (cSize.height / 2)) - (half.x * 0.05));
             
+            titleMult = 0.8;
             titleSize = CGSizeMake(cSize.width * 0.9, 500);
             textSize = CGSizeMake(cSize.width * 0.9, 500);
             titlePos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2)); 
@@ -173,7 +176,7 @@
     }
     
     
-    titleSize = [titlestr sizeWithFont:[UIFont fontWithName:TITLE_FONT size:TITLE_FONT_SIZE * fontScaleForCurrentDevice()] constrainedToSize:titleSize lineBreakMode:NSLineBreakByWordWrapping];
+    titleSize = [titlestr sizeWithFont:[UIFont fontWithName:TITLE_FONT size:TITLE_FONT_SIZE * titleMult * fontScaleForCurrentDevice()] constrainedToSize:titleSize lineBreakMode:NSLineBreakByWordWrapping];
     textSize = [txtstr sizeWithFont:[UIFont fontWithName:TEXT_FONT size:TEXT_FONT_SIZE * fontScaleForCurrentDevice()] constrainedToSize:textSize lineBreakMode:NSLineBreakByWordWrapping];
     
     textPos = ccp(textPos.x, textPos.y - titleSize.height);

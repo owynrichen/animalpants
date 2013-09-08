@@ -46,38 +46,40 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
-			<key>Sound</key>
+			<key>Move</key>
 			<dict>
 				<key>params</key>
 				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
+					<key>animationName</key>
+					<string>drink_water</string>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Move</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
+				<string>animate</string>
 			</dict>
 		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
 		<integer>6</integer>
-		<key>imageName</key>
-		<string>giraffe1.png</string>
+		<key>animationName</key>
+		<string>giraffe1sheet-animation.plist</string>
+		<key>frameName</key>
+		<string>giraffe1_f1.png</string>
 		<key>position</key>
 		<dict>
 			<key>x</key>
-			<integer>485</integer>
+			<integer>695</integer>
 			<key>y</key>
 			<integer>110</integer>
+		</dict>
+		<key>scale</key>
+		<dict>
+			<key>y</key>
+			<integer>1</integer>
+			<key>x</key>
+			<integer>-1</integer>
 		</dict>
 	</dict>
 	<key>BigTree2</key>

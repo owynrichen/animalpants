@@ -85,7 +85,15 @@
 
 -(CCAutoScalingSprite *) getAutoScalingSprite: (NSDictionary *) data withSpace:(cpSpace *)space {
     NSString *img = (NSString *) [data objectForKey:@"imageName"];
-    CCAutoScalingSprite *sprite = [CCAutoScalingSprite spriteWithFile:img space:space];
+    NSString *animation = (NSString *) [data objectForKey:@"animationName"];
+    NSString *frame = (NSString *) [data objectForKey:@"frameName"];
+    
+    CCAutoScalingSprite *sprite;
+    if (img != nil) {
+        sprite = [CCAutoScalingSprite spriteWithFile:img space:space];
+    } else {
+        sprite = [CCAutoScalingSprite spriteWithAnimationFile:animation frame:frame space:space];
+    }
     [self applyCommonParameters:data toNode:sprite];
     return sprite;
 }

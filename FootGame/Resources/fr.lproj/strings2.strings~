@@ -61,7 +61,7 @@
 "facts_about" = "A propos de %@";  // example: Facts about Pedro
 "music_volume" = "Volume Musique";
 "sound_volume" = "Volume";
-"send_feedback" = "Donne-nous ton avis";
+“send_feedback” = “Donne-nous ton avis”;
 "like_animal_pants?" = "Aimes-tu Animal Pants?"; // for the feedback dialog
 "like_animal_pants_details" = "Nous espérons que tu aimes Animal Pants, si c’est le cas donne-nous une note!  Sinon, dis-nous comment nous pourrions l’améliorer!";
 "yes" = "Oui";
@@ -169,7 +169,7 @@
 "giraffe_fact_height_details_metric" = " Les girafes adultes peuvent mesurer jusqu’à 5 mètres 80 grâce à leur très long cou ";
 "giraffe_fact_weight" = "Géraldine est très lourde";
 "giraffe_fact_weight_details" = "Géraldine pèse 3000 livres. Le poids moyen d’un être humain adulte est de 138 livres.";
-"giraffe_fact_weight_details_metric" = "Géraldine pèse 1361 kilogrammes. Le poids moyen d’un être humain adulte est de 62 kilogrammes.";
+"giraffe_fact_weight_details_metric" = "Géraldine pèse 1361 kilogrammes. Le poids moyen d’un être humain adulte est de 62 kilogrammes.";";
 "giraffe_fact_food" = "Géraldine eats tree leaves, shrubs and vines Géraldine se nourrit de feuilles";
 "giraffe_fact_food_details" = "Parce que les girafes sont plus grandes que les autres animaux, elles ont accès à de la nourriture que les autres animaux ne peuvent pas se procurer.";
 "giraffe_fact_speed" = "Géraldine est très rapide.";
@@ -189,7 +189,7 @@
 "hippo_fact_height_details_metric" = "Les hippopotammes adultes mesurent environ 1.5 mètres.";
 "hippo_fact_weight" = "Horace pèse très lourd";
 "hippo_fact_weight_details" = "Les hippopotammes adultes pèsent jusqu’à 6000 livres. Le poids moyen d’un être humain est de 138 livres.";
-"hippo_fact_weight_details_metric" = "Les hippopotammes adultes pèsent jusqu’à 2720 kilogrammes. Le poids moyen d’un être humain est de 62 kilogrammes.";
+"hippo_fact_weight_details_metric" = "Les hippopotammes adultes pèsent jusqu’à 2720 kilogrammes. Le poids moyen d’un être humain est de 62 kilogrammes.";";
 "hippo_fact_food" = "Horace se nourrit d’herbe";
 "hippo_fact_food_details" = "Horace broute l’herbe courte, qui est sa principale source de nourriture.";
 "hippo_fact_speed" = "Horace est assez lent";
@@ -249,7 +249,7 @@
 "panda_fact_height_details_metric" = " A quatre pattes, les Pandas mesurent seulement 60 à 90 centimètres.";
 "panda_fact_weight" = "Patrick est très lourd";
 "panda_fact_weight_details" = " Les Pandas adultes peuvent peser jusqu’à 300 livres. Le poids moyen d’un être humain est de seulement 138 livres.";
-"panda_fact_weight_details_metric" = " Les Pandas adultes pèsent entre 77 et 127 kilogrammes. Le poids moyen d’un être humain est de seulement 68 kilogrammes.";
+"panda_fact_weight_details_metric" = " Les Pandas adultes pèsent entre 77 et 127 kilogrammes. Le poids moyen d’un être humain est de seulement 68 kilogrammes.";.";
 "panda_fact_food" = "Patrick se nourrit de bambous";
 "panda_fact_food_details" = "Les pandas géants mangent jusqu’à 2/3 de leur poids chaque jour.";
 "panda_fact_speed" = "Patrick passe la plupart du temps assis";
@@ -294,7 +294,7 @@
 "tiger_fact_food_details" = "Dans la nature, les tigres se nourrissent principalement d’animaux de moyenne et grande taille.";
 "tiger_fact_speed" = "Tommy est très rapide";
 "tiger_fact_speed_details" = "Les tigres peuvent atteindre 35 miles par heure. L’homme le plus rapide ne dépasse pas les 28 miles par heure.";
-"tiger_fact_speed_details_metric" = " Les tigres peuvent atteindre 56 kilomètres par heure. L’homme le plus rapide ne dépasse pas les 45 kilomètres par heure.";
+"tiger_fact_speed_details_metric" = " Les tigres peuvent atteindre 56 kilomètres par heure. L’homme le plus rapide ne dépasse pas les 45 kilomètres par heure.";.";
 "tiger_fact_location" = "Tommy vit en Inde";
 "tiger_fact_location_details" = "";
 "tiger_fact_photo" = "C’est Albert l’ami de Tommy";
@@ -306,7 +306,7 @@
 "zebra_word_gender" = "male";
  "zebra_fact_height" = "Zeb a une taille moyenne";
 "zebra_fact_height_details" = "Zeb et ses amis mesurent entre 3 et 5 pieds lorsqu’ils sont à quatre pattes.";
-"zebra_fact_height_details_metric" = " Zeb et ses amis mesurent entre 1 mètre 20 et 1 mètre 50 lorsqu’ils sont à quatre pattes.";
+"zebra_fact_height_details_metric" = " Zeb et ses amis mesurent entre 1 mètre 20 et 1 mètre 50 lorsqu’ils sont à quatre pattes.";";
 "zebra_fact_weight" = "Zeb est lourd comparé aux humains";
 "zebra_fact_weight_details" = "Les zèbres adultes peuvent peser jusqu’à 990 livres.";
 "zebra_fact_weight_details_metric" = "Les zèbres adultes peuvent peser jusqu’à 440 kilogrammes.";
@@ -314,7 +314,7 @@
 "zebra_fact_food_details" = "Les zèbres mangent principalement de l’herbe mais aussi des buissons et l’écorce des arbres.";
 "zebra_fact_speed" = "Zeb est très rapide";
 "zebra_fact_speed_details" = "Les zèbres courent à la même vitesse que les chevaux et peuvent atteindre 40 miles par heure.";
-"zebra_fact_speed_details_metric" = " Les zèbres courent à la même vitesse que les chevaux et peuvent atteindre 64 kilomètres par heure.";
+"zebra_fact_speed_details_metric" = " Les zèbres courent à la même vitesse que les chevaux et peuvent atteindre 64 kilomètres par heure.";";
 "zebra_fact_location" = "Zeb vit en Afrique";
 "zebra_fact_location_details" = "Zeb préfère les plaines, les forets et la savanne comme habitat.";
 "zebra_fact_photo" = "C’est Percival l’ami de Zeb";
@@ -334,7 +334,7 @@
 "lion_fact_food_details" = " Les lions se nourrissent de grands mammifères, de préférence des buffles, des gazelles, des zèbres, des gnous et des phacochères.";
 "lion_fact_speed" = "Laurent est très rapide";
 "lion_fact_speed_details" = " Les lions peuvent atteindre 30 miles par heure sur de courtes distances.";
-"lion_fact_speed_details_metric" = " Les lions peuvent atteindre 48 kilomètres par heure sur de courtes distances.";
+"lion_fact_speed_details_metric" = " Les lions peuvent atteindre 48 kilomètres par heure sur de courtes distances.";.";
 "lion_fact_location" = "Laurent et ses amis vivent en Afrique.";
 "lion_fact_location_details" = "";
 "lion_fact_photo" = "C’est Simba l’ami de Laurent";
@@ -346,7 +346,7 @@
 "penguin_word_gender" = "male";
  "penguin_fact_height" = "Pierre est assez petit";
 "penguin_fact_height_details" = "Les pingouins adultes peuvent atteindre 4 pieds. La taille moyenne d’un enfant.";
-"penguin_fact_height_details_metric" = " Les pingouins adultes peuvent atteindre 1 mètre 20. La taille moyenne d’un enfant.";
+"penguin_fact_height_details_metric" = " Les pingouins adultes peuvent atteindre 1 mètre 20. La taille moyenne d’un enfant.";.";
 "penguin_fact_weight" = "Pierre est léger";
 "penguin_fact_weight_details" = "Pierre et ses amis pèsent entre 45 et 90 livres.";
 "penguin_fact_weight_details_metric" = " Pierre et ses amis pèsent entre 20 et 45 kilogrammes.";
@@ -439,3 +439,51 @@ The folks who work on Cocos2D
 <h>Remerciements!
 A nos familles qui nous ont supportés et inspirés!
 ";
+
+
+
+App Store Text
+
+App Name = Pantalons des Animaux	 
+
+Description = 
+
+Permettez à vos enfants de se divertir tout en apprenant sur les animaux du monde entier!  
+
+Animal Pants est un jeu agréable, éducatif et visuellement très plaisant, réalisé par des parents, des illustrateurs professionnels et des musiciens.
+
+Votre enfant s’amusera en cherchant quel pantalon appartient à quel animal tout en découvrant pleins de fonctions cachées et des faits étonnants sur la vie des animaux.
+
+Caractéristiques:
+- Douze animaux et des scènes magnifiquement illustrées pour amuser et éduquer votre enfant
+- Des animations qui captiveront l’attention de votre enfant et qui l’encourageront à découvrir les éléments interactifs cachés
+- Une musique professionnelle qui sera appréciée par les petits comme par les grands
+- Une application qui développe les compétences littéraires et linguistiques de par son interactivité en Anglais, en allemand et en Espagnol
+- Des données primordiales mais faciles à retenir sur les animaux et leurs habitats
+- Une application pensée et étudiée avec votre enfant comme unique préoccupation	 
+
+Keywords = Enfant, animal, enfants en bas-åge, éducatif, application pour enfants, bilingue, singe, tigre, éléphant, panda, girafe, lion     
+
+In-App Purchases    	    	   
+
+Pack Anglais
+Description = Apprenez à votre enfant une langue étrangère! L’histoire, la narration et le nom de animaux sont écrits et lus en Anglais.
+
+Pack Espagnol
+Description = Apprenez à votre enfant une langue étrangère! L’histoire, la narration et le nom de animaux sont écrits et lus en Espagnol.
+	    
+Pack Français
+Description = Apprenez à votre enfant une langue étrangère! L’histoire, la narration et le nom de animaux sont écrits et lus en Français.
+	    
+Pack Allemand
+Description = Apprenez à votre enfant une langue étrangère! L’histoire, la narration et le nom de animaux sont écrits et lus en Allemand.
+
+Tous les animaux       
+Description = Achetez les animaux!
+
+Les 12 animux & les 4 langues
+Description = Achetez les animaux et apprenez en 4 langues!
+	    
+		
+							
+

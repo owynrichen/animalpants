@@ -15,7 +15,8 @@
     CCAnimation *animation;
     
     if ([params objectForKey:@"animationName"] != nil) {
-        animation = [[CCAnimationCache sharedAnimationCache] animationByName:[params objectForKey:@"animationName"]];
+        NSString *ani = (NSString *) [params objectForKey:@"animationName"];
+        animation = [[CCAnimationCache sharedAnimationCache] animationByName:ani];
     } else {
         animation = [CCAnimation animation];
         if ([params objectForKey:@"delay"] != nil) {

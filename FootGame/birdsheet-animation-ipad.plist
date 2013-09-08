@@ -8,7 +8,6 @@
 		<integer>2</integer>
 		<key>spritesheets</key>
 		<array>
-			<string>birdsheet-ipadhd.plist</string>
 			<string>birdsheet-ipad.plist</string>
 		</array>
 	</dict>

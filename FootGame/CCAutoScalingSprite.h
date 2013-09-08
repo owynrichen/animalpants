@@ -12,6 +12,8 @@
 #import "BitVector.h"
 #import "chipmunk.h"
 
+//# define DRAW_HITSPACE 1
+
 @interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate>
 
 @property (nonatomic, readonly) float autoScaleFactor;
@@ -21,10 +23,13 @@
 @property (nonatomic, readonly) cpShape *physicsShape;
 @property (nonatomic, readonly) cpSpace *physicsSpace;
 @property (nonatomic) BOOL physicsEnabled;
+@property (nonatomic, readonly) NSString *name;
 
 +(id) spriteWithFile: (NSString *) filename space: (cpSpace *) physicsSpace;
++(id) spriteWithAnimationFile: (NSString *) filename frame: (NSString *) frameName space: (cpSpace *) physicsSpace;
 
 -(id) initWithFile:(NSString *)filename space: (cpSpace *) physicsSpace;
+-(id) initWithAnimationFile: (NSString *) filename frame: (NSString *) frameName space: (cpSpace *) physicsSpace;
 
 -(void) enableTouches:(BOOL) on;
 -(void) addToSpace: (cpSpace *) space;

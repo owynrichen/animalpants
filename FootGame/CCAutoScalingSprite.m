@@ -25,14 +25,31 @@
 @synthesize autoScaleFactor;
 @synthesize behaviorManager=behaviorManager_;
 @synthesize bitMask;
+@synthesize name;
 
 +(id) spriteWithFile:(NSString *)filename space:(cpSpace *)physicsSpace {
     return [[[self alloc] initWithFile:filename space:physicsSpace] autorelease];
 }
 
++(id) spriteWithAnimationFile: (NSString *) filename frame: (NSString *) frameName space: (cpSpace *) physicsSpace {
+    return [[[self alloc] initWithAnimationFile:filename frame:frameName space:physicsSpace] autorelease];
+}
+
 -(id) initWithFile:(NSString *)filename space:(cpSpace *)physicsSpace {
     self = [super initWithFile:filename];
     
+    name = filename;
+    
+    return self;
+}
+
+-(id) initWithAnimationFile: (NSString *) filename frame: (NSString *) frameName space: (cpSpace *) physicsSpace {
+    
+    [[CCAnimationCache sharedAnimationCache] addAnimationsWithFile:filename];
+    
+    name = filename;
+    
+    self = [super initWithSpriteFrameName:frameName];
     return self;
 }
 
@@ -268,7 +285,7 @@
     if (self.visible && CGRectContainsPoint(bbox, pnt)) {
         CGPoint localpnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
         BOOL hit = NO;
-        NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
+        NSLog(@"Coverage: %f - %@", [self.bitMask getPercentCoverage], name);
         
         if ([self.bitMask getPercentCoverage] > 40) {
             hit = [self.bitMask hitx:localpnt.x y:localpnt.y];
