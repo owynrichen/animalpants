@@ -101,6 +101,36 @@
         self.lifeVar = [(NSNumber *) [params objectForKey:@"particleLifespanVariance"] floatValue];
     }
     
+    if ([params objectForKey:@"minRadius"] != nil) {
+        mode.B.endRadius = [(NSNumber *) [params objectForKey:@"minRadius"] floatValue];
+        mode.B.endRadius *= positionScaleForCurrentDevice(kDimensionY);
+    }
+    
+    if ([params objectForKey:@"minRadiusVariance"] != nil) {
+        mode.B.endRadiusVar = [(NSNumber *) [params objectForKey:@"minRadiusVariance"] floatValue];
+        mode.B.endRadiusVar *= positionScaleForCurrentDevice(kDimensionY);
+    }
+    
+    if ([params objectForKey:@"maxRadius"] != nil) {
+        mode.B.startRadius = [(NSNumber *) [params objectForKey:@"maxRadius"] floatValue];
+        mode.B.startRadius *= positionScaleForCurrentDevice(kDimensionY);
+    }
+    
+    if ([params objectForKey:@"maxRadiusVariance"] != nil) {
+        mode.B.startRadiusVar = [(NSNumber *) [params objectForKey:@"maxRadiusVariance"] floatValue];
+        mode.B.startRadiusVar *= positionScaleForCurrentDevice(kDimensionY);
+    }
+    
+    if ([params objectForKey:@"rotatePerSecond"] != nil) {
+        mode.B.rotatePerSecond = [(NSNumber *) [params objectForKey:@"rotatePerSecond"] floatValue];
+        mode.B.rotatePerSecond *= positionScaleForCurrentDevice(kDimensionY);
+    }
+    
+    if ([params objectForKey:@"rotatePerSecondVariance"] != nil) {
+        mode.B.rotatePerSecondVar = [(NSNumber *) [params objectForKey:@"rotatePerSecondVariance"] floatValue];
+        mode.B.rotatePerSecondVar *= positionScaleForCurrentDevice(kDimensionY);
+    }
+    
     // TODO: insert more overrides here as needed...
     
     self.startSize = self.startSize * positionScaleForCurrentDevice(kDimensionY);

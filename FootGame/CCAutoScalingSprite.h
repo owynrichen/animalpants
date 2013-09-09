@@ -12,7 +12,7 @@
 #import "BitVector.h"
 #import "chipmunk.h"
 
-//# define DRAW_HITSPACE 1
+// #define DRAW_HITSPACE 1
 
 @interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate>
 

@@ -114,4 +114,17 @@
     return [CCSpawn actions:[self resetPositionAction:params], [self resetRotationAction:params], [self resetScaleAction:params], nil];
 }
 
+-(CCAction *) move: (NSDictionary *) params {
+    float duration = [(NSNumber *) [params objectForKey:@"duration"] floatValue];
+    NSDictionary *pos = [params objectForKey:@"position"];
+    float x = [(NSNumber *) [pos objectForKey:@"x"] floatValue];
+    float y = [(NSNumber *) [pos objectForKey:@"y"] floatValue];
+    
+    return [CCMoveBy actionWithDuration:duration position:ccpToRatio(x, y)];
+}
+
+-(CCAction *) rotate: (NSDictionary *) params {
+    return nil;
+}
+
 @end

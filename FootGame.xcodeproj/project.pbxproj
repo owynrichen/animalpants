@@ -1306,8 +1306,6 @@
 		3691505F0003DF6D00D4C81C /* big_tree1.png in Resources */ = {isa = PBXBuildFile; fileRef = 369150570003DF6D00D4C81C /* big_tree1.png */; };
 		369150600003DF6D00D4C81C /* big_tree2.png in Resources */ = {isa = PBXBuildFile; fileRef = 369150580003DF6D00D4C81C /* big_tree2.png */; };
 		369150620003DF6D00D4C81C /* sav2_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505A0003DF6D00D4C81C /* sav2_floor.png */; };
-		369150630003DF6D00D4C81C /* giraffe1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505B0003DF6D00D4C81C /* giraffe1.png */; };
-		369150640003DF6D00D4C81C /* giraffe2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505C0003DF6D00D4C81C /* giraffe2.png */; };
 		369150650003DF6D00D4C81C /* sav2_sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505D0003DF6D00D4C81C /* sav2_sky.png */; };
 		369150660003DF6D00D4C81C /* sav2_water.png in Resources */ = {isa = PBXBuildFile; fileRef = 3691505E0003DF6D00D4C81C /* sav2_water.png */; };
 		369150680003E19700D4C81C /* sav2_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 369150670003E19600D4C81C /* sav2_clouds.png */; };
@@ -1590,12 +1588,6 @@
 		36CAC08815F42A9900563EE9 /* big_tree2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07015F42A9900563EE9 /* big_tree2-hd.png */; };
 		36CAC08915F42A9900563EE9 /* big_tree2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07115F42A9900563EE9 /* big_tree2-ipad.png */; };
 		36CAC08A15F42A9900563EE9 /* big_tree2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07215F42A9900563EE9 /* big_tree2-ipadhd.png */; };
-		36CAC08B15F42A9900563EE9 /* giraffe1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07315F42A9900563EE9 /* giraffe1-hd.png */; };
-		36CAC08C15F42A9900563EE9 /* giraffe1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07415F42A9900563EE9 /* giraffe1-ipad.png */; };
-		36CAC08D15F42A9900563EE9 /* giraffe1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07515F42A9900563EE9 /* giraffe1-ipadhd.png */; };
-		36CAC08E15F42A9900563EE9 /* giraffe2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07615F42A9900563EE9 /* giraffe2-hd.png */; };
-		36CAC08F15F42A9900563EE9 /* giraffe2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07715F42A9900563EE9 /* giraffe2-ipad.png */; };
-		36CAC09015F42A9900563EE9 /* giraffe2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07815F42A9900563EE9 /* giraffe2-ipadhd.png */; };
 		36CAC09115F42A9900563EE9 /* sav2_clouds-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07915F42A9900563EE9 /* sav2_clouds-hd.png */; };
 		36CAC09215F42A9900563EE9 /* sav2_clouds-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07A15F42A9900563EE9 /* sav2_clouds-ipad.png */; };
 		36CAC09315F42A9900563EE9 /* sav2_clouds-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC07B15F42A9900563EE9 /* sav2_clouds-ipadhd.png */; };
@@ -1689,6 +1681,14 @@
 		36CD661B17DCBFE200689056 /* giraffe1sheet-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CD661717DCBFE200689056 /* giraffe1sheet-ipadhd.png */; };
 		36CD665817DCC01600689056 /* giraffe1sheet-animation-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CD665717DCC01600689056 /* giraffe1sheet-animation-ipadhd.plist */; };
 		36CD665A17DCC0F200689056 /* giraffe1sheet-animation-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CD665917DCC0F200689056 /* giraffe1sheet-animation-ipad.plist */; };
+		36CD665C17DD05A600689056 /* CircleClouds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CD665B17DD05A600689056 /* CircleClouds.plist */; };
+		36CD665F17DD21A400689056 /* Behavior+CircleCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CD665E17DD21A400689056 /* Behavior+CircleCloud.m */; };
+		36CD666417DD928F00689056 /* giraffe2sheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CD666017DD928D00689056 /* giraffe2sheet-ipad.plist */; };
+		36CD666517DD928F00689056 /* giraffe2sheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CD666117DD928E00689056 /* giraffe2sheet-ipad.png */; };
+		36CD666617DD928F00689056 /* giraffe2sheet-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CD666217DD928E00689056 /* giraffe2sheet-ipadhd.plist */; };
+		36CD666717DD928F00689056 /* giraffe2sheet-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CD666317DD928F00689056 /* giraffe2sheet-ipadhd.png */; };
+		36CD666A17DD936900689056 /* giraffe2sheet-animation-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CD666817DD936900689056 /* giraffe2sheet-animation-ipad.plist */; };
+		36CD666B17DD936900689056 /* giraffe2sheet-animation-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CD666917DD936900689056 /* giraffe2sheet-animation-ipadhd.plist */; };
 		36CFD26417C6E6D500D64251 /* Behavior+Lantern.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CFD26317C6E6D500D64251 /* Behavior+Lantern.m */; };
 		36D225B4160B72C200BDD28F /* fade-ipadhd.fs in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC1E01608243100563EE9 /* fade-ipadhd.fs */; };
 		36D225B5160B72C200BDD28F /* fade-ipadhd.vs in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC1DE160823F700563EE9 /* fade-ipadhd.vs */; };
@@ -3907,8 +3907,6 @@
 		369150570003DF6D00D4C81C /* big_tree1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_tree1.png; path = Resources/Environments/Savannah2/Graphics/big_tree1.png; sourceTree = "<group>"; };
 		369150580003DF6D00D4C81C /* big_tree2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_tree2.png; path = Resources/Environments/Savannah2/Graphics/big_tree2.png; sourceTree = "<group>"; };
 		3691505A0003DF6D00D4C81C /* sav2_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_floor.png; path = Resources/Environments/Savannah2/Graphics/sav2_floor.png; sourceTree = "<group>"; };
-		3691505B0003DF6D00D4C81C /* giraffe1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = giraffe1.png; path = Resources/Environments/Savannah2/Graphics/giraffe1.png; sourceTree = "<group>"; };
-		3691505C0003DF6D00D4C81C /* giraffe2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = giraffe2.png; path = Resources/Environments/Savannah2/Graphics/giraffe2.png; sourceTree = "<group>"; };
 		3691505D0003DF6D00D4C81C /* sav2_sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_sky.png; path = Resources/Environments/Savannah2/Graphics/sav2_sky.png; sourceTree = "<group>"; };
 		3691505E0003DF6D00D4C81C /* sav2_water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_water.png; path = Resources/Environments/Savannah2/Graphics/sav2_water.png; sourceTree = "<group>"; };
 		369150670003E19600D4C81C /* sav2_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sav2_clouds.png; path = Resources/Environments/Savannah2/Graphics/sav2_clouds.png; sourceTree = "<group>"; };
@@ -4213,12 +4211,6 @@
 		36CAC07015F42A9900563EE9 /* big_tree2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "big_tree2-hd.png"; path = "Resources/Environments/Savannah2/Graphics/big_tree2-hd.png"; sourceTree = "<group>"; };
 		36CAC07115F42A9900563EE9 /* big_tree2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "big_tree2-ipad.png"; path = "Resources/Environments/Savannah2/Graphics/big_tree2-ipad.png"; sourceTree = "<group>"; };
 		36CAC07215F42A9900563EE9 /* big_tree2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "big_tree2-ipadhd.png"; path = "Resources/Environments/Savannah2/Graphics/big_tree2-ipadhd.png"; sourceTree = "<group>"; };
-		36CAC07315F42A9900563EE9 /* giraffe1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe1-hd.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe1-hd.png"; sourceTree = "<group>"; };
-		36CAC07415F42A9900563EE9 /* giraffe1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe1-ipad.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe1-ipad.png"; sourceTree = "<group>"; };
-		36CAC07515F42A9900563EE9 /* giraffe1-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe1-ipadhd.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe1-ipadhd.png"; sourceTree = "<group>"; };
-		36CAC07615F42A9900563EE9 /* giraffe2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe2-hd.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe2-hd.png"; sourceTree = "<group>"; };
-		36CAC07715F42A9900563EE9 /* giraffe2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe2-ipad.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe2-ipad.png"; sourceTree = "<group>"; };
-		36CAC07815F42A9900563EE9 /* giraffe2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe2-ipadhd.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe2-ipadhd.png"; sourceTree = "<group>"; };
 		36CAC07915F42A9900563EE9 /* sav2_clouds-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sav2_clouds-hd.png"; path = "Resources/Environments/Savannah2/Graphics/sav2_clouds-hd.png"; sourceTree = "<group>"; };
 		36CAC07A15F42A9900563EE9 /* sav2_clouds-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sav2_clouds-ipad.png"; path = "Resources/Environments/Savannah2/Graphics/sav2_clouds-ipad.png"; sourceTree = "<group>"; };
 		36CAC07B15F42A9900563EE9 /* sav2_clouds-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sav2_clouds-ipadhd.png"; path = "Resources/Environments/Savannah2/Graphics/sav2_clouds-ipadhd.png"; sourceTree = "<group>"; };
@@ -4317,6 +4309,15 @@
 		36CD661717DCBFE200689056 /* giraffe1sheet-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe1sheet-ipadhd.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe1sheet-ipadhd.png"; sourceTree = "<group>"; };
 		36CD665717DCC01600689056 /* giraffe1sheet-animation-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "giraffe1sheet-animation-ipadhd.plist"; path = "Resources/Environments/Savannah2/Graphics/giraffe1sheet-animation-ipadhd.plist"; sourceTree = "<group>"; };
 		36CD665917DCC0F200689056 /* giraffe1sheet-animation-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "giraffe1sheet-animation-ipad.plist"; path = "Resources/Environments/Savannah2/Graphics/giraffe1sheet-animation-ipad.plist"; sourceTree = "<group>"; };
+		36CD665B17DD05A600689056 /* CircleClouds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CircleClouds.plist; sourceTree = "<group>"; };
+		36CD665D17DD21A400689056 /* Behavior+CircleCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+CircleCloud.h"; sourceTree = "<group>"; };
+		36CD665E17DD21A400689056 /* Behavior+CircleCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+CircleCloud.m"; sourceTree = "<group>"; };
+		36CD666017DD928D00689056 /* giraffe2sheet-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "giraffe2sheet-ipad.plist"; path = "Resources/Environments/Savannah2/Graphics/giraffe2sheet-ipad.plist"; sourceTree = "<group>"; };
+		36CD666117DD928E00689056 /* giraffe2sheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe2sheet-ipad.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe2sheet-ipad.png"; sourceTree = "<group>"; };
+		36CD666217DD928E00689056 /* giraffe2sheet-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "giraffe2sheet-ipadhd.plist"; path = "Resources/Environments/Savannah2/Graphics/giraffe2sheet-ipadhd.plist"; sourceTree = "<group>"; };
+		36CD666317DD928F00689056 /* giraffe2sheet-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "giraffe2sheet-ipadhd.png"; path = "Resources/Environments/Savannah2/Graphics/giraffe2sheet-ipadhd.png"; sourceTree = "<group>"; };
+		36CD666817DD936900689056 /* giraffe2sheet-animation-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "giraffe2sheet-animation-ipad.plist"; path = "Resources/Environments/Savannah2/Graphics/giraffe2sheet-animation-ipad.plist"; sourceTree = "<group>"; };
+		36CD666917DD936900689056 /* giraffe2sheet-animation-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "giraffe2sheet-animation-ipadhd.plist"; path = "Resources/Environments/Savannah2/Graphics/giraffe2sheet-animation-ipadhd.plist"; sourceTree = "<group>"; };
 		36CFD26217C6E6D500D64251 /* Behavior+Lantern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Behavior+Lantern.h"; sourceTree = "<group>"; };
 		36CFD26317C6E6D500D64251 /* Behavior+Lantern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Behavior+Lantern.m"; sourceTree = "<group>"; };
 		36D5E68915E948FC00F5562D /* FallingLeaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FallingLeaves.plist; path = Resources/Environments/Savannah1/Particles/FallingLeaves.plist; sourceTree = "<group>"; };
@@ -5537,6 +5538,12 @@
 		364B078B15A8F5620054E69A /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				36CD666817DD936900689056 /* giraffe2sheet-animation-ipad.plist */,
+				36CD666917DD936900689056 /* giraffe2sheet-animation-ipadhd.plist */,
+				36CD666017DD928D00689056 /* giraffe2sheet-ipad.plist */,
+				36CD666117DD928E00689056 /* giraffe2sheet-ipad.png */,
+				36CD666217DD928E00689056 /* giraffe2sheet-ipadhd.plist */,
+				36CD666317DD928F00689056 /* giraffe2sheet-ipadhd.png */,
 				36CD665917DCC0F200689056 /* giraffe1sheet-animation-ipad.plist */,
 				36CD661417DCBFE200689056 /* giraffe1sheet-ipad.plist */,
 				36CD661517DCBFE200689056 /* giraffe1sheet-ipad.png */,
@@ -5549,12 +5556,6 @@
 				36CAC07015F42A9900563EE9 /* big_tree2-hd.png */,
 				36CAC07115F42A9900563EE9 /* big_tree2-ipad.png */,
 				36CAC07215F42A9900563EE9 /* big_tree2-ipadhd.png */,
-				36CAC07315F42A9900563EE9 /* giraffe1-hd.png */,
-				36CAC07415F42A9900563EE9 /* giraffe1-ipad.png */,
-				36CAC07515F42A9900563EE9 /* giraffe1-ipadhd.png */,
-				36CAC07615F42A9900563EE9 /* giraffe2-hd.png */,
-				36CAC07715F42A9900563EE9 /* giraffe2-ipad.png */,
-				36CAC07815F42A9900563EE9 /* giraffe2-ipadhd.png */,
 				36CAC07915F42A9900563EE9 /* sav2_clouds-hd.png */,
 				36CAC07A15F42A9900563EE9 /* sav2_clouds-ipad.png */,
 				36CAC07B15F42A9900563EE9 /* sav2_clouds-ipadhd.png */,
@@ -5571,8 +5572,6 @@
 				369150580003DF6D00D4C81C /* big_tree2.png */,
 				369150670003E19600D4C81C /* sav2_clouds.png */,
 				3691505A0003DF6D00D4C81C /* sav2_floor.png */,
-				3691505B0003DF6D00D4C81C /* giraffe1.png */,
-				3691505C0003DF6D00D4C81C /* giraffe2.png */,
 				3691505D0003DF6D00D4C81C /* sav2_sky.png */,
 				3691505E0003DF6D00D4C81C /* sav2_water.png */,
 			);
@@ -5647,6 +5646,7 @@
 		365C763C1619F2A40030CD0C /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				36CD665B17DD05A600689056 /* CircleClouds.plist */,
 				361E1DF217CAA34B0046B473 /* BugTouch.plist */,
 				364B10B2177154F8005D97EA /* ExplodingRing.plist */,
 				3652C99F1695E9FC00A57F73 /* BugSwarm.plist */,
@@ -7502,6 +7502,8 @@
 				36CFD26317C6E6D500D64251 /* Behavior+Lantern.m */,
 				361E1E0C17CAE6110046B473 /* Behavior+Parachute.h */,
 				361E1E0D17CAE6110046B473 /* Behavior+Parachute.m */,
+				36CD665D17DD21A400689056 /* Behavior+CircleCloud.h */,
+				36CD665E17DD21A400689056 /* Behavior+CircleCloud.m */,
 			);
 			name = Behaviors;
 			sourceTree = "<group>";
@@ -8450,8 +8452,6 @@
 				3691505F0003DF6D00D4C81C /* big_tree1.png in Resources */,
 				369150600003DF6D00D4C81C /* big_tree2.png in Resources */,
 				369150620003DF6D00D4C81C /* sav2_floor.png in Resources */,
-				369150630003DF6D00D4C81C /* giraffe1.png in Resources */,
-				369150640003DF6D00D4C81C /* giraffe2.png in Resources */,
 				369150650003DF6D00D4C81C /* sav2_sky.png in Resources */,
 				369150660003DF6D00D4C81C /* sav2_water.png in Resources */,
 				369150680003E19700D4C81C /* sav2_clouds.png in Resources */,
@@ -8492,12 +8492,6 @@
 				36CAC08815F42A9900563EE9 /* big_tree2-hd.png in Resources */,
 				36CAC08915F42A9900563EE9 /* big_tree2-ipad.png in Resources */,
 				36CAC08A15F42A9900563EE9 /* big_tree2-ipadhd.png in Resources */,
-				36CAC08B15F42A9900563EE9 /* giraffe1-hd.png in Resources */,
-				36CAC08C15F42A9900563EE9 /* giraffe1-ipad.png in Resources */,
-				36CAC08D15F42A9900563EE9 /* giraffe1-ipadhd.png in Resources */,
-				36CAC08E15F42A9900563EE9 /* giraffe2-hd.png in Resources */,
-				36CAC08F15F42A9900563EE9 /* giraffe2-ipad.png in Resources */,
-				36CAC09015F42A9900563EE9 /* giraffe2-ipadhd.png in Resources */,
 				36CAC09115F42A9900563EE9 /* sav2_clouds-hd.png in Resources */,
 				36CAC09215F42A9900563EE9 /* sav2_clouds-ipad.png in Resources */,
 				36CAC09315F42A9900563EE9 /* sav2_clouds-ipadhd.png in Resources */,
@@ -10313,6 +10307,13 @@
 				36CD661B17DCBFE200689056 /* giraffe1sheet-ipadhd.png in Resources */,
 				36CD665817DCC01600689056 /* giraffe1sheet-animation-ipadhd.plist in Resources */,
 				36CD665A17DCC0F200689056 /* giraffe1sheet-animation-ipad.plist in Resources */,
+				36CD665C17DD05A600689056 /* CircleClouds.plist in Resources */,
+				36CD666417DD928F00689056 /* giraffe2sheet-ipad.plist in Resources */,
+				36CD666517DD928F00689056 /* giraffe2sheet-ipad.png in Resources */,
+				36CD666617DD928F00689056 /* giraffe2sheet-ipadhd.plist in Resources */,
+				36CD666717DD928F00689056 /* giraffe2sheet-ipadhd.png in Resources */,
+				36CD666A17DD936900689056 /* giraffe2sheet-animation-ipad.plist in Resources */,
+				36CD666B17DD936900689056 /* giraffe2sheet-animation-ipadhd.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10426,6 +10427,7 @@
 				361E1E0E17CAE6110046B473 /* Behavior+Parachute.m in Sources */,
 				361E1E7117D53D700046B473 /* BirdFlock.m in Sources */,
 				361E1E7417D540600046B473 /* Boid.m in Sources */,
+				36CD665F17DD21A400689056 /* Behavior+CircleCloud.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

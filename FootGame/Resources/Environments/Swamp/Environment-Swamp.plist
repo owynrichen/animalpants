@@ -415,7 +415,7 @@
 	</dict>
 	<key>Sky</key>
 	<dict>
-		<key>Behavior</key>
+		<key>Behaviors</key>
 		<dict>
 			<key>BugsTouch</key>
 			<dict>

@@ -32,4 +32,7 @@
 -(CCFiniteTimeAction *) resetScaleAction: (NSDictionary *) params;
 -(CCFiniteTimeAction *) resetNodeAction: (NSDictionary *) params;
 
+-(CCAction *) move: (NSDictionary *) params;
+-(CCAction *) rotate: (NSDictionary *) params;
+
 @end

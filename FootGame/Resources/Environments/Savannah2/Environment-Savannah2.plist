@@ -2,10 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Music</key>
-	<string>Lion_1_whatdoyouthinkj.mp3</string>
-	<key>Giraffe2</key>
+	<key>Emma</key>
 	<dict>
+		<key>scale</key>
+		<dict>
+			<key>y</key>
+			<real>0.6</real>
+			<key>x</key>
+			<real>0.6</real>
+		</dict>
 		<key>Behaviors</key>
 		<dict>
 			<key>Sound</key>
@@ -13,27 +18,95 @@
 				<key>params</key>
 				<dict>
 					<key>sound</key>
-					<string>giraffes.mp3</string>
+					<string>Awesome_Emma.mp3</string>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
 				<string>playSound</string>
 			</dict>
-			<key>Move</key>
+			<key>Popup</key>
 			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>60</integer>
+						<key>y</key>
+						<integer>-20</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>backflip</string>
+				<string>popup</string>
 			</dict>
 		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>6</integer>
+		<integer>1</integer>
 		<key>imageName</key>
-		<string>giraffe2.png</string>
+		<string>emma_detective.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>40</integer>
+			<key>y</key>
+			<integer>250</integer>
+		</dict>
+	</dict>
+	<key>Music</key>
+	<string>Lion_1_whatdoyouthinkj.mp3</string>
+	<key>Giraffe2</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Move</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<integer>4</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>120</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>move</string>
+			</dict>
+			<key>WalkCycle</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>animationName</key>
+					<string>walk</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>animate</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>animationName</key>
+		<string>giraffe2sheet-animation.plist</string>
+		<key>frameName</key>
+		<string>giraffe2_f1.png</string>
 		<key>position</key>
 		<dict>
 			<key>x</key>
@@ -212,6 +285,84 @@
 	</dict>
 	<key>Sky</key>
 	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>CircleClouds2</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>maxRadius</key>
+					<integer>700</integer>
+					<key>maxRadiusVariance</key>
+					<integer>30</integer>
+					<key>minRadius</key>
+					<integer>680</integer>
+					<key>minRadiusVariance</key>
+					<integer>40</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>600</integer>
+						<key>y</key>
+						<integer>900</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>circleClouds</string>
+			</dict>
+			<key>CircleClouds</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>maxRadius</key>
+					<integer>490</integer>
+					<key>maxRadiusVariance</key>
+					<integer>30</integer>
+					<key>minRadius</key>
+					<integer>450</integer>
+					<key>minRadiusVariance</key>
+					<integer>40</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>650</integer>
+						<key>y</key>
+						<integer>900</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>circleClouds</string>
+			</dict>
+			<key>CircleClouds3</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>maxRadius</key>
+					<integer>900</integer>
+					<key>maxRadiusVariance</key>
+					<integer>60</integer>
+					<key>minRadius</key>
+					<integer>850</integer>
+					<key>minRadiusVariance</key>
+					<integer>40</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>600</integer>
+						<key>y</key>
+						<integer>900</integer>
+					</dict>
+				</dict>
+				<key>event</key>
+				<string>start</string>
+				<key>action</key>
+				<string>circleClouds</string>
+			</dict>
+		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
