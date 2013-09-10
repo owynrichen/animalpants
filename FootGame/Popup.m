@@ -12,6 +12,9 @@
 
 @implementation Popup
 
+#define BG2_OPACITY (200.0f / 255.0f)
+#define BG_OPACITY (160.0f / 255.0f)
+
 +(Popup *) popup {
     return [[[Popup alloc] init] autorelease];
 }
@@ -28,9 +31,15 @@
     background.blendFunc = (ccBlendFunc) { GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA };
     [self addChild:background];
     
+    background2 = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 0)];
+    background2.contentSize = CGSizeMake(size.width * 1.02, size.height * 1.03);
+    background2.position = ccp(-size.width * 0.01, -size.height * 0.015);
+    background2.blendFunc = (ccBlendFunc) { GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA };
+    [self addChild:background2];
+    
     close = [CircleButton buttonWithFile:@"close-x.png"];
     close.scale = 0.6;
-    close.position = ccp(size.width - 50, size.height - 50);
+    close.position = ccp(size.width - 60, size.height - 60);
     [self addChild:close z:100];
     
     __block Popup *pointer = self;
@@ -115,11 +124,13 @@
 }
 
 -(GLubyte) opacity {
-    return background.opacity;
+    return op_;
 }
 
 -(void) setOpacity: (GLubyte) opacity {
-    background.opacity = opacity;
+    op_ = opacity;
+    background.opacity = (GLubyte) ((float) opacity * BG_OPACITY);
+    background2.opacity = (GLubyte) ((float) opacity * BG2_OPACITY);
     close.opacity = opacity;
 }
 

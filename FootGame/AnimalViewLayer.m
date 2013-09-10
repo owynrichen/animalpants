@@ -259,7 +259,8 @@
     [gameLayer addChild:next];
     
     prev = [CCSprite spriteWithFile:@"rightarrow.png"];
-    prev.scale = -0.4 * fontScaleForCurrentDevice();
+    prev.scaleX = -0.4 * fontScaleForCurrentDevice();
+    prev.scaleY = 0.4 * fontScaleForCurrentDevice();
     prev.position = ccpToRatio(100, 90);
     prev.visible = false;
     

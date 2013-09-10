@@ -15,7 +15,8 @@ typedef void (^PopupBlock)(CCNode<CCRGBAProtocol> *popup);
 @interface Popup : CCNode<CCRGBAProtocol> {
     CircleButton *close;
     CCLayerColor *background;
-    
+    CCLayerColor *background2;
+    GLubyte op_;
     PopupBlock cBlock;
 }
 

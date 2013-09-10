@@ -18,7 +18,7 @@
 				<key>params</key>
 				<dict>
 					<key>sound</key>
-					<string>giraffes.mp3</string>
+					<string>frogs.mp3</string>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
@@ -30,7 +30,7 @@
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>backflip</string>
+				<string>randomJump</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -56,7 +56,7 @@
 				<key>params</key>
 				<dict>
 					<key>sound</key>
-					<string>giraffes.mp3</string>
+					<string>frogs.mp3</string>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
@@ -68,13 +68,13 @@
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>backflip</string>
+				<string>randomJump</string>
 			</dict>
 		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
-		<integer>3</integer>
+		<integer>5</integer>
 		<key>imageName</key>
 		<string>swamp_frog.png</string>
 		<key>position</key>
@@ -87,28 +87,6 @@
 	</dict>
 	<key>Flower5</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -125,28 +103,6 @@
 	</dict>
 	<key>Flower4</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -163,28 +119,6 @@
 	</dict>
 	<key>Flower3</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -201,28 +135,6 @@
 	</dict>
 	<key>Flower2</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -239,28 +151,6 @@
 	</dict>
 	<key>Flower1</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -366,6 +256,65 @@
 			<integer>0</integer>
 			<key>y</key>
 			<integer>185</integer>
+		</dict>
+	</dict>
+	<key>Avery</key>
+	<dict>
+		<key>scale</key>
+		<dict>
+			<key>x</key>
+			<real>-0.7</real>
+			<key>y</key>
+			<real>0.7</real>
+		</dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>Awesome_Emma.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>40</integer>
+						<key>y</key>
+						<integer>0</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>1</integer>
+		<key>imageName</key>
+		<string>avery-green.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>80</integer>
+			<key>y</key>
+			<integer>280</integer>
 		</dict>
 	</dict>
 	<key>Water</key>
