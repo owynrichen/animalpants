@@ -90,28 +90,26 @@
 	</dict>
 	<key>Lizard2</key>
 	<dict>
-		<key>rotate</key>
-		<integer>75</integer>
 		<key>Behaviors</key>
 		<dict>
-			<key>Sound</key>
+			<key>Tint</key>
 			<dict>
 				<key>params</key>
 				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
+					<key>color</key>
+					<dict>
+						<key>r</key>
+						<integer>205</integer>
+						<key>g</key>
+						<integer>133</integer>
+						<key>b</key>
+						<integer>63</integer>
+					</dict>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
 				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
+				<string>tint</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -130,28 +128,6 @@
 	</dict>
 	<key>Lizard1</key>
 	<dict>
-		<key>Behaviors</key>
-		<dict>
-			<key>Sound</key>
-			<dict>
-				<key>params</key>
-				<dict>
-					<key>sound</key>
-					<string>giraffes.mp3</string>
-				</dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
-			</dict>
-		</dict>
 		<key>type</key>
 		<string>CCAutoScalingSprite</string>
 		<key>z</key>
@@ -218,6 +194,58 @@
 			<integer>0</integer>
 			<key>y</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>Emma</key>
+	<dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>Awesome_Emma.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>80</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>4</integer>
+		<key>imageName</key>
+		<string>emma-dress.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>720</integer>
+			<key>y</key>
+			<integer>180</integer>
 		</dict>
 	</dict>
 	<key>Grass2</key>

@@ -34,5 +34,6 @@
 
 -(CCAction *) move: (NSDictionary *) params;
 -(CCAction *) rotate: (NSDictionary *) params;
+-(CCAction *) tint: (NSDictionary *) params;
 
 @end

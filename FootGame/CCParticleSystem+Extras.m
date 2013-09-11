@@ -131,6 +131,38 @@
         mode.B.rotatePerSecondVar *= positionScaleForCurrentDevice(kDimensionY);
     }
     
+    if ([params objectForKey:@"startColorRed"] != nil) {
+        float sr = [(NSNumber *) [params objectForKey:@"startColorRed"] floatValue];
+        float sg = [(NSNumber *) [params objectForKey:@"startColorGreen"] floatValue];
+        float sb = [(NSNumber *) [params objectForKey:@"startColorBlue"] floatValue];
+        float sa = [(NSNumber *) [params objectForKey:@"startColorAlpha"] floatValue];
+        startColor = ccc4f(sr, sg, sb, sa);
+    }
+    
+    if ([params objectForKey:@"startColorRedVariance"] != nil) {
+        float srv = [(NSNumber *) [params objectForKey:@"startColorRedVariance"] floatValue];
+        float sgv = [(NSNumber *) [params objectForKey:@"startColorGreenVariance"] floatValue];
+        float sbv = [(NSNumber *) [params objectForKey:@"startColorBlueVariance"] floatValue];
+        float sav = [(NSNumber *) [params objectForKey:@"startColorAlphaVariance"] floatValue];
+        startColorVar = ccc4f(srv, sgv, sbv, sav);
+    }
+    
+    if ([params objectForKey:@"finishColorRed"] != nil) {
+        float fr = [(NSNumber *) [params objectForKey:@"finishColorRed"] floatValue];
+        float fg = [(NSNumber *) [params objectForKey:@"finishColorGreen"] floatValue];
+        float fb = [(NSNumber *) [params objectForKey:@"finishColorBlue"] floatValue];
+        float fa = [(NSNumber *) [params objectForKey:@"finishColorAlpha"] floatValue];
+        endColor = ccc4f(fr, fg, fb, fa);
+    }
+    
+    if ([params objectForKey:@"finishColorRedVariance"] != nil) {
+        float frv = [(NSNumber *) [params objectForKey:@"finishColorRedVariance"] floatValue];
+        float fgv = [(NSNumber *) [params objectForKey:@"finishColorGreenVariance"] floatValue];
+        float fbv = [(NSNumber *) [params objectForKey:@"finishColorBlueVariance"] floatValue];
+        float fav = [(NSNumber *) [params objectForKey:@"finishColorAlphaVariance"] floatValue];
+        endColorVar = ccc4f(frv, fgv, fbv, fav);
+    }
+    
     // TODO: insert more overrides here as needed...
     
     self.startSize = self.startSize * positionScaleForCurrentDevice(kDimensionY);

@@ -124,7 +124,20 @@
 }
 
 -(CCAction *) rotate: (NSDictionary *) params {
-    return nil;
+    float duration = [(NSNumber *) [params objectForKey:@"duration"] floatValue];
+    float angle = [(NSNumber *) [params objectForKey:@"rotation"] floatValue];
+    
+    return [CCRotateBy actionWithDuration:duration angle:angle];
+}
+
+-(CCAction *) tint: (NSDictionary *) params {
+    float duration = [(NSNumber *) [params objectForKey:@"duration"] floatValue];
+    NSDictionary *color = [params objectForKey:@"color"];
+    GLubyte r = [(NSNumber *) [color objectForKey:@"r"] intValue];
+    GLubyte g = [(NSNumber *) [color objectForKey:@"g"] intValue];
+    GLubyte b = [(NSNumber *) [color objectForKey:@"b"] intValue];
+
+    return [CCTintTo actionWithDuration:duration red:r green:g blue:b];
 }
 
 @end
