@@ -2,6 +2,65 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Emma</key>
+	<dict>
+		<key>scale</key>
+		<dict>
+			<key>x</key>
+			<real>0.5</real>
+			<key>y</key>
+			<real>0.5</real>
+		</dict>
+		<key>Behaviors</key>
+		<dict>
+			<key>Sound</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>sound</key>
+					<string>Awesome_Emma.mp3</string>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>playSound</string>
+			</dict>
+			<key>Popup</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>duration</key>
+					<real>0.25</real>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>0</integer>
+						<key>y</key>
+						<integer>30</integer>
+					</dict>
+					<key>holdDuration</key>
+					<real>1</real>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>popup</string>
+			</dict>
+		</dict>
+		<key>type</key>
+		<string>CCAutoScalingSprite</string>
+		<key>z</key>
+		<integer>5</integer>
+		<key>imageName</key>
+		<string>avery_dress_green.png</string>
+		<key>position</key>
+		<dict>
+			<key>x</key>
+			<integer>400</integer>
+			<key>y</key>
+			<integer>500</integer>
+		</dict>
+	</dict>
 	<key>Plane</key>
 	<dict>
 		<key>scale</key>
@@ -82,6 +141,52 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Notes</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>params</key>
+				<dict>
+					<key>speed</key>
+					<integer>0</integer>
+					<key>duration</key>
+					<integer>3</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>25</integer>
+						<key>y</key>
+						<integer>140</integer>
+					</dict>
+				</dict>
+				<key>action</key>
+				<string>notes</string>
+			</dict>
+			<key>Roar</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>delay</key>
+					<integer>2</integer>
+					<key>frames</key>
+					<array>
+						<dict>
+							<key>delay</key>
+							<real>0.5</real>
+							<key>file</key>
+							<string>savannah4_lion2_open.png</string>
+						</dict>
+						<dict>
+							<key>file</key>
+							<string>savannah4_lion2.png</string>
+						</dict>
+					</array>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>animate</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -93,13 +198,6 @@
 				<string>touch</string>
 				<key>action</key>
 				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
 			</dict>
 		</dict>
 		<key>type</key>
@@ -120,6 +218,52 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Notes</key>
+			<dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>params</key>
+				<dict>
+					<key>speed</key>
+					<integer>0</integer>
+					<key>duration</key>
+					<integer>3</integer>
+					<key>position</key>
+					<dict>
+						<key>x</key>
+						<integer>70</integer>
+						<key>y</key>
+						<integer>140</integer>
+					</dict>
+				</dict>
+				<key>action</key>
+				<string>notes</string>
+			</dict>
+			<key>Roar</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>delay</key>
+					<integer>2</integer>
+					<key>frames</key>
+					<array>
+						<dict>
+							<key>delay</key>
+							<real>0.5</real>
+							<key>file</key>
+							<string>savannah4_lion1_open.png</string>
+						</dict>
+						<dict>
+							<key>file</key>
+							<string>savannah4_lion1.png</string>
+						</dict>
+					</array>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>animate</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>
@@ -131,13 +275,6 @@
 				<string>touch</string>
 				<key>action</key>
 				<string>playSound</string>
-			</dict>
-			<key>Flip</key>
-			<dict>
-				<key>event</key>
-				<string>touch</string>
-				<key>action</key>
-				<string>backflip</string>
 			</dict>
 		</dict>
 		<key>type</key>

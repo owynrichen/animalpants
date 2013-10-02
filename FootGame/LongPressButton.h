@@ -18,8 +18,12 @@ typedef void (^LongPressBlock)(CCNode * sender);
 @property (nonatomic) float delay;
 @property (nonatomic) double startTime;
 @property (nonatomic) float baseScale;
+@property (nonatomic) bool autoClickStarted;
+@property (nonatomic) CCAutoScalingSprite *clockHand;
 
 +(LongPressButton *) buttonWithBlock: (LongPressBlock) blk;
+
+-(void) autoClickAfter: (float) delay;
 
 
 @end

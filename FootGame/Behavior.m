@@ -59,6 +59,13 @@
         [params setObject:[origScale objectForKey:@"x"] forKey:@"original_scaleX"];
         [params setObject:[origScale objectForKey:@"y"] forKey:@"original_scaleY"];
     }
+    
+    NSNumber *origZ = [origParams objectForKey:@"z"];
+    if (origZ != nil) {
+        [params setObject:origZ forKey:@"original_z"];
+    } else {
+        [params setObject:[NSNumber numberWithInt:0] forKey:@"original_z"];
+    }
 
     SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@:", action]);
     CCAction *act = nil;

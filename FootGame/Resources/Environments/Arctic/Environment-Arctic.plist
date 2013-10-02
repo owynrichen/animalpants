@@ -263,6 +263,18 @@
 	<dict>
 		<key>Behaviors</key>
 		<dict>
+			<key>Dive</key>
+			<dict>
+				<key>params</key>
+				<dict>
+					<key>behindZOrder</key>
+					<integer>4</integer>
+				</dict>
+				<key>event</key>
+				<string>touch</string>
+				<key>action</key>
+				<string>waterdive</string>
+			</dict>
 			<key>Sound</key>
 			<dict>
 				<key>params</key>

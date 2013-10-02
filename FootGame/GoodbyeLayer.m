@@ -152,6 +152,7 @@
     
     outro = [[[NarrationNode alloc] initWithSize: bubbleRect] autorelease];
     outro.position = ccpToRatio(50, 480);
+    outro.zOrder = 50;
     [self addChild:outro];
     
     __block GoodbyeLayer *pointer = self;
@@ -161,6 +162,7 @@
     }];
     
     skip.position = ccpToRatio(950, 80);
+    skip.zOrder = 50;
     [self addChild:skip];
     
     return self;
@@ -222,7 +224,7 @@
     
     [[SoundManager sharedManager] setMusicVolume:0.4];
     
-    [outro startWithCues: cues finishBlock:^(CCNode *node) {}];
+    [outro startWithCues: cues finishBlock:^(CCNode *node) { [skip autoClickAfter:10.0]; }];
 }
 
 -(void) onExitTransitionDidStart {
