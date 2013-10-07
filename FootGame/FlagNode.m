@@ -7,6 +7,7 @@
 //
 
 #import "FlagNode.h"
+#import "CCSpriteFrameCache+Enumerable.h"
 
 #define CROSSFADE_TIME 2.0
 #define DELAY_TIME 1.0
@@ -28,35 +29,46 @@
     
     currentFlagIndex = 0;
     
-    NSMutableArray* paths = [NSMutableArray arrayWithArray:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                                               NSUserDomainMask, YES)];
-    [paths addObject:[[NSBundle mainBundle] bundlePath]];
+    NSString *dotLang = [NSString stringWithFormat:@".%@", lang];
     
-    // [self loadFromOldFile];
-    [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSEnumerator *enumerator = [[NSFileManager defaultManager]
-                                    enumeratorAtPath:(NSString *) obj];
-        
-        NSString *path = nil;
-        NSString *dotLang = [NSString stringWithFormat:@".%@", lang];
-        
-        while (path = (NSString *) [enumerator nextObject]) {
-            NSArray *components = [path pathComponents];
-            NSString *filename = [components objectAtIndex:[components count] - 1];
-            
-            if ([filename hasPrefix:@"flag-"] &&
-                [filename rangeOfString:dotLang options:NSCaseInsensitiveSearch].location != NSNotFound &&
-                [filename rangeOfString:@"-ipadhd" options:NSCaseInsensitiveSearch].location == NSNotFound &&
-                [filename rangeOfString:@"-ipad" options:NSCaseInsensitiveSearch].location == NSNotFound &&
-                [filename rangeOfString:@"-hd" options:NSCaseInsensitiveSearch].location == NSNotFound) {
-                
-                CCSprite *sprite = [CCSprite spriteWithFile:filename];
-                sprite.opacity = 0;
-                [self addChild:sprite];
-            }
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"flags2.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] eachFrameWithBlock:^(NSString *key, CCSpriteFrame *frame) {
+        if ([key hasPrefix:@"flag-"] && [key rangeOfString:dotLang options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            CCSprite *sprite = [CCSprite spriteWithSpriteFrame:frame];
+            sprite.opacity = 0;
+            [self addChild:sprite];
         }
-
     }];
+    
+//    NSMutableArray* paths = [NSMutableArray arrayWithArray:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+//                                                                                               NSUserDomainMask, YES)];
+//    [paths addObject:[[NSBundle mainBundle] bundlePath]];
+//    
+//    // [self loadFromOldFile];
+//    [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        NSEnumerator *enumerator = [[NSFileManager defaultManager]
+//                                    enumeratorAtPath:(NSString *) obj];
+//        
+//        NSString *path = nil;
+//        NSString *dotLang = [NSString stringWithFormat:@".%@", lang];
+//        
+//        while (path = (NSString *) [enumerator nextObject]) {
+//            NSArray *components = [path pathComponents];
+//            NSString *filename = [components objectAtIndex:[components count] - 1];
+//            
+//            if ([filename hasPrefix:@"flag-"] &&
+//                [filename rangeOfString:dotLang options:NSCaseInsensitiveSearch].location != NSNotFound &&
+//                [filename rangeOfString:@"-ipadhd" options:NSCaseInsensitiveSearch].location == NSNotFound &&
+//                [filename rangeOfString:@"-ipad" options:NSCaseInsensitiveSearch].location == NSNotFound &&
+//                [filename rangeOfString:@"-hd" options:NSCaseInsensitiveSearch].location == NSNotFound) {
+//                
+//                CCSprite *sprite = [CCSprite spriteWithFile:filename];
+//                sprite.opacity = 0;
+//                [self addChild:sprite];
+//            }
+//        }
+//
+//    }];
     
     return self;
 }

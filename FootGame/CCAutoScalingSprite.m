@@ -191,7 +191,7 @@
 }
 
 -(void) addEvent: (NSString *) event withBlock: (void (^)(CCNode * sender)) blk {
-    [[self behaviorManager] addBehavior:[BlockBehavior behaviorFromKey:event dictionary:[NSDictionary dictionaryWithObject:event forKey:@"event"] block:blk]];
+    [[self behaviorManager] addBehavior:[BlockBehavior behaviorFromKey:event dictionary:[[NSDictionary dictionaryWithObject:event forKey:@"event"] autorelease] block:blk]];
 }
 
 -(void) update:(ccTime)delta {
@@ -285,7 +285,7 @@
     if (self.visible && CGRectContainsPoint(bbox, pnt)) {
         CGPoint localpnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
         BOOL hit = NO;
-        NSLog(@"Coverage: %f - %@", [self.bitMask getPercentCoverage], name);
+        CCLOGINFO(@"Coverage: %f - %@", [self.bitMask getPercentCoverage], name);
         
         if ([self.bitMask getPercentCoverage] > 40) {
             hit = [self.bitMask hitx:localpnt.x y:localpnt.y];
@@ -321,7 +321,7 @@
     if (self.visible && CGRectContainsPoint(bbox, pnt)) {
         CGPoint localpnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
         BOOL hit = NO;
-        NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
+        CCLOGINFO(@"Coverage: %f", [self.bitMask getPercentCoverage]);
         
         if ([self.bitMask getPercentCoverage] > 40) {
             hit = [self.bitMask hitx:localpnt.x y:localpnt.y];
@@ -362,7 +362,7 @@
         if (CGRectContainsPoint(bbox, pnt)) {
             CGPoint localpnt = CGPointApplyAffineTransform(pnt, [self worldToNodeTransform]);
             BOOL hit = NO;
-            NSLog(@"Coverage: %f", [self.bitMask getPercentCoverage]);
+            CCLOGINFO(@"Coverage: %f", [self.bitMask getPercentCoverage]);
             
             if ([self.bitMask getPercentCoverage] > 40) {
                 hit = [self.bitMask hitx:localpnt.x y:localpnt.y];

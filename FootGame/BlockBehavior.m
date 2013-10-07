@@ -33,7 +33,7 @@
 }
 
 -(CCAction *) getAction:(CCNode *)node withParams:(NSDictionary *)p {
-    NSLog(@"Calling block for %@ with params %@", [node description], [p description]);
+    CCLOGINFO(@"Calling block for %@ with params %@", [node description], [p description]);
     return [CCCallBlockN actionWithBlock:block];
 }
 

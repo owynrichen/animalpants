@@ -100,7 +100,7 @@
     
     narration = [CCVolumeMenuItem buttonWithVolumeType:kSoundVolume button:narrationIcon text:locstr(@"sound_volume", @"strings", @"")];
     
-    narration.position = ccpToRatio(winSize.width * 0.05, menu.position.y + (((int)[menu.children count]) * -narration.contentSize.height));
+    narration.position = ccpToRatio(winSize.width * 0.05, menu.position.y + (((int)[menu.children count]) * -narration.contentSize.height * 1.1));
     
     CircleButton *musicIcon = [CircleButton buttonWithFile:@"music.png"];
     musicIcon.position = ccp(0,0);
@@ -108,7 +108,7 @@
     
     music = [CCVolumeMenuItem buttonWithVolumeType:kMusicVolume button:musicIcon text:locstr(@"music_volume", @"strings", @"")];
     
-    music.position = ccpToRatio(winSize.width * 0.05, menu.position.y - narration.contentSize.height + (((int)[menu.children count]) * -narration.contentSize.height));
+    music.position = ccpToRatio(winSize.width * 0.05, menu.position.y - narration.contentSize.height * 1.1 + (((int)[menu.children count]) * -narration.contentSize.height * 1.1));
     
     [self addChild:background];
     [self addChild:back];
@@ -155,7 +155,7 @@
 -(void) redrawMenu {
     [menu removeAllChildrenWithCleanup:YES];
     
-    CircleButton *restoreIcon = [CircleButton buttonWithFile:@"lips.png"];
+    CircleButton *restoreIcon = [CircleButton buttonWithFile:@"restorepurchase.png"];
     restoreIcon.position = ccp(0,0);
     restoreIcon.scale = 0.7;
     
@@ -166,7 +166,7 @@
     restore.position = ccp(0,0);
     [menu addChild:restore z:0 tag:1];
     
-    CircleButton *fbIcon = [CircleButton buttonWithFile:@"lips.png"];
+    CircleButton *fbIcon = [CircleButton buttonWithFile:@"feedback.png"];
     fbIcon.position = ccp(0,0);
     fbIcon.scale = 0.7;
     
@@ -175,11 +175,11 @@
         
     }];
     fb.anchorPoint = ccp(0,0);
-    fb.position = ccp(0,-restore.contentSize.height);
+    fb.position = ccp(0,-restore.contentSize.height * 1.1);
     [menu addChild:fb z:0 tag:1];
 
     if (![[PremiumContentStore instance] ownsProductId:PREMIUM_PRODUCT_ID]) {
-        CircleButton *buyIcon = [CircleButton buttonWithFile:@"lips.png"];
+        CircleButton *buyIcon = [CircleButton buttonWithFile:@"buy.png"];
         buyIcon.position = ccp(0,0);
         buyIcon.scale = 0.7;
         
@@ -187,7 +187,7 @@
             [[InAppPurchaseManager instance] getProducts:self withData:PREMIUM_PRODUCT_ID];
         }];
         buyAll.anchorPoint = ccp(0,0);
-        buyAll.position = ccp(0,-restore.contentSize.height -fb.contentSize.height);
+        buyAll.position = ccp(0,-restore.contentSize.height * 1.1 - fb.contentSize.height * 1.1);
         [menu addChild:buyAll z:0 tag:1];
     }
 }

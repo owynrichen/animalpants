@@ -107,7 +107,7 @@ static NSString *_sync = @"sync";
     if (d == nil) {
         md = [NSMutableDictionary dictionary];
     } else {
-        md = [d mutableCopy];
+        md = [[d mutableCopy] autorelease];
     }
     
     NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -122,7 +122,7 @@ static NSString *_sync = @"sync";
     if (a == nil) {
         attempts = [NSMutableArray array];
     } else {
-        attempts = [a mutableCopy];
+        attempts = [[a mutableCopy] autorelease];
     }
     
     [attempts addObject:[NSDictionary dictionaryWithDictionary:data]];
@@ -212,7 +212,7 @@ static NSString *_sync = @"sync";
 }
 
 -(id) copyWithZone:(NSZone *)zone {
-    return [self toDict];
+    return [[self toDict] retain];
 }
 
 -(NSDictionary *) toDict {

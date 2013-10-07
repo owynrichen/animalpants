@@ -846,82 +846,6 @@
 		362DC05816D1F06F00881B32 /* close-x-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC04C16D1F06F00881B32 /* close-x-ipad.png */; };
 		362DC05916D1F06F00881B32 /* close-x-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC04D16D1F06F00881B32 /* close-x-ipadhd.png */; };
 		362DC05A16D1F06F00881B32 /* close-x.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC04E16D1F06F00881B32 /* close-x.png */; };
-		362DC0E316D1F10400881B32 /* flag-argentina.es-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09716D1F10300881B32 /* flag-argentina.es-hd.png */; };
-		362DC0E416D1F10400881B32 /* flag-argentina.es-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09816D1F10300881B32 /* flag-argentina.es-ipad.png */; };
-		362DC0E516D1F10400881B32 /* flag-argentina.es-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09916D1F10300881B32 /* flag-argentina.es-ipadhd.png */; };
-		362DC0E616D1F10400881B32 /* flag-argentina.es.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09A16D1F10300881B32 /* flag-argentina.es.png */; };
-		362DC0E716D1F10400881B32 /* flag-australia.en-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09B16D1F10300881B32 /* flag-australia.en-hd.png */; };
-		362DC0E816D1F10400881B32 /* flag-australia.en-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09C16D1F10300881B32 /* flag-australia.en-ipad.png */; };
-		362DC0E916D1F10400881B32 /* flag-australia.en-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09D16D1F10300881B32 /* flag-australia.en-ipadhd.png */; };
-		362DC0EA16D1F10400881B32 /* flag-australia.en.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09E16D1F10300881B32 /* flag-australia.en.png */; };
-		362DC0EB16D1F10400881B32 /* flag-austria.de-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC09F16D1F10300881B32 /* flag-austria.de-hd.png */; };
-		362DC0EC16D1F10400881B32 /* flag-austria.de-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A016D1F10300881B32 /* flag-austria.de-ipad.png */; };
-		362DC0ED16D1F10400881B32 /* flag-austria.de-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A116D1F10300881B32 /* flag-austria.de-ipadhd.png */; };
-		362DC0EE16D1F10400881B32 /* flag-austria.de.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A216D1F10300881B32 /* flag-austria.de.png */; };
-		362DC0EF16D1F10400881B32 /* flag-belgium.de-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A316D1F10300881B32 /* flag-belgium.de-hd.png */; };
-		362DC0F016D1F10400881B32 /* flag-belgium.de-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A416D1F10300881B32 /* flag-belgium.de-ipad.png */; };
-		362DC0F116D1F10400881B32 /* flag-belgium.de-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A516D1F10300881B32 /* flag-belgium.de-ipadhd.png */; };
-		362DC0F216D1F10400881B32 /* flag-belgium.de.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A616D1F10300881B32 /* flag-belgium.de.png */; };
-		362DC0F316D1F10400881B32 /* flag-cameroon.fr-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A716D1F10300881B32 /* flag-cameroon.fr-hd.png */; };
-		362DC0F416D1F10400881B32 /* flag-cameroon.fr-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A816D1F10300881B32 /* flag-cameroon.fr-ipad.png */; };
-		362DC0F516D1F10400881B32 /* flag-cameroon.fr-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0A916D1F10300881B32 /* flag-cameroon.fr-ipadhd.png */; };
-		362DC0F616D1F10400881B32 /* flag-cameroon.fr.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0AA16D1F10300881B32 /* flag-cameroon.fr.png */; };
-		362DC0F716D1F10400881B32 /* flag-canada.en-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0AB16D1F10300881B32 /* flag-canada.en-hd.png */; };
-		362DC0F816D1F10400881B32 /* flag-canada.en-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0AC16D1F10300881B32 /* flag-canada.en-ipad.png */; };
-		362DC0F916D1F10400881B32 /* flag-canada.en-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0AD16D1F10300881B32 /* flag-canada.en-ipadhd.png */; };
-		362DC0FA16D1F10400881B32 /* flag-canada.en.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0AE16D1F10300881B32 /* flag-canada.en.png */; };
-		362DC0FB16D1F10400881B32 /* flag-canada.fr-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0AF16D1F10300881B32 /* flag-canada.fr-hd.png */; };
-		362DC0FC16D1F10400881B32 /* flag-canada.fr-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B016D1F10300881B32 /* flag-canada.fr-ipad.png */; };
-		362DC0FD16D1F10400881B32 /* flag-canada.fr-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B116D1F10300881B32 /* flag-canada.fr-ipadhd.png */; };
-		362DC0FE16D1F10400881B32 /* flag-canada.fr.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B216D1F10300881B32 /* flag-canada.fr.png */; };
-		362DC0FF16D1F10400881B32 /* flag-columbia.es-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B316D1F10300881B32 /* flag-columbia.es-hd.png */; };
-		362DC10016D1F10400881B32 /* flag-columbia.es-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B416D1F10300881B32 /* flag-columbia.es-ipad.png */; };
-		362DC10116D1F10400881B32 /* flag-columbia.es-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B516D1F10300881B32 /* flag-columbia.es-ipadhd.png */; };
-		362DC10216D1F10400881B32 /* flag-columbia.es.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B616D1F10300881B32 /* flag-columbia.es.png */; };
-		362DC10316D1F10400881B32 /* flag-congo.fr-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B716D1F10300881B32 /* flag-congo.fr-hd.png */; };
-		362DC10416D1F10400881B32 /* flag-congo.fr-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B816D1F10300881B32 /* flag-congo.fr-ipad.png */; };
-		362DC10516D1F10400881B32 /* flag-congo.fr-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0B916D1F10300881B32 /* flag-congo.fr-ipadhd.png */; };
-		362DC10616D1F10400881B32 /* flag-congo.fr.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0BA16D1F10300881B32 /* flag-congo.fr.png */; };
-		362DC10716D1F10400881B32 /* flag-france.fr-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0BB16D1F10300881B32 /* flag-france.fr-hd.png */; };
-		362DC10816D1F10400881B32 /* flag-france.fr-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0BC16D1F10300881B32 /* flag-france.fr-ipad.png */; };
-		362DC10916D1F10400881B32 /* flag-france.fr-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0BD16D1F10300881B32 /* flag-france.fr-ipadhd.png */; };
-		362DC10A16D1F10400881B32 /* flag-france.fr.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0BE16D1F10300881B32 /* flag-france.fr.png */; };
-		362DC10B16D1F10400881B32 /* flag-germany.de-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0BF16D1F10300881B32 /* flag-germany.de-hd.png */; };
-		362DC10C16D1F10400881B32 /* flag-germany.de-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C016D1F10300881B32 /* flag-germany.de-ipad.png */; };
-		362DC10D16D1F10400881B32 /* flag-germany.de-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C116D1F10300881B32 /* flag-germany.de-ipadhd.png */; };
-		362DC10E16D1F10400881B32 /* flag-germany.de.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C216D1F10300881B32 /* flag-germany.de.png */; };
-		362DC10F16D1F10400881B32 /* flag-india.en-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C316D1F10300881B32 /* flag-india.en-hd.png */; };
-		362DC11016D1F10400881B32 /* flag-india.en-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C416D1F10300881B32 /* flag-india.en-ipad.png */; };
-		362DC11116D1F10400881B32 /* flag-india.en-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C516D1F10300881B32 /* flag-india.en-ipadhd.png */; };
-		362DC11216D1F10400881B32 /* flag-india.en.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C616D1F10300881B32 /* flag-india.en.png */; };
-		362DC11316D1F10400881B32 /* flag-japan.ja-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C716D1F10300881B32 /* flag-japan.ja-hd.png */; };
-		362DC11416D1F10400881B32 /* flag-japan.ja-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C816D1F10300881B32 /* flag-japan.ja-ipad.png */; };
-		362DC11516D1F10400881B32 /* flag-japan.ja-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0C916D1F10300881B32 /* flag-japan.ja-ipadhd.png */; };
-		362DC11616D1F10400881B32 /* flag-japan.ja.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0CA16D1F10300881B32 /* flag-japan.ja.png */; };
-		362DC11716D1F10400881B32 /* flag-mexico.es-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0CB16D1F10300881B32 /* flag-mexico.es-hd.png */; };
-		362DC11816D1F10400881B32 /* flag-mexico.es-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0CC16D1F10300881B32 /* flag-mexico.es-ipad.png */; };
-		362DC11916D1F10400881B32 /* flag-mexico.es-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0CD16D1F10300881B32 /* flag-mexico.es-ipadhd.png */; };
-		362DC11A16D1F10400881B32 /* flag-mexico.es.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0CE16D1F10300881B32 /* flag-mexico.es.png */; };
-		362DC11B16D1F10400881B32 /* flag-peru.es-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0CF16D1F10300881B32 /* flag-peru.es-hd.png */; };
-		362DC11C16D1F10400881B32 /* flag-peru.es-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D016D1F10300881B32 /* flag-peru.es-ipad.png */; };
-		362DC11D16D1F10400881B32 /* flag-peru.es-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D116D1F10300881B32 /* flag-peru.es-ipadhd.png */; };
-		362DC11E16D1F10400881B32 /* flag-peru.es.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D216D1F10300881B32 /* flag-peru.es.png */; };
-		362DC11F16D1F10400881B32 /* flag-spain.es-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D316D1F10300881B32 /* flag-spain.es-hd.png */; };
-		362DC12016D1F10400881B32 /* flag-spain.es-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D416D1F10300881B32 /* flag-spain.es-ipad.png */; };
-		362DC12116D1F10400881B32 /* flag-spain.es-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D516D1F10300881B32 /* flag-spain.es-ipadhd.png */; };
-		362DC12216D1F10400881B32 /* flag-spain.es.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D616D1F10300881B32 /* flag-spain.es.png */; };
-		362DC12316D1F10400881B32 /* flag-switzerland.de-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D716D1F10300881B32 /* flag-switzerland.de-hd.png */; };
-		362DC12416D1F10400881B32 /* flag-switzerland.de-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D816D1F10300881B32 /* flag-switzerland.de-ipad.png */; };
-		362DC12516D1F10400881B32 /* flag-switzerland.de-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0D916D1F10300881B32 /* flag-switzerland.de-ipadhd.png */; };
-		362DC12616D1F10400881B32 /* flag-switzerland.de.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0DA16D1F10300881B32 /* flag-switzerland.de.png */; };
-		362DC12716D1F10400881B32 /* flag-uk.en-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0DB16D1F10300881B32 /* flag-uk.en-hd.png */; };
-		362DC12816D1F10400881B32 /* flag-uk.en-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0DC16D1F10300881B32 /* flag-uk.en-ipad.png */; };
-		362DC12916D1F10400881B32 /* flag-uk.en-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0DD16D1F10300881B32 /* flag-uk.en-ipadhd.png */; };
-		362DC12A16D1F10400881B32 /* flag-uk.en.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0DE16D1F10400881B32 /* flag-uk.en.png */; };
-		362DC12B16D1F10400881B32 /* flag-usa.en-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0DF16D1F10400881B32 /* flag-usa.en-hd.png */; };
-		362DC12C16D1F10400881B32 /* flag-usa.en-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0E016D1F10400881B32 /* flag-usa.en-ipad.png */; };
-		362DC12D16D1F10400881B32 /* flag-usa.en-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0E116D1F10400881B32 /* flag-usa.en-ipadhd.png */; };
-		362DC12E16D1F10400881B32 /* flag-usa.en.png in Resources */ = {isa = PBXBuildFile; fileRef = 362DC0E216D1F10400881B32 /* flag-usa.en.png */; };
 		362DC13116D1F20200881B32 /* FlagCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DC13016D1F20100881B32 /* FlagCircleButton.m */; };
 		362DC13716D1FD0500881B32 /* FlagNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DC13616D1FD0300881B32 /* FlagNode.m */; };
 		362DC13E16D5BF6B00881B32 /* WorldMapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 362DC13D16D5BF6600881B32 /* WorldMapNode.m */; };
@@ -1577,6 +1501,27 @@
 		36C7AFB517FBA6F700794FF8 /* avery_dress_green-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFB117FBA6F700794FF8 /* avery_dress_green-ipad.png */; };
 		36C7AFB617FBA6F700794FF8 /* avery_dress_green-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFB217FBA6F700794FF8 /* avery_dress_green-ipadhd.png */; };
 		36C7AFB717FBA6F700794FF8 /* avery_dress_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFB317FBA6F700794FF8 /* avery_dress_green.png */; };
+		36C7AFC81800901200794FF8 /* buy-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFB81800901200794FF8 /* buy-hd.png */; };
+		36C7AFC91800901200794FF8 /* buy-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFB91800901200794FF8 /* buy-ipad.png */; };
+		36C7AFCA1800901200794FF8 /* buy-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFBA1800901200794FF8 /* buy-ipadhd.png */; };
+		36C7AFCB1800901200794FF8 /* buy.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFBB1800901200794FF8 /* buy.png */; };
+		36C7AFCC1800901200794FF8 /* facts-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFBC1800901200794FF8 /* facts-hd.png */; };
+		36C7AFCD1800901200794FF8 /* facts-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFBD1800901200794FF8 /* facts-ipad.png */; };
+		36C7AFCE1800901200794FF8 /* facts-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFBE1800901200794FF8 /* facts-ipadhd.png */; };
+		36C7AFCF1800901200794FF8 /* facts.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFBF1800901200794FF8 /* facts.png */; };
+		36C7AFD01800901200794FF8 /* feedback-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC01800901200794FF8 /* feedback-hd.png */; };
+		36C7AFD11800901200794FF8 /* feedback-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC11800901200794FF8 /* feedback-ipad.png */; };
+		36C7AFD21800901200794FF8 /* feedback-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC21800901200794FF8 /* feedback-ipadhd.png */; };
+		36C7AFD31800901200794FF8 /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC31800901200794FF8 /* feedback.png */; };
+		36C7AFD41800901200794FF8 /* restorepurchase-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC41800901200794FF8 /* restorepurchase-hd.png */; };
+		36C7AFD51800901200794FF8 /* restorepurchase-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC51800901200794FF8 /* restorepurchase-ipad.png */; };
+		36C7AFD61800901200794FF8 /* restorepurchase-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC61800901200794FF8 /* restorepurchase-ipadhd.png */; };
+		36C7AFD71800901200794FF8 /* restorepurchase.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFC71800901200794FF8 /* restorepurchase.png */; };
+		36C7AFEA180097F300794FF8 /* CCSpriteFrameCache+Enumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C7AFE9180097F200794FF8 /* CCSpriteFrameCache+Enumerable.m */; };
+		36C7AFEF180226AB00794FF8 /* flags2-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFEB1802268600794FF8 /* flags2-ipad.plist */; };
+		36C7AFF0180226AB00794FF8 /* flags2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFEC1802269000794FF8 /* flags2-ipad.png */; };
+		36C7AFF1180226AB00794FF8 /* flags2-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFED1802269B00794FF8 /* flags2-ipadhd.plist */; };
+		36C7AFF2180226AB00794FF8 /* flags2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C7AFEE180226A300794FF8 /* flags2-ipadhd.png */; };
 		36CAC03115F429F200563EE9 /* lion_bottom-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC02515F429F200563EE9 /* lion_bottom-hd.png */; };
 		36CAC03215F429F200563EE9 /* lion_bottom-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC02615F429F200563EE9 /* lion_bottom-ipad.png */; };
 		36CAC03315F429F200563EE9 /* lion_bottom-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CAC02715F429F200563EE9 /* lion_bottom-ipadhd.png */; };
@@ -3423,82 +3368,6 @@
 		362DC04C16D1F06F00881B32 /* close-x-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close-x-ipad.png"; path = "Resources/close-x-ipad.png"; sourceTree = "<group>"; };
 		362DC04D16D1F06F00881B32 /* close-x-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close-x-ipadhd.png"; path = "Resources/close-x-ipadhd.png"; sourceTree = "<group>"; };
 		362DC04E16D1F06F00881B32 /* close-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close-x.png"; path = "Resources/close-x.png"; sourceTree = "<group>"; };
-		362DC09716D1F10300881B32 /* flag-argentina.es-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-argentina.es-hd.png"; path = "Resources/Languages/Graphics/flag-argentina.es-hd.png"; sourceTree = "<group>"; };
-		362DC09816D1F10300881B32 /* flag-argentina.es-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-argentina.es-ipad.png"; path = "Resources/Languages/Graphics/flag-argentina.es-ipad.png"; sourceTree = "<group>"; };
-		362DC09916D1F10300881B32 /* flag-argentina.es-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-argentina.es-ipadhd.png"; path = "Resources/Languages/Graphics/flag-argentina.es-ipadhd.png"; sourceTree = "<group>"; };
-		362DC09A16D1F10300881B32 /* flag-argentina.es.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-argentina.es.png"; path = "Resources/Languages/Graphics/flag-argentina.es.png"; sourceTree = "<group>"; };
-		362DC09B16D1F10300881B32 /* flag-australia.en-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-australia.en-hd.png"; path = "Resources/Languages/Graphics/flag-australia.en-hd.png"; sourceTree = "<group>"; };
-		362DC09C16D1F10300881B32 /* flag-australia.en-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-australia.en-ipad.png"; path = "Resources/Languages/Graphics/flag-australia.en-ipad.png"; sourceTree = "<group>"; };
-		362DC09D16D1F10300881B32 /* flag-australia.en-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-australia.en-ipadhd.png"; path = "Resources/Languages/Graphics/flag-australia.en-ipadhd.png"; sourceTree = "<group>"; };
-		362DC09E16D1F10300881B32 /* flag-australia.en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-australia.en.png"; path = "Resources/Languages/Graphics/flag-australia.en.png"; sourceTree = "<group>"; };
-		362DC09F16D1F10300881B32 /* flag-austria.de-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-austria.de-hd.png"; path = "Resources/Languages/Graphics/flag-austria.de-hd.png"; sourceTree = "<group>"; };
-		362DC0A016D1F10300881B32 /* flag-austria.de-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-austria.de-ipad.png"; path = "Resources/Languages/Graphics/flag-austria.de-ipad.png"; sourceTree = "<group>"; };
-		362DC0A116D1F10300881B32 /* flag-austria.de-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-austria.de-ipadhd.png"; path = "Resources/Languages/Graphics/flag-austria.de-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0A216D1F10300881B32 /* flag-austria.de.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-austria.de.png"; path = "Resources/Languages/Graphics/flag-austria.de.png"; sourceTree = "<group>"; };
-		362DC0A316D1F10300881B32 /* flag-belgium.de-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-belgium.de-hd.png"; path = "Resources/Languages/Graphics/flag-belgium.de-hd.png"; sourceTree = "<group>"; };
-		362DC0A416D1F10300881B32 /* flag-belgium.de-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-belgium.de-ipad.png"; path = "Resources/Languages/Graphics/flag-belgium.de-ipad.png"; sourceTree = "<group>"; };
-		362DC0A516D1F10300881B32 /* flag-belgium.de-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-belgium.de-ipadhd.png"; path = "Resources/Languages/Graphics/flag-belgium.de-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0A616D1F10300881B32 /* flag-belgium.de.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-belgium.de.png"; path = "Resources/Languages/Graphics/flag-belgium.de.png"; sourceTree = "<group>"; };
-		362DC0A716D1F10300881B32 /* flag-cameroon.fr-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-cameroon.fr-hd.png"; path = "Resources/Languages/Graphics/flag-cameroon.fr-hd.png"; sourceTree = "<group>"; };
-		362DC0A816D1F10300881B32 /* flag-cameroon.fr-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-cameroon.fr-ipad.png"; path = "Resources/Languages/Graphics/flag-cameroon.fr-ipad.png"; sourceTree = "<group>"; };
-		362DC0A916D1F10300881B32 /* flag-cameroon.fr-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-cameroon.fr-ipadhd.png"; path = "Resources/Languages/Graphics/flag-cameroon.fr-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0AA16D1F10300881B32 /* flag-cameroon.fr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-cameroon.fr.png"; path = "Resources/Languages/Graphics/flag-cameroon.fr.png"; sourceTree = "<group>"; };
-		362DC0AB16D1F10300881B32 /* flag-canada.en-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.en-hd.png"; path = "Resources/Languages/Graphics/flag-canada.en-hd.png"; sourceTree = "<group>"; };
-		362DC0AC16D1F10300881B32 /* flag-canada.en-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.en-ipad.png"; path = "Resources/Languages/Graphics/flag-canada.en-ipad.png"; sourceTree = "<group>"; };
-		362DC0AD16D1F10300881B32 /* flag-canada.en-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.en-ipadhd.png"; path = "Resources/Languages/Graphics/flag-canada.en-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0AE16D1F10300881B32 /* flag-canada.en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.en.png"; path = "Resources/Languages/Graphics/flag-canada.en.png"; sourceTree = "<group>"; };
-		362DC0AF16D1F10300881B32 /* flag-canada.fr-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.fr-hd.png"; path = "Resources/Languages/Graphics/flag-canada.fr-hd.png"; sourceTree = "<group>"; };
-		362DC0B016D1F10300881B32 /* flag-canada.fr-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.fr-ipad.png"; path = "Resources/Languages/Graphics/flag-canada.fr-ipad.png"; sourceTree = "<group>"; };
-		362DC0B116D1F10300881B32 /* flag-canada.fr-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.fr-ipadhd.png"; path = "Resources/Languages/Graphics/flag-canada.fr-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0B216D1F10300881B32 /* flag-canada.fr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-canada.fr.png"; path = "Resources/Languages/Graphics/flag-canada.fr.png"; sourceTree = "<group>"; };
-		362DC0B316D1F10300881B32 /* flag-columbia.es-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-columbia.es-hd.png"; path = "Resources/Languages/Graphics/flag-columbia.es-hd.png"; sourceTree = "<group>"; };
-		362DC0B416D1F10300881B32 /* flag-columbia.es-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-columbia.es-ipad.png"; path = "Resources/Languages/Graphics/flag-columbia.es-ipad.png"; sourceTree = "<group>"; };
-		362DC0B516D1F10300881B32 /* flag-columbia.es-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-columbia.es-ipadhd.png"; path = "Resources/Languages/Graphics/flag-columbia.es-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0B616D1F10300881B32 /* flag-columbia.es.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-columbia.es.png"; path = "Resources/Languages/Graphics/flag-columbia.es.png"; sourceTree = "<group>"; };
-		362DC0B716D1F10300881B32 /* flag-congo.fr-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-congo.fr-hd.png"; path = "Resources/Languages/Graphics/flag-congo.fr-hd.png"; sourceTree = "<group>"; };
-		362DC0B816D1F10300881B32 /* flag-congo.fr-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-congo.fr-ipad.png"; path = "Resources/Languages/Graphics/flag-congo.fr-ipad.png"; sourceTree = "<group>"; };
-		362DC0B916D1F10300881B32 /* flag-congo.fr-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-congo.fr-ipadhd.png"; path = "Resources/Languages/Graphics/flag-congo.fr-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0BA16D1F10300881B32 /* flag-congo.fr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-congo.fr.png"; path = "Resources/Languages/Graphics/flag-congo.fr.png"; sourceTree = "<group>"; };
-		362DC0BB16D1F10300881B32 /* flag-france.fr-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-france.fr-hd.png"; path = "Resources/Languages/Graphics/flag-france.fr-hd.png"; sourceTree = "<group>"; };
-		362DC0BC16D1F10300881B32 /* flag-france.fr-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-france.fr-ipad.png"; path = "Resources/Languages/Graphics/flag-france.fr-ipad.png"; sourceTree = "<group>"; };
-		362DC0BD16D1F10300881B32 /* flag-france.fr-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-france.fr-ipadhd.png"; path = "Resources/Languages/Graphics/flag-france.fr-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0BE16D1F10300881B32 /* flag-france.fr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-france.fr.png"; path = "Resources/Languages/Graphics/flag-france.fr.png"; sourceTree = "<group>"; };
-		362DC0BF16D1F10300881B32 /* flag-germany.de-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-germany.de-hd.png"; path = "Resources/Languages/Graphics/flag-germany.de-hd.png"; sourceTree = "<group>"; };
-		362DC0C016D1F10300881B32 /* flag-germany.de-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-germany.de-ipad.png"; path = "Resources/Languages/Graphics/flag-germany.de-ipad.png"; sourceTree = "<group>"; };
-		362DC0C116D1F10300881B32 /* flag-germany.de-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-germany.de-ipadhd.png"; path = "Resources/Languages/Graphics/flag-germany.de-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0C216D1F10300881B32 /* flag-germany.de.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-germany.de.png"; path = "Resources/Languages/Graphics/flag-germany.de.png"; sourceTree = "<group>"; };
-		362DC0C316D1F10300881B32 /* flag-india.en-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-india.en-hd.png"; path = "Resources/Languages/Graphics/flag-india.en-hd.png"; sourceTree = "<group>"; };
-		362DC0C416D1F10300881B32 /* flag-india.en-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-india.en-ipad.png"; path = "Resources/Languages/Graphics/flag-india.en-ipad.png"; sourceTree = "<group>"; };
-		362DC0C516D1F10300881B32 /* flag-india.en-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-india.en-ipadhd.png"; path = "Resources/Languages/Graphics/flag-india.en-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0C616D1F10300881B32 /* flag-india.en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-india.en.png"; path = "Resources/Languages/Graphics/flag-india.en.png"; sourceTree = "<group>"; };
-		362DC0C716D1F10300881B32 /* flag-japan.ja-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-japan.ja-hd.png"; path = "Resources/Languages/Graphics/flag-japan.ja-hd.png"; sourceTree = "<group>"; };
-		362DC0C816D1F10300881B32 /* flag-japan.ja-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-japan.ja-ipad.png"; path = "Resources/Languages/Graphics/flag-japan.ja-ipad.png"; sourceTree = "<group>"; };
-		362DC0C916D1F10300881B32 /* flag-japan.ja-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-japan.ja-ipadhd.png"; path = "Resources/Languages/Graphics/flag-japan.ja-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0CA16D1F10300881B32 /* flag-japan.ja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-japan.ja.png"; path = "Resources/Languages/Graphics/flag-japan.ja.png"; sourceTree = "<group>"; };
-		362DC0CB16D1F10300881B32 /* flag-mexico.es-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-mexico.es-hd.png"; path = "Resources/Languages/Graphics/flag-mexico.es-hd.png"; sourceTree = "<group>"; };
-		362DC0CC16D1F10300881B32 /* flag-mexico.es-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-mexico.es-ipad.png"; path = "Resources/Languages/Graphics/flag-mexico.es-ipad.png"; sourceTree = "<group>"; };
-		362DC0CD16D1F10300881B32 /* flag-mexico.es-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-mexico.es-ipadhd.png"; path = "Resources/Languages/Graphics/flag-mexico.es-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0CE16D1F10300881B32 /* flag-mexico.es.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-mexico.es.png"; path = "Resources/Languages/Graphics/flag-mexico.es.png"; sourceTree = "<group>"; };
-		362DC0CF16D1F10300881B32 /* flag-peru.es-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-peru.es-hd.png"; path = "Resources/Languages/Graphics/flag-peru.es-hd.png"; sourceTree = "<group>"; };
-		362DC0D016D1F10300881B32 /* flag-peru.es-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-peru.es-ipad.png"; path = "Resources/Languages/Graphics/flag-peru.es-ipad.png"; sourceTree = "<group>"; };
-		362DC0D116D1F10300881B32 /* flag-peru.es-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-peru.es-ipadhd.png"; path = "Resources/Languages/Graphics/flag-peru.es-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0D216D1F10300881B32 /* flag-peru.es.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-peru.es.png"; path = "Resources/Languages/Graphics/flag-peru.es.png"; sourceTree = "<group>"; };
-		362DC0D316D1F10300881B32 /* flag-spain.es-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-spain.es-hd.png"; path = "Resources/Languages/Graphics/flag-spain.es-hd.png"; sourceTree = "<group>"; };
-		362DC0D416D1F10300881B32 /* flag-spain.es-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-spain.es-ipad.png"; path = "Resources/Languages/Graphics/flag-spain.es-ipad.png"; sourceTree = "<group>"; };
-		362DC0D516D1F10300881B32 /* flag-spain.es-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-spain.es-ipadhd.png"; path = "Resources/Languages/Graphics/flag-spain.es-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0D616D1F10300881B32 /* flag-spain.es.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-spain.es.png"; path = "Resources/Languages/Graphics/flag-spain.es.png"; sourceTree = "<group>"; };
-		362DC0D716D1F10300881B32 /* flag-switzerland.de-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-switzerland.de-hd.png"; path = "Resources/Languages/Graphics/flag-switzerland.de-hd.png"; sourceTree = "<group>"; };
-		362DC0D816D1F10300881B32 /* flag-switzerland.de-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-switzerland.de-ipad.png"; path = "Resources/Languages/Graphics/flag-switzerland.de-ipad.png"; sourceTree = "<group>"; };
-		362DC0D916D1F10300881B32 /* flag-switzerland.de-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-switzerland.de-ipadhd.png"; path = "Resources/Languages/Graphics/flag-switzerland.de-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0DA16D1F10300881B32 /* flag-switzerland.de.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-switzerland.de.png"; path = "Resources/Languages/Graphics/flag-switzerland.de.png"; sourceTree = "<group>"; };
-		362DC0DB16D1F10300881B32 /* flag-uk.en-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-uk.en-hd.png"; path = "Resources/Languages/Graphics/flag-uk.en-hd.png"; sourceTree = "<group>"; };
-		362DC0DC16D1F10300881B32 /* flag-uk.en-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-uk.en-ipad.png"; path = "Resources/Languages/Graphics/flag-uk.en-ipad.png"; sourceTree = "<group>"; };
-		362DC0DD16D1F10300881B32 /* flag-uk.en-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-uk.en-ipadhd.png"; path = "Resources/Languages/Graphics/flag-uk.en-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0DE16D1F10400881B32 /* flag-uk.en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-uk.en.png"; path = "Resources/Languages/Graphics/flag-uk.en.png"; sourceTree = "<group>"; };
-		362DC0DF16D1F10400881B32 /* flag-usa.en-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-usa.en-hd.png"; path = "Resources/Languages/Graphics/flag-usa.en-hd.png"; sourceTree = "<group>"; };
-		362DC0E016D1F10400881B32 /* flag-usa.en-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-usa.en-ipad.png"; path = "Resources/Languages/Graphics/flag-usa.en-ipad.png"; sourceTree = "<group>"; };
-		362DC0E116D1F10400881B32 /* flag-usa.en-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-usa.en-ipadhd.png"; path = "Resources/Languages/Graphics/flag-usa.en-ipadhd.png"; sourceTree = "<group>"; };
-		362DC0E216D1F10400881B32 /* flag-usa.en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-usa.en.png"; path = "Resources/Languages/Graphics/flag-usa.en.png"; sourceTree = "<group>"; };
 		362DC12F16D1F20100881B32 /* FlagCircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagCircleButton.h; sourceTree = "<group>"; };
 		362DC13016D1F20100881B32 /* FlagCircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlagCircleButton.m; sourceTree = "<group>"; };
 		362DC13516D1FD0100881B32 /* FlagNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagNode.h; sourceTree = "<group>"; };
@@ -4238,6 +4107,28 @@
 		36C7AFB117FBA6F700794FF8 /* avery_dress_green-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avery_dress_green-ipad.png"; sourceTree = "<group>"; };
 		36C7AFB217FBA6F700794FF8 /* avery_dress_green-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avery_dress_green-ipadhd.png"; sourceTree = "<group>"; };
 		36C7AFB317FBA6F700794FF8 /* avery_dress_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avery_dress_green.png; sourceTree = "<group>"; };
+		36C7AFB81800901200794FF8 /* buy-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buy-hd.png"; sourceTree = "<group>"; };
+		36C7AFB91800901200794FF8 /* buy-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buy-ipad.png"; sourceTree = "<group>"; };
+		36C7AFBA1800901200794FF8 /* buy-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buy-ipadhd.png"; sourceTree = "<group>"; };
+		36C7AFBB1800901200794FF8 /* buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy.png; sourceTree = "<group>"; };
+		36C7AFBC1800901200794FF8 /* facts-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facts-hd.png"; sourceTree = "<group>"; };
+		36C7AFBD1800901200794FF8 /* facts-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facts-ipad.png"; sourceTree = "<group>"; };
+		36C7AFBE1800901200794FF8 /* facts-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facts-ipadhd.png"; sourceTree = "<group>"; };
+		36C7AFBF1800901200794FF8 /* facts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facts.png; sourceTree = "<group>"; };
+		36C7AFC01800901200794FF8 /* feedback-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback-hd.png"; sourceTree = "<group>"; };
+		36C7AFC11800901200794FF8 /* feedback-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback-ipad.png"; sourceTree = "<group>"; };
+		36C7AFC21800901200794FF8 /* feedback-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback-ipadhd.png"; sourceTree = "<group>"; };
+		36C7AFC31800901200794FF8 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
+		36C7AFC41800901200794FF8 /* restorepurchase-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restorepurchase-hd.png"; sourceTree = "<group>"; };
+		36C7AFC51800901200794FF8 /* restorepurchase-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restorepurchase-ipad.png"; sourceTree = "<group>"; };
+		36C7AFC61800901200794FF8 /* restorepurchase-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restorepurchase-ipadhd.png"; sourceTree = "<group>"; };
+		36C7AFC71800901200794FF8 /* restorepurchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restorepurchase.png; sourceTree = "<group>"; };
+		36C7AFE8180097F200794FF8 /* CCSpriteFrameCache+Enumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCSpriteFrameCache+Enumerable.h"; sourceTree = "<group>"; };
+		36C7AFE9180097F200794FF8 /* CCSpriteFrameCache+Enumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCSpriteFrameCache+Enumerable.m"; sourceTree = "<group>"; };
+		36C7AFEB1802268600794FF8 /* flags2-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "flags2-ipad.plist"; path = "Resources/Languages/Graphics/flags2-ipad.plist"; sourceTree = "<group>"; };
+		36C7AFEC1802269000794FF8 /* flags2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flags2-ipad.png"; path = "Resources/Languages/Graphics/flags2-ipad.png"; sourceTree = "<group>"; };
+		36C7AFED1802269B00794FF8 /* flags2-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "flags2-ipadhd.plist"; path = "Resources/Languages/Graphics/flags2-ipadhd.plist"; sourceTree = "<group>"; };
+		36C7AFEE180226A300794FF8 /* flags2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flags2-ipadhd.png"; path = "Resources/Languages/Graphics/flags2-ipadhd.png"; sourceTree = "<group>"; };
 		36CAC02515F429F200563EE9 /* lion_bottom-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lion_bottom-hd.png"; path = "Resources/Animals/Lion/Graphics/lion_bottom-hd.png"; sourceTree = "<group>"; };
 		36CAC02615F429F200563EE9 /* lion_bottom-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lion_bottom-ipad.png"; path = "Resources/Animals/Lion/Graphics/lion_bottom-ipad.png"; sourceTree = "<group>"; };
 		36CAC02715F429F200563EE9 /* lion_bottom-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lion_bottom-ipadhd.png"; path = "Resources/Animals/Lion/Graphics/lion_bottom-ipadhd.png"; sourceTree = "<group>"; };
@@ -5354,6 +5245,22 @@
 		3627631C1765815600E8F066 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				36C7AFB81800901200794FF8 /* buy-hd.png */,
+				36C7AFB91800901200794FF8 /* buy-ipad.png */,
+				36C7AFBA1800901200794FF8 /* buy-ipadhd.png */,
+				36C7AFBB1800901200794FF8 /* buy.png */,
+				36C7AFBC1800901200794FF8 /* facts-hd.png */,
+				36C7AFBD1800901200794FF8 /* facts-ipad.png */,
+				36C7AFBE1800901200794FF8 /* facts-ipadhd.png */,
+				36C7AFBF1800901200794FF8 /* facts.png */,
+				36C7AFC01800901200794FF8 /* feedback-hd.png */,
+				36C7AFC11800901200794FF8 /* feedback-ipad.png */,
+				36C7AFC21800901200794FF8 /* feedback-ipadhd.png */,
+				36C7AFC31800901200794FF8 /* feedback.png */,
+				36C7AFC41800901200794FF8 /* restorepurchase-hd.png */,
+				36C7AFC51800901200794FF8 /* restorepurchase-ipad.png */,
+				36C7AFC61800901200794FF8 /* restorepurchase-ipadhd.png */,
+				36C7AFC71800901200794FF8 /* restorepurchase.png */,
 				364B10EF177159C7005D97EA /* clock-hd.png */,
 				364B10F0177159C7005D97EA /* clock-ipad.png */,
 				364B10F1177159C7005D97EA /* clock-ipadhd.png */,
@@ -5596,6 +5503,8 @@
 				3671A4AB1792F8E9000D5CCB /* CCLabelTTFWithExtrude.m */,
 				3684448F17AAA7FB009A59F6 /* NSString+NSHash.h */,
 				3684449017AAA7FB009A59F6 /* NSString+NSHash.m */,
+				36C7AFE8180097F200794FF8 /* CCSpriteFrameCache+Enumerable.h */,
+				36C7AFE9180097F200794FF8 /* CCSpriteFrameCache+Enumerable.m */,
 			);
 			name = CCExtensions;
 			sourceTree = "<group>";
@@ -7836,82 +7745,10 @@
 		36C63F5416BEDE5A00DE2993 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				362DC09716D1F10300881B32 /* flag-argentina.es-hd.png */,
-				362DC09816D1F10300881B32 /* flag-argentina.es-ipad.png */,
-				362DC09916D1F10300881B32 /* flag-argentina.es-ipadhd.png */,
-				362DC09A16D1F10300881B32 /* flag-argentina.es.png */,
-				362DC09B16D1F10300881B32 /* flag-australia.en-hd.png */,
-				362DC09C16D1F10300881B32 /* flag-australia.en-ipad.png */,
-				362DC09D16D1F10300881B32 /* flag-australia.en-ipadhd.png */,
-				362DC09E16D1F10300881B32 /* flag-australia.en.png */,
-				362DC09F16D1F10300881B32 /* flag-austria.de-hd.png */,
-				362DC0A016D1F10300881B32 /* flag-austria.de-ipad.png */,
-				362DC0A116D1F10300881B32 /* flag-austria.de-ipadhd.png */,
-				362DC0A216D1F10300881B32 /* flag-austria.de.png */,
-				362DC0A316D1F10300881B32 /* flag-belgium.de-hd.png */,
-				362DC0A416D1F10300881B32 /* flag-belgium.de-ipad.png */,
-				362DC0A516D1F10300881B32 /* flag-belgium.de-ipadhd.png */,
-				362DC0A616D1F10300881B32 /* flag-belgium.de.png */,
-				362DC0A716D1F10300881B32 /* flag-cameroon.fr-hd.png */,
-				362DC0A816D1F10300881B32 /* flag-cameroon.fr-ipad.png */,
-				362DC0A916D1F10300881B32 /* flag-cameroon.fr-ipadhd.png */,
-				362DC0AA16D1F10300881B32 /* flag-cameroon.fr.png */,
-				362DC0AB16D1F10300881B32 /* flag-canada.en-hd.png */,
-				362DC0AC16D1F10300881B32 /* flag-canada.en-ipad.png */,
-				362DC0AD16D1F10300881B32 /* flag-canada.en-ipadhd.png */,
-				362DC0AE16D1F10300881B32 /* flag-canada.en.png */,
-				362DC0AF16D1F10300881B32 /* flag-canada.fr-hd.png */,
-				362DC0B016D1F10300881B32 /* flag-canada.fr-ipad.png */,
-				362DC0B116D1F10300881B32 /* flag-canada.fr-ipadhd.png */,
-				362DC0B216D1F10300881B32 /* flag-canada.fr.png */,
-				362DC0B316D1F10300881B32 /* flag-columbia.es-hd.png */,
-				362DC0B416D1F10300881B32 /* flag-columbia.es-ipad.png */,
-				362DC0B516D1F10300881B32 /* flag-columbia.es-ipadhd.png */,
-				362DC0B616D1F10300881B32 /* flag-columbia.es.png */,
-				362DC0B716D1F10300881B32 /* flag-congo.fr-hd.png */,
-				362DC0B816D1F10300881B32 /* flag-congo.fr-ipad.png */,
-				362DC0B916D1F10300881B32 /* flag-congo.fr-ipadhd.png */,
-				362DC0BA16D1F10300881B32 /* flag-congo.fr.png */,
-				362DC0BB16D1F10300881B32 /* flag-france.fr-hd.png */,
-				362DC0BC16D1F10300881B32 /* flag-france.fr-ipad.png */,
-				362DC0BD16D1F10300881B32 /* flag-france.fr-ipadhd.png */,
-				362DC0BE16D1F10300881B32 /* flag-france.fr.png */,
-				362DC0BF16D1F10300881B32 /* flag-germany.de-hd.png */,
-				362DC0C016D1F10300881B32 /* flag-germany.de-ipad.png */,
-				362DC0C116D1F10300881B32 /* flag-germany.de-ipadhd.png */,
-				362DC0C216D1F10300881B32 /* flag-germany.de.png */,
-				362DC0C316D1F10300881B32 /* flag-india.en-hd.png */,
-				362DC0C416D1F10300881B32 /* flag-india.en-ipad.png */,
-				362DC0C516D1F10300881B32 /* flag-india.en-ipadhd.png */,
-				362DC0C616D1F10300881B32 /* flag-india.en.png */,
-				362DC0C716D1F10300881B32 /* flag-japan.ja-hd.png */,
-				362DC0C816D1F10300881B32 /* flag-japan.ja-ipad.png */,
-				362DC0C916D1F10300881B32 /* flag-japan.ja-ipadhd.png */,
-				362DC0CA16D1F10300881B32 /* flag-japan.ja.png */,
-				362DC0CB16D1F10300881B32 /* flag-mexico.es-hd.png */,
-				362DC0CC16D1F10300881B32 /* flag-mexico.es-ipad.png */,
-				362DC0CD16D1F10300881B32 /* flag-mexico.es-ipadhd.png */,
-				362DC0CE16D1F10300881B32 /* flag-mexico.es.png */,
-				362DC0CF16D1F10300881B32 /* flag-peru.es-hd.png */,
-				362DC0D016D1F10300881B32 /* flag-peru.es-ipad.png */,
-				362DC0D116D1F10300881B32 /* flag-peru.es-ipadhd.png */,
-				362DC0D216D1F10300881B32 /* flag-peru.es.png */,
-				362DC0D316D1F10300881B32 /* flag-spain.es-hd.png */,
-				362DC0D416D1F10300881B32 /* flag-spain.es-ipad.png */,
-				362DC0D516D1F10300881B32 /* flag-spain.es-ipadhd.png */,
-				362DC0D616D1F10300881B32 /* flag-spain.es.png */,
-				362DC0D716D1F10300881B32 /* flag-switzerland.de-hd.png */,
-				362DC0D816D1F10300881B32 /* flag-switzerland.de-ipad.png */,
-				362DC0D916D1F10300881B32 /* flag-switzerland.de-ipadhd.png */,
-				362DC0DA16D1F10300881B32 /* flag-switzerland.de.png */,
-				362DC0DB16D1F10300881B32 /* flag-uk.en-hd.png */,
-				362DC0DC16D1F10300881B32 /* flag-uk.en-ipad.png */,
-				362DC0DD16D1F10300881B32 /* flag-uk.en-ipadhd.png */,
-				362DC0DE16D1F10400881B32 /* flag-uk.en.png */,
-				362DC0DF16D1F10400881B32 /* flag-usa.en-hd.png */,
-				362DC0E016D1F10400881B32 /* flag-usa.en-ipad.png */,
-				362DC0E116D1F10400881B32 /* flag-usa.en-ipadhd.png */,
-				362DC0E216D1F10400881B32 /* flag-usa.en.png */,
+				36C7AFEB1802268600794FF8 /* flags2-ipad.plist */,
+				36C7AFEC1802269000794FF8 /* flags2-ipad.png */,
+				36C7AFED1802269B00794FF8 /* flags2-ipadhd.plist */,
+				36C7AFEE180226A300794FF8 /* flags2-ipadhd.png */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -9846,82 +9683,6 @@
 				362DC05816D1F06F00881B32 /* close-x-ipad.png in Resources */,
 				362DC05916D1F06F00881B32 /* close-x-ipadhd.png in Resources */,
 				362DC05A16D1F06F00881B32 /* close-x.png in Resources */,
-				362DC0E316D1F10400881B32 /* flag-argentina.es-hd.png in Resources */,
-				362DC0E416D1F10400881B32 /* flag-argentina.es-ipad.png in Resources */,
-				362DC0E516D1F10400881B32 /* flag-argentina.es-ipadhd.png in Resources */,
-				362DC0E616D1F10400881B32 /* flag-argentina.es.png in Resources */,
-				362DC0E716D1F10400881B32 /* flag-australia.en-hd.png in Resources */,
-				362DC0E816D1F10400881B32 /* flag-australia.en-ipad.png in Resources */,
-				362DC0E916D1F10400881B32 /* flag-australia.en-ipadhd.png in Resources */,
-				362DC0EA16D1F10400881B32 /* flag-australia.en.png in Resources */,
-				362DC0EB16D1F10400881B32 /* flag-austria.de-hd.png in Resources */,
-				362DC0EC16D1F10400881B32 /* flag-austria.de-ipad.png in Resources */,
-				362DC0ED16D1F10400881B32 /* flag-austria.de-ipadhd.png in Resources */,
-				362DC0EE16D1F10400881B32 /* flag-austria.de.png in Resources */,
-				362DC0EF16D1F10400881B32 /* flag-belgium.de-hd.png in Resources */,
-				362DC0F016D1F10400881B32 /* flag-belgium.de-ipad.png in Resources */,
-				362DC0F116D1F10400881B32 /* flag-belgium.de-ipadhd.png in Resources */,
-				362DC0F216D1F10400881B32 /* flag-belgium.de.png in Resources */,
-				362DC0F316D1F10400881B32 /* flag-cameroon.fr-hd.png in Resources */,
-				362DC0F416D1F10400881B32 /* flag-cameroon.fr-ipad.png in Resources */,
-				362DC0F516D1F10400881B32 /* flag-cameroon.fr-ipadhd.png in Resources */,
-				362DC0F616D1F10400881B32 /* flag-cameroon.fr.png in Resources */,
-				362DC0F716D1F10400881B32 /* flag-canada.en-hd.png in Resources */,
-				362DC0F816D1F10400881B32 /* flag-canada.en-ipad.png in Resources */,
-				362DC0F916D1F10400881B32 /* flag-canada.en-ipadhd.png in Resources */,
-				362DC0FA16D1F10400881B32 /* flag-canada.en.png in Resources */,
-				362DC0FB16D1F10400881B32 /* flag-canada.fr-hd.png in Resources */,
-				362DC0FC16D1F10400881B32 /* flag-canada.fr-ipad.png in Resources */,
-				362DC0FD16D1F10400881B32 /* flag-canada.fr-ipadhd.png in Resources */,
-				362DC0FE16D1F10400881B32 /* flag-canada.fr.png in Resources */,
-				362DC0FF16D1F10400881B32 /* flag-columbia.es-hd.png in Resources */,
-				362DC10016D1F10400881B32 /* flag-columbia.es-ipad.png in Resources */,
-				362DC10116D1F10400881B32 /* flag-columbia.es-ipadhd.png in Resources */,
-				362DC10216D1F10400881B32 /* flag-columbia.es.png in Resources */,
-				362DC10316D1F10400881B32 /* flag-congo.fr-hd.png in Resources */,
-				362DC10416D1F10400881B32 /* flag-congo.fr-ipad.png in Resources */,
-				362DC10516D1F10400881B32 /* flag-congo.fr-ipadhd.png in Resources */,
-				362DC10616D1F10400881B32 /* flag-congo.fr.png in Resources */,
-				362DC10716D1F10400881B32 /* flag-france.fr-hd.png in Resources */,
-				362DC10816D1F10400881B32 /* flag-france.fr-ipad.png in Resources */,
-				362DC10916D1F10400881B32 /* flag-france.fr-ipadhd.png in Resources */,
-				362DC10A16D1F10400881B32 /* flag-france.fr.png in Resources */,
-				362DC10B16D1F10400881B32 /* flag-germany.de-hd.png in Resources */,
-				362DC10C16D1F10400881B32 /* flag-germany.de-ipad.png in Resources */,
-				362DC10D16D1F10400881B32 /* flag-germany.de-ipadhd.png in Resources */,
-				362DC10E16D1F10400881B32 /* flag-germany.de.png in Resources */,
-				362DC10F16D1F10400881B32 /* flag-india.en-hd.png in Resources */,
-				362DC11016D1F10400881B32 /* flag-india.en-ipad.png in Resources */,
-				362DC11116D1F10400881B32 /* flag-india.en-ipadhd.png in Resources */,
-				362DC11216D1F10400881B32 /* flag-india.en.png in Resources */,
-				362DC11316D1F10400881B32 /* flag-japan.ja-hd.png in Resources */,
-				362DC11416D1F10400881B32 /* flag-japan.ja-ipad.png in Resources */,
-				362DC11516D1F10400881B32 /* flag-japan.ja-ipadhd.png in Resources */,
-				362DC11616D1F10400881B32 /* flag-japan.ja.png in Resources */,
-				362DC11716D1F10400881B32 /* flag-mexico.es-hd.png in Resources */,
-				362DC11816D1F10400881B32 /* flag-mexico.es-ipad.png in Resources */,
-				362DC11916D1F10400881B32 /* flag-mexico.es-ipadhd.png in Resources */,
-				362DC11A16D1F10400881B32 /* flag-mexico.es.png in Resources */,
-				362DC11B16D1F10400881B32 /* flag-peru.es-hd.png in Resources */,
-				362DC11C16D1F10400881B32 /* flag-peru.es-ipad.png in Resources */,
-				362DC11D16D1F10400881B32 /* flag-peru.es-ipadhd.png in Resources */,
-				362DC11E16D1F10400881B32 /* flag-peru.es.png in Resources */,
-				362DC11F16D1F10400881B32 /* flag-spain.es-hd.png in Resources */,
-				362DC12016D1F10400881B32 /* flag-spain.es-ipad.png in Resources */,
-				362DC12116D1F10400881B32 /* flag-spain.es-ipadhd.png in Resources */,
-				362DC12216D1F10400881B32 /* flag-spain.es.png in Resources */,
-				362DC12316D1F10400881B32 /* flag-switzerland.de-hd.png in Resources */,
-				362DC12416D1F10400881B32 /* flag-switzerland.de-ipad.png in Resources */,
-				362DC12516D1F10400881B32 /* flag-switzerland.de-ipadhd.png in Resources */,
-				362DC12616D1F10400881B32 /* flag-switzerland.de.png in Resources */,
-				362DC12716D1F10400881B32 /* flag-uk.en-hd.png in Resources */,
-				362DC12816D1F10400881B32 /* flag-uk.en-ipad.png in Resources */,
-				362DC12916D1F10400881B32 /* flag-uk.en-ipadhd.png in Resources */,
-				362DC12A16D1F10400881B32 /* flag-uk.en.png in Resources */,
-				362DC12B16D1F10400881B32 /* flag-usa.en-hd.png in Resources */,
-				362DC12C16D1F10400881B32 /* flag-usa.en-ipad.png in Resources */,
-				362DC12D16D1F10400881B32 /* flag-usa.en-ipadhd.png in Resources */,
-				362DC12E16D1F10400881B32 /* flag-usa.en.png in Resources */,
 				362DC2CB16D7114E00881B32 /* world-map-hd.png in Resources */,
 				362DC2CC16D7114E00881B32 /* world-map-ipad.png in Resources */,
 				362DC2CD16D7114E00881B32 /* world-map-ipadhd.png in Resources */,
@@ -10461,6 +10222,26 @@
 				36C7AFB517FBA6F700794FF8 /* avery_dress_green-ipad.png in Resources */,
 				36C7AFB617FBA6F700794FF8 /* avery_dress_green-ipadhd.png in Resources */,
 				36C7AFB717FBA6F700794FF8 /* avery_dress_green.png in Resources */,
+				36C7AFC81800901200794FF8 /* buy-hd.png in Resources */,
+				36C7AFC91800901200794FF8 /* buy-ipad.png in Resources */,
+				36C7AFCA1800901200794FF8 /* buy-ipadhd.png in Resources */,
+				36C7AFCB1800901200794FF8 /* buy.png in Resources */,
+				36C7AFCC1800901200794FF8 /* facts-hd.png in Resources */,
+				36C7AFCD1800901200794FF8 /* facts-ipad.png in Resources */,
+				36C7AFCE1800901200794FF8 /* facts-ipadhd.png in Resources */,
+				36C7AFCF1800901200794FF8 /* facts.png in Resources */,
+				36C7AFD01800901200794FF8 /* feedback-hd.png in Resources */,
+				36C7AFD11800901200794FF8 /* feedback-ipad.png in Resources */,
+				36C7AFD21800901200794FF8 /* feedback-ipadhd.png in Resources */,
+				36C7AFD31800901200794FF8 /* feedback.png in Resources */,
+				36C7AFD41800901200794FF8 /* restorepurchase-hd.png in Resources */,
+				36C7AFD51800901200794FF8 /* restorepurchase-ipad.png in Resources */,
+				36C7AFD61800901200794FF8 /* restorepurchase-ipadhd.png in Resources */,
+				36C7AFD71800901200794FF8 /* restorepurchase.png in Resources */,
+				36C7AFEF180226AB00794FF8 /* flags2-ipad.plist in Resources */,
+				36C7AFF0180226AB00794FF8 /* flags2-ipad.png in Resources */,
+				36C7AFF1180226AB00794FF8 /* flags2-ipadhd.plist in Resources */,
+				36C7AFF2180226AB00794FF8 /* flags2-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10578,6 +10359,7 @@
 				36CD667617DEDF7E00689056 /* Behavior+JumpRandom.m in Sources */,
 				362719DE17E69D6E00DE6BAA /* Behavior+BeachBall.m in Sources */,
 				36C7AF6417F12AD400794FF8 /* Behavior+WaterDive.m in Sources */,
+				36C7AFEA180097F300794FF8 /* CCSpriteFrameCache+Enumerable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

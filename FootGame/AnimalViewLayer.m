@@ -293,9 +293,36 @@
     }
     
     __block AnimalViewLayer *pointer = self;
+    __block Animal *aPointer = animal;
+    
+    
+    
+    
+    langMenu = [InGameLanguageMenuPopup inGameLanguageMenuWithNarrateInLanguageBlock:^(NSString *lang) {
+        [pointer blurGameLayer:YES withDuration:0.25];
+        [pointer startNarration:0 forLang:lang];
+    }];
+    langMenu.position = ccpToRatio(512, 300);
+    
+    settingsMenu = [InGameSettingsMenuPopup inGameSettingsMenuPopupWithGoHomeBlock:^{
+        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+            [pointer quitToMainMenu];
+        }]; }
+        factPageBlock:^(NSString *key) {
+            [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+                [pointer openFactPage];
+            }];
+        } forAnimalKey: animal.key];
+    
+    
+    
+    settingsMenu.position = ccpToRatio(512, 300);
+    
+    __block InGameLanguageMenuPopup *lPointer = langMenu;
+    __block InGameSettingsMenuPopup *sPointer = settingsMenu;
     
     skip = [LongPressButton buttonWithBlock:^(CCNode *sender) {
-        apEvent(animal.key, @"skip", @"complete");
+        apEvent(aPointer.key, @"skip", @"complete");
         [pointer stopNarration];
     }];
     skip.scale = 0.8;
@@ -315,7 +342,7 @@
     }];
     [langMenuButton addEvent:@"touchup" withBlock:^(CCNode *sender) {
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
-        [langMenu showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+        [lPointer showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
             [pointer blurGameLayer:YES withDuration:0.2];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
             [pointer blurGameLayer:NO withDuration:0.2];
@@ -335,7 +362,7 @@
     }];
     [settingsMenuButton addEvent:@"touchup" withBlock:^(CCNode *sender) {
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
-        [settingsMenu showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
+        [sPointer showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
             [pointer blurGameLayer:YES withDuration:0.2];
         } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
             [pointer blurGameLayer:NO withDuration:0.2];
@@ -343,27 +370,6 @@
     }];
     settingsMenuButton.position = ccpToRatio(950, 700);
     [self addChild:settingsMenuButton];
-    
-    
-    langMenu = [InGameLanguageMenuPopup inGameLanguageMenuWithNarrateInLanguageBlock:^(NSString *lang) {
-        [pointer blurGameLayer:YES withDuration:0.25];
-        [pointer startNarration:0 forLang:lang];
-    }];
-    langMenu.position = ccpToRatio(512, 300);
-    
-    settingsMenu = [InGameSettingsMenuPopup inGameSettingsMenuPopupWithGoHomeBlock:^{
-        [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            [pointer quitToMainMenu];
-        }]; }
-        factPageBlock:^(NSString *key) {
-            [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-                [pointer openFactPage];
-            }];
-        } forAnimalKey: animal.key];
-        
-    
-   
-    settingsMenu.position = ccpToRatio(512, 300);
     
     [self addChild:langMenu];
     [self addChild:settingsMenu];
@@ -656,9 +662,10 @@
 }
 
 -(void) stopNarration {
+    __block NarrationNode *nPointer = narration;
     [narration runAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.25 scale:0.0],
                         [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [narration stopAllActions];
+        [nPointer stopAllActions];
     }],
     nil]];
     

@@ -41,7 +41,7 @@
     
     go.position = ccp(0,0);
     
-    CircleButton *factIcon = [CircleButton buttonWithFile:@"lips.png"];
+    CircleButton *factIcon = [CircleButton buttonWithFile:@"facts.png"];
     factIcon.position = ccp(0,0);
     factIcon.scale = 0.7;
     

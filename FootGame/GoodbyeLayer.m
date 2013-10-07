@@ -185,6 +185,7 @@
     [foreground runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
     
     __block GoodbyeLayer *pointer = self;
+    __block LongPressButton *sPointer = skip;
 
     CCSequence *jeepSeq = [CCSequence actions:[CCMoveTo actionWithDuration:t * 0.40 position:ccpToRatio(750, 240)],
                            [CCDelayTime actionWithDuration:t * 0.40],
@@ -224,7 +225,7 @@
     
     [[SoundManager sharedManager] setMusicVolume:0.4];
     
-    [outro startWithCues: cues finishBlock:^(CCNode *node) { [skip autoClickAfter:10.0]; }];
+    [outro startWithCues: cues finishBlock:^(CCNode *node) { [sPointer autoClickAfter:10.0]; }];
 }
 
 -(void) onExitTransitionDidStart {

@@ -228,6 +228,9 @@
 
 -(id) init {
     self = [super init];
+    NSLog(@"------------------");
+    NSLog(@"PRELOADING_LAYER: %@ init", self);
+    NSLog(@"------------------");
     
     sync = [[NSObject alloc] init];
     contentLoaded = YES;
@@ -236,6 +239,9 @@
 }
 
 -(void) dealloc {
+    CCLOGINFO(@"------------------");
+    CCLOGINFO(@"PRELOADING_LAYER: %@ dealloc", self);
+    CCLOGINFO(@"------------------");
     
     [sync release];
     sync = nil;
@@ -249,16 +255,20 @@
 }
 
 -(id) retain {
-    CCLOG(@"%@ retain called (%i) from: %@", self, [self retainCount], [NSThread callStackSymbols]);
+    NSLog(@"%@ retain called (%i) from: %@", self, [self retainCount] + 1, [NSThread callStackSymbols]);
     return [super retain];
 }
 
 -(oneway void) release {
-    CCLOG(@"%@ release called (%i) from: %@", self, [self retainCount], [NSThread callStackSymbols]);
+    NSLog(@"%@ release called (%i) from: %@", self, [self retainCount] - 1, [NSThread callStackSymbols]);
     [super release];
 }
 
 -(void) onEnter {
+    CCLOGINFO(@"------------------");
+    CCLOGINFO(@"PRELOADING_LAYER: %@ onEnter", self);
+    CCLOGINFO(@"------------------");
+    
     [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     
     if (manifestToLoad != nil) {
@@ -268,8 +278,28 @@
     [super onEnter];
 }
 
+-(void) onEnterTransitionDidFinish {
+    CCLOGINFO(@"------------------");
+    CCLOGINFO(@"PRELOADING_LAYER: %@ onEnterTransitionDidFinish", self);
+    CCLOGINFO(@"------------------");
+    
+    [super onEnterTransitionDidFinish];
+}
+
 -(void) onExitTransitionDidStart {
+    CCLOGINFO(@"------------------");
+    CCLOGINFO(@"PRELOADING_LAYER: %@ onExitTransitionDidStart", self);
+    CCLOGINFO(@"------------------");
+    
     [super onExitTransitionDidStart];
+}
+
+-(void) onExit {
+    CCLOGINFO(@"------------------");
+    CCLOGINFO(@"PRELOADING_LAYER: %@ onExit", self);
+    CCLOGINFO(@"------------------");
+    
+    [super onExit];
 }
 
 -(void) loadStarted: (int) totalCount {
@@ -281,11 +311,11 @@
     [[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
     [[SoundManager sharedManager] unloadAllSounds];
     
-    NSLog(@"Starting to load %i resources", totalCount);
+    CCLOGINFO(@"Starting to load %i resources", totalCount);
 }
 
 -(void) loadProgress: (int) count totalCount: (int) totalCount {
-    NSLog(@"Loaded %i of %i resources", count, totalCount);
+    CCLOGINFO(@"Loaded %i of %i resources", count, totalCount);
 }
 
 -(void) loadComplete {
@@ -298,7 +328,7 @@
             loadCompleteBlock = nil;
         }
     }
-    NSLog(@"Preload complete");
+    CCLOGINFO(@"Preload complete");
 }
 
 -(void) unloadComplete {

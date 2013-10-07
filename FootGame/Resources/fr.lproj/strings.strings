@@ -19,7 +19,7 @@
  
  */
 
-"product_fetch_error_title" = "Erreur  Recherche de produits";
+"product_fetch_error_title" = "Erreur Recherche de produits";
 "product_fetch_error_desc" = "Oh oh! Une erreur s’est produite lors du téléchargement des informations d’iTunes, réssaye un peu plus tard";
 "product_buy_error_title" = "Une erreur s’est produite lors de l’achat";
 "product_buy_error_desc" = "Oh oh! Une erreur s’est produite lors de l’achat de ce produit, réessaye un peu plus tard.";

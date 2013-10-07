@@ -151,7 +151,7 @@
     NSDictionary *behaviors = (NSDictionary *) [parameters objectForKey:@"Behaviors"];
     
     if (behaviors == nil) {
-        NSLog(@"No behaviors found in %@ for node %@", [parameters description], [node description]);
+        CCLOGINFO(@"No behaviors found in %@ for node %@", [parameters description], [node description]);
         return;
     }
     
@@ -220,7 +220,7 @@
         } else if ([type isEqualToString:@"BirdFlock"]) {
             [env addChild:[self getBirdFlock: obj withSpace: physicsSpace]];
         } else {
-            NSLog(@"Unexpected type %@ in set %@", type, [obj description]);
+            CCLOGINFO(@"Unexpected type %@ in set %@", type, [obj description]);
         }
     }];
 

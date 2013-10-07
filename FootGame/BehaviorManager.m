@@ -18,6 +18,13 @@
     return self;
 }
 
+-(void) dealloc {
+    if (behaviors != nil)
+        [behaviors release];
+    
+    [super dealloc];
+}
+
 -(void) addBehavior: (Behavior *) behavior {
     NSMutableArray *arr = [behaviors objectForKey:behavior.event];
     if (arr == nil) {
