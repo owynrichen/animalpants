@@ -7,6 +7,7 @@
 //
 
 #import "Behavior+BeachBall.h"
+#import "SoundManager.h"
 
 @implementation Behavior (BeachBall)
 
@@ -23,8 +24,9 @@
         [node.parent addChild:ball];
         CCMoveTo *move = [CCMoveTo actionWithDuration:2.0 position:ccpToRatio(x, node.position.y + node.contentSize.height)];
         
-        CCCallBlockN *setZ = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        CCCallBlockN *setZPlaySound = [CCCallBlockN actionWithBlock:^(CCNode *node) {
             node.zOrder = zOrder;
+            [[SoundManager sharedManager] playSound:@"ball_bounce.mp3"];
         }];
         
         CCJumpTo *jump = [CCJumpTo actionWithDuration:3.0 position:ccpToRatio(node.position.x + 400, -ball.contentSize.height) height:(768 - node.position.y) / 2 jumps:1];
@@ -34,7 +36,7 @@
         }];
         
         [ball runAction:[CCRotateBy actionWithDuration:5.0 angle:720]];
-        [ball runAction:[CCSequence actions:move, setZ, jump, remove, nil]];
+        [ball runAction:[CCSequence actions:move, setZPlaySound, jump, remove, nil]];
     }];
     
     return spawnBall;

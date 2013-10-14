@@ -55,6 +55,7 @@
 
 -(AnimalPart *) getCorrectFoot;
 -(void) drawAttention: (ccTime) dtime;
+-(void) randomEvent: (ccTime) dtime;
 -(CGPoint) startPositionForFoot: (int) index;
 
 -(void) setupLevel;
@@ -266,7 +267,8 @@
     
     [gameLayer addChild:prev];
     
-    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:10 delay:5];
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:20 delay:5];
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(randomEvent:) forTarget:self interval:15 paused:NO repeat:20 delay:8];
     
     streak = [CCMotionStreak streakWithFade:1 minSeg:10 width:50 color:ccWHITE textureFilename:@"rainbow.png"];
     streak.fastMode = NO;
@@ -294,9 +296,6 @@
     
     __block AnimalViewLayer *pointer = self;
     __block Animal *aPointer = animal;
-    
-    
-    
     
     langMenu = [InGameLanguageMenuPopup inGameLanguageMenuWithNarrateInLanguageBlock:^(NSString *lang) {
         [pointer blurGameLayer:YES withDuration:0.25];
@@ -586,9 +585,14 @@
         }
         
         [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+            [background showGirls];
             [narration stop];
             
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration: 1.5],
+                             [CCCallBlockN actionWithBlock:^(CCNode *node) {
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
+            }], nil]];
+            
         }];
     } else if (prevTouched) {
         [prev stopAllActions];
@@ -629,6 +633,10 @@
 
 -(void) startNarration:(ccTime)dtime {
     [self startNarration:dtime forLang:[[LocalizationManager sharedManager] getAppPreferredLocale]];
+}
+
+-(void) randomEvent: (ccTime) dtime {
+    [background triggerRandomBehavior];
 }
 
 -(void) startNarration:(ccTime)dtime forLang:(NSString *)lang {

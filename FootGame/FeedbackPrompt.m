@@ -36,8 +36,8 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"like_animal_pants?",@"strings",@"")
         message:locstr(@"like_animal_pants_details",@"strings",@"")
         delegate:self
-        cancelButtonTitle:locstr(@"no",@"strings",@"")
-        otherButtonTitles:locstr(@"yes",@"strings",@""),
+        cancelButtonTitle:locstr(@"later", @"strings", @"")
+        otherButtonTitles:locstr(@"yes",@"strings",@""),locstr(@"no",@"strings",@""),
         nil];
     
     [alert show];
@@ -74,68 +74,74 @@
 #pragma mark Alert View Delegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(buttonIndex == 1)
-    {
-        apEvent(@"rating",@"yes",@"");
+    switch(buttonIndex) {
+        case 0:
+            apEvent(@"rating",@"later",@"");
+            break;
+        case 1:
+            apEvent(@"rating",@"yes",@"");
         
-        [[UIApplication sharedApplication]
-         openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=581827653"]];
-    } else {
-        apEvent(@"rating",@"no",@"");
+            [[UIApplication sharedApplication]
+             openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=581827653"]];
+            break;
+        case 2:
+            apEvent(@"rating",@"no",@"");
         
-        if (![MFMailComposeViewController canSendMail]) {
-            apEvent(@"rating",@"feedback_email",@"cannot send");
+            if (![MFMailComposeViewController canSendMail]) {
+                apEvent(@"rating",@"feedback_email",@"cannot send");
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"feedback_mail_unavailable_title",@"strings",@"")
-                                                            message:locstr(@"feedback_mail_unavailable_details",@"strings",@"")
-                                                           delegate:self
-                                                  cancelButtonTitle:locstr(@"okay",@"strings",@"")
-                                                  otherButtonTitles: nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"feedback_mail_unavailable_title",@"strings",@"")
+                    message:locstr(@"feedback_mail_unavailable_details",@"strings",@"")
+                    delegate:self
+                    cancelButtonTitle:locstr(@"okay",@"strings",@"")
+                    otherButtonTitles: nil];
             
-            [alert show];
-            [alert release];
+                [alert show];
+                [alert release];
             
-            return;
-        }
+                break;
+            }
         
-        apView(@"Feedback Email Dialog");
+            apView(@"Feedback Email Dialog");
         
-        UIDevice *device = [UIDevice currentDevice];
-        NSDictionary *b = [[NSBundle mainBundle] infoDictionary];
-        NSString *appVersion = [NSString stringWithFormat:@"%@ (%@)", [b objectForKey:@"CFBundleShortVersionString"], [b objectForKey:@"CFBundleVersion"]];
+            UIDevice *device = [UIDevice currentDevice];
+            NSDictionary *b = [[NSBundle mainBundle] infoDictionary];
+            NSString *appVersion = [NSString stringWithFormat:@"%@ (%@)", [b objectForKey:@"CFBundleShortVersionString"], [b objectForKey:@"CFBundleVersion"]];
         
-        NSString *systemData = [NSString stringWithFormat:@"App Version: %@<br />"
-        "System Locale: %@<br />"
-        "App Locale: %@<br />"
-        "OS: %@<br />"
-        "Version: %@<br />"
-        "Model: %@<br />", appVersion, [[LocalizationManager sharedManager] getSystemLocale], [[LocalizationManager sharedManager] getAppPreferredLocale], [device systemName], [device systemVersion], [device name]];
+            NSString *systemData = [NSString stringWithFormat:@"App Version: %@<br />"
+                                    "System Locale: %@<br />"
+                                    "App Locale: %@<br />"
+                                    "OS: %@<br />"
+                                    "Version: %@<br />"
+                                    "Model: %@<br />", appVersion, [[LocalizationManager sharedManager] getSystemLocale], [[LocalizationManager sharedManager] getAppPreferredLocale], [device systemName], [device systemVersion], [device name]];
     
-        NSString *privateData = [[NSString stringWithFormat:@"%@<br />%@<br />%@<br />s33kr3tk33y0d00d", systemData, [[PremiumContentStore instance] ownedProducts], [[PromotionCodeManager instance] attemptedCodes]] encryptWithKey:@"Sweet man!"];
+            NSString *privateData = [[NSString stringWithFormat:@"%@<br />%@<br />%@<br />s33kr3tk33y0d00d", systemData, [[PremiumContentStore instance] ownedProducts], [[PromotionCodeManager instance] attemptedCodes]] encryptWithKey:@"Sweet man!"];
         
-        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-        controller.mailComposeDelegate = self;
-        [controller setSubject:locstr(@"feedback_email_subject",@"strings",@"")];
-        [controller setToRecipients:[NSArray arrayWithObject: @"feedback@alchemistinteractive.com"]];
-        [controller setMessageBody:[NSString stringWithFormat: @""
-"<html>"
-"  <head><title>Feedback Email</title>"
-"  <body>"
-"    <br /><br />"
-"    <hr />"
-"    <h4>%@</h4>"
-"    <p>"
-"%@"
-"    </p>"
-"    <hr />"
-"    <h4>%@</h4>"
-"    <pre>%@</pre>"
-"    <hr />"
-"    <br /><br />"
-"  </body>"
-"</html>", locstr(@"technical_details", @"strings", @""), systemData, locstr(@"encrypted_technical_details", @"strings", @""), privateData] isHTML:YES];
-        if (controller) [[CCDirector sharedDirector] presentModalViewController:controller animated:YES];
-        [controller release];
+            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+            controller.mailComposeDelegate = self;
+            [controller setSubject:locstr(@"feedback_email_subject",@"strings",@"")];
+            [controller setToRecipients:[NSArray arrayWithObject: @"feedback@alchemistinteractive.com"]];
+            [controller setMessageBody:[NSString stringWithFormat: @""
+                                        "<html>"
+                                        "  <head><title>Feedback Email</title>"
+                                        "  <body>"
+                                        "    <br /><br />"
+                                        "    <hr />"
+                                        "    <h4>%@</h4>"
+                                        "    <p>"
+                                        "%@"
+                                        "    </p>"
+                                        "    <hr />"
+                                        "    <h4>%@</h4>"
+                                        "    <pre>%@</pre>"
+                                        "    <hr />"
+                                        "    <br /><br />"
+                                        "  </body>"
+                                        "</html>", locstr(@"technical_details", @"strings", @""), systemData, locstr(@"encrypted_technical_details", @"strings", @""), privateData] isHTML:YES];
+            
+            if (controller) [[CCDirector sharedDirector] presentModalViewController:controller animated:YES];
+            [controller release];
+            break;
     }
 }
 

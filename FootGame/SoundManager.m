@@ -124,16 +124,16 @@ static NSString *_sync = @"";
     [preloadedEffects removeAllObjects];
 }
 
--(void) playSound: (NSString *) name {
-    [self playSound:name withVol:1.0f];
+-(ALuint) playSound: (NSString *) name {
+    return [self playSound:name withVol:1.0f];
 }
 
--(void) playSound: (NSString *) name withVol: (float) vol {
+-(ALuint) playSound: (NSString *) name withVol: (float) vol {
     if (![self fileExists:name]) {
-        return;
+        return -1;
     }
     
-    [audioEngine playEffect:name pitch:1.0f pan:0.0 gain:vol];
+    return [audioEngine playEffect:name pitch:1.0f pan:0.0 gain:vol];
 }
 
 -(void) playBackground:(NSString *)name {

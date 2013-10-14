@@ -16,5 +16,9 @@
 @property (nonatomic) CGPoint textPosition;
 @property (nonatomic) CGPoint kidPosition;
 @property (nonatomic, retain) NSString *storyKey;
+@property (nonatomic, retain) NSMutableDictionary *touchLayers;
+
+-(void) triggerRandomBehavior;
+-(void) showGirls;
 
 @end

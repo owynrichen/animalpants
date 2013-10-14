@@ -61,6 +61,7 @@ static NSString *__sync = @"sync";
                                @"story1.es.mp3",
                                @"story1.fr.mp3",
                                @"story1.de.mp3",
+                               @"truck_engine.mp3",
                                nil]];
             }
         }
@@ -174,17 +175,6 @@ static NSString *__sync = @"sync";
     
     CCSequence *jeepSeq = [CCSequence actions:[CCMoveTo actionWithDuration:t * 0.10 position:ccpToRatio(400, 280)],
                            [CCDelayTime actionWithDuration:t * 0.70],
-//                           [CCCallBlockN actionWithBlock:^(CCNode *node) {
-//                                CCTexture2D *back = [[CCTextureCache sharedTextureCache] addImage:@"jeep-back.png"];
-//                                [jeep setTexture:back];
-//                                [jeep setTextureRect:CGRectMake(0,0,back.contentSize.width,back.contentSize.height) rotated:NO untrimmedSize:back.contentSize];
-//                                jeep.scale = 2.0;
-//                                [jeep removeAllChildrenWithCleanup:YES];
-//                                [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:0.3]];
-//                                [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(1200, 380)], [CCCallBlockN actionWithBlock:^(CCNode *node) {
-//                                    [pointer nextScene];
-//                                }], nil]];
-//                            }],
                            [CCMoveTo actionWithDuration:t * 0.2 position:ccpToRatio(1500, 280)],
                            [CCCallBlockN actionWithBlock:^(CCNode *node) {
                                 [pointer nextScene];
@@ -192,7 +182,7 @@ static NSString *__sync = @"sync";
                            nil];
     
     [jeep runAction:jeepSeq];
-    
+    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3" withVol:0.7];
     [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
     
     [story1 startWithCues: cues finishBlock:^(CCNode *node) {}];
@@ -200,6 +190,7 @@ static NSString *__sync = @"sync";
 
 -(void) onExitTransitionDidStart {
     [[SoundManager sharedManager] resetMusicVolume];
+    [[SoundManager sharedManager] stopSound:truckSound];
     
     [super onExitTransitionDidStart];
 }

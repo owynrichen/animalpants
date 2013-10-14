@@ -66,6 +66,7 @@
 "like_animal_pants_details" = "Nous espérons que tu aimes Animal Pants, si c’est le cas donne-nous une note!  Sinon, dis-nous comment nous pourrions l’améliorer!";
 "yes" = "Oui";
 "no" = "Non";
+"later" = "Toute à l'Heure";
 "feedback_email_subject" = "Avis sur Animal Pants";
 "technical_details" = "Details Techniques"; // for the feedback email
 "thanks_for_feedback_title" = "Nous te remercions pour ton avis!";
@@ -430,11 +431,15 @@ Owyn Richen
 
 <h>Avec l’aide de
 Chris Laurel
-Emma and Avery
 Michael Bolling
 Solomon English
 Troy Morris
 The folks who work on Cocos2D
+Avery Kocher
+Emma Kocher
+Royce Salvatore
+Benjamin Price
+Ellenor Price
 
 <h>Remerciements!
 A nos familles qui nous ont supportés et inspirés!

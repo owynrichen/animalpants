@@ -18,6 +18,7 @@
     CCAutoScalingSprite *jeep;
     NarrationNode *story1;
     LongPressButton *skip;
+    ALuint truckSound;
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child

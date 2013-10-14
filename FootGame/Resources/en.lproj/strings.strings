@@ -65,6 +65,7 @@
 "like_animal_pants_details" = "We hope you like Animal Pants, if so, please rate it!  If not, please tell us how to make it better!";
 "yes" = "Yes";
 "no" = "No";
+"later" = "Maybe Later";
 "feedback_email_subject" = "Thoughts about Animal Pants";
 "technical_details" = "Technical Details"; // for the feedback email
 "encrypted_technical_details" = "Encrypted Technical Details"; // for the feedback email
@@ -415,30 +416,12 @@ Nikolai Gutierrez Anthron
 David Delevoye
 
 <h>German Narration
-Tod ???
+Tod Grobey
 
 <h>Translators
 Nikolai Gutierrez Anthron
 David Delevoye
-Tod ???
-
-<h>Marketing
-Mike Kocher
-James Salvatore
-
-<h>Coordination
-Mike Kocher
-James Salvatore
-
-<h>Quality Assurance
-Mike Kocher
-James Salvatore
-Owyn Richen
-Avery Kocher
-Emma Kocher
-Royce Salvatore
-Benjamin Price
-Ellenor Price
+Tod Grobey
 
 <h>Additional Illustrations
 Owyn Richen
@@ -449,12 +432,11 @@ Michael Bolling
 The folks who work on Cocos2D
 Chris Laurel
 Solomon English
-
-<h>Other stuff
-Someone
-Someone else
-Someone even cooler than that
-Your Mom
+Avery Kocher
+Emma Kocher
+Royce Salvatore
+Benjamin Price
+Ellenor Price
 
 <h>Thanks!
 To our families who have put

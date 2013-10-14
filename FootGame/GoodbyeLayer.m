@@ -223,13 +223,15 @@
     
     [jeep runAction:jeepSeq];
     
-    [[SoundManager sharedManager] setMusicVolume:0.4];
+    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3"];
+    [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
     
     [outro startWithCues: cues finishBlock:^(CCNode *node) { [sPointer autoClickAfter:10.0]; }];
 }
 
 -(void) onExitTransitionDidStart {
-    [[SoundManager sharedManager] setMusicVolume:0.6];
+    [[SoundManager sharedManager] resetMusicVolume];
+    [[SoundManager sharedManager] stopSound:truckSound];
     
     [super onExitTransitionDidStart];
 }

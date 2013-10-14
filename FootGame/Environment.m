@@ -26,7 +26,7 @@
 
 -(CGPoint) parsePosition: (NSDictionary *) position;
 
--(void) enumerateLayersWithBlock: (void (^)(NSDictionary * obj)) blk;
+-(void) enumerateLayersWithBlock: (void (^)(NSString *key, NSDictionary * obj)) blk;
 
 @end
 
@@ -57,7 +57,7 @@
     
     [mfest addAudioFile:self.bgMusic];
     [mfest addAudioFile:self.ambientFx];
-    [self enumerateLayersWithBlock:^(NSDictionary *obj) {
+    [self enumerateLayersWithBlock:^(NSString *ky, NSDictionary *obj) {
         [mfest addImageFile:[obj objectForKey:@"imageName"]];
         if ([obj objectForKey:@"reflectImageName"]) {
             [mfest addImageFile:[obj objectForKey:@"reflectImageName"]];
@@ -192,10 +192,10 @@
     }
 }
 
--(void) enumerateLayersWithBlock: (void (^)(NSDictionary * o)) blk {
-    [self.layers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+-(void) enumerateLayersWithBlock: (void (^)(NSString * k, NSDictionary * o)) blk {
+    [self.layers enumerateKeysAndObjectsUsingBlock:^(id ky, id obj, BOOL *stop) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
-            blk((NSDictionary *) obj);
+            blk((NSString *) ky, (NSDictionary *) obj);
         }
     }];
 }
@@ -209,10 +209,14 @@
     env.storyKey = self.storyKey;
     env.key = self.key;
  
-    [self enumerateLayersWithBlock:^(NSDictionary *obj) {
+    [self enumerateLayersWithBlock:^(NSString *ky, NSDictionary *obj) {
         NSString *type = (NSString *) [obj objectForKey:@"type"];
         if ([type isEqualToString:@"CCAutoScalingSprite"]) {
-            [env addChild:[self getAutoScalingSprite:obj withSpace:physicsSpace]];
+            CCAutoScalingSprite *node = [self getAutoScalingSprite:obj withSpace:physicsSpace];
+            if ([node.behaviorManager hasBehaviorsForEvent:@"touch"]) {
+                [env.touchLayers setObject:node forKey:ky];
+            }
+            [env addChild:node];
         } else if ([type isEqualToString:@"Water"]) {
             [env addChild:[self getWater:obj withSpace:physicsSpace]];
         } else if ([type isEqualToString:@"Vine"]) {

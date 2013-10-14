@@ -175,8 +175,8 @@
             break;
     }
     
-    
-    titleSize = [titlestr sizeWithFont:[UIFont fontWithName:TITLE_FONT size:TITLE_FONT_SIZE * titleMult * fontScaleForCurrentDevice()] constrainedToSize:titleSize lineBreakMode:NSLineBreakByWordWrapping];
+    float fontSize = TITLE_FONT_SIZE * titleMult * fontScaleForCurrentDevice();
+    titleSize = [titlestr sizeWithFont:[UIFont fontWithName:TITLE_FONT size:fontSize] constrainedToSize:titleSize lineBreakMode:NSLineBreakByWordWrapping];
     textSize = [txtstr sizeWithFont:[UIFont fontWithName:TEXT_FONT size:TEXT_FONT_SIZE * fontScaleForCurrentDevice()] constrainedToSize:textSize lineBreakMode:NSLineBreakByWordWrapping];
     
     textPos = ccp(textPos.x, textPos.y - titleSize.height);
@@ -184,6 +184,7 @@
     factTitle.dimensions = titleSize;
     factTitle.anchorPoint = ccp(0,1.0);
     factTitle.position = titlePos;
+    factTitle.fontSize = fontSize;
     factTitle.color = ccc3(198, 220, 15);
     
     // factText.dimensions = textSize;

@@ -33,8 +33,8 @@
 -(void) unloadSound: (NSString *) name;
 -(void) unloadAllSounds;
 
--(void) playSound: (NSString *) name;
--(void) playSound: (NSString *) name withVol: (float) vol;
+-(ALuint) playSound: (NSString *) name;
+-(ALuint) playSound: (NSString *) name withVol: (float) vol;
 -(void) playBackground: (NSString *) name;
 -(void) playSoundWithCues: (AudioCues *) cues withDelegate: (id<AudioCuesDelegate>) delegate;
 -(void) stopSound: (ALuint) soundId;

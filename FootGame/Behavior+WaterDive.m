@@ -8,6 +8,7 @@
 
 #import "Behavior+WaterDive.h"
 #import "CCParticleSystem+Extras.h"
+#import "SoundManager.h"
 
 @implementation Behavior(WaterDive)
 
@@ -26,6 +27,7 @@
     CCMoveTo *hide = [CCMoveTo actionWithDuration:0.25 position:ccpToRatio(origPos.x, origPos.y - 100)];
     
     CCCallBlockN *splash = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [[SoundManager sharedManager] playSound:@"splash.mp3"];
         CCParticleSystemQuad *emitter = [CCParticleSystemQuad particleWithFile:@"Spout.plist" params:params];
         emitter.position = ccpToRatio(node.position.x - node.contentSize.width / 2, node.position.y);
         [node.parent addChild:emitter z:node.zOrder];
