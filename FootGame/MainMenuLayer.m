@@ -143,10 +143,6 @@ static NSString *__sync = @"sync";
     title.position = ccpToRatio(512,winSize.height + title.contentSize.height);
     [self addChild:title];
     
-//    [(NSArray *) [UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        NSLog(@"%@", obj);
-//    }];
-    
     __block MainMenuLayer *pointer = self;
     
     play = [CCAutoScalingSprite spriteWithFile:@"icon_play.png"];
@@ -166,8 +162,8 @@ static NSString *__sync = @"sync";
         
         [pointer doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk: ^{
             [[AnimalPartRepository sharedRepository] resetAnimals:NO];
-            // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
-            [[CCDirector sharedDirector] replaceScene:[StoryLayer scene]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[StoryLayer scene] backwards:false]];
+            // [[CCDirector sharedDirector] replaceScene:[StoryLayer scene]];
         }];
         
     }];

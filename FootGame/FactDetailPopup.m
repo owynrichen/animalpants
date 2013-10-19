@@ -131,7 +131,7 @@
             cSize = [self setFactDataScale:factData];
             factData.position = ccpToRatio(half.x, half.y + (half.y - (cSize.height / 2)) - (half.x * 0.05));
             
-            titleMult = 0.8;
+            titleMult = 0.6;
             titleSize = CGSizeMake(cSize.width * 0.9, 500);
             textSize = CGSizeMake(cSize.width * 0.9, 500);
             titlePos = ccpToRatio(half.x * 0.1, factData.position.y - (cSize.height / 2)); 

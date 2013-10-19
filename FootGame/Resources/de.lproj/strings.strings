@@ -1,48 +1,85 @@
-/* 
-  strings.strings
-  FootGame
+/*
+ strings.strings
+ FootGame
+ 
+ Created by Owyn Richen on 7/28/12.
+ Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+ */
 
-  Created by Owyn Richen on 7/28/12.
-  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-*/
-
-"back" = "Back";
-"okay" = "Okay";
-"promocode" = "Promotional code?";
-"loading" = "Searching for Animals...";
-"game_title" = "Tier Hosen";
+"back" = "Zurück";
+"okay" = "In Ordnung";
+"loading" = "Tiersuche";
 "game_title1" = "Tier";
-"game_title2" = "";
+"game_title2" = "";  // example: Pantalones de Animales
 "game_title3" = "Hosen";
 
-"product_fetch_error_title" = "Error Fetching Products";
-"product_fetch_error_desc" = "There was an issue getting product information from iTunes, please try again later.";
-"product_buy_error_title" = "Error with Purchase";
-"product_buy_error_desc" = "There was an error when attempting to purchase this product, please try again later.";
-"invalid_promo_error_title" = "Invalid Promotion Code";
-"invalid_promo_error_desc" = "The promotional code attempted was invalid, please try again.";
-"promo_code_error_title" = "Error Checking Promotion Code";
-"promo_code_error_desc" = "There was an error when checking the promotion code, please try again later.";
-"buy_upsell" = "Add (%@)";
-"confirm" = "Confirm";
-"use_code" = "Use Promo Code";
-"confirm_title" = "Confirm Purchase";
-"restore_purchases" = "Restore Purchases";
-"get_products" = "Talking to iTunes";
-"buying_product" = "Talking to iTunes";
-"checking_code" = "Activating Promo Code";
-"play_button" = "Go See %@";
+/*
+ 
+ Purchase flow and promo code text
+ 
+ */
 
-"play" = "Play!";
-"animals" = "Animals";
-"languages" = "Languages";
-"settings" = "Settings";
-"en" = "English";
-"es" = "Spanish";
-"fr" = "French";
-"ja" = "Japanese";
-"de" = "German";
+"product_fetch_error_title" = "Fehler beim Abruf des Produktes";
+"product_fetch_error_desc" = "Hoppla! Wir haben ein Problem die Information bei iTunes abzurufen Bitte später noch einmal versuchen.";
+"product_buy_error_title" = "Fehler beim Kauf";
+"product_buy_error_desc" = "Hoppla! Beim Kauf des Produktes trat eine Störung auf! Bitte später noch einmal versuchen.";
+"invalid_promo_error_title" = "Ungültiger Werbecode";
+"invalid_promo_error_desc" = "Hoppla! Der benutzte Werbecode ist ungültig. Bitte nocheinmal versuchen!";
 
+"promo_code_error_title" = "Störung beim Überprüfen des Werbecodes";
+"promo_code_error_desc" = "Hoppla! Beim  Überprüfen des Werbecodes trat eine Störung auf. Bitte später noch einmal versuchen.";
+"location_error_title" = " Ort nicht gefunden";
+"location_error_desc" = "Bitte entschuldigen Sie, dass wir momentan nicht in der Lage sind Ihren Ort zu finden";
+
+"promocode" = "Werbecode?";
+"buy_upsell" = "Zusätzlich  (%@)"; // example: Add $1.00
+"confirm" = "Bestätigung";
+"use_code" = "Benutze den Werbecode";
+"confirm_title" = " Bestätigung des Kaufs";
+"restore_purchases" = "Wiederherstellung des Kaufs";
+"get_products" = "Rücksprache mit iTunes";
+"buying_product" = "Rücksprache mit iTunes";
+"checking_code" = "Freischalten des Werbecodes";
+
+/*
+ 
+ Main and Language menu options
+ 
+ */
+
+"play" = "Spiele Leg los!";
+"animals" = "Tiere";
+"languages" = "Sprachen";
+"settings" = "Einstellungen und Credits";
+"en" = "Englisch";
+"es" = "Spanisch";
+"fr" = "Französisch";
+"ja" = "Japanisch";
+"de" = "Deutsch";
+"hear_it_in" = "Höre es in %@";  // example: Here it in French
+"go_home" = "Hauptseite";
+"facts_about" = "Fakten über %@";  // example: Facts about Peter
+"music_volume" = "Musiklautstärke";
+"sound_volume" = "Lautstärke";
+"send_feedback" = "Rückmeldung erbeten!";
+"like_animal_pants?" = "Gefällt Ihnen das Spiel Tierhosen?"; // for the feedback dialog
+"like_animal_pants_details" = "Wir hoffen Ihnen gefällt das Spiel Tierhosen. Wenn Ja- bitte beurteilen! Wenn Nein- bitte teilen Sie uns mit wie wir es besser machen können!";
+"yes" = "Ja";
+"no" = "Nein";
+"feedback_email_subject" = "Ansichten über das Spiel Tierhosen?";
+"technical_details" = "Technische Daten"; // for the feedback email
+"thanks_for_feedback_title" = "Danke für Ihre Rückmeldung!";
+"thanks_for_feedback_details" = "Danke für Ihre Hilfe das Spiel Tierhosen zu verbessern! Wir melden uns so schnell wie möglich zurück nachdem wir Ihr uns Ihr Problem angesehen haben.";
+"feedback_submit_error_title" = "Rückmeldung Eingabefehler";
+"feedback_submit_error_details" = "Störung bei der Rückmeldung! Wir sind sehr interessiert an Ihrer Meinung zum Spiel Tierhosen. Bitte versuchen Sie es später nocheinmal!";
+"feedback_mail_unavailable_title" = "Email nicht erreichbar";
+"feedback_mail_unavailable_details" = "Aus ungeklärten Gründen ist es uns nicht möglich Ihnen eine email zu schicken. Bitte machen Sie sicher, dass  Sie eine gültige email Adresse haben, so das Sie uns Ihre Ansichten mitteilen können , und wir  das Spiel Tierhosen verbessern!";
+
+/*
+ 
+ Animal types
+ 
+ */
 "menu_elephant" = "Elefant";
 "menu_lion" = "Löwe";
 "menu_penguin" = "Pinguin";
@@ -55,6 +92,12 @@
 "menu_polarbear" = "Eisbär";
 "menu_tiger" = "Tiger";
 "menu_zebra" = "Zebra";
+
+/*
+ 
+ Narration section
+ 
+ */
 
 "elephant" = "Emil der Elefant hat grosse Zehennägel und trägt eine graue Hose.";
 "lion" = "Luka der Löwe hat eine blaue Hose und seine Pfoten sind beige.";
@@ -79,257 +122,319 @@
  
  */
 
-"kilometers" = "kilometers";
-"miles" = "miles";
-"feet" = "feet";
-"meters" = "meters";
-"pounds" = "pounds";
-"kilograms" = "kilograms";
-"distance_from_you_string" = "%@ lives %1.2f %@ away from you."; // example: "Kendra lives 1034.23 kilometers away from you."
-"play_button" = "Go See %@";  // example: "Go See Kendra"
-"name_the_kind" = "%@ das"; // example: "Georg der" (Giraffe)
-"name_the_kind_male" = "%@ der";
-"name_the_kind_female" = "%@ die"; // example: "Norbert das" (Nilpferd)
-"kind" = "%@";  // example: Tiger
+"kilometers" = "Kilometer";
+"miles" = "Meilen";
+"feet" = "Fuss";
+"meters" = "Meter";
+"pounds" = "Pfund";
+"kilograms" = "Kilograms";
+"distance_from_you_string" = "%@  Lebt wohnt %1.2f %@ entfernt von Dir."; // example: "Kendra lives 1034.23 kilometers away from you."
+"play_button" = "Los! Gehe zu %@";  // example: "Go See Kendra"
+"name_the_kind" = "%@ der"; // example: "Georg der" (Giraffe)
+"name_the_kind_male" = "%@ das";
+"name_the_kind_female" = "%@ das"; // example: "Norbert das" (Nilpferd)
+"kind" = "%@";  // example: Beispiel Tiger
 "kind_male" = "%@";
-"kind_female" = "%@";  // example: Zebra
+"kind_female" = "%@";  // Beispiel Zebra
 
 // crocodile
 
 "crocodile_name" = "Kai";
 "crocodile_word_gender" = "male";
-"crocodile_fact_height" = "Carl is short, but long";
-"crocodile_fact_height_details" = "Adult crocodiles are low to the ground, but can get up to 24 feet long!";
-"crocodile_fact_height_details_metric" = "Adult crocodiles are low to the ground, but can get up to 7 meters long!";
-"crocodile_fact_weight" = "Carl is very heavy";
-"crocodile_fact_weight_details" = "Adult crocodiles can weigh up to 2,500 pounds! The average adult human weighs only 138 pounds.";
-"crocodile_fact_weight_details_metric" = "Adult crocodiles can weigh up to 1100 kilograms! The average adult human weighs only 62 kilograms.";
-"crocodile_fact_food" = "Carl eats almost anything";
-"crocodile_fact_food_details" = "Crocodiles love to eat fish, reptiles, crustaceans and water birds.";
-"crocodile_fact_speed" = "Carl can run fast on land, but swim even faster in water";
-"crocodile_fact_speed_details" = "Carl can run up to 18 miles per hour.";
-"crocodile_fact_speed_details_metric" = "Carl can run up to 29 kilometers per hour.";
-"crocodile_fact_location" = "Carl hangs out in swamps and rivers";
+"crocodile_fact_height" = "Kai ist klein aber lang";
+"crocodile_fact_height_details" = "Erwachsene Krokodile sind Bodennah und können bis zu 24 Fuss lang werden!";
+"crocodile_fact_height_details_metric" = "Erwachsene Krokodile sind Bodennah und können bis zu 7 Meter lang werden";
+"crocodile_fact_weight" = "Kai ist sehr schwer";
+"crocodile_fact_weight_details" = "Erwachsene Krokodile können bis zu 2500 Pfund wiegen! Im Durschnitt wiegt ein erwachsener Mensch nur 138 Pfund.";
+"crocodile_fact_weight_details_metric" = "Erwachsene Krokodile können bis zu 1100 kg  wiegen! Im Durschnitt wiegt ein erwachsener Mensch nur 62 Kilogram.";
+"crocodile_fact_food" = "Kai frisst fast alles";
+"crocodile_fact_food_details" = "Krokodile fressen sehr gerne Fische, Kriechtiere, Schellfisch und Wasservögel.";
+"crocodile_fact_speed" = "Kai rennt schnell, aber schwimmt schneller im Wasser.";
+"crocodile_fact_speed_details" = "Kai kann bis zu 18 Meilen/Stunde rennen.";
+"crocodile_fact_speed_details_metric" = "Kai kann bis zu 29km/Stunde rennen.";
+"crocodile_fact_location" = "Kai lebt im Sumpf und Flüssen.";
 "crocodile_fact_location_details" = "";
-"crocodile_fact_photo" = "This is Carl's friend, Johann";
-"crocodile_fact_photo_details" = "Johann, like most crocodiles, likes to hunt for his food during the night and hangs out in the water during the day.";
+"crocodile_fact_photo" = "Das ist Kai’s Freund Johann.";
+"crocodile_fact_photo_details" = "Wie fast alle Krokodile, Johann jagt für sein Futter in der Nacht und lebt am Tage im Wasser.";
 
 // giraffe
 
 "giraffe_name" = "Georg";
 "giraffe_word_gender" = "male";
-"giraffe_fact_height" = "Jerome is very tall";
-"giraffe_fact_height_details" = "Adult giraffes are up to 19 feet in height because of their long, long necks.";
-"giraffe_fact_height_details_metric" = "Adult giraffes are up to 5.8 meters in height because of their long, long necks";
-"giraffe_fact_weight" = "Jerome is very heavy";
-"giraffe_fact_weight_details" = "Jerome weighs 3,000 pounds.  The average adult human weighs only 138 pounds.";
-"giraffe_fact_weight_details_metric" = "Jerome weighs 1361 kilograms.  The average adult human weighs only 62 kilograms.";
-"giraffe_fact_food" = "Jerome eats tree leaves, shrubs and vines";
-"giraffe_fact_food_details" = "Because giraffes are taller than other animals they can reach food that others cannot.";
-"giraffe_fact_speed" = "Jerome is really fast";
-"giraffe_fact_speed_details" = "He can run up to 33 miles per hour.";
-"giraffe_fact_speed_details_metric" = "He can run up to 53 kilometers per hour.";
-"giraffe_fact_location" = "Jerome lives in grasslands, woodlands and savannas of Africa";
+"giraffe_fact_height" = "Georg ist sehr gross.";
+"giraffe_fact_height_details" =  "Auf Grund des langen Halses können erwachsene/ausgewachsene Giraffen  bis zu 19 Fuss hoch werden.";
+"giraffe_fact_height_details_metric" = "Auf Grund des langen Halses können erwachsene/ausgewachsene Giraffen bis zu 5,80 Meter gross werden.";
+"giraffe_fact_weight" = "Georg ist sehr schwer";
+"giraffe_fact_weight_details" = "Georg wiegt 3000 Pfund.  Der durchschnittliche erwachsene Mensch wiegt nur 138 Pfund.";
+"giraffe_fact_weight_details_metric" = "Georg wiegt 1361 kg.  Der durchschnittliche erwachsene Mensch wiegt nur 62kg";
+"giraffe_fact_food" = "Georg frisst Baumblätter, Büsche und Kletterplanzen.";
+"giraffe_fact_food_details" = "Weil Giraffen so gross sind können sie an Futter herankommen was für andere Tiere unerreichbar ist.";
+"giraffe_fact_speed" = "Georg ist sehr schnell";
+"giraffe_fact_speed_details" = "Er kann bis zu 33 Meilen/Stunde rennen..";
+"giraffe_fact_speed_details_metric" = " Er kann bis zu 53 Km/Stunde rennen.";
+"giraffe_fact_location" = "Georg lebt im Grass und Waldland Afrikas,und in der afrikanischen Savanne.";
 "giraffe_fact_location_details" = "";
-"giraffe_fact_photo" = "This is Jerome's friend, Alfie";
-"giraffe_fact_photo_details" = "He looks a lot like Jerome, but no two giraffes have the same pattern.";
+"giraffe_fact_photo" = "Das ist Georgs Freund Alfie.";
+"giraffe_fact_photo_details" = "Er sieht fast genauso aus wie Georg, aber jede Giraffe hat eine individuelle Musterung. Nicht zwei Giraffen sind gleich/sehen gleich aus.";
 
 // hippo
 
 "hippo_name" = "Norbert";
 "hippo_word_gender" = "";
-"hippo_fact_height" = "Horace is big";
-"hippo_fact_height_details" = "Full-size hippos grow to around 5 feet when on all 4 legs.";
-"hippo_fact_height_details_metric" = "Full-size hippos grow to around 1.5 meters when on all 4 legs.";
-"hippo_fact_weight" = "Horace weighs a lot";
-"hippo_fact_weight_details" = "Adult hippos can weigh up to 6,000 pounds.  The average adult human weighs only 138 pounds.";
-"hippo_fact_weight_details_metric" = "Adult hippos can weigh up to 2,720 kilograms.  The average adult human weighs only 62 kilograms.";
-"hippo_fact_food" = "Horace eats grass";
-"hippo_fact_food_details" = "Horace grazes on short grass, which is their main food source.";
-"hippo_fact_speed" = "Horace is a bit slow";
-"hippo_fact_speed_details" = "Hippos have been clocked at 19 miles per hour over short distances, but are usually very slow.";
-"hippo_fact_speed_details_metric" = "Hippos have been clocked at 30 kilometers per hour over short distances, but are usually very slow.";
-"hippo_fact_location" = "Horace loves the rivers, lakes and swamps of Africa";
+"hippo_fact_height" = "Norbert ist gross und schwer.";
+"hippo_fact_height_details" = "Ausgewachsene Nilpferde sind stehend ungefähr 5 Fuss hoch.";
+"hippo_fact_height_details_metric" = "Ausgewachsene Nilpferde sind stehend ungefähr 1,50 Meter hoch.";
+"hippo_fact_weight" = "Norbert wiegt eine ganze Menge. Norbert ist sehr schwer.";
+"hippo_fact_weight_details" = " Ausgewachsene Nilpferde wiegen bis zu 6000 Pfund.  Der durchschnittliche erwachsene Mensch wiegt nur 138 Pfund.";
+"hippo_fact_weight_details_metric" = "Ausgewachsene Nilpferde wiegen bis zu 2,720 kg.  Der durchschnittliche erwachsene Mensch wiegt nur 62kg.";
+"hippo_fact_food" = "Norbert frisst Grass";
+"hippo_fact_food_details" = "Norbert frisst kurzes Grass, welches sein Hauptfutter ist.";
+"hippo_fact_speed" = "Norbert ist etwas langsam.";
+"hippo_fact_speed_details" = "Nilpferde können bis zu 19 Meilen/Stunde über kurze Strecken rennen, gewöhnlich sind sie aber sehr langsam.";
+"hippo_fact_speed_details_metric" = " Nilpferde können bis zu 30 km/Stunde über kurze Strecken rennen, gewöhnlich sind sie aber sehr langsam.";
+"hippo_fact_location" = "Norbert liebt die Flüsse, Seen und Sümpfe Afrikas.";
 "hippo_fact_location_details" = "";
-"hippo_fact_photo" = "This is Horace's friend, Tubby";
-"hippo_fact_photo_details" = "Tubby spends most of the day lying on his belly in the water or sometimes on the shore basking in the morning sun.";
+"hippo_fact_photo" = "Das is Norberts Freund Tubby";
+"hippo_fact_photo_details" = "Tubby liegt fast den ganzen Tag auf dem Bauch im Wasser und manchmal sonnt er sich morgens am Ufer..";
 
 // kangaroo
 
 "kangaroo_name" = "Kendra";
 "kangaroo_word_gender" = "male";
-"kangaroo_fact_height" = "Kendra is average height";
-"kangaroo_fact_height_details" = "Kendra and her friends can be up to 6.5 feettall.";
-"kangaroo_fact_height_details_metric" = "Kendra and her friends can be up to 2 meters tall.";
-"kangaroo_fact_weight" = "Kendra is heavier than a child";
-"kangaroo_fact_weight_details" = "Adult kangaroos weigh nearly 200 pounds.  The average adult human weighs only 138 pounds.";
-"kangaroo_fact_weight_details_metric" = "Adult kangaroos weigh over 90 kilograms.  The average adult human weighs only 68 kilograms.";
-"kangaroo_fact_food" = "Kendra eats grasses and shrubs";
-"kangaroo_fact_food_details" = "Kangaroos will also eat meat, but love grasses and shrubs the most.";
-"kangaroo_fact_speed" = "Kendra is really fast";
-"kangaroo_fact_speed_details" = "Kendra can hop up to 40 miles per hour and jump 9 feet hight. The fastest human is only 28 miles per hour.";
-"kangaroo_fact_speed_details_metric" = "Kendra can hop up to 64 kilometers per hour and jump 2.75 meters high.  The fastest human is only 44.7 kilometers per hour.";
-"kangaroo_fact_location" = "Kendra lives in Australia";
+"kangaroo_fact_height" = "Kendra hat Durchschnittsgrösse. ";
+"kangaroo_fact_height_details" = "Kendra und Freunde können bis zu 6.5 Fuss gross werden.";
+"kangaroo_fact_height_details_metric" = "Kendra und Freunde können bis zu 2 Meter gross werden.";
+"kangaroo_fact_weight" = "Kendra wiegt mehr als ein Kind.";
+"kangaroo_fact_weight_details" = "Ausgewachsene Kängurus wiegen bis zu 200 Pfund. Der durchschnittliche erwachsene Mensch wiegt nur 138 Pfund.";
+"kangaroo_fact_weight_details_metric" = "Ausgewachsene Kängurus wiegen über 90kg. Der durchschnittliche erwachsene Mensch wiegt nur 68kg.";
+"kangaroo_fact_food" = "Kendra frisst Grass and Büsche.";
+"kangaroo_fact_food_details" = " Kängurus fressen auch Fleisch, ihre Hauptnahrung ist aber Grass and Büsche.";
+"kangaroo_fact_speed" = "Kendra ist sehr schnell.";
+"kangaroo_fact_speed_details" = "Kendra kann bis zu 40 Meilen/Stunde hüpfen und 9 Fuss hoch springen.. Der schnellste Mensch rennt nur 28 Meilen/Stunde.";
+"kangaroo_fact_speed_details_metric" = " Kendra kann bis zu 64 Km/Stunde hüpfen und 2.75 Meters hoch springen. . Der schnellste Mensch rennt nur 44.7 km/Stunde.";
+"kangaroo_fact_location" = "Kendra lebt in Australien";
 "kangaroo_fact_location_details" = "";
-"kangaroo_fact_photo" = "This is Kendra's friend, Candice";
-"kangaroo_fact_photo_details" = "Candice has a pouch on her tummy to carry around their baby.";
+"kangaroo_fact_photo" = "Das ist Kendra's Freund, Candice";
+"kangaroo_fact_photo_details" = "Candice hat eine Bauchtasche in welcher sie ihr Baby trägt.";
 
 // monkey
 
 "monkey_name" = "Amelie";
 "monkey_word_gender" = "male";
-"monkey_fact_height" = "Melinda is as tall as a human";
-"monkey_fact_height_details" = "Adult chimpanzees can be 5 to 6 feet tall.";
-"monkey_fact_height_details_metric" = "Adult chimpanzees can be 1.5 to 1.8 meters tall.";
-"monkey_fact_weight" = "Melinda isn't too heavy";
-"monkey_fact_weight_details" = "Melinda weighs 150 pounds. The average adult human weighs only 138 pounds.";
-"monkey_fact_weight_details_metric" = "Melinda weighs 68 kilograms. The average adult human weighs only 68 kilograms.";
-"monkey_fact_food" = "Melinda is an omnivore";
-"monkey_fact_food_details" = "She likes to eat leaves, flowers, fruit, nuts, small animals and birds.";
-"monkey_fact_speed" = "Melinda is pretty fast";
-"monkey_fact_speed_details" = "The average speed of a chimpanzee is about 25 miles per hour.";
-"monkey_fact_speed_details_metric" = "The average speed of a chimpanzee is about 40 kilometers per hour.";
-"monkey_fact_location" = "Melinda lives mainly in rain forests and wet savannas of Africa";
+"monkey_fact_height" = "Amelie ist so gross wie ein Mensch.";
+"monkey_fact_height_details" = "Ausgewachsene Schimpansen werden bis zu 5 - 6 Fuss gross..";
+"monkey_fact_height_details_metric" = "Ausgewachsene Schimpansen werden bis zu 1.50 -1.80 m gross.";
+"monkey_fact_weight" = "Amelie ist nicht zu schwer.";
+"monkey_fact_weight_details" = "Amelie wieg 150 Pfund. Der durchschnittliche erwachsene Mensch wiegt nur 138 Pfund.";
+"monkey_fact_weight_details_metric" = " Amelie wieg 68kg. Der durchschnittliche erwachsene Mensch wiegt nur 68kg.";
+"monkey_fact_food" = "Amelie ist ein Allesfresser.";
+"monkey_fact_food_details" = "She frisst gerne Blätter, Blumen, Früchte, Nüsse, kleine Tiere und Vögel.";
+"monkey_fact_speed" = "Amelie ist ziemlich schnell";
+"monkey_fact_speed_details" = "Die Durchschnittsgeschwindigkeit eines Schimpansen ist ungefähr 25 Meilen/Stunde.";
+"monkey_fact_speed_details_metric" = "Die Durchschnittsgeschwindigkeit eines Schimpansen ist ungefähr 40 km/Stunde.";
+"monkey_fact_location" = "Amelie lebt meist im Regenwald und nassen Savannen Afrikas.";
 "monkey_fact_location_details" = "";
-"monkey_fact_photo" = "This is Melinda's friend, Horacio";
-"monkey_fact_photo_details" = "Chimpanzee's are curious, intelligent and have many friends, just like humans!";
+"monkey_fact_photo" = "Das ist Amelie’s Freund  Horacio";
+"monkey_fact_photo_details" = "Schimpansen sind wie die Menschen neugirieg, intelligent und haben viele Freunde!";
 
 // panda
 
+
 "panda_name" = "Paul";
 "panda_word_gender" = "male";
-"panda_fact_height" = "Patrick is short";
-"panda_fact_height_details" = "On all 4 legs, pandas are only 2 to 3 feet tall.";
-"panda_fact_height_details_metric" = "On all 4 legs, pandas are only 0.6 to 0.9 meters tall.";
-"panda_fact_weight" = "Patrick is heavy";
-"panda_fact_weight_details" = "Adult pandas weigh up to 300 pounds. The average adult human weighs only 138 pounds.";
-"panda_fact_weight_details_metric" = "Adult pandas can weigh between 77 and 127 kilograms. The average adult human weighs only 68 kilograms.";
-"panda_fact_food" = "Patrick eats bamboo";
-"panda_fact_food_details" = "Giant pandas eat as much as 1/3 of their weight in bamboo each day.";
-"panda_fact_speed" = "Patrick mostly sit around";
-"panda_fact_speed_details" = "Pandas do not run fast and a slow trot is as fast as they can go.";
-"panda_fact_speed_details_metric" = "Pandas do not run fast and a slow trot is as fast as they can go.";
-"panda_fact_location" = "Patrick lives in China";
+"panda_fact_height" = "Paul ist kurz";
+"panda_fact_height_details" = "Auf vier Beinen stehend sind Pandas nur 2-3 Fuss gross.";
+"panda_fact_height_details_metric" = "Auf vier Beinen stehend sind Pandas nur 06 -0.9m gross.";
+"panda_fact_weight" = "Paul ist schwer.";
+"panda_fact_weight_details" = "Ausgewachsene Pandas wiegen bis zu 300 Pfund. Der durchschnittliche erwachsene Mensch wiegt nur 138 Pfund.";
+"panda_fact_weight_details_metric" = "Ausgewachsene Pandas wiegen zwischen 77kg und 127kg.Der durchschnittliche erwachsene Mensch wiegt nur 68 kg.";
+"panda_fact_food" = "Paul frisst Bambus ";
+"panda_fact_food_details" = "Der Riesenpanda frisst jeden Tag Bambus, der bis zu 1/3 seines Gewichts wiegt.";
+"panda_fact_speed" = "Paul sitzt meistens.";
+"panda_fact_speed_details" = "Pandas rennen nicht sehr schnell, ein langsamer Trott ist das schnellste Tempo für sie.";
+"panda_fact_speed_details_metric" = "Pandas rennen nicht sehr schnell, ein langsamer Trott ist das schnellste Tempo für sie.";
+"panda_fact_location" = "Paul lebt in China";
 "panda_fact_location_details" = "";
-"panda_fact_photo" = "This is Patrick's friend, Genevive";
-"panda_fact_photo_details" = "Pandas don't have many friends though as they are shy and like to be by themselves.";
+"panda_fact_photo" = "Das ist Paul's friend, Genevive";
+"panda_fact_photo_details" = "Pandas sind scheu und sind lieber alleine, darum haben sie wenige Freunde.";
 
 // polar bear
 
 "polarbear_name" = "Nele";
 "polarbear_word_gender" = "male";
-"polarbear_fact_height" = "Peggy is pretty tall";
-"polarbear_fact_height_details" = "Polar bears are around 9 to 10 feet when standing on their hind legs.";
-"polarbear_fact_height_details_metric" = "Polar bears are 2 to 3 meters when standing on thier hind legs.";
-"polarbear_fact_weight" = "Peggy is very heavy";
-"polarbear_fact_weight_details" = "Peggy and her friends weigh between 650-1600 pounds.  The average human weighs 150 pounds.";
-"polarbear_fact_weight_details_metric" = "Peggy and her friends weigh between 1433-3500 kilograms.  The average human weighs 68 kilograms.";
-"polarbear_fact_food" = "Peggy eats seal fat and skin along with vegetation";
-"polarbear_fact_food_details" = "Polar bears are carnivores, with a diet consisting mostly of seals.";
-"polarbear_fact_speed" = "Peggy can sprint up to 24 miles per hour";
-"polarbear_fact_speed_details" = "*Polar bears are excellent swimmers and are sometimes spotted in waters up to sixy miles from land.";
-"polarbear_fact_speed_details_metric" = "*Polar bears are excellent swimmers and are sometimes spotted in waters up to 100 kilometers from land.";
-"polarbear_fact_location" = "Peggy lives at the norther coasts of North America, Russia, Greeland, and the Arctic Ocean";
+"polarbear_fact_height" = "Nele ist ziemlich gross.";
+"polarbear_fact_height_details" = "Polarbären messen bis zu 9-10 Fuss gross wenn sie auf den Hinterbeinen stehen.";
+"polarbear_fact_height_details_metric" = "Polarbären messen bis zu 2- 3 Meter gross wenn sie auf den Hinterbeinen stehen.";
+"polarbear_fact_weight" = "Nele ist sehr schwer.";
+"polarbear_fact_weight_details" = "Nele und Freunde wiegen zwischen 650-1600 kg.";
+"polarbear_fact_weight_details_metric" = "Nele und Freunde wiegen zwischen 1433-3500 kg. Der durchschnittliche erwachsene Mensch wiegt nur 68 kg.";
+"polarbear_fact_food" = "Nele frisst Seelöwenfett und Haut neben Vegatation.";
+"polarbear_fact_food_details" = "Polarbären sind Fleischfresser, ihr Futter sind hauptsächlich Seelöwen.";
+"polarbear_fact_speed" = "Nele kann bis zu 24 meilen/Stunde sprinten.";
+"polarbear_fact_speed_details" = "Polarbären sind ausgezeichnete Schwimmer und werden manchmal bis zu 60 Meilen vom Land/Ufer entfernt im Wasser gesehen.";
+"polarbear_fact_speed_details_metric" = "Polarbären sind ausgezeichnete Schwimmer und werden manchmal  bis zu 100 km vom Land/Ufer entfernt im Wasser gesehen.";
+"polarbear_fact_location" = "Nele lebt an der Nordküste von Nordamerika , Russland, Grönland und am nördlichen Eismeer.";
 "polarbear_fact_location_details" = "";
-"polarbear_fact_photo" = "This is Peggy's friend, Paris";
-"polarbear_fact_photo_details" = "Peggy and her friend Paris spend half their day floating on sheets of ice looking for food.";
+"polarbear_fact_photo" = "Das ist Nele's Freund, Paris";
+"polarbear_fact_photo_details" = "Nele und ihr Freund Paris verbringen die Hälfte des Tages auf Eisschollen und halten Ausschau nach Futter.";
 
 // tiger
 
 "tiger_name" = "Till";
 "tiger_word_gender" = "male";
-"tiger_fact_height" = "Tommy is average height";
-"tiger_fact_height_details" = "Bengal Tigers are 5 to 6 feet tall.";
-"tiger_fact_height_details_metric" = "Bengal Tigers are 1.5 to 1.8 meters tall.";
-"tiger_fact_weight" = "Tommy is heavy";
-"tiger_fact_weight_details" = "Adult tigers can weigh up to 500 pounds of pure muscle.";
-"tiger_fact_weight_details_metric" = "Adult tigers can weigh up to 227 kilograms of pure muscle.";
-"tiger_fact_food" = "Tommy eats meat";
-"tiger_fact_food_details" = "In the wild, tigers mostly feed on medium to large sized animals.";
-"tiger_fact_speed" = "Tommy is super fast";
-"tiger_fact_speed_details" = "Tigers can run up to 35 miles per hour. The fastest human is only 28 miles per hour.";
-"tiger_fact_speed_details_metric" = "Tigers can run up to 56 kilometers per hour. The fastest human is only about 45 kilometers per hour.";
-"tiger_fact_location" = "Tommy lives in India";
+"tiger_fact_height" = "Till ist Durchschnittsgrösse";
+"tiger_fact_height_details" = "Königstiger  sind 5-6 Fuss gross.";
+"tiger_fact_height_details_metric" = " Königstiger  sind  1.50m – 1.80m gross.";
+"tiger_fact_weight" = "Till is schwer";
+"tiger_fact_weight_details" = " Ausgewachsene Tiger sind bis zu 500 Pfund  Muskelmasse.";
+"tiger_fact_weight_details_metric" = " Ausgewachsene Tiger sind bis zu 227kg  Muskelmasse.";
+"tiger_fact_food" = "Till ist ein Fleischfresser";
+"tiger_fact_food_details" = "In freier Wildbahn fressen Tiger meistens kleine bis grosse Tiere..";
+"tiger_fact_speed" = "Till ist super schnell";
+"tiger_fact_speed_details" = "Tiger rennen bis zu  35 Meilen /Stunde. Der schnellste Mensch rennt 28 Meilen/Stunde.";
+"tiger_fact_speed_details_metric" = " Tiger rennen bis zu 56 Km /Stunde. Der schnellste Mensch rennt 45 Km/Stunde.";
+"tiger_fact_location" = "Till lebt in Indien.";
 "tiger_fact_location_details" = "";
-"tiger_fact_photo" = "This is Tommy's friend, Albert";
-"tiger_fact_photo_details" = "Albert's roar is so loud that he can be heard from far away.";
+"tiger_fact_photo" = "Das ist Till's Freund Albert";
+"tiger_fact_photo_details" = "Albert's Gebrüll ist so laut das es von weit weg gehört werden kann.";
 
 // zebra
 
 "zebra_name" = "Max";
 "zebra_word_gender" = "";
-"zebra_fact_height" = "Zeb is of average height";
-"zebra_fact_height_details" = "Zeb and his friends are between 3 and 5 feet tall on all four legs.";
-"zebra_fact_height_details_metric" = "Zeb and his friends are between 1.1 and 1.5 meters tall on all four legs.";
-"zebra_fact_weight" = "Zeb is heavy compared to humans";
-"zebra_fact_weight_details" = "Adult zebras can weigh up to  990 pounds.";
-"zebra_fact_weight_details_metric" = "Adult zebras can weigh up to 408 kilograms.";
-"zebra_fact_food" = "Zeb eats grasses, leaves, and bark from trees";
-"zebra_fact_food_details" = "Zebras eat grass almost all the time, but sometimes eat shrubs and bark.";
-"zebra_fact_speed" = "*Zeb is really fast";
-"zebra_fact_speed_details" = "*Zebras run like horses and can reach speeds of 40 miles per hour";
-"zebra_fact_speed_details_metric" = "*Zebras run like horses and can reach speeds of 64 miles per hour";
-"zebra_fact_location" = "Zeb lives in Africa";
-"zebra_fact_location_details" = "Zeb prefers grasslands, savannas, woodlands and scrublands";
-"zebra_fact_photo" = "This is Zeb's friend, Percival";
-"zebra_fact_photo_details" = "Percival, like all zebras, sleeps standing up.";
+"zebra_fact_height" = "Max ist Durschnittsgrösse.";
+"zebra_fact_height_details" = "Max und Freunde sind stehend zwischen 3 und 5 Fuss gross.";
+"zebra_fact_height_details_metric" = " Max und Freunde sind stehend zwischen 1.10m und 1.50m gross.";
+"zebra_fact_weight" = "Max ist schwer im Vergleich zu Menschen.";
+"zebra_fact_weight_details" = "Ausgewachsene Zebras wiegen bis zu  990 Pfund.";
+"zebra_fact_weight_details_metric" = "Ausgewachsene Zebras wiegen bis zu  408 Kg.";
+"zebra_fact_food" = "Max frisst Grass, Blätter und Baumrinde.";
+"zebra_fact_food_details" = "Zebras fressen meistens Grass, manchmal auch Baumrinde und Büsche.";
+"zebra_fact_speed" = "Max ist sehr schnell.";
+"zebra_fact_speed_details" = "Zebras rennen so schnell wie Pferde und können Geschwindigkeiten bis zu 40 Meilen/Stunde erreichen";
+"zebra_fact_speed_details_metric" = "Zebras rennen so schnell wie Pferde und können Geschwindigkeiten bis zu 64 km/Stunde reichen";
+"zebra_fact_location" = "Max lebt in Afrika";
+"zebra_fact_location_details" = "Max bevorzugt Grassland, Savannen, Wald und Buschland.";
+"zebra_fact_photo" = " Das ist Max's Freund, Percival";
+"zebra_fact_photo_details" = "Percival schläft wie alle Zebras im stehen..";
 
 // lion
 
 "lion_name" = "Luka";
 "lion_word_gender" = "male";
-"lion_fact_height" = "Lloyd is tall";
-"lion_fact_height_details" = "Adult lions can be 6 to 8 feet tall, depending on if they're standing on their hind legs.";
-"lion_fact_height_details_metric" = "Adult lions can be 1.8 to 2.4 meters tall, depending on if they're standing on their hind legs.";
-"lion_fact_weight" = "Lloyd is heavy";
-"lion_fact_weight_details" = "Lloyd and his buddies can weigh between 330 and 550 pounds.";
-"lion_fact_weight_details_metric" = "Lloyd and his buddies can weigh between 150 and 249 kilograms.";
-"lion_fact_food" = "Lloyd eats meat";
-"lion_fact_food_details" = "Lions eat large mammals, with a preference of buffalo, wildebeest, impalas, gazelles, zebra and warthogs.";
-"lion_fact_speed" = "Lloyd is super fast";
-"lion_fact_speed_details" = "Lions run 30 miles per hour and faster on short sprints.";
-"lion_fact_speed_details_metric" = "Lions run 48 kilometers per hour and faster on short sprints.";
-"lion_fact_location" = "Lloyd and his friends live in Africa.";
+"lion_fact_height" = "Luka ist gross";
+"lion_fact_height_details" = " Ausgewachsene Löwen werden, auf den Hinterbeinen stehend, 6 bis 8 Fuss gross.";
+"lion_fact_height_details_metric" = " Ausgewachsene Löwen werden, auf den Hinterbeinen stehend, 1.80m bis 2.40m gross.";
+"lion_fact_weight" = "Luka ist schwer";
+"lion_fact_weight_details" = "Luka und seine Artgenossen (Freunde) wiegen zwischen  330 und 550 Pfund.";
+"lion_fact_weight_details_metric" = "Luka und seine Artgenossen (Freunde) wiegen zwischen  150 kg und 249 kg.";
+"lion_fact_food" = "Luka frisst Fleisch";
+"lion_fact_food_details" = "Löwen fressen grosse Säugetiere. Sie bevorzugen Büffel, Gnus, Antilopen, Gazellen, Zebras und Warzenschweine.";
+"lion_fact_speed" = "Luka is super schnell";
+"lion_fact_speed_details" = " Löwen rennen 30 meile/Stunde und sprinten kurze Strecken schneller.";
+"lion_fact_speed_details_metric" = " Löwen rennen 48 km/Stunde und sprinten kurze Strecken schneller";
+"lion_fact_location" = "Luka und seine Freunde leben in Afrika.";
 "lion_fact_location_details" = "";
-"lion_fact_photo" = "This is Lloyd's friend, Simba";
-"lion_fact_photo_details" = "A male lion sleeps about 20 hours a day and sometimes take naps on tree branches.";
+"lion_fact_photo" = " Das ist Luka's Freund Simba";
+"lion_fact_photo_details" = " Ein männlicher Löwe schläft ungefähr 20 Stunden am Tag und  manchmal macht er sein Nickerchen auf Baumästen.";
 
 // penguin
 
 "penguin_name" = "Peter";
 "penguin_word_gender" = "male";
-"penguin_fact_height" = "Pedro is pretty short";
-"penguin_fact_height_details" = "Adult penguins grow up to 4 feet tall.  About the size of the average kid.";
-"penguin_fact_height_details_metric" = "Adult penguins grow up to 1.2 meters tall.  About the size of the average kid.";
-"penguin_fact_weight" = "Pedro is light";
-"penguin_fact_weight_details" = "Pedro and his friends usually weigh between 45 and 90 pounds.";
-"penguin_fact_weight_details_metric" = "Pedro and his friends usually weigh between 20 and 45 kilograms.";
-"penguin_fact_food" = "Pedro likes to eat fish";
-"penguin_fact_food_details" = "A Penguin's diet is mostly fish, but can also include krill, squid, and crustaceans.";
-"penguin_fact_speed" = "Pedro is super fast in the water";
-"penguin_fact_speed_details" = "Pedro can swim up to 15 miles per hour";
-"penguin_fact_speed_details_metric" = "Pedro can swim up to 24 kilometers per hour";
-"penguin_fact_location" = "Pedro lives in Antarctica.";
+"penguin_fact_height" = "Peter ist ziemlich klein";
+"penguin_fact_height_details" = "Ausgewachsene Pinguine sind bis zu 4 Fuss gross. Ungefähr so gross wie ein Kind.";
+"penguin_fact_height_details_metric" = "Ausgewachsene Pinguine sind bis zu 1.20m gross. Ungefähr so gross wie ein Kind.";
+"penguin_fact_weight" = "Peter ist leicht / wiegt nicht viel.";
+"penguin_fact_weight_details" = "Peter und Freunde wiegen gewöhnlich zwischen 45 und 90 Pfund.";
+"penguin_fact_weight_details_metric" = "Peter und Freunde wiegen gewöhnlich zwischen 20 und 45kg.";
+"penguin_fact_food" = "Peter frisst Fisch";
+"penguin_fact_food_details" = "Die Ernährung der Pinguine ist hauptsächlich Fisch, aber auch Krill, Tintenfisch und Krebse.";
+"penguin_fact_speed" = "Peter ist super schnell im Wasser";
+"penguin_fact_speed_details" = "Peter kann bis zu 15 Meilen/Stunde schwimmen.";
+"penguin_fact_speed_details_metric" = "Peter kann bis zu 24km/Stunde";
+"penguin_fact_location" = "Peter lebt in der Antarktis.";
 "penguin_fact_location_details" = "";
-"penguin_fact_photo" = "This is Pedro's friend, Cameron";
-"penguin_fact_photo_details" = "When they're looking for food, they can stay underwater for up to 18 minutes!";
+"penguin_fact_photo" = "Das ist  Peter's Freund, Cameron";
+"penguin_fact_photo_details" = "Wenn sie auf Futtersuche sind können sie bis zu 18 Minuten unter Wasser bleiben!";
 
 // elephant
 
 "elephant_name" = "Emil";
 "elephant_word_gender" = "male";
-"elephant_fact_height" = "Olly is big and tall";
-"elephant_fact_height_details" = "Adult elephants can be between 8-13 feet tall on all four legs.";
-"elephant_fact_height_details_metric" = "Adult elephants can be between 2.4 to 4 meters tall on all four legs.";
-"elephant_fact_weight" = "Olly is really heavy!";
-"elephant_fact_weight_details" = "Olly can weigh up to 14,000 pounds!";
-"elephant_fact_weight_details_metric" = "Olly can weigh up to 6,500 kilograms!";
-"elephant_fact_food" = "Olly eats grass, foliage, fruit, branches";
-"elephant_fact_food_details" = "African elephants can eat up to 300 pounds of vegetation per day.";
-"elephant_fact_speed" = "Olly is one of the most powerful land animals.";
-"elephant_fact_speed_details" = "Olly does't run much but can charge up to 25 miles per hour";
-"elephant_fact_speed_details_metric" = "Olly does't run much but can charge up to 40 kilometers per hour";
-"elephant_fact_location" = "Olly lives in Africa";
-"elephant_fact_location_details" = "Olly prefers to live in savannas and forests in sub-Saharan Africa";
-"elephant_fact_photo" = "This is Olly's friend, Terrance";
-"elephant_fact_photo_details" = "Terrance is also an African elephant, but he's got cousins from India too.";
+"elephant_fact_height" = "Emil ist gross und schwer.";
+"elephant_fact_height_details" = " Ausgewachsene Elefanten messen stehend 8 bis13 Fuss.";
+"elephant_fact_height_details_metric" = " Ausgewachsene Elefanten messen stehend  2.40 to 4.0 Meter.";
+"elephant_fact_weight" = "Emil ist recht schwer.";
+"elephant_fact_weight_details" = "Emil kann bis zu 14,000 Pfund wiegen!";
+"elephant_fact_weight_details_metric" = "Emil kann bis zu 6,500 kg wiegen!";
+"elephant_fact_food" = "Emil frisst Grass, Blätter, Früchte und Zweige. ";
+"elephant_fact_food_details" = "Afrikanische Elefanten fressen bis zu 300 Pfund Vegetation am Tag.";
+"elephant_fact_speed" = "Emil ist eins der kraftvollsten Landtiere.  .";
+"elephant_fact_speed_details" = "Emil rennt nicht, aber er kann kurzzeitig bis zu 25 Meilen/Stunde im Angriff sprinten.";
+"elephant_fact_speed_details_metric" = "Emil rennt nicht, aber er kann kurzzeitig bis zu 40 km/Stunde im Angriff sprinten.";
+"elephant_fact_location" = "Emil lebt in Afrika";
+"elephant_fact_location_details" = "Bevorzugt lebt Emil in Savannen und Wäldern des subsaharischen Afrika.";
+"elephant_fact_photo" = "Das ist Emil's Freund Terrance";
+"elephant_fact_photo_details" = "Terrance ist ebenfalls ein afrikanischer Elefant, aber er hat auch Cousins in Indien.";
+
+/*
+ 
+ Credits
+ 
+ */
+
+"credits_markup" = "
+<h>AlchemistKids sind
+
+Owyn Richen
+Mike Kocher
+James Salvatore
+
+<h>Originalkonzept
+Jonathan Tweet
+
+<h>Bebilderung
+Alessandro Vene
+
+<h>Design
+Suyrn Longbotham
+
+<h>Musik
+Reuben Ch’ng
+
+<h>Programmierung
+Owyn Richen
+
+<h>Englische Beschreibung
+Joanne Nott
+
+<h>Spanische Beschreibung
+Nikolai Gutierrez Anthron
+Französische Beschreibung
+<h> David Delevoye
+
+<h>Deutsche Beschreibung
+Tod Grobey
+
+<h>Übersetzungen
+Nikolai Gutierrez Anthron
+David Delevoye
+Tod Grobey
+
+<h>zusätzliche Bebilderung
+Owyn Richen
+
+<h> Mithilfe von
+Chris Laurel
+Emma and Avery
+Michael Bolling
+Solomon English
+Troy Morris
+The folks who work on Cocos2D
+
+<h>Danke!
+Danke an unsere Familien,
+die uns unterstuetzt und uns die
+notwendige Inspiration fuer die
+Entwicklung dieses Spiel gegeben haben.";

@@ -166,12 +166,14 @@ static NSString *__sync = @"sync";
     
     AudioCues *cues = [[AudioCueRepository sharedRepository] getCues:[[LocalizationManager sharedManager] getLocalizedFilename:@"story1.mp3"]];
     
-    ccTime t = cues.totalRuntime * 1.2;
+    ccTime delay = 0.5;
+    ccTime t = delay + (cues.totalRuntime * 1.2);
     
     [background runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
     [foreground runAction:[CCMoveTo actionWithDuration:t position:ccpToRatio(- (1024 * 2), 0)]];
     
     __block StoryLayer *pointer = self;
+    __block NarrationNode *sPointer = story1;
     
     CCSequence *jeepSeq = [CCSequence actions:[CCMoveTo actionWithDuration:t * 0.10 position:ccpToRatio(400, 280)],
                            [CCDelayTime actionWithDuration:t * 0.70],
@@ -183,9 +185,13 @@ static NSString *__sync = @"sync";
     
     [jeep runAction:jeepSeq];
     truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3" withVol:0.7];
-    [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
     
-    [story1 startWithCues: cues finishBlock:^(CCNode *node) {}];
+    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:delay],
+     [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
+        
+        [sPointer startWithCues: cues finishBlock:^(CCNode *node) {}];
+    }], nil]];
 }
 
 -(void) onExitTransitionDidStart {

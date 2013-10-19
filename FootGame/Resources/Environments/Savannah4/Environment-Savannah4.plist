@@ -192,7 +192,7 @@
 				<key>params</key>
 				<dict>
 					<key>sound</key>
-					<string>giraffes.mp3</string>
+					<string>lions.mp3</string>
 				</dict>
 				<key>event</key>
 				<string>touch</string>
@@ -269,7 +269,7 @@
 				<key>params</key>
 				<dict>
 					<key>sound</key>
-					<string>giraffes.mp3</string>
+					<string>lions.mp3</string>
 				</dict>
 				<key>event</key>
 				<string>touch</string>

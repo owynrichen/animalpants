@@ -57,6 +57,7 @@
                                     audio:
                                         [NSArray arrayWithObjects:
                                          [[LocalizationManager sharedManager] getLocalizedFilename:@"outro.mp3"],
+                                         @"honk.mp3",
                                         nil]] autorelease];
     
     
@@ -200,6 +201,7 @@
         [jeep runAction:[CCScaleTo actionWithDuration:t * 0.20 scale:1.0]];
         [jeep runAction:[CCSequence actions:[CCMoveTo actionWithDuration:t * 0.20 position:ccpToRatio(200, 50)],
                          [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            [[SoundManager sharedManager] playSound:@"honk.mp3"];
             [jeep runAction:[CCRepeatForever actionWithAction:
                              [CCSequence actions:
                               [CCTintTo actionWithDuration:0.2 red:192 green:192 blue:192],
@@ -223,7 +225,7 @@
     
     [jeep runAction:jeepSeq];
     
-    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3"];
+    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3" withVol:0.2];
     [[SoundManager sharedManager] setMusicVolumeTemporarily:0.2];
     
     [outro startWithCues: cues finishBlock:^(CCNode *node) { [sPointer autoClickAfter:10.0]; }];
