@@ -1290,6 +1290,10 @@
 		36AD648B15C4D9300089FC82 /* girl1.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AD648915C4D9300089FC82 /* girl1.png */; };
 		36AD648C15C4D9300089FC82 /* girl2.png in Resources */ = {isa = PBXBuildFile; fileRef = 36AD648A15C4D9300089FC82 /* girl2.png */; };
 		36AD649A15C4E07A0089FC82 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36AD649815C4E0790089FC82 /* Info.plist */; };
+		36BB9609181A13D000EBCAFA /* bugs-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36BB9605181A13D000EBCAFA /* bugs-hd.png */; };
+		36BB960A181A13D000EBCAFA /* bugs-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36BB9606181A13D000EBCAFA /* bugs-ipad.png */; };
+		36BB960B181A13D000EBCAFA /* bugs-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36BB9607181A13D000EBCAFA /* bugs-ipadhd.png */; };
+		36BB960C181A13D000EBCAFA /* bugs.png in Resources */ = {isa = PBXBuildFile; fileRef = 36BB9608181A13D000EBCAFA /* bugs.png */; };
 		36C220C6160E8E3400B31A11 /* AlchemistKids-iphone-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C220C5160E8E3400B31A11 /* AlchemistKids-iphone-568h@2x.png */; };
 		36C220D0161207F700B31A11 /* girl1_head-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C220C8161207F500B31A11 /* girl1_head-hd.png */; };
 		36C220D1161207F700B31A11 /* girl1_head-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36C220C9161207F600B31A11 /* girl1_head-ipad.png */; };
@@ -3902,6 +3906,10 @@
 		36AD649B15C4E08F0089FC82 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = Resources/es.lproj/Info.plist; sourceTree = "<group>"; };
 		36AD649D15C4E0BE0089FC82 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = Resources/fr.lproj/Info.plist; sourceTree = "<group>"; };
 		36AD649F15C4E0D90089FC82 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = Resources/fr.lproj/strings.strings; sourceTree = "<group>"; };
+		36BB9605181A13D000EBCAFA /* bugs-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bugs-hd.png"; sourceTree = "<group>"; };
+		36BB9606181A13D000EBCAFA /* bugs-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bugs-ipad.png"; sourceTree = "<group>"; };
+		36BB9607181A13D000EBCAFA /* bugs-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bugs-ipadhd.png"; sourceTree = "<group>"; };
+		36BB9608181A13D000EBCAFA /* bugs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugs.png; sourceTree = "<group>"; };
 		36C220C5160E8E3400B31A11 /* AlchemistKids-iphone-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AlchemistKids-iphone-568h@2x.png"; path = "../AlchemistKids-iphone-568h@2x.png"; sourceTree = "<group>"; };
 		36C220C8161207F500B31A11 /* girl1_head-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "girl1_head-hd.png"; path = "Resources/girl1_head-hd.png"; sourceTree = "<group>"; };
 		36C220C9161207F600B31A11 /* girl1_head-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "girl1_head-ipad.png"; path = "Resources/girl1_head-ipad.png"; sourceTree = "<group>"; };
@@ -5266,6 +5274,10 @@
 		3627631C1765815600E8F066 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				36BB9605181A13D000EBCAFA /* bugs-hd.png */,
+				36BB9606181A13D000EBCAFA /* bugs-ipad.png */,
+				36BB9607181A13D000EBCAFA /* bugs-ipadhd.png */,
+				36BB9608181A13D000EBCAFA /* bugs.png */,
 				36C7AFB81800901200794FF8 /* buy-hd.png */,
 				36C7AFB91800901200794FF8 /* buy-ipad.png */,
 				36C7AFBA1800901200794FF8 /* buy-ipadhd.png */,
@@ -10282,6 +10294,10 @@
 				363EFD3118122CFB0021E67A /* honk.mp3 in Resources */,
 				363EFD3318122D390021E67A /* ball_bounce.mp3 in Resources */,
 				363EFD35181231450021E67A /* seal.mp3 in Resources */,
+				36BB9609181A13D000EBCAFA /* bugs-hd.png in Resources */,
+				36BB960A181A13D000EBCAFA /* bugs-ipad.png in Resources */,
+				36BB960B181A13D000EBCAFA /* bugs-ipadhd.png in Resources */,
+				36BB960C181A13D000EBCAFA /* bugs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

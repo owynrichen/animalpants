@@ -132,10 +132,6 @@
         [item addDownEvent:^(id sender) {
             if (pointer.opacity < 255)
                 return;
-            
-            NSString *s = [[NSString stringWithFormat:@"%@.mp3", ((CCNode *) sender).userData] lowercaseString];
-            NSString *sf = locfile(s);
-            [[SoundManager sharedManager] playSound:sf];
         }];
 
         item.userData = lang;

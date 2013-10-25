@@ -94,10 +94,40 @@
     [self addChild:title];
     [self addChild:back];
     
+#ifdef TESTING
+    CircleButton *bugs = [CircleButton buttonWithFile:@"bugs.png"];
+    bugs.scale = 0.5;
+    bugs.anchorPoint = ccp(0,0);
+    bugs.position = ccpToRatio(1024 - 100, 768 - 100);
+    
+    [bugs addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.7]];
+    }];
+    [bugs addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+    }];
+    [bugs addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        if (prompt == nil)
+            prompt = [[FeedbackPrompt alloc] init];
+        [prompt showFeedbackDialog];
+    }];
+    [self addChild: bugs];
+#endif
+    
     [self redrawMenu];
     
     apView(@"Language Select View");
     [super onEnter];
+}
+
+-(void) dealloc {
+#ifdef TESTING
+    if (prompt != nil)
+        [prompt release];
+#endif
+    [super dealloc];
 }
 
 -(void) onEnterTransitionDidFinish {
@@ -151,16 +181,6 @@
                     [[InAppPurchaseManager instance] getProducts:self withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
                 }
 
-        }];
-        
-        NSString *sound = [[NSString stringWithFormat:@"%@.mp3", lang] lowercaseString];
-        NSString *soundfname = locfile(sound);
-        [[SoundManager sharedManager] preloadSound:soundfname];
-        
-        [item addDownEvent:^(id sender) {
-            NSString *s = [[NSString stringWithFormat:@"%@.mp3", ((CCNode *) sender).userData] lowercaseString];
-            NSString *sf = locfile(s);
-            [[SoundManager sharedManager] playSound:sf];
         }];
         
         item.userData = lang;

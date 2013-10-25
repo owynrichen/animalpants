@@ -21,4 +21,6 @@
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error;
 
+-(void) showFeedbackDialog;
+
 @end

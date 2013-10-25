@@ -373,6 +373,28 @@
     [self addChild:langMenu];
     [self addChild:settingsMenu];
     
+#ifdef TESTING
+    CircleButton *bugs = [CircleButton buttonWithFile:@"bugs.png"];
+    bugs.scale = 0.5;
+    bugs.anchorPoint = ccp(0,0);
+    bugs.position = ccpToRatio(50, 768 - 100);
+    
+    [bugs addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.7]];
+    }];
+    [bugs addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+    }];
+    [bugs addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        if (prompt == nil)
+            prompt = [[FeedbackPrompt alloc] init];
+        [prompt showFeedbackDialog];
+    }];
+    [self addChild: bugs];
+#endif
+    
 #if DRAW_PHYSICS || DRAW_FOOT_ANCHORS
     drawLayer = [CCDrawLayer layerWithBlock:^{
 #if USE_PHYSICS_ENGINE && DRAW_PHYSICS
@@ -712,6 +734,11 @@
 -(void) dealloc {
     if (animal != nil)
         [animal release];
+    
+#ifdef TESTING
+    if (prompt != nil)
+        [prompt release];
+#endif
     
     [super dealloc];
 }

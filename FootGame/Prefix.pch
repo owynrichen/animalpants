@@ -15,4 +15,10 @@
 #import "GameConfig.h"
 #import "NSObject+PListHelpers.h"
 
+#define TESTING 1
+
+#ifdef TESTING
+#import "FeedbackPrompt.h"
+#endif
+
 #endif

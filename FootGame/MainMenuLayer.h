@@ -11,7 +11,11 @@
 #import "ContentManifest.h"
 #import "CCLabelTTFWithExtrude.h"
 
-@interface MainMenuLayer : CCPreloadingLayer<CCTargetedTouchDelegate>
+@interface MainMenuLayer : CCPreloadingLayer<CCTargetedTouchDelegate> {
+#ifdef TESTING
+    FeedbackPrompt *prompt;
+#endif
+}
 
 @property (nonatomic, retain) CCNode *title;
 @property (nonatomic, retain) CCAutoScalingSprite *background;

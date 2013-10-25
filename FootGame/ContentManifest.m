@@ -274,7 +274,7 @@
     if (manifestToLoad != nil) {
         [manifestToLoad loadAsync:self];
     }
-    
+
     [super onEnter];
 }
 

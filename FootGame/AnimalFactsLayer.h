@@ -32,6 +32,9 @@
     CCLayer *fadeLayer;
     
     FactDetailPopup *popup;
+#ifdef TESTING
+    FeedbackPrompt *prompt;
+#endif
 }
 
 +(CCScene *) sceneWithAnimalKey: (NSString *) animal;

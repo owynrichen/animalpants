@@ -31,7 +31,6 @@
 {
     [TestFlight takeOff:@"54c4595d-90ef-4840-9b99-de15225b2d50"];
     
-#define TESTING 1
 #ifdef TESTING
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
@@ -46,14 +45,20 @@
     // warm up the analytis publisher
     [AnalyticsPublisher instance];
     
+    NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+    NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+    NSString *vb = [NSString stringWithFormat:@"%@ (%@)", version, build];
+    
+    NSString *installedVersion = [[NSUserDefaults standardUserDefaults] stringForKey:@"installed_version"];
+    
     // record a fresh install
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"install_recorded?"]) {
-        NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
-        NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
-        NSString *vb = [NSString stringWithFormat:@"%@ (%@)", version, build];
-        
+    if (installedVersion == nil) {
         apEvent(@"application", @"install", vb);
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"install_recorded?"];
+        [[NSUserDefaults standardUserDefaults] setObject:vb forKey:@"installed_version"];
+    } else if (![vb isEqualToString:installedVersion]) {
+        NSString *up = [NSString stringWithFormat: @"%@ -> %@", installedVersion, vb];
+        apEvent(@"application", @"upgrade", up);
+        [[NSUserDefaults standardUserDefaults] setObject:vb forKey:@"installed_version"];
     }
     
     cpInitChipmunk();
@@ -71,7 +76,7 @@
     // [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Giraffe"]];
-    // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Monkey"]];
+    // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Crocodile"]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

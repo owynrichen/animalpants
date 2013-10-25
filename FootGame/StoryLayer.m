@@ -148,6 +148,28 @@ static NSString *__sync = @"sync";
     skip.scale = 0.8;
     [self addChild:skip];
     
+#ifdef TESTING
+    CircleButton *bugs = [CircleButton buttonWithFile:@"bugs.png"];
+    bugs.scale = 0.5;
+    bugs.anchorPoint = ccp(0,0);
+    bugs.position = ccpToRatio(50, 768 - 100);
+    
+    [bugs addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.7]];
+    }];
+    [bugs addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+    }];
+    [bugs addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        if (prompt == nil)
+            prompt = [[FeedbackPrompt alloc] init];
+        [prompt showFeedbackDialog];
+    }];
+    [self addChild:bugs];
+#endif
+    
     return self;
 }
 
@@ -184,7 +206,7 @@ static NSString *__sync = @"sync";
                            nil];
     
     [jeep runAction:jeepSeq];
-    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3" withVol:0.7];
+    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3" withVol:0.5];
     
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:delay],
      [CCCallBlockN actionWithBlock:^(CCNode *node) {
@@ -208,6 +230,15 @@ static NSString *__sync = @"sync";
         // [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalViewLayer scene] backwards:false]];
         [[CCDirector sharedDirector] replaceScene:[AnimalViewLayer scene]];
     }];
+}
+
+-(void) dealloc {
+#ifdef TESTING
+    if (prompt != nil)
+        [prompt release];
+#endif
+    
+    [super dealloc];
 }
 
 @end

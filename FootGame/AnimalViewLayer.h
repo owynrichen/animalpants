@@ -20,7 +20,6 @@
 #import "chipmunk.h"
 #import "cpMouse.h"
 
-
 @interface CCDrawLayer : CCLayer {
      void (^blk)(void);
 }
@@ -47,7 +46,9 @@
     cpSpace *physicsSpace;
     cpMouse *physicsMouse;
     CCDrawLayer *drawLayer;
-    
+#ifdef TESTING
+    FeedbackPrompt *prompt;
+#endif
     CCMotionStreak *streak;
 
     CCLayer *gameLayer;

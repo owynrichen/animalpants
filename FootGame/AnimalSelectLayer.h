@@ -11,7 +11,11 @@
 #import "ContentManifest.h"
 #import "CCLabelTTFWithExtrude.h"
 
-@interface AnimalSelectLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseViewDelegate>
+@interface AnimalSelectLayer : CCPreloadingLayer<ProductRetrievalDelegate, PurchaseViewDelegate> {
+#ifdef TESTING
+    FeedbackPrompt *prompt;
+#endif
+}
 
 @property (nonatomic, retain) CCAutoScalingSprite *back;
 @property (nonatomic, retain) CCMenu *menu;

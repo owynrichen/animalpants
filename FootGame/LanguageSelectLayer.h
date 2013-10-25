@@ -13,6 +13,9 @@
 
 @interface LanguageSelectLayer : CCPreloadingLayer <ProductRetrievalDelegate, PurchaseViewDelegate> {
     PurchaseViewController *purchase;
+#ifdef TESTING
+    FeedbackPrompt *prompt;
+#endif
 }
 
 @property (nonatomic, retain) CCAutoScalingSprite *back;

@@ -8,6 +8,18 @@
 	<array>
 		<dict>
 			<key>lng</key>
+			<real>133.54248</real>
+			<key>lat</key>
+			<real>-13.453737</real>
+		</dict>
+		<dict>
+			<key>lng</key>
+			<real>114.228512</real>
+			<key>lat</key>
+			<real>-0.175781</real>
+		</dict>
+		<dict>
+			<key>lng</key>
 			<real>-90.714111</real>
 			<key>lat</key>
 			<real>15.887376</real>

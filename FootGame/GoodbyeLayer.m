@@ -166,7 +166,38 @@
     skip.zOrder = 50;
     [self addChild:skip];
     
+#ifdef TESTING
+    CircleButton *bugs = [CircleButton buttonWithFile:@"bugs.png"];
+    bugs.scale = 0.5;
+    bugs.anchorPoint = ccp(0,0);
+    bugs.position = ccpToRatio(50, 768 - 100);
+    
+    [bugs addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.7]];
+    }];
+    [bugs addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+    }];
+    [bugs addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
+        if (prompt == nil)
+            prompt = [[FeedbackPrompt alloc] init];
+        [prompt showFeedbackDialog];
+    }];
+    [self addChild: bugs];
+#endif
+    
     return self;
+}
+
+-(void) dealloc {
+#ifdef TESTING
+    if (prompt != nil)
+        [prompt release];
+#endif
+    
+    [super dealloc];
 }
 
 -(void) onEnter {
@@ -187,6 +218,7 @@
     
     __block GoodbyeLayer *pointer = self;
     __block LongPressButton *sPointer = skip;
+    __block NarrationNode *nPointer = outro;
 
     CCSequence *jeepSeq = [CCSequence actions:[CCMoveTo actionWithDuration:t * 0.40 position:ccpToRatio(750, 240)],
                            [CCDelayTime actionWithDuration:t * 0.40],
@@ -206,6 +238,8 @@
                              [CCSequence actions:
                               [CCTintTo actionWithDuration:0.2 red:192 green:192 blue:192],
                               [CCTintTo actionWithDuration:0.2 red:255 green:255 blue:255], nil]]];
+            
+            [nPointer runAction:[CCFadeOut actionWithDuration:2.0]];
             
             [jeep addEvent:@"touch" withBlock:^(CCNode *sender) {
                 [[SoundManager sharedManager] playSound:locfile(@"animals.mp3")];

@@ -19,6 +19,9 @@
     CCVolumeMenuItem *music;
     CCVolumeMenuItem *narration;
     FeedbackPrompt *feedback;
+#ifdef TESTING
+    FeedbackPrompt *prompt;
+#endif
 }
 
 @property (nonatomic, retain) CCLabelTTFWithExtrude *title;

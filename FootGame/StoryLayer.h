@@ -19,6 +19,10 @@
     NarrationNode *story1;
     LongPressButton *skip;
     ALuint truckSound;
+    
+#ifdef TESTING
+    FeedbackPrompt *prompt;
+#endif
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child

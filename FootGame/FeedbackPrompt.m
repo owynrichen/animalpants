@@ -87,60 +87,8 @@
         case 2:
             apEvent(@"rating",@"no",@"");
         
-            if (![MFMailComposeViewController canSendMail]) {
-                apEvent(@"rating",@"feedback_email",@"cannot send");
+            [self showFeedbakDialog];
             
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"feedback_mail_unavailable_title",@"strings",@"")
-                    message:locstr(@"feedback_mail_unavailable_details",@"strings",@"")
-                    delegate:self
-                    cancelButtonTitle:locstr(@"okay",@"strings",@"")
-                    otherButtonTitles: nil];
-            
-                [alert show];
-                [alert release];
-            
-                break;
-            }
-        
-            apView(@"Feedback Email Dialog");
-        
-            UIDevice *device = [UIDevice currentDevice];
-            NSDictionary *b = [[NSBundle mainBundle] infoDictionary];
-            NSString *appVersion = [NSString stringWithFormat:@"%@ (%@)", [b objectForKey:@"CFBundleShortVersionString"], [b objectForKey:@"CFBundleVersion"]];
-        
-            NSString *systemData = [NSString stringWithFormat:@"App Version: %@<br />"
-                                    "System Locale: %@<br />"
-                                    "App Locale: %@<br />"
-                                    "OS: %@<br />"
-                                    "Version: %@<br />"
-                                    "Model: %@<br />", appVersion, [[LocalizationManager sharedManager] getSystemLocale], [[LocalizationManager sharedManager] getAppPreferredLocale], [device systemName], [device systemVersion], [device name]];
-    
-            NSString *privateData = [[NSString stringWithFormat:@"%@<br />%@<br />%@<br />s33kr3tk33y0d00d", systemData, [[PremiumContentStore instance] ownedProducts], [[PromotionCodeManager instance] attemptedCodes]] encryptWithKey:@"Sweet man!"];
-        
-            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-            controller.mailComposeDelegate = self;
-            [controller setSubject:locstr(@"feedback_email_subject",@"strings",@"")];
-            [controller setToRecipients:[NSArray arrayWithObject: @"feedback@alchemistinteractive.com"]];
-            [controller setMessageBody:[NSString stringWithFormat: @""
-                                        "<html>"
-                                        "  <head><title>Feedback Email</title>"
-                                        "  <body>"
-                                        "    <br /><br />"
-                                        "    <hr />"
-                                        "    <h4>%@</h4>"
-                                        "    <p>"
-                                        "%@"
-                                        "    </p>"
-                                        "    <hr />"
-                                        "    <h4>%@</h4>"
-                                        "    <pre>%@</pre>"
-                                        "    <hr />"
-                                        "    <br /><br />"
-                                        "  </body>"
-                                        "</html>", locstr(@"technical_details", @"strings", @""), systemData, locstr(@"encrypted_technical_details", @"strings", @""), privateData] isHTML:YES];
-            
-            if (controller) [[CCDirector sharedDirector] presentModalViewController:controller animated:YES];
-            [controller release];
             break;
     }
 }
@@ -180,6 +128,63 @@
     }
     
     [[CCDirector sharedDirector] dismissModalViewControllerAnimated:YES];
+}
+
+-(void) showFeedbackDialog {
+    if (![MFMailComposeViewController canSendMail]) {
+        apEvent(@"rating",@"feedback_email",@"cannot send");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:locstr(@"feedback_mail_unavailable_title",@"strings",@"")
+                                                        message:locstr(@"feedback_mail_unavailable_details",@"strings",@"")
+                                                       delegate:self
+                                              cancelButtonTitle:locstr(@"okay",@"strings",@"")
+                                              otherButtonTitles: nil];
+        
+        [alert show];
+        [alert release];
+        
+        return;
+    }
+    
+    apView(@"Feedback Email Dialog");
+    
+    UIDevice *device = [UIDevice currentDevice];
+    NSDictionary *b = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = [NSString stringWithFormat:@"%@ (%@)", [b objectForKey:@"CFBundleShortVersionString"], [b objectForKey:@"CFBundleVersion"]];
+    
+    NSString *systemData = [NSString stringWithFormat:@"App Version: %@<br />"
+                            "System Locale: %@<br />"
+                            "App Locale: %@<br />"
+                            "OS: %@<br />"
+                            "Version: %@<br />"
+                            "Model: %@<br />", appVersion, [[LocalizationManager sharedManager] getSystemLocale], [[LocalizationManager sharedManager] getAppPreferredLocale], [device systemName], [device systemVersion], [device name]];
+    
+    NSString *privateData = [[NSString stringWithFormat:@"%@<br />%@<br />%@<br />s33kr3tk33y0d00d", systemData, [[PremiumContentStore instance] ownedProducts], [[PromotionCodeManager instance] attemptedCodes]] encryptWithKey:@"Sweet man!"];
+    
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    controller.mailComposeDelegate = self;
+    [controller setSubject:locstr(@"feedback_email_subject",@"strings",@"")];
+    [controller setToRecipients:[NSArray arrayWithObject: @"feedback@alchemistinteractive.com"]];
+    [controller setMessageBody:[NSString stringWithFormat: @""
+                                "<html>"
+                                "  <head><title>Feedback Email</title>"
+                                "  <body>"
+                                "    <br /><br />"
+                                "    <hr />"
+                                "    <h4>%@</h4>"
+                                "    <p>"
+                                "%@"
+                                "    </p>"
+                                "    <hr />"
+                                "    <h4>%@</h4>"
+                                "    <pre>%@</pre>"
+                                "    <hr />"
+                                "    <br /><br />"
+                                "  </body>"
+                                "</html>", locstr(@"technical_details", @"strings", @""), systemData, locstr(@"encrypted_technical_details", @"strings", @""), privateData] isHTML:YES];
+    
+    if (controller) [[CCDirector sharedDirector] presentModalViewController:controller animated:YES];
+    [controller release];
 }
 
 @end
