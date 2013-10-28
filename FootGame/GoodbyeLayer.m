@@ -167,6 +167,7 @@
     [self addChild:skip];
     
 #ifdef TESTING
+    __block FeedbackPrompt *pPrompt = prompt;
     CircleButton *bugs = [CircleButton buttonWithFile:@"bugs.png"];
     bugs.scale = 0.5;
     bugs.anchorPoint = ccp(0,0);
@@ -181,9 +182,9 @@
     }];
     [bugs addEvent:@"touchup" withBlock:^(CCNode *sender) {
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
-        if (prompt == nil)
-            prompt = [[FeedbackPrompt alloc] init];
-        [prompt showFeedbackDialog];
+        if (pPrompt == nil)
+            pPrompt = [[FeedbackPrompt alloc] init];
+        [pPrompt showFeedbackDialog];
     }];
     [self addChild: bugs];
 #endif
