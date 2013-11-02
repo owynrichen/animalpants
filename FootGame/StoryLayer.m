@@ -207,7 +207,7 @@ static NSString *__sync = @"sync";
                            nil];
     
     [jeep runAction:jeepSeq];
-    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3" withVol:0.5];
+    truckSound = [[SoundManager sharedManager] playSound:@"truck_engine.mp3" withVol:0.4];
     
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:delay],
      [CCCallBlockN actionWithBlock:^(CCNode *node) {

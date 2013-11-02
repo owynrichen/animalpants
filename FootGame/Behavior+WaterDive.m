@@ -28,7 +28,7 @@
     
     CCCallBlockN *splash = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [[SoundManager sharedManager] playSound:@"splash.mp3"];
-        CCParticleSystemQuad *emitter = [CCParticleSystemQuad particleWithFile:@"Spout.plist" params:params];
+        CCParticleSystemQuad *emitter = [CCParticleSystemQuad particleWithFile:@"Splash.plist" params:params];
         emitter.position = ccpToRatio(node.position.x - node.contentSize.width / 2, node.position.y);
         [node.parent addChild:emitter z:node.zOrder];
         if (emitter.duration > -1) {

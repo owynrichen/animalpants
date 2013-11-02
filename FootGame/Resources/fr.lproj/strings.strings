@@ -39,6 +39,7 @@
 "get_products" = "Connection à iTunes";
 "buying_product" = "Connection à iTunes";
 "checking_code" = "Activation du Code Promotionnel";
+"privacy_policy" = "Politique de confidentialité";
 
 /* 
  
@@ -433,6 +434,7 @@ Owyn Richen
 Chris Laurel
 Michael Bolling
 Solomon English
+Matthew Greene
 Troy Morris
 The folks who work on Cocos2D
 Avery Kocher
@@ -440,7 +442,9 @@ Emma Kocher
 Royce Salvatore
 Benjamin Price
 Ellenor Price
+Madison Richen
 
 <h>Remerciements!
-A nos familles qui nous ont supportés et inspirés!
+A nos familles qui nous
+ont supportés et inspirés!
 ";

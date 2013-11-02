@@ -100,7 +100,7 @@
     
     narration = [CCVolumeMenuItem buttonWithVolumeType:kSoundVolume button:narrationIcon text:locstr(@"sound_volume", @"strings", @"")];
     
-    narration.position = ccpToRatio(winSize.width * 0.05, menu.position.y + (((int)[menu.children count]) * -narration.contentSize.height * 1.1));
+    narration.position = ccpToRatio(winSize.width * 0.05, menu.position.y + (((int)[menu.children count]) * -narration.contentSize.height * 1.05));
     
     CircleButton *musicIcon = [CircleButton buttonWithFile:@"music.png"];
     musicIcon.position = ccp(0,0);
@@ -108,7 +108,7 @@
     
     music = [CCVolumeMenuItem buttonWithVolumeType:kMusicVolume button:musicIcon text:locstr(@"music_volume", @"strings", @"")];
     
-    music.position = ccpToRatio(winSize.width * 0.05, menu.position.y - narration.contentSize.height * 1.1 + (((int)[menu.children count]) * -narration.contentSize.height * 1.1));
+    music.position = ccpToRatio(winSize.width * 0.05, menu.position.y - narration.contentSize.height * 1.1 + (((int)[menu.children count]) * -narration.contentSize.height * 1.05));
     
     [self addChild:background];
     [self addChild:back];
@@ -116,6 +116,7 @@
     [self addChild:menu];
     [self addChild:narration];
     [self addChild:music];
+    
 #ifdef TESTING
     __block FeedbackPrompt *pPrompt = prompt;
     CircleButton *bugs = [CircleButton buttonWithFile:@"bugs.png"];
@@ -201,8 +202,20 @@
         
     }];
     fb.anchorPoint = ccp(0,0);
-    fb.position = ccp(0,-restore.contentSize.height * 1.1);
+    fb.position = ccp(0,-restore.contentSize.height * 1.05);
     [menu addChild:fb z:0 tag:1];
+    
+    CircleButton *privacyIcon = [CircleButton buttonWithFile:@"lock.png"];
+    privacyIcon.position = ccp(0,0);
+    privacyIcon.scale = 0.7;
+    
+    CCButtonMenuItem *ppolicy = [CCButtonMenuItem itemWithButton:privacyIcon text:locstr(@"privacy_policy", @"strings", @"") block:^(id sender) {
+        [[UIApplication sharedApplication]
+         openURL:[NSURL URLWithString:@"http://www.alchemistkids.com/index.php/privacy-policy/"]];
+    }];
+    ppolicy.anchorPoint = ccp(0,0);
+    ppolicy.position = ccp(0, -restore.contentSize.height * 1.05 - fb.contentSize.height * 1.05);
+    [menu addChild:ppolicy z:0 tag: 1];
 
     if (![[PremiumContentStore instance] ownsProductId:PREMIUM_PRODUCT_ID]) {
         CircleButton *buyIcon = [CircleButton buttonWithFile:@"buy.png"];
@@ -213,7 +226,7 @@
             [[InAppPurchaseManager instance] getProducts:self withData:PREMIUM_PRODUCT_ID];
         }];
         buyAll.anchorPoint = ccp(0,0);
-        buyAll.position = ccp(0,-restore.contentSize.height * 1.1 - fb.contentSize.height * 1.1);
+        buyAll.position = ccp(0,-restore.contentSize.height * 1.05 - fb.contentSize.height * 1.05 - ppolicy.contentSize.height * 1.05);
         [menu addChild:buyAll z:0 tag:1];
     }
 }

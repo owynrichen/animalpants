@@ -1277,6 +1277,11 @@
 		369976CE179CD21000FE058A /* RobotoThin-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 369976C6179CD20F00FE058A /* RobotoThin-ipadhd.png */; };
 		369976CF179CD21000FE058A /* RobotoThin.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 369976C7179CD21000FE058A /* RobotoThin.fnt */; };
 		369976D0179CD21000FE058A /* RobotoThin.png in Resources */ = {isa = PBXBuildFile; fileRef = 369976C8179CD21000FE058A /* RobotoThin.png */; };
+		369E8CB4182596C700C8F89D /* lock-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E8CB0182596C700C8F89D /* lock-hd.png */; };
+		369E8CB5182596C700C8F89D /* lock-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E8CB1182596C700C8F89D /* lock-ipad.png */; };
+		369E8CB6182596C700C8F89D /* lock-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E8CB2182596C700C8F89D /* lock-ipadhd.png */; };
+		369E8CB7182596C700C8F89D /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E8CB3182596C700C8F89D /* lock.png */; };
+		369E8CB91825997700C8F89D /* Splash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 369E8CB81825997700C8F89D /* Splash.plist */; };
 		369FC19A1752C50600DDC04F /* libChipmunk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 368193AC17335FD600325B2B /* libChipmunk.a */; };
 		369FC1A317541B1100DDC04F /* cpMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = 369FC19B1754156200DDC04F /* cpMouse.c */; };
 		369FC1A817542F6D00DDC04F /* CPWrappers.m in Sources */ = {isa = PBXBuildFile; fileRef = 369FC1A717542F6C00DDC04F /* CPWrappers.m */; };
@@ -3880,6 +3885,11 @@
 		369976C6179CD20F00FE058A /* RobotoThin-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RobotoThin-ipadhd.png"; path = "Resources/Fonts/RobotoThin-ipadhd.png"; sourceTree = "<group>"; };
 		369976C7179CD21000FE058A /* RobotoThin.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RobotoThin.fnt; path = Resources/Fonts/RobotoThin.fnt; sourceTree = "<group>"; };
 		369976C8179CD21000FE058A /* RobotoThin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RobotoThin.png; path = Resources/Fonts/RobotoThin.png; sourceTree = "<group>"; };
+		369E8CB0182596C700C8F89D /* lock-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock-hd.png"; sourceTree = "<group>"; };
+		369E8CB1182596C700C8F89D /* lock-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock-ipad.png"; sourceTree = "<group>"; };
+		369E8CB2182596C700C8F89D /* lock-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock-ipadhd.png"; sourceTree = "<group>"; };
+		369E8CB3182596C700C8F89D /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		369E8CB81825997700C8F89D /* Splash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Splash.plist; path = Resources/Environments/Arctic/Particles/Splash.plist; sourceTree = "<group>"; };
 		369FC19B1754156200DDC04F /* cpMouse.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpMouse.c; sourceTree = "<group>"; };
 		369FC19C1754156300DDC04F /* cpMouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpMouse.h; sourceTree = "<group>"; };
 		369FC1A617542F6C00DDC04F /* CPWrappers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPWrappers.h; sourceTree = "<group>"; };
@@ -5274,6 +5284,10 @@
 		3627631C1765815600E8F066 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				369E8CB0182596C700C8F89D /* lock-hd.png */,
+				369E8CB1182596C700C8F89D /* lock-ipad.png */,
+				369E8CB2182596C700C8F89D /* lock-ipadhd.png */,
+				369E8CB3182596C700C8F89D /* lock.png */,
 				36BB9605181A13D000EBCAFA /* bugs-hd.png */,
 				36BB9606181A13D000EBCAFA /* bugs-ipad.png */,
 				36BB9607181A13D000EBCAFA /* bugs-ipadhd.png */,
@@ -7432,6 +7446,7 @@
 		369150720005F52D00D4C81C /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				369E8CB81825997700C8F89D /* Splash.plist */,
 				3691507F0006E6F100D4C81C /* Smoke.plist */,
 				369150730005F5B200D4C81C /* Spout.plist */,
 			);
@@ -10298,6 +10313,11 @@
 				36BB960A181A13D000EBCAFA /* bugs-ipad.png in Resources */,
 				36BB960B181A13D000EBCAFA /* bugs-ipadhd.png in Resources */,
 				36BB960C181A13D000EBCAFA /* bugs.png in Resources */,
+				369E8CB4182596C700C8F89D /* lock-hd.png in Resources */,
+				369E8CB5182596C700C8F89D /* lock-ipad.png in Resources */,
+				369E8CB6182596C700C8F89D /* lock-ipadhd.png in Resources */,
+				369E8CB7182596C700C8F89D /* lock.png in Resources */,
+				369E8CB91825997700C8F89D /* Splash.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

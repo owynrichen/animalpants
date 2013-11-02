@@ -81,13 +81,19 @@
         case 1:
             apEvent(@"rating",@"yes",@"");
         
+            NSString *uri = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=581827653";
+            
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+                uri = @"itms-apps://itunes.apple.com/app/id581827653";
+            }
+            
             [[UIApplication sharedApplication]
-             openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=581827653"]];
+             openURL:[NSURL URLWithString:uri]];
             break;
         case 2:
             apEvent(@"rating",@"no",@"");
         
-            [self showFeedbakDialog];
+            [self showFeedbackDialog];
             
             break;
     }

@@ -8,6 +8,7 @@
 
 #import "Behavior+BeachBall.h"
 #import "SoundManager.h"
+#import "CCParticleSystem+Extras.h"
 
 @implementation Behavior (BeachBall)
 
@@ -31,12 +32,22 @@
         
         CCJumpTo *jump = [CCJumpTo actionWithDuration:3.0 position:ccpToRatio(node.position.x + 400, -ball.contentSize.height) height:(768 - node.position.y) / 2 jumps:1];
         
+        CCCallBlockN *splash = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            [[SoundManager sharedManager] playSound:@"splash.mp3"];
+            CCParticleSystemQuad *emitter = [CCParticleSystemQuad particleWithFile:@"Splash.plist" params:params];
+            emitter.position = ccpToRatio(node.position.x - node.contentSize.width / 2, node.position.y);
+            [node.parent addChild:emitter z:node.zOrder];
+            if (emitter.duration > -1) {
+                [emitter cleanupWhenDone];
+            }
+        }];
+        
         CCCallBlockN *remove = [CCCallBlockN actionWithBlock:^(CCNode *node) {
             [node.parent removeChild:node cleanup:YES];
         }];
         
         [ball runAction:[CCRotateBy actionWithDuration:5.0 angle:720]];
-        [ball runAction:[CCSequence actions:move, setZPlaySound, jump, remove, nil]];
+        [ball runAction:[CCSequence actions:move, setZPlaySound, jump, splash, remove, nil]];
     }];
     
     return spawnBall;

@@ -39,6 +39,7 @@
 "get_products" = "Talking to iTunes";
 "buying_product" = "Talking to iTunes";
 "checking_code" = "Activating Promo Code";
+"privacy_policy" = "Privacy Policy";
 
 /* 
  
@@ -427,16 +428,18 @@ Tod Grobey
 Owyn Richen
 
 <h>With help from
-Troy Morris
-Michael Bolling
-The folks who work on Cocos2D
 Chris Laurel
+Michael Bolling
 Solomon English
+Matthew Greene
+Troy Morris
+The folks who work on Cocos2D
 Avery Kocher
 Emma Kocher
 Royce Salvatore
 Benjamin Price
 Ellenor Price
+Madison Richen
 
 <h>Thanks!
 To our families who have put

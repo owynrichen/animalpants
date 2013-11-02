@@ -101,8 +101,14 @@ static NSString *__sync = @"sync";
     title = [CCNode node];
     
     float yPos = 0;
+    float titleScale = 1.0;
+    NSString *locale = [[LocalizationManager sharedManager] getAppPreferredLocale];
     
-    CCLabelTTFWithExtrude *line1 = [CCLabelTTFWithExtrude labelWithString:locstr(@"game_title1", @"strings", @"") fontName:@"Rather Loud" fontSize:250 * fontScaleForCurrentDevice()];
+    if ([locale isEqualToString:@"es"] || [locale isEqualToString:@"fr"]) {
+        titleScale = 0.85;
+    }
+    
+    CCLabelTTFWithExtrude *line1 = [CCLabelTTFWithExtrude labelWithString:locstr(@"game_title1", @"strings", @"") fontName:@"Rather Loud" fontSize:250 * fontScaleForCurrentDevice() * titleScale];
     [line1 setColor: ccc3(206, 216, 47)];
     [line1 setExtrudeColor: ccc3(130, 141, 55)];
     line1.extrudeDepth = 20 * fontScaleForCurrentDevice();
@@ -128,7 +134,7 @@ static NSString *__sync = @"sync";
         yPos -= line2.contentSize.height * 0.95;
     }
     
-    CCLabelTTFWithExtrude *line3 = [CCLabelTTFWithExtrude labelWithString:locstr(@"game_title3", @"strings", @"") fontName:@"Rather Loud" fontSize:250 * fontScaleForCurrentDevice()];
+    CCLabelTTFWithExtrude *line3 = [CCLabelTTFWithExtrude labelWithString:locstr(@"game_title3", @"strings", @"") fontName:@"Rather Loud" fontSize:250 * fontScaleForCurrentDevice() * titleScale];
     [line3 setColor: ccc3(206, 216, 47)];
     [line3 setExtrudeColor: ccc3(130, 141, 55)];
     line3.extrudeDepth = 20 * fontScaleForCurrentDevice();

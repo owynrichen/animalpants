@@ -40,6 +40,7 @@
 "get_products" = "Rücksprache mit iTunes";
 "buying_product" = "Rücksprache mit iTunes";
 "checking_code" = "Freischalten des Werbecodes";
+"privacy_policy" = "Datenschutz";
 
 /*
  
@@ -427,11 +428,17 @@ Owyn Richen
 
 <h> Mithilfe von
 Chris Laurel
-Emma and Avery
 Michael Bolling
 Solomon English
+Matthew Greene
 Troy Morris
 The folks who work on Cocos2D
+Avery Kocher
+Emma Kocher
+Royce Salvatore
+Benjamin Price
+Ellenor Price
+Madison Richen
 
 <h>Danke!
 Danke an unsere Familien,
