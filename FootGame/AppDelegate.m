@@ -72,10 +72,10 @@
     // TODO: delete this when we launch
     // [[PremiumContentStore instance] boughtProductId:@"com.alchemistinteractive.footgame.premo"];
 
-    // [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
+    [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
-    [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"PolarBear"]];
+    // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"PolarBear"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Crocodile"]];
 }
 
