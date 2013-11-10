@@ -62,7 +62,7 @@
 			<key>restoreOriginalFrame</key>
 			<true/>
 			<key>loops</key>
-			<integer>6</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>properties</key>

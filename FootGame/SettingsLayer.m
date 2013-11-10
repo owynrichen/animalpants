@@ -209,9 +209,11 @@
     privacyIcon.position = ccp(0,0);
     privacyIcon.scale = 0.7;
     
+    NSString *url = [NSString stringWithFormat:@"http://www.alchemistkids.com/index.php/privacy-policy-%@/", [[LocalizationManager sharedManager] getAppPreferredLocale]];
+    
     CCButtonMenuItem *ppolicy = [CCButtonMenuItem itemWithButton:privacyIcon text:locstr(@"privacy_policy", @"strings", @"") block:^(id sender) {
         [[UIApplication sharedApplication]
-         openURL:[NSURL URLWithString:@"http://www.alchemistkids.com/index.php/privacy-policy/"]];
+         openURL:[NSURL URLWithString:url]];
     }];
     ppolicy.anchorPoint = ccp(0,0);
     ppolicy.position = ccp(0, -restore.contentSize.height * 1.05 - fb.contentSize.height * 1.05);
