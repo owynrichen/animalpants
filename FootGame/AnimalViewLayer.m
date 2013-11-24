@@ -267,7 +267,7 @@
     
     [gameLayer addChild:prev];
     
-    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:10 paused:NO repeat:20 delay:5];
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:25 paused:NO repeat:20 delay:20];
     [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(randomEvent:) forTarget:self interval:15 paused:NO repeat:20 delay:8];
     
     streak = [CCMotionStreak streakWithFade:1 minSeg:10 width:50 color:ccWHITE textureFilename:@"rainbow.png"];

@@ -7926,6 +7926,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					367EC2DB133A4780003F7FF0 = {
+						DevelopmentTeam = SBJF3W8A6R;
+					};
+				};
 			};
 			buildConfigurationList = 367EC2D6133A4780003F7FF0 /* Build configuration list for PBXProject "FootGame" */;
 			compatibilityVersion = "Xcode 3.2";
