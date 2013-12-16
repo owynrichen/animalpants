@@ -70,6 +70,7 @@ static NSString *_sync = @"sync";
 }
 
 -(void) productsRetrieved: (NSArray *) products withData:(NSObject *)data {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     [cachedProducts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         SKProduct *prod = (SKProduct *) obj;
         
@@ -84,6 +85,7 @@ static NSString *_sync = @"sync";
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData:(NSObject *)data {
+    [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
     apErr(error);
     
     if (delegate)
@@ -112,11 +114,17 @@ static NSString *_sync = @"sync";
         NSLog(@"invalid identifier %@", obj);
     }];
     
+    [products enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        SKProduct *product = (SKProduct *) obj;
+        NSLog(@"Name: %@ - %@", product.localizedTitle, product.productIdentifier);
+        NSLog(@"Price: %@", product.price);
+    }];
+    
     SKProduct *product = products.count > 1 ? [products objectAtIndex:0] : nil;
     
     if (product) {
         cachedProducts = [products retain];
-        NSLog(@"Name: %@", product.localizedTitle);
+        NSLog(@"Name: %@ - %@", product.localizedTitle, product.productIdentifier);
         NSLog(@"Price: %@", product.price);
         if (prodDelegate) {
             [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];

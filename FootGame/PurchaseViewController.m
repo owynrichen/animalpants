@@ -89,20 +89,26 @@
     self.promoCodeField.font = [UIFont fontWithName:@"Rather Loud" size:20];
     
     self.titleLabel.text = locstr(@"confirm_title",@"strings", @"");
-    self.productCost.text = product.priceAsString;
     [self.buyButton setTitle:locstr(@"confirm", @"strings", @"") forState:UIControlStateNormal];;
     
     if (upsellProduct != nil) {
-        NSString * buyText = [NSString stringWithFormat:locstr(@"buy_upsell", @"strings", @""), [SKProduct localeFormattedPrice: [upsellProduct.price decimalNumberBySubtracting: product.price] locale:[upsellProduct priceLocale]]];
-        [self.buyAllButton setTitle:buyText forState:UIControlStateNormal];
-        self.upsellProductName.text = upsellProduct.localizedTitle;
-        self.buyAllButton.hidden = NO;
-        self.upsellProductName.hidden = NO;
+        if (product != nil) {
+            NSString * buyText = [NSString stringWithFormat:locstr(@"buy_upsell", @"strings", @""), [SKProduct localeFormattedPrice: [upsellProduct.price decimalNumberBySubtracting: product.price] locale:[upsellProduct priceLocale]]];
+            [self.buyAllButton setTitle:buyText forState:UIControlStateNormal];
+            self.upsellProductName.text = upsellProduct.localizedTitle;
+            self.buyAllButton.hidden = NO;
+            self.upsellProductName.hidden = NO;
+        } else {
+            product = upsellProduct;
+            self.buyAllButton.hidden = YES;
+            self.upsellProductName.hidden = YES;
+        }
     } else {
         self.buyAllButton.hidden = YES;
         self.upsellProductName.hidden = YES;
     }
     
+    self.productCost.text = product.priceAsString;
     self.productName.text = product.localizedTitle;
     self.promoCodeField.placeholder = locstr(@"promocode", @"strings", "");
     
@@ -255,7 +261,7 @@
     if (!buying) {
         NSString *promoText = self.promoCodeField.text;
         
-        if ([promoText isEqualToString:@""]) {
+        if (promoText == nil || [promoText isEqualToString:@""]) {
             apEvent(@"buy", @"click", @"start for product");
             [[InAppPurchaseManager instance] purchaseProduct:currentProduct delegate: self];
         } else {

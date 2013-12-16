@@ -287,7 +287,6 @@
 		36204E3117BEF46E0027BA9B /* savannah3_rocks2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E2D17BEF46E0027BA9B /* savannah3_rocks2-ipad.png */; };
 		36204E3217BEF46E0027BA9B /* savannah3_rocks2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E2E17BEF46E0027BA9B /* savannah3_rocks2-ipadhd.png */; };
 		36204E3317BEF46E0027BA9B /* savannah3_rocks2.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E2F17BEF46E0027BA9B /* savannah3_rocks2.png */; };
-		36204E3517BEF8570027BA9B /* Awesome_Emma.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36204E3417BEF8570027BA9B /* Awesome_Emma.mp3 */; };
 		36204E3A17BEF88D0027BA9B /* emma_binocs-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E3617BEF88D0027BA9B /* emma_binocs-hd.png */; };
 		36204E3B17BEF88D0027BA9B /* emma_binocs-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E3717BEF88D0027BA9B /* emma_binocs-ipad.png */; };
 		36204E3C17BEF88D0027BA9B /* emma_binocs-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 36204E3817BEF88D0027BA9B /* emma_binocs-ipadhd.png */; };
@@ -2056,6 +2055,7 @@
 		36FFD6DF16BA26D3009705C3 /* Cue-upsell.en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36FFD6DB16BA26D3009705C3 /* Cue-upsell.en.plist */; };
 		36FFD6E016BA26D3009705C3 /* outro.en.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36FFD6DC16BA26D3009705C3 /* outro.en.mp3 */; };
 		36FFD6E116BA26D3009705C3 /* upsell.en.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36FFD6DD16BA26D3009705C3 /* upsell.en.mp3 */; };
+		75028FFB1843B140005F8CB9 /* Awesome_Emma.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 75028FFA1843B140005F8CB9 /* Awesome_Emma.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2805,7 +2805,6 @@
 		36204E2D17BEF46E0027BA9B /* savannah3_rocks2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "savannah3_rocks2-ipad.png"; sourceTree = "<group>"; };
 		36204E2E17BEF46E0027BA9B /* savannah3_rocks2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "savannah3_rocks2-ipadhd.png"; sourceTree = "<group>"; };
 		36204E2F17BEF46E0027BA9B /* savannah3_rocks2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = savannah3_rocks2.png; sourceTree = "<group>"; };
-		36204E3417BEF8570027BA9B /* Awesome_Emma.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Awesome_Emma.mp3; path = "../../../../../Dropbox/Narration/Kids Final Sounds/Awesome_Emma.mp3"; sourceTree = "<group>"; };
 		36204E3617BEF88D0027BA9B /* emma_binocs-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emma_binocs-hd.png"; sourceTree = "<group>"; };
 		36204E3717BEF88D0027BA9B /* emma_binocs-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emma_binocs-ipad.png"; sourceTree = "<group>"; };
 		36204E3817BEF88D0027BA9B /* emma_binocs-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emma_binocs-ipadhd.png"; sourceTree = "<group>"; };
@@ -4696,6 +4695,7 @@
 		36FFD6DB16BA26D3009705C3 /* Cue-upsell.en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cue-upsell.en.plist"; path = "Resources/Audio/Cue-upsell.en.plist"; sourceTree = "<group>"; };
 		36FFD6DC16BA26D3009705C3 /* outro.en.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = outro.en.mp3; path = Resources/Audio/outro.en.mp3; sourceTree = "<group>"; };
 		36FFD6DD16BA26D3009705C3 /* upsell.en.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = upsell.en.mp3; path = Resources/Audio/upsell.en.mp3; sourceTree = "<group>"; };
+		75028FFA1843B140005F8CB9 /* Awesome_Emma.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Awesome_Emma.mp3; path = Resources/Audio/Awesome_Emma.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -6615,9 +6615,9 @@
 		368005FD1375AC4200F6603F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				75028FFA1843B140005F8CB9 /* Awesome_Emma.mp3 */,
 				363EFD26180B69B40021E67A /* truck_engine.mp3 */,
 				363EFCE3180B4F6C0021E67A /* splash.mp3 */,
-				36204E3417BEF8570027BA9B /* Awesome_Emma.mp3 */,
 				364B10FF1775FE23005D97EA /* Cue-outro.es.plist */,
 				364B11001775FE23005D97EA /* Cue-story1.es.plist */,
 				364B11011775FE23005D97EA /* Cue-upsell.es.plist */,
@@ -10180,7 +10180,6 @@
 				36204E3117BEF46E0027BA9B /* savannah3_rocks2-ipad.png in Resources */,
 				36204E3217BEF46E0027BA9B /* savannah3_rocks2-ipadhd.png in Resources */,
 				36204E3317BEF46E0027BA9B /* savannah3_rocks2.png in Resources */,
-				36204E3517BEF8570027BA9B /* Awesome_Emma.mp3 in Resources */,
 				36204E3A17BEF88D0027BA9B /* emma_binocs-hd.png in Resources */,
 				36204E3B17BEF88D0027BA9B /* emma_binocs-ipad.png in Resources */,
 				36204E3C17BEF88D0027BA9B /* emma_binocs-ipadhd.png in Resources */,
@@ -10210,6 +10209,7 @@
 				361E1DEE17CA9F820046B473 /* emma_dress1-hd.png in Resources */,
 				361E1DEF17CA9F820046B473 /* emma_dress1-ipad.png in Resources */,
 				361E1DF017CA9F820046B473 /* emma_dress1-ipadhd.png in Resources */,
+				75028FFB1843B140005F8CB9 /* Awesome_Emma.mp3 in Resources */,
 				361E1DF117CA9F820046B473 /* emma_dress1.png in Resources */,
 				361E1DF317CAA34B0046B473 /* BugTouch.plist in Resources */,
 				361E1DF817CAB11F0046B473 /* river_bird_chirp-hd.png in Resources */,
@@ -10589,7 +10589,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-release-2.1-beta2/**";
+				USER_HEADER_SEARCH_PATHS = "/Users/oriche/Documents/code/alchemist/cocos2d-iphone-release-2.1-beta2/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -10624,7 +10624,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/orichen/Documents/code/alchemist/cocos2d-iphone-release-2.1-beta2/**";
+				USER_HEADER_SEARCH_PATHS = "/Users/oriche/Documents/code/alchemist/cocos2d-iphone-release-2.1-beta2/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

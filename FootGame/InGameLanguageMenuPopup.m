@@ -121,7 +121,7 @@
                 apEvent(@"listen",l,[[LocalizationManager sharedManager] getAppPreferredLocale]);
             } else {
                 NSLog(@"Language %@ isn't owned", l);
-                [[InAppPurchaseManager instance] getProducts:pointer.parent withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
+                [[InAppPurchaseManager instance] getProducts:pointer withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
             }
         }];
         
