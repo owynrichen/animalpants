@@ -40,36 +40,6 @@
         }
     }];
     
-//    NSMutableArray* paths = [NSMutableArray arrayWithArray:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-//                                                                                               NSUserDomainMask, YES)];
-//    [paths addObject:[[NSBundle mainBundle] bundlePath]];
-//    
-//    // [self loadFromOldFile];
-//    [paths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        NSEnumerator *enumerator = [[NSFileManager defaultManager]
-//                                    enumeratorAtPath:(NSString *) obj];
-//        
-//        NSString *path = nil;
-//        NSString *dotLang = [NSString stringWithFormat:@".%@", lang];
-//        
-//        while (path = (NSString *) [enumerator nextObject]) {
-//            NSArray *components = [path pathComponents];
-//            NSString *filename = [components objectAtIndex:[components count] - 1];
-//            
-//            if ([filename hasPrefix:@"flag-"] &&
-//                [filename rangeOfString:dotLang options:NSCaseInsensitiveSearch].location != NSNotFound &&
-//                [filename rangeOfString:@"-ipadhd" options:NSCaseInsensitiveSearch].location == NSNotFound &&
-//                [filename rangeOfString:@"-ipad" options:NSCaseInsensitiveSearch].location == NSNotFound &&
-//                [filename rangeOfString:@"-hd" options:NSCaseInsensitiveSearch].location == NSNotFound) {
-//                
-//                CCSprite *sprite = [CCSprite spriteWithFile:filename];
-//                sprite.opacity = 0;
-//                [self addChild:sprite];
-//            }
-//        }
-//
-//    }];
-    
     return self;
 }
 

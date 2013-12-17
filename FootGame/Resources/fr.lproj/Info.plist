@@ -32,19 +32,26 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>3</string>
-	<key>Icon files</key>
-	<array>
-		<string>Icon.png</string>
-		<string>Icon@2x.png</string>
-		<string>Icon-72.png</string>
-		<string>Icon-Small-50.png</string>
-		<string>Icon-Small.png</string>
-		<string>Icon-Small@2x.png</string>
-	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchImageFile~ipad</key>
 	<string>AlchemistKids.png</string>
+	<key>Icon files</key>
+	<array>
+		<string>Icon.png</string>
+		<string>Icon@2x.png</string>
+		<string>Icon-58.png</string>
+		<string>Icon-40.png</string>
+		<string>Icon-80.png</string>
+		<string>Icon-100.png</string>
+		<string>Icon-72.png</string>
+		<string>Icon~ipad.png</string>
+		<string>Icon-76.png</string>
+		<string>Icon-152.png</string>
+		<string>Icon-Small-50.png</string>
+		<string>Icon-Small.png</string>
+		<string>Icon-Small@2x.png</string>
+	</array>
 	<key>UILaunchImageFile~iphone</key>
 	<string>AlchemistKids-iphone.png</string>
 	<key>UIPrerenderedIcon</key>
