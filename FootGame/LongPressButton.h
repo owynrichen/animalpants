@@ -19,7 +19,7 @@ typedef void (^LongPressBlock)(CCNode * sender);
 @property (nonatomic) double startTime;
 @property (nonatomic) float baseScale;
 @property (nonatomic) bool autoClickStarted;
-@property (nonatomic) CCAutoScalingSprite *clockHand;
+@property (nonatomic, retain) CCAutoScalingSprite *clockHand;
 
 +(LongPressButton *) buttonWithBlock: (LongPressBlock) blk;
 

@@ -211,7 +211,7 @@ static NSString *_sync = @"sync";
     {
         // TODO: this blanket approach is probably wrong, we need a better decision mechanism
         // before we "unpurchase" an item in this case
-        [[PremiumContentStore instance] returnedProductId:transaction.payment.productIdentifier];
+        // [[PremiumContentStore instance] returnedProductId:transaction.payment.productIdentifier];
         if (delegate) {
             [delegate purchaseFailed:transaction.payment.productIdentifier];
         }
@@ -281,6 +281,20 @@ static NSString *_sync = @"sync";
                 break;
         }
     }
+}
+
+
+// Sent when an error is encountered while adding transactions from the user's purchase history back to the queue.
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
+    NSLog(@"Restore transaction failed with error %@", error.localizedDescription);
+    if (delegate) {
+        [delegate purchaseFailed:@""];
+    }
+}
+
+// Sent when all transactions from the user's purchase history have successfully been added back to the queue.
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
+    NSLog(@"Restore transaction finished");
 }
 
 @end

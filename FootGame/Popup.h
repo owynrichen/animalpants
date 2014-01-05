@@ -10,14 +10,21 @@
 #import "CCLayer.h"
 #import "CircleButton.h"
 
+typedef enum {
+    kPopupCloseStateManual,
+    kPopupCloseStateSuccess,
+    kPopupCloseStateFailure
+} PopupCloseState;
+
 typedef void (^PopupBlock)(CCNode<CCRGBAProtocol> *popup);
+typedef void (^PopupCloseBlock)(CCNode<CCRGBAProtocol> *popup, PopupCloseState state);
 
 @interface Popup : CCNode<CCRGBAProtocol> {
     CircleButton *close;
     CCLayerColor *background;
     CCLayerColor *background2;
     GLubyte op_;
-    PopupBlock cBlock;
+    PopupCloseBlock cBlock;
 }
 
 +(Popup *) popup;
@@ -25,8 +32,8 @@ typedef void (^PopupBlock)(CCNode<CCRGBAProtocol> *popup);
 
 -(id) initWithSize: (CGSize) size;
 
--(void) showWithOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock analyticsKey: (NSString *) key;
--(void) hide;
+-(void) showWithOpenBlock:(PopupBlock) openBlock closeBlock:(PopupCloseBlock) closeBlock analyticsKey: (NSString *) key;
+-(void) hide: (PopupCloseState) state;
 
 -(void) setColor:(ccColor3B)color;
 -(ccColor3B) color;

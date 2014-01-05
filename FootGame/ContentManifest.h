@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SoundManager.h"
+#import "CCBaseLayer.h"
 
 @protocol ContentLoadDelegate <NSObject>
 
@@ -41,7 +42,7 @@
 
 @end
 
-@interface CCPreloadingLayer : CCLayer<ContentLoadDelegate> {
+@interface CCPreloadingLayer : CCBaseLayer<ContentLoadDelegate> {
     BOOL contentLoaded;
     NSObject *sync;
     void (^loadCompleteBlock)(void);

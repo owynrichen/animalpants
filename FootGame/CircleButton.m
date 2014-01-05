@@ -40,6 +40,7 @@
     [self addChild:back];
     [self addChild:middle];
     [self addChild:sheen];
+    touchAdded = NO;
     
     return self;
 }
@@ -50,12 +51,24 @@
 
 -(void) onEnter {
     [super onEnter];
-    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:YES];
+    [self enableTouches:YES];
 }
 
 -(void) onExit {
-    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+    [self enableTouches:NO];
     [super onExit];
+}
+
+-(void) enableTouches: (BOOL) on {
+    if (on) {
+        if (!touchAdded) {
+            [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:YES];
+            touchAdded = YES;
+        }
+    } else {
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        touchAdded = NO;
+    }
 }
 
 //-(void) draw {

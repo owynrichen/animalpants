@@ -61,6 +61,8 @@
     autoScaleFactor = autoScaleForCurrentDevice();
     // self.scale = autoScaleFactor;
     behaviorManager_ = [[BehaviorManager alloc] init];
+    paused = YES;
+    touchAdded = NO;
      
     return self;
 }
@@ -395,11 +397,14 @@
 
 -(void) enableTouches:(BOOL) on {
     if (on) {
-        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:NO];
+        if (!touchAdded) {
+            [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:NO];
+            touchAdded = YES;
+        }
     } else {
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        touchAdded = NO;
     }
 }
-
 
 @end

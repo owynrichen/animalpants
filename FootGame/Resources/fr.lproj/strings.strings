@@ -41,6 +41,10 @@
 "checking_code" = "Activation du Code Promotionnel";
 "privacy_policy" = "Politique de confidentialité";
 
+"parent_gate_title" = "Les parents seulement!";
+"parent_gate_instructions_store" = "Maintenez le bouton pendant 5 secondes pour passer à l'App Store.";
+"parent_gate_instructions_web" = "Maintenez le bouton pendant 5 secondes à la tête de la bande.";
+
 /* 
  
  Main and Language menu options

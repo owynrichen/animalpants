@@ -12,6 +12,7 @@
 
 @interface BitVector : NSObject {
     signed char *byteArray;
+    UInt32 vectorLength;
     size_t width;
     size_t height;
     float percentCoverage;

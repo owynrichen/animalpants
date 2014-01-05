@@ -42,6 +42,10 @@
 "checking_code" = "Freischalten des Werbecodes";
 "privacy_policy" = "Datenschutz";
 
+"parent_gate_title" = "Eltern nur!";
+"parent_gate_instructions_store" = "Halten Sie die Taste für 5 Sekunden, um in den App Store gehen.";
+"parent_gate_instructions_web" = "Halten Sie die Taste für 5 Sekunden auf die Bahn fahren.";
+
 /*
  
  Main and Language menu options

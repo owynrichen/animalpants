@@ -75,7 +75,7 @@
     [[CCDirector sharedDirector] runWithScene: [MainMenuLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [GoodbyeLayer scene]];
     // [[CCDirector sharedDirector] runWithScene: [AnimalSelectLayer scene]];
-    // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"PolarBear"]];
+    // [[CCDirector sharedDirector] runWithScene:[AnimalViewLayer sceneWithAnimalKey: @"Panda"]];
     // [[CCDirector sharedDirector] runWithScene:[AnimalFactsLayer sceneWithAnimalKey: @"Crocodile"]];
 }
 

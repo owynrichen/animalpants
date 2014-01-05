@@ -35,7 +35,7 @@
         if (pointer.opacity < 255)
             return;
         
-        [pointer hide];
+        [pointer hide:kPopupCloseStateSuccess];
         pointer.goHome();
     }];
     
@@ -49,7 +49,7 @@
         if (pointer.opacity < 255)
             return;
         
-        [pointer hide];
+        [pointer hide:kPopupCloseStateSuccess];
         pointer.facts(_animalKey);
     }];
     
@@ -126,7 +126,7 @@
     [super setOpacity:opacity];
 }
 
--(void) showWithOpenBlock:(PopupBlock)openBlock closeBlock:(PopupBlock)closeBlock analyticsKey:(NSString *)key {
+-(void) showWithOpenBlock:(PopupBlock)openBlock closeBlock:(PopupCloseBlock)closeBlock analyticsKey:(NSString *)key {
     [super showWithOpenBlock:openBlock closeBlock:closeBlock analyticsKey:key];
     
     menu.visible = YES;
@@ -135,12 +135,12 @@
     narration.visible = YES;
 }
 
--(void) hide {
+-(void) hide: (PopupCloseState) state {
     menu.visible = NO;
     menu.isTouchEnabled = NO;
     music.visible = NO;
     narration.visible = NO;
-    [super hide];
+    [super hide: state];
 }
 
 @end

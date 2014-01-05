@@ -37,7 +37,7 @@
     return mfest;
 }
 
--(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal withOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock {
+-(void) showFact: (FactFrameType) fact forAnimal: (Animal *) animal withOpenBlock:(PopupBlock) openBlock closeBlock:(PopupCloseBlock) closeBlock {
     if (factData) {
         [self removeChild:factData cleanup:YES];
         factData = nil;

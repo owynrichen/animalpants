@@ -41,6 +41,10 @@
 "checking_code" = "Activating Promo Code";
 "privacy_policy" = "Privacy Policy";
 
+"parent_gate_title" = "Parents Only!";
+"parent_gate_instructions_store" = "Hold the button for 5 seconds to proceed to the App Store.";
+"parent_gate_instructions_web" = "Hold the button for 5 seconds to head to the web.";
+
 /* 
  
  Main and Language menu options

@@ -61,12 +61,13 @@
     }
     
 #ifndef BITMASK
-    byteArray = malloc(pixelMask * sizeof(char));
-    memset(byteArray, 0, pixelMask * sizeof(char));
+    vectorLength = pixelMask * sizeof(char);
 #else
-    byteArray = malloc(pixelMask / 8);
-    memset(byteArray, 0, pixelMask / 8);
+    vectorLength = ceil(pixelMask / 8);
 #endif
+    
+    byteArray = malloc(vectorLength);
+    memset(byteArray, 0, vectorLength);
     
     for(int i = 0; i < pixelMask; i++) {
         NSUInteger index = y * width + x;
@@ -123,6 +124,8 @@
 #else
     int index = ((height - y) * (width) + x);
     signed char offset = (0x80 >> (index % 8));
+    if (index / 8 > vectorLength)
+        return NO;
     
     return (byteArray[index / 8] & offset) == offset;
 #endif

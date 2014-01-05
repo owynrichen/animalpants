@@ -20,7 +20,7 @@
 
 -(void) startPurchase: (NSString *) productId;
 -(void) blurFadeLayer: (BOOL) blur withDuration: (GLfloat) duration;
--(void) enableTouches: (BOOL) on;
+
 -(NSString *) genderStringForAnimalKey: (NSString *) key formatKey: (NSString *) formatPrefix replacement: (NSString *) replacement;
 @end
 
@@ -54,7 +54,6 @@
     ContentManifest *mfest = [[[ContentManifest alloc] init] autorelease];
     
     [mfest addManifest:animal.manifest];
-    // TODO: 
     
     return mfest;
 }
@@ -75,7 +74,7 @@
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    fadeLayer = [CCLayer node];
+    fadeLayer = [CCBaseLayer node];
     [self addChild:fadeLayer];
     
     popup = [FactDetailPopup popup];
@@ -159,10 +158,8 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kHeightFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:NO];
             [pointer blurFadeLayer:YES withDuration:0.5];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:YES];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -187,10 +184,8 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kWeightFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:NO];
             [pointer blurFadeLayer:YES withDuration:0.5];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:YES];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -215,10 +210,8 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kEarthFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:NO];
             [pointer blurFadeLayer:YES withDuration:0.5];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:YES];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -243,10 +236,8 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kFoodFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:NO];
             [pointer blurFadeLayer:YES withDuration:0.5];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:YES];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -271,10 +262,8 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kSpeedFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:NO];
             [pointer blurFadeLayer:YES withDuration:0.5];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:YES];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -299,10 +288,8 @@
         
         FactDetailPopup *p = (FactDetailPopup *) sender.parent.userData;
         [p showFact:kFaceFactFrame forAnimal:pAnimal withOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:NO];
             [pointer blurFadeLayer:YES withDuration:0.5];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
-            [pointer enableTouches:YES];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurFadeLayer:NO withDuration:0.1];
         }];
     }];
@@ -508,17 +495,6 @@
         FadeGridAction *blur = [FadeGridAction actionWithDuration:duration sigmaStart:1.0 sigmaEnd:0.0 desaturateStart:0.7 desaturateEnd:0.0];
         [fadeLayer runAction:blur];
     }
-}
-
--(void) enableTouches: (BOOL) on {
-    [heightFrame enableTouches:on];
-    [weightFrame enableTouches:on];
-    [locFrame enableTouches:on];
-    [foodFrame enableTouches:on];
-    [speedFrame enableTouches:on];
-    [photoFrame enableTouches:on];
-    [back enableTouches:on];
-    [playbuy enableTouches:on];
 }
 
 @end

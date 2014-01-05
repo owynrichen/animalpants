@@ -65,7 +65,7 @@
         
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.6]];
         Popup *p = (Popup *) sender.parent.parent;
-        [p hide];
+        [p hide: kPopupCloseStateManual];
     }];
     
     self.contentSize = background.contentSize;
@@ -90,7 +90,11 @@
     [super dealloc];
 }
 
--(void) showWithOpenBlock:(PopupBlock) openBlock closeBlock:(PopupBlock) closeBlock analyticsKey:(NSString *)key {
+-(void) showWithOpenBlock:(PopupBlock) openBlock closeBlock:(PopupCloseBlock) closeBlock analyticsKey:(NSString *)key {
+    if ([self.parent respondsToSelector:@selector(enableTouches:)]) {
+        [self.parent enableTouches:NO];
+    }
+    
     if (openBlock != nil)
         openBlock(self);
     
@@ -101,14 +105,16 @@
     apView(key);
 }
 
--(void) hide {
+-(void) hide: (PopupCloseState) state {
+    if ([self.parent respondsToSelector:@selector(enableTouches:)]) {
+        [self.parent enableTouches:YES];
+    }
+    
     if (cBlock != nil) {
-        cBlock(self);
+        cBlock(self, state);
         [cBlock release];
         cBlock = nil;
     }
-    
-    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
     
     [self runAction:[CCFadeOut actionWithDuration:0.3]];
     [self runAction:[CCScaleTo actionWithDuration:0.3 scale:0.8]];

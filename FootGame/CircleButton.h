@@ -13,6 +13,7 @@
     CCAutoScalingSprite *back;
     CCNode<CCRGBAProtocol> *middle;
     CCAutoScalingSprite *sheen;
+    BOOL touchAdded;
 }
 
 +(id) buttonWithFile: (NSString *) img;
@@ -27,6 +28,8 @@
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event;
+
+-(void) enableTouches: (BOOL) on;
 
 -(void) setColor:(ccColor3B)color;
 -(ccColor3B) color;

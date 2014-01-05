@@ -12,7 +12,7 @@
 #import "FactFrame.h"
 #import "FactDetailPopup.h"
 
-@interface AnimalFactsLayer :  CCPreloadingLayer<CCTargetedTouchDelegate, ProductRetrievalDelegate, PurchaseViewDelegate> {
+@interface AnimalFactsLayer :  CCPreloadingLayer<ProductRetrievalDelegate, PurchaseViewDelegate> {
     Animal *animal;
     PurchaseViewController *purchase;
     
@@ -29,7 +29,7 @@
     FactFrame *photoFrame;
     FactFrame *locFrame;
     
-    CCLayer *fadeLayer;
+    CCBaseLayer *fadeLayer;
     
     FactDetailPopup *popup;
 #ifdef TESTING

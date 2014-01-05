@@ -2064,6 +2064,8 @@
 		7537139E18600FBF00899F1D /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7537139A18600FBF00899F1D /* Icon-80.png */; };
 		7537139F18600FBF00899F1D /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 7537139B18600FBF00899F1D /* Icon-100.png */; };
 		753713A1186010F800899F1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753713A0186010F800899F1D /* Images.xcassets */; };
+		75E08B931873B43500D322B0 /* ParentGatePopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E08B921873B43500D322B0 /* ParentGatePopup.m */; };
+		75E08BD11878FAD000D322B0 /* CCBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E08BD01878FAD000D322B0 /* CCBaseLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4712,6 +4714,10 @@
 		7537139A18600FBF00899F1D /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-80.png"; path = "Resources/Icon-80.png"; sourceTree = "<group>"; };
 		7537139B18600FBF00899F1D /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-100.png"; path = "Resources/Icon-100.png"; sourceTree = "<group>"; };
 		753713A0186010F800899F1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		75E08B911873B43500D322B0 /* ParentGatePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentGatePopup.h; sourceTree = "<group>"; };
+		75E08B921873B43500D322B0 /* ParentGatePopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentGatePopup.m; sourceTree = "<group>"; };
+		75E08BCF1878FAD000D322B0 /* CCBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBaseLayer.h; sourceTree = "<group>"; };
+		75E08BD01878FAD000D322B0 /* CCBaseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBaseLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5568,6 +5574,8 @@
 				3684449017AAA7FB009A59F6 /* NSString+NSHash.m */,
 				36C7AFE8180097F200794FF8 /* CCSpriteFrameCache+Enumerable.h */,
 				36C7AFE9180097F200794FF8 /* CCSpriteFrameCache+Enumerable.m */,
+				75E08BCF1878FAD000D322B0 /* CCBaseLayer.h */,
+				75E08BD01878FAD000D322B0 /* CCBaseLayer.m */,
 			);
 			name = CCExtensions;
 			sourceTree = "<group>";
@@ -6567,6 +6575,8 @@
 				364B077915A552F10054E69A /* MainMenuLayer.m */,
 				3640E42F17429069002C97E8 /* Popup.h */,
 				3640E43017429069002C97E8 /* Popup.m */,
+				75E08B911873B43500D322B0 /* ParentGatePopup.h */,
+				75E08B921873B43500D322B0 /* ParentGatePopup.m */,
 				367CE956166521210046ED1C /* PremiumContentStore.h */,
 				367CE957166521210046ED1C /* PremiumContentStore.m */,
 				367CE9591665A0F20046ED1C /* PromotionCodeManager.h */,
@@ -10405,11 +10415,13 @@
 				36FBBD871651590C002B0138 /* AudioCues.m in Sources */,
 				36FBBD90165178A5002B0138 /* AudioCueRepository.m in Sources */,
 				36FD90D4165BE9E300D90D0E /* Behavior+PuffyCloud.m in Sources */,
+				75E08B931873B43500D322B0 /* ParentGatePopup.m in Sources */,
 				367CE955166343FE0046ED1C /* InAppPurchaseManager.m in Sources */,
 				367CE958166521210046ED1C /* PremiumContentStore.m in Sources */,
 				367CE95B1665A0F20046ED1C /* PromotionCodeManager.m in Sources */,
 				366548EA166919530073B3BA /* NSObject+SBJSON.m in Sources */,
 				366548EB166919530073B3BA /* NSString+SBJSON.m in Sources */,
+				75E08BD11878FAD000D322B0 /* CCBaseLayer.m in Sources */,
 				366548EC166919530073B3BA /* SBJsonBase.m in Sources */,
 				366548ED166919530073B3BA /* SBJsonParser.m in Sources */,
 				366548EE166919530073B3BA /* SBJsonWriter.m in Sources */,
@@ -10607,6 +10619,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FootGame/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"COCOS2D_DEBUG=0",
+					DEBUG,
+				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = FootGame/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;

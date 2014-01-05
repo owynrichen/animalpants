@@ -141,6 +141,8 @@
 -(id) init {
     self = [self initWithAnimal:animal = [[AnimalPartRepository sharedRepository] getNextAnimal]];
     
+    started = NO;
+    
     return self;
 }
 
@@ -160,7 +162,7 @@
     if ([[PremiumContentStore instance] ownsProductId:animal.productId]) {
         [self startLevel];
     } else {
-        [[CCDirector sharedDirector] pause];
+        [self pause];
         [[SoundManager sharedManager] playSound:locfile(@"upsell.mp3")];
         [[InAppPurchaseManager instance] getProducts:self withData:nil];
         apEvent(@"story", @"freemium", @"complete");
@@ -226,7 +228,7 @@
 }
 
 -(void) setupLevel {
-    gameLayer = [CCLayer node];
+    gameLayer = [CCBaseLayer node];
     [self addChild:gameLayer];
     
     hudLayer = [CCLayer node];
@@ -266,9 +268,6 @@
     prev.visible = false;
     
     [gameLayer addChild:prev];
-    
-    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:25 paused:NO repeat:20 delay:20];
-    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(randomEvent:) forTarget:self interval:15 paused:NO repeat:20 delay:8];
     
     streak = [CCMotionStreak streakWithFade:1 minSeg:10 width:50 color:ccWHITE textureFilename:@"rainbow.png"];
     streak.fastMode = NO;
@@ -312,9 +311,7 @@
                 [pointer openFactPage];
             }];
         } forAnimalKey: animal.key];
-    
-    
-    
+
     settingsMenu.position = ccpToRatio(512, 300);
     
     __block InGameLanguageMenuPopup *lPointer = langMenu;
@@ -343,7 +340,7 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.8]];
         [lPointer showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
             [pointer blurGameLayer:YES withDuration:0.2];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurGameLayer:NO withDuration:0.2];
         } analyticsKey:@"In Game Languages Menu"];
     }];
@@ -363,7 +360,7 @@
         [sender.parent runAction:[CCScaleTo actionWithDuration:0.1 scale:0.5]];
         [sPointer showWithOpenBlock:^(CCNode<CCRGBAProtocol> *popup) {
             [pointer blurGameLayer:YES withDuration:0.2];
-        } closeBlock:^(CCNode<CCRGBAProtocol> *popup) {
+        } closeBlock:^(CCNode<CCRGBAProtocol> *popup, PopupCloseState state) {
             [pointer blurGameLayer:NO withDuration:0.2];
         } analyticsKey:@"In Game Settings Menu"];
     }];
@@ -428,7 +425,11 @@
 }
 
 -(void) startLevel {
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(drawAttention:) forTarget:self interval:25 paused:NO repeat:20 delay:20];
+    [[[CCDirector sharedDirector] scheduler] scheduleSelector:@selector(randomEvent:) forTarget:self interval:15 paused:NO repeat:20 delay:8];
+    
     [self startNarration:0.0];
+    started = YES;
 }
 
 -(void) update:(ccTime)delta {
@@ -437,6 +438,9 @@
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (!started)
+        return NO;
+    
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     nextTouched = NO;
     bodyTouched = NO;
@@ -478,6 +482,9 @@
     return NO;
 }
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (!started)
+        return;
+    
     CGPoint pnt = [[CCDirector sharedDirector] convertToGL: [touch locationInView:[touch view]]];
     
 #if USE_PHYSICS_ENGINE
@@ -524,6 +531,9 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (!started)
+        return;
+    
     BOOL footTouched = NO;
     
 #if USE_PHYSICS_ENGINE
@@ -597,43 +607,48 @@
         }
     } else if (nextTouched) {
         [next stopAllActions];
+        if (!loading) {
+            loading = YES;
+            Animal *nextAnimal = [[AnimalPartRepository sharedRepository] getNextAnimal];
+            CCScene *nextScene;
         
-        Animal *nextAnimal = [[AnimalPartRepository sharedRepository] getNextAnimal];
-        CCScene *nextScene;
+            if (nextAnimal != nil) {
+                nextScene = [AnimalViewLayer sceneWithAnimal:nextAnimal];
+            } else {
+                nextScene = [GoodbyeLayer scene];
+            }
         
-        if (nextAnimal != nil) {
-            nextScene = [AnimalViewLayer sceneWithAnimal:nextAnimal];
-        } else {
-            nextScene = [GoodbyeLayer scene];
-        }
-        
-        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            [background showGirls];
-            [narration stop];
+            [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+                [background showGirls];
+                [narration stop];
             
-            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration: 1.5],
+                [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration: 1.5],
                              [CCCallBlockN actionWithBlock:^(CCNode *node) {
-                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
-            }], nil]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:nextScene backwards:false]];
+                }], nil]];
             
-        }];
+            }];
+        }
     } else if (prevTouched) {
         [prev stopAllActions];
+        if (!loading) {
+            loading = YES;
         
-        Animal *prevAnimal = [[AnimalPartRepository sharedRepository] getPreviousAnimal];
-        CCScene *prevScene;
+            Animal *prevAnimal = [[AnimalPartRepository sharedRepository] getPreviousAnimal];
+            CCScene *prevScene;
         
-        if (prevAnimal != nil) {
-            prevScene = [AnimalViewLayer sceneWithAnimal:prevAnimal];
-        } else {
-            prevScene = [StoryLayer scene];
-        }
+            if (prevAnimal != nil) {
+                prevScene = [AnimalViewLayer sceneWithAnimal:prevAnimal];
+            } else {
+                prevScene = [StoryLayer scene];
+            }
         
-        [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
-            [narration stop];
+            [self doWhenLoadComplete:locstr(@"loading", @"strings", @"") blk:^{
+                [narration stop];
             
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:prevScene backwards:true]];
-        }];
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:prevScene backwards:true]];
+            }];
+        }
     }
 }
 
@@ -816,7 +831,7 @@
 
 -(BOOL) purchaseFinished: (BOOL) success {
     if (success) {
-        [[CCDirector sharedDirector] resume];
+        [self resume];
         apEvent(@"story", @"freemium", @"purchase complete");
         [self startLevel];
         [purchase.view removeFromSuperview];
@@ -914,7 +929,7 @@
 }
 
 -(void) quitToMainMenu {
-    [[CCDirector sharedDirector] resume];
+    [self resume];
     [self blurGameLayer:NO withDuration:0.1];
     
     [narration stop];
@@ -926,12 +941,24 @@
 }
 
 -(void) openFactPage {
-    [[CCDirector sharedDirector] resume];
+    [self resume];
     [self blurGameLayer:NO withDuration:0.1];
     
     [narration stop];
     
     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1 scene:[AnimalFactsLayer sceneWithAnimalKey:animal.key] backwards:true]];
+}
+
+-(void) pause {
+    [gameLayer enableTouches:NO];
+    [gameLayer pauseSchedulerAndActions];
+    isRunning_ = NO;
+}
+
+-(void) resume {
+    [gameLayer enableTouches:YES];
+    [gameLayer resumeSchedulerAndActions];
+    isRunning_ = YES;
 }
 
 @end

@@ -112,7 +112,7 @@
             if (pointer.opacity < 255)
                 return;
             
-            [pointer hide];
+            [pointer hide: kPopupCloseStateSuccess];
             NSString *l = ((CCNode *)sender).userData;
             BOOL o = [[PremiumContentStore instance] ownsProductId:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
             
@@ -141,17 +141,17 @@
     }
 }
 
--(void) showWithOpenBlock:(PopupBlock)openBlock closeBlock:(PopupBlock)closeBlock analyticsKey:(NSString *)key {
+-(void) showWithOpenBlock:(PopupBlock)openBlock closeBlock:(PopupCloseBlock)closeBlock analyticsKey:(NSString *)key {
     [super showWithOpenBlock:openBlock closeBlock:closeBlock analyticsKey:key];
     
     menu.visible = YES;
     menu.isTouchEnabled = YES;
 }
 
--(void) hide {
+-(void) hide: (PopupCloseState) state {
     menu.visible = NO;
     menu.isTouchEnabled = NO;
-    [super hide];
+    [super hide:state];
 }
 
 @end

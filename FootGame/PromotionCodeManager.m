@@ -226,6 +226,8 @@ static NSString *_sync = @"sync";
                                  [formatter stringFromDate:self.startDate], @"startDate",
                                  [formatter stringFromDate: self.endDate], @"endDate", nil];
     
+    [formatter release];
+    
     return dict;
 }
 

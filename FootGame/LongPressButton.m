@@ -71,7 +71,7 @@
         
         double endTime = [[NSDate date] timeIntervalSince1970];
         
-        if (b.block != nil && endTime - btn.startTime > 1.0 && b.visible)
+        if (b.block != nil && endTime - btn.startTime > btn.delay && b.visible)
             b.block(sender);
         
     }];
@@ -115,6 +115,24 @@
     
     CCSequence *seq = [CCSequence actions:[CCRotateBy actionWithDuration:d angle:360], start, nil];
     return seq;
+}
+
+-(void) setColor:(ccColor3B)color {
+    [super setColor:color];
+    [clockHand setColor:color];
+}
+
+-(ccColor3B) color {
+    return back.color;
+}
+
+-(GLubyte) opacity {
+    return back.opacity;
+}
+
+-(void) setOpacity: (GLubyte) opacity {
+    [super setOpacity:opacity];
+    clockHand.opacity = opacity;
 }
 
 @end

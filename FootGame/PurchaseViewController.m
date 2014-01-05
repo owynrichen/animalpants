@@ -12,10 +12,11 @@
 #import "CCAutoScaling.h"
 #import "AnalyticsPublisher.h"
 #import "MBProgressHUD.h"
+#import "ParentGatePopup.h"
 
 @interface PurchaseViewController ()
-- (void)showKeyboard:(NSNotification*)notification;
-- (void)hideKeyboard:(NSNotification*)notification;
+- (void) showKeyboard: (NSNotification*) notification;
+- (void) hideKeyboard: (NSNotification*) notification;
 @end
 
 @implementation PurchaseViewController
@@ -111,6 +112,11 @@
     self.productCost.text = product.priceAsString;
     self.productName.text = product.localizedTitle;
     self.promoCodeField.placeholder = locstr(@"promocode", @"strings", "");
+    
+#ifndef TESTING
+    // DOH!  Apple rejected the app because of the promo code
+    self.promoCodeField.hidden = YES;
+#endif
     
     NSString *viewString = [NSString stringWithFormat:@"Purchase View %@", product.productIdentifier];
     apView(viewString);
@@ -259,15 +265,36 @@
 
 -(IBAction) buyClick: (id) sender {
     if (!buying) {
-        NSString *promoText = self.promoCodeField.text;
+        __block PurchaseViewController *pointer = self;
+        ParentGatePopup *popup;
         
-        if (promoText == nil || [promoText isEqualToString:@""]) {
-            apEvent(@"buy", @"click", @"start for product");
-            [[InAppPurchaseManager instance] purchaseProduct:currentProduct delegate: self];
+        if ([[CCDirector sharedDirector].runningScene getChildByTag:PARENT_GATE_TAG] != nil) {
+            popup = (ParentGatePopup *) [[CCDirector sharedDirector].runningScene getChildByTag:PARENT_GATE_TAG];
         } else {
-            apEvent(@"buy", @"click", @"start with promo");
-            [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate:self];
+            popup = [ParentGatePopup popupWithSummaryKey:@"parent_gate_instructions_store" clickBlock:^{
+                pointer.view.hidden = NO;
+                NSString *promoText = pointer.promoCodeField.text;
+            
+                if (promoText == nil || [promoText isEqualToString:@""]) {
+                    apEvent(@"buy", @"click", @"start for product");
+                    [[InAppPurchaseManager instance] purchaseProduct:currentProduct delegate: pointer];
+                } else {
+                    apEvent(@"buy", @"click", @"start with promo");
+                    [[PromotionCodeManager instance] usePromotionCode:promoText withDelegate: pointer];
+                }
+            }];
+            [[CCDirector sharedDirector].runningScene addChild:popup z:1000 tag: PARENT_GATE_TAG];
+            CGSize winsize = [CCDirector sharedDirector].winSize;
+            popup.position = ccpToRatio(winsize.width / 2, winsize.height / 2);
         }
+        [popup showWithOpenBlock:^(CCNode<CCRGBAProtocol> *p) {
+            pointer.view.hidden = YES;
+            [MBProgressHUD hideHUDForView:[CCDirector sharedDirector].view animated:YES];
+        } closeBlock:^(CCNode<CCRGBAProtocol> *p, PopupCloseState state) {
+            if (state == kPopupCloseStateManual) {
+                [pointer cancelClick:p];
+            }
+        } analyticsKey:@"Purchase Parent Gate"];
     } else {
         apEvent(@"buy", @"click", @"still in progress");
     }
@@ -307,10 +334,6 @@
 
 - (void)showKeyboard:(NSNotification*)notification
 {
-//    NSDictionary* keyboardInfo = [notification userInfo];
-//    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-//    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    
     titleLabel.hidden = YES;
     productName.hidden = YES;
     productCost.hidden = YES;
@@ -337,10 +360,6 @@
 }
 
 - (void)hideKeyboard:(NSNotification*)notification {
-    // NSDictionary* keyboardInfo = [notification userInfo];
-    // NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    // CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    
     titleLabel.hidden = NO;
     productName.hidden = NO;
     productCost.hidden = NO;
@@ -410,5 +429,6 @@
     [alert show];
     [alert release];
 }
+
 
 @end

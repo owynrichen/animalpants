@@ -12,6 +12,7 @@
 #import "LocalizationManager.h"
 #import "FadeGrid3D.h"
 #import "MBProgressHUD.h"
+#import "ParentGatePopup.h"
 
 @interface SettingsLayer()
 -(void) redrawMenu;
@@ -182,12 +183,14 @@
 -(void) redrawMenu {
     [menu removeAllChildrenWithCleanup:YES];
     
+    __block SettingsLayer *pointer = self;
+    
     CircleButton *restoreIcon = [CircleButton buttonWithFile:@"restorepurchase.png"];
     restoreIcon.position = ccp(0,0);
     restoreIcon.scale = 0.7;
     
     CCButtonMenuItem *restore = [CCButtonMenuItem itemWithButton: restoreIcon text:locstr(@"restore_purchases", @"strings", @"") block:^(id sender) {
-        [[InAppPurchaseManager instance] restorePurchases:self];
+        [[InAppPurchaseManager instance] restorePurchases:pointer];
     }];
     restore.anchorPoint = ccp(0,0);
     restore.position = ccp(0,0);
@@ -212,8 +215,25 @@
     NSString *url = [NSString stringWithFormat:@"http://www.alchemistkids.com/index.php/privacy-policy-%@/", [[LocalizationManager sharedManager] getAppPreferredLocale]];
     
     CCButtonMenuItem *ppolicy = [CCButtonMenuItem itemWithButton:privacyIcon text:locstr(@"privacy_policy", @"strings", @"") block:^(id sender) {
-        [[UIApplication sharedApplication]
-         openURL:[NSURL URLWithString:url]];
+        ParentGatePopup *popup;
+        
+        if ([pointer getChildByTag:PARENT_GATE_TAG] != nil) {
+            popup = (ParentGatePopup *) [pointer getChildByTag:PARENT_GATE_TAG];
+        } else {
+            popup = [ParentGatePopup popupWithSummaryKey:@"parent_gate_instructions_web" clickBlock:^{
+                [[UIApplication sharedApplication]
+                 openURL:[NSURL URLWithString:url]];
+            }];
+            popup.position = ccpToRatio(512, 384);
+        
+            [pointer addChild:popup z: 1000 tag:PARENT_GATE_TAG];
+        }
+        
+        [popup showWithOpenBlock:^(CCNode<CCRGBAProtocol> *p) {
+            
+        } closeBlock:^(CCNode<CCRGBAProtocol> *p, PopupCloseState state) {
+            
+        } analyticsKey:@"Privacy Policy Parent Gate"];
     }];
     ppolicy.anchorPoint = ccp(0,0);
     ppolicy.position = ccp(0, -restore.contentSize.height * 1.05 - fb.contentSize.height * 1.05);
@@ -225,7 +245,7 @@
         buyIcon.scale = 0.7;
         
         CCButtonMenuItem *buyAll = [CCButtonMenuItem itemWithButton: buyIcon text:locstr(@"buy", @"strings", @"") block:^(id sender) {
-            [[InAppPurchaseManager instance] getProducts:self withData:PREMIUM_PRODUCT_ID];
+            [[InAppPurchaseManager instance] getProducts:pointer withData:PREMIUM_PRODUCT_ID];
         }];
         buyAll.anchorPoint = ccp(0,0);
         buyAll.position = ccp(0,-restore.contentSize.height * 1.05 - fb.contentSize.height * 1.05 - ppolicy.contentSize.height * 1.05);

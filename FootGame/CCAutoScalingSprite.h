@@ -14,7 +14,10 @@
 
 // #define DRAW_HITSPACE 1
 
-@interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate>
+@interface CCAutoScalingSprite : CCSprite<CCTargetedTouchDelegate, BehaviorManagerDelegate> {
+    BOOL paused;
+    BOOL touchAdded;
+}
 
 @property (nonatomic, readonly) float autoScaleFactor;
 @property (nonatomic, readonly) BehaviorManager *behaviorManager;

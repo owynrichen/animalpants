@@ -51,7 +51,7 @@
 #endif
     CCMotionStreak *streak;
 
-    CCLayer *gameLayer;
+    CCBaseLayer *gameLayer;
     CCLayer *hudLayer;
     
     BOOL nextTouched;
@@ -60,6 +60,8 @@
     BOOL head1Touched;
     BOOL head2Touched;
     BOOL victory;
+    BOOL loading;
+    BOOL started;
     
     PurchaseViewController *purchase;
 }
@@ -86,5 +88,8 @@
 
 -(BOOL) cancelClicked: (BOOL) buying;
 -(BOOL) purchaseFinished: (BOOL) success;
+
+-(void) pause;
+-(void) resume;
 
 @end
