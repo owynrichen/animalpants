@@ -23,7 +23,7 @@
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) PurchaseViewController *purchase;
 
-+(CCScene *) scene;
++(CCBaseScene *) scene;
 
 -(void) redrawMenu;
 

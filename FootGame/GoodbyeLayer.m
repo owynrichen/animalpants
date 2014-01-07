@@ -23,10 +23,10 @@
 
 @implementation GoodbyeLayer
 
-+(CCScene *) scene
++(CCBaseScene *) scene
 {
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
+	CCBaseScene *scene = [CCBaseScene node];
 	
 	// 'layer' is an autorelease object.
 	GoodbyeLayer *layer = [GoodbyeLayer node];

@@ -26,9 +26,9 @@
 
 @implementation AnimalFactsLayer
 
-+(CCScene *) sceneWithAnimalKey: (NSString *) animal {
++(CCBaseScene *) sceneWithAnimalKey: (NSString *) animal {
     // 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
+	CCBaseScene *scene = [CCBaseScene node];
 	
 	// 'layer' is an autorelease object.
 	AnimalFactsLayer *layer;

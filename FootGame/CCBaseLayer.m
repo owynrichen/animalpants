@@ -8,6 +8,19 @@
 
 #import "CCBaseLayer.h"
 
+@implementation CCBaseScene
+
+-(void) enableTouches: (BOOL) on {
+    for (int i = 0; i < [children_ count]; i++) {
+        if ([[children_ objectAtIndex:i] respondsToSelector:@selector(enableTouches:)]) {
+            [[children_ objectAtIndex:i] enableTouches:on];
+        }
+    }
+}
+
+@end
+
+
 @implementation CCBaseLayer
 
 -(id) init {

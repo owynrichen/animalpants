@@ -26,6 +26,6 @@
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child
-+(CCScene *) scene;
++(CCBaseScene *) scene;
 
 @end

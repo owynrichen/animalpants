@@ -8,6 +8,14 @@
 
 #import "CCLayer.h"
 
+@interface CCBaseScene :CCScene {
+    
+}
+
+-(void) enableTouches: (BOOL) on;
+
+@end
+
 @interface CCBaseLayer : CCLayer<CCRGBAProtocol> {
     BOOL paused;
 }

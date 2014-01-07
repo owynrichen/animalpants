@@ -26,7 +26,7 @@
 @property (nonatomic, retain) CCAutoScalingSprite *credits;
 @property (nonatomic, retain) CCSprite *splashFade;
 
-+(CCScene *) scene;
++(CCBaseScene *) scene;
 
 
 @end

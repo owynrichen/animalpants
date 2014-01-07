@@ -77,12 +77,12 @@
 
 @implementation AnimalViewLayer
 
-+(CCScene *) scene
++(CCBaseScene *) scene
 {
 	return [AnimalViewLayer sceneWithAnimalKey:nil];
 }
 
-+(CCScene *) sceneWithAnimalKey: (NSString *) animal {
++(CCBaseScene *) sceneWithAnimalKey: (NSString *) animal {
     Animal *anml;
     
     if (animal == nil) {
@@ -94,9 +94,9 @@
     return [AnimalViewLayer sceneWithAnimal:anml];
 }
 
-+(CCScene *) sceneWithAnimal: (Animal *) animal {
++(CCBaseScene *) sceneWithAnimal: (Animal *) animal {
     // 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
+	CCBaseScene *scene = [CCBaseScene node];
     
     NSAssert(animal != nil, @"animal cannot be nil");
 	

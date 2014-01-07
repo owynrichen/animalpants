@@ -37,7 +37,7 @@
 #endif
 }
 
-+(CCScene *) sceneWithAnimalKey: (NSString *) animal;
++(CCBaseScene *) sceneWithAnimalKey: (NSString *) animal;
 
 +(ContentManifest *) manifestWithAnimalKey: (NSString *) animal;
 +(ContentManifest *) manifestWithAnimal: (Animal *) animal;

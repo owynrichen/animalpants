@@ -30,7 +30,7 @@
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 @property (nonatomic, retain) CreditsNode *credits;
 
-+(CCScene *) scene;
++(CCBaseScene *) scene;
 
 -(void) productRetrievalStarted;
 -(void) productsRetrieved: (NSArray *) products withData: (NSObject *) data;

@@ -23,7 +23,7 @@
 @property (nonatomic, retain) CCMenu *menu;
 @property (nonatomic, retain) CCAutoScalingSprite *background;
 
-+(CCScene *) scene;
++(CCBaseScene *) scene;
 
 -(void) redrawMenu;
 

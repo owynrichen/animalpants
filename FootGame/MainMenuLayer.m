@@ -28,10 +28,10 @@
 @synthesize credits;
 @synthesize splashFade;
 
-+(CCScene *) scene
++(CCBaseScene *) scene
 {
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
+	CCBaseScene *scene = [CCBaseScene node];
 	
 	// 'layer' is an autorelease object.
 	MainMenuLayer *layer = [MainMenuLayer node];

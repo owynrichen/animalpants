@@ -67,9 +67,9 @@
 }
 
 // returns a CCScene that contains the AnimalViewLayer as the only child
-+(CCScene *) scene;
-+(CCScene *) sceneWithAnimalKey: (NSString *) animal;
-+(CCScene *) sceneWithAnimal: (Animal *) animal;
++(CCBaseScene *) scene;
++(CCBaseScene *) sceneWithAnimalKey: (NSString *) animal;
++(CCBaseScene *) sceneWithAnimal: (Animal *) animal;
 
 +(ContentManifest *) manifestWithAnimalKey: (NSString *) animal;
 +(ContentManifest *) manifestWithAnimal: (Animal *) animal;
