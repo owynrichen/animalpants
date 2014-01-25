@@ -131,4 +131,8 @@
     [potentiometer setOpacity:opacity];
 }
 
+-(void) enableTouches:(BOOL) on {
+    potentiometer.enabled = on;
+}
+
 @end

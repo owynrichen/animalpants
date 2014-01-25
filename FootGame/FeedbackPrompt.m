@@ -12,6 +12,7 @@
 #import "PremiumContentStore.h"
 #import "PromotionCodeManager.h"
 #import "NSString+NSHash.h"
+#import "ParentGatePopup.h"
 
 // count after which Rate this app alert shown
 #define STARTUP_COUNT_SHOW_DIALOG 3
@@ -74,29 +75,54 @@
 #pragma mark Alert View Delegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ParentClickBlock clickBlock;
+    NSString *key;
+    __block FeedbackPrompt *pointer = self;
+    
     switch(buttonIndex) {
         case 0:
             apEvent(@"rating",@"later",@"");
-            break;
+            return;
         case 1:
-            apEvent(@"rating",@"yes",@"");
-        
-            NSString *uri = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=581827653";
+            key = @"parent_gate_instructions_rating";
+            clickBlock = ^{
+                apEvent(@"rating",@"yes",@"");
+
+                NSString *uri = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=581827653";
             
-            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
-                uri = @"itms-apps://itunes.apple.com/app/id581827653";
-            }
+                if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+                    uri = @"itms-apps://itunes.apple.com/app/id581827653";
+                }
             
-            [[UIApplication sharedApplication]
-             openURL:[NSURL URLWithString:uri]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:uri]];
+            };
             break;
         case 2:
-            apEvent(@"rating",@"no",@"");
+            key = @"parent_gate_instructions_feedback";
+            clickBlock = ^{
+                apEvent(@"rating",@"no",@"");
         
-            [self showFeedbackDialog];
+                [pointer showFeedbackDialog];
+            };
             
             break;
     }
+    
+    ParentGatePopup *popup;
+    
+    if ([[CCDirector sharedDirector].runningScene getChildByTag:PARENT_GATE_TAG] != nil) {
+        popup = (ParentGatePopup *) [[CCDirector sharedDirector].runningScene getChildByTag:PARENT_GATE_TAG];
+        [popup removeFromParentAndCleanup:YES];
+    }
+    
+    popup = [ParentGatePopup popupWithSummaryKey:key clickBlock: clickBlock];
+    [[CCDirector sharedDirector].runningScene addChild:popup z:1000 tag: PARENT_GATE_TAG];
+    CGSize winsize = [CCDirector sharedDirector].winSize;
+    popup.position = ccpToRatio(winsize.width / 2, winsize.height / 2);
+    
+    [popup showWithOpenBlock:^(CCNode<CCRGBAProtocol> *p) {
+    } closeBlock:^(CCNode<CCRGBAProtocol> *p, PopupCloseState state) {
+    } analyticsKey:@"Feedback Parent Gate"];
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller

@@ -14,7 +14,7 @@
 
 typedef void (^ParentClickBlock)(void);
 
-const int PARENT_GATE_TAG = 1874;
+static const int PARENT_GATE_TAG = 1874;
 
 @interface ParentGatePopup : Popup {
     CCLabelTTFWithExtrude *title;

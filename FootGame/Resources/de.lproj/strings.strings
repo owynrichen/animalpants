@@ -45,6 +45,8 @@
 "parent_gate_title" = "Eltern nur!";
 "parent_gate_instructions_store" = "Halten Sie die Taste für 5 Sekunden, um in den App Store gehen.";
 "parent_gate_instructions_web" = "Halten Sie die Taste für 5 Sekunden auf die Bahn fahren.";
+"parent_gate_instructions_rating" = "Halten Sie die Taste für 5 Sekunden, um uns in den App Store zu bewerten!";
+"parent_gate_instructions_feedback" = "Halten Sie die Taste für 5 Sekunden, um Feedback zu senden.";
 
 /*
  

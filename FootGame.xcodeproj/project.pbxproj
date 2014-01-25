@@ -867,7 +867,6 @@
 		363EFD25180B69520021E67A /* flower_noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD24180B69520021E67A /* flower_noise.mp3 */; };
 		363EFD27180B69B40021E67A /* truck_engine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD26180B69B40021E67A /* truck_engine.mp3 */; };
 		363EFD2B18122BA50021E67A /* frogs.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD2A18122BA50021E67A /* frogs.mp3 */; };
-		363EFD2D18122C0B0021E67A /* monkey2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD2C18122C0B0021E67A /* monkey2.mp3 */; };
 		363EFD2F18122CAF0021E67A /* lions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD2E18122CAF0021E67A /* lions.mp3 */; };
 		363EFD3118122CFB0021E67A /* honk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD3018122CFB0021E67A /* honk.mp3 */; };
 		363EFD3318122D390021E67A /* ball_bounce.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD3218122D390021E67A /* ball_bounce.mp3 */; };
@@ -2064,6 +2063,7 @@
 		7537139E18600FBF00899F1D /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7537139A18600FBF00899F1D /* Icon-80.png */; };
 		7537139F18600FBF00899F1D /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 7537139B18600FBF00899F1D /* Icon-100.png */; };
 		753713A1186010F800899F1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753713A0186010F800899F1D /* Images.xcassets */; };
+		756D4687187F8B6E00039E18 /* monkey3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 363EFD2C18122C0B0021E67A /* monkey3.mp3 */; };
 		75E08B931873B43500D322B0 /* ParentGatePopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E08B921873B43500D322B0 /* ParentGatePopup.m */; };
 		75E08BD11878FAD000D322B0 /* CCBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E08BD01878FAD000D322B0 /* CCBaseLayer.m */; };
 		75E08BD4187A19CC00D322B0 /* AlchemistKids-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E08BD2187A19CC00D322B0 /* AlchemistKids-landscape.png */; };
@@ -3423,7 +3423,7 @@
 		363EFD24180B69520021E67A /* flower_noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flower_noise.mp3; sourceTree = "<group>"; };
 		363EFD26180B69B40021E67A /* truck_engine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = truck_engine.mp3; sourceTree = "<group>"; };
 		363EFD2A18122BA50021E67A /* frogs.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = frogs.mp3; sourceTree = "<group>"; };
-		363EFD2C18122C0B0021E67A /* monkey2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monkey2.mp3; sourceTree = "<group>"; };
+		363EFD2C18122C0B0021E67A /* monkey3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monkey3.mp3; sourceTree = "<group>"; };
 		363EFD2E18122CAF0021E67A /* lions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lions.mp3; sourceTree = "<group>"; };
 		363EFD3018122CFB0021E67A /* honk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = honk.mp3; sourceTree = "<group>"; };
 		363EFD3218122D390021E67A /* ball_bounce.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ball_bounce.mp3; sourceTree = "<group>"; };
@@ -6918,7 +6918,7 @@
 		3686795816207A9E00D98199 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				363EFD2C18122C0B0021E67A /* monkey2.mp3 */,
+				363EFD2C18122C0B0021E67A /* monkey3.mp3 */,
 				3681B23417494A60000C48BE /* Tiger_mixed.mp3 */,
 			);
 			path = Audio;
@@ -8441,6 +8441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756D4687187F8B6E00039E18 /* monkey3.mp3 in Resources */,
 				365DFBE116176E3200E8B708 /* water-ipadhd.fs in Resources */,
 				365DFBE216176E3200E8B708 /* fade.vs in Resources */,
 				365DFBE316176E3200E8B708 /* fade.fs in Resources */,
@@ -10359,7 +10360,6 @@
 				363EFD25180B69520021E67A /* flower_noise.mp3 in Resources */,
 				363EFD27180B69B40021E67A /* truck_engine.mp3 in Resources */,
 				363EFD2B18122BA50021E67A /* frogs.mp3 in Resources */,
-				363EFD2D18122C0B0021E67A /* monkey2.mp3 in Resources */,
 				363EFD2F18122CAF0021E67A /* lions.mp3 in Resources */,
 				363EFD3118122CFB0021E67A /* honk.mp3 in Resources */,
 				363EFD3318122D390021E67A /* ball_bounce.mp3 in Resources */,

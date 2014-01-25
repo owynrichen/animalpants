@@ -46,26 +46,33 @@ static NSString *__sync = @"sync";
     if (__manifest == nil) {
         @synchronized(__sync) {
             if (__manifest == nil) {
-                NSMutableArray *images = [[[NSMutableArray alloc] init] autorelease];
-                NSMutableArray *audio = [[[NSMutableArray alloc] init] autorelease];
+                NSMutableArray *images = [[NSMutableArray alloc] init];
+                NSMutableArray *audio = [[NSMutableArray alloc] init];
                 [[[AnimalPartRepository sharedRepository] allAnimals] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
                     
                     NSString *imageKey = [NSString stringWithFormat:@"circle-%@.png", [key lowercaseString]];
                     NSString *selectedImageKey = [NSString stringWithFormat:@"circle-%@-happy.png", [key lowercaseString]];
                     
-                    [images addObject:imageKey];
-                    [images addObject:selectedImageKey];
+                    if (imageKey != nil)
+                        [images addObject:imageKey];
+                    
+                    if (selectedImageKey != nil)
+                        [images addObject:selectedImageKey];
                     
                     // TODO: this only loads the current language strings and won't
                     // preload any others again... figure out what to do
                     NSString *sound = [[NSString stringWithFormat:@"%@.mp3", key] lowercaseString];
                     NSString *soundfname = locfile(sound);
                     
-                    [audio addObject:soundfname];
+                    if (soundfname != nil) {
+                        [audio addObject:soundfname];
+                    }
                 }];
                 // TODO: preload title
                 
                 __manifest = [[ContentManifest alloc] initWithImages:images audio:audio];
+                [images release];
+                [audio release];
             }
         }
     }

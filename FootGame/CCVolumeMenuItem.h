@@ -23,5 +23,6 @@ typedef enum VolumeType {
 +(id) buttonWithVolumeType: (VolumeType) type button: (CCNode<CCRGBAProtocol> *) btn text: (NSString *) text;
 
 -(id) initWithVolumeType: (VolumeType) type button: (CCNode<CCRGBAProtocol> *) btn text: (NSString *) text;
+-(void) enableTouches:(BOOL) on;
 
 @end
