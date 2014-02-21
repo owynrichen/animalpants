@@ -352,7 +352,6 @@
 		3623D5D816A4E81B007D3993 /* petal-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3623D5D316A4E81B007D3993 /* petal-ipadhd.png */; };
 		3623D5D916A4E81B007D3993 /* petal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3623D5D416A4E81B007D3993 /* petal.png */; };
 		3623D5DC16A4E887007D3993 /* Behavior+Petals.m in Sources */ = {isa = PBXBuildFile; fileRef = 3623D5DB16A4E886007D3993 /* Behavior+Petals.m */; };
-		3625983F1677C7E300E1D3A0 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625983E1677C7E200E1D3A0 /* libGoogleAnalytics.a */; };
 		362598411677CE8E00E1D3A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362598401677CE8E00E1D3A0 /* SystemConfiguration.framework */; };
 		362598431677CE9900E1D3A0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362598421677CE9900E1D3A0 /* CoreData.framework */; };
 		3625984A16785FB100E1D3A0 /* Giraffe_style1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3625984916785FB100E1D3A0 /* Giraffe_style1.mp3 */; };
@@ -2017,7 +2016,6 @@
 		36F9A1AD15BCA0F900A0A8F3 /* rainbow.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F9A1AC15BCA0F900A0A8F3 /* rainbow.png */; };
 		36F9A1B315BCBB3200A0A8F3 /* BehaviorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F9A1B215BCBB3100A0A8F3 /* BehaviorManager.m */; };
 		36F9BE91154AE6B000059C14 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36F9BE90154AE6B000059C14 /* Entitlements.plist */; };
-		36F9BE95154AE6DB00059C14 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F9BE93154AE6DB00059C14 /* libTestFlight.a */; };
 		36FBBD871651590C002B0138 /* AudioCues.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD861651590C002B0138 /* AudioCues.m */; };
 		36FBBD8D16517030002B0138 /* Cue-story1.en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36FBBD8C16517030002B0138 /* Cue-story1.en.plist */; };
 		36FBBD90165178A5002B0138 /* AudioCueRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FBBD8F165178A5002B0138 /* AudioCueRepository.m */; };
@@ -2068,6 +2066,8 @@
 		75E08BD11878FAD000D322B0 /* CCBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E08BD01878FAD000D322B0 /* CCBaseLayer.m */; };
 		75E08BD4187A19CC00D322B0 /* AlchemistKids-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E08BD2187A19CC00D322B0 /* AlchemistKids-landscape.png */; };
 		75E08BD5187A19CC00D322B0 /* AlchemistKids-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E08BD3187A19CC00D322B0 /* AlchemistKids-landscape@2x.png */; };
+		75FC8A3618AC851300417897 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F9BE93154AE6DB00059C14 /* libTestFlight.a */; };
+		75FC8A3718AC873D00417897 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FC8A3318AC80B300417897 /* libGoogleAnalyticsServices.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2892,8 +2892,6 @@
 		362598391677C7DF00E1D3A0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = ../GAI.h; sourceTree = "<group>"; };
 		3625983A1677C7E000E1D3A0 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = ../GAITrackedViewController.h; sourceTree = "<group>"; };
 		3625983B1677C7E000E1D3A0 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = ../GAITracker.h; sourceTree = "<group>"; };
-		3625983C1677C7E100E1D3A0 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = ../GAITransaction.h; sourceTree = "<group>"; };
-		3625983D1677C7E100E1D3A0 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = ../GAITransactionItem.h; sourceTree = "<group>"; };
 		3625983E1677C7E200E1D3A0 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		362598401677CE8E00E1D3A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		362598421677CE9900E1D3A0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -4716,12 +4714,18 @@
 		7537139A18600FBF00899F1D /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-80.png"; path = "Resources/Icon-80.png"; sourceTree = "<group>"; };
 		7537139B18600FBF00899F1D /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-100.png"; path = "Resources/Icon-100.png"; sourceTree = "<group>"; };
 		753713A0186010F800899F1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		75C5E70C18A3E67A009BAF36 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		75C5E70D18A3E67A009BAF36 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		75E08B911873B43500D322B0 /* ParentGatePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentGatePopup.h; sourceTree = "<group>"; };
 		75E08B921873B43500D322B0 /* ParentGatePopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentGatePopup.m; sourceTree = "<group>"; };
 		75E08BCF1878FAD000D322B0 /* CCBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBaseLayer.h; sourceTree = "<group>"; };
 		75E08BD01878FAD000D322B0 /* CCBaseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBaseLayer.m; sourceTree = "<group>"; };
 		75E08BD2187A19CC00D322B0 /* AlchemistKids-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AlchemistKids-landscape.png"; path = "Resources/AlchemistKids-landscape.png"; sourceTree = "<group>"; };
 		75E08BD3187A19CC00D322B0 /* AlchemistKids-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AlchemistKids-landscape@2x.png"; path = "Resources/AlchemistKids-landscape@2x.png"; sourceTree = "<group>"; };
+		75FC89F518AC807000417897 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = SOURCE_ROOT; };
+		75FC89F618AC807000417897 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = SOURCE_ROOT; };
+		75FC89F718AC807000417897 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = SOURCE_ROOT; };
+		75FC8A3318AC80B300417897 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4729,6 +4733,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75FC8A3718AC873D00417897 /* libGoogleAnalyticsServices.a in Frameworks */,
+				75FC8A3618AC851300417897 /* libTestFlight.a in Frameworks */,
 				3684448E17A9AE11009A59F6 /* MessageUI.framework in Frameworks */,
 				369FC19A1752C50600DDC04F /* libChipmunk.a in Frameworks */,
 				36819427173361D200325B2B /* libcocos2d.a in Frameworks */,
@@ -4745,8 +4751,6 @@
 				367EC2EB133A4782003F7FF0 /* UIKit.framework in Frameworks */,
 				367EC2ED133A4782003F7FF0 /* Foundation.framework in Frameworks */,
 				367EC2EF133A4782003F7FF0 /* CoreGraphics.framework in Frameworks */,
-				36F9BE95154AE6DB00059C14 /* libTestFlight.a in Frameworks */,
-				3625983F1677C7E300E1D3A0 /* libGoogleAnalytics.a in Frameworks */,
 				3684448617A71CC2009A59F6 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6507,6 +6511,7 @@
 		367EC2DF133A4782003F7FF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75FC8A3318AC80B300417897 /* libGoogleAnalyticsServices.a */,
 				3684448D17A9AE10009A59F6 /* MessageUI.framework */,
 				3684448517A71CC2009A59F6 /* FacebookSDK.framework */,
 				3612EA8B16D71F35009B6FC9 /* CoreLocation.framework */,
@@ -6595,6 +6600,8 @@
 				368006721375ADF400F6603F /* SoundManager.m */,
 				367EC498133A4785003F7FF0 /* GameConfig.h */,
 				36F9BE94154AE6DB00059C14 /* TestFlight.h */,
+				75C5E70C18A3E67A009BAF36 /* TestFlight+AsyncLogging.h */,
+				75C5E70D18A3E67A009BAF36 /* TestFlight+ManualSessions.h */,
 				362DC13C16D5BF6100881B32 /* WorldMapNode.h */,
 				362DC13D16D5BF6600881B32 /* WorldMapNode.m */,
 				3625984B1678EC0700E1D3A0 /* MBProgressHUD.h */,
@@ -6632,12 +6639,13 @@
 		367EC48B133A4785003F7FF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75FC89F518AC807000417897 /* GAIDictionaryBuilder.h */,
+				75FC89F618AC807000417897 /* GAIFields.h */,
+				75FC89F718AC807000417897 /* GAILogger.h */,
 				367EC48C133A4785003F7FF0 /* Prefix.pch */,
 				362598391677C7DF00E1D3A0 /* GAI.h */,
 				3625983A1677C7E000E1D3A0 /* GAITrackedViewController.h */,
 				3625983B1677C7E000E1D3A0 /* GAITracker.h */,
-				3625983C1677C7E100E1D3A0 /* GAITransaction.h */,
-				3625983D1677C7E100E1D3A0 /* GAITransactionItem.h */,
 				367EC48D133A4785003F7FF0 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -10636,8 +10644,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/FootGame\"",
-					"\"$(SRCROOT)\"",
+					"\\\"$(SRCROOT)/FootGame\\\"",
+					"$(SRCROOT)",
+					/Users/oriche/Documents/code/alchemist/footgame,
+					/Users/oriche/Documents/code/alchemist/footgame/FootGame,
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "--ignore-resources";
@@ -10673,8 +10683,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/FootGame\"",
-					"\"$(SRCROOT)\"",
+					"\\\"$(SRCROOT)/FootGame\\\"",
+					"$(SRCROOT)",
+					/Users/oriche/Documents/code/alchemist/footgame,
+					/Users/oriche/Documents/code/alchemist/footgame/FootGame,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "--ignore-resources";

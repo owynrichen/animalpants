@@ -7,6 +7,8 @@
 //
 
 #import "AnalyticsPublisher.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 #define GA_ID @"UA-4051939-10"
@@ -43,7 +45,6 @@ static NSString *_sync = @"sync";
 
 -(void) dealloc {
     if (ga != nil) {
-        [ga close];
         ga = nil;
     }
     
@@ -51,7 +52,8 @@ static NSString *_sync = @"sync";
 }
 
 -(void) trackView: (NSString *) view {
-	[ga trackView:view];
+    
+	[ga send:[[[GAIDictionaryBuilder createAppView] set:view forKey:kGAIScreenName] build]];
 }
 
 -(void) trackEvent: (NSString *) event action: (NSString *) action label: (NSString *) label {
@@ -63,21 +65,20 @@ static NSString *_sync = @"sync";
 	
 	if (label != nil)
 		lbl = label;
-	
-	[ga trackEventWithCategory:event withAction:act withLabel:lbl withValue:[NSNumber numberWithInt: 1]];
+    
+    [ga send: [[GAIDictionaryBuilder createEventWithCategory:event action:act label:lbl value:[NSNumber numberWithInt:1]] build]];
 }
 
 -(void) trackError: (NSError *) error {
     if (error != nil) {
-        [ga trackException:NO withNSError:error];
+        [ga send:[[GAIDictionaryBuilder createExceptionWithDescription:[error localizedDescription] withFatal:NO] build]];
     } else  {
         [self trackErrorWithMessage:@"Unspecified Error"];
     }
 }
 
--(void) trackErrorWithMessage: (NSString *) msg {
-    // TODO: grab stack trace and deliver it...
-    [ga trackException:NO withDescription:msg];
+-(void) trackErrorWithMessage:(NSString *)msg {
+    [ga send:[[GAIDictionaryBuilder createExceptionWithDescription:msg withFatal:NO] build]];
 }
 
 -(void) trackPurchase: (SKProduct *) skpdct txn: (SKPaymentTransaction *) sktxn {
@@ -87,16 +88,10 @@ static NSString *_sync = @"sync";
         return;
     }
     
-    GAITransaction *txn = [GAITransaction transactionWithId:sktxn.transactionIdentifier withAffiliation:@"In-App Store"];
-    
     int64_t price = (int64_t) (skpdct.price.doubleValue * 1000000);
-    txn.taxMicros = 0;
-    txn.shippingMicros = 0;
-    txn.revenueMicros =  price; // TODO: convert currency to US
+    [ga send:[[GAIDictionaryBuilder createTransactionWithId:sktxn.transactionIdentifier affiliation:@"In-App Store" revenue:[NSNumber numberWithLong: (long) price] tax:0 shipping:0 currencyCode:skpdct.priceLocale.localeIdentifier] build]];
     
-    [txn addItemWithCode:skpdct.productIdentifier name:skpdct.localizedTitle category:@"Animal Pants In-App" priceMicros:price quantity:sktxn.payment.quantity];
-    
-    [ga trackTransaction:txn];
+    [ga send:[[GAIDictionaryBuilder createItemWithTransactionId:sktxn.transactionIdentifier name:skpdct.localizedTitle sku:skpdct.productIdentifier category:@"Animal Pants In-App" price:[NSNumber numberWithLong:(long) price] quantity:[NSNumber numberWithInt:sktxn.payment.quantity] currencyCode:skpdct.priceLocale.localeIdentifier] build]];
 }
 
 +(void) dispatch {
