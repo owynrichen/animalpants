@@ -375,7 +375,7 @@
 
 -(void) startPurchase:(NSString *)productId {
     NSLog(@"Animal %@ isn't owned", productId);
-    [[InAppPurchaseManager instance] getProducts:self withData:productId];
+    [[InAppPurchaseManager instance] getProducts:self withData:PREMIUM_PRODUCT_ID];
 }
 
 -(void) dealloc {
@@ -444,7 +444,7 @@
     if (purchase != nil)
         [purchase release];
     
-    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:animal.productId upsell:PREMIUM_PRODUCT_ID];
+    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:PREMIUM_PRODUCT_ID upsell:nil];
     apEvent(@"facts", @"freemium", @"product success");
     [self blurFadeLayer:YES withDuration:0.5];
 }

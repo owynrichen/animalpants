@@ -73,7 +73,7 @@
     if (purchase != nil)
         [purchase release];
     
-    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:(NSString *) data upsell:PREMIUM_PRODUCT_ID];
+    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:PREMIUM_PRODUCT_ID upsell:nil];
     // [self blurFadeLayer:YES withDuration:0.5];
 }
 
@@ -121,7 +121,7 @@
                 apEvent(@"listen",l,[[LocalizationManager sharedManager] getAppPreferredLocale]);
             } else {
                 NSLog(@"Language %@ isn't owned", l);
-                [[InAppPurchaseManager instance] getProducts:pointer withData:[[LocalizationManager sharedManager] getLanguageProductForKey:l]];
+                [[InAppPurchaseManager instance] getProducts:pointer withData:PREMIUM_PRODUCT_ID];
             }
         }];
         

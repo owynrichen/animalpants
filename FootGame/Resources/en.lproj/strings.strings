@@ -42,10 +42,10 @@
 "privacy_policy" = "Privacy Policy";
 
 "parent_gate_title" = "Parents Only!";
-"parent_gate_instructions_store" = "Hold the button for 5 seconds to proceed to the App Store.";
-"parent_gate_instructions_web" = "Hold the button for 5 seconds to head to the web.";
-"parent_gate_instructions_rating" = "Hold the button for 5 seconds to rate us in the App Store!";
-"parent_gate_instructions_feedback" = "Hold the button for 5 seconds to send feedback.";
+"parent_gate_instructions_store" = "Hold the button for 2 seconds to proceed to the App Store.";
+"parent_gate_instructions_web" = "Hold the button for 2 seconds to head to the web.";
+"parent_gate_instructions_rating" = "Hold the button for 2 seconds to rate us in the App Store!";
+"parent_gate_instructions_feedback" = "Hold the button for 2 seconds to send feedback.";
 
 /* 
  

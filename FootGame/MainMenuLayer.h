@@ -25,6 +25,7 @@
 @property (nonatomic, retain) CCAutoScalingSprite *animals;
 @property (nonatomic, retain) CCAutoScalingSprite *credits;
 @property (nonatomic, retain) CCSprite *splashFade;
+@property (nonatomic, retain) CCAutoScalingSprite *kidSafeSeal;
 
 +(CCBaseScene *) scene;
 

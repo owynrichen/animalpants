@@ -240,7 +240,7 @@ static NSString *__sync = @"sync";
     if (purchase != nil)
         [purchase release];
     
-    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:(NSString *) data upsell:PREMIUM_PRODUCT_ID];
+    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:PREMIUM_PRODUCT_ID upsell:nil];
 }
 
 -(void) productsRetrievedFailed: (NSError *) error withData: (NSObject *) data {

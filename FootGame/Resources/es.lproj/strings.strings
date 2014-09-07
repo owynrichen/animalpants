@@ -42,10 +42,10 @@
 "privacy_policy" = "Política de privacidad";
 
 "parent_gate_title" = "Los padres solamente!";
-"parent_gate_instructions_store" = "Mantenga pulsado el botón durante 5 segundos para pasar a la App Store.";
-"parent_gate_instructions_web" = "Mantenga pulsado el botón durante 5 segundos para ir a la web.";
-"parent_gate_instructions_rating" = "Mantenga pulsado el botón durante 5 segundos al editor valorar en la App Store!";
-"parent_gate_instructions_feedback" = "Mantenga pulsado el botón durante 5 segundos para enviar comentarios.";
+"parent_gate_instructions_store" = "Mantenga pulsado el botón durante 2 segundos para pasar a la App Store.";
+"parent_gate_instructions_web" = "Mantenga pulsado el botón durante 2 segundos para ir a la web.";
+"parent_gate_instructions_rating" = "Mantenga pulsado el botón durante 2 segundos al editor valorar en la App Store!";
+"parent_gate_instructions_feedback" = "Mantenga pulsado el botón durante 2 segundos para enviar comentarios.";
 
 /* 
  
@@ -239,7 +239,7 @@
 "monkey_fact_weight_details" = "Carolina pesa 150 libras. El peso medio de un ser humano adulto es de 138 libras.";
 "monkey_fact_weight_details_metric" = "Carolina pesa 68 kilogramos. El peso medio de un ser humano adulto es de 62 kilogramos ";
 "monkey_fact_food" = "Carolina es omnivoro.";
-"monkey_fact_food_details" = "Le gustan las ojas, las flores, las frutas, las nueces, algunos animales pequeños y pájaros.";
+"monkey_fact_food_details" = "Le gustan las hojas, las flores, las frutas, las nueces, algunos animales pequeños y pájaros.";
 "monkey_fact_speed" = "Carolina es bastante rápida";
 "monkey_fact_speed_details" = "Los chimpancés pueden alcanzar 25 millas por hora corriendo a toda velocidad.";
 "monkey_fact_speed_details_metric" = "Los chimpancés pueden alcanzar los 40 kilómetros por hora corriendo a toda velocidad ";

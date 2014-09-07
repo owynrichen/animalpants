@@ -164,7 +164,7 @@
     } else {
         [self pause];
         [[SoundManager sharedManager] playSound:locfile(@"upsell.mp3")];
-        [[InAppPurchaseManager instance] getProducts:self withData:nil];
+        [[InAppPurchaseManager instance] getProducts:self withData:PREMIUM_PRODUCT_ID];
         apEvent(@"story", @"freemium", @"complete");
     }
 }
@@ -809,7 +809,7 @@
     if (purchase != nil)
         [purchase release];
     
-    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:animal.productId upsell:PREMIUM_PRODUCT_ID];
+    purchase = [PurchaseViewController handleProductsRetrievedWithDelegate:self products:products withProductId:PREMIUM_PRODUCT_ID upsell:nil];
     apEvent(@"story", @"freemium", @"product success");
     [self blurGameLayer:YES withDuration:0.5];
 }

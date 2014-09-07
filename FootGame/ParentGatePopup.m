@@ -53,7 +53,7 @@
         pointer.clickBlock();
         [pointer hide: kPopupCloseStateSuccess];
     }];
-    button.delay = 5.0;
+    button.delay = 2.0;
 
     button.position = ccpToRatio(325, 80);
     [self addChild:button];

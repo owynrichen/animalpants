@@ -16,6 +16,7 @@
 #import "LocalizationManager.h"
 #import "LanguageSelectLayer.h"
 #import "AnimalPartRepository.h"
+#import "ParentGatePopup.h"
 
 @implementation MainMenuLayer
 
@@ -27,6 +28,7 @@
 @synthesize languages;
 @synthesize credits;
 @synthesize splashFade;
+@synthesize kidSafeSeal;
 
 +(CCBaseScene *) scene
 {
@@ -278,6 +280,40 @@ static NSString *__sync = @"sync";
     [self addChild:bugs];
 #endif
     
+    kidSafeSeal = [CCAutoScalingSprite spriteWithFile:@"Seal_sharp_150wide_tm.png"];
+    kidSafeSeal.position = ccpToRatio(85, 50);
+    kidSafeSeal.opacity = 0;
+    [self addChild:kidSafeSeal];
+    [kidSafeSeal addEvent:@"touch" withBlock:^(CCNode *sender) {
+        [[SoundManager sharedManager] playSound:@"glock__g1.mp3"];
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.2]];
+    }];
+    [kidSafeSeal addEvent:@"touchupoutside" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+    }];
+    [kidSafeSeal addEvent:@"touchup" withBlock:^(CCNode *sender) {
+        [sender runAction:[CCScaleTo actionWithDuration:0.1 scale:1.0]];
+        ParentGatePopup *popup;
+        
+        if ([pointer getChildByTag:PARENT_GATE_TAG] != nil) {
+            popup = (ParentGatePopup *) [pointer getChildByTag:PARENT_GATE_TAG];
+        } else {
+            popup = [ParentGatePopup popupWithSummaryKey:@"parent_gate_instructions_web" clickBlock:^{
+                [[UIApplication sharedApplication]
+                 openURL:[NSURL URLWithString:@"http://www.kidsafeseal.com/certifiedproducts/animalpantshd_app.html"]];
+            }];
+            popup.position = ccpToRatio(512, 384);
+            
+            [pointer addChild:popup z: 1000 tag:PARENT_GATE_TAG];
+        }
+        
+        [popup showWithOpenBlock:^(CCNode<CCRGBAProtocol> *p) {
+            
+        } closeBlock:^(CCNode<CCRGBAProtocol> *p, PopupCloseState state) {
+            
+        } analyticsKey:@"KidSafe Parent Gate"];
+    }];
+    
     splashFade = [CCSprite spriteWithFile:file];
     splashFade.rotation = -90;
     splashFade.opacity = 255;
@@ -301,6 +337,9 @@ static NSString *__sync = @"sync";
     if (splashFade.opacity == 255) {
         [splashFade runAction:[CCFadeOut actionWithDuration:1.0]];
     }
+    
+    [kidSafeSeal runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.5], [CCFadeIn actionWithDuration:2.0], nil]];
+    
     apView(@"Main Menu");
     [[SoundManager sharedManager] playBackground:@"The Animals.mp3"];
     

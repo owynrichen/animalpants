@@ -15,7 +15,7 @@
 #import "ParentGatePopup.h"
 
 // count after which Rate this app alert shown
-#define STARTUP_COUNT_SHOW_DIALOG 3
+#define STARTUP_COUNT_SHOW_DIALOG 2
 #define FEEDBACK_DIALOG_SHOWN_KEY @"FeedbackShown"
 #define FEEDBACK_COUNT_KEY @"FeedbackShowCount"
 
