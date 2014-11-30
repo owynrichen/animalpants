@@ -19,7 +19,6 @@
 #import "AnalyticsPublisher.h"
 #import "GoodbyeLayer.h"
 #import "SettingsLayer.h"
-#import <FacebookSDK/FacebookSDK.h>
 
 #import "chipmunk.h"
 
@@ -91,8 +90,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
-    [FBAppCall handleDidBecomeActive];
-    [FBAppEvents activateApp];
     
     if ([FeedbackPrompt shouldShowRateDialog]) {
         prompt = [[FeedbackPrompt alloc] init];
@@ -116,7 +113,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [AnalyticsPublisher dispatch];
-    [FBSession.activeSession close];
     CC_DIRECTOR_END();
 }
 

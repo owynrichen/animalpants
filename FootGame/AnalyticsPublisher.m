@@ -9,7 +9,6 @@
 #import "AnalyticsPublisher.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
-#import <FacebookSDK/FacebookSDK.h>
 
 #define GA_ID @"UA-4051939-10"
 
